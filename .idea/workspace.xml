@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="" />
+    <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kwb/study/CommonService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kwb/study/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kwb/study/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kwb/study/TestSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kwb/study/TestSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kwb/study/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kwb/study/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kwb/study/TestSet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kwb/study/TestSet.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,10 +28,16 @@
       </list>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="350hvZZvEX5ncEjHEeXbRcDgUlg" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -30,7 +45,11 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/kimwoobin/Desktop/project/stockai",
     "onboarding.tips.debug.path": "/Users/kimwoobin/Desktop/project/StockAi/src/main/java/system/service/Main.java",
     "project.structure.last.edited": "모듈",
     "project.structure.proportion": "0.0",
@@ -43,6 +62,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="kwb.study" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>

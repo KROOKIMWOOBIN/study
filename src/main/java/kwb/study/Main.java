@@ -1,15 +1,20 @@
 package kwb.study;
 
-import kwb.study.TestSet;
+import static kwb.study.Company.newCompany;
 
 public class Main {
     public static void main(String[] args) {
-        TestSet set = new TestSet();
-        set.addSet("개");
-        set.printSet();
-        set.addSet("개");
-        set.printSet();
-        set.addSet("고양이");
-        set.printSet();
+        newCompany(500);
+    }
+}
+
+class Company {
+    int money;
+    private Company(int money) {
+        this.money = money;
+    }
+    public static void newCompany(int money) {
+        Company company = new Company(money);
+        System.out.println("Company money : " + company.money);
     }
 }
