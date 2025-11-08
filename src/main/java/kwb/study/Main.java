@@ -4,7 +4,7 @@ import static kwb.study.Company.newCompany;
 
 public class Main {
     public static void main(String[] args) {
-        newCompany(500);
+        final int a = 10;
     }
 }
 

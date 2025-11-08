@@ -7,6 +7,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.net.Socket;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -34,7 +35,6 @@ public class StockServiceImpl implements StockService{
     @Override
     @Scheduled
     public void getNews() {
-        Socket socket = new Socket();
         
     }
 
@@ -45,6 +45,6 @@ public class StockServiceImpl implements StockService{
      */
     @Override
     public void getTop5Stock() {
-
+        List<StockEntity> stocks = repository.findStockAndTop5();
     }
 }
