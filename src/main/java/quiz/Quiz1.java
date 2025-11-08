@@ -1,15 +1,17 @@
-package study.quiz;
+package quiz;
 
 public class Quiz1 {
 
     public static void main(String[] args) {
-        Member member = new Member();
-        changeAge(member);
-        System.out.println("before member age : " + member.age);
-
+        // before number과 afoter number에 출력 결과는?
         int a = 10;
         changeNumber(a);
         System.out.println("before number : " + a);
+
+        // before member과 after member에 출력 결과는?
+        Member member = new Member();
+        changeAge(member);
+        System.out.println("before member age : " + member.age);
     }
 
     private static void changeNumber(int number) {

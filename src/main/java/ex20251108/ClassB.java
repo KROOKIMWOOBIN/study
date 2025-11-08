@@ -1,4 +1,4 @@
-package study.ex20251108;
+package ex20251108;
 
 public class ClassB extends ClassA{
 

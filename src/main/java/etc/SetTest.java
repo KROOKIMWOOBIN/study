@@ -1,14 +1,14 @@
-package study.etc;
+package etc;
 
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public class TestSet {
+public class SetTest {
 
     Set<String> set;
 
-    TestSet(){
+    SetTest(){
         set = new HashSet<>();
     }
 
@@ -34,7 +34,7 @@ public class TestSet {
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
-        TestSet testSet = (TestSet)obj;
+        SetTest testSet = (SetTest)obj;
         return Objects.equals(this.set, testSet.set);
     }
 

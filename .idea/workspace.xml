@@ -5,28 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kwb/entity/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/study/quiz/Quiz1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/properties/category.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/store/ItemTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ex20251108/MainCar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kwb/stock/Run.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kwb/stock/entity/StockEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kwb/stock/repository/StockRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kwb/stock/stock/StockService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kwb/stock/stock/StockServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kwb/store/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kwb/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kwb/store/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kwb/controller/ItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kwb/stock/Run.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kwb/stock/entity/StockEntity$StockEntityBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kwb/stock/entity/StockEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kwb/stock/repository/StockRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kwb/stock/stock/StockService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kwb/stock/stock/StockServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kwb/study/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kwb/study/Student.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kwb/study/TestSet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kwb/controller/AdminController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kwb/controller/ItemController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kwb/entity/Item.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/study/etc/CommonService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/study/etc/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/study/etc/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/study/etc/TestSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/etc/SetTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/study/ex20251108/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ex20251108/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/study/ex20251108/ClassA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ex20251108/ClassA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/study/ex20251108/ClassB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ex20251108/ClassB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/study/ex20251108/GasCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ex20251108/GasCar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/study/ex20251108/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ex20251108/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/study/quiz/Quiz1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/quiz/Quiz1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/store/ItemTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,8 +32,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Interface" />
         <option value="package-info" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -57,48 +52,53 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/kimwoobin/Desktop/project/stockai&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/kimwoobin/Desktop/project/StockAi/src/main/java/system/service/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;모듈&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;애플리케이션.Main (1).executor&quot;: &quot;Run&quot;,
-    &quot;애플리케이션.Main.executor&quot;: &quot;Run&quot;,
-    &quot;애플리케이션.Run.executor&quot;: &quot;Run&quot;,
-    &quot;애플리케이션.kwb.study.ex20251108.Main.executor&quot;: &quot;Run&quot;,
-    &quot;애플리케이션.sys.study.Main.executor&quot;: &quot;Run&quot;,
-    &quot;애플리케이션.system.example.Main.executor&quot;: &quot;Run&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.ItemTest.executor": "Run",
+    "JUnit.ItemTest.아이템생성.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/kimwoobin/Desktop/project/stockai",
+    "onboarding.tips.debug.path": "/Users/kimwoobin/Desktop/project/StockAi/src/main/java/system/service/Main.java",
+    "project.structure.last.edited": "모듈",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "애플리케이션.Main (1).executor": "Run",
+    "애플리케이션.Main.executor": "Run",
+    "애플리케이션.MainCar.executor": "Run",
+    "애플리케이션.Quiz1.executor": "Run",
+    "애플리케이션.Run.executor": "Run",
+    "애플리케이션.kwb.study.ex20251108.Main.executor": "Run",
+    "애플리케이션.sys.study.Main.executor": "Run",
+    "애플리케이션.system.example.Main.executor": "Run"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="kwb.study" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="kwb" />
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.Main (1)">
-    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="stockai" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="애플리케이션.MainCar">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="kwb.study.Main" />
+      <option name="MAIN_CLASS_NAME" value="kwb.Main" />
+      <module name="stockai" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainCar" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ex20251108.MainCar" />
       <module name="stockai" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="kwb.study.*" />
+          <option name="PATTERN" value="ex20251108.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -106,12 +106,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Run" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="kwb.stock.Run" />
+    <configuration name="Quiz1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="study.quiz.Quiz1" />
       <module name="stockai" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="kwb.stock.*" />
+          <option name="PATTERN" value="study.quiz.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -119,31 +119,51 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="kwb.study.ex20251108.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="kwb.study.ex20251108.Main" />
+    <configuration name="ItemTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="stockai" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="kwb.study.ex20251108.*" />
+          <option name="PATTERN" value="kwb.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="store" />
+      <option name="MAIN_CLASS_NAME" value="kwb.ItemTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ItemTest.아이템생성" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="stockai" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kwb.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="store" />
+      <option name="MAIN_CLASS_NAME" value="kwb.ItemTest" />
+      <option name="METHOD_NAME" value="아이템생성" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.ItemTest" />
+      <item itemvalue="JUnit.ItemTest.아이템생성" />
       <item itemvalue="애플리케이션.Main (1)" />
-      <item itemvalue="애플리케이션.kwb.study.ex20251108.Main" />
-      <item itemvalue="애플리케이션.Run" />
-      <item itemvalue="애플리케이션.Main" />
+      <item itemvalue="애플리케이션.MainCar" />
+      <item itemvalue="애플리케이션.Quiz1" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="애플리케이션.MainCar" />
         <item itemvalue="애플리케이션.Main (1)" />
-        <item itemvalue="애플리케이션.kwb.study.ex20251108.Main" />
-        <item itemvalue="애플리케이션.Main" />
-        <item itemvalue="애플리케이션.Run" />
+        <item itemvalue="JUnit.ItemTest" />
+        <item itemvalue="JUnit.ItemTest.아이템생성" />
+        <item itemvalue="애플리케이션.Quiz1" />
       </list>
     </recent_temporary>
   </component>
