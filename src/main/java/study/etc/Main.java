@@ -1,6 +1,4 @@
-package kwb.study;
-
-import static kwb.study.Company.newCompany;
+package study.etc;
 
 public class Main {
     public static void main(String[] args) {

@@ -5,13 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/kwb/study/ex20251108/Car.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kwb/study/ex20251108/GasCar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kwb/study/ex20251108/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kwb/store/controller/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kwb/store/controller/ItemController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/study/ex20251108/ClassA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/study/ex20251108/ClassB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kwb/stock/stock/StockServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kwb/stock/stock/StockServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kwb/study/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kwb/study/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kwb/study/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kwb/study/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kwb/study/CommonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/study/etc/CommonService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kwb/study/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/study/etc/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kwb/study/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/study/etc/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kwb/study/TestSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/study/etc/TestSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kwb/study/ex20251108/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/study/ex20251108/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kwb/study/ex20251108/GasCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/study/ex20251108/GasCar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kwb/study/ex20251108/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/study/ex20251108/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kwb/stock/repository/StockRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kwb/stock/repository/StockRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kwb/stock/stock/StockServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kwb/stock/stock/StockServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +30,7 @@
       <list>
         <option value="FxmlFile" />
         <option value="Interface" />
+        <option value="package-info" />
         <option value="Class" />
       </list>
     </option>

@@ -1,4 +1,4 @@
-package kwb.study;
+package study.etc;
 
 import java.util.HashSet;
 import java.util.Objects;

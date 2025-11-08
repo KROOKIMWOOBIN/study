@@ -1,4 +1,4 @@
-package kwb.study;
+package study.etc;
 
 public class CommonService {
 

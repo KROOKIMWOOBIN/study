@@ -1,4 +1,4 @@
-package kwb.study.ex20251108;
+package study.ex20251108;
 
 public class GasCar extends Car {
 
