@@ -1,4 +1,4 @@
-package kwb.store.controller;
+package kwb.controller;
 
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
