@@ -12,11 +12,25 @@ public class MainCar {
         child.childPrint();
         child.parentPrint();
 
+        // 일시적 다운캐스팅
+        ((Child)parent).childPrint();
+
         // 업캐스팅
-        parent = (Parent) child;
+        parent = child;
         parent.parentPrint();
     }
 
+    // 다운 캐스팅 전, 부모 인스턴스에 무엇을 참조중인지 검증
+    private static void checkCasting(Parent parent) {
+        parent.parentPrint();
+        if (parent instanceof Child child) { // 다운 캐스팅 가능할 시 자식 인스턴스 바로 선언하여 사용 가능
+            System.out.println("자식 인스턴스 맞음");
+            child.childPrint();
+        }
+        else {
+            System.out.println("자식 인스턴스 아님");
+        }
+    }
 }
 
 class Parent {
