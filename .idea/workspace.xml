@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ex20251110/quiz1/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ex20251111/CarMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ex20251111/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ex20251111/PayMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ex20251111/SendMail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/quiz/Quiz3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/quiz/Quiz4.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/quiz/Quiz1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/quiz/Quiz1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/quiz/Quiz2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/quiz/Quiz2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,14 +58,19 @@
     "project.structure.last.edited": "모듈",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
+    "애플리케이션.CarMain.executor": "Run",
     "애플리케이션.Main (1).executor": "Run",
     "애플리케이션.Main.executor": "Run",
     "애플리케이션.MainCar.executor": "Run",
     "애플리케이션.Quiz1.executor": "Run",
     "애플리케이션.Quiz2.executor": "Run",
+    "애플리케이션.Quiz3.executor": "Run",
+    "애플리케이션.Quiz4.executor": "Run",
     "애플리케이션.Run.executor": "Run",
+    "애플리케이션.SendMail.executor": "Run",
     "애플리케이션.ex20251110.Main.executor": "Run",
     "애플리케이션.ex20251110.quiz1.Main.executor": "Run",
+    "애플리케이션.ex20251111.Main.executor": "Run",
     "애플리케이션.kwb.study.ex20251108.Main.executor": "Run",
     "애플리케이션.sys.study.Main.executor": "Run",
     "애플리케이션.system.example.Main.executor": "Run"
@@ -73,20 +85,13 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.ex20251110.quiz1.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="kwb.Main" />
-      <module name="stockai" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MainCar" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ex20251108.MainCar" />
+  <component name="RunManager" selected="애플리케이션.PayMain">
+    <configuration name="CarMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ex20251111.CarMain" />
       <module name="stockai" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ex20251108.*" />
+          <option name="PATTERN" value="ex20251111.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -94,8 +99,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Quiz2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="quiz.Quiz2" />
+    <configuration name="PayMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ex20251111.PayMain" />
+      <module name="stockai" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ex20251111.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Quiz4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="quiz.Quiz4" />
       <module name="stockai" />
       <extension name="coverage">
         <pattern>
@@ -107,12 +125,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ex20251110.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ex20251110.Main" />
+    <configuration name="SendMail" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ex20251111.SendMail" />
       <module name="stockai" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ex20251110.*" />
+          <option name="PATTERN" value="ex20251111.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -120,12 +138,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ex20251110.quiz1.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ex20251110.quiz1.Main" />
+    <configuration name="ex20251111.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ex20251111.Main" />
       <module name="stockai" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ex20251110.quiz1.*" />
+          <option name="PATTERN" value="ex20251111.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -134,19 +152,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="애플리케이션.Main (1)" />
-      <item itemvalue="애플리케이션.MainCar" />
-      <item itemvalue="애플리케이션.Quiz2" />
-      <item itemvalue="애플리케이션.ex20251110.Main" />
-      <item itemvalue="애플리케이션.ex20251110.quiz1.Main" />
+      <item itemvalue="애플리케이션.CarMain" />
+      <item itemvalue="애플리케이션.PayMain" />
+      <item itemvalue="애플리케이션.Quiz4" />
+      <item itemvalue="애플리케이션.SendMail" />
+      <item itemvalue="애플리케이션.ex20251111.Main" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="애플리케이션.ex20251110.quiz1.Main" />
-        <item itemvalue="애플리케이션.Quiz2" />
-        <item itemvalue="애플리케이션.ex20251110.Main" />
-        <item itemvalue="애플리케이션.MainCar" />
-        <item itemvalue="애플리케이션.Main (1)" />
+        <item itemvalue="애플리케이션.PayMain" />
+        <item itemvalue="애플리케이션.SendMail" />
+        <item itemvalue="애플리케이션.CarMain" />
+        <item itemvalue="애플리케이션.Quiz4" />
+        <item itemvalue="애플리케이션.ex20251111.Main" />
       </list>
     </recent_temporary>
   </component>

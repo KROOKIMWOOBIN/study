@@ -1,6 +1,6 @@
 package quiz;
 
-// 다형성 오버라이딩 퀴즈
+// 다형성 오버라이딩 퀴즈 레벨5
 public class Quiz2 {
     public static void main(String[] args) {
         Parent parent = new Child();

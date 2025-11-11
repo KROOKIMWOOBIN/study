@@ -1,6 +1,6 @@
 package quiz;
 
-// 기본형 vs 참조형 퀴즈
+// 기본형 vs 참조형 퀴즈 레벨1
 public class Quiz1 {
 
     public static void main(String[] args) {
