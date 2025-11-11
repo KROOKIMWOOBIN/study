@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ex20251111/CarMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ex20251111/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ex20251111/PayMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ex20251111/SendMail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/quiz/Quiz3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/quiz/Quiz4.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/quiz/Quiz1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/quiz/Quiz1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/quiz/Quiz2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/quiz/Quiz2.java" afterDir="false" />
-    </list>
+    <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,6 +52,7 @@
     "애플리케이션.Main (1).executor": "Run",
     "애플리케이션.Main.executor": "Run",
     "애플리케이션.MainCar.executor": "Run",
+    "애플리케이션.PayMain.executor": "Run",
     "애플리케이션.Quiz1.executor": "Run",
     "애플리케이션.Quiz2.executor": "Run",
     "애플리케이션.Quiz3.executor": "Run",

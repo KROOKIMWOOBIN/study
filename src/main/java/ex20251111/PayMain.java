@@ -1,10 +1,15 @@
 package ex20251111;
 
+import java.util.Scanner;
+
 public class PayMain {
     public static void main(String[] args) {
-        processPay("카카오", 5000);
-        processPay("네이버", 5000);
-        processPay("테스트", 5000);
+        Scanner sc = new Scanner(System.in);
+        System.out.println("결제 방식을 입력해주세요 : ");
+        String bank = sc.nextLine();
+        System.out.println("금액을 입력해주세요 : ");
+        int money = sc.nextInt();
+        processPay(bank, money);
     }
     private static void processPay(String bank, int money) {
         System.out.println("결제를 시작합니다. 은행 : " + bank + ", 금액 : " + money);
