@@ -1,6 +1,4 @@
-package ex20251110;
-
-import java.util.Objects;
+package java.level1.ex20251110;
 
 public class Main {
     public static void main(String[] args) {

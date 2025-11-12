@@ -1,4 +1,4 @@
-package ex20251108;
+package java.level1.ex20251108;
 
 public class MainCar {
     // 다형성 테스트

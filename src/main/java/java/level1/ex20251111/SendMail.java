@@ -1,4 +1,4 @@
-package ex20251111;
+package java.level1.ex20251111;
 
 public class SendMail {
     public static void main(String[] args) {

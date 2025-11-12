@@ -1,4 +1,4 @@
-package etc;
+package java.level1.etc;
 
 import java.util.HashSet;
 import java.util.Objects;
