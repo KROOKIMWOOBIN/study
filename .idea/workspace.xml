@@ -5,27 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/java/level2/ex20251112/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/etc/SetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/level1/etc/SetTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ex20251108/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/level1/ex20251108/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ex20251108/ClassA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/level1/ex20251108/ClassA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ex20251108/ClassB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/level1/ex20251108/ClassB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ex20251108/GasCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/level1/ex20251108/GasCar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ex20251108/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/level1/ex20251108/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ex20251108/MainCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/level1/ex20251108/MainCar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ex20251110/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/level1/ex20251110/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ex20251110/quiz1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/level1/ex20251110/quiz1/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ex20251111/CarMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/level1/ex20251111/CarMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ex20251111/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/level1/ex20251111/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ex20251111/PayMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/level1/ex20251111/PayMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ex20251111/SendMail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/level1/ex20251111/SendMail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/quiz/Quiz1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/level1/quiz/Quiz1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/quiz/Quiz2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/level1/quiz/Quiz2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/quiz/Quiz3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/level1/quiz/Quiz3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/quiz/Quiz4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java/level1/quiz/Quiz4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
