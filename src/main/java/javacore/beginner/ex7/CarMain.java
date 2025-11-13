@@ -1,4 +1,4 @@
-package java.level1.ex20251111;
+package javacore.beginner.ex7;
 
 public class CarMain {
     public static void main(String[] args) {

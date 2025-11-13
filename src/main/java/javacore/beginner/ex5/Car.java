@@ -1,4 +1,4 @@
-package java.level1.ex20251108;
+package javacore.beginner.ex5;
 
 public class Car {
 

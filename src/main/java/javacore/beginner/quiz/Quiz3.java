@@ -1,4 +1,4 @@
-package java.level1.quiz;
+package javacore.beginner.quiz;
 
 // 추상화 활용 레벨3
 public class Quiz3 {

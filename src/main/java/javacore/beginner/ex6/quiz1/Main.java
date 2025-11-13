@@ -1,4 +1,4 @@
-package java.level1.ex20251110.quiz1;
+package javacore.beginner.ex6.quiz1;
 
 public class Main {
     public static void main(String[] args) {

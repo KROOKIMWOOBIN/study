@@ -1,4 +1,4 @@
-package java.level1.ex20251111;
+package javacore.beginner.ex7;
 
 import java.util.Scanner;
 

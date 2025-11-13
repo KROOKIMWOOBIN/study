@@ -1,4 +1,4 @@
-package java.level1.quiz;
+package javacore.beginner.quiz;
 
 // 기본형 vs 참조형 퀴즈 레벨1
 public class Quiz1 {

@@ -1,4 +1,4 @@
-package java.level1.quiz;
+package javacore.beginner.quiz;
 
 // 다형성 오버라이딩 퀴즈 레벨5
 public class Quiz2 {

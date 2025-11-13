@@ -1,4 +1,4 @@
-package java.level1.quiz;
+package javacore.beginner.quiz;
 
 // 인터페이스 레벨2
 public class Quiz4 {
