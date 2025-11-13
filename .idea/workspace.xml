@@ -5,26 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex8/LangMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex8/PolyMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex9/ObjectMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/quiz/equalsQuiz.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/level1/etc/SetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/etc/SetTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/level1/ex20251108/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/beginner/ex5/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/level1/ex20251108/ClassA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/beginner/ex5/ClassA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/level1/ex20251108/ClassB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/beginner/ex5/ClassB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/level1/ex20251108/GasCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/beginner/ex5/GasCar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/level1/ex20251108/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/beginner/ex5/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/level1/ex20251108/MainCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/beginner/ex5/MainCar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/level1/ex20251110/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/beginner/ex6/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/level1/ex20251110/quiz1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/beginner/ex6/quiz1/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/level1/ex20251111/CarMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/beginner/ex7/CarMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/level1/ex20251111/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/beginner/ex7/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/level1/ex20251111/PayMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/beginner/ex7/PayMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/level1/ex20251111/SendMail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/beginner/ex7/SendMail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/level1/quiz/Quiz1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/beginner/quiz/Quiz1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/level1/quiz/Quiz2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/beginner/quiz/Quiz2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/level1/quiz/Quiz3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/beginner/quiz/Quiz3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/level1/quiz/Quiz4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/beginner/quiz/Quiz4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +58,7 @@
     "애플리케이션.Main (1).executor": "Run",
     "애플리케이션.Main.executor": "Run",
     "애플리케이션.MainCar.executor": "Run",
+    "애플리케이션.ObjectMain.executor": "Run",
     "애플리케이션.PayMain.executor": "Run",
     "애플리케이션.PolyMain.executor": "Run",
     "애플리케이션.Quiz1.executor": "Run",
@@ -82,6 +67,7 @@
     "애플리케이션.Quiz4.executor": "Run",
     "애플리케이션.Run.executor": "Run",
     "애플리케이션.SendMail.executor": "Run",
+    "애플리케이션.equalsQuiz.executor": "Run",
     "애플리케이션.ex20251110.Main.executor": "Run",
     "애플리케이션.ex20251110.quiz1.Main.executor": "Run",
     "애플리케이션.ex20251111.Main.executor": "Run",
@@ -100,7 +86,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.PolyMain">
+  <component name="RunManager" selected="애플리케이션.equalsQuiz">
     <configuration name="LangMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="java.intermediate.ex8.LangMain" />
       <module name="study" />
@@ -114,12 +100,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PayMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ex20251111.PayMain" />
+    <configuration name="ObjectMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex9.ObjectMain" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ex20251111.*" />
+          <option name="PATTERN" value="javacore.intermediate.ex9.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -128,11 +114,11 @@
       </method>
     </configuration>
     <configuration name="PolyMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex8.PolyMain" />
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.PolyMain" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.intermediate.ex8.*" />
+          <option name="PATTERN" value="javacore.intermediate.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -140,12 +126,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SendMail" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ex20251111.SendMail" />
+    <configuration name="equalsQuiz" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.quiz.equalsQuiz" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ex20251111.*" />
+          <option name="PATTERN" value="javacore.intermediate.quiz.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -153,12 +139,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="javacore.intermediate.ex8.LangMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex8.LangMain" />
+    <configuration name="javacore.intermediate.LangMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.LangMain" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.intermediate.ex8.*" />
+          <option name="PATTERN" value="javacore.intermediate.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -179,18 +165,18 @@
     </configuration>
     <list>
       <item itemvalue="애플리케이션.LangMain" />
+      <item itemvalue="애플리케이션.ObjectMain" />
       <item itemvalue="애플리케이션.PolyMain" />
-      <item itemvalue="애플리케이션.javacore.intermediate.ex8.LangMain" />
-      <item itemvalue="애플리케이션.PayMain" />
-      <item itemvalue="애플리케이션.SendMail" />
+      <item itemvalue="애플리케이션.equalsQuiz" />
+      <item itemvalue="애플리케이션.javacore.intermediate.LangMain" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="애플리케이션.equalsQuiz" />
+        <item itemvalue="애플리케이션.ObjectMain" />
         <item itemvalue="애플리케이션.PolyMain" />
-        <item itemvalue="애플리케이션.javacore.intermediate.ex8.LangMain" />
+        <item itemvalue="애플리케이션.javacore.intermediate.LangMain" />
         <item itemvalue="애플리케이션.LangMain" />
-        <item itemvalue="애플리케이션.PayMain" />
-        <item itemvalue="애플리케이션.SendMail" />
       </list>
     </recent_temporary>
   </component>
