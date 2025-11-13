@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex9/ObjectMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/quiz/equalsQuiz.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex9/ImmutableMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex9/MutableMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex9/MyDateMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
@@ -36,7 +37,6 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
@@ -54,10 +54,14 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "애플리케이션.CarMain.executor": "Run",
+    "애플리케이션.EqualsQuiz.executor": "Run",
+    "애플리케이션.ImmutableMain.executor": "Run",
     "애플리케이션.LangMain.executor": "Run",
     "애플리케이션.Main (1).executor": "Run",
     "애플리케이션.Main.executor": "Run",
     "애플리케이션.MainCar.executor": "Run",
+    "애플리케이션.MutableMain.executor": "Run",
+    "애플리케이션.MyDateMain.executor": "Run",
     "애플리케이션.ObjectMain.executor": "Run",
     "애플리케이션.PayMain.executor": "Run",
     "애플리케이션.PolyMain.executor": "Run",
@@ -86,13 +90,13 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.equalsQuiz">
-    <configuration name="LangMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="java.intermediate.ex8.LangMain" />
+  <component name="RunManager" selected="애플리케이션.MyDateMain">
+    <configuration name="EqualsQuiz" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.quiz.EqualsQuiz" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="java.intermediate.ex8.*" />
+          <option name="PATTERN" value="javacore.intermediate.quiz.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -100,8 +104,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ObjectMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex9.ObjectMain" />
+    <configuration name="ImmutableMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex9.ImmutableMain" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
@@ -113,12 +117,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PolyMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.PolyMain" />
+    <configuration name="MutableMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex9.MutableMain" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.intermediate.*" />
+          <option name="PATTERN" value="javacore.intermediate.ex9.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyDateMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex9.MyDateMain" />
+      <module name="study" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javacore.intermediate.ex9.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -139,19 +156,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="javacore.intermediate.LangMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.LangMain" />
-      <module name="study" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="javacore.intermediate.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="study" />
       <method v="2">
@@ -164,19 +168,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="애플리케이션.LangMain" />
-      <item itemvalue="애플리케이션.ObjectMain" />
-      <item itemvalue="애플리케이션.PolyMain" />
+      <item itemvalue="애플리케이션.EqualsQuiz" />
+      <item itemvalue="애플리케이션.ImmutableMain" />
+      <item itemvalue="애플리케이션.MutableMain" />
+      <item itemvalue="애플리케이션.MyDateMain" />
       <item itemvalue="애플리케이션.equalsQuiz" />
-      <item itemvalue="애플리케이션.javacore.intermediate.LangMain" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="애플리케이션.MyDateMain" />
+        <item itemvalue="애플리케이션.MutableMain" />
+        <item itemvalue="애플리케이션.ImmutableMain" />
+        <item itemvalue="애플리케이션.EqualsQuiz" />
         <item itemvalue="애플리케이션.equalsQuiz" />
-        <item itemvalue="애플리케이션.ObjectMain" />
-        <item itemvalue="애플리케이션.PolyMain" />
-        <item itemvalue="애플리케이션.javacore.intermediate.LangMain" />
-        <item itemvalue="애플리케이션.LangMain" />
       </list>
     </recent_temporary>
   </component>
