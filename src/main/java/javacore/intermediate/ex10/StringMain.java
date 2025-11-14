@@ -13,5 +13,14 @@ public class StringMain {
         String d = "TEST";
         System.out.println("c == d : " + (c == d)); // 문자열 풀로 인해 TRUE 나옴
         System.out.println("c equals d : " + c.equals(d));
+
+        String sumString = "";
+        StringBuilder sb = new StringBuilder();
+        sb.append("A");
+        sb.append("B");
+        sb.append("C");
+        sb.append("D");
+        sumString = sb.toString();
+        System.out.println(sumString);
     }
 }

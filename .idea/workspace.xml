@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex10/StringMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/quiz/StringQuiz.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex10/StringBuilderMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex10/StringMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex10/StringMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +70,7 @@
     "애플리케이션.Quiz4.executor": "Run",
     "애플리케이션.Run.executor": "Run",
     "애플리케이션.SendMail.executor": "Run",
+    "애플리케이션.StringBuilderMain.executor": "Run",
     "애플리케이션.StringMain.executor": "Run",
     "애플리케이션.StringQuiz.executor": "Run",
     "애플리케이션.equalsQuiz.executor": "Run",
@@ -91,20 +92,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.StringQuiz">
-    <configuration name="ImmutableMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex9.ImmutableMain" />
-      <module name="study" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="javacore.intermediate.ex9.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="애플리케이션.StringBuilderMain">
     <configuration name="MutableMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex9.MutableMain" />
       <module name="study" />
@@ -124,6 +112,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="javacore.intermediate.ex9.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StringBuilderMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex10.StringBuilderMain" />
+      <module name="study" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javacore.intermediate.ex10.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -169,19 +170,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="애플리케이션.ImmutableMain" />
       <item itemvalue="애플리케이션.MutableMain" />
       <item itemvalue="애플리케이션.MyDateMain" />
+      <item itemvalue="애플리케이션.StringBuilderMain" />
       <item itemvalue="애플리케이션.StringMain" />
       <item itemvalue="애플리케이션.StringQuiz" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="애플리케이션.StringQuiz" />
+        <item itemvalue="애플리케이션.StringBuilderMain" />
         <item itemvalue="애플리케이션.StringMain" />
+        <item itemvalue="애플리케이션.StringQuiz" />
         <item itemvalue="애플리케이션.MyDateMain" />
         <item itemvalue="애플리케이션.MutableMain" />
-        <item itemvalue="애플리케이션.ImmutableMain" />
       </list>
     </recent_temporary>
   </component>
