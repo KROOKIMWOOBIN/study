@@ -45,10 +45,13 @@
     - 표준 입출력, 오류 스트림
     - 시간 측정
     - 환경 변수
+      - 예시) System.getEnv();
     - 배열 고속 복사
+      - 예시) System.arraycopy();
     - 시스템 속성
       - 예시) Java version, properties
     - 프로그램 종료
+      - 예시) System.exit(0);
 
 ## 스프링
 
