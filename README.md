@@ -48,6 +48,7 @@
     - 배열 고속 복사
     - 시스템 속성
       - 예시) Java version, properties
+    - 프로그램 종료
 
 ## 스프링
 
