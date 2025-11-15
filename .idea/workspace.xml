@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex11/AutoBoxingMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex11/ClassMetaMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex11/WrapperMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex11/WrapperVsPrimitive.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex11/ClassCreateMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex11/ClassMetaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex11/ClassMetaMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +53,7 @@
     "project.structure.side.proportion": "0.0",
     "애플리케이션.AutoBoxingMain.executor": "Run",
     "애플리케이션.CarMain.executor": "Run",
+    "애플리케이션.ClassCreateMain.executor": "Run",
     "애플리케이션.ClassMetaMain.executor": "Run",
     "애플리케이션.EqualsQuiz.executor": "Run",
     "애플리케이션.ImmutableMain.executor": "Run",
@@ -99,7 +97,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.ClassMetaMain">
+  <component name="RunManager" selected="애플리케이션.ClassCreateMain">
     <configuration name="AutoBoxingMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex11.AutoBoxingMain" />
       <module name="study" />
@@ -113,8 +111,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClassMetaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex11.ClassMetaMain" />
+    <configuration name="ClassCreateMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex11.ClassCreateMain" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
@@ -126,8 +124,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MethodChainingMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex11.MethodChainingMain" />
+    <configuration name="ClassMetaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex11.ClassMetaMain" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
@@ -178,18 +176,18 @@
     </configuration>
     <list>
       <item itemvalue="애플리케이션.AutoBoxingMain" />
+      <item itemvalue="애플리케이션.ClassCreateMain" />
       <item itemvalue="애플리케이션.ClassMetaMain" />
-      <item itemvalue="애플리케이션.MethodChainingMain" />
       <item itemvalue="애플리케이션.RapperMain" />
       <item itemvalue="애플리케이션.WrapperVsPrimitive" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="애플리케이션.ClassCreateMain" />
         <item itemvalue="애플리케이션.ClassMetaMain" />
         <item itemvalue="애플리케이션.WrapperVsPrimitive" />
         <item itemvalue="애플리케이션.AutoBoxingMain" />
         <item itemvalue="애플리케이션.RapperMain" />
-        <item itemvalue="애플리케이션.MethodChainingMain" />
       </list>
     </recent_temporary>
   </component>
