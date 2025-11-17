@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex11/ClassCreateMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex12/ClassGradeEx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex12/EnumEx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex12/EnumMethodEx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex12/Grade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex12/LottoGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/test/EnumEx1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex11/ClassMetaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex11/ClassMetaMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +25,7 @@
         <option value="FxmlFile" />
         <option value="package-info" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -54,10 +60,17 @@
     "애플리케이션.AutoBoxingMain.executor": "Run",
     "애플리케이션.CarMain.executor": "Run",
     "애플리케이션.ClassCreateMain.executor": "Run",
+    "애플리케이션.ClassGradeEx.executor": "Run",
     "애플리케이션.ClassMetaMain.executor": "Run",
+    "애플리케이션.EnumEx.executor": "Run",
+    "애플리케이션.EnumEx1.executor": "Run",
+    "애플리케이션.EnumMethodEx.executor": "Run",
     "애플리케이션.EqualsQuiz.executor": "Run",
+    "애플리케이션.GradeEx.executor": "Run",
+    "애플리케이션.GradeEx1.executor": "Run",
     "애플리케이션.ImmutableMain.executor": "Run",
     "애플리케이션.LangMain.executor": "Run",
+    "애플리케이션.LottoGenerator.executor": "Run",
     "애플리케이션.Main (1).executor": "Run",
     "애플리케이션.Main.executor": "Run",
     "애플리케이션.MainCar.executor": "Run",
@@ -97,13 +110,13 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.ClassCreateMain">
-    <configuration name="AutoBoxingMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex11.AutoBoxingMain" />
+  <component name="RunManager" selected="애플리케이션.EnumEx1">
+    <configuration name="ClassGradeEx" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex12.ClassGradeEx" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.intermediate.ex11.*" />
+          <option name="PATTERN" value="javacore.intermediate.ex12.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -111,12 +124,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClassCreateMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex11.ClassCreateMain" />
+    <configuration name="EnumEx" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex12.EnumEx" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.intermediate.ex11.*" />
+          <option name="PATTERN" value="javacore.intermediate.ex12.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -124,12 +137,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClassMetaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex11.ClassMetaMain" />
+    <configuration name="EnumEx1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.test.EnumEx1" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.intermediate.ex11.*" />
+          <option name="PATTERN" value="javacore.intermediate.test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -137,12 +150,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RapperMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex11.RapperMain" />
+    <configuration name="EnumMethodEx" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex12.EnumMethodEx" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.intermediate.ex11.*" />
+          <option name="PATTERN" value="javacore.intermediate.ex12.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -150,12 +163,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WrapperVsPrimitive" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex11.WrapperVsPrimitive" />
+    <configuration name="GradeEx1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex12.GradeEx1" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.intermediate.ex11.*" />
+          <option name="PATTERN" value="javacore.intermediate.ex12.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -175,19 +188,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="애플리케이션.AutoBoxingMain" />
-      <item itemvalue="애플리케이션.ClassCreateMain" />
-      <item itemvalue="애플리케이션.ClassMetaMain" />
-      <item itemvalue="애플리케이션.RapperMain" />
-      <item itemvalue="애플리케이션.WrapperVsPrimitive" />
+      <item itemvalue="애플리케이션.ClassGradeEx" />
+      <item itemvalue="애플리케이션.EnumEx" />
+      <item itemvalue="애플리케이션.EnumEx1" />
+      <item itemvalue="애플리케이션.EnumMethodEx" />
+      <item itemvalue="애플리케이션.GradeEx1" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="애플리케이션.ClassCreateMain" />
-        <item itemvalue="애플리케이션.ClassMetaMain" />
-        <item itemvalue="애플리케이션.WrapperVsPrimitive" />
-        <item itemvalue="애플리케이션.AutoBoxingMain" />
-        <item itemvalue="애플리케이션.RapperMain" />
+        <item itemvalue="애플리케이션.EnumEx1" />
+        <item itemvalue="애플리케이션.EnumEx" />
+        <item itemvalue="애플리케이션.ClassGradeEx" />
+        <item itemvalue="애플리케이션.EnumMethodEx" />
+        <item itemvalue="애플리케이션.GradeEx1" />
       </list>
     </recent_temporary>
   </component>

@@ -37,11 +37,12 @@
   - 래퍼 클래스
     - AutoBoxing 지원한다.
     - 기본형보단 속도는 느리다.
-  - Class class
+  - Class Class
     - 클래스의 메타 정보를 가져올 수 있다. 
       - Tip! /javacore/intermediate/ex11/Class* 참고
     - 주요기능 : 모든 필드, 메서드, 부모, 인터페이스 조회
-  - System class 
+    - 클래스의 정보를 읽고 사용하는 것을 리플렉션이라고 한다.
+  - System Class 
     - 표준 입출력, 오류 스트림
     - 시간 측정
     - 환경 변수
@@ -52,6 +53,12 @@
       - 예시) Java version, properties
     - 프로그램 종료
       - 예시) System.exit(0);
+    - Math Class
+    - Random Class
+    - Type-safe Enum Pattern 
+      - Tip! /javacore/intermediate/ex12/ClassGradeEx
+    - Enum
+      - Tip! /javacore/intermediate/ex12/Enum*
 
 ## 스프링
 
