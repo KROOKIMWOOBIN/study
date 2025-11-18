@@ -13,14 +13,25 @@
       4. 보안, 안정성 증가
       ```java
       public class Animal {
+      
         private String name;
         private int age;
+      
         Animal(String name, int age) {
             this.name = name;
             this.age = age;
         }
-        public void getAnimalInfo() {
-            System.out.println(name + "에 나이는 " + age + "입니다.");
+      
+        public void setAge(int age) {
+            if(checkAge(age)) {
+                this.age = age;
+            } else {
+                System.out.println("0 이상의 나이로만 설정할 수 있습니다.");
+            }
+        }
+      
+        private boolean checkAge(int age) {
+            return age >= 0;
         }
       }
       ```

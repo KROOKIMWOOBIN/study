@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/test/EnumEx2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/test/EnumEx1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/test/EnumEx1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +58,7 @@
     "애플리케이션.ClassMetaMain.executor": "Run",
     "애플리케이션.EnumEx.executor": "Run",
     "애플리케이션.EnumEx1.executor": "Run",
+    "애플리케이션.EnumEx2.executor": "Run",
     "애플리케이션.EnumMethodEx.executor": "Run",
     "애플리케이션.EqualsQuiz.executor": "Run",
     "애플리케이션.GradeEx.executor": "Run",
@@ -104,7 +105,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.EnumEx1">
+  <component name="RunManager" selected="애플리케이션.ImmutableMain">
     <configuration name="ClassGradeEx" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex12.ClassGradeEx" />
       <module name="study" />
@@ -144,12 +145,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EnumMethodEx" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex12.EnumMethodEx" />
+    <configuration name="EnumEx2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.test.EnumEx2" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.intermediate.ex12.*" />
+          <option name="PATTERN" value="javacore.intermediate.test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -157,12 +158,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GradeEx1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex12.GradeEx1" />
+    <configuration name="ImmutableMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex9.ImmutableMain" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.intermediate.ex12.*" />
+          <option name="PATTERN" value="javacore.intermediate.ex9.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -185,16 +186,16 @@
       <item itemvalue="애플리케이션.ClassGradeEx" />
       <item itemvalue="애플리케이션.EnumEx" />
       <item itemvalue="애플리케이션.EnumEx1" />
-      <item itemvalue="애플리케이션.EnumMethodEx" />
-      <item itemvalue="애플리케이션.GradeEx1" />
+      <item itemvalue="애플리케이션.EnumEx2" />
+      <item itemvalue="애플리케이션.ImmutableMain" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="애플리케이션.ImmutableMain" />
+        <item itemvalue="애플리케이션.EnumEx2" />
         <item itemvalue="애플리케이션.EnumEx1" />
         <item itemvalue="애플리케이션.EnumEx" />
         <item itemvalue="애플리케이션.ClassGradeEx" />
-        <item itemvalue="애플리케이션.EnumMethodEx" />
-        <item itemvalue="애플리케이션.GradeEx1" />
       </list>
     </recent_temporary>
   </component>
