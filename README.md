@@ -31,7 +31,14 @@
       2. 구현을 숨기고 역할만 바라보게 설계가 가능하다.
       3. 한 타입으로 여러 객체를 다룰 수 있어 코드가 단순해 진다.
       4. 중복 코드 제거
-      ```java
+  - 추상화(Abstract, Interface)
+    - 목적 : 구현이 아닌, 역할 중심으로 설계를 하여 변경에 강하고, 확장에 유연한 구조를 만들기 위해 
+    - 기능
+      - OCP(Open-Closed Principle)
+        - 오픈 개방 원칙
+        - (Open for extension)새로운 기능의 추가나 변경 사항이 생겼을 때, 기존 코드는 확장할 수 있어야 한다.
+        - (Closed for modification)기존의 코드는 수정되지 않아야 한다.
+    ```java
       public class Main {
         public static void main(String[] args){
             Animal[] animals = {new Dog(), new Cat()};
@@ -43,7 +50,11 @@
             }
         }
       }
-      class Animal {
+      interface AnimalInterface {
+        void move();
+      }
+      class Animal implements AnimalInterface {
+        @Override
         public void move() {
             System.out.println("동물이 움직입니다.");
         }
@@ -64,15 +75,6 @@
         }
       }
       ```
-  - 추상화(Abstract, Interface)
-- 용어
-  - OCP(Open-Closed Principle)
-      - 오픈 개방 원칙
-      - (Open for extension)새로운 기능의 추가나 변경 사항이 생겼을 때, 기존 코드는 확장할 수 있어야 한다.
-      - (Closed for modification)기존의 코드는 수정되지 않아야 한다.
-  - 전략 패턴(Strategy Pattern)
-    - 알고리즘을 클라이언트의 코드 변경 없이, 쉽게 교체할 수 있다.
-
 ### 2. 김영한의 실전 자바 - 중급 1편
 - 용어
   - Object
@@ -107,6 +109,7 @@
       - 예시) System.getEnv();
     - 배열 고속 복사
       - 예시) System.arraycopy();
+      - 메모리 블록 단위로 이동하여 빠름
     - 시스템 속성
       - 예시) Java version, properties
     - 프로그램 종료
