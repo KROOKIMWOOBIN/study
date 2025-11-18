@@ -38,43 +38,43 @@
         - 오픈 개방 원칙
         - (Open for extension)새로운 기능의 추가나 변경 사항이 생겼을 때, 기존 코드는 확장할 수 있어야 한다.
         - (Closed for modification)기존의 코드는 수정되지 않아야 한다.
-    ```java
-      public class Main {
-        public static void main(String[] args){
-            Animal[] animals = {new Dog(), new Cat()};
-            for(Animal animal : animals) {
-                animal.move();
-                if(animal instanceof Dog) {
-                    ((Dog) animal).sound();
-                }
+  ```java
+  public class Main {
+    public static void main(String[] args){
+        Animal[] animals = {new Dog(), new Cat()};
+        for(Animal animal : animals) {
+            animal.move();
+            if(animal instanceof Dog) {
+                ((Dog) animal).sound();
             }
         }
-      }
-      interface AnimalInterface {
-        void move();
-      }
-      class Animal implements AnimalInterface {
-        @Override
-        public void move() {
-            System.out.println("동물이 움직입니다.");
-        }
-      }
-      class Dog extends Animal {
-        @Override
-        public void move() {
-            System.out.println("강아지가 움직입니다.");
-        }
-        public void sound() {
-            System.out.println("멍멍");
-        }
-      }
-      class Cat extends Animal {
-        @Override
-        public void move() {
-            System.out.println("고양이가 움직입니다.");
-        }
-      }
-      ```
+    }
+  }
+  interface AnimalInterface { 
+    void move();
+  }
+  class Animal implements AnimalInterface {
+    @Override
+    public void move() {
+        System.out.println("동물이 움직입니다.");
+    }
+  }
+  class Dog extends Animal {
+    @Override
+    public void move() {
+        System.out.println("강아지가 움직입니다.");
+    }
+    public void sound() {
+        System.out.println("멍멍");
+    }
+  }
+  class Cat extends Animal {
+    @Override
+    public void move() {
+        System.out.println("고양이가 움직입니다.");
+    }
+  }
+  ```
 ### 2. 김영한의 실전 자바 - 중급 1편
 - 용어
   - Object
