@@ -80,13 +80,33 @@
   - Object
     - 최상위 클래스
     - 모든 클래스를 품어줄 수 있다.
+    ```java
+    public class ObjMain {
+        public static void main(String[] args){
+            Object[] objects = {new Dog(), new Cat()};
+            for(Object obj : objects) {
+                obj.sound();
+            }
+        }
+    }
+    class Dog {
+        public void sound() {
+            System.out.println("멍멍");
+        }
+    }
+    class Cat{
+        public void sound() {
+            System.out.println("야옹");
+        }
+    }
+    ```
   - 불변 객체 VS 가변 객체
   - String 
     - 불변 객체
     - new 키워드를 사용하지 않은 중복된 문자열은 문자열 풀을 사용한다. 
       - Tip! 문자열 풀은 힙 영역을 사용한다. 
       - Tip! 해시 알고리즘을 사용하여 문자열을 빠르게 찾아간다.
-    - 문자열을 더할 때 새로운 인스턴스를 만들어야 한다. 
+    - 문자열을 더할 때 새로운 인스턴스를 만들어야 한다.
   - StringBuilder
     - 가변 객체
     - 메서드 체이닝 기법 사용
@@ -94,12 +114,27 @@
     - 사이드 이펙트를 방지하기 위해 마지막에 toString()을 사용해 String(불변) 인스턴스에 값을 담아준다.
   - 메서드 체이닝
     - 메서드에서 자기 참조값을 반환하면 연속하여 메서드를 호출할 수 있다.
+    ```java
+    public class MethodChainingMain {
+        public static void main(String[] args){
+            Address address = new Address();
+            System.out.println(address.add(50).add(40));
+        }
+    }
+    class Address {
+        private int value;
+        public Address add(int value) {
+            this.value += value;
+            return this;
+        }
+    }
+    ```
   - 래퍼 클래스
     - AutoBoxing 지원한다.
     - 기본형보단 속도는 느리다.
+      - 기본형은 스택 영역, 래퍼는 힙 영역에 저장 및 GC 대상
   - Class Class
-    - 클래스의 메타 정보를 가져올 수 있다. 
-      - Tip! /javacore/intermediate/ex11/Class* 참고
+    - 클래스의 메타 정보를 가져올 수 있다.
     - 주요기능 : 모든 필드, 메서드, 부모, 인터페이스 조회
     - 클래스의 정보를 읽고 사용하는 것을 리플렉션이라고 한다.
   - System Class 
@@ -117,9 +152,32 @@
     - Math Class
     - Random Class
     - Type-safe Enum Pattern 
-      - Tip! /javacore/intermediate/ex12/ClassGradeEx
+    ```java
+    public class Grade {
+        private int point;
+        private Grade(int point) {
+            this.point = point;
+        }
+        private static final Grade GOLD = new Grade(10);
+        private static final Grade DIAMOND = new Grade(20);
+        public int getPoint() {
+            return this.point;
+        }
+    }
+    ```
     - Enum
-      - Tip! /javacore/intermediate/ex12/Enum*
+    ```java
+    enum Grade {
+        GOLD(10), DIAMOND(20);
+        private int point;
+        Grade(int point) {
+            this.point;
+        }
+        public int getPoint() {
+            return this.point;
+        }
+    }
+    ```
 
 ## 스프링
 
