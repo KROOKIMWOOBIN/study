@@ -5,7 +5,65 @@
 ### 1. 김영한의 실전 자바 - 기본편
 - 핵심
   - 캡슐화
+    - 목적 : 내부는 숨기고, 필요한 것만 공개해서 시스템을 안정적으로 유지하는 것
+    - 기능
+      1. 데이터 보호(무분별한 수정 방지)
+      2. 객체 상태를 일관되게 유지
+      3. 내부 구현을 숨겨서 변경에 강한 구조
+      4. 보안, 안정성 증가
+      ```java
+      public class Animal {
+        private String name;
+        private int age;
+        Animal(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+        public void getAnimalInfo() {
+            System.out.println(name + "에 나이는 " + age + "입니다.");
+        }
+      }
+      ```
   - 다형성
+    - 목적 : 코드를 유현하게 만들고, 변경에 강하게 만들고, 재사용성을 높이기 위해서
+    - 기능
+      1. 코드 확장성이 좋아진다.
+      2. 구현을 숨기고 역할만 바라보게 설계가 가능하다.
+      3. 한 타입으로 여러 객체를 다룰 수 있어 코드가 단순해 진다.
+      4. 중복 코드 제거
+      ```java
+      public class Main {
+        public static void main(String[] args){
+            Animal[] animals = {new Dog(), new Cat()};
+            for(Animal animal : animals) {
+                animal.move();
+                if(animal instanceof Dog) {
+                    ((Dog) animal).sound();
+                }
+            }
+        }
+      }
+      class Animal {
+        public void move() {
+            System.out.println("동물이 움직입니다.");
+        }
+      }
+      class Dog extends Animal {
+        @Override
+        public void move() {
+            System.out.println("강아지가 움직입니다.");
+        }
+        public void sound() {
+            System.out.println("멍멍");
+        }
+      }
+      class Cat extends Animal {
+        @Override
+        public void move() {
+            System.out.println("고양이가 움직입니다.");
+        }
+      }
+      ```
   - 추상화(Abstract, Interface)
 - 용어
   - OCP(Open-Closed Principle)
