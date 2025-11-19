@@ -1,4 +1,4 @@
-package javacore.intermediate.ex8;
+package javacore.intermediate.class1;
 
 public class PolyMain {
     public static void main(String[] args) {

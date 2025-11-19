@@ -5,8 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/test/EnumEx2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class5/Ex1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class5/Ex2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class5/Ex3.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex10/StringBuilderMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class2/StringBuilderMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex10/StringMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class2/StringMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex11/AutoBoxingMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class3/AutoBoxingMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex11/ClassCreateMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class3/ClassCreateMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex11/ClassMetaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class3/ClassMetaMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex11/MethodChainingMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class3/MethodChainingMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex11/WrapperMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class3/WrapperMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex11/WrapperVsPrimitive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class3/WrapperVsPrimitive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex12/ClassGradeEx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class4/ClassGradeEx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex12/EnumEx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class4/EnumEx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex12/EnumMethodEx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class4/EnumMethodEx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex12/Grade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class4/Grade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex12/LottoGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class4/LottoGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex8/LangMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class1/LangMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex8/PolyMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class1/PolyMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex9/ImmutableMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class2/ImmutableMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex9/MutableMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class2/MutableMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex9/MyDateMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class2/MyDateMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/ex9/ObjectMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class2/ObjectMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +83,9 @@
     "애플리케이션.EnumEx2.executor": "Run",
     "애플리케이션.EnumMethodEx.executor": "Run",
     "애플리케이션.EqualsQuiz.executor": "Run",
+    "애플리케이션.Ex1.executor": "Run",
+    "애플리케이션.Ex2.executor": "Run",
+    "애플리케이션.Ex3.executor": "Run",
     "애플리케이션.GradeEx.executor": "Run",
     "애플리케이션.GradeEx1.executor": "Run",
     "애플리케이션.ImmutableMain.executor": "Run",
@@ -105,46 +130,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.ImmutableMain">
-    <configuration name="ClassGradeEx" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex12.ClassGradeEx" />
-      <module name="study" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="javacore.intermediate.ex12.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EnumEx" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex12.EnumEx" />
-      <module name="study" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="javacore.intermediate.ex12.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EnumEx1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.test.EnumEx1" />
-      <module name="study" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="javacore.intermediate.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="애플리케이션.Ex3">
     <configuration name="EnumEx2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javacore.intermediate.test.EnumEx2" />
       <module name="study" />
@@ -158,12 +144,51 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ImmutableMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.ex9.ImmutableMain" />
+    <configuration name="Ex1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class5.Ex1" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.intermediate.ex9.*" />
+          <option name="PATTERN" value="javacore.intermediate.class5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Ex2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class5.Ex2" />
+      <module name="study" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javacore.intermediate.class5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Ex3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class5.Ex3" />
+      <module name="study" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javacore.intermediate.class5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ImmutableMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class2.ImmutableMain" />
+      <module name="study" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javacore.intermediate.class2.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -183,19 +208,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="애플리케이션.ClassGradeEx" />
-      <item itemvalue="애플리케이션.EnumEx" />
-      <item itemvalue="애플리케이션.EnumEx1" />
       <item itemvalue="애플리케이션.EnumEx2" />
+      <item itemvalue="애플리케이션.Ex1" />
+      <item itemvalue="애플리케이션.Ex2" />
+      <item itemvalue="애플리케이션.Ex3" />
       <item itemvalue="애플리케이션.ImmutableMain" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="애플리케이션.Ex3" />
+        <item itemvalue="애플리케이션.Ex2" />
+        <item itemvalue="애플리케이션.Ex1" />
         <item itemvalue="애플리케이션.ImmutableMain" />
         <item itemvalue="애플리케이션.EnumEx2" />
-        <item itemvalue="애플리케이션.EnumEx1" />
-        <item itemvalue="애플리케이션.EnumEx" />
-        <item itemvalue="애플리케이션.ClassGradeEx" />
       </list>
     </recent_temporary>
   </component>

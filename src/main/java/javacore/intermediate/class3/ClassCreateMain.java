@@ -1,8 +1,8 @@
-package javacore.intermediate.ex11;
+package javacore.intermediate.class3;
 
 public class ClassCreateMain {
     public static void main(String[] args) throws Exception {
-        Class helloClass = Class.forName("javacore.intermediate.ex11.Hello");
+        Class helloClass = Class.forName("javacore.intermediate.class3.Hello");
         Hello hello = (Hello) helloClass.getDeclaredConstructor().newInstance(); // Hello에 생성자 선택 후 인스턴스 생성
         hello.hello();
     }

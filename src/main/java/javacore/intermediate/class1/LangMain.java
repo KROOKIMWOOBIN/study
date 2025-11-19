@@ -1,4 +1,4 @@
-package javacore.intermediate.ex8;
+package javacore.intermediate.class1;
 
 import java.lang.System;
 

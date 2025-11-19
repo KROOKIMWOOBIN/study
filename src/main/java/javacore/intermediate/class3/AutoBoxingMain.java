@@ -1,6 +1,4 @@
-package javacore.intermediate.ex11;
-
-import jakarta.persistence.criteria.CriteriaBuilder;
+package javacore.intermediate.class3;
 
 public class AutoBoxingMain {
     public static void main(String[] args) {

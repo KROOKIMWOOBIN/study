@@ -1,4 +1,4 @@
-package javacore.intermediate.ex12;
+package javacore.intermediate.class4;
 
 enum Grade {
     BRONZE(10), GOLD(20), DIAMOND(30);

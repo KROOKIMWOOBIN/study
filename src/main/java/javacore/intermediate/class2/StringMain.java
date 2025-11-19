@@ -1,4 +1,4 @@
-package javacore.intermediate.ex10;
+package javacore.intermediate.class2;
 
 public class StringMain {
     public static void main(String[] args) {

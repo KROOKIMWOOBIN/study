@@ -1,7 +1,4 @@
-package javacore.intermediate.ex9;
-
-import lombok.Getter;
-import lombok.ToString;
+package javacore.intermediate.class2;
 
 public class MyDateMain {
     public static void main(String[] args) {

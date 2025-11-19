@@ -1,4 +1,4 @@
-package javacore.intermediate.ex12;
+package javacore.intermediate.class4;
 
 import java.util.Random;
 

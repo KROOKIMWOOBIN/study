@@ -1,4 +1,4 @@
-package javacore.intermediate.ex9;
+package javacore.intermediate.class2;
 
 import lombok.Getter;
 import lombok.Setter;

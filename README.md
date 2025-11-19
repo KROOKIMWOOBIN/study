@@ -160,35 +160,93 @@
       - 예시) Java version, properties
     - 프로그램 종료
       - 예시) System.exit(0);
-    - Math Class
-    - Random Class
-    - Type-safe Enum Pattern 
+  - Math Class
+  - Random Class
+  - Type-safe Enum Pattern 
+  ```java
+  public class Grade {
+    private int point;
+    private Grade(int point) {
+        this.point = point;
+    }
+    private static final Grade GOLD = new Grade(10);
+    private static final Grade DIAMOND = new Grade(20);
+    public int getPoint() {
+        return this.point;
+    }
+  }
+  ```
+  - Enum
+  ```java
+  enum Grade {
+    GOLD(10), DIAMOND(20);
+    private int point;
+    Grade(int point) {
+        this.point;
+    }
+    public int getPoint() {
+        return this.point;
+    }
+  }
+  ```
+  - 날짜와 시간
+  - 중첩 클래스, 내부 클래스
+    - 사용 이유
+      - 논리적 그룹화
+      - 캡슐화
+    - 정적 중첩 클래스
     ```java
-    public class Grade {
-        private int point;
-        private Grade(int point) {
-            this.point = point;
+    public class Main {
+        public static void main(String[] args){
+          // 중첩 클래스 접근 시, 아래와 같이 사용
+          Human.Heart humanHeart = new Human.Heart();
+          humanHeart.print();
         }
-        private static final Grade GOLD = new Grade(10);
-        private static final Grade DIAMOND = new Grade(20);
-        public int getPoint() {
-            return this.point;
+    }
+    class Human {
+        private static int outClassValue = 3;
+        private int outInstanceValue = 2;
+        static class Heart { 
+            private int innerInstanceValue = 1;
+            public void print() {
+                // 바깥 클래스 변수 접근O
+                System.out.println(innerInstanceValue);
+                // 바깥 클래스 인스턴스 변수 접근X
+                // System.out.println(outInstanceValue);
+                // 내부 클래스 인스턴스 변수 접근O
+                System.out.println(outClassValue);
+            }
         }
     }
     ```
-    - Enum
-    ```java
-    enum Grade {
-        GOLD(10), DIAMOND(20);
-        private int point;
-        Grade(int point) {
-            this.point;
+    - 내부 클래스
+      - 내부 클래스
+      ```java
+      public class Main {
+        public static void main(String[] args){
+          Human human = new Human();
+          Human.Heart heart = human.new Heart();
         }
-        public int getPoint() {
-            return this.point;
+      }
+      
+      class Human {
+        private static int outClassValue = 3;
+        private int outInstanceValue = 2;
+        class Heart {
+            private int innerInstanceValue = 1;
+            public void print() {
+                // 바깥 클래스 변수 접근O
+                System.out.println(innerInstanceValue);
+                // 바깥 클래스 인스턴스 변수 접근O
+                System.out.println(outInstanceValue);
+                // 내부 클래스 인스턴스 변수 접근O
+                System.out.println(outClassValue);
+            }
         }
-    }
-    ```
+      }
+      ```
+      - 지역 클래스
+      - 익명 클래스
 
 ## 스프링
 

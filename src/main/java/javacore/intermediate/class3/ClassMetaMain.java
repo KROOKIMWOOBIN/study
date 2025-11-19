@@ -1,4 +1,4 @@
-package javacore.intermediate.ex11;
+package javacore.intermediate.class3;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

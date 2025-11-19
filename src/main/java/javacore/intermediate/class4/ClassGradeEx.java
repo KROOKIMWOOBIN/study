@@ -1,4 +1,4 @@
-package javacore.intermediate.ex12;
+package javacore.intermediate.class4;
 
 public class ClassGradeEx {
     public static void main(String[] args) {

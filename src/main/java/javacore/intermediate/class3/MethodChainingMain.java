@@ -1,4 +1,4 @@
-package javacore.intermediate.ex11;
+package javacore.intermediate.class3;
 
 public class MethodChainingMain {
     public static void main(String[] args) {
