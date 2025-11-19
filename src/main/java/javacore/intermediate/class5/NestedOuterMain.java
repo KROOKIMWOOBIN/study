@@ -1,8 +1,6 @@
 package javacore.intermediate.class5;
 
-import org.springframework.boot.context.properties.bind.Nested;
-
-public class Ex1 {
+public class NestedOuterMain {
     public static void main(String[] args) {
         NestedOuter.Nested nested = new NestedOuter.Nested();
         nested.print();

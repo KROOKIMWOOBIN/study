@@ -1,6 +1,6 @@
 package javacore.intermediate.class5;
 
-public class Ex2 {
+public class NestedOuterMainEx1 {
     public static void main(String[] args) {
         Network network = new Network();
         network.send("Hello Java");

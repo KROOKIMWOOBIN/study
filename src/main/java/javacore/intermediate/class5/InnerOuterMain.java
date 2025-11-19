@@ -1,6 +1,6 @@
 package javacore.intermediate.class5;
 
-public class Ex3 {
+public class InnerOuterMain {
     public static void main(String[] args) {
         InnerOuter outer = new InnerOuter();
         InnerOuter.Inner inner = outer.new Inner();
