@@ -297,7 +297,26 @@
       }
       ```
       - 익명 클래스
-
+      ```java
+      public class AnonymousOuter {
+        public void process() {
+            // 생성과 동시에 구현이 가능하다.
+            Printer printer = new Printer() {
+                public void print() {
+                    System.out.println("TEST");
+                }
+            }; 
+            printer.print();
+        }
+        public static void main(String[] args){
+          AnonymousOuter anonymousOuter = new AnonymousOuter();
+          anonymousOuter.process();
+        }
+      }
+      interface Printer {
+        void print();
+      }
+      ```
 ## 스프링
 
 ### 1. 스프링의 핵심 원리 - 기본편
