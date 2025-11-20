@@ -267,6 +267,35 @@
       }
       ```
       - 지역 클래스
+      ```java
+      public class LocalOuter {
+        private int outerVar = 3;
+        public Printer process(final int paramVar) {
+            // fianl이 필수는 아니지만, 사실상 final로 값이 바뀌면 안된다.
+            final int localVar = 1;
+            class Inner implements Printer {
+                @Override
+                public void print() {
+                    int value = 0;
+                    System.out.println(value);
+                    System.out.println(localVar);
+                    System.out.println(paramVar);
+                    System.out.println(outerVar);
+                }
+            }
+            return new Inner();
+        }
+        public static void main(String[] args){
+          LocalOuter outer = new LocalOuter();
+          // 인스턴스에 지역 변수를 캡쳐하여 넣어둔다.
+          Printer printer = outer.process(2);
+          printer.print();
+        }
+      }
+      interface Printer {
+        void print();
+      }
+      ```
       - 익명 클래스
 
 ## 스프링
