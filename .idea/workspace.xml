@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class7/Ex0Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class7/Ex1Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class6/LocalOuterV4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class6/LocalOuterV4.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +67,7 @@
     "애플리케이션.EqualsQuiz.executor": "Run",
     "애플리케이션.Ex0Main.executor": "Run",
     "애플리케이션.Ex1.executor": "Run",
+    "애플리케이션.Ex1Main.executor": "Run",
     "애플리케이션.Ex2.executor": "Run",
     "애플리케이션.Ex3.executor": "Run",
     "애플리케이션.GradeEx.executor": "Run",
@@ -74,6 +77,7 @@
     "애플리케이션.LangMain.executor": "Run",
     "애플리케이션.LocalOuterV1.executor": "Run",
     "애플리케이션.LocalOuterV3.executor": "Run",
+    "애플리케이션.LocalOuterV4.executor": "Run",
     "애플리케이션.LottoGenerator.executor": "Run",
     "애플리케이션.Main (1).executor": "Run",
     "애플리케이션.Main.executor": "Run",
@@ -119,7 +123,7 @@
       <recent name="javacore.intermediate.class6" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.Ex0Main">
+  <component name="RunManager" selected="애플리케이션.Ex1Main">
     <configuration name="AnonymousOuter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class7.AnonymousOuter" />
       <module name="study" />
@@ -146,12 +150,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LocalOuterV1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class6.LocalOuterV1" />
+    <configuration name="Ex1Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class7.Ex1Main" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.intermediate.class6.*" />
+          <option name="PATTERN" value="javacore.intermediate.class7.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -172,12 +176,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShdoingMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class5.ShdoingMain" />
+    <configuration name="LocalOuterV4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class6.LocalOuterV4" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.intermediate.class5.*" />
+          <option name="PATTERN" value="javacore.intermediate.class6.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -185,31 +189,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="study" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="study" />
-      <option name="filePath" />
-      <method v="2" />
-    </configuration>
     <list>
+      <item itemvalue="애플리케이션.Ex1Main" />
       <item itemvalue="애플리케이션.AnonymousOuter" />
       <item itemvalue="애플리케이션.Ex0Main" />
-      <item itemvalue="애플리케이션.LocalOuterV1" />
       <item itemvalue="애플리케이션.LocalOuterV3" />
-      <item itemvalue="애플리케이션.ShdoingMain" />
+      <item itemvalue="애플리케이션.LocalOuterV4" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="애플리케이션.Ex1Main" />
+        <item itemvalue="애플리케이션.LocalOuterV4" />
         <item itemvalue="애플리케이션.Ex0Main" />
         <item itemvalue="애플리케이션.AnonymousOuter" />
         <item itemvalue="애플리케이션.LocalOuterV3" />
-        <item itemvalue="애플리케이션.LocalOuterV1" />
-        <item itemvalue="애플리케이션.ShdoingMain" />
       </list>
     </recent_temporary>
   </component>

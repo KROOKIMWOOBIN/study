@@ -272,6 +272,7 @@
         private int outerVar = 3;
         public Printer process(final int paramVar) {
             // fianl이 필수는 아니지만, 사실상 final로 값이 바뀌면 안된다.
+            // 캡쳐 변수는 인스턴스 변수 영역에 생성된다.
             final int localVar = 1;
             class Inner implements Printer {
                 @Override

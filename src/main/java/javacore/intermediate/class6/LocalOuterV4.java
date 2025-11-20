@@ -15,6 +15,13 @@ public class LocalOuterV4 {
                 System.out.println(paramVar);
                 System.out.println(outInstanceVar);
             }
+
+            public void printData2() {
+                System.out.println(value);
+                System.out.println(localVal);
+                System.out.println(paramVar);
+                System.out.println(outInstanceVar);
+            }
         }
 
         LocalPrinter printer = new LocalPrinter();
@@ -27,6 +34,7 @@ public class LocalOuterV4 {
         Printer printer = localOuter.process(2);
         printer.printData();
         Field[] fields = printer.getClass().getDeclaredFields();
+
         for(Field field : fields) {
             System.out.println("Field : " + field);
         }
