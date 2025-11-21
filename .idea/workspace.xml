@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class7/Ex2Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class7/Ex3Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class7/Ex4Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class7/Process.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/quiz/Inner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class7/Ex1Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class7/Ex1Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +20,8 @@
         <option value="FxmlFile" />
         <option value="package-info" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -77,6 +74,7 @@
     "애플리케이션.GradeEx.executor": "Run",
     "애플리케이션.GradeEx1.executor": "Run",
     "애플리케이션.ImmutableMain.executor": "Run",
+    "애플리케이션.Inner.executor": "Run",
     "애플리케이션.InnerOuterMainEx1.executor": "Run",
     "애플리케이션.LangMain.executor": "Run",
     "애플리케이션.LocalOuterV1.executor": "Run",
@@ -127,7 +125,7 @@
       <recent name="javacore.intermediate.class6" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.Ex4Main">
+  <component name="RunManager" selected="애플리케이션.Inner">
     <configuration name="Ex1Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class7.Ex1Main" />
       <module name="study" />
@@ -180,12 +178,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LocalOuterV4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class6.LocalOuterV4" />
+    <configuration name="Inner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.quiz.Inner" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.intermediate.class6.*" />
+          <option name="PATTERN" value="javacore.intermediate.quiz.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -198,15 +196,15 @@
       <item itemvalue="애플리케이션.Ex2Main" />
       <item itemvalue="애플리케이션.Ex3Main" />
       <item itemvalue="애플리케이션.Ex4Main" />
-      <item itemvalue="애플리케이션.LocalOuterV4" />
+      <item itemvalue="애플리케이션.Inner" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="애플리케이션.Inner" />
         <item itemvalue="애플리케이션.Ex4Main" />
         <item itemvalue="애플리케이션.Ex3Main" />
         <item itemvalue="애플리케이션.Ex2Main" />
         <item itemvalue="애플리케이션.Ex1Main" />
-        <item itemvalue="애플리케이션.LocalOuterV4" />
       </list>
     </recent_temporary>
   </component>
