@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class7/Ex1Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class7/Ex2Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class7/Ex3Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class7/Ex4Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class7/Process.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class6/LocalOuterV4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class6/LocalOuterV4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class7/Ex1Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class7/Ex1Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +23,8 @@
         <option value="FxmlFile" />
         <option value="package-info" />
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -69,7 +70,10 @@
     "애플리케이션.Ex1.executor": "Run",
     "애플리케이션.Ex1Main.executor": "Run",
     "애플리케이션.Ex2.executor": "Run",
+    "애플리케이션.Ex2Main.executor": "Run",
     "애플리케이션.Ex3.executor": "Run",
+    "애플리케이션.Ex3Main.executor": "Run",
+    "애플리케이션.Ex4Main.executor": "Run",
     "애플리케이션.GradeEx.executor": "Run",
     "애플리케이션.GradeEx1.executor": "Run",
     "애플리케이션.ImmutableMain.executor": "Run",
@@ -123,33 +127,7 @@
       <recent name="javacore.intermediate.class6" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.Ex1Main">
-    <configuration name="AnonymousOuter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class7.AnonymousOuter" />
-      <module name="study" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="javacore.intermediate.class7.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Ex0Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class7.Ex0Main" />
-      <module name="study" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="javacore.intermediate.class7.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="애플리케이션.Ex4Main">
     <configuration name="Ex1Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class7.Ex1Main" />
       <module name="study" />
@@ -163,12 +141,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LocalOuterV3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class6.LocalOuterV3" />
+    <configuration name="Ex2Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class7.Ex2Main" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.intermediate.class6.*" />
+          <option name="PATTERN" value="javacore.intermediate.class7.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Ex3Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class7.Ex3Main" />
+      <module name="study" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javacore.intermediate.class7.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Ex4Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class7.Ex4Main" />
+      <module name="study" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javacore.intermediate.class7.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -191,18 +195,18 @@
     </configuration>
     <list>
       <item itemvalue="애플리케이션.Ex1Main" />
-      <item itemvalue="애플리케이션.AnonymousOuter" />
-      <item itemvalue="애플리케이션.Ex0Main" />
-      <item itemvalue="애플리케이션.LocalOuterV3" />
+      <item itemvalue="애플리케이션.Ex2Main" />
+      <item itemvalue="애플리케이션.Ex3Main" />
+      <item itemvalue="애플리케이션.Ex4Main" />
       <item itemvalue="애플리케이션.LocalOuterV4" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="애플리케이션.Ex4Main" />
+        <item itemvalue="애플리케이션.Ex3Main" />
+        <item itemvalue="애플리케이션.Ex2Main" />
         <item itemvalue="애플리케이션.Ex1Main" />
         <item itemvalue="애플리케이션.LocalOuterV4" />
-        <item itemvalue="애플리케이션.Ex0Main" />
-        <item itemvalue="애플리케이션.AnonymousOuter" />
-        <item itemvalue="애플리케이션.LocalOuterV3" />
       </list>
     </recent_temporary>
   </component>

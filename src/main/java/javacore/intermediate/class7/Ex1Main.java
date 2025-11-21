@@ -12,22 +12,22 @@ public class Ex1Main {
         process.run();
         System.out.println("프로그램 종료");
     }
-}
-interface Process {
-    void run();
-}
-class Dice implements Process {
-    @Override
-    public void run() {
-        int randomValue = new Random().nextInt(6) + 1;
-        System.out.println("주사위 : " + randomValue);
-    }
-}
-class Sum implements Process {
-    @Override
-    public void run() {
-        for(int i = 0; i < 3; i++) {
-            System.out.println("i = " + i);
+    static class Dice implements Process {
+        @Override
+        public void run() {
+            int randomValue = new Random().nextInt(6) + 1;
+            System.out.println("주사위 : " + randomValue);
         }
+    }
+    static class Sum implements Process {
+        @Override
+        public void run() {
+            for(int i = 0; i < 3; i++) {
+                System.out.println("i = " + i);
+            }
+        }
+    }
+    interface Process {
+        void run();
     }
 }
