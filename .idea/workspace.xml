@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class8/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class8/CheckedExceptionMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class8/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class8/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +56,9 @@
     "애플리케이션.AnonymousOuter.executor": "Run",
     "애플리케이션.AutoBoxingMain.executor": "Run",
     "애플리케이션.CarMain.executor": "Run",
+    "애플리케이션.CheckExceptionMain.executor": "Run",
+    "애플리케이션.CheckedCatchMain.executor": "Run",
+    "애플리케이션.CheckedExceptionMain.executor": "Run",
     "애플리케이션.ClassCreateMain.executor": "Run",
     "애플리케이션.ClassGradeEx.executor": "Run",
     "애플리케이션.ClassMetaMain.executor": "Run",
@@ -124,13 +129,13 @@
       <recent name="javacore.intermediate.class6" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.Main">
-    <configuration name="Ex2Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class7.Ex2Main" />
+  <component name="RunManager" selected="애플리케이션.CheckedExceptionMain">
+    <configuration name="CheckExceptionMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class8.CheckExceptionMain" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.intermediate.class7.*" />
+          <option name="PATTERN" value="javacore.intermediate.class8.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -138,12 +143,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Ex3Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class7.Ex3Main" />
+    <configuration name="CheckedCatchMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class8.CheckedCatchMain" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.intermediate.class7.*" />
+          <option name="PATTERN" value="javacore.intermediate.class8.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -151,12 +156,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Ex4Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class7.Ex4Main" />
+    <configuration name="CheckedExceptionMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class8.CheckedExceptionMain" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.intermediate.class7.*" />
+          <option name="PATTERN" value="javacore.intermediate.class8.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -191,19 +196,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="애플리케이션.Ex2Main" />
-      <item itemvalue="애플리케이션.Ex3Main" />
-      <item itemvalue="애플리케이션.Ex4Main" />
+      <item itemvalue="애플리케이션.CheckExceptionMain" />
+      <item itemvalue="애플리케이션.CheckedCatchMain" />
+      <item itemvalue="애플리케이션.CheckedExceptionMain" />
       <item itemvalue="애플리케이션.Inner" />
       <item itemvalue="애플리케이션.Main" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="애플리케이션.CheckedExceptionMain" />
+        <item itemvalue="애플리케이션.CheckedCatchMain" />
+        <item itemvalue="애플리케이션.CheckExceptionMain" />
         <item itemvalue="애플리케이션.Main" />
         <item itemvalue="애플리케이션.Inner" />
-        <item itemvalue="애플리케이션.Ex4Main" />
-        <item itemvalue="애플리케이션.Ex3Main" />
-        <item itemvalue="애플리케이션.Ex2Main" />
       </list>
     </recent_temporary>
   </component>

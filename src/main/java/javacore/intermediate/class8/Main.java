@@ -10,6 +10,7 @@ public class Main {
             System.out.print("전송할 문자: ");
             String input = scanner.nextLine();
             if("exit".equals(input)) {
+                System.out.println("프로그램을 정상 종료합니다.");
                 break;
             }
             service.sendMessage(input);
@@ -21,9 +22,19 @@ public class Main {
             String address = "http://example.com";
             NetworkClient client = new NetworkClient(address);
             client.initError(data);
-            client.connect();
-            client.send(data);
+            String connectResult = client.connect();
+            if(isError(connectResult)) {
+                System.out.println("[네트워크 오류 발생] 오류 코드: " + connectResult);
+            } else {
+                String sendResult = client.send(data);
+                if(isError(sendResult)) {
+                    System.out.println("[네트워크 오류 발생] 오류 코드: " + sendResult);
+                }
+            }
             client.disconnect();
+        }
+        private boolean isError(String result) {
+            return !"success".equals(result);
         }
         static class NetworkClient {
             private final String address;
