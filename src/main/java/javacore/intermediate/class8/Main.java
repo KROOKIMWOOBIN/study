@@ -17,26 +17,57 @@ public class Main {
             System.out.println();
         }
     }
-    static class NetworkService {
+    private enum NetworkErrorCode {
+        CONNECT("connectError", "서버 연결 실패"), SEND("sendError", "전송 실패");
+        private final String errorCode;
+        private final String message;
+        private static String address;
+        private static String data;
+        NetworkErrorCode(String errorCode, String message) {
+            this.errorCode = errorCode;
+            this.message = message;
+        }
+        public void setAddress(String address) {
+            this.address = address;
+        }
+        public void setData(String data) {
+            this.data = data;
+        }
+        public void printInfo() {
+            System.out.println(address + " " + message + ": " + data);
+        }
+        public String getErrorCode() {
+            return errorCode;
+        }
+    }
+
+    private static class NetworkClientException extends Exception {
+
+        private final NetworkErrorCode errorCode;
+
+        NetworkClientException(NetworkErrorCode errorCode) {
+            this.errorCode = errorCode;
+        }
+    }
+
+    private static class NetworkService {
         public void sendMessage(String data) {
             String address = "http://example.com";
             NetworkClient client = new NetworkClient(address);
             client.initError(data);
-            String connectResult = client.connect();
-            if(isError(connectResult)) {
-                System.out.println("[네트워크 오류 발생] 오류 코드: " + connectResult);
-            } else {
-                String sendResult = client.send(data);
-                if(isError(sendResult)) {
-                    System.out.println("[네트워크 오류 발생] 오류 코드: " + sendResult);
-                }
+            try {
+                client.connect();
+                client.send(data);
+            } catch (NetworkClientException e) {
+                e.errorCode.setAddress(address);
+                e.errorCode.setData(data);
+                System.out.println("[네트워크 오류 발생] 오류 코드: " + e.errorCode.getErrorCode());
+                e.errorCode.printInfo();
             }
             client.disconnect();
         }
-        private boolean isError(String result) {
-            return !"success".equals(result);
-        }
-        static class NetworkClient {
+
+        private static class NetworkClient {
             private final String address;
             private boolean connectError;
             private boolean sendError;
@@ -44,30 +75,26 @@ public class Main {
             NetworkClient(String address) {
                 this.address = address;
             }
-            public String connect() {
+            public void connect() throws NetworkClientException {
                 if(connectError) {
-                    System.out.println(address + " 서버 연결 실패");
-                    return "connectError";
+                    throw new NetworkClientException(NetworkErrorCode.CONNECT);
                 }
                 System.out.println(address + " 서버 연결 성공");
-                return "success";
             }
-            public String send(String data) {
+            public void send(String data) throws NetworkClientException {
                 if(sendError) {
-                    System.out.println(address + " 서버에 데이터 전송 실패: " + data);
-                    return "sendError";
+                    throw new NetworkClientException(NetworkErrorCode.SEND);
                 }
                 System.out.println(address + " 서버에 데이터 전송: " + data);
-                return "success";
             }
             public void disconnect() {
                 System.out.println(address + " 서버 연결 해제");
             }
             public void initError(String data) {
-                if("error1".contains(data)) {
+                if(data.contains("error1")) {
                     connectError = true;
                 }
-                if("error2".contains(data)) {
+                if(data.contains("error2")) {
                     sendError = true;
                 }
             }

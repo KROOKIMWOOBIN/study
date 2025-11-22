@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class8/CheckedExceptionMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class8/UncheckedExceptionMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class8/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class8/Main.java" afterDir="false" />
@@ -105,6 +105,7 @@
     "애플리케이션.StringBuilderMain.executor": "Run",
     "애플리케이션.StringMain.executor": "Run",
     "애플리케이션.StringQuiz.executor": "Run",
+    "애플리케이션.UncheckedExceptionMain.executor": "Run",
     "애플리케이션.WrapperVsPrimitive.executor": "Run",
     "애플리케이션.equalsQuiz.executor": "Run",
     "애플리케이션.ex20251110.Main.executor": "Run",
@@ -129,7 +130,7 @@
       <recent name="javacore.intermediate.class6" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.CheckedExceptionMain">
+  <component name="RunManager" selected="애플리케이션.Main">
     <configuration name="CheckExceptionMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class8.CheckExceptionMain" />
       <module name="study" />
@@ -169,12 +170,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Inner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.quiz.Inner" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class8.Main" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.intermediate.quiz.*" />
+          <option name="PATTERN" value="javacore.intermediate.class8.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -182,8 +183,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class8.Main" />
+    <configuration name="UncheckedExceptionMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class8.UncheckedExceptionMain" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
@@ -199,16 +200,16 @@
       <item itemvalue="애플리케이션.CheckExceptionMain" />
       <item itemvalue="애플리케이션.CheckedCatchMain" />
       <item itemvalue="애플리케이션.CheckedExceptionMain" />
-      <item itemvalue="애플리케이션.Inner" />
       <item itemvalue="애플리케이션.Main" />
+      <item itemvalue="애플리케이션.UncheckedExceptionMain" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="애플리케이션.Main" />
+        <item itemvalue="애플리케이션.UncheckedExceptionMain" />
         <item itemvalue="애플리케이션.CheckedExceptionMain" />
         <item itemvalue="애플리케이션.CheckedCatchMain" />
         <item itemvalue="애플리케이션.CheckExceptionMain" />
-        <item itemvalue="애플리케이션.Main" />
-        <item itemvalue="애플리케이션.Inner" />
       </list>
     </recent_temporary>
   </component>

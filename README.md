@@ -335,11 +335,16 @@
                 - SQLException
                 - IOException
             - 언체크 예외, 런타임 예외
+              - 장점
+                - 신경쓰고 싶지 않은 언체크 예외를 무시할 수 있다.
+              - 단점
+                - 개발자가 실수로 예외를 누락할 수 있다.
               - 컴파일러가 체크 하지 않는 언체크 예외이다.
               - 런타임 에러와 그 하위 에러를 런타임 예외라고 많이 부른다.
               - RunTimeException 상속 받으면 언체크 예외가 된다.
                 - NullPointerException
                 - IllegalArgumentException
+              - throws 키워드를 생략할 수 있다.
           - Error
             - 시스템 에러
               - 애플리케이션에서 복구가 불가능한 시스템 예외이다.
