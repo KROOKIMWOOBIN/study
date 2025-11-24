@@ -1,5 +1,8 @@
 package javacore.intermediate.class8;
 
+import lombok.Getter;
+import lombok.ToString;
+
 import java.util.Scanner;
 
 public class Main {
@@ -17,89 +20,117 @@ public class Main {
             System.out.println();
         }
     }
-    private enum NetworkErrorCode {
-        CONNECT("connectError", "서버 연결 실패"), SEND("sendError", "전송 실패");
-        private final String errorCode;
-        private final String message;
-        private static String address;
-        private static String data;
-        NetworkErrorCode(String errorCode, String message) {
-            this.errorCode = errorCode;
-            this.message = message;
+}
+class NetworkService {
+    public void sendMessage(String data) {
+        String address = "http://example.com";
+        NetworkClient client = new NetworkClient(address);
+        client.initError(data);
+        try {
+            client.connect();
+            client.send(data);
         }
-        public void setAddress(String address) {
-            this.address = address;
+        catch (ConnectException e) {
+            e.printErrorInfo();
         }
-        public void setData(String data) {
-            this.data = data;
-        }
-        public void printInfo() {
-            System.out.println(address + " " + message + ": " + data);
-        }
-        public String getErrorCode() {
-            return errorCode;
-        }
-    }
-
-    private static class NetworkClientException extends Exception {
-
-        private final NetworkErrorCode errorCode;
-
-        NetworkClientException(NetworkErrorCode errorCode) {
-            this.errorCode = errorCode;
-        }
-    }
-
-    private static class NetworkService {
-        public void sendMessage(String data) {
-            String address = "http://example.com";
-            NetworkClient client = new NetworkClient(address);
-            client.initError(data);
-            try {
-                client.connect();
-                client.send(data);
-            } catch (NetworkClientException e) {
-                e.errorCode.setAddress(address);
-                e.errorCode.setData(data);
-                System.out.println("[네트워크 오류 발생] 오류 코드: " + e.errorCode.getErrorCode());
-                e.errorCode.printInfo();
-            }
+        catch (SendException e) {
+            e.printErrorInfo();
+        } finally {
             client.disconnect();
         }
-
-        private static class NetworkClient {
-            private final String address;
-            private boolean connectError;
-            private boolean sendError;
-            public
-            NetworkClient(String address) {
-                this.address = address;
-            }
-            public void connect() throws NetworkClientException {
-                if(connectError) {
-                    throw new NetworkClientException(NetworkErrorCode.CONNECT);
-                }
-                System.out.println(address + " 서버 연결 성공");
-            }
-            public void send(String data) throws NetworkClientException {
-                if(sendError) {
-                    throw new NetworkClientException(NetworkErrorCode.SEND);
-                }
-                System.out.println(address + " 서버에 데이터 전송: " + data);
-            }
-            public void disconnect() {
-                System.out.println(address + " 서버 연결 해제");
-            }
-            public void initError(String data) {
-                if(data.contains("error1")) {
-                    connectError = true;
-                }
-                if(data.contains("error2")) {
-                    sendError = true;
-                }
-            }
+    }
+}
+class NetworkClient {
+    private final String address;
+    private boolean connectError;
+    private boolean sendError;
+    public NetworkClient(String address) {
+        this.address = address;
+    }
+    public void connect() {
+        if(connectError) {
+            throw new ConnectException(NetworkErrorCode.CONNECT, address);
+        }
+        System.out.println(address + " 서버 연결 성공");
+    }
+    public void send(String data) {
+        if(sendError) {
+            throw new SendException(NetworkErrorCode.SEND, data);
+        }
+        System.out.println(address + " 서버에 데이터 전송: " + data);
+    }
+    public void disconnect() {
+        System.out.println(address + " 서버 연결 해제");
+    }
+    public void initError(String data) {
+        if(data.contains("error1")) {
+            connectError = true;
+        }
+        if(data.contains("error2")) {
+            sendError = true;
         }
     }
 }
 
+@Getter
+class NetworkClientException extends RuntimeException {
+    private final NetworkErrorCode errorCode;
+    NetworkClientException(NetworkErrorCode errorCode) {
+        this.errorCode = errorCode;
+    }
+    public void printErrorInfo() {
+        System.out.println("[네트워크 에러 발셍]");
+    }
+}
+
+@Getter
+class ConnectException extends NetworkClientException {
+    private final NetworkErrorCode errorCode;
+    private final String address;
+    ConnectException(NetworkErrorCode errorCode, String address) {
+        super(errorCode);
+        this.errorCode = errorCode;
+        this.address = address;
+    }
+    @Override
+    public void printErrorInfo() {
+        System.out.println("[네트워크 에러 발생]" +
+                "\nErrorCode: " + errorCode.getErrorCode() +
+                "\nErrorMessage: "  + errorCode.getMessage() +
+                "\nAddress: " + address);
+    }
+}
+
+@Getter
+class SendException extends NetworkClientException {
+    private final NetworkErrorCode errorCode;
+    private final String data;
+    public SendException(NetworkErrorCode errorCode, String data) {
+        super(errorCode);
+        this.errorCode = errorCode;
+        this.data = data;
+    }
+    @Override
+    public void printErrorInfo() {
+        System.out.println("[네트워크 에러 발셍]" +
+                "\nErrorCode: " + errorCode.getErrorCode() +
+                "\nErrorMessage: " + errorCode.getMessage() +
+                "\nData: " + data);
+    }
+}
+
+@Getter
+@ToString
+enum NetworkErrorCode {
+    CONNECT("connectError", "서버 연결 실패"),
+    SEND("sendError", "전송 실패");
+
+    private final String errorCode;
+    private final String message;
+
+    NetworkErrorCode(String errorCode, String message) {
+        this.errorCode = errorCode;
+        this.message = message;
+    }
+}
 
