@@ -1,7 +1,6 @@
 package javacore.intermediate.class8;
 
 import lombok.Getter;
-import lombok.ToString;
 
 import java.util.Scanner;
 
@@ -72,18 +71,18 @@ class NetworkClient {
     }
 }
 
-@Getter
 class NetworkClientException extends RuntimeException {
     private final NetworkErrorCode errorCode;
     NetworkClientException(NetworkErrorCode errorCode) {
         this.errorCode = errorCode;
     }
     public void printErrorInfo() {
-        System.out.println("[네트워크 에러 발셍]");
+        System.out.println("[네트워크 에러 발생]" +
+                "\nErrorCode: " + errorCode.getErrorCode() +
+                "\nErrorMessage: "  + errorCode.getMessage());
     }
 }
 
-@Getter
 class ConnectException extends NetworkClientException {
     private final NetworkErrorCode errorCode;
     private final String address;
@@ -94,14 +93,13 @@ class ConnectException extends NetworkClientException {
     }
     @Override
     public void printErrorInfo() {
-        System.out.println("[네트워크 에러 발생]" +
+        System.out.println("[연결 에러 발생]" +
                 "\nErrorCode: " + errorCode.getErrorCode() +
                 "\nErrorMessage: "  + errorCode.getMessage() +
                 "\nAddress: " + address);
     }
 }
 
-@Getter
 class SendException extends NetworkClientException {
     private final NetworkErrorCode errorCode;
     private final String data;
@@ -112,7 +110,7 @@ class SendException extends NetworkClientException {
     }
     @Override
     public void printErrorInfo() {
-        System.out.println("[네트워크 에러 발셍]" +
+        System.out.println("[발송 에러 발셍]" +
                 "\nErrorCode: " + errorCode.getErrorCode() +
                 "\nErrorMessage: " + errorCode.getMessage() +
                 "\nData: " + data);
@@ -120,7 +118,6 @@ class SendException extends NetworkClientException {
 }
 
 @Getter
-@ToString
 enum NetworkErrorCode {
     CONNECT("connectError", "서버 연결 실패"),
     SEND("sendError", "전송 실패");
