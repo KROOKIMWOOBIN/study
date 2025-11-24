@@ -28,12 +28,10 @@ class NetworkService {
         try {
             client.connect();
             client.send(data);
-        }
-        catch (ConnectException e) {
+        } catch (NetworkClientException e) {
             e.printErrorInfo();
-        }
-        catch (SendException e) {
-            e.printErrorInfo();
+        } catch (Exception e) {
+            System.out.println("[알 수 없는 오류] 메시지: " + e.getMessage());
         } finally {
             client.disconnect();
         }
