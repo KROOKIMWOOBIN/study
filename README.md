@@ -355,7 +355,43 @@
       - 예외를 잡거나 던질 때, 지정한 예외뿐 아니라 그 예외의 자식들도 함께 처리할 수 있다.
         - Exception catch 잡으면 그 하위 예외도 모두 잡을 수 있다.
         - Exception throws 던지면 그 하위 예외도 모두 던질 수 있다.
-    - 
+    - 예외
+      - try
+        - 정상 흐름
+      - catch 
+        - 예외 흐름
+      - finally
+        - 반드시 호출해야 하는 마무리 흐름
+    - try-with-resources
+      - 자바7에서 돌입
+      - AutoCloseable 인터페이스 사용
+      - Exception 발생 시, 자동으로 close 메서드 호출
+        - catch 보다 먼저 실행
+      - 장점
+        - 리소스 누수 방지
+          - 모든 리소스가 제대로 닫히도록 보장한다.
+        - 코드 간결성 및 가독성 향상
+          - 명시적인 close() 호출이 필요 없어 코드가 더 간결하고 읽기 쉬워진다.
+        - 스코프 범위 한정
+          - 하단의 코드와 같이 try 블럭 안으로 Resource 인서턴스가 한정된다.
+        - 더 빠른 자원 해제
+          - 기존 : try -> catch -> finally 로 catch 이후에 자원을 반납했다.
+          - 변경 : try -> close -> catch 를 호출한다.
+      ```java
+      public class Main {
+        public static void main(String[] args){
+          try (Resource resource = new Resource()) {
+              throw new RuntimeException();
+          }
+        }
+      }
+      class Resources extends AutoCloseable {
+        @Override
+        public void close() {
+            System.out.println("finally");
+        }
+      }
+      ```
 ## 스프링
 
 ### 1. 스프링의 핵심 원리 - 기본편

@@ -15,29 +15,34 @@ public class Main {
                 System.out.println("프로그램을 정상 종료합니다.");
                 break;
             }
-            service.sendMessage(input);
+            try {
+                service.sendMessage(input);
+            } catch (Exception e) {
+                exceptionHandler(e);
+            }
             System.out.println();
+        }
+    }
+    private static void exceptionHandler(Exception e) {
+        System.out.println("죄송합니다. 알 수 없는 오류가 발생하였습니다.");
+        System.out.println("==개발자용 디버깅 메시지==");
+        e.printStackTrace(System.out);
+        if(e instanceof NetworkClientException networkEx) {
+            networkEx.printErrorInfo();
         }
     }
 }
 class NetworkService {
     public void sendMessage(String data) {
         String address = "http://example.com";
-        NetworkClient client = new NetworkClient(address);
-        client.initError(data);
-        try {
+        try (NetworkClient client = new NetworkClient(address)){
+            client.initError(data);
             client.connect();
             client.send(data);
-        } catch (NetworkClientException e) {
-            e.printErrorInfo();
-        } catch (Exception e) {
-            System.out.println("[알 수 없는 오류] 메시지: " + e.getMessage());
-        } finally {
-            client.disconnect();
         }
     }
 }
-class NetworkClient {
+class NetworkClient implements AutoCloseable {
     private final String address;
     private boolean connectError;
     private boolean sendError;
@@ -66,6 +71,11 @@ class NetworkClient {
         if(data.contains("error2")) {
             sendError = true;
         }
+    }
+
+    @Override
+    public void close() {
+        disconnect();
     }
 }
 
