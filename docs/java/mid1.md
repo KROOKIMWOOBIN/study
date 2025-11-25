@@ -2,26 +2,26 @@
 - Object
   - 최상위 클래스
   - 모든 클래스를 품어줄 수 있다.
-  ```java
-    public class ObjMain {
-        public static void main(String[] args){
-              Object[] objects = {new Dog(), new Cat()};
-              for(Object obj : objects) {
-                  obj.sound();
-              }
-          }
-      }
-      class Dog {
-          public void sound() {
-              System.out.println("멍멍");
-          }
-      }
-      class Cat{
-          public void sound() {
-              System.out.println("야옹");
-          }
-      }
-  ```
+```java
+public class ObjMain {
+    public static void main(String[] args){
+        Object[] objects = {new Dog(), new Cat()};
+        for(Object obj : objects) {
+            obj.sound();
+        }
+    }
+}
+class Dog {
+    public void sound() {
+        System.out.println("멍멍");
+    }
+}
+class Cat{
+    public void sound() {
+        System.out.println("야옹");
+    }
+}
+```
 - 불변 객체 VS 가변 객체
   - String
       - 불변 객체
@@ -29,48 +29,48 @@
           - Tip! 문자열 풀은 힙 영역을 사용한다.
           - Tip! 해시 알고리즘을 사용하여 문자열을 빠르게 찾아간다.
       - 문자열을 더할 때 새로운 인스턴스를 만들어야 한다.
-    ```java
-    public class Main {
-        public static void main(String[] args){
-          String a = "TEST"; 
-          String b = "TEST"; // a랑 동일한 문자열로 힙 영역에 같은 주소를 참조한다.
-          String c = a + b; // 불변은 새로운 인스턴스를 만들어 반환한다. 예시) new StringBuilder().append(a).append(b).toString();
-        }
+```java
+public class Main {
+    public static void main(String[] args){
+        String a = "TEST"; 
+        String b = "TEST"; // a랑 동일한 문자열로 힙 영역에 같은 주소를 참조한다.
+        String c = a + b; // 불변은 새로운 인스턴스를 만들어 반환한다. 예시) new StringBuilder().append(a).append(b).toString();
     }
-    ```
-  - StringBuilder
-    - 가변 객체
-      - 메서드 체이닝 기법 사용
-      - 문자열을 더할 때 새로운 인스턴스를 만들기 싫어 위 클래스를 사용한다.
-      - 사이드 이펙트를 방지하기 위해 마지막에 toString()을 사용해 String(불변) 인스턴스에 값을 담아준다.
-      ```java
-      public class Main {
-        public static void main(String[] args){
-          StringBuilder sb = new StringBuilder();
-          sb.append("Hello ").append("World");
-          String result = sb.toString();
-          System.out.println(result);
-        }
-      }
-      ```
+}
+```
+- StringBuilder
+  - 가변 객체
+    - 메서드 체이닝 기법 사용
+    - 문자열을 더할 때 새로운 인스턴스를 만들기 싫어 위 클래스를 사용한다.
+    - 사이드 이펙트를 방지하기 위해 마지막에 toString()을 사용해 String(불변) 인스턴스에 값을 담아준다.
+```java
+public class Main {
+    public static void main(String[] args){
+        StringBuilder sb = new StringBuilder();
+        sb.append("Hello ").append("World");
+        String result = sb.toString();
+        System.out.println(result);
+    }
+}
+```
 - 메서드 체이닝
   - 메서드에서 자기 참조값을 반환하면 연속하여 메서드를 호출할 수 있다.
-    ```java
-    public class MethodChainingMain {
-      public static void main(String[] args){
-          Address address = new Address();
-          // 자신의 인스턴스를 반환하여 메서드를 연속적으로 사용이 가능하다.
-          System.out.println(address.add(50).add(40));
-      }
+```java
+public class MethodChainingMain {
+    public static void main(String[] args){
+        Address address = new Address();
+        // 자신의 인스턴스를 반환하여 메서드를 연속적으로 사용이 가능하다.
+        System.out.println(address.add(50).add(40));
     }
-    class Address {
-      private int value;
-      public Address add(int value) {
-          this.value += value;
-          return this;
-      }
+}
+class Address {
+    private int value;
+    public Address add(int value) {
+        this.value += value;
+        return this;
     }
-    ```
+}
+```
 - 래퍼 클래스
   - AutoBoxing 지원한다.
   - 기본형보단 속도는 느리다.
