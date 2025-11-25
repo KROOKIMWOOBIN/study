@@ -5,9 +5,77 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/docs/basic.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class7/Process.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/generic/ex1/BoxMain1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/generic/ex1/BoxMain2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/generic/ex1/BoxMain3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/generic/ex1/GenericBox.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/generic/ex1/IntegerBox.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/generic/ex1/ObjectBox.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/generic/ex1/StringBox.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class8/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class8/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/beginner/ex5/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/basic/ex5/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/beginner/ex5/ClassA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/basic/ex5/ClassA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/beginner/ex5/ClassB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/basic/ex5/ClassB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/beginner/ex5/GasCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/basic/ex5/GasCar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/beginner/ex5/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/basic/ex5/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/beginner/ex5/MainCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/basic/ex5/MainCar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/beginner/ex6/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/basic/ex6/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/beginner/ex6/quiz1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/basic/ex6/quiz1/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/beginner/ex7/CarMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/basic/ex7/CarMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/beginner/ex7/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/basic/ex7/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/beginner/ex7/PayMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/basic/ex7/PayMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/beginner/ex7/SendMail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/basic/ex7/SendMail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/beginner/quiz/Quiz1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/basic/quiz/Quiz1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/beginner/quiz/Quiz2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/basic/quiz/Quiz2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/beginner/quiz/Quiz3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/basic/quiz/Quiz3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/beginner/quiz/Quiz4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/basic/quiz/Quiz4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class1/LangMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class1/LangMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class1/PolyMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class1/PolyMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class2/ImmutableMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class2/ImmutableMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class2/MutableMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class2/MutableMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class2/MyDateMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class2/MyDateMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class2/ObjectMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class2/ObjectMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class2/StringBuilderMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class2/StringBuilderMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class2/StringMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class2/StringMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class3/AutoBoxingMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class3/AutoBoxingMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class3/ClassCreateMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class3/ClassCreateMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class3/ClassMetaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class3/ClassMetaMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class3/MethodChainingMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class3/MethodChainingMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class3/WrapperMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class3/WrapperMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class3/WrapperVsPrimitive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class3/WrapperVsPrimitive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class4/ClassGradeEx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class4/ClassGradeEx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class4/EnumEx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class4/EnumEx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class4/EnumMethodEx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class4/EnumMethodEx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class4/Grade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class4/Grade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class4/LottoGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class4/LottoGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class5/InnerOuterMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class5/InnerOuterMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class5/InnerOuterMainEx1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class5/InnerOuterMainEx1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class5/NestedOuterMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class5/NestedOuterMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class5/NestedOuterMainEx1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class5/NestedOuterMainEx1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class5/ShdoingMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class5/ShdoingMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class6/LocalOuterV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class6/LocalOuterV1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class6/LocalOuterV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class6/LocalOuterV2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class6/LocalOuterV3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class6/LocalOuterV3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class6/LocalOuterV4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class6/LocalOuterV4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class6/Printer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class6/Printer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class7/AnonymousOuter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class7/AnonymousOuter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class7/Ex0Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class7/Ex0Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class7/Ex1Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class7/Ex1Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class7/Ex2Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class7/Ex2Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class7/Ex3Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class7/Ex3Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class7/Ex4Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class7/Ex4Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class7/Process.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class8/CheckedExceptionMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class8/CheckedExceptionMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class8/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class8/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/class8/UncheckedExceptionMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/class8/UncheckedExceptionMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/quiz/EqualsQuiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/quiz/EqualsQuiz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/quiz/Inner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/quiz/Inner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/quiz/StringQuiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/quiz/StringQuiz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/test/EnumEx1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/test/EnumEx1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/intermediate/test/EnumEx2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid1/test/EnumEx2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +122,9 @@
     "project.structure.side.proportion": "0.0",
     "애플리케이션.AnonymousOuter.executor": "Run",
     "애플리케이션.AutoBoxingMain.executor": "Run",
+    "애플리케이션.BoxMain1.executor": "Run",
+    "애플리케이션.BoxMain2.executor": "Run",
+    "애플리케이션.BoxMain3.executor": "Run",
     "애플리케이션.CarMain.executor": "Run",
     "애플리케이션.CheckExceptionMain.executor": "Run",
     "애플리케이션.CheckedCatchMain.executor": "Run",
@@ -125,17 +196,18 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="javacore.mid.mid2.generic.ex1" />
       <recent name="javacore.intermediate.class7" />
       <recent name="javacore.intermediate.class6" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.Main">
-    <configuration name="CheckExceptionMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class8.CheckExceptionMain" />
+  <component name="RunManager" selected="애플리케이션.BoxMain3">
+    <configuration name="BoxMain1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.generic.ex1.BoxMain1" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.intermediate.class8.*" />
+          <option name="PATTERN" value="javacore.mid.mid2.generic.ex1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -143,12 +215,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CheckedCatchMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class8.CheckedCatchMain" />
+    <configuration name="BoxMain2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.generic.ex1.BoxMain2" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.intermediate.class8.*" />
+          <option name="PATTERN" value="javacore.mid.mid2.generic.ex1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -156,12 +228,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CheckedExceptionMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.intermediate.class8.CheckedExceptionMain" />
+    <configuration name="BoxMain3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.generic.ex1.BoxMain3" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.intermediate.class8.*" />
+          <option name="PATTERN" value="javacore.mid.mid2.generic.ex1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -196,19 +268,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="애플리케이션.CheckExceptionMain" />
-      <item itemvalue="애플리케이션.CheckedCatchMain" />
-      <item itemvalue="애플리케이션.CheckedExceptionMain" />
+      <item itemvalue="애플리케이션.BoxMain1" />
+      <item itemvalue="애플리케이션.BoxMain2" />
+      <item itemvalue="애플리케이션.BoxMain3" />
       <item itemvalue="애플리케이션.Main" />
       <item itemvalue="애플리케이션.UncheckedExceptionMain" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="애플리케이션.BoxMain3" />
+        <item itemvalue="애플리케이션.BoxMain2" />
+        <item itemvalue="애플리케이션.BoxMain1" />
         <item itemvalue="애플리케이션.Main" />
         <item itemvalue="애플리케이션.UncheckedExceptionMain" />
-        <item itemvalue="애플리케이션.CheckedExceptionMain" />
-        <item itemvalue="애플리케이션.CheckedCatchMain" />
-        <item itemvalue="애플리케이션.CheckExceptionMain" />
       </list>
     </recent_temporary>
   </component>

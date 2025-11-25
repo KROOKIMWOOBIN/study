@@ -1,0 +1,17 @@
+- SOLID
+  - SRP(Single Responsibility Principle)
+    - 단일 책임 원칙
+    - 한 클래스는 하나의 책임만 가져야 한다.
+  - OCP(Open/Closed Principle)
+    - 개방-폐쇄 원칙
+    - 확장에는 열려 있으나, 변경에는 닫혀 있어야 한다.
+  - LSP(Liskov Substitution Principle)
+    - 리스코프 치환 원칙
+    - 인터페이스로 설계한 기능을 위반하지 않아야 한다.
+    - 예시) 자동차를 앞으로 가는 기능을 만들었으면 느리더라도 앞으로 가는 기능이어야 한다.
+  - ISP(Interface segregation Principle)
+    - 인터페이스 분리 원칙
+    - 클라이언트를 위한 범용 인터페이스보다 여러 개의 인터페이스가 낫다.
+  - DIP(Dependency Inversion Principle)
+    - 의존관 역전 원칙
+    - 구현 클래스에 의존하지 않고 인터페이스를 의존해야 한다.
