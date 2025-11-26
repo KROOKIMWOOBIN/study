@@ -82,14 +82,12 @@ public class DriveSalesMain {
     }
 
     enum Price {
-        ADULT("성인", random.nextInt(50, 100 + 1), 0),
-        TEEN("학생", random.nextInt(30, 80 + 1), 0),
-        CHILD("어린이", random.nextInt(10, 50 + 1), 0);
-        private final String name;
+        ADULT(random.nextInt(50, 100 + 1), 0),
+        TEEN(random.nextInt(30, 80 + 1), 0),
+        CHILD(random.nextInt(10, 50 + 1), 0);
         private final int price;
         private int totalUser = 0;
-        Price(String name, int price, int totalUser) {
-            this.name = name;
+        Price(int price, int totalUser) {
             this.price = price;
             this.totalUser = totalUser;
         }
