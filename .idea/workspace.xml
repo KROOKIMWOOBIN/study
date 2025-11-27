@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/etc/DriveSalesMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/generic/test/ex3/DogHospital.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/java/library/generic.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/generic/ex3/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/generic/ex4/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/etc/SetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/etc/SetTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/java/mid2.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/java/mid2.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,6 +125,7 @@
     "애플리케이션.ex20251110.quiz1.Main.executor": "Run",
     "애플리케이션.ex20251111.Main.executor": "Run",
     "애플리케이션.javacore.intermediate.ex8.LangMain.executor": "Run",
+    "애플리케이션.javacore.mid.mid2.generic.ex4.Main.executor": "Run",
     "애플리케이션.kwb.study.ex20251108.Main.executor": "Run",
     "애플리케이션.sys.study.Main.executor": "Run",
     "애플리케이션.system.example.Main.executor": "Run"
@@ -146,39 +149,26 @@
       <recent name="javacore.intermediate.class6" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.etc.DriveSalesMain">
-    <configuration name="AnimalMain2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.generic.ex2.AnimalMain2" />
-      <module name="study" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="javacore.mid.mid2.generic.ex2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ContainerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.generic.test.ex1.ContainerTest" />
-      <module name="study" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="javacore.mid.mid2.generic.test.ex1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="애플리케이션.javacore.mid.mid2.generic.ex4.Main">
     <configuration name="DriveSalesMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javacore.etc.DriveSalesMain" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="javacore.etc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.generic.ex3.Main" />
+      <module name="study" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javacore.mid.mid2.generic.ex3.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -212,20 +202,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="javacore.mid.mid2.generic.ex4.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.generic.ex4.Main" />
+      <module name="study" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javacore.mid.mid2.generic.ex4.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="애플리케이션.AnimalMain2" />
-      <item itemvalue="애플리케이션.ContainerTest" />
       <item itemvalue="애플리케이션.DriveSalesMain" />
+      <item itemvalue="애플리케이션.Main" />
       <item itemvalue="애플리케이션.PairTest" />
       <item itemvalue="애플리케이션.etc.DriveSalesMain" />
+      <item itemvalue="애플리케이션.javacore.mid.mid2.generic.ex4.Main" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="애플리케이션.javacore.mid.mid2.generic.ex4.Main" />
+        <item itemvalue="애플리케이션.Main" />
         <item itemvalue="애플리케이션.etc.DriveSalesMain" />
         <item itemvalue="애플리케이션.DriveSalesMain" />
         <item itemvalue="애플리케이션.PairTest" />
-        <item itemvalue="애플리케이션.ContainerTest" />
-        <item itemvalue="애플리케이션.AnimalMain2" />
       </list>
     </recent_temporary>
   </component>
