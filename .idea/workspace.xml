@@ -5,14 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/docs/java/library/다형성.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/java/library/추상화.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/java/library/캡슐화.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/etc/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/java/library/Enum.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/java/library/Object.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/java/library/메서드체이닝.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/java/library/불변객체VS가변객체.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/java/basic.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/java/basic.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/java/library/generic.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/java/library/제네릭.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/java/mid2.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/java/mid2.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/java/library/다형성.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/java/library/다형성.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/java/library/캡슐화.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/java/library/캡슐화.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/java/mid1.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/java/mid1.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/etc/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/etc/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
