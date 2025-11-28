@@ -1,6 +1,6 @@
 package javacore.mid.mid2.generic.ex4;
 
-public class Main {
+public class Ex1 {
     public static void main(String[] args) {
         Integer i = 10;
         Object object = GenericMethod.objMethod(i);

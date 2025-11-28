@@ -135,3 +135,81 @@ class Box<T> {
     <T> T instanceMethod(T t) {} // 가능
 }
 ```
+- Generic Method 가 Generic Type 보다 더 높은 우선순위를 가진다.
+```java
+public class Ex3 {
+    public static void main(String[] args) {
+        Dog dog = new Dog("멍멍이", 100);
+        Cat cat = new Cat("냐옹이", 50);
+        ComplexBox<Dog> hospital = new ComplexBox<>();
+        hospital.set(dog);
+        Cat returnCat = hospital.printAndReturn(cat);
+        System.out.println("returnCat = " + returnCat);
+    }
+}
+class ComplexBox<T extends Animal> {
+    private T animal;
+    public void set(T animal) {
+        this.animal = animal;
+    }
+    public <Z> Z printAndReturn(Z z) {
+        System.out.println("animal.className: " + animal.getClass().getName());
+        System.out.println("z.className: " + z.getClass());
+        return z;
+    }
+}
+```
+- wildcard
+  - Wildcard 는 Generic Type, Generic Method 를 선언하는 것이 아니다. Wildcard 는 이미 만들어진 Generic Type 을 활용할 때 사용한다.
+- 비제한 wildcard
+  - ?만 사용해서 제한 없이 모든 타입을 다 받을 수 있는 와일드카드를 비제한 와일드카드라 한다.
+```java
+class Wildcard {
+    /*
+            Box<Dog> dogBox를 전달한다. 타입 추론의 의해 타입 T가 Dog가 된다.
+     */
+    static <T> void printGeneric(Box<T> box) {
+      System.out.println("T = " + box.get());
+    }
+    /*
+            Box<Dog> dogBox를 전달한다. 와일드카드는 ?는 모든 타입을 받을 수 있다.
+     */
+    static void printWildcard(Box<?> box) {
+      System.out.println("? = " + box.get());
+    }
+}
+```
+- 상한 wildcard
+  - 자기 자신 이하만 사용할 수 있다.
+```java
+class Wildcard {
+    static void printWildcard(Box<? extends Animal> box) {
+        Animal animal = box.get();
+        System.out.println("이름 = " + animal.getName());
+    }
+}
+```
+- 하한 wildcard
+  - 자기 자신 이상만 사용할 수 있다.
+```java
+class Wildcard {
+    static void printWildcard(Box<? super Animal> box) {
+        Animal animal = box.get();
+      System.out.println("이름 = " + animal.getName());
+    }
+}
+```
+- Type eraser
+  - 지우개라는 뜻이다.
+  - 자바의 제네 타입은 컴파일 시점에만 존재하고, 런타임 시에는 제네릭 정보가 지워지는데, 이것을 타입 이레이저라 한다.
+  - 다음과 같이 타입 이레이저 때문에 사용할 수 없는 코드이다.
+```java
+class Main<T> {
+    public T returnT(Object param) {
+        return param instanceof T;
+    }
+    public T newT() {
+        return new T();
+    }
+}
+```

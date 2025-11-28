@@ -1,40 +1,30 @@
-package etc;
+package javacore.etc;
 
 import java.util.Random;
 
 /*
-운행 매출 확인
+LV1. 운행 매출 확인
+기점에서 시작해서 종점까지의 정류장 수 stations, 승객별 요금표 price와 정류장 별 탑승 승객 passengers이 주어질 때,
+종점까지 운행을 마친 후 승객을 통해 벌어들인 운행 매출을 리턴하는 함수를 작성하시오.
 
-Lv1
-정류장 수
-승객 요금표 - 어른, 청소년, 아이
-정류장 별 탑승 승객
-탑승 후 하차 정류장에 따른 추가 요금 - 탑승 후 3정거장 뒤 부터 3정거장 당 100원 추가
-정류장 별 탑승, 하차 승객 배열
+조건
+- 0 <= 탑승 인원 <= 5
+- 0 <= 하차 인원 <= 3 AND 하차 인원 <= 탑승 인원
+- 탑승 후 3정거장 뒤 부터 3정거장 당 100원 추가
 
 param
 - int[] stations
 - int[] price
 - int[][][] passengers
 
-기점에서 시작해서 종점까지의 정류장 수 stations, 승객별 요금표 price와 정류장 별 탑승 승객 passengers이 주어질 때,
-종점까지 운행을 마친 후 승객을 통해 벌어들인 운행 매출을 리턴하는 함수를 작성하시오.
-
 정류장 수
- - 3 <= stations <= 50
-
+3 <= stations <= 50
+승객
+passengers[정류장][탑승인원][하차인원]
 승객 요금표
-- 배열 순서대로 어른, 청소년, 아이 요금
-- 50 <= price[0] <= 100
-  30 <= price[1] <= 80
-  10 <= price[2] <= 50
-
-정류장 별 탑승 승객
-- 3 <= passengers[i] == stations의 수 <= 50
-- 0 <= passengers[i][0] == passengers[i][1] == passengers[i][2] <= 5
-- 최소 탑승 성인 승객 수 <= passengers[i][j][0] <= 3
-- 최소 탑승 청소년 승객 수 <= passengers[i][j][0] <= 3
-- 최소 탑승 아이 승객 수 <= passengers[i][j][0] <= 3
+50 <= price[0] <= 100 : 어른
+30 <= price[1] <= 80 : 청소년
+10 <= price[2] <= 50 : 아이
  */
 public class DriveSalesMain {
     private final static Random random = new Random();

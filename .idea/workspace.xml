@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/docs/java/library/generic.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/generic/ex3/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/generic/ex4/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/generic/ex4/Ex2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/generic/ex4/Ex3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/generic/ex5/Box.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/generic/ex5/Ex1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/generic/ex5/WildcardEx.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/java/mid2.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/java/mid2.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/java/library/generic.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/java/library/generic.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/etc/DriveSalesMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/etc/DriveSalesMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/etc/SetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/etc/SetTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/generic/ex4/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/generic/ex4/Ex1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,13 +153,39 @@
       <recent name="javacore.intermediate.class6" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.javacore.mid.mid2.generic.ex4.Main">
-    <configuration name="DriveSalesMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.etc.DriveSalesMain" />
+  <component name="RunManager" selected="애플리케이션.Ex1">
+    <configuration name="Ex1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.generic.ex5.Ex1" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.etc.*" />
+          <option name="PATTERN" value="javacore.mid.mid2.generic.ex5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Ex2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.generic.ex4.Ex2" />
+      <module name="study" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javacore.mid.mid2.generic.ex4.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Ex3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.generic.ex4.Ex3" />
+      <module name="study" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javacore.mid.mid2.generic.ex4.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -169,32 +199,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="javacore.mid.mid2.generic.ex3.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PairTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.generic.test.ex2.PairTest" />
-      <module name="study" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="javacore.mid.mid2.generic.test.ex2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="etc.DriveSalesMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="etc.DriveSalesMain" />
-      <module name="study" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="etc.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -216,19 +220,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="애플리케이션.DriveSalesMain" />
+      <item itemvalue="애플리케이션.Ex1" />
+      <item itemvalue="애플리케이션.Ex2" />
+      <item itemvalue="애플리케이션.Ex3" />
       <item itemvalue="애플리케이션.Main" />
-      <item itemvalue="애플리케이션.PairTest" />
-      <item itemvalue="애플리케이션.etc.DriveSalesMain" />
       <item itemvalue="애플리케이션.javacore.mid.mid2.generic.ex4.Main" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="애플리케이션.Ex1" />
+        <item itemvalue="애플리케이션.Ex3" />
+        <item itemvalue="애플리케이션.Ex2" />
         <item itemvalue="애플리케이션.javacore.mid.mid2.generic.ex4.Main" />
         <item itemvalue="애플리케이션.Main" />
-        <item itemvalue="애플리케이션.etc.DriveSalesMain" />
-        <item itemvalue="애플리케이션.DriveSalesMain" />
-        <item itemvalue="애플리케이션.PairTest" />
       </list>
     </recent_temporary>
   </component>
