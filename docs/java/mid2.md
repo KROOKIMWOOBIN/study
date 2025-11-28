@@ -1,1 +1,1 @@
-- [Generic](./library/generic.md)
+- [Generic](./library/제네릭.md)
