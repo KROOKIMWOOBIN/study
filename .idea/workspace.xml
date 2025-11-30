@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/docs/java/library/LinkedList.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/link/Node.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/link/NodeMain1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/link/NodeMain2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/link/NodeMain3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/link/MyLinkedListV1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/link/MyLinkedListV1Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/java/mid2.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/java/mid2.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/java/library/LinkedList.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/java/library/LinkedList.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/array/MyArrayListV1Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/array/MyArrayListV1Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +107,7 @@
     "애플리케이션.MyArrayListV3Main.executor": "Run",
     "애플리케이션.MyArrayListV4Main.executor": "Run",
     "애플리케이션.MyDateMain.executor": "Run",
+    "애플리케이션.MyLinkedListV1Main.executor": "Run",
     "애플리케이션.NodeMain1.executor": "Run",
     "애플리케이션.NodeMain2.executor": "Run",
     "애플리케이션.NodeMain3.executor": "Run",
@@ -163,9 +162,9 @@
       <recent name="javacore.intermediate.class6" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.NodeMain3">
-    <configuration name="MyArrayListV3Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.array.MyArrayListV3Main" />
+  <component name="RunManager" selected="애플리케이션.MyArrayListV1Main">
+    <configuration name="MyArrayListV1Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.array.MyArrayListV1Main" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
@@ -177,12 +176,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MyArrayListV4Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.array.MyArrayListV4Main" />
+    <configuration name="MyLinkedListV1Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.link.MyLinkedListV1Main" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.mid.mid2.collection.array.*" />
+          <option name="PATTERN" value="javacore.mid.mid2.collection.link.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -230,19 +229,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="애플리케이션.MyArrayListV3Main" />
-      <item itemvalue="애플리케이션.MyArrayListV4Main" />
+      <item itemvalue="애플리케이션.MyArrayListV1Main" />
+      <item itemvalue="애플리케이션.MyLinkedListV1Main" />
       <item itemvalue="애플리케이션.NodeMain1" />
       <item itemvalue="애플리케이션.NodeMain2" />
       <item itemvalue="애플리케이션.NodeMain3" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="애플리케이션.MyArrayListV1Main" />
+        <item itemvalue="애플리케이션.MyLinkedListV1Main" />
         <item itemvalue="애플리케이션.NodeMain3" />
         <item itemvalue="애플리케이션.NodeMain2" />
         <item itemvalue="애플리케이션.NodeMain1" />
-        <item itemvalue="애플리케이션.MyArrayListV4Main" />
-        <item itemvalue="애플리케이션.MyArrayListV3Main" />
       </list>
     </recent_temporary>
   </component>
