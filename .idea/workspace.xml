@@ -5,10 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/docs/java/library/ArrayList.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/array/ArrayMain1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/array/ArrayMain2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/array/MyArrayListV1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/array/MyArrayListV1Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/array/MyArrayListV2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/array/MyArrayListV2Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/array/MyArrayListV3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/array/MyArrayListV3Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/array/MyArrayListV4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/array/MyArrayListV4Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/java/mid2.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/java/mid2.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/java/library/ArrayList.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/java/library/ArrayList.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/etc/DriveSalesMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/etc/DriveSalesMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +67,7 @@
     "애플리케이션.AnimalMain1.executor": "Run",
     "애플리케이션.AnimalMain2.executor": "Run",
     "애플리케이션.AnonymousOuter.executor": "Run",
+    "애플리케이션.ArrayMain2.executor": "Run",
     "애플리케이션.AutoBoxingMain.executor": "Run",
     "애플리케이션.BoxMain1.executor": "Run",
     "애플리케이션.BoxMain2.executor": "Run",
@@ -100,6 +109,10 @@
     "애플리케이션.MainCar.executor": "Run",
     "애플리케이션.MethodChainingMain.executor": "Run",
     "애플리케이션.MutableMain.executor": "Run",
+    "애플리케이션.MyArrayListV1Main.executor": "Run",
+    "애플리케이션.MyArrayListV2Main.executor": "Run",
+    "애플리케이션.MyArrayListV3Main.executor": "Run",
+    "애플리케이션.MyArrayListV4Main.executor": "Run",
     "애플리케이션.MyDateMain.executor": "Run",
     "애플리케이션.ObjectMain.executor": "Run",
     "애플리케이션.PairTest.executor": "Run",
@@ -145,18 +158,19 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="javacore.mid.mid2.collection.array" />
       <recent name="javacore.mid.mid2.generic.ex1" />
       <recent name="javacore.intermediate.class7" />
       <recent name="javacore.intermediate.class6" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.javacore.mid.mid2.collection.array.Ex1">
-    <configuration name="Ex1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.generic.ex5.Ex1" />
+  <component name="RunManager" selected="애플리케이션.MyArrayListV4Main">
+    <configuration name="ArrayMain2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.array.ArrayMain2" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.mid.mid2.generic.ex5.*" />
+          <option name="PATTERN" value="javacore.mid.mid2.collection.array.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -164,12 +178,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Ex2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.generic.ex4.Ex2" />
+    <configuration name="MyArrayListV1Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.array.MyArrayListV1Main" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.mid.mid2.generic.ex4.*" />
+          <option name="PATTERN" value="javacore.mid.mid2.collection.array.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -177,12 +191,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Ex3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.generic.ex4.Ex3" />
+    <configuration name="MyArrayListV2Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.array.MyArrayListV2Main" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.mid.mid2.generic.ex4.*" />
+          <option name="PATTERN" value="javacore.mid.mid2.collection.array.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -190,12 +204,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="javacore.etc.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.etc.Main" />
+    <configuration name="MyArrayListV3Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.array.MyArrayListV3Main" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.etc.*" />
+          <option name="PATTERN" value="javacore.mid.mid2.collection.array.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -203,9 +217,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="javacore.mid.mid2.collection.array.Ex1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.array.Ex1" />
-      <module name="stockai" />
+    <configuration name="MyArrayListV4Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.array.MyArrayListV4Main" />
+      <module name="study" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="javacore.mid.mid2.collection.array.*" />
@@ -217,19 +231,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="애플리케이션.javacore.mid.mid2.collection.array.Ex1" />
-      <item itemvalue="애플리케이션.Ex1" />
-      <item itemvalue="애플리케이션.Ex2" />
-      <item itemvalue="애플리케이션.Ex3" />
-      <item itemvalue="애플리케이션.javacore.etc.Main" />
+      <item itemvalue="애플리케이션.ArrayMain2" />
+      <item itemvalue="애플리케이션.MyArrayListV1Main" />
+      <item itemvalue="애플리케이션.MyArrayListV2Main" />
+      <item itemvalue="애플리케이션.MyArrayListV3Main" />
+      <item itemvalue="애플리케이션.MyArrayListV4Main" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="애플리케이션.javacore.mid.mid2.collection.array.Ex1" />
-        <item itemvalue="애플리케이션.javacore.etc.Main" />
-        <item itemvalue="애플리케이션.Ex1" />
-        <item itemvalue="애플리케이션.Ex3" />
-        <item itemvalue="애플리케이션.Ex2" />
+        <item itemvalue="애플리케이션.MyArrayListV4Main" />
+        <item itemvalue="애플리케이션.MyArrayListV3Main" />
+        <item itemvalue="애플리케이션.MyArrayListV2Main" />
+        <item itemvalue="애플리케이션.MyArrayListV1Main" />
+        <item itemvalue="애플리케이션.ArrayMain2" />
       </list>
     </recent_temporary>
   </component>

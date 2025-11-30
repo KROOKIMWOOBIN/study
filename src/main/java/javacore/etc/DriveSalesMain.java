@@ -9,11 +9,11 @@ LV1. 운행 매출 확인
 
 조건
 - 0 <= 탑승 인원 <= 5
-- 0 <= 하차 인원 <= 3 AND 하차 인원 <= 탑승 인원
+- 0 <= 하차 인원 <= 3
 - 탑승 후 3정거장 뒤 부터 3정거장 당 100원 추가
 
 param
-- int[] stations
+- int stations
 - int[] price
 - int[][][] passengers
 
@@ -25,64 +25,41 @@ passengers[정류장][탑승인원][하차인원]
 50 <= price[0] <= 100 : 어른
 30 <= price[1] <= 80 : 청소년
 10 <= price[2] <= 50 : 아이
+
+설계 방식: 같은 역에서 타고 내린 후, 더 이상 변화가 없다는 조건부로 아래에 코드 작성 만약 매 번 같은 역에서 탄 사람이 다른 역에서 내릴 수 있다고 전제하면 또 다른 파라미터 필요
  */
 public class DriveSalesMain {
+
     private final static Random random = new Random();
-    private final static int stations = random.nextInt(3, 50 + 1);
-    private final static int prices = Price.values().length;
-    private final static int[][][] passengers = new int[stations][prices][1];
+    private static int stations = random.nextInt(3, 51);
+    private static int[] price = {random.nextInt(50, 101), random.nextInt(30, 81), random.nextInt(10, 51)};
+    private static int[][][] passengers = new int[stations][price.length][2];
 
     public static void main(String[] args) {
+        System.out.println("전체 정거장 수: " + stations);
+        System.out.println("[요금제]\n성인: " + price[0] + ", 학생: " + price[1] + ", 어린이: " + price[2]);
         setDrive();
-        System.out.println("요금표");
-        System.out.println("성인: " + Price.ADULT.price + ", 학생: " + Price.TEEN.price + ", 어린이: " + Price.CHILD.price + "\n");
-        System.out.println("인원수");
-        System.out.println("성인: " + Price.ADULT.totalUser + ", 학생: " + Price.TEEN.totalUser + ", 어린이: " + Price.CHILD.totalUser + "\n");
-        System.out.println("전체 운행 매출: " + getDriveSalesTotal());
+        System.out.println("[전체 금액]\n" + getDriveSalesTotal());
     }
 
     private static void setDrive() {
-        for(int i = 0; i < Price.values().length; i++) {
-            passengers[0][i][0] = random.nextInt(0, 3 + 1);
-        }
-        for(int i = 0; i < stations; i++) {
-            for(int j = 0; j < prices; j++) {
-                passengers[i][j][0] = random.nextInt(0, 5 + 1);
-                Price.values()[j].addTotalUser(passengers[i][j][0]);
+        for (int i = 0; i < stations; i++) {
+            for (int j = 0; j < price.length; j++) {
+                passengers[i][j][0] = random.nextInt(0, 6);
+                passengers[i][j][1] = random.nextInt(0, 4);
             }
-
         }
     }
 
     private static int getDriveSalesTotal() {
-        int totalPrice = 0;
-        for(int i = 0; i < stations; i++) {
-            for(int j = 0; j < prices; j++) {
-                int users = passengers[i][j][0];
-                int price = Price.values()[j].price;
-                int distance = (stations - 1) - i;
-                int extra = 0;
-                if (distance > 3) {
-                    extra = ((distance - 3) / 3) * 100;
-                }
-                totalPrice += (users * price) + (users * extra);
+        int total = 0;
+        for (int i = 0; i < stations; i++) {
+            for (int j = 0; j < price.length; j++) {
+                int users = passengers[i][j][0] - passengers[i][j][1];
+                total += (users * price[j]) + (users * (100 * (i/3)));
             }
         }
-        return totalPrice;
+        return total;
     }
 
-    enum Price {
-        ADULT(random.nextInt(50, 100 + 1), 0),
-        TEEN(random.nextInt(30, 80 + 1), 0),
-        CHILD(random.nextInt(10, 50 + 1), 0);
-        private final int price;
-        private int totalUser = 0;
-        Price(int price, int totalUser) {
-            this.price = price;
-            this.totalUser = totalUser;
-        }
-        private void addTotalUser(int totalUser) {
-            this.totalUser += totalUser;
-        }
-    }
 }
