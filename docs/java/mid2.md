@@ -1,2 +1,3 @@
-- [Generic](./library/제네릭.md)
-- [ArrayList](./library/ArrayList.md)
+- [제네릭](./library/Generic.md)
+- [배열리스트](./library/ArrayList.md)
+- [연결리스트](./library/LinkedList.md)
