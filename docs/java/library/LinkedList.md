@@ -15,6 +15,17 @@ void add(Object e);
 - 마지막에 데이터를 추가한다.
 - O(n)
   - 마지막 노드를 찾는데 O(n)이 소요된다. 마지막 노드에 새로운 노드를 추가하는데 O(1)이 걸린다. 따라서 O(n)이다.
+```java
+void add(int index, Object e);
+```
+- 첫 번째 항목에 추가 O(1)
+- 중간 항목에 추가 O(n)
+#### 삭제
+```java
+Object remove(int index);
+```
+- 첫 번째 항목에 삭제 O(1)
+- 중간 항목에 삭제 O(n)
 #### 변경
 ```java
 Object set(int index, Object element);

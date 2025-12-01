@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="" />
+    <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/docs/java/library/Array.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/java/library/O.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/link/MyLinkedListV2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/link/MyLinkedListV2Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/link/MyLinkedListV3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/link/MyLinkedListV3Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/list/BatchProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/list/BatchProcessorMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/list/MyArrayList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/list/MyLinkedList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/list/MyList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/java/library/ArrayList.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/java/library/ArrayList.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/java/library/LinkedList.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/java/library/LinkedList.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/java/mid2.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/java/mid2.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,8 +32,8 @@
         <option value="FxmlFile" />
         <option value="package-info" />
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Kotlin Class" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -56,6 +72,7 @@
     "애플리케이션.AnonymousOuter.executor": "Run",
     "애플리케이션.ArrayMain2.executor": "Run",
     "애플리케이션.AutoBoxingMain.executor": "Run",
+    "애플리케이션.BatchProcessorMain.executor": "Run",
     "애플리케이션.BoxMain1.executor": "Run",
     "애플리케이션.BoxMain2.executor": "Run",
     "애플리케이션.BoxMain3.executor": "Run",
@@ -102,6 +119,8 @@
     "애플리케이션.MyArrayListV4Main.executor": "Run",
     "애플리케이션.MyDateMain.executor": "Run",
     "애플리케이션.MyLinkedListV1Main.executor": "Run",
+    "애플리케이션.MyLinkedListV2Main.executor": "Run",
+    "애플리케이션.MyLinkedListV3Main.executor": "Run",
     "애플리케이션.NodeMain1.executor": "Run",
     "애플리케이션.NodeMain2.executor": "Run",
     "애플리케이션.NodeMain3.executor": "Run",
@@ -149,14 +168,27 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="javacore.mid.mid2.collection.list" />
       <recent name="javacore.mid.mid2.collection.link" />
       <recent name="javacore.mid.mid2.collection.array" />
       <recent name="javacore.mid.mid2.generic.ex1" />
       <recent name="javacore.intermediate.class7" />
-      <recent name="javacore.intermediate.class6" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.MyArrayListV1Main">
+  <component name="RunManager" selected="애플리케이션.BatchProcessorMain">
+    <configuration name="BatchProcessorMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.list.BatchProcessorMain" />
+      <module name="study" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javacore.mid.mid2.collection.list.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MyArrayListV1Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.array.MyArrayListV1Main" />
       <module name="study" />
@@ -183,8 +215,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NodeMain1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.link.NodeMain1" />
+    <configuration name="MyLinkedListV2Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.link.MyLinkedListV2Main" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
@@ -196,21 +228,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NodeMain2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.link.NodeMain2" />
-      <module name="study" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="javacore.mid.mid2.collection.link.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NodeMain3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.link.NodeMain3" />
+    <configuration name="MyLinkedListV3Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.link.MyLinkedListV3Main" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
@@ -223,19 +242,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="애플리케이션.BatchProcessorMain" />
       <item itemvalue="애플리케이션.MyArrayListV1Main" />
       <item itemvalue="애플리케이션.MyLinkedListV1Main" />
-      <item itemvalue="애플리케이션.NodeMain1" />
-      <item itemvalue="애플리케이션.NodeMain2" />
-      <item itemvalue="애플리케이션.NodeMain3" />
+      <item itemvalue="애플리케이션.MyLinkedListV2Main" />
+      <item itemvalue="애플리케이션.MyLinkedListV3Main" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="애플리케이션.BatchProcessorMain" />
+        <item itemvalue="애플리케이션.MyLinkedListV3Main" />
+        <item itemvalue="애플리케이션.MyLinkedListV2Main" />
         <item itemvalue="애플리케이션.MyArrayListV1Main" />
         <item itemvalue="애플리케이션.MyLinkedListV1Main" />
-        <item itemvalue="애플리케이션.NodeMain3" />
-        <item itemvalue="애플리케이션.NodeMain2" />
-        <item itemvalue="애플리케이션.NodeMain1" />
       </list>
     </recent_temporary>
   </component>
