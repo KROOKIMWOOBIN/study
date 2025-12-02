@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/list/MyListPerformanceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/java/library/List.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/list/JavaListPerformanceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/java/mid2.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/java/mid2.md" afterDir="false" />
     </list>
@@ -91,6 +92,7 @@
     "애플리케이션.ImmutableMain.executor": "Run",
     "애플리케이션.Inner.executor": "Run",
     "애플리케이션.InnerOuterMainEx1.executor": "Run",
+    "애플리케이션.JavaListPerformanceTest.executor": "Run",
     "애플리케이션.LangMain.executor": "Run",
     "애플리케이션.LocalOuterV1.executor": "Run",
     "애플리케이션.LocalOuterV3.executor": "Run",
@@ -164,7 +166,7 @@
       <recent name="javacore.intermediate.class7" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.MyListPerformanceTest">
+  <component name="RunManager" selected="애플리케이션.JavaListPerformanceTest">
     <configuration name="BatchProcessorMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.list.BatchProcessorMain" />
       <module name="study" />
@@ -178,12 +180,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MyArrayListV1Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.array.MyArrayListV1Main" />
+    <configuration name="JavaListPerformanceTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.list.JavaListPerformanceTest" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.mid.mid2.collection.array.*" />
+          <option name="PATTERN" value="javacore.mid.mid2.collection.list.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -232,18 +234,18 @@
     </configuration>
     <list>
       <item itemvalue="애플리케이션.BatchProcessorMain" />
-      <item itemvalue="애플리케이션.MyArrayListV1Main" />
+      <item itemvalue="애플리케이션.JavaListPerformanceTest" />
       <item itemvalue="애플리케이션.MyLinkedListV2Main" />
       <item itemvalue="애플리케이션.MyLinkedListV3Main" />
       <item itemvalue="애플리케이션.MyListPerformanceTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="애플리케이션.JavaListPerformanceTest" />
         <item itemvalue="애플리케이션.MyListPerformanceTest" />
         <item itemvalue="애플리케이션.BatchProcessorMain" />
         <item itemvalue="애플리케이션.MyLinkedListV3Main" />
         <item itemvalue="애플리케이션.MyLinkedListV2Main" />
-        <item itemvalue="애플리케이션.MyArrayListV1Main" />
       </list>
     </recent_temporary>
   </component>
