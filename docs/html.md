@@ -131,6 +131,7 @@ https://www.google.com:443/search?q=hello&hl=ko
 
 #### 캐시 무효화
 - no-cache, no-store, must-revalidate
+  - 항상 검증하며, 저장도 금지하고, 만료된 캐시는 재사용 금지
 - Pragma: no-cache
   - HTTP 1.0 하위 호환
 
