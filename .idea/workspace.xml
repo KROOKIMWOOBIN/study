@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/docs/java/library/Hash.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/set/HashStart1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/set/HashStart2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/set/HashStart3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/set/HashStart4.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/set/HashStart5.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/set/MyHashSetV0.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/set/MyHashSetV0Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/html/html.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/html.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/html.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/html.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/java/library/Hash.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/java/library/HashSet.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/java/mid2.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/java/mid2.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
