@@ -1,4 +1,8 @@
 ## 해시 알고리즘
+### [Hash Code]와 [Equals]를 재정의하는 이유
+1. Hash Code를 재정의 하지 않으면 Object에 Hash Code를 사용하는데 이 때 값은 주소 기반이며 오버라이딩 해야지 필드 기반으로 Hash Code를 구한다.
+2. Equals를 재정의하지 않으먼 동일성만 검사한다. 그래서 필드 값이 같아도 다른 인스턴스면 false가 나온다.
+
 ### 인덱스 사용
 자기 자신의 값을 인덱스로 사용하여 검색 속도가 O(1)이 된다.
 ```java
@@ -18,7 +22,7 @@ public class Main {
     }
 }
 ```
-### 해시 인덱스
+### 해시 인덱스(Hash Index)
 원래의 값을 계산한 인덱스를 해시 인덱스라 한다.
 ```java
 public class Main {
@@ -42,8 +46,8 @@ public class Main {
         array[hashIndex(value)] = value;
     }
     
-    private static int hashIndex(int value) {
-        return value % CAPACITY;
+    private static int hashIndex(Object value) {
+        return Math.abs(value.hashCode()) % CAPACITY;
     }
 }
 ```
@@ -85,8 +89,47 @@ public class Main {
         LinkedList<Integer> bucket = buckets[hashIndex];
         return bucket.contains(searchValue);
     }
-    private int hashIndex(int value) {
-        return value % CAPACITY;
+    private int hashIndex(Object value) {
+        return Math.abs(value.hashCode()) % CAPACITY;
     }
 }
 ```
+### 해시 코드(Hash Code)
+```java
+public class Main {
+    static final int CAPACITY = 10;
+    public static void main(String[] args) {
+        char charA = 'A';
+        char charB = 'B';
+        System.out.println("charA = " + (int)charA);
+        System.out.println("charB = " + (int)charB);
+
+        System.out.println();
+        System.out.println("hashCode(\"A\") = " + hashCode("A"));
+        System.out.println("hashCode(\"B\") = " + hashCode("B"));
+        System.out.println("hashCode(\"AB\") = " + hashCode("AB"));
+
+        System.out.println();
+        System.out.println("hashIndex(hashCode(\"A\")) = " + hashIndex(hashCode("A")));
+        System.out.println("hashIndex(hashCode(\"B\")) = " + hashIndex(hashCode("B")));
+        System.out.println("hashIndex(hashCode(\"AB\")) = " + hashIndex(hashCode("AB")));
+    }
+
+    static int hashCode(String str) {
+        char[] charArrays = str.toCharArray();
+        int sum = 0;
+        for (char c : charArrays) {
+            sum += c;
+        }
+        return sum;
+    }
+
+    static int hashIndex(Object value) {
+        return Math.abs(value.hashCode()) % CAPACITY;
+    }
+}
+```
+### 해시 함수(Hash Function)
+- 해시 함수는 임의의 길이의 데이터를 입력으로 받아, 고정된 길이의 해시값(해시 코드)를 출력하는 함수이다.
+  - 여기서 의미하는 고정된 길이는 저장 공간의 크기를 뜻한다. 예를 들어서 int형 1, 100은 둘  4Byte를 차지하는 고정된 길이를 뜻한다.
+- 같은 데이터를 입력하면 항상 같은 해시 코드가 출력된다.

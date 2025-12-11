@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="" />
+    <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/set/JavaHashCodeMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/set/MyHashSetV2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/set/MyHashSetV2Main1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/set/MyHashSetV2Main2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/set/StringHashMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/set/member/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/java/library/Hash.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/java/library/Hash.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,6 +101,7 @@
     "애플리케이션.ImmutableMain.executor": "Run",
     "애플리케이션.Inner.executor": "Run",
     "애플리케이션.InnerOuterMainEx1.executor": "Run",
+    "애플리케이션.JavaHashCodeMain.executor": "Run",
     "애플리케이션.JavaListPerformanceTest.executor": "Run",
     "애플리케이션.LangMain.executor": "Run",
     "애플리케이션.LocalOuterV1.executor": "Run",
@@ -110,6 +120,8 @@
     "애플리케이션.MyDateMain.executor": "Run",
     "애플리케이션.MyHashSetV0Main.executor": "Run",
     "애플리케이션.MyHashSetV1Main.executor": "Run",
+    "애플리케이션.MyHashSetV2Main1.executor": "Run",
+    "애플리케이션.MyHashSetV2Main2.executor": "Run",
     "애플리케이션.MyLinkedListV1Main.executor": "Run",
     "애플리케이션.MyLinkedListV2Main.executor": "Run",
     "애플리케이션.MyLinkedListV3Main.executor": "Run",
@@ -130,6 +142,7 @@
     "애플리케이션.SendMail.executor": "Run",
     "애플리케이션.ShdoingMain.executor": "Run",
     "애플리케이션.StringBuilderMain.executor": "Run",
+    "애플리케이션.StringHashMain.executor": "Run",
     "애플리케이션.StringMain.executor": "Run",
     "애플리케이션.StringQuiz.executor": "Run",
     "애플리케이션.UncheckedExceptionMain.executor": "Run",
@@ -169,48 +182,9 @@
       <recent name="javacore.mid.mid2.generic.ex1" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.MyHashSetV1Main">
-    <configuration name="HashStart2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.set.HashStart2" />
-      <module name="study" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="javacore.mid.mid2.collection.set.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HashStart3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.set.HashStart3" />
-      <module name="study" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="javacore.mid.mid2.collection.set.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HashStart4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.set.HashStart4" />
-      <module name="study" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="javacore.mid.mid2.collection.set.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HashStart5" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.set.HashStart5" />
+  <component name="RunManager" selected="애플리케이션.MyHashSetV2Main2">
+    <configuration name="JavaHashCodeMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.set.JavaHashCodeMain" />
       <module name="study" />
       <extension name="coverage">
         <pattern>
@@ -235,20 +209,59 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MyHashSetV2Main1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.set.MyHashSetV2Main1" />
+      <module name="study" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javacore.mid.mid2.collection.set.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyHashSetV2Main2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.set.MyHashSetV2Main2" />
+      <module name="study" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javacore.mid.mid2.collection.set.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StringHashMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.set.StringHashMain" />
+      <module name="study" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javacore.mid.mid2.collection.set.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
+      <item itemvalue="애플리케이션.JavaHashCodeMain" />
+      <item itemvalue="애플리케이션.MyHashSetV2Main1" />
+      <item itemvalue="애플리케이션.MyHashSetV2Main2" />
+      <item itemvalue="애플리케이션.StringHashMain" />
       <item itemvalue="애플리케이션.MyHashSetV1Main" />
-      <item itemvalue="애플리케이션.HashStart2" />
-      <item itemvalue="애플리케이션.HashStart3" />
-      <item itemvalue="애플리케이션.HashStart4" />
-      <item itemvalue="애플리케이션.HashStart5" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="애플리케이션.MyHashSetV2Main2" />
+        <item itemvalue="애플리케이션.MyHashSetV2Main1" />
+        <item itemvalue="애플리케이션.JavaHashCodeMain" />
+        <item itemvalue="애플리케이션.StringHashMain" />
         <item itemvalue="애플리케이션.MyHashSetV1Main" />
-        <item itemvalue="애플리케이션.HashStart5" />
-        <item itemvalue="애플리케이션.HashStart4" />
-        <item itemvalue="애플리케이션.HashStart3" />
-        <item itemvalue="애플리케이션.HashStart2" />
       </list>
     </recent_temporary>
   </component>
