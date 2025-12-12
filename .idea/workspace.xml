@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/java/library/Hash.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/java/library/Hash.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/set/member/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/set/member/Member.java" afterDir="false" />
-    </list>
+    <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -177,23 +173,10 @@
       <recent name="javacore.mid.mid2.generic.ex1" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.MyHashSetV2Main2">
+  <component name="RunManager" selected="애플리케이션.MyHashV3Main">
     <configuration name="JavaHashCodeMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.set.JavaHashCodeMain" />
       <module name="study" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="javacore.mid.mid2.collection.set.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MyHashSetV1Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.set.MyHashSetV1Main" />
-      <module name="stockai" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="javacore.mid.mid2.collection.set.*" />
@@ -230,6 +213,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MyHashV3Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.set.MyHashV3Main" />
+      <module name="study" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javacore.mid.mid2.collection.set.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="StringHashMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.set.StringHashMain" />
       <module name="study" />
@@ -247,16 +243,16 @@
       <item itemvalue="애플리케이션.JavaHashCodeMain" />
       <item itemvalue="애플리케이션.MyHashSetV2Main1" />
       <item itemvalue="애플리케이션.MyHashSetV2Main2" />
+      <item itemvalue="애플리케이션.MyHashV3Main" />
       <item itemvalue="애플리케이션.StringHashMain" />
-      <item itemvalue="애플리케이션.MyHashSetV1Main" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="애플리케이션.MyHashV3Main" />
         <item itemvalue="애플리케이션.MyHashSetV2Main2" />
         <item itemvalue="애플리케이션.MyHashSetV2Main1" />
         <item itemvalue="애플리케이션.JavaHashCodeMain" />
         <item itemvalue="애플리케이션.StringHashMain" />
-        <item itemvalue="애플리케이션.MyHashSetV1Main" />
       </list>
     </recent_temporary>
   </component>
