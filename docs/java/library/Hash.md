@@ -1,7 +1,17 @@
 ## 해시 알고리즘
 ### [Hash Code]와 [Equals]를 재정의하는 이유
-1. Hash Code를 재정의 하지 않으면 Object에 Hash Code를 사용하는데 이 때 값은 주소 기반이며 오버라이딩 해야지 필드 기반으로 Hash Code를 구한다.
-2. Equals를 재정의하지 않으먼 동일성만 검사한다. 그래서 필드 값이 같아도 다른 인스턴스면 false가 나온다.
+1. [Hash Code]를 재정의 하지 않으면 Object.hashcode()로 주소 기반으로 만들어지기 때문에 재정의하여 사용하여 한다.
+   ```java
+   class Member {
+      String id;
+      String name;
+      @Override
+      public int hashcode() {
+         return Objects.hash(id, name);
+      }
+   }
+   ```
+2. [Equals]를 재정의하지 않으먼 동일성만 검사한다. 그래서 필드 값이 같아도 다른 인스턴스면 false가 나온다.
 
 ### 인덱스 사용
 자기 자신의 값을 인덱스로 사용하여 검색 속도가 O(1)이 된다.

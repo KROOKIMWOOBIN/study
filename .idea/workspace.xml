@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/set/JavaHashCodeMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/set/MyHashSetV2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/set/MyHashSetV2Main1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/set/MyHashSetV2Main2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/set/StringHashMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/set/member/Member.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/java/library/Hash.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/java/library/Hash.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/set/member/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/set/member/Member.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

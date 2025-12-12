@@ -16,8 +16,7 @@ public class Member {
 
     @Override
     public boolean equals(Object object) {
-        if (object == null || getClass() != object.getClass()) return false;
-        Member member = (Member) object;
+        if (!(object instanceof Member member)) return false;
         return Objects.equals(id, member.id);
     }
 
