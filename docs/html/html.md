@@ -141,3 +141,6 @@ https://www.google.com:443/search?q=hello&hl=ko
   - 데이터 미변경 시 : 304
 - ETag(Entity Tag)
   - 캐시용 데이터의 고유한 버전 이름 부여
+
+### 추가 정보
+- [세션](Session.md)
