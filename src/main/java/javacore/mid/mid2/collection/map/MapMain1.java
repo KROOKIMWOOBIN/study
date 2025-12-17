@@ -24,5 +24,11 @@ public class MapMain1 {
         for (Integer value : values) {
             System.out.println("value: " + value);
         }
+
+        System.out.println("entrySet()");
+        Set<Map.Entry<String, Integer>> entries = map.entrySet();
+        for (Map.Entry<String, Integer> entry : entries) {
+            System.out.println("entry = " + entry);
+        }
     }
 }

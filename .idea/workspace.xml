@@ -5,13 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/map/JavaMapMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/map/MapMain1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/map/MapMain2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/map/MapMain3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/java/library/Queue.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/java/library/Stack.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/deque/DequeMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/deque/DequeQueueMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/deque/DequeStackMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/deque/QueueMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/deque/StackMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/map/test/ArrayToMapTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/map/test/CommonKeyValueSum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/map/test/WordFrequencyTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/java/library/Map.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/java/library/Map.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/map/MapTest1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/java/mid2.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/java/mid2.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/map/MapMain1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/map/MapMain1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +69,7 @@
     "애플리케이션.AnimalMain2.executor": "Run",
     "애플리케이션.AnonymousOuter.executor": "Run",
     "애플리케이션.ArrayMain2.executor": "Run",
+    "애플리케이션.ArrayToMapTest.executor": "Run",
     "애플리케이션.AutoBoxingMain.executor": "Run",
     "애플리케이션.BatchProcessorMain.executor": "Run",
     "애플리케이션.BoxMain1.executor": "Run",
@@ -75,7 +82,11 @@
     "애플리케이션.ClassCreateMain.executor": "Run",
     "애플리케이션.ClassGradeEx.executor": "Run",
     "애플리케이션.ClassMetaMain.executor": "Run",
+    "애플리케이션.CommonKeyValueSum1.executor": "Run",
     "애플리케이션.ContainerTest.executor": "Run",
+    "애플리케이션.DequeMain.executor": "Run",
+    "애플리케이션.DequeQueueMain.executor": "Run",
+    "애플리케이션.DequeStackMain.executor": "Run",
     "애플리케이션.DriveSalesMain.executor": "Run",
     "애플리케이션.EnumEx.executor": "Run",
     "애플리케이션.EnumEx1.executor": "Run",
@@ -112,6 +123,7 @@
     "애플리케이션.Main (1).executor": "Run",
     "애플리케이션.Main.executor": "Run",
     "애플리케이션.MainCar.executor": "Run",
+    "애플리케이션.MapMain1.executor": "Run",
     "애플리케이션.MapMain2.executor": "Run",
     "애플리케이션.MapMain3.executor": "Run",
     "애플리케이션.MapTest1.executor": "Run",
@@ -137,6 +149,7 @@
     "애플리케이션.PairTest.executor": "Run",
     "애플리케이션.PayMain.executor": "Run",
     "애플리케이션.PolyMain.executor": "Run",
+    "애플리케이션.QueueMain.executor": "Run",
     "애플리케이션.Quiz1.executor": "Run",
     "애플리케이션.Quiz2.executor": "Run",
     "애플리케이션.Quiz3.executor": "Run",
@@ -147,6 +160,7 @@
     "애플리케이션.SendMail.executor": "Run",
     "애플리케이션.SetOperationsTest.executor": "Run",
     "애플리케이션.ShdoingMain.executor": "Run",
+    "애플리케이션.StackMain.executor": "Run",
     "애플리케이션.StringBuilderMain.executor": "Run",
     "애플리케이션.StringHashMain.executor": "Run",
     "애플리케이션.StringMain.executor": "Run",
@@ -155,6 +169,7 @@
     "애플리케이션.UniqueNamesTest1.executor": "Run",
     "애플리케이션.UniqueNamesTest2.executor": "Run",
     "애플리케이션.UniqueNamesTest3.executor": "Run",
+    "애플리케이션.WordFrequencyTest.executor": "Run",
     "애플리케이션.WrapperVsPrimitive.executor": "Run",
     "애플리케이션.equalsQuiz.executor": "Run",
     "애플리케이션.etc.DriveSalesMain.executor": "Run",
@@ -192,13 +207,13 @@
       <recent name="javacore.mid.mid2.collection.link" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.JavaMapMain">
-    <configuration name="JavaMapMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.map.JavaMapMain" />
+  <component name="RunManager" selected="애플리케이션.WordFrequencyTest">
+    <configuration name="ArrayToMapTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.map.test.ArrayToMapTest" />
       <module name="stockai" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.mid.mid2.collection.map.*" />
+          <option name="PATTERN" value="javacore.mid.mid2.collection.map.test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -206,12 +221,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MapMain1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.map.MapMain1" />
+    <configuration name="CommonKeyValueSum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.map.test.CommonKeyValueSum" />
       <module name="stockai" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.mid.mid2.collection.map.*" />
+          <option name="PATTERN" value="javacore.mid.mid2.collection.map.test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -219,12 +234,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MapMain2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.map.MapMain2" />
+    <configuration name="DequeQueueMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.deque.DequeQueueMain" />
       <module name="stockai" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.mid.mid2.collection.map.*" />
+          <option name="PATTERN" value="javacore.mid.mid2.collection.deque.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -232,12 +247,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MapMain3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.map.MapMain3" />
+    <configuration name="DequeStackMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.deque.DequeStackMain" />
       <module name="stockai" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.mid.mid2.collection.map.*" />
+          <option name="PATTERN" value="javacore.mid.mid2.collection.deque.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -245,12 +260,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RectangleTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.set.test.RectangleTest" />
-      <module name="study" />
+    <configuration name="WordFrequencyTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacore.mid.mid2.collection.map.test.WordFrequencyTest" />
+      <module name="stockai" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javacore.mid.mid2.collection.set.test.*" />
+          <option name="PATTERN" value="javacore.mid.mid2.collection.map.test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -259,19 +274,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="애플리케이션.JavaMapMain" />
-      <item itemvalue="애플리케이션.MapMain1" />
-      <item itemvalue="애플리케이션.MapMain2" />
-      <item itemvalue="애플리케이션.MapMain3" />
-      <item itemvalue="애플리케이션.RectangleTest" />
+      <item itemvalue="애플리케이션.ArrayToMapTest" />
+      <item itemvalue="애플리케이션.CommonKeyValueSum1" />
+      <item itemvalue="애플리케이션.DequeQueueMain" />
+      <item itemvalue="애플리케이션.DequeStackMain" />
+      <item itemvalue="애플리케이션.WordFrequencyTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="애플리케이션.JavaMapMain" />
-        <item itemvalue="애플리케이션.MapMain3" />
-        <item itemvalue="애플리케이션.MapMain2" />
-        <item itemvalue="애플리케이션.MapMain1" />
-        <item itemvalue="애플리케이션.RectangleTest" />
+        <item itemvalue="애플리케이션.WordFrequencyTest" />
+        <item itemvalue="애플리케이션.CommonKeyValueSum1" />
+        <item itemvalue="애플리케이션.ArrayToMapTest" />
+        <item itemvalue="애플리케이션.DequeQueueMain" />
+        <item itemvalue="애플리케이션.DequeStackMain" />
       </list>
     </recent_temporary>
   </component>
