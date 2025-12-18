@@ -217,7 +217,7 @@ class Wildcard {
 class Wildcard {
     static void printWildcard(Box<? super Animal> box) {
         Animal animal = box.get();
-      System.out.println("이름 = " + animal.getName());
+        System.out.println("이름 = " + animal.getName());
     }
 }
 ```
