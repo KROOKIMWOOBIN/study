@@ -205,6 +205,7 @@ class Wildcard {
 - 자기 자신 이하만 사용할 수 있다.
 ```java
 class Wildcard {
+    // Animal은 Cat일 수도 있고 Dog일 수도 있다.
     static void printWildcard(Box<? extends Animal> box) {
         Animal animal = box.get();
         System.out.println("이름 = " + animal.getName());
@@ -215,6 +216,7 @@ class Wildcard {
 - 자기 자신 이상만 사용할 수 있다.
 ```java
 class Wildcard {
+    // Animal은 Animal일 수도 있고 Object일 수도 있다.
     static void printWildcard(Box<? super Animal> box) {
         Animal animal = box.get();
         System.out.println("이름 = " + animal.getName());
