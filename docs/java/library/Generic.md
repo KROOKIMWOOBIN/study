@@ -121,14 +121,14 @@ class GenericMethod {
     } 
 }
 ```
-- Instance Method, static Method 둘 다 Generic 사용이 가능하다.
+- Instance Method, static Method 둘 다 Generic Method 로 사용할 수 있다.
 ```java
 class Box<T> { 
     static <V> V staticMethod(V v) {}
     <Z> Z instanceMethod(Z z) {}
 }
 ```
-- Class Generic 은 static Method 에서 타입 매개변수를 사용할 수 없다.
+- Class Generic 은 static Method 에서 타입 매개변수로 사용할 수 없다.
 ```java
 class Box<T> {
     static <T> T staticMethod(T t) {} // 제네릭 타입의 T 사용 불가능
