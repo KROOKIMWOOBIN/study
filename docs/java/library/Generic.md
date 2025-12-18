@@ -1,10 +1,10 @@
-- Generic
-    - <>를 사용한 클래스를 제네릭 클래스라고 한다. 이 기호(<>)를 보통 다이아몬드라고 한다.
-    - 제네릭 클래스를 사용할 때 Integer, String 같은 타입을 미리 결정하지 않는다.
-    - 클래스명 오른쪽에 <T>와 같이 선언하면 제네릭 클래스라고 한다.
-        - 여기서 T를 타입 매개변수라고 한다.
-        - 이 타입 매개변수는 이후에 Integer, String 으로 변할 수 있다.
-    - 클래스 내부에 T 타입이 필요한 곳에 T value 같이 타입 매개변수를 적어주면 된다.
+## Generic
+  - <>를 사용한 클래스를 제네릭 클래스라고 한다. 이 기호(<>)를 보통 다이아몬드라고 한다.
+  - 제네릭 클래스를 사용할 때 Integer, String 같은 타입을 미리 결정하지 않는다.
+  - 클래스명 오른쪽에 <T>와 같이 선언하면 제네릭 클래스라고 한다.
+    - 여기서 T를 타입 매개변수라고 한다.
+    - 이 타입 매개변수는 이후에 Integer, String 으로 변할 수 있다.
+  - 클래스 내부에 T 타입이 필요한 곳에 T value 같이 타입 매개변수를 적어주면 된다.
 ```java
 public class Main {
     public static void main(String[] args) {
@@ -20,7 +20,7 @@ public class Main {
          */
         GenericBox<String> stringBox = new GenericBox<>();
         stringBox.set("hello");
-        Stirng str = stringBox.get();
+        String str = stringBox.get();
         System.out.println("str: " + str);
     }
 }
@@ -34,7 +34,21 @@ class GenericBox<T> {
     }
 }
 ```
-- 제네릭 명명 관례
+### 제네릭과 타입 안전성
+```java
+public class Main {
+  public static void main(String[] args) {
+    List list = new ArrayList();
+    list.add("Test");
+    Integer number = (Integer) list.get(0); // 런타임 오류 발생
+
+    List<Integer> list = new ArrayList<>();
+    list.add("Test"); // 컴파일 시점에서 잘못된 타입이 있을 경우 오류 발생
+  }
+}
+```
+
+### 제네릭 명명 관례
 
 | 타입         | 설명                  |
 |:-----------|:--------------------|
@@ -45,14 +59,14 @@ class GenericBox<T> {
 | V          | Value               |
 | S,U,V etc. | 2nd, 3nd, 4th types |
 
-- 제네릭 기타
+### 제네릭 기타
   - 다음과 같이 한번에 여러 타입 매개변수를 선언할 수 있다.
   - 제네릭의 타입 인자로 기본형은 사용할 수 없다. 대신에 래퍼 클래스를 사용하면 된다.
 ```java
 class Data<K, V> {}
 ```
-- Row Type
-  - 다음과 같이 <>을 지정하지 않을 수 있는데, 이런 것을 Row Type, 또는 원시 타입이라한다.
+### raw Type
+  - 다음과 같이 <>을 지정하지 않을 수 있는데, 이런 것을 raw Type, 또는 원시 타입이라한다.
   - 원시 타입을 사용하면 내부의 타입 매개변수가 Object로 사용된다고 이해하면 된다.
 ```java
 public class RowTypeMain {
@@ -65,19 +79,19 @@ public class RowTypeMain {
     }
 }
 ```
-- 타입 매개변수 제한
-  - 다음과 같이 Human 클래스를 타입 매개변수에 상속하면 Human 클래스 또는 자식 클래스만 타입 매개변수에 들어갈 수 있다.
-  - 이와 같이 사용하는 이유는 컴파일 전 Human 클래스와 관련된 메서드를 호출하기 위해서다.
-  ```java
-  public class Main {
+### 타입 매개변수 제한
+- 다음과 같이 Human 클래스를 타입 매개변수에 상속하면 Human 클래스 또는 자식 클래스만 타입 매개변수에 들어갈 수 있다.
+- 이와 같이 사용하는 이유는 컴파일 전 Human 클래스와 관련된 메서드를 호출하기 위해서다.
+```java
+public class Main {
     public static void main(String[] args){
       // 아무런 클래스나 들어갈 수 있다.
       Hospital<Object> hospital = new Hospital<>();
     }
     static class Hospital<T> {
     }
-  }
-  ```
+}
+```
 ```java
 // 사람과 관련된 클래스만 들어갈 수 있다.
 public class Hospital<T extends Human> {
@@ -88,7 +102,15 @@ public class Hospital<T extends Human> {
     }
 }
 ```
-- Generic Method
+### 다중 상한
+- 다중 상한 시 클래스는 1개만 가능하며 맨 앞에 와야한다.
+- 그 뒤에는 인터페이스만 가능하며 &로 추가할 수 있다.
+```java
+class A {}
+interface B {}
+class C<T extends A & B> {}
+```
+### Generic Method
 ```java
 public class Main {
   public static void main(String[] args) {
@@ -121,21 +143,21 @@ class GenericMethod {
     } 
 }
 ```
-- Instance Method, static Method 둘 다 Generic Method 로 사용할 수 있다.
+### Instance Method, static Method 둘 다 Generic Method 로 사용할 수 있다.
 ```java
 class Box<T> { 
     static <V> V staticMethod(V v) {}
     <Z> Z instanceMethod(Z z) {}
 }
 ```
-- Class Generic 은 static Method 에서 타입 매개변수로 사용할 수 없다.
+### Class Generic 은 static Method 에서 타입 매개변수로 사용할 수 없다.
 ```java
 class Box<T> {
     static <T> T staticMethod(T t) {} // 제네릭 타입의 T 사용 불가능
     <T> T instanceMethod(T t) {} // 가능
 }
 ```
-- Generic Method 가 Generic Type 보다 더 높은 우선순위를 가진다.
+### Generic Method 가 Generic Type 보다 더 높은 우선순위를 가진다.
 ```java
 public class Ex3 {
     public static void main(String[] args) {
@@ -159,10 +181,10 @@ class ComplexBox<T extends Animal> {
     }
 }
 ```
-- wildcard
-  - Wildcard 는 Generic Type, Generic Method 를 선언하는 것이 아니다. Wildcard 는 이미 만들어진 Generic Type 을 활용할 때 사용한다.
-- 비제한 wildcard
-  - ?만 사용해서 제한 없이 모든 타입을 다 받을 수 있는 와일드카드를 비제한 와일드카드라 한다.
+### wildcard
+- Wildcard 는 Generic Type, Generic Method 를 선언하는 것이 아니다. Wildcard 는 이미 만들어진 Generic Type 을 활용할 때 사용한다.
+### 비제한 wildcard
+- ?만 사용해서 제한 없이 모든 타입을 다 받을 수 있는 와일드카드를 비제한 와일드카드라 한다.
 ```java
 class Wildcard {
     /*
@@ -179,8 +201,8 @@ class Wildcard {
     }
 }
 ```
-- 상한 wildcard
-  - 자기 자신 이하만 사용할 수 있다.
+### 상한 wildcard
+- 자기 자신 이하만 사용할 수 있다.
 ```java
 class Wildcard {
     static void printWildcard(Box<? extends Animal> box) {
@@ -189,8 +211,8 @@ class Wildcard {
     }
 }
 ```
-- 하한 wildcard
-  - 자기 자신 이상만 사용할 수 있다.
+### 하한 wildcard
+- 자기 자신 이상만 사용할 수 있다.
 ```java
 class Wildcard {
     static void printWildcard(Box<? super Animal> box) {
@@ -199,17 +221,17 @@ class Wildcard {
     }
 }
 ```
-- Type eraser
-  - 지우개라는 뜻이다.
-  - 자바의 제네릭 타입은 컴파일 시점에 타입을 체크하고, 컴파일 이후에는 제네릭 정보가 지워지는데, 이것을 타입 이레이저라 한다.
-  - 다음과 같이 타입 이레이저 때문에 사용할 수 없는 코드이다.
+### Type eraser
+- 지우개라는 뜻이다.
+- 자바의 제네릭 타입은 컴파일 시점에 타입을 체크하고, 컴파일 이후에는 제네릭 정보가 지워지는데, 이것을 타입 이레이저라 한다.
+- 다음과 같이 타입 이레이저 때문에 사용할 수 없는 코드이다.
 ```java
 class Main<T> {
     public T returnT(Object param) {
-        return param instanceof T;
+        return param instanceof T; // 오류 발생 코드
     }
     public T newT() {
-        return new T();
+        return new T(); // 오류 발생 코드
     }
 }
 ```
