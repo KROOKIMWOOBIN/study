@@ -101,9 +101,9 @@ public class Main {
     Double doubleValue1 = GenericMethod.<Double>numberMethod(20.0);
 
     System.out.println("제네릭 메서드 타입 추론");
-    Integer result2 = GenericMethod.<Integer>genericMethod(i);
-    Integer integerValue2 = GenericMethod.<Integer>numberMethod(10);
-    Double doubleValue2 = GenericMethod.<Double>numberMethod(20.0);
+    Integer result2 = GenericMethod.genericMethod(i);
+    Integer integerValue2 = GenericMethod.numberMethod(10);
+    Double doubleValue2 = GenericMethod.numberMethod(20.0);
   }
 }
 class GenericMethod {
