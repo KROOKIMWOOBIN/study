@@ -5,19 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cacf4ca8-28f1-4883-bc18-357c30bb9066" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/docs/java/library/Queue.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/java/library/Stack.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/deque/DequeMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/deque/DequeQueueMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/deque/DequeStackMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/deque/QueueMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/deque/StackMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/map/test/ArrayToMapTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/map/test/CommonKeyValueSum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/map/test/WordFrequencyTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/java/mid2.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/java/mid2.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/map/MapMain1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javacore/mid/mid2/collection/map/MapMain1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +52,7 @@
     "project.structure.last.edited": "모듈",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.keymap",
+    "settings.editor.selected.configurable": "MavenSettings",
     "애플리케이션.AnimalMain1.executor": "Run",
     "애플리케이션.AnimalMain2.executor": "Run",
     "애플리케이션.AnonymousOuter.executor": "Run",
@@ -274,8 +262,8 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="애플리케이션.CommonKeyValueSum" />
       <item itemvalue="애플리케이션.ArrayToMapTest" />
-      <item itemvalue="애플리케이션.CommonKeyValueSum1" />
       <item itemvalue="애플리케이션.DequeQueueMain" />
       <item itemvalue="애플리케이션.DequeStackMain" />
       <item itemvalue="애플리케이션.WordFrequencyTest" />
@@ -283,7 +271,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="애플리케이션.WordFrequencyTest" />
-        <item itemvalue="애플리케이션.CommonKeyValueSum1" />
         <item itemvalue="애플리케이션.ArrayToMapTest" />
         <item itemvalue="애플리케이션.DequeQueueMain" />
         <item itemvalue="애플리케이션.DequeStackMain" />
