@@ -7,6 +7,8 @@
 - [김영한의 실전 자바 - 기본편](docs/java/basic.md)
 - [김영한의 실전 자바 - 중급 1편](docs/java/mid1.md)
 - [김영한의 실전 자바 - 중급 2편](docs/java/mid2.md)
+- [김영한의 실전 자바 - 고급1편, 멀티스레드와 동시성]
+- [JVM](docs/java/jvm.md)
 
 ## 스프링
 - [스프링의 핵심 원리 - 기본편](docs/spring/basic.md)
