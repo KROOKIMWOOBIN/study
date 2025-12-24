@@ -1,5 +1,7 @@
 package javacore.thread.control;
 
+import javacore.thread.start.HelloRunnable;
+
 import static javacore.thread.util.MyLogger.log;
 
 public class ThreadInfoMain {
@@ -11,5 +13,13 @@ public class ThreadInfoMain {
         log("mainThread.get: " + mainThread.getPriority());
         log("mainThread.getThreadGroup: " + mainThread.getThreadGroup());
         log("mainThread.getState: " + mainThread.getState());
+
+        Thread myThread = new Thread(new HelloRunnable(), "myThread");
+        log("myThread: " + myThread);
+        // log("myThread.threadId: " + myThread.threadId()); // 21 출력
+        log("myThread.getName: " + myThread.getName());
+        log("myThread.get: " + myThread.getPriority());
+        log("myThread.getThreadGroup: " + myThread.getThreadGroup());
+        log("myThread.getState: " + myThread.getState());
     }
 }
