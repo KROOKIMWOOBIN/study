@@ -1,5 +1,5 @@
 # JVM
-1. [JVM 개요](jvm/JVM개요.md)
+1. [JVM 개요](JVM개요.md)
 2. [Java 실행 과정]
    - [.java → .class 컴파일 과정]
    - [Bytecode 구조 개요]

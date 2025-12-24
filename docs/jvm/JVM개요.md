@@ -125,4 +125,4 @@ Java 소스
       OS / Hardware
 ```
 
-## [홈으로](../jvm.md)
+## [홈으로](jvm.md)
