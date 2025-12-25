@@ -1,0 +1,33 @@
+package javacore.thread.control;
+
+import static javacore.thread.util.MyLogger.log;
+
+public class ThreadStateMain {
+    public static void main(String[] args) throws InterruptedException {
+        Thread thread = new Thread(new MyRunnable(), "MyThread");
+        log("myThread.state1: " + thread.getState()); // NEW
+        thread.start();
+        Thread.sleep(1_000);
+        log("myThread.state3: " + thread.getState()); // TIMED_WAITING
+        Thread.sleep(4_000);
+        log("myThread.state5: " + thread.getState()); // TERMINATED
+        log("end");
+    }
+    static class MyRunnable implements Runnable {
+        @Override
+        public void run() {
+            try {
+                log("start");
+                log("myThread.state2: " + Thread.currentThread().getState()); // RUNNABLE
+                log("sleep start");
+                Thread.sleep(3_000);
+                log("sleep end");
+                log("myThread.state4: " + Thread.currentThread().getState()); // RUNNABLE
+                log("end");
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
+        }
+    }
+}
