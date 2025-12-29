@@ -20,7 +20,7 @@ void increment() {
 - 이 로직을 여러 스레드가 실행하면 [경쟁 상태]가 발생하며, 값 손실이 발생한다.
 
 ## synchronized
-- 자바에서 임계 영역을 구현하기 위한 키워드
+- 자바에서 임계 영역에 대한 동시 접근을 방지하기 위한 키워드다.
 - JVM 수준에서 모니터 락(monitor lock) 사용
 - 객체(Object) 또는 클래스(Class)에 락을 건다
 
@@ -64,7 +64,7 @@ static synchronized void increment() {
 - 임계 영역 최소화 가능
 ```java
 void increment() {
-    synchronized (lock) {
+    synchronized (this) {
         count++;
     }
 }
