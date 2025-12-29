@@ -18,6 +18,44 @@
 ### TERMINATED
 - 스레드의 실행이 완료된 상태이다.
 
+## Thread Control
+
+### join()
+- 다른 스레드의 작업 완료를 기다리기 위해 사용
+  - 현재 실행 중인 스레드가 대상 스레드가 종료될 때까지 대기하도록 만드는 메서드다.
+
+#### 실행 절차
+```markdown
+1. join()을 호출한 현재 스레드가 BLOCKED 상태로 전환됨
+2. 대상 thread가 TERMINATED 상태가 되면
+3. 현재 스레드가 다시 RUNNABLE 상태로 복귀
+```
+```java
+Thread worker = new Thread(() -> {
+    // 작업 수행
+});
+
+worker.start();
+worker.join(); // worker가 끝날 때까지 대기
+
+// worker 작업 완료 이후 실행
+```
+
+### sleep()
+- 현재 스레드를 일정 시간 동안 멈추기 위해 사용
+  - 자기 자신을 강제로 대기 상태로 만드는 메서드
+  - CPU를 점유하지 않음
+
+### 실행 절차
+```markdown
+1. 호출한 현재 스레드가 TIMED_WAITING 상태로 전환
+2. 지정한 시간이 지나면 자동으로 RUNNABLE 상태로 복귀
+```
+```java
+Thread.sleep(1000);
+```
+
+
 ### 코드 예시
 ```java
 public class Main {
