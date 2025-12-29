@@ -21,3 +21,6 @@
 - [동기화](./thread/synchronized.md)
   1. 임계 영역
   2. synchronized
+- [고급 동기화](./thread/Lock.md)
+  1. LockSupport
+  2. ReentrantLock
