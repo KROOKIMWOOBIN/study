@@ -1,0 +1,63 @@
+## 임계 영역
+- 여러 스레드가 동시에 접근하면 문제가 발생하는 코드 영역
+  - 공유 자원(shared resource)를 동시에 하나의 스레드만 접근해야 하는 구간
+
+### 목적
+- 상호 배제 (Mutual Exclusion) 한 시점에 오직 하나의 스레드만 실행
+
+### 예시1
+```java
+int count = 0;
+
+void increment() {
+    count = count + 1; // 임계 영역
+}
+```
+- 위 로직 절차
+  - count를 읽는다.
+  - count를 더한다.
+  - count를 반영한다.
+- 이 로직을 여러 스레드가 실행하면 [경쟁 상태]가 발생하며, 값 손실이 발생한다.
+
+## synchronized
+- 자바에서 임계 영역을 구현하기 위한 키워드
+- JVM 수준에서 모니터 락(monitor lock) 사용
+- 객체(Object) 또는 클래스(Class)에 락을 건다
+
+### 단점
+1. 순서 보장을 하지 않는다.
+   - 락 획득 순서에 대한 공정성(fairness)을 보장하지 않는다.
+   - 먼저 대기한 스레드가 항상 먼저 락을 획득한다는 보장이 없다.
+   - 그 결과 기아 상태(starvation)가 발생할 수 있다.
+2. 속도가 느려진다.
+   - 모니터 락 획득·해제에 따른 오버헤드가 발생한다.
+   - 임계 영역이 길수록 병렬성이 크게 감소한다.
+3. 제어 불가
+   - 락을 직접 해제할 수 없다.
+   - 인터럽트로 락 대기를 중단할 수 없다.
+
+### 인스턴스 메서드 
+- this 객체에 락
+- 같은 인스턴스를 공유하는 스레드만 상호 배제
+```java
+synchronized void increment() {
+    count++;
+}
+```
+### static 메서드
+- Class 객체에 락
+- 모든 인스턴스 간 상호 배제
+```java
+static synchronized void increment() {
+    count++;
+}
+```
+### 블록 단위
+- 임계 영역 최소화 가능
+```java
+void increment() {
+    synchronized (lock) {
+        count++;
+    }
+}
+```

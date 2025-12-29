@@ -18,3 +18,6 @@
   2. volatile
   3. JMM(Java Memory Model)
   4. happens-before
+- [동기화](./thread/synchronized.md)
+  1. 임계 영역
+  2. synchronized
