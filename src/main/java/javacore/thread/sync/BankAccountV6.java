@@ -1,28 +1,35 @@
 package javacore.thread.sync;
 
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 import static javacore.thread.util.MyLogger.log;
 import static javacore.thread.util.ThreadUtils.sleep;
 
-public class BankAccountV5 implements BankAccount {
+public class BankAccountV6 implements BankAccount {
 
     private int balance;
 
     private final Lock lock = new ReentrantLock();
 
-    public BankAccountV5(int initialBalance) {
+    public BankAccountV6(int initialBalance) {
         this.balance = initialBalance;
     }
 
     @Override
     public boolean withdrew(int amount) {
         log("거래 시작: " + getClass().getSimpleName());
-        if (!lock.tryLock()) {
-            log("[진입 실패] 이미 처리중인 작업이 있습니다.");
-            return false;
+
+        try {
+            if (!lock.tryLock(10, TimeUnit.SECONDS)) {
+                log("[진입 실패] 이미 처리중인 작업이 있습니다.");
+                return false;
+            }
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
+
         // 검증 로직
         log("[검증 시작] 출금액: " + amount + ", 잔액: " + balance);
         if (balance < amount) {
