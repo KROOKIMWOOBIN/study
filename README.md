@@ -17,3 +17,6 @@
 
 ## JVM
 - [JVM](/docs/jvm/jvm.md)
+
+## CS
+- [Computer Science](/docs/cs/cs.md)
