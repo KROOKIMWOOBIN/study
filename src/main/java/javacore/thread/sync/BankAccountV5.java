@@ -6,13 +6,13 @@ import java.util.concurrent.locks.ReentrantLock;
 import static javacore.thread.util.MyLogger.log;
 import static javacore.thread.util.ThreadUtils.sleep;
 
-public class BankAccountV4 implements BankAccount {
+public class BankAccountV5 implements BankAccount {
 
     private int balance;
 
     private final Lock lock = new ReentrantLock();
 
-    public BankAccountV4(int initialBalance) {
+    public BankAccountV5(int initialBalance) {
         this.balance = initialBalance;
     }
 
