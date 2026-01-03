@@ -72,41 +72,10 @@ ReentrantLock unfairLock = new ReentrantLock();   // 비공정 모드 (default)
 |lock()|락 획득될 때까지 무조건 대기|인터럽트 무시|
 |lockInterruptibly()|락 획득될 때까지 대기 가능|대기 중 인터럽트 발생 시 InterruptedException 발생, 즉시 대기 종료|
 
-#### 예제
-```java
-public class Main { 
-    public static void main(String[] args) {
-        
-        public Lock lock = new ReentrantLock();
-
-        Thread t1 = new Thread(() -> {
-            try {
-                lock.lock();
-            } finally {
-                lock.unlock();
-            }
-        });
-    
-        Thread t2 = new Thread(() -> {
-            try {
-                lock.lockInterruptibly();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } finally {
-                lock.unlock();
-            }
-        });
-        
-        t1.start();
-        t2.start();
-    }
-}
-```
-
 ### 5. tryLock() VS tryLock(timeout, unit)
 
 #### tryLock()
-- 락이 즉시 가능하면 획득, 아니면 실패
+- 바로 획득이 가능하는지 시도, 실패 시 false 반환
 
 #### tryLock(timeout, unit)
 - 지정한 시간 동안 락 획득 시도, 실패 시 false 반환
