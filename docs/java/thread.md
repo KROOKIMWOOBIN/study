@@ -24,6 +24,6 @@
 - [고급 동기화](./thread/Lock.md)
   1. LockSupport
   2. ReentrantLock
-- [생산자 소비자 문제](./thread/생산자소비자문제.md)
+- [생산자 소비자 문제1](./thread/생산자소비자문제1.md)
   1. 생산자 소비자 문제
   2. Object - wait, notify
