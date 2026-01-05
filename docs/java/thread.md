@@ -27,3 +27,5 @@
 - [생산자 소비자 문제1](./thread/생산자소비자문제1.md)
   1. 생산자 소비자 문제
   2. Object - wait, notify
+- [생산자 소비자 문제2](./thread/생산자소비자문제2.md)
+  1. Condition
