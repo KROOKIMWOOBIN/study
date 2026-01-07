@@ -1,16 +1,25 @@
 package javacore.test;
 
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-
-import static javacore.thread.util.ThreadUtils.sleep;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Main {
 
-    private static final Lock lock = new ReentrantLock();
+    private static final AtomicInteger atomicInteger = new AtomicInteger();
 
     public static void main(String[] args) throws InterruptedException {
-        lock.wait();
+        for (long i = 0; i < 100; i++) {
+            Thread thread = new Thread(new MyJob());
+            thread.start();
+        }
+        Thread.sleep(1_000);
+        System.out.println(atomicInteger.get());
+    }
+
+    private static class MyJob implements Runnable {
+        @Override
+        public void run() {
+            atomicInteger.incrementAndGet();
+        }
     }
 
 }

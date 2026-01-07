@@ -32,3 +32,6 @@
   5. 락 대기 집합
   6. Synchronized VS ReentrantLock 대기
   7. BlockingQueue
+- [동기화와 원자적 연산](./thread/동기화와원자적연산.md)
+  1. 원자적 연산
+  2. CAS
