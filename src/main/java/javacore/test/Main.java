@@ -1,25 +1,52 @@
 package javacore.test;
 
-import java.util.concurrent.atomic.AtomicInteger;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Main {
 
-    private static final AtomicInteger atomicInteger = new AtomicInteger();
-
-    public static void main(String[] args) throws InterruptedException {
-        for (long i = 0; i < 100; i++) {
-            Thread thread = new Thread(new MyJob());
+    public static void main(String[] args) {
+        SpinLock lock = new SpinLock();
+        Runnable task = new Runnable() {
+            @Override
+            public void run() {
+                lock.lock();
+                try {
+                    log("비즈니스 로직 실행");
+                } finally {
+                    lock.unlock();
+                }
+            }
+        };
+        for (int i = 1; i <= 2; i++) {
+            Thread thread = new Thread(task, "Thread" + i);
             thread.start();
         }
-        Thread.sleep(1_000);
-        System.out.println(atomicInteger.get());
     }
 
-    private static class MyJob implements Runnable {
-        @Override
-        public void run() {
-            atomicInteger.incrementAndGet();
+    private static void log(Object obj) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
+        String time = LocalTime.now().format(formatter);
+        System.out.printf("%s [%9s] %s\n", time, Thread.currentThread().getName(), obj);
+    }
+
+    private static class SpinLock {
+
+        AtomicBoolean lock = new AtomicBoolean(); // default = false
+
+        public void lock() {
+            while (!lock.compareAndSet(false, true)) {
+                log("락 획득 실패");
+            }
+            log("락 획득 성공");
         }
+
+        public void unlock() {
+            lock.set(false); // 락 해제
+            log("락 해제 성공");
+        }
+
     }
 
 }
