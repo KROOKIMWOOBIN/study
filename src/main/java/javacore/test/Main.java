@@ -7,46 +7,24 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class Main {
 
     public static void main(String[] args) {
-        SpinLock lock = new SpinLock();
-        Runnable task = new Runnable() {
-            @Override
-            public void run() {
-                lock.lock();
-                try {
-                    log("비즈니스 로직 실행");
-                } finally {
-                    lock.unlock();
-                }
-            }
-        };
-        for (int i = 1; i <= 2; i++) {
-            Thread thread = new Thread(task, "Thread" + i);
-            thread.start();
+        Aniaml animal = new Dog();
+        System.out.println(animal.name); // 필드 변수는 동적 바인딩이 안된다.
+        animal.sound(); // 동적 바인딩으로 인해 멍멍이 출력된다.
+    }
+
+    private static class Aniaml {
+        String name = "동물";
+        void sound() {
+            System.out.println("동물 소리");
         }
     }
 
-    private static void log(Object obj) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
-        String time = LocalTime.now().format(formatter);
-        System.out.printf("%s [%9s] %s\n", time, Thread.currentThread().getName(), obj);
-    }
-
-    private static class SpinLock {
-
-        AtomicBoolean lock = new AtomicBoolean(); // default = false
-
-        public void lock() {
-            while (!lock.compareAndSet(false, true)) {
-                log("락 획득 실패");
-            }
-            log("락 획득 성공");
+    private static class Dog extends Aniaml {
+        String name = "개";
+        @Override
+        void sound() {
+            System.out.println("멍멍");
         }
-
-        public void unlock() {
-            lock.set(false); // 락 해제
-            log("락 해제 성공");
-        }
-
     }
 
 }
