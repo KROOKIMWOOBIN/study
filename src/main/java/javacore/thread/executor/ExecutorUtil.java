@@ -13,7 +13,7 @@ public abstract class ExecutorUtil {
             int active = poolExecutor.getActiveCount();                 // 작업을 수행하는 스레드의 숫자
             int queuedTasks = poolExecutor.getQueue().size();           // 큐에 대기중인 작업의 숫자
             long completedTask = poolExecutor.getCompletedTaskCount();  // 완료된 작업의 숫자
-            log("[pool = " + pool + ", active = " + active + ", queuedTasks = " + queuedTasks + "completedTask = " + completedTask + "]");
+            log("[pool = " + pool + ", active = " + active + ", queuedTasks = " + queuedTasks + ", completedTask = " + completedTask + "]");
         } else {
             log(executorService);
         }
