@@ -3,6 +3,7 @@ package javacore.thread.collection.simple;
 import javacore.thread.collection.simple.list.BasicList;
 import javacore.thread.collection.simple.list.SimpleList;
 import javacore.thread.collection.simple.list.SyncList;
+import javacore.thread.collection.simple.list.SyncProxyList;
 
 import static javacore.thread.util.MyLogger.log;
 
@@ -10,7 +11,8 @@ public class ListMain {
 
     public static void main(String[] args) throws InterruptedException {
         // test(new BasicList());
-        test(new SyncList());
+        // test(new SyncList());
+        test(new SyncProxyList(new BasicList()));
     }
 
     private static void test(SimpleList list) throws InterruptedException {

@@ -1,30 +1,88 @@
 package javacore.test;
 
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.util.concurrent.atomic.AtomicBoolean;
-
 public class Main {
 
-    public static void main(String[] args) {
-        Aniaml animal = new Dog();
-        System.out.println(animal.name); // 필드 변수는 동적 바인딩이 안된다.
-        animal.sound(); // 동적 바인딩으로 인해 멍멍이 출력된다.
+    public static void main(String[] args) throws InterruptedException {
+        Bank bank = new ProxyBank(new DefaultBank());
+        Runnable job = new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(1_000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                bank.deposit(1000);
+                bank.withdraw(1500);
+            }
+        };
+        Thread thread1 = new Thread(job, "Thread1");
+        Thread thread2 = new Thread(job, "Thread2");
+        thread1.start();
+        thread2.start();
+        thread1.join();
+        thread2.join();
+        bank.printMoney();
     }
 
-    private static class Aniaml {
-        String name = "동물";
-        void sound() {
-            System.out.println("동물 소리");
-        }
+    private interface Bank {
+        public void deposit(int money);
+        public void withdraw(int money);
+        public void printMoney();
     }
 
-    private static class Dog extends Aniaml {
-        String name = "개";
+    private static class DefaultBank implements Bank {
+
+        private int money;
+
         @Override
-        void sound() {
-            System.out.println("멍멍");
+        public void deposit(int money) {
+            System.out.println("[입금] " + money + "원");
+            this.money += money;
+            System.out.println("[현재잔액] " + this.money + "원");
         }
+
+        @Override
+        public void withdraw(int money) {
+            if (this.money - money < 0) {
+                System.out.println("[출금실패] 잔액: " + this.money + "원, 출금액: " + money + "원 [" + (money - this.money) + "원 부족]");
+                return;
+            }
+            System.out.println("[출금] " + money + "원");
+            this.money -= money;
+            System.out.println("[현재잔액] " + this.money);
+        }
+
+        @Override
+        public void printMoney() {
+            System.out.println("[잔액] " + money + "원");
+        }
+
+    }
+
+    private static class ProxyBank implements Bank {
+
+        private final Bank bank;
+
+        ProxyBank(Bank bank) {
+            this.bank = bank;
+        }
+
+        @Override
+        public synchronized void deposit(int money) {
+            bank.deposit(money);
+        }
+
+        @Override
+        public synchronized void withdraw(int money) {
+            bank.withdraw(money);
+        }
+
+        @Override
+        public synchronized void printMoney() {
+            bank.printMoney();
+        }
+
     }
 
 }
