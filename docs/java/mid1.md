@@ -1,6 +1,7 @@
 - [Object](./library/Object.md)
-- [불변객체VS가변객체](./library/불변객체VS가변객체.md)
-- [메서드체이닝](./library/메서드체이닝.md)
+- [불변객체 VS 가변객체](./library/불변객체VS가변객체.md)
+  1. 불변객체 VS 가변객체
+  2. 메서드체이닝
 - 래퍼 클래스
   - AutoBoxing 지원한다.
   - 기본형보단 속도는 느리다.
