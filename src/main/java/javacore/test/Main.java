@@ -26,9 +26,9 @@ public class Main {
     }
 
     private interface Bank {
-        public void deposit(int money);
-        public void withdraw(int money);
-        public void printMoney();
+        void deposit(int money);
+        void withdraw(int money);
+        void printMoney();
     }
 
     private static class DefaultBank implements Bank {
