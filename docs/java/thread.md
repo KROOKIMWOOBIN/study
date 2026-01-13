@@ -41,7 +41,7 @@
   2. Thread Safe
   3. Proxy
   4. BlockingQueue
-- [스레드 풀과 Executor 프레임워크](./thread/ThreadPool_Executor_Overview.md)
+- [스레드 풀과 Executor 프레임워크1](./thread/ThreadPool_Executor_Overview1.md)
   1. 스레드를 직접 사용할 때 단점
   2. Thread Pool
   3. Executor Framework
@@ -49,3 +49,4 @@
      - Runnable VS Callable
      - Future
      - Blocking Method
+- [스레드 풀과 Executor 프레임워크2](./thread/ThreadPool_Executor_Overview2.md)
