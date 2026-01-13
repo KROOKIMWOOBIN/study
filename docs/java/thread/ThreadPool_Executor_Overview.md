@@ -22,3 +22,5 @@
   - 즉, 스레드를 재사용해서 새로운 스레드를 매번 생성/삭제하는 비용을 줄이는 것.
 
 ## Executor Framework
+
+### ThreadPoolExecutor 생성자
