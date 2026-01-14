@@ -217,6 +217,12 @@ public class Main {
 }
 ```
 
+#### 나쁜코드
+- 아래와 같이 get()으로 바로 호출하면 결과를 기다리기 위해 호출 스레드가 대기 상태에 빠지며, 동기 스레드가 되어버린다.
+```markdown
+Future<Integer> future = es.submit(new MyCallable()).get();
+```
+
 ### Blocking Method
 - 호출 스레드가 다른 스레드의 작업 완료를 기다리는 메서드
   - 대기 중에는 `CPU`를 점유하지 않음
