@@ -107,16 +107,6 @@ public class Main {
     ├─ YES → Worker 생성 → Task 실행
     └─ NO → Reject
 ```
-#### ThreadPoolExecutor 생성자 매개변수
-| 매개변수 | 역할 |
-|----------|------|
-| corePoolSize | 즉시 실행 가능한 최소 스레드 수 |
-| maximumPoolSize | 생성 가능한 최대 스레드 수 |
-| keepAliveTime | core 초과 스레드 유지 시간 |
-| TimeUnit | keepAliveTime 시간 단위 |
-| BlockingQueue | 실행 대기 중인 Task 저장 |
-| ThreadFactory | 스레드 생성 전략 |
-| RejectedExecutionHandler | Task 수용 불가 시 처리 전략 |
 
 ### Runnable VS Callable
 

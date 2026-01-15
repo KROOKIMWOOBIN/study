@@ -85,3 +85,63 @@ corePoolSize 초과 + 큐 가득 → 스레드 증가
 4. maxPoolSize 도달
    → 작업 거절 (RejectedExecutionHandler)
 ```
+
+## Executor 전략
+- 스레드를 언제 생성하고, 얼마나 유지할 것인가에 대한 정책
+
+### 고정 풀 전략
+- 스레드 개수가 고정
+- 초과 작업은 큐에서 대기
+```java
+ExecutorService executor = Executors.newFixedThreadPool(10);
+```
+
+#### 장점
+- 스레드 수 예측 가능
+- 안정적
+- 설정 단순
+
+#### 단점
+- 큐가 무한 → 메모리 위험(OOM)
+- 작업이 쌓이면 응답 지연 폭증
+- 장애 시 폭발적으로 누적
+
+### 캐시 풀 전략
+- 필요 시 스레드를 무제한 생성 사용하지 않으면 일정 시간 후 제거
+```java
+ExecutorService executor = Executors.newCachedThreadPool();
+```
+
+#### 장점
+- 짧은 작업에 빠른 응답
+- 유휴 스레드 자동 정리
+
+#### 단점 (치명적)
+- 스레드 수 폭증 가능
+- DB / 외부 API 호출 시 장애 유발
+- 운영 환경에서는 매우 위험
+
+### 사용자 정의 풀 전략
+- ThreadPoolExecutor를 직접 구성 가장 권장되는 실무 전략
+
+```java
+ExecutorService executor =
+    new ThreadPoolExecutor(
+        10,                     // corePoolSize
+        20,                     // maxPoolSize
+        60,                     // keepAliveTime
+        TimeUnit.SECONDS, // 시간
+        new ArrayBlockingQueue<>(100),  // 큐 크기
+        new ThreadPoolExecutor.CallerRunsPolicy() // 거절 정책(필요하면 찾아볼 것)
+    );
+```
+
+#### 장점
+1. 스레드 수 통제 가능
+2. 큐 크기 제한 가능
+3. 거절 정책으로 장애 전파 방지 
+4. 시스템 특성에 맞게 튜닝 가능
+
+#### 단점
+1. 설정이 복잡
+2. 설계 이해 필요

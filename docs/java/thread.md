@@ -52,3 +52,4 @@
 - [스레드 풀과 Executor 프레임워크2](./thread/ThreadPool_Executor_Overview2.md)
   1. Executor 우아한 종료
   2. Executor Thread Pool 관리
+  3. Executor 전략
