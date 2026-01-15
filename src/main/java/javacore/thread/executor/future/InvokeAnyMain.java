@@ -1,0 +1,24 @@
+package javacore.thread.executor.future;
+
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
+import static javacore.thread.util.MyLogger.log;
+
+public class InvokeAnyMain {
+
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
+        ExecutorService es = Executors.newFixedThreadPool(10);
+        CallableTask task1 = new CallableTask("task1", 1_000);
+        CallableTask task2 = new CallableTask("task2", 2_000);
+        CallableTask task3 = new CallableTask("task3", 3_000);
+        List<CallableTask> tasks = List.of(task1, task2, task3);
+        Integer value = es.invokeAny(tasks);
+        log("value = " + value);
+        es.shutdown();
+    }
+
+}

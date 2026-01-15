@@ -1,18 +1,13 @@
-## ExecutorService 우아한 종료
+package javacore.thread.executor;
 
-### shutdown()
-- 새 작업은 더 이상 받지 않음
-- 이미 제출된 작업은 끝까지 실행
-- 호출 즉시 종료되지 않음
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
-### showdownNow()
-- 새 작업 거절
-- 실행 중인 작업에 interrupt() 시도
-- 대기 중인 작업 큐를 반환
+import static javacore.thread.executor.ExecutorUtil.printState;
+import static javacore.thread.util.MyLogger.log;
 
-### 예시 코드
-```java
-public class Main {
+public class ExecutorShutdownMain {
 
     public static void main(String[] args) {
         ExecutorService es = Executors.newFixedThreadPool(2);
@@ -46,42 +41,3 @@ public class Main {
     }
 
 }
-```
-
-## Executor Thread Pool 관리
-- 스레드를 “필요할 때 늘리고, 필요 없으면 줄인다”
-
-1. corePoolSize
-   - 풀의 기본 유지 스레드 수
-   - 작업이 없어도 항상 살아 있음
-   - 성능의 하한선
-```markdown
-작업 수 ≤ corePoolSize → 즉시 스레드 실행
-```
-2. maximumPoolSize
-  - 생성 가능한 최대 스레드 수
-  - 큐가 가득 찼을 때만 확장
-```markdown
-corePoolSize 초과 + 큐 가득 → 스레드 증가
-```
-3. keepAliveTime
-   - `corePoolSize`를 초과해 생성된 스레드의 유지 시간
-   - 작업 없이 시간 초과 시 스레드 제거
-```markdown
-확장 스레드 → idle → keepAliveTime 초과 → 제거
-```
-
-### 스레드 생성 흐름
-```markdown
-1. 스레드 수 < corePoolSize
-   → 새 스레드 생성
-
-2. 스레드 수 ≥ corePoolSize
-   → 큐에 적재
-
-3. 큐가 가득 참
-   → maxPoolSize까지 스레드 확장
-
-4. maxPoolSize 도달
-   → 작업 거절 (RejectedExecutionHandler)
-```
