@@ -80,7 +80,7 @@ corePoolSize 초과 + 큐 가득 → 스레드 증가
    → 큐에 적재
 
 3. 큐가 가득 참
-   → maxPoolSize까지 스레드 확장
+   → `maxPoolSize`까지 스레드 확장
 
 4. maxPoolSize 도달
    → 작업 거절 (RejectedExecutionHandler)
@@ -108,8 +108,18 @@ ExecutorService executor = Executors.newFixedThreadPool(10);
 
 ### 캐시 풀 전략
 - 필요 시 스레드를 무제한 생성 사용하지 않으면 일정 시간 후 제거
+
 ```java
-ExecutorService executor = Executors.newCachedThreadPool();
+import java.util.concurrent.SynchronousQueue;
+
+ExecutorService executor =
+        new ThreadPoolExecutor(
+                10,                     // corePoolSize
+                20,                     // maxPoolSize
+                60,                     // keepAliveTime
+                TimeUnit.SECONDS, // 시간
+                new SynchronousQueue<>() // 큐가 들어오자마자 쌓이지 않고 바로 바로 실행된다.
+        );
 ```
 
 #### 장점
@@ -122,7 +132,7 @@ ExecutorService executor = Executors.newCachedThreadPool();
 - 운영 환경에서는 매우 위험
 
 ### 사용자 정의 풀 전략
-- ThreadPoolExecutor를 직접 구성 가장 권장되는 실무 전략
+- `ThreadPoolExecutor`를 직접 구성 가장 권장되는 실무 전략
 
 ```java
 ExecutorService executor =
@@ -132,7 +142,7 @@ ExecutorService executor =
         60,                     // keepAliveTime
         TimeUnit.SECONDS, // 시간
         new ArrayBlockingQueue<>(100),  // 큐 크기
-        new ThreadPoolExecutor.CallerRunsPolicy() // 거절 정책(필요하면 찾아볼 것)
+        new ThreadPoolExecutor.CallerRunsPolicy()
     );
 ```
 
@@ -145,3 +155,89 @@ ExecutorService executor =
 #### 단점
 1. 설정이 복잡
 2. 설계 이해 필요
+
+## Executor 예외 정책
+
+### 거절 정책
+- `ThreadPoolExecutor`가 새로운 작업을 더 이상 수용할 수 없을 때, 해당 작업을 어떻게 처리할지 정의하는 정책이다.
+
+### 거절이 발생하는 조건
+1. 스레드 풀의 모든 스레드가 사용 중
+2. 작업 큐(BlockingQueue)가 가득 참
+3. `maximumPoolSize`까지 스레드 확장도 불가능
+
+#### AbortPolicy (기본 정책)
+- `ThreadPoolExecutor`가 새로운 작업을 더 이상 수용할 수 없을 때, 새로운 작업을 제출할 때 `RejectedExecutionException`을 발생 시킨다.
+```java
+public class Main {
+
+    public static void main(String[] args) {
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(1, 1, 0, TimeUnit.SECONDS,
+                new SynchronousQueue<>(), new ThreadPoolExecutor.AbortPolicy());
+        executor.execute(new MyJob());
+        try {
+            executor.execute(new MyJob());
+        } catch (RejectedExecutionException e) {
+            System.out.println("더 이상 작업을 제출할 수 없음");
+        }
+        System.out.println("종료");
+        executor.shutdown();
+    }
+
+    private static class MyJob implements Runnable {
+        @Override
+        public void run() {
+            System.out.println("실행");
+        }
+    }
+
+}
+```
+
+#### DiscardPolicy
+- `ThreadPoolExecutor`가 새로운 작업을 더 이상 수용할 수 없을 때, 새로운 작업을 조용히 버린다. (실행하지 않고 넘어간다.)
+```java
+public class Main {
+
+   public static void main(String[] args) {
+      ThreadPoolExecutor executor = new ThreadPoolExecutor(1, 1, 0, TimeUnit.SECONDS,
+              new SynchronousQueue<>(), new ThreadPoolExecutor.DiscardPolicy());
+      executor.execute(new MyJob());
+      executor.execute(new MyJob()); // 여기서 작업을 더 이상 넣을 수 없으면, 아무런 반응 없이 조용히 버린다.
+      System.out.println("종료");
+      executor.shutdown();
+   }
+
+   private static class MyJob implements Runnable {
+      @Override
+      public void run() {
+         System.out.println("실행");
+      }
+   }
+
+}
+```
+
+#### CallerRunsPolicy
+- `ThreadPoolExecutor`가 새로운 작업을 더 이상 수용할 수 없을 때, 새로운 작업을 제출한 스레드가 직접 작업을 실행한다.
+```java
+public class Main {
+
+   public static void main(String[] args) {
+      ThreadPoolExecutor executor = new ThreadPoolExecutor(1, 1, 0, TimeUnit.SECONDS,
+              new SynchronousQueue<>(), new ThreadPoolExecutor.CallerRunsPolicy());
+      executor.execute(new MyJob());
+      executor.execute(new MyJob()); // 여기서 작업을 더 이상 넣을 수 없으면, 호출한 스레드(main)가 대신 실행한다.
+      System.out.println("종료");
+      executor.shutdown();
+   }
+
+   private static class MyJob implements Runnable {
+      @Override
+      public void run() {
+         System.out.println("실행");
+      }
+   }
+
+}
+```

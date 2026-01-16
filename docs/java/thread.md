@@ -53,3 +53,4 @@
   1. Executor 우아한 종료
   2. Executor Thread Pool 관리
   3. Executor 전략
+  4. Executor 예외 정책
