@@ -219,7 +219,8 @@ public class Main {
 ```
 
 #### CallerRunsPolicy
-- `ThreadPoolExecutor`가 새로운 작업을 더 이상 수용할 수 없을 때, 새로운 작업을 제출한 스레드가 직접 작업을 실행한다.
+- `ThreadPoolExecutor`가 새로운 작업을 더 이상 수용할 수 없을 때, 새로운 작업을 제출한 호출자 스레드가 직접 작업을 실행한다.
+- 호출자 스레드가 작업을 처리하는 동안 작업 제출이 지연되어, 결과적으로 생산 속도가 느려지며 소비 속도에 맞춰 자연스러운 `Back Pressure`가 걸린다
 ```java
 public class Main {
 
@@ -238,6 +239,37 @@ public class Main {
          System.out.println("실행");
       }
    }
+
+}
+```
+
+#### 커스텀 거절 정책
+- 직접 정의하여 거절 정책을 커스텀 할 수 있다.
+```java
+public class Main {
+
+    public static void main(String[] args) {
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(1, 1, 0, TimeUnit.SECONDS,
+                new SynchronousQueue<>(), new MyRejectedExecutionHandler());
+        executor.execute(new MyJob());
+        executor.execute(new MyJob());
+        System.out.println("종료");
+        executor.shutdown();
+    }
+
+    private static class MyRejectedExecutionHandler implements RejectedExecutionHandler {
+        @Override
+        public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
+            System.out.println(r.getClass().getSimpleName() + " 거절함");
+        }
+    }
+
+    private static class MyJob implements Runnable {
+        @Override
+        public void run() {
+            System.out.println("실행");
+        }
+    }
 
 }
 ```
