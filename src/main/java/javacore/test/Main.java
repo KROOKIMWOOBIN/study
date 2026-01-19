@@ -1,30 +1,32 @@
 package javacore.test;
 
-import java.util.concurrent.*;
-
 public class Main {
 
     public static void main(String[] args) {
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(1, 1, 0, TimeUnit.SECONDS,
-                new SynchronousQueue<>(), new MyRejectedExecutionHandler());
-        executor.execute(new MyJob());
-        executor.execute(new MyJob());
-        System.out.println("종료");
-        executor.shutdown();
+        Money money = new Money(1000);
+        System.out.println(money.add(500).subtract(200).getAmount());
     }
 
-    private static class MyRejectedExecutionHandler implements RejectedExecutionHandler {
-        @Override
-        public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
-            System.out.println(r.getClass().getSimpleName() + " 거절함");
-        }
+}
+
+final class Money {
+
+    private final int amount;
+
+    public Money(int amount) {
+        this.amount = amount;
     }
 
-    private static class MyJob implements Runnable {
-        @Override
-        public void run() {
-            System.out.println("실행");
-        }
+    public int getAmount() {
+        return amount;
+    }
+
+    public Money add(int value) {
+        return new Money(this.amount + value);
+    }
+
+    public Money subtract(int value) {
+        return new Money(this.amount - value);
     }
 
 }

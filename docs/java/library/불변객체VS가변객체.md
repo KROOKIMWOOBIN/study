@@ -5,8 +5,40 @@
 ### 특징
 - 상태 변경 메서드(setter 등)가 없다.
 - 내부 상태를 변경할 수 있는 참조를 외부에 노출하지 않는다.
-- 동시성 환경에서 스레드 안전(Thread-Safe) 하다.
-- 공유해도 안전하다.
+
+### 예시 코드
+```java
+public class Main {
+
+  public static void main(String[] args) {
+    Money money = new Money(1000);
+    System.out.println(money.add(500).subtract(200).getAmount()); // 1300;
+  }
+
+}
+
+final class Money {
+
+  private final int amount;
+
+  public Money(int amount) {
+    this.amount = amount;
+  }
+
+  public int getAmount() {
+    return amount;
+  }
+
+  public Money add(int value) {
+    return new Money(this.amount + value);
+  }
+
+  public Money subtract(int value) {
+    return new Money(this.amount - value);
+  }
+
+}
+```
 
 ### String (대표적인 불변객체)
 - 문자열 상수 풀(String Constant Pool) 사용
@@ -15,14 +47,14 @@
 - new 키워드 사용 시
   - 문자열 상수 풀과 무관하게 항상 새로운 객체를 생성한다.
 - 동일성 비교(==)
-  - 상수 풀을 공유하는 경우 == 비교가 true가 될 수 있으나 구현 의존적이므로 equals 사용이 원칙이다. 수정
+  - 상수 풀을 공유하는 경우 == 비교가 true가 될 수 있으나 구현 의존적이므로 equals 사용이 원칙이다.
 - 문자열 연산
   - 문자열을 더하면 기존 객체를 수정하지 않고 새로운 String 객체가 생성된다.
   - 단, 컴파일 타임 상수 결합은 예외다.
 - 중복 관리 방식
   - 문자열 상수 풀은 해시 기반 자료구조로 중복을 관리한다.
 
-#### 예시
+#### 예시 코드
 ```java
 public class Main {
    public static void main(String[] args) {
@@ -54,7 +86,7 @@ public class Main {
 - 메서드 체이닝 지원
 - 스레드 안전하지 않음 (단일 스레드 환경 권장)
 
-#### 예시
+#### 예시 코드
 ```java
 public class Main {
    public static void main(String[] args) {
