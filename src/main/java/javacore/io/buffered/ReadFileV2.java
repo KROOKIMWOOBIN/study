@@ -3,19 +3,19 @@ package javacore.io.buffered;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-import static javacore.io.buffered.BufferedConst.FILE_NAME;
-import static javacore.io.buffered.BufferedConst.FILE_SIZE;
+import static javacore.io.buffered.BufferedConst.*;
 
-public class ReadFileV1 {
+public class ReadFileV2 {
 
     public static void main(String[] args) throws IOException {
         FileInputStream fis = new FileInputStream(FILE_NAME);
         long startTime = System.currentTimeMillis();
 
+        byte[] buffer = new byte[BUFFER_SIZE];
         int fileSize = 0;
-        int data;
-        while ((data = fis.read()) != -1) {
-            fileSize++;
+        int size;
+        while ((size = fis.read(buffer)) != -1) {
+            fileSize += size ;
         }
         fis.close();
 
