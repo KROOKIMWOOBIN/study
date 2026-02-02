@@ -26,5 +26,5 @@
 ## CS
 - [Computer Science](/docs/cs/cs.md)
 
-## TROUBLESHOOTING
+## Trouble Shooting
 - [smtp](/docs/troubleshooting/smtp.md)
