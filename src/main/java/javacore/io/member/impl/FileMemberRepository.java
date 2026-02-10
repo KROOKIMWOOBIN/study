@@ -35,11 +35,9 @@ public class FileMemberRepository implements MemberRepository {
                 String[] memberData = line.split(DELIMITER);
                 members.add(new Member(memberData[0], memberData[1], Integer.parseInt(memberData[2])));
             }
-        }
-        catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             return new ArrayList<>();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException("파일 읽기 에러 발생");
         }
         return members;
