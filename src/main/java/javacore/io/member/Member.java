@@ -2,8 +2,10 @@ package javacore.io.member;
 
 import lombok.Getter;
 
+import java.io.Serializable;
+
 @Getter
-public class Member {
+public class Member implements Serializable  {
 
     private String id;
     private String name;
