@@ -3,8 +3,7 @@ package javacore.thread.bounded;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
-import static javacore.thread.util.MyLogger.log;
-import static javacore.thread.util.ThreadUtils.sleep;
+import static javacore.util.MyLogger.log;
 
 public class BoundedQueueV3 implements BoundedQueue {
 

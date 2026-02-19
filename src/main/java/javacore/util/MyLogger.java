@@ -1,4 +1,4 @@
-package javacore.thread.util;
+package javacore.util;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;

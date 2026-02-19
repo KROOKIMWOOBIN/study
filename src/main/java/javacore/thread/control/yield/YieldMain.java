@@ -1,7 +1,5 @@
 package javacore.thread.control.yield;
 
-import static javacore.thread.util.ThreadUtils.sleep;
-
 public class YieldMain {
 
     static final int THREAD_COUNT = 1000;

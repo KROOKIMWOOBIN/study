@@ -1,6 +1,6 @@
-package javacore.thread.util;
+package javacore.util;
 
-import static javacore.thread.util.MyLogger.log;
+import static javacore.util.MyLogger.log;
 
 public abstract class ThreadUtils {
     public static void sleep(long millis) {

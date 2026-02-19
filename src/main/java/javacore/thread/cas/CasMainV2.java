@@ -2,7 +2,7 @@ package javacore.thread.cas;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static javacore.thread.util.MyLogger.log;
+import static javacore.util.MyLogger.log;
 
 public class CasMainV2 {
 

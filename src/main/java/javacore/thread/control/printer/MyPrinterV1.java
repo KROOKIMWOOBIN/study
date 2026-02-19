@@ -4,8 +4,8 @@ import java.util.Queue;
 import java.util.Scanner;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-import static javacore.thread.util.MyLogger.log;
-import static javacore.thread.util.ThreadUtils.sleep;
+import static javacore.util.MyLogger.log;
+import static javacore.util.ThreadUtils.sleep;
 
 public class MyPrinterV1 {
     public static void main(String[] args) {

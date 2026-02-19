@@ -1,6 +1,6 @@
 package javacore.thread.start;
 
-import static javacore.thread.util.MyLogger.log;
+import static javacore.util.MyLogger.log;
 
 public class ManyThreadMainV1 {
     public static void main(String[] args) {

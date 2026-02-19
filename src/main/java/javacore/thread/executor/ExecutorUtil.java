@@ -3,7 +3,7 @@ package javacore.thread.executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
 
-import static javacore.thread.util.MyLogger.log;
+import static javacore.util.MyLogger.log;
 
 public abstract class ExecutorUtil {
 

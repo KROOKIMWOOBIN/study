@@ -1,6 +1,6 @@
 package javacore.thread.bounded;
 
-import static javacore.thread.util.MyLogger.log;
+import static javacore.util.MyLogger.log;
 
 public class ConsumerTask implements Runnable {
 

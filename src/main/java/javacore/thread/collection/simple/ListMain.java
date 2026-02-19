@@ -2,10 +2,9 @@ package javacore.thread.collection.simple;
 
 import javacore.thread.collection.simple.list.BasicList;
 import javacore.thread.collection.simple.list.SimpleList;
-import javacore.thread.collection.simple.list.SyncList;
 import javacore.thread.collection.simple.list.SyncProxyList;
 
-import static javacore.thread.util.MyLogger.log;
+import static javacore.util.MyLogger.log;
 
 public class ListMain {
 

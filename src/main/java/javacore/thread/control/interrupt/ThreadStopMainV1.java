@@ -1,7 +1,7 @@
 package javacore.thread.control.interrupt;
 
-import static javacore.thread.util.MyLogger.log;
-import static javacore.thread.util.ThreadUtils.sleep;
+import static javacore.util.MyLogger.log;
+import static javacore.util.ThreadUtils.sleep;
 
 public class ThreadStopMainV1 {
     public static void main(String[] args) {

@@ -1,9 +1,8 @@
 package javacore.thread.executor.future;
 
-import java.util.Iterator;
 import java.util.concurrent.*;
 
-import static javacore.thread.util.MyLogger.log;
+import static javacore.util.MyLogger.log;
 
 public class SumTaskMainV2 {
 

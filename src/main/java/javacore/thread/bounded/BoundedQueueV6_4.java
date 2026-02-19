@@ -2,9 +2,6 @@ package javacore.thread.bounded;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.TimeUnit;
-
-import static javacore.thread.util.MyLogger.log;
 
 public class BoundedQueueV6_4 implements BoundedQueue {
 

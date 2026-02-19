@@ -1,6 +1,6 @@
 package javacore.thread.control;
 
-import static javacore.thread.util.MyLogger.log;
+import static javacore.util.MyLogger.log;
 
 public class ThreadStateMain {
     public static void main(String[] args) throws InterruptedException {

@@ -1,7 +1,7 @@
 package javacore.thread.control.test;
 
-import static javacore.thread.util.MyLogger.log;
-import static javacore.thread.util.ThreadUtils.sleep;
+import static javacore.util.MyLogger.log;
+import static javacore.util.ThreadUtils.sleep;
 
 public class JoinTest1Main {
     public static void main(String[] args) throws InterruptedException {

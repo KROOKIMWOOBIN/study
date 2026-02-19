@@ -1,6 +1,6 @@
-package javacore.thread.util;
+package javacore.util;
 
-import static javacore.thread.util.MyLogger.*;
+import static javacore.util.MyLogger.*;
 
 public class MyLoggerMain {
     public static void main(String[] args) {

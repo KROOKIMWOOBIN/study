@@ -2,7 +2,7 @@ package javacore.thread.executor.future;
 
 import java.util.concurrent.*;
 
-import static javacore.thread.util.MyLogger.log;
+import static javacore.util.MyLogger.log;
 
 public class FutureCancelMain {
 
