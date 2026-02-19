@@ -6,4 +6,4 @@
   2. InputStream
   3. OutputSteam
 - [Network](./IO-Network-Reflection/network.md)
-  1. localhost
+  1. localhost VS 127.0.0.1
