@@ -68,3 +68,49 @@ TCP/IP 스택 테스트
 방화벽 점검
 예시) ping 127.0.0.1
 ```
+
+## Socket VS ServerSocket
+
+### Socket
+`Socket`은 **클라이언트 측 통신 엔드포인트**다.  
+TCP/IP 기반에서 특정 서버의 IP와 Port로 연결을 시도하고, 연결이 성립되면 양방향 스트림 통신을 수행한다.
+
+#### 특징
+- 역할: **요청(Request) 주체**
+- 연결 대상: 서버 IP + Port
+- 통신 방식: Full-duplex (입출력 스트림 동시 가능)
+
+#### 예시
+```java
+Socket socket = new Socket("127.0.0.1", 8080);
+InputStream in = socket.getInputStream();
+OutputStream out = socket.getOutputStream();
+```
+
+### ServerSocket
+ServerSocket은 서버 측에서 연결을 수신하는 객체다.
+클라이언트의 접속 요청을 기다리고 있다가 accept()를 통해 연결을 생성한다.
+
+#### 특징
+- 역할: 연결 대기(Listen)
+- 바인딩: 특정 Port에 바인딩
+- accept() 호출 시 새로운 Socket 객체 반환
+
+#### 예시
+```markdown
+ServerSocket serverSocket = new ServerSocket(8080);
+
+while (true) {
+    Socket client = serverSocket.accept(); // 클라이언트가 올 때까지 메인 스레드는 멈춰 있음
+}
+```
+
+### Thread가 왜 필요한가?
+메인 스레드가 accept()에 물려 있으면 한 번에 1개밖에 처리 못 하니까,
+연결마다 별도의 실행 단위(Thread)를 분리하는 것이다.
+```markdown
+while (true) {
+    Socket client = serverSocket.accept();
+    new Thread(() -> handle(client)).start();
+}
+```
