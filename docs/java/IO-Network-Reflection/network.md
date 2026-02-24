@@ -114,3 +114,26 @@ while (true) {
     new Thread(() -> handle(client)).start();
 }
 ```
+
+## JVM Shutdown Hook
+- [JVM]이 “정상 종료”될 때 실행되는 콜백 스레드
+- [JVM]에 미리 등록해두면, 프로세스가 내려가기 직전에 실행된다.
+```markdown
+Runtime.getRuntime().addShutdownHook(
+    new Thread(() -> {
+        System.out.println("JVM 종료 직전 실행");
+    })
+);
+```
+
+### 실행되는 경우
+1. main() 종료
+2. System.exit()
+3. Ctrl + C (SIGINT)
+4. kill (SIGTERM)
+
+### 실행되지 않는 경우
+1. kill -9 (SIGKILL)
+2. JVM crash
+3. OS 강제 종료
+4. 전원 차단
