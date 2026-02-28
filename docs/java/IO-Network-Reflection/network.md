@@ -149,3 +149,26 @@ socket.setSoTimeout(5000);
 5초 동안 데이터가 도착하지 않으면
 SocketTimeoutException 발생
 ```
+
+## FIN VS RST  
+
+### FIN
+- TCP 연결의 정상 종료 (Graceful Shutdown)
+- `나는 더 이상 보낼 데이터가 없다`는 선언
+```markdown
+1) A → B : FIN
+2) B → A : ACK   (A의 송신 종료 확인)
+3) B → A : FIN   (B도 송신 종료)
+4) A → B : ACK   (최종 종료 확인)
+```
+
+### RST
+- TCP 연결의 비정상 종료 (Abortive Close)
+- 상태 전이 없이 바로 CLOSED
+
+| 구분        | FIN   | RST   |
+|-----------|-------|-------|
+| 종료 방식     | 정상 종료 | 강제 종료 |
+| 데이터 보존    | 보장    | 보장 안됨 | 
+| 상태 전이     | 단계적   | 즉시 종료 |
+| 재전송 가능 여부 | 가능    | 불가능   |
