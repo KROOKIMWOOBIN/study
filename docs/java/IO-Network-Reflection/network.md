@@ -137,3 +137,15 @@ Runtime.getRuntime().addShutdownHook(
 2. JVM crash
 3. OS 강제 종료
 4. 전원 차단
+
+## setSoTimeout(int timeout)
+setSoTimeout(int timeout)은 블로킹 I/O에서 무한 대기 문제를 해결하기 위해 등장했습니다.
+
+### 사용 예시
+```markdown
+socket.setSoTimeout(5000);
+
+해당 소켓에서 read() 호출 시
+5초 동안 데이터가 도착하지 않으면
+SocketTimeoutException 발생
+```
