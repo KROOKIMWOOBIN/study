@@ -1,6 +1,14 @@
 ## Annotation
 - `Annotation(어노테이션)`은 코드에 `메타데이터(metadata)`를 붙이는 문법이다.
 
+### 중요
+- @Target
+  - 붙어있는 곳 (메서드, 필드, 파라미터 등)
+- @Retention
+  - 생명주기 (SOURCE[컴파일 시 사라짐], CLASS[class 파일까지], RUNTIME[실행 중 reflection 가능])
+- @Repeatable
+  - 재사용여부
+
 ### 예시
 ```markdown
 @Override
