@@ -12,8 +12,9 @@
 - [김영한의 실전 자바 - 기본편](/docs/java/basic.md)
 - [김영한의 실전 자바 - 중급 1편](/docs/java/mid1.md)
 - [김영한의 실전 자바 - 중급 2편](/docs/java/mid2.md)
-- [김영한의 실전 자바 - 고급1편, 멀티스레드와 동시성](/docs/java/thread.md)
-- [김영한의 실전 자바 - 고급2편, I/O, 네트워크, 리플렉션](/docs/java/IO-Network-Reflection.md)
+- [김영한의 실전 자바 - 고급 1편, 멀티스레드와 동시성](/docs/java/thread.md)
+- [김영한의 실전 자바 - 고급 2편, I/O, 네트워크, 리플렉션](/docs/java/IO-Network-Reflection.md)
+- [김영한의 실전 자바 - 고급 3편, 람다, 스트림, 함수형 프로그래밍](/docs/java/lambda.md)
 
 ## 스프링
 - [스프링의 핵심 원리 - 기본편](/docs/spring/basic.md)
