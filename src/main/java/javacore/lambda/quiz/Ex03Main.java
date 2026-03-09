@@ -27,6 +27,7 @@ public class Ex03Main {
         System.out.println("실행 시간 : " + (end - start) + "ns");
     }
 
+    @FunctionalInterface
     interface Procedure {
         void run();
     }

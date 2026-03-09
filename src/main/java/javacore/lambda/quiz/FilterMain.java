@@ -3,7 +3,7 @@ package javacore.lambda.quiz;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Ex04Main {
+public class FilterMain {
 
     public static void main(String[] args) {
         List<Integer> list = List.of(-3, -2, -1, 1, 2, 3, 5);
@@ -22,6 +22,7 @@ public class Ex04Main {
         return newList;
     }
 
+    @FunctionalInterface
     interface MyPredicate {
         boolean test(int value);
     }

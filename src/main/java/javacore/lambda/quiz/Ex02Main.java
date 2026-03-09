@@ -10,6 +10,7 @@ public class Ex02Main {
         print.run(40, "g");
     }
 
+    @FunctionalInterface
     interface Print {
         void run(int weight, String unit);
     }

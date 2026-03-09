@@ -13,6 +13,7 @@ public class Ex01Main {
         print.run("Good Evening!");
     }
 
+    @FunctionalInterface
     interface Print {
         void run(String s);
     }
