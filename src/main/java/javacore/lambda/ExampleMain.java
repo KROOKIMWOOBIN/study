@@ -22,9 +22,9 @@ public class ExampleMain {
         System.out.println("call.run(30) = " + call.run(30));
 
         // 제네릭 람다
-        MyFunction3<Integer> function3_1 = x -> x * x;
+        MyFunction3<Integer, Integer> function3_1 = x -> x * x;
         System.out.println("function3_1.run(10) = " + function3_1.run(10));
-        MyFunction3<String> function3_2 = x -> "Hello " + x;
+        MyFunction3<String, String> function3_2 = x -> "Hello " + x;
         System.out.println("function3_2.run(\"Generic\") = " + function3_2.run("Generic"));
 
     }
@@ -45,8 +45,8 @@ public class ExampleMain {
     }
 
     @FunctionalInterface
-    interface MyFunction3<T> {
-        T run(T t);
+    interface MyFunction3<R, T> {
+        R run(T t);
     }
 
 }
