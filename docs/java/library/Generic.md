@@ -229,5 +229,21 @@ class Box<T> {
     T value;
 }
 => 컴파일 후
+class Box {
+    Object value;
+}
 
+=> 제한이 있으면
+class Box<T extends Number>
+=> 컴파일 후
+class Box {
+    Number value;
+}
+```
+
+#### Type Erasure 때문에 불가능한 것
+```markdown
+=> new T()
+=> T.class
+=> instanceof T
 ```
