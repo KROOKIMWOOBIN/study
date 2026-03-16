@@ -204,6 +204,19 @@ List<Animal> animals = new ArrayList<Dog>(); // 오류
 
 ### Generic 배열 생성 제한
 ```markdown
-그래서 등장한 것이
-wildcard
+=> 불가능
+T[] array = new T[10];
+=> 가능
+Object[] array = new Object[10]; 
+List<T>
+```
+
+### Type Erasure (타입 소거)
+- 자바 제네릭은 컴파일 이후 제거된다.
+```markdown
+=> 컴파일 전
+List<String>
+List<Integer>
+=> 컴파일 후
+List
 ```
