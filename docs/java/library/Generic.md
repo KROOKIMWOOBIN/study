@@ -194,6 +194,11 @@ Consumer Super
 | 데이터를 꺼내는 곳 | extends |
 | 데이터를 넣는 곳  | super   |
 
+#### 예시
+```markdown
+public static double sum(List<? extends Number> list)
+```
+
 ### 제네릭 불공변성 (Invariance)
 - Java 제네릭은 불공변
 ```markdown
