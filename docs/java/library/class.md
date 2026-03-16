@@ -78,3 +78,22 @@ field.setAccessible(true);
 | Jackson    | JSON ↔ 객체 변환 |
 | Lombok     | 코드 생성        |
 
+#### 리플렉션의 단점
+| 문제        | 설명            |
+| --------- | ------------- |
+| 성능        | 일반 호출보다 느림    |
+| 캡슐화 파괴    | private 접근 가능 |
+| 컴파일 체크 없음 | 런타임 에러 발생 가능  |
+
+#### 핵심 구조 (JVM 관점)
+```markdown
+.class 파일
+      ↓
+ClassLoader
+      ↓
+JVM Method Area (메타정보 저장)
+      ↓
+java.lang.Class 객체 생성
+      ↓
+Reflection으로 접근
+```
