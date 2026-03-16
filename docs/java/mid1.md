@@ -2,7 +2,7 @@
 - [불변객체 VS 가변객체](./library/불변객체VS가변객체.md)
 - [래퍼 클래스](./library/래퍼클래스.md)
 - [Class](./library/class.md)
-- [System Class](SystemClass.md)
+- [System Class](library/SystemClass.md)
 - Math Class
 - Random Class
 - [Enum](./library/Enum.md)
