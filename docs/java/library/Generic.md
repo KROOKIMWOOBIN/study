@@ -197,6 +197,10 @@ Consumer Super
 #### 예시
 ```markdown
 public static double sum(List<? extends Number> list)
+=> 데이터를 꺼낼 수 있지만, 어떤 리스트인지 몰라 넣을 수 없음
+
+public static void add(List<? super Integer> list)
+=> 데이터를 넣을 수 있지만, 꺼낼 때 어떤 리스트인지 몰라 꺼낼 수 없음
 ```
 
 ### 제네릭 불공변성 (Invariance)
