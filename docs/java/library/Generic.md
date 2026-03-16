@@ -33,8 +33,43 @@ Integer num = (Integer) list.get(0); // 런타임 오류
 | 제네릭 있음 | 컴파일   |
 2. 캐스팅 제거
 ```markdown
+=> 제네릭
 List<Integer> list = new ArrayList<>();
 Integer num = list.get(0);
+=> 제네릭이 없으면
+Integer num = (Integer) list.get(0); 
+```
 
-Integer num = (Integer) list.get(0);
+### 타입 매개변수 선언
+```markdown
+class GenericBox<T> {
+    private T value;
+}
+```
+| 위치        | 의미         |
+| --------- | ---------- |
+| `<T>`     | 타입 매개변수 선언 |
+| `T value` | 실제 타입 사용   |
+#### 사용 예시
+```markdown
+GenericBox<Integer> box = new GenericBox<>();
+```
+
+### 제네릭 명명 관례
+| 타입    | 의미      |
+| ----- | ------- |
+| T     | Type    |
+| E     | Element |
+| K     | Key     |
+| V     | Value   |
+| N     | Number  |
+| S,U,V | 여러 타입   |
+
+#### 여러 타입 매개변수
+```markdown
+class Pair<K,V> {
+    K key;
+    V value;
+}
+Pair<String, Integer>
 ```
