@@ -80,4 +80,16 @@ class Grade extends Enum<Grade> {
 
 }
 ```
-- Enum은 싱글톤 객체이다
+- `Enum`은 싱글톤 객체이다
+```markdown
+Grade a = Grade.GOLD;
+Grade b = Grade.GOLD;
+
+System.out.println(a == b); // true
+```
+- `Enum`은 여러 유용한 메서드를 제공한다.
+```markdown
+for (Grade g : Grade.values()) {
+    System.out.println(g);
+}
+```
