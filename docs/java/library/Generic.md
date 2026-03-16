@@ -175,5 +175,21 @@ Cat
 #### 하한 wildcard
 ```markdown
 <? super Animal>
-
+=> Animal 이상
+Animal
+Object
+=> 특징
+쓰기 가능
+읽기 제한
 ```
+
+#### PECS 원칙 (매우 중요)
+- 제네릭 설계 핵심 원칙
+```markdown
+Producer Extends
+Consumer Super
+```
+| 역할         | 사용      |
+| ---------- | ------- |
+| 데이터를 꺼내는 곳 | extends |
+| 데이터를 넣는 곳  | super   |
