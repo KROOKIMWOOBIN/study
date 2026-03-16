@@ -1,10 +1,7 @@
 - [Object](./library/Object.md)
 - [불변객체 VS 가변객체](./library/불변객체VS가변객체.md)
 - [래퍼 클래스](./library/래퍼클래스.md)
-- [Class]
-  - 클래스의 메타 정보를 가져올 수 있다.
-  - 주요기능 : 모든 필드, 메서드, 부모, 인터페이스 조회
-  - 클래스의 정보를 읽고 사용하는 것을 리플렉션이라고 한다.
+- [Class](./library/class.md)
 - System Class
   - 표준 입출력, 오류 스트림
   - 시간 측정
