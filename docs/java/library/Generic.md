@@ -183,7 +183,7 @@ Object
 읽기 제한
 ```
 
-#### PECS 원칙 (매우 중요)
+### PECS 원칙 (매우 중요)
 - 제네릭 설계 핵심 원칙
 ```markdown
 Producer Extends
@@ -193,3 +193,9 @@ Consumer Super
 | ---------- | ------- |
 | 데이터를 꺼내는 곳 | extends |
 | 데이터를 넣는 곳  | super   |
+
+### 제네릭 불공변성 (Invariance)
+- Java 제네릭은 불공변
+```markdown
+List<Dog>은 List<Animal>
+```
