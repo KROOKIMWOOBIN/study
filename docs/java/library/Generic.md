@@ -118,3 +118,19 @@ class Box<T> {
 메서드 제네릭
 => <T> T method(T t)
 ```
+
+#### 우선순위
+- 메서드 제네릭이 클래스 제네릭보다 우선
+```markdown
+class Box<T> {
+    <T> T method(T t) { }
+}
+```
+- 여기서 T 는 메서드 타입
+
+### Raw Type
+- 제네릭을 사용하지 않는 타입
+```markdown
+List list = new ArrayList();
+=> List<Object>
+```
