@@ -67,17 +67,15 @@ System.out.println(System.getProperty("user.dir"));
 ### 프로그램 종료
 - `JVM`을 강제로 종료한다.
 ```markdown
-
+System.exit(0);
 ```
+| 값     | 의미     |
+| ----- | ------ |
+| `0`   | 정상 종료  |
+| `0이외` | 비정상 종료 |
 
-- 표준 입출력, 오류 스트림
-    - 시간 측정
-    - 환경 변수
-        - 예시) System.getEnv();
-    - 배열 고속 복사
-        - 예시) System.arraycopy();
-        - 메모리 블록 단위로 이동하여 빠름
-    - 시스템 속성
-        - 예시) Java version, properties
-    - 프로그램 종료
-        - 예시) System.exit(0);
+#### 주의 ⚠️
+- JVM 즉시 종료
+- finally 실행되지 않을 수도 있음
+- Spring / 서버 환경에서는 거의 사용하지 않음
+
