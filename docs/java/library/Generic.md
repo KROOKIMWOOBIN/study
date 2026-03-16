@@ -21,5 +21,20 @@ Box<String>
 => 컴파일 시점에 타입 오류를 발견한다.
 List<Integer> list = new ArrayList<>();
 list.add("hello"); // 컴파일 오류
-=> 제네릭이 없다면, 런타임 오류
+
+=> 제네릭이 없다면
+List list = new ArrayList();
+list.add("hello");
+Integer num = (Integer) list.get(0); // 런타임 오류
+```
+| 구분     | 오류 발생 |
+| ------ | ----- |
+| 제네릭 없음 | 런타임   |
+| 제네릭 있음 | 컴파일   |
+2. 캐스팅 제거
+```markdown
+List<Integer> list = new ArrayList<>();
+Integer num = list.get(0);
+
+Integer num = (Integer) list.get(0);
 ```
