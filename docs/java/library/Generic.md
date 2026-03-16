@@ -132,5 +132,20 @@ class Box<T> {
 - 제네릭을 사용하지 않는 타입
 ```markdown
 List list = new ArrayList();
-=> List<Object>
+=> List<Object>처럼 동작
 ```
+
+#### 문제
+- 타입 안정성 깨짐
+- 캐스팅 필요
+- 컴파일 경고
+
+### Wildcard
+- 제네릭 타입을 사용할 때 타입 범위를 표현
+```markdown
+Box<?>
+```
+
+#### 주의
+- 제네릭 선언이 아님
+- 사용 시점 타입 표현
