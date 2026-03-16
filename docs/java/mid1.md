@@ -2,18 +2,7 @@
 - [불변객체 VS 가변객체](./library/불변객체VS가변객체.md)
 - [래퍼 클래스](./library/래퍼클래스.md)
 - [Class](./library/class.md)
-- System Class
-  - 표준 입출력, 오류 스트림
-  - 시간 측정
-  - 환경 변수
-     - 예시) System.getEnv();
-  - 배열 고속 복사
-     - 예시) System.arraycopy();
-     - 메모리 블록 단위로 이동하여 빠름
-  - 시스템 속성
-     - 예시) Java version, properties
-  - 프로그램 종료
-     - 예시) System.exit(0);
+- [System Class](SystemClass.md)
 - Math Class
 - Random Class
 - [Enum](./library/Enum.md)
