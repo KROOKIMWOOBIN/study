@@ -197,5 +197,13 @@ Consumer Super
 ### 제네릭 불공변성 (Invariance)
 - Java 제네릭은 불공변
 ```markdown
-List<Dog>은 List<Animal>
+List<Dog>은 List<Animal>의 하위 타입이 아니다.
+List<Animal> animals = new ArrayList<Dog>(); // 오류
+=> 그래서 등장한 것이 [wildcard]
+```
+
+### Generic 배열 생성 제한
+```markdown
+그래서 등장한 것이
+wildcard
 ```
