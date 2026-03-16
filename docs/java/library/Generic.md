@@ -219,4 +219,15 @@ List<String>
 List<Integer>
 => 컴파일 후
 List
+=> 즉, [JVM]은 제네릭을 모른다
+```
+
+#### Type Erasure 과정
+```markdown
+=> 시작
+class Box<T> {
+    T value;
+}
+=> 컴파일 후
+
 ```
