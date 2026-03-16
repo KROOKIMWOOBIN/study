@@ -157,7 +157,23 @@ Box<?> box
 Box<String>
 Box<Integer>
 Box<Dog>
-=> 
+=> box.set() 불가능 왜? 어떤 타입인지 모름
 ```
 
 #### 상한 wildcard
+```markdown
+<? extends Animal>
+=> Animal 이하
+Animal
+Dog
+Cat
+=> 특징
+읽기 가능
+쓰기 불가능
+```
+
+#### 하한 wildcard
+```markdown
+<? super Animal>
+
+```
