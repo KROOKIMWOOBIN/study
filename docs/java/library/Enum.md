@@ -65,3 +65,19 @@ enum Grade {
 Grade grade = Grade.GOLD;
 int point = grade.getPoint();
 ``` 
+
+### 장점
+- 타입 안정성 (Type Safety)
+```markdown
+Grade grade = Grade.GOLD;
+```
+- `Enum`은 클래스이다
+```markdown
+class Grade extends Enum<Grade> {
+
+    public static final Grade GOLD = new Grade("GOLD",0,10);
+    public static final Grade DIAMOND = new Grade("DIAMOND",1,20);
+
+}
+```
+- Enum은 싱글톤 객체이다
