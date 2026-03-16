@@ -27,6 +27,14 @@ for (Method method : clazz.getDeclaredMethods()) {
 }
 ```
 
+### Class 객체 얻는 방법
+1. .class
+```markdown
+
+```
+2. getClass()
+3. Class.forName()
+
 - 클래스의 메타 정보를 가져올 수 있다.
     - 주요기능 : 모든 필드, 메서드, 부모, 인터페이스 조회
     - 클래스의 정보를 읽고 사용하는 것을 리플렉션이라고 한다.
