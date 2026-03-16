@@ -45,11 +45,30 @@ int[] b = new int[3];
 System.arraycopy(a, 0, b, 0, 3);
 ```
 
-### 특징
+#### 특징
 1. native 메서드
 2. JVM 내부 최적화
 3. 일반 `for`문보다 빠름
 - 예) `ArrayList`에서도 사용됨
+
+### 시스템 속성 (System Properties)
+- JVM 실행 환경의 설정 정보(key-value)
+```markdown
+System.out.println(System.getProperty("java.version"));
+System.out.println(System.getProperty("user.dir"));
+```
+| 속성               | 설명         |
+| ---------------- | ---------- |
+| `java.version`   | JVM 버전     |
+| `os.name`        | 운영체제       |
+| `user.dir`       | 현재 실행 디렉토리 |
+| `file.separator` | 파일 구분자     |
+
+### 프로그램 종료
+- `JVM`을 강제로 종료한다.
+```markdown
+
+```
 
 - 표준 입출력, 오류 스트림
     - 시간 측정
