@@ -73,3 +73,11 @@ class Pair<K,V> {
 }
 Pair<String, Integer>
 ```
+
+### 제네릭 타입 제한 (Bounded Type)
+- 특정 타입만 허용한다.
+```markdown
+class Hospital<T extends Human>
+=> 가능 : Human, HumanChild
+=> 불가능 : String, Integer
+```
