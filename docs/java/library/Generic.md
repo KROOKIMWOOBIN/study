@@ -96,5 +96,25 @@ class C<T extends A & B & C>
 - 메서드 자체가 제네릭이 될 수 있다.
 ```markdown
 public static <T> T genericMethod(T t)
-=> 
+=> Integer num = genericMethod(10);
+=> 컴파일러가 타입 추론한다.
+```
+
+### Instance / Static Generic Method
+```markdown
+class Box<T> {
+
+    static <V> V staticMethod(V v) {}
+
+    <Z> Z instanceMethod(Z z) {}
+}
+```
+
+### Class Generic vs Method Generic
+```markdown
+클래스 제네릭
+=> class Box<T>
+
+메서드 제네릭
+=> <T> T method(T t)
 ```
