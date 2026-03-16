@@ -81,3 +81,20 @@ class Hospital<T extends Human>
 => 가능 : Human, HumanChild
 => 불가능 : String, Integer
 ```
+
+### 다중 상한 (Multiple Bounds)
+- 클래스 1개 + 인터페이스 여러개
+```markdown
+class C<T extends A & B & C>
+```
+#### 규칙
+1. 클래스는 1개만 가능
+2. 클래스는 맨 앞
+3. 이후는 인터페이스
+
+### Generic Method
+- 메서드 자체가 제네릭이 될 수 있다.
+```markdown
+public static <T> T genericMethod(T t)
+=> 
+```
