@@ -1,5 +1,11 @@
 package javacore.lambda;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+
 public class ExampleMain {
 
     public static void main(String[] args) {
@@ -27,6 +33,21 @@ public class ExampleMain {
         MyFunction3<String, String> function3_2 = x -> "Hello " + x;
         System.out.println("function3_2.run(\"Generic\") = " + function3_2.run("Generic"));
 
+        Function<String, String> function4 = s -> s + " Function";
+        System.out.println(function4.apply("Default"));
+
+        List<Integer> list = List.of(1, 2, 3, 4, 5, 6, 7, 8);
+        System.out.println(filter(list, e -> e % 2 == 0));
+    }
+
+    private static <T> List<T> filter(List<T> list, Predicate<T> predicate) {
+        List<T> result = new ArrayList<>();
+        for (T e : list) {
+            if (predicate.test(e)) {
+                result.add(e);
+            }
+        }
+        return result;
     }
 
     @FunctionalInterface
