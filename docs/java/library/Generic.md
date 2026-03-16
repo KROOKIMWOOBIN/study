@@ -149,3 +149,15 @@ Box<?>
 #### 주의
 - 제네릭 선언이 아님
 - 사용 시점 타입 표현
+
+#### 비제한 wildcard
+```markdown
+Box<?> box
+=> 모든 타입 허용
+Box<String>
+Box<Integer>
+Box<Dog>
+=> 
+```
+
+#### 상한 wildcard
