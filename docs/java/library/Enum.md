@@ -38,21 +38,30 @@ public class Grade {
 ```
 - switch 문 사용 불가
 ```markdown
-
+switch(grade) { } // 사용 불편
 ```
+- 직렬화 / 비교 / 이름 관리 기능 부족
 
 ## Enum
+- `Enum`은 서로 관련된 상수들의 집합을 타입으로 정의하는 특별한 클래스이다.
+
 ### 예시
-```java
+```markdown
 enum Grade {
-    GOLD(10), 
+    GOLD(10),
     DIAMOND(20);
+
     private int point;
+
     Grade(int point) {
-        this.point;
+        this.point = point;
     }
+
     public int getPoint() {
         return this.point;
     }
 }
+
+Grade grade = Grade.GOLD;
+int point = grade.getPoint();
 ``` 
