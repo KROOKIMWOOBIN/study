@@ -49,3 +49,32 @@ Class<?> clazz = Class.forName("java.lang.String");
   - 메서드 호출
   - 생성자 호출
   - 접근 제어자 무시 (private 접근)
+
+#### 예시 (리플렉션으로 메서드 실행)
+```markdown
+Class<?> clazz = Class.forName("java.lang.String");
+
+Method method = clazz.getMethod("length");
+
+String str = "hello";
+int result = (int) method.invoke(str);
+
+System.out.println(result); // 5
+```
+
+#### private 필드 접근
+```markdown
+Field field = clazz.getDeclaredField("value");
+field.setAccessible(true);
+-> setAccessible(true) → 접근 제어 무시
+```
+
+#### 리플렉션이 사용되는 실제 기술
+| 기술         | 사용 이유        |
+| ---------- | ------------ |
+| Spring DI  | Bean 생성      |
+| Spring AOP | 프록시 메서드 호출   |
+| JPA        | Entity 매핑    |
+| Jackson    | JSON ↔ 객체 변환 |
+| Lombok     | 코드 생성        |
+
