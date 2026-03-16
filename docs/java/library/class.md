@@ -30,10 +30,17 @@ for (Method method : clazz.getDeclaredMethods()) {
 ### Class 객체 얻는 방법
 1. .class
 ```markdown
-
+Class<String> clazz = String.class;
 ```
 2. getClass()
+```markdown
+String str = "hello";
+Class<?> clazz = str.getClass();
+```
 3. Class.forName()
+```markdown
+Class<?> clazz = Class.forName("java.lang.String");
+```
 
 - 클래스의 메타 정보를 가져올 수 있다.
     - 주요기능 : 모든 필드, 메서드, 부모, 인터페이스 조회
