@@ -47,7 +47,9 @@ System.arraycopy(a, 0, b, 0, 3);
 
 ### 특징
 1. native 메서드
-2. 
+2. JVM 내부 최적화
+3. 일반 `for`문보다 빠름
+- 예) `ArrayList`에서도 사용됨
 
 - 표준 입출력, 오류 스트림
     - 시간 측정
