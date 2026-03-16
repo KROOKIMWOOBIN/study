@@ -32,6 +32,23 @@ DB_PORT
 API_KEY
 ```
 
+### 배열 고속 복사
+- 배열을 메모리 블록 단위로 복사한다.
+```markdown
+System.arraycopy(src, srcPos, dest, destPos, length)
+```
+- 예시
+```markdown
+int[] a = {1,2,3};
+int[] b = new int[3];
+
+System.arraycopy(a, 0, b, 0, 3);
+```
+
+### 특징
+1. native 메서드
+2. 
+
 - 표준 입출력, 오류 스트림
     - 시간 측정
     - 환경 변수
