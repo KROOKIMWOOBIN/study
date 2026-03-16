@@ -18,6 +18,19 @@
 | `System.currentTimeMillis()` | 현재 시간을 밀리초(ms) 단위로 반환        |
 | `System.nanoTime()`          | 나노초(ns) 단위 시간 반환 (정밀한 성능 측정) |
 
+### 환경 변수 조회
+- 운영체제 환경 변수 접근
+- 읽기 전용
+```markdown
+String path = System.getenv("PATH");
+System.out.println(path);
+```
+- 실무 예시
+```markdown
+DB_HOST
+DB_PORT
+API_KEY
+```
 
 - 표준 입출력, 오류 스트림
     - 시간 측정
