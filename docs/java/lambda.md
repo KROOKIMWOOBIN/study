@@ -99,3 +99,5 @@ Function<Integer, Integer> multiplier(int x) {
 | `Runnable`       | () → void      | 스레드 실행        |
 | `Callable<V>`    | () → V         | 결과 반환 스레드     |
 | `ActionListener` | (Event) → void | GUI 이벤트 처리    |
+
+## 명령어 프로그래밍 VS 선언적 프로그래밍
