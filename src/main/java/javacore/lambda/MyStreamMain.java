@@ -15,11 +15,12 @@ public class MyStreamMain {
                 new Student("C", 90),
                 new Student("D", 30)
         );
-        System.out.println("점수가 50이상이면서, 90이하인 A, B 학생만 출력");
+        System.out.println("점수가 50이상이면서, 90이하인 A, B 학생을 소문자로 출력");
         MyStream.of(students)
                 .filter(s -> s.getScore() >= 50)
                 .filter(s -> s.getScore() <= 90)
                 .filter(s -> "A".equals(s.getName()) || "B".equals(s.getName()))
+                .map(s -> s.getName().toLowerCase())
                 .forEach(name -> System.out.println("Name : " + name));
     }
 
