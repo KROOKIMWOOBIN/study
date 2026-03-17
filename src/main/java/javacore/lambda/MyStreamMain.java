@@ -1,5 +1,6 @@
 package javacore.lambda;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 public class MyStreamMain {
@@ -9,6 +10,7 @@ public class MyStreamMain {
     }
 
     @Getter
+    @AllArgsConstructor
     static class Student {
         private String name;
         private int score;
