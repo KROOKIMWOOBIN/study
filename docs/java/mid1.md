@@ -3,7 +3,7 @@
 - [래퍼 클래스](./library/래퍼클래스.md)
 - [Class](./library/class.md)
 - [System Class](library/SystemClass.md)
-- Math Class
+- [Math Class](./library/Math.md)
 - Random Class
 - [Enum](./library/Enum.md)
 - 날짜와 시간
