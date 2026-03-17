@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 
 public class MyStream<T> {
 
-    private List<T> list;
+    private final List<T> list;
 
     private MyStream (List<T> list) {
         this.list = list;
@@ -25,7 +25,7 @@ public class MyStream<T> {
                 newList.add(t);
             }
         }
-        return new MyStream<>(newList);
+        return MyStream.of(newList);
     }
 
     public <R> MyStream<R> map(Function<T, R> function) {
@@ -33,7 +33,7 @@ public class MyStream<T> {
         for (T t : list) {
             newList.add(function.apply(t));
         }
-        return new MyStream<>(newList);
+        return MyStream.of(newList);
     }
 
     public List<T> toList() {
