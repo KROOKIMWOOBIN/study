@@ -1,23 +1,20 @@
 ## 매개변수화
-```markdown
-프로그램의 유연성·재사용성을 높이기 위한 설계 기법이다.
-핵심은 고정된 로직을 만들지 않고 외부에서 값을 전달받도록 만드는 것이다.
-```
-### 값 매개변수화
-```markdown
-값을 바꿔서 동일한 로직을 재사용하는 방식
+- 프로그램의 유연성·재사용성을 높이기 위한 설계 기법이다.
+- 핵심은 고정된 로직을 만들지 않고 외부에서 값을 전달받도록 만드는 것이다.
 
+### 값 매개변수화
+- 값을 바꿔서 동일한 로직을 재사용하는 방식
+```markdown
 int add(int a, int b) {
     return a + b;
 }
 add(1, 2);
 ```
 ### 동작 매개변수화
+- 동작(로직)을 외부에서 전달하는 방식
 ```markdown
-동작(로직)을 외부에서 전달하는 방식
-
-void execute(Runnable runnable) {
-    runnable.run();
+void execute(Runnable r) {
+    r.run();
 }
 execute(() -> System.out.println("hello"));
 ```
