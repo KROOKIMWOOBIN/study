@@ -6,6 +6,12 @@ public class MyStream<T> {
 
     private List<T> list;
 
-    private MyStream<T> ()
+    private MyStream (List<T> list) {
+        this.list = list;
+    }
+
+    public MyStream of(List<T> list) {
+        return nuew MyS
+    }
 
 }
