@@ -2,6 +2,7 @@ package javacore.lambda;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class MyStream<T> {
@@ -27,6 +28,11 @@ public class MyStream<T> {
         return new MyStream(newList);
     }
 
-    public
+    public MyStream map(Function<T, T> function) {
+        List<T> newList = new ArrayList<>();
+        for (T t : list) {
+            
+        }
+    }
 
 }
