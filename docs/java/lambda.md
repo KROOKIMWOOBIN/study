@@ -102,6 +102,8 @@ Function<Integer, Integer> multiplier(int x) {
 
 ## 명령어 프로그래밍 VS 선언적 프로그래밍
 
+## filter, Map
+
 ## 스트림
 
 ## static factory
