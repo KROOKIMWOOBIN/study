@@ -18,7 +18,12 @@ public class MyStream<T> {
 
     public MyStream filter(Predicate<T> predicate) {
         List<T> newList = new ArrayList<>();
-        list.for
+        for (T t : list) {
+            if (predicate.test(t)) {
+                newList.add(t);
+            }
+        }
+        return new MyStream(newList); 
     }
 
     public
