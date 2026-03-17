@@ -106,4 +106,4 @@ Function<Integer, Integer> multiplier(int x) {
 
 ## static factory
 
-## 외부 반복 VS 내부 반복
+## 내부 반복 VS 외부 반복

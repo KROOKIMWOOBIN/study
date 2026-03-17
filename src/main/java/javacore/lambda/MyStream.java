@@ -37,14 +37,14 @@ public class MyStream<T> {
         return MyStream.of(newList);
     }
 
-    public List<T> toList() {
-        return list;
-    }
-    
     public void forEach(Consumer<T> consumer) {
         for (T t : list) {
             consumer.accept(t);
         }
+    }
+
+    public List<T> toList() {
+        return list;
     }
 
 }
