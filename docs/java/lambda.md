@@ -173,7 +173,23 @@ list.stream()
 ### 왜 사용하는가?
 - 이름으로 의미 표현 가능
 ```markdown
+public class Grade {
 
+    private final String name;
+
+    private Grade(String name) {
+        this.name = name;
+    }
+
+    public static Grade gold() {
+        return new Grade("GOLD");
+    }
+    
+    public static Grade silver() {
+        return new Grade("SILVER");
+    }
+
+}
 ```
 
 ## 내부 반복 VS 외부 반복
