@@ -102,6 +102,17 @@ Function<Integer, Integer> multiplier(int x) {
 
 ## 명령어 프로그래밍 VS 선언적 프로그래밍
 
+### 명령형 (Imperative)
+- 어떻게(how) 할지를 직접 기술
+```markdown
+List<String> result = new ArrayList<>();
+for (String s : list) {
+    if (s.length() > 3) {
+        result.add(s.toUpperCase());
+    }
+}
+```
+
 ## Filter, Map
 
 ## 스트림
