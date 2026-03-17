@@ -136,7 +136,26 @@ list.stream()
 
 ## Filter, Map
 
+### Filter
+- 조건 기반 필터링
+```markdown
+.filter(s -> s.length() > 3)
+```
+
+### Map
+
 ## 스트림
+- 데이터 흐름 파이프라인
+- 컬렉션을 함수형 스타일로 처리
+```markdown
+list.stream()
+[데이터] → 중간연산 → 최종연산
+```
+| 단계               | 설명    |
+| ---------------- | ----- |
+| stream()         | 시작    |
+| filter/map       | 중간 연산 |
+| toList()/collect | 최종 연산 |
 
 ## static factory
 
