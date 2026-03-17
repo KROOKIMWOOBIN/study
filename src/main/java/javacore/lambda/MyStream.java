@@ -12,7 +12,8 @@ public class MyStream<T> {
         this.list = list;
     }
 
-    public MyStream of(List<T> list) {
+    // static factory
+    public static <T> MyStream of(List<T> list) {
         return new MyStream(list);
     }
 
@@ -23,7 +24,7 @@ public class MyStream<T> {
                 newList.add(t);
             }
         }
-        return new MyStream(newList); 
+        return new MyStream(newList);
     }
 
     public
