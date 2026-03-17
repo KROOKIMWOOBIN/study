@@ -1,6 +1,8 @@
 package javacore.lambda;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class MyStream<T> {
 
@@ -11,7 +13,14 @@ public class MyStream<T> {
     }
 
     public MyStream of(List<T> list) {
-        return nuew MyS
+        return new MyStream(list);
     }
+
+    public MyStream filter(Predicate<T> predicate) {
+        List<T> newList = new ArrayList<>();
+        list.for
+    }
+
+    public
 
 }
