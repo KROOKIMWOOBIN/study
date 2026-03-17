@@ -184,8 +184,13 @@ list.stream()
 | 코드    | 장황    | 간결    |
 
 ### 내부 반복
+- 개발자가 직접 반복 제어
 ```markdown
-for (String s : list)
+list.stream().forEach(...)
 ```
 
 ### 외부 반복
+- 라이브러리가 반복 수행
+```markdown
+for (String s : list)
+```
