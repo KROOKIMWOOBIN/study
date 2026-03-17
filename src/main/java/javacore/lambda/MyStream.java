@@ -14,21 +14,21 @@ public class MyStream<T> {
     }
 
     // static factory
-    public static <T> MyStream of(List<T> list) {
-        return new MyStream(list);
+    public static <T> MyStream<T> of(List<T> list) {
+        return new MyStream<>(list);
     }
 
-    public MyStream filter(Predicate<T> predicate) {
+    public MyStream<T> filter(Predicate<T> predicate) {
         List<T> newList = new ArrayList<>();
         for (T t : list) {
             if (predicate.test(t)) {
                 newList.add(t);
             }
         }
-        return new MyStream(newList);
+        return new MyStream<>(newList);
     }
 
-    public <R> MyStream map(Function<T, R> function) {
+    public <R> MyStream<T> map(Function<T, R> function) {
         List<R> newList = new ArrayList<>();
         for (T t : list) {
             newList.add(function.apply(t));
