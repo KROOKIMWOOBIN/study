@@ -135,14 +135,24 @@ list.stream()
 3. 병렬 처리 최적화 쉬움
 
 ## Filter, Map
+| 구분     | 역할            |
+| ------ | ------------- |
+| filter | 걸러냄 (boolean) |
+| map    | 변환 (T → R)    |
 
 ### Filter
 - 조건 기반 필터링
+- Predicate<T> 사용
 ```markdown
 .filter(s -> s.length() > 3)
 ```
 
 ### Map
+- 데이터 변환
+- Function<T, R> 사용
+```markdown
+.map(String::toUpperCase)
+```
 
 ## 스트림
 - 데이터 흐름 파이프라인
@@ -157,6 +167,7 @@ list.stream()
 | filter/map       | 중간 연산 |
 | toList()/collect | 최종 연산 |
 
-## static factory
+## Static Factory Method
+
 
 ## 내부 반복 VS 외부 반복
