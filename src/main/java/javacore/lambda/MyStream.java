@@ -28,11 +28,12 @@ public class MyStream<T> {
         return new MyStream(newList);
     }
 
-    public MyStream map(Function<T, T> function) {
+    public <R> MyStream map(Function<T, R> function) {
         List<T> newList = new ArrayList<>();
         for (T t : list) {
-            
+            newList.add(function.apply(r));
         }
+        return new MyStream(newList);
     }
 
 }
