@@ -5,9 +5,12 @@ import java.util.function.Supplier;
 public class MethodRefEx1 {
 
     public static void main(String[] args) {
-        // 1. 정적 메서드 참조
+        // 1. 정적 메서드 참조 클래스::정적메서드
         Supplier<String> staticMethod = Person::greeting;
         System.out.println("staticMethod = " + staticMethod.get());
+
+        // 2. 특정 객체의 인스턴스 참조
+        Person kim = new Person("Kim");
     }
 
 }
