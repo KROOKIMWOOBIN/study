@@ -11,6 +11,7 @@ public class MethodRefEx1 {
         System.out.println("staticMethod1 = " + staticMethod1.get());
 
         Function<String, String> staticMethod2 = Person::greetingWithName;
+        System.out.println("staticMethod2 = " + staticMethod2.apply("Kim"));
 
         // 2. 특정 객체의 인스턴스 참조 객체::인스턴스메서드
         Person person = new Person("Kim");

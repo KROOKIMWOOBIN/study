@@ -2,10 +2,10 @@ package javacore.lambda.methodref;
 
 import lombok.Getter;
 
+@Getter
 public class Person {
 
-    @Getter
-    private String name;
+    private final String name;
 
     public Person() {
         this("Unknown");
@@ -21,7 +21,7 @@ public class Person {
     }
 
     // 정적 메서드, 매개변수
-    public String greetingWithName(String name) {
+    public static String greetingWithName(String name) {
         return "Hello " + name;
     }
 
