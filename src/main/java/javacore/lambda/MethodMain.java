@@ -18,7 +18,11 @@ public class MethodMain {
         private String name;
 
         public Person() {
-            this("Unknown");
+            this.name("Unknown");
+        }
+
+        public void Person(String name) {
+            
         }
     }
 
