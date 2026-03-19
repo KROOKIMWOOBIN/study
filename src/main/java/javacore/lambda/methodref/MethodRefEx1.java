@@ -14,11 +14,12 @@ public class MethodRefEx1 {
         System.out.println("staticMethod2 = " + staticMethod2.apply("Kim"));
 
         // 2. 특정 객체의 인스턴스 참조 객체::인스턴스메서드
-        Person person1 = new Person("Kim");
-        Supplier<String> instanceMethod1 = person1::introduce;
+        Person person = new Person("Kim");
+        Supplier<String> instanceMethod1 = person::introduce;
         System.out.println("instanceMethod1 = " + instanceMethod1.get());
 
-        Person
+        Function<Integer, String> instanceMethod2 = person::introduceWithNumber;
+        System.out.println("instanceMethod2 = " + instanceMethod2.apply(30));
 
         // 3. 생성자 참조
         Supplier<Person> newPerson = Person::new;
