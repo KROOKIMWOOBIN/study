@@ -8,6 +8,18 @@ public class Person {
         this("Unknown");
     }
 
-    public Person() 
+    public Person(String name) {
+        this.name = name;
+    }
+
+    // 정적 메서드
+    public static String greeting() {
+        return "Hello";
+    }
+
+    // 정적 메서드, 매개변수
+    public static String greeting(String name) {
+        return "Hello " + name;
+    }
 
 }
