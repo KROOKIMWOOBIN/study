@@ -215,3 +215,5 @@ list.stream().forEach(...)
 ```markdown
 for (String s : list)
 ```
+
+### 메서드 참조
