@@ -13,6 +13,13 @@ public class MethodMain {
         return a + b;
     }
 
-    class Person
+    static class Person {
+
+        private String name;
+
+        public Person() {
+            this("Unknown");
+        }
+    }
 
 }
