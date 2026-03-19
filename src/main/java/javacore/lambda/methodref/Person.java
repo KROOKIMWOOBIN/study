@@ -21,13 +21,16 @@ public class Person {
     }
 
     // 정적 메서드, 매개변수
-    public static String greetingWithName(String name) {
+    public String greetingWithName(String name) {
         return "Hello " + name;
     }
 
     // 인스턴스 메서드
     public String introduce() {
-        
+        return "I am " + name;
     }
+
+    // 인스턴스 메서드, 매개변수
+    public 
 
 }
