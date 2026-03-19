@@ -216,4 +216,4 @@ list.stream().forEach(...)
 for (String s : list)
 ```
 
-### 메서드 참조
+## 메서드 참조
