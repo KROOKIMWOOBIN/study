@@ -217,3 +217,11 @@ for (String s : list)
 ```
 
 ## 메서드 참조
+- 람다식에서 이미 존재하는 메서드를 그대로 전달
+- :: 연산자를 사용
+```markdown
+list.forEach(System.out::println);
+// (x) -> System.out.println(x)
+```
+
+### 
