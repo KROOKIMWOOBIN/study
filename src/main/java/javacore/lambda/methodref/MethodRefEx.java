@@ -22,8 +22,11 @@ public class MethodRefEx {
         System.out.println("instanceMethod2 = " + instanceMethod2.apply(30));
 
         // 3. 생성자 참조
-        Supplier<Person> newPerson = Person::new;
-        System.out.println("newPerson = " + newPerson.get());
+        Supplier<Person> newPerson1 = Person::new;
+        System.out.println("newPerson = " + newPerson1.get());
+
+        Function<String, Person> newPerson2 = Person::new;
+        System.out.println("newPerson2 = " + newPerson2.apply("Kim"));
 
     }
 
