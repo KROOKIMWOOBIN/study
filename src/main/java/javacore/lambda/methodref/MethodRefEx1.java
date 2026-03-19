@@ -9,8 +9,12 @@ public class MethodRefEx1 {
         Supplier<String> staticMethod = Person::greeting;
         System.out.println("staticMethod = " + staticMethod.get());
 
-        // 2. 특정 객체의 인스턴스 참조
-        Person kim = new Person("Kim");
+        // 2. 특정 객체의 인스턴스 참조 객체::인스턴스메서드
+        Person person = new Person("Kim");
+        Supplier<String> instanceMethod = person::introduce;
+        System.out.println("instanceMethod = " + instanceMethod.get());
+
+        
     }
 
 }
