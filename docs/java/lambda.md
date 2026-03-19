@@ -219,9 +219,27 @@ for (String s : list)
 ## 메서드 참조
 - 람다식에서 이미 존재하는 메서드를 그대로 전달
 - :: 연산자를 사용
+- 함수형 인터페이스와 결합됨
 ```markdown
 list.forEach(System.out::println);
 // (x) -> System.out.println(x)
 ```
 
-### 
+### 종류
+| 유형                  | 형태                    | 예시               | 설명         |
+| ------------------- | --------------------- | ---------------- | ---------- |
+| 정적 메서드 참조           | `Class::staticMethod` | `Math::max`      | static 호출  |
+| 인스턴스 메서드 참조 (특정 객체) | `instance::method`    | `obj::print`     | 특정 객체 기준   |
+| 인스턴스 메서드 참조 (임의 객체) | `Class::method`       | `String::length` | 첫 파라미터가 대상 |
+| 생성자 참조              | `Class::new`          | `ArrayList::new` | 객체 생성      |
+
+### 특징
+- 람다의 축약형
+```markdown
+(x) -> x.toLowerCase()
+String::toLowerCase
+```
+- 함수형 인터페이스 필수
+```markdown
+Function<String, Integer> f = String::length;
+```
