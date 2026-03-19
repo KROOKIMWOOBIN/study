@@ -13,4 +13,6 @@ public class MethodMain {
         return a + b;
     }
 
+    class Person
+
 }
