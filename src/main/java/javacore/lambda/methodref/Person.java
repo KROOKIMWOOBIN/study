@@ -31,6 +31,8 @@ public class Person {
     }
 
     // 인스턴스 메서드, 매개변수
-    public 
+    public String introduceWithNumber(int number) {
+        return "I am " + name + ", my number is " + number;
+    }
 
 }
