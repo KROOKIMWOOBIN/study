@@ -243,3 +243,10 @@ String::toLowerCase
 ```markdown
 Function<String, Integer> f = String::length;
 ```
+- 타입 추론 의존
+  - 컴파일러가 문맥으로 매칭
+```markdown
+Function<String, Integer> f = String::length;
+```
+- 가독성 중심 기능
+  - 로직이 아닌 “전달”에 초점
