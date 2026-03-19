@@ -15,7 +15,8 @@ public class MethodRefEx1 {
         System.out.println("instanceMethod = " + instanceMethod.get());
 
         // 3. 생성자 참조
-        Supplier<String> newPerson = new::Person;
+        Supplier<Person> newPerson = Person::new;
+        System.out.println("newPerson = " + newPerson.get());
     }
 
 }
