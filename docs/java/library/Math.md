@@ -54,3 +54,20 @@ int num = (int)(Math.random() * 10); // 0 ~ 9
 | --------- | ---- | ----------- |
 | `Math.PI` | 원주율  | 3.141592... |
 | `Math.E`  | 자연상수 | 2.71828...  |
+
+### 오버플로우 안전 연산 (실무 중요)
+| 메서드                        | 설명            | 예시                                    |
+| -------------------------- | ------------- | ------------------------------------- |
+| `Math.addExact(a, b)`      | 덧셈 (오버플로우 체크) | `Math.addExact(Integer.MAX_VALUE, 1)` |
+| `Math.subtractExact(a, b)` | 뺄셈            | -                                     |
+| `Math.multiplyExact(a, b)` | 곱셈            | -                                     |
+- 👉 오버플로우 발생 시 ArithmeticException
+
+### 기타 유용 메서드
+| 메서드                 | 설명               | 예시                        |
+| ------------------- | ---------------- | ------------------------- |
+| `Math.signum(x)`    | 부호 반환 (-1, 0, 1) | `Math.signum(-5)`         |
+| `Math.cbrt(x)`      | 세제곱근             | `Math.cbrt(27)`           |
+| `Math.hypot(x, y)`  | √(x² + y²)       | `Math.hypot(3,4)` → 5     |
+| `Math.toRadians(x)` | 도 → 라디안          | `Math.toRadians(180)`     |
+| `Math.toDegrees(x)` | 라디안 → 도          | `Math.toDegrees(Math.PI)` |
