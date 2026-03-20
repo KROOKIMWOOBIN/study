@@ -225,20 +225,18 @@ list.forEach(System.out::println);
 // (x) -> System.out.println(x)
 ```
 
-### 종류
+### 정적 메서드 참조 (Static Method Reference)
 
-#### 정적 메서드 참조 (Static Method Reference)
-
-##### 개념
+#### 개념
 - 클래스에 정의된 static 메서드를 직접 참조
 - 인스턴스 생성 없이 호출
 
-##### 문법
+#### 문법
 ```markdown
 ClassName::staticMethod
 ```
 
-##### 예제 
+#### 예제 
 ```markdown
 public class Main {
     public static void main(String[] args) {
@@ -251,6 +249,35 @@ public class Main {
 ```
 
 ### 인스턴스 메서드 참조 (특정 객체)
+
+#### 개념
+- 이미 생성된 객체의 메서드를 참조
+- 고정된 객체 기준으로 동작
+
+#### 문법
+```markdown
+instance::method
+```
+
+#### 예제
+```markdown
+public class Main {
+    public static void main(String[] args) {
+        Printer printer = new Printer();
+
+        Consumer<String> consumer = printer::print;
+        consumer.accept("Hello");
+    }
+}
+
+class Printer {
+    public void print(String message) {
+        System.out.println(message);
+    }
+}
+```
+
+### 인스턴스 메서드 참조 (임의 객체)
 
 #### 개념
 
