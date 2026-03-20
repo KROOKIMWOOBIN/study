@@ -339,3 +339,5 @@ Function<String, Integer> f = String::length;
 ```
 - 가독성 중심 기능
   - 로직이 아닌 “전달”에 초점
+
+## Stream Api
