@@ -17,8 +17,8 @@ public class StreamMain {
             System.out.println(s);
         }
 
-        Stream<String> stream = names.stream();
-        stream.filter(name -> name.startsWith("B"))
+        System.out.println("=== 내부 반복 ===");
+        names.stream().filter(name -> name.startsWith("B"))
                 .map(String::toUpperCase)
                 .forEach(System.out::println);
     }
