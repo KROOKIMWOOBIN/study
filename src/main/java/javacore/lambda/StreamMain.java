@@ -11,7 +11,11 @@ public class StreamMain {
         List<String> result = stream.filter(name -> name.startsWith("B"))
                 .map(String::toUpperCase)
                 .toList();
-        
+
+        System.out.println("=== 외부 반복 ===");
+        for (String s : result) {
+            System.out.println(s);
+        }
     }
 
 }
