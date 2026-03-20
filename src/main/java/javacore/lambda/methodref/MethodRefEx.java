@@ -28,6 +28,8 @@ public class MethodRefEx {
         Function<String, Person> newPerson2 = Person::new;
         System.out.println("newPerson2 = " + newPerson2.apply("Kim"));
 
+        // 4. 임의 객체의 인스턴스 메서드 참조
+
     }
 
 }
