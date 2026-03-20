@@ -283,6 +283,24 @@ class Printer {
 - 특정 객체가 아니라 파라미터로 전달된 객체를 기준으로 호출
 - 첫 번째 인자가 "this" 역할을 함
 
+#### 문법
+```markdown
+ClassName::method
+```
+
+#### 예시
+```markdown
+public class Main {
+    public static void main(String[] args) {
+        Function<String, Integer> lengthFunc = String::length;
+        int len = lengthFunc.apply("hello");
+        System.out.println(len); // 5
+    }
+}
+```
+
+### 생성자 참조 (Constructor Reference)
+
 ### 특징
 - 람다의 축약형
 ```markdown
