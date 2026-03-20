@@ -32,10 +32,10 @@ public class MethodRefEx {
         Person person1 = new Person("A");
         Person person2 = new Person("B");
         Person person3 = new Person("C");
-        Function<Person, String> fun1 = Person::introduce;
-        fun1.apply(person1);
-        fun1.apply(person2);
-        fun1.apply(person3);
+        Function<Person, String> fun = Person::introduce;
+        System.out.println(fun.apply(person1));
+        System.out.println(fun.apply(person2));
+        System.out.println(fun.apply(person3));
 
     }
 
