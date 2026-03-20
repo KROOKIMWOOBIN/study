@@ -305,6 +305,23 @@ public class Main {
 - 생성자를 함수처럼 참조
 - 객체 생성 로직을 람다로 대체
 
+#### 문법
+```markdown
+ClassName::new
+```
+
+#### 예시
+```markdown
+public class Main {
+    public static void main(String[] args) {
+        Supplier<ArrayList<String>> supplier = ArrayList::new;
+        ArrayList<String> list = supplier.get();
+        list.add("A");
+        System.out.println(list);
+    }
+}
+```
+
 ### 특징
 - 람다의 축약형
 ```markdown
