@@ -29,6 +29,10 @@ public class MethodRefEx {
         System.out.println("newPerson2 = " + newPerson2.apply("Kim"));
 
         // 4. 임의 객체의 인스턴스 메서드 참(특정 타입의)
+        Person person1 = new Person("A");
+        Person person2 = new Person("B");
+        Person person3 = new Person("C");
+        Function<Person, String> 
 
     }
 
