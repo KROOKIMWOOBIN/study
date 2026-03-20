@@ -301,6 +301,10 @@ public class Main {
 
 ### 생성자 참조 (Constructor Reference)
 
+#### 개념
+- 생성자를 함수처럼 참조
+- 객체 생성 로직을 람다로 대체
+
 ### 특징
 - 람다의 축약형
 ```markdown
