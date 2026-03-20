@@ -226,12 +226,31 @@ list.forEach(System.out::println);
 ```
 
 ### 종류
-| 유형                  | 형태                    | 예시               | 설명         |
-| ------------------- | --------------------- | ---------------- | ---------- |
-| 정적 메서드 참조           | `Class::staticMethod` | `Math::max`      | static 호출  |
-| 인스턴스 메서드 참조 (특정 객체) | `instance::method`    | `obj::print`     | 특정 객체 기준   |
-| 인스턴스 메서드 참조 (임의 객체) | `Class::method`       | `String::length` | 첫 파라미터가 대상 |
-| 생성자 참조              | `Class::new`          | `ArrayList::new` | 객체 생성      |
+
+#### 정적 메서드 참조 (Static Method Reference)
+
+##### 개념
+- 클래스에 정의된 static 메서드를 직접 참조
+- 인스턴스 생성 없이 호출
+
+##### 문법
+```markdown
+ClassName::staticMethod
+```
+
+##### 예제 
+```markdown
+public class Main {
+    public static void main(String[] args) {
+        BinaryOperator<Integer> max = Math::max;
+
+        int result = max.apply(10, 20);
+        System.out.println(result); // 20
+    }
+}
+```
+
+### 
 
 ### 특징
 - 람다의 축약형
