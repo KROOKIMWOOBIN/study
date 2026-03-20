@@ -16,6 +16,11 @@ public class StreamMain {
         for (String s : result) {
             System.out.println(s);
         }
+
+        Stream<String> stream = names.stream();
+        stream.filter(name -> name.startsWith("B"))
+                .map(String::toUpperCase)
+                .forEach(System.out::println);
     }
 
 }
