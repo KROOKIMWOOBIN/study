@@ -26,7 +26,7 @@
 | --------------- | ----------- |-------|
 | insertion-order | 입력 순서 유지    | false |
 | access-order    | 최근 접근 순서 유지 | true |
-```markdown
+```java
 new LinkedHashMap<>(16, 0.75f, true); // [사이즈], [리사이즈 크기], [순서]
 ```
 
