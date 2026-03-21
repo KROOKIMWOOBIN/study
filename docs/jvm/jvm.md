@@ -1,94 +1,21 @@
 # JVM
-1. [JVM 개요](JVM개요.md)
-2. [Java 실행 과정]
-   - [.java → .class 컴파일 과정]
-   - [Bytecode 구조 개요]
-   - [JVM 실행 흐름]
-   - [Class Loading]
-   - [Linking]
-   - [Initialization]
-   - [main(String[] args)의 의미와 실행 시점]
-3. [클래스 로더]
-   - [클래스 로더의 필요성]
-   - [Class Loader 종류]
-   - [Bootstrap]
-   - [Platform (Extension)]
-   - [Application]
-   - [Delegation Model (위임 모델)]
-   - [클래스 중복 로딩 방지 원리]
-   - [커스텀 ClassLoader 개념]
-4. [메모리 구조]
-   - [JVM 메모리 전체 구조 개요]
-   - [Method Area (Metaspace)]
-   - [클래스 정보]
-   - [상수 풀]
-   - [Heap]
-   - [Young / Old Generation]
-   - [Eden / Survivor]
-   - [Stack]
-   - [Stack Frame 구조]
-   - [지역 변수, Operand Stack]
-   - [PC Register]
-   - [Native Method Stack]
-5. [객체 생성과 메모리 할당]
-   - [객체 생성 과정 (new)]
-   - [힙 메모리 할당 방식]
-   - [TLAB]
-   - [Bump Pointer]
-   - [객체의 생명주기]
-   - [Escape Analysis 개요]
-   - [Stack Allocation 가능성]
-6. [JVM 실행 엔진]
-   - [Interpreter]
-   - [JIT Compiler]
-   - [C1 / C2]
-   - [Tiered Compilation]
-   - [HotSpot VM 구조]
-   - [인라이닝(Inlining)]
-   - [루프 최적화, Dead Code Elimination]
-7. [Garbage Collection]
-   - [GC의 필요성]
-   - [Reachability 개념]
-   - [Minor GC / Major GC / Full GC]
-   - [GC 알고리즘]
-   - [Mark & Sweep]
-   - [Mark & Compact]
-   - [Copying]
-   - [Stop-The-World(STW)]
-8. [GC 종류]
-   - [Serial GC]
-   - [Parallel GC]
-   - [CMS GC (Deprecated)]
-   - [G1 GC]
-   - [ZGC / Shenandoah (저지연 GC)]
-   - [각 GC의 사용 시나리오 비교]
-9. [JVM 옵션과 튜닝]
-   - [JVM 옵션 분류]
-   - [-X]
-   - [-XX]
-   - [Heap 크기 조절]
-   - [-Xms / -Xmx]
-   - [GC 관련 옵션]
-   - [GC 로그 분석 기초]
-   - [OOM 유형별 원인 분석]
-   - [Java heap space]
-   - [Metaspace]
-   - [GC overhead limit exceeded]
-10. [스레드와 동시성(JVM 관점)]
-    - [Java Thread vs OS Thread]
-    - [JVM 스레드 모델]
-    - [Stack 메모리와 스레드 관계]
-    - [Context Switching 비용]
-    - [synchronized와 JVM]
-    - [volatile의 메모리 가시성]
-11. [성능 분석과 문제 진단]
-    - [성능 이슈의 JVM 원인 유형]
-    - [Heap Dump 분석 개요]
-    - [Thread Dump 읽는 법]
-    - [GC 병목 판단 기준]
-    - [실무에서 자주 발생하는 JVM 이슈 사례]
-12. [JVM과 운영 환경]
-    - [JVM과 OS 메모리 관계]
-    - [컨테이너(Docker) 환경에서 JVM]
-    - [CPU 코어 수와 JVM 스레드]
-    - [서버 JVM vs 클라이언트 JVM]
+
+자바 가상 머신(Java Virtual Machine) 구조와 동작 원리 정리.
+
+---
+
+| 주제 | 한 줄 설명 |
+| --- | --- |
+| [JVM 개요](./JVM개요.md) | JVM 역할, JDK/JRE/JVM 차이, 플랫폼 독립성 원리 |
+
+---
+
+## 학습 예정 주제
+
+| 주제 | 설명 |
+| --- | --- |
+| Java 실행 과정 | `.java` → `.class` 컴파일, 바이트코드 구조, JVM 실행 흐름 |
+| 클래스 로더 | Bootstrap / Platform / Application, 위임 모델, 중복 로딩 방지 |
+| 메모리 구조 | Method Area, Heap (Young/Old), Stack, PC Register, Native Method Stack |
+| GC (가비지 컬렉션) | Minor GC, Major GC, G1 GC, ZGC, Stop-The-World |
+| JIT 컴파일러 | 인터프리터 vs JIT, 핫스팟(HotSpot) 최적화 |
