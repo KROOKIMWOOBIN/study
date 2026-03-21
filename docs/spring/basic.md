@@ -7,6 +7,13 @@
 | 주제 | 한 줄 설명 |
 | --- | --- |
 | [SOLID 원칙](#solid) | 객체지향 설계 5원칙 — SRP, OCP, LSP, ISP, DIP |
+| [IoC & DI](./IoC-DI.md) | 제어의 역전, 의존성 주입 — 생성자/setter/필드 주입 |
+| [스프링 컨테이너](./스프링컨테이너.md) | ApplicationContext, BeanDefinition, 다양한 설정 형식 |
+| [싱글톤](./싱글톤.md) | 싱글톤 레지스트리, 무상태 설계, @Configuration + CGLIB |
+| [컴포넌트 스캔](./컴포넌트스캔.md) | @ComponentScan, @Component 계열, 스캔 범위, 중복 등록 |
+| [의존관계 주입](./의존관계주입.md) | @Autowired, @Qualifier, @Primary, List/Map 주입 |
+| [빈 생명주기](./빈생명주기.md) | @PostConstruct/@PreDestroy, InitializingBean, initMethod |
+| [빈 스코프](./빈스코프.md) | singleton/prototype/request 스코프, ObjectProvider, 프록시 |
 
 ---
 
