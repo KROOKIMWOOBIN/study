@@ -1,145 +1,106 @@
-## 해시 알고리즘
-### [Hash Code]와 [Equals]를 재정의하는 이유
-1. [Hash Code]를 재정의 하지 않으면 Object.hashcode()로 주소 기반으로 만들어지기 때문에 재정의하여 사용하여 한다.
-   ```java
-   class Member {
-      String id;
-      String name;
-      @Override
-      public int hashcode() {
-         return Objects.hash(id, name);
-      }
-   }
-   ```
-2. [Equals]를 재정의하지 않으먼 동일성만 검사한다. 그래서 필드 값이 같아도 다른 인스턴스면 false가 나온다.
+## 해시 알고리즘 (Hash)
 
-### 인덱스 사용
-자기 자신의 값을 인덱스로 사용하여 검색 속도가 O(1)이 된다.
+### 왜 사용하는가?
+- 데이터를 O(1)에 저장/검색하기 위해
+- 배열의 인덱스 방식 + 충돌 처리를 결합하여 빠른 조회 구현
+- `HashSet`, `HashMap`의 내부 동작 원리
+
+### 장점
+| 항목 | 설명 |
+| --- | --- |
+| 빠른 검색 | 평균 O(1) 조회/삽입/삭제 |
+| 유연한 키 | 문자열, 객체 등 다양한 타입 키 사용 가능 |
+| 중복 제거 | 해시 기반으로 중복 자동 처리 |
+
+### 단점
+| 항목 | 설명 |
+| --- | --- |
+| 순서 없음 | 삽입 순서 보장 안 됨 |
+| 해시 충돌 | 다른 값이 같은 해시 인덱스를 가질 수 있음 |
+| 최악의 경우 | 충돌이 많으면 O(n)으로 성능 저하 |
+
+### 특이점
+- 해시 충돌이 75% 이상 발생하면 자바의 `HashMap`/`HashSet`은 **재해싱(Rehashing)** 수행
+  - 배열 크기를 2배로 늘리고 모든 요소의 해시 인덱스 재계산
+
+---
+
+### 인덱스 직접 사용 (O(1))
+- 자기 자신의 값을 인덱스로 사용하면 검색 속도 O(1)
 ```java
-import java.util.Arrays;
+Integer[] intList = new Integer[100];
+intList[1] = 1;
+intList[8] = 8;
 
-public class Main {
-    public static void main(String[] args) {
-        Integer[] intList = new Integer[100];
-        intList[1] = 1;
-        intList[4] = 4;
-        intList[8] = 8;
-        System.out.println("intList = " + Arrays.toString(intList));
-        int search = 8;
-        // 인덱스를 사용하면 O(1)로 검색할 수 있다.
-        Integer result = intList[search];
-        System.out.println("result = " + result);
+int search = 8;
+Integer result = intList[search]; // O(1)
+```
+
+### 해시 인덱스 (Hash Index)
+- 원래 값을 계산해서 나온 인덱스를 해시 인덱스라 한다
+```java
+private static int hashIndex(Object value) {
+    return Math.abs(value.hashCode()) % CAPACITY;
+}
+```
+```text
+값 14 → hashIndex(14) = 14 % 10 = 4
+값 99 → hashIndex(99) = 99 % 10 = 9
+```
+
+### 해시 충돌 (Hash Collision)
+- 다른 값을 입력했지만 같은 해시 인덱스가 나오는 현상
+- **체이닝(Chaining)** 방식으로 해결 → 충돌 위치에 LinkedList 사용
+```java
+LinkedList<Integer>[] buckets = new LinkedList[CAPACITY];
+// [[], [1], [2], [], [14], [5], [], [], [8], [99, 9]]
+// 인덱스 9에 99와 9가 충돌 → LinkedList로 관리
+```
+
+### 해시 코드 (Hash Code)
+```java
+static int hashCode(String str) {
+    char[] charArrays = str.toCharArray();
+    int sum = 0;
+    for (char c : charArrays) {
+        sum += c;
+    }
+    return sum;
+}
+```
+
+### 해시 함수 (Hash Function)
+- 임의의 길이 데이터를 입력받아 고정된 길이의 해시값을 출력하는 함수
+- 같은 데이터를 입력하면 항상 같은 해시 코드가 출력된다
+
+---
+
+### hashCode와 equals를 재정의하는 이유
+1. `hashCode()`를 재정의하지 않으면 `Object.hashCode()`로 주소 기반 해시값 사용
+   - 같은 필드 값이어도 다른 객체면 다른 해시 인덱스 → `HashSet`에서 중복으로 인식하지 못함
+2. `equals()`를 재정의하지 않으면 동일성(`==`)만 비교
+   - 같은 필드 값의 다른 인스턴스를 다른 객체로 판단
+
+```java
+class Member {
+    String id;
+    String name;
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Member m)) return false;
+        return Objects.equals(id, m.id) && Objects.equals(name, m.name);
     }
 }
 ```
-### 해시 인덱스(Hash Index)
-원래의 값을 계산한 인덱스를 해시 인덱스라 한다.
-```java
-public class Main {
-    
-    private final int CAPACITY = 10;
-    
-    public static void main(String[] args) {
-        Integer[] intArray = new Integer[CAPACITY];
-        add(intArray, 1);
-        add(intArray, 2);
-        add(intArray, 8);
-        add(intArray, 14);
-        add(intArray, 99);
-        // {1, 2, 4, 8, 9} <- 해쉬 인덱스로 인해 값 변환
-        // {1, 2, 14, 8, 99} <- 실제 해쉬 인덱스에 값
-        int searchValue = 14;
-        System.out.println("result: " + intArray[hashIndex(searchValue)]);
-    }
-    
-    private static void add(Integer[] array, int value) {
-        array[hashIndex(value)] = value;
-    }
-    
-    private static int hashIndex(Object value) {
-        return Math.abs(value.hashCode()) % CAPACITY;
-    }
-}
-```
-### 해쉬 충돌
-다른 값을 입력했지만, 같은 해시 코드가 나오게 되는데 이것을 해시 충돌이라 한다.
-```java
-import java.util.LinkedList;
 
-public class Main {
-    private final int CAPACITY = 10;
-
-    public static void main(String[] args) {
-        LinkedList<Integer>[] buckets = new LinkedList[CAPACITY];
-        // [null, null, null, null, null, null, null, null, null, null]
-        for (int i = 0; i < CAPACITY; i++) {
-            buckets[i] = new LinkedList<>();
-        }
-        // [[], [], [], [], [], [], [], [], [], []]
-        add(buckets, 1);
-        add(buckets, 2);
-        add(buckets, 5);
-        add(buckets, 8);
-        add(buckets, 14);
-        add(buckets, 99);
-        add(buckets, 9);
-        // [[], [1], [2], [], [14], [5], [], [], [8], [99, 9]]
-        int searchValue = 9;
-        System.out.println("result: " + contains(buckets, searchValue));
-    }
-    private static void add(LinkedList<Integer>[] buckets, int value) {
-        int hashIndex = hashIndex(value);
-        LinkedList<Integer> bucket = buckets[hashIndex];
-        if (!bucket.contains(value)) {
-            bucket.add(value);
-        }
-    }
-    private static boolean contains(LinkedList<Integer>[] buckets, int searchValue) {
-        int hashIndex = hashIndex(searchValue);
-        LinkedList<Integer> bucket = buckets[hashIndex];
-        return bucket.contains(searchValue);
-    }
-    private int hashIndex(Object value) {
-        return Math.abs(value.hashCode()) % CAPACITY;
-    }
-}
-```
-### 해시 코드(Hash Code)
-```java
-public class Main {
-    static final int CAPACITY = 10;
-    public static void main(String[] args) {
-        char charA = 'A';
-        char charB = 'B';
-        System.out.println("charA = " + (int)charA);
-        System.out.println("charB = " + (int)charB);
-
-        System.out.println();
-        System.out.println("hashCode(\"A\") = " + hashCode("A"));
-        System.out.println("hashCode(\"B\") = " + hashCode("B"));
-        System.out.println("hashCode(\"AB\") = " + hashCode("AB"));
-
-        System.out.println();
-        System.out.println("hashIndex(hashCode(\"A\")) = " + hashIndex(hashCode("A")));
-        System.out.println("hashIndex(hashCode(\"B\")) = " + hashIndex(hashCode("B")));
-        System.out.println("hashIndex(hashCode(\"AB\")) = " + hashIndex(hashCode("AB")));
-    }
-
-    static int hashCode(String str) {
-        char[] charArrays = str.toCharArray();
-        int sum = 0;
-        for (char c : charArrays) {
-            sum += c;
-        }
-        return sum;
-    }
-
-    static int hashIndex(Object value) {
-        return Math.abs(value.hashCode()) % CAPACITY;
-    }
-}
-```
-### 해시 함수(Hash Function)
-- 해시 함수는 임의의 길이의 데이터를 입력으로 받아, 고정된 길이의 해시값(해시 코드)를 출력하는 함수이다.
-  - 여기서 의미하는 고정된 길이는 저장 공간의 크기를 뜻한다. 예를 들어서 int형 1, 100은 둘  4Byte를 차지하는 고정된 길이를 뜻한다.
-- 같은 데이터를 입력하면 항상 같은 해시 코드가 출력된다.
+### 어떨 때 많이 쓰는가?
+- `HashSet`에 객체를 넣을 때 중복 판별이 필요한 경우
+- `HashMap`의 키로 객체를 사용할 때
+- 빠른 데이터 검색이 필요한 캐시, 인덱싱 구현
