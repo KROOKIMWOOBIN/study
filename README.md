@@ -13,4 +13,5 @@
 | [DB](/docs/db/db.md) | 트랜잭션, 격리수준 |
 | [JVM](/docs/jvm/jvm.md) | JVM 구조, 클래스 로딩, 메모리, GC |
 | [CS](/docs/cs/cs.md) | 동기/비동기, 블로킹/논블로킹 |
+| [실무 개념 & 트러블슈팅](/docs/실무/실무.md) | 멱등성, N+1, 데드락, 캐시, 동시성, OOM, 커넥션풀 고갈 |
 | [Trouble Shooting](/docs/troubleshooting/smtp.md) | SMTP 설정 문제 |
