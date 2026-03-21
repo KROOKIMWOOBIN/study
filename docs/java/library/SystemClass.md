@@ -1,81 +1,101 @@
 ## System Class
-- System 클래스는 JVM과 운영체제 수준의 시스템 기능을 접근하기 위한 유틸리티 클래스다.
-- java.lang 패키지에 포함되어 있어 import 없이 사용 가능하다.
-  - 모든 멤버가 static
-  - 객체 생성 불가 (System 생성자 private)
-  - JVM 실행 환경과 직접 연결된 기능 제공
+- JVM과 운영체제 수준의 시스템 기능을 접근하기 위한 유틸리티 클래스
+- `java.lang` 패키지에 포함 → `import` 없이 사용 가능
+- 모든 멤버 `static`, 생성자 `private` → 인스턴스 생성 불가
+
+### 왜 사용하는가?
+- JVM 실행 환경과 직접 연결된 기능(입출력, 시간, 환경변수, 종료 등) 접근
+- 배열 복사를 네이티브 레벨로 빠르게 수행
+- 성능 측정, 환경 설정 값 조회 등 시스템 수준 작업 처리
+
+### 특이점
+- `System.arraycopy()`는 native 메서드로 JVM 내부 최적화 → 일반 `for`문보다 빠름
+- `System.exit()`는 `finally`도 실행 안 될 수 있어 서버 환경에서는 사용 지양
+
+---
 
 ### 표준 입출력 스트림
-| 스트림          | 설명                 |
-| ------------ | ------------------ |
-| `System.in`  | 표준 입력 스트림 (키보드 입력) |
-| `System.out` | 표준 출력 스트림 (콘솔 출력)  |
-| `System.err` | 표준 오류 출력           |
+| 스트림 | 설명 |
+| --- | --- |
+| `System.in` | 표준 입력 스트림 (키보드 입력) |
+| `System.out` | 표준 출력 스트림 (콘솔 출력) |
+| `System.err` | 표준 오류 출력 |
+
+```java
+System.out.println("출력");
+System.err.println("오류 출력"); // 빨간색으로 출력
+```
 
 ### 시간 측정
-| 메서드                          | 설명                           |
-| ---------------------------- | ---------------------------- |
-| `System.currentTimeMillis()` | 현재 시간을 밀리초(ms) 단위로 반환        |
-| `System.nanoTime()`          | 나노초(ns) 단위 시간 반환 (정밀한 성능 측정) |
+| 메서드 | 설명 | 용도 |
+| --- | --- | --- |
+| `System.currentTimeMillis()` | 밀리초(ms) 단위 현재 시간 | 날짜/시간 계산 |
+| `System.nanoTime()` | 나노초(ns) 단위 시간 | 정밀한 성능 측정 |
+
+```java
+long start = System.nanoTime();
+// 측정할 코드
+long end = System.nanoTime();
+System.out.println("경과 시간: " + (end - start) + "ns");
+```
 
 ### 환경 변수 조회
-- 운영체제 환경 변수 접근
-- 읽기 전용
-```markdown
+- 운영체제 환경 변수 접근 (읽기 전용)
+```java
 String path = System.getenv("PATH");
-System.out.println(path);
-```
-- 실무 예시
-```markdown
-DB_HOST
-DB_PORT
-API_KEY
+String dbHost = System.getenv("DB_HOST"); // 실무에서 민감 정보 관리
 ```
 
 ### 배열 고속 복사
-- 배열을 메모리 블록 단위로 복사한다.
-```markdown
+```java
 System.arraycopy(src, srcPos, dest, destPos, length)
 ```
-- 예시
-```markdown
-int[] a = {1,2,3};
+```java
+int[] a = {1, 2, 3};
 int[] b = new int[3];
-
-System.arraycopy(a, 0, b, 0, 3);
+System.arraycopy(a, 0, b, 0, 3); // a 전체를 b로 복사
 ```
-
-#### 특징
-1. native 메서드
-2. JVM 내부 최적화
-3. 일반 `for`문보다 빠름
-- 예) `ArrayList`에서도 사용됨
+- native 메서드, JVM 내부 최적화
+- `ArrayList` 내부에서도 사용됨
 
 ### 시스템 속성 (System Properties)
-- JVM 실행 환경의 설정 정보(key-value)
-```markdown
-System.out.println(System.getProperty("java.version"));
-System.out.println(System.getProperty("user.dir"));
+- JVM 실행 환경의 설정 정보 (key-value)
+```java
+System.getProperty("java.version"); // JVM 버전
+System.getProperty("user.dir");     // 현재 실행 디렉토리
+System.getProperty("os.name");      // 운영체제
+System.getProperty("file.separator"); // 파일 구분자
 ```
-| 속성               | 설명         |
-| ---------------- | ---------- |
-| `java.version`   | JVM 버전     |
-| `os.name`        | 운영체제       |
-| `user.dir`       | 현재 실행 디렉토리 |
-| `file.separator` | 파일 구분자     |
 
 ### 프로그램 종료
-- `JVM`을 강제로 종료한다.
-```markdown
-System.exit(0);
+```java
+System.exit(0);  // 정상 종료
+System.exit(1);  // 비정상 종료
 ```
-| 값     | 의미     |
-| ----- | ------ |
-| `0`   | 정상 종료  |
-| `0이외` | 비정상 종료 |
+- JVM 즉시 종료 → `finally`가 실행되지 않을 수 있음
+- Spring / 서버 환경에서는 사용 지양
 
-#### 주의 ⚠️
-- JVM 즉시 종료
-- finally 실행되지 않을 수도 있음
-- Spring / 서버 환경에서는 거의 사용하지 않음
+### 어떻게 사용하는가?
+```java
+// 성능 측정
+long start = System.nanoTime();
+performTask();
+System.out.println((System.nanoTime() - start) + "ns");
 
+// 배열 복사
+int[] src = {1, 2, 3, 4, 5};
+int[] dest = new int[src.length];
+System.arraycopy(src, 0, dest, 0, src.length);
+
+// 환경 변수
+String apiKey = System.getenv("API_KEY");
+```
+
+### 어떨 때 많이 쓰는가?
+| 상황 | 사용 메서드 |
+| --- | --- |
+| 성능 측정, 벤치마크 | `nanoTime()` |
+| 타임스탬프, 로그 시간 | `currentTimeMillis()` |
+| 배열 대량 복사 | `arraycopy()` |
+| 환경 설정 값 읽기 | `getenv()`, `getProperty()` |
+| 콘솔 출력/디버깅 | `out.println()`, `err.println()` |
