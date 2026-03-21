@@ -6,7 +6,7 @@
 - 제네릭은 타입을 매개변수화(parameterize) 하는 기능이다.
 
 즉, 클래스나 메서드가 사용할 타입을 외부에서 결정할 수 있게 한다.
-```markdown
+```java
 class Box<T> {
     T value;
 }
@@ -17,7 +17,7 @@ Box<String>
 
 ### 제네릭을 사용하는 이유
 1. 타입 안전성 (Type Safety)
-```markdown
+```java
 => 컴파일 시점에 타입 오류를 발견한다.
 List<Integer> list = new ArrayList<>();
 list.add("hello"); // 컴파일 오류
@@ -32,7 +32,7 @@ Integer num = (Integer) list.get(0); // 런타임 오류
 | 제네릭 없음 | 런타임   |
 | 제네릭 있음 | 컴파일   |
 2. 캐스팅 제거
-```markdown
+```java
 => 제네릭
 List<Integer> list = new ArrayList<>();
 Integer num = list.get(0);
@@ -41,7 +41,7 @@ Integer num = (Integer) list.get(0);
 ```
 
 ### 타입 매개변수 선언
-```markdown
+```java
 class GenericBox<T> {
     private T value;
 }
@@ -51,7 +51,7 @@ class GenericBox<T> {
 | `<T>`     | 타입 매개변수 선언 |
 | `T value` | 실제 타입 사용   |
 #### 사용 예시
-```markdown
+```java
 GenericBox<Integer> box = new GenericBox<>();
 ```
 
@@ -66,7 +66,7 @@ GenericBox<Integer> box = new GenericBox<>();
 | S,U,V | 여러 타입   |
 
 #### 여러 타입 매개변수
-```markdown
+```java
 class Pair<K,V> {
     K key;
     V value;
@@ -76,7 +76,7 @@ Pair<String, Integer>
 
 ### 제네릭 타입 제한 (Bounded Type)
 - 특정 타입만 허용한다.
-```markdown
+```java
 class Hospital<T extends Human>
 => 가능 : Human, HumanChild
 => 불가능 : String, Integer
@@ -84,7 +84,7 @@ class Hospital<T extends Human>
 
 ### 다중 상한 (Multiple Bounds)
 - 클래스 1개 + 인터페이스 여러개
-```markdown
+```java
 class C<T extends A & B & C>
 ```
 #### 규칙
@@ -94,14 +94,14 @@ class C<T extends A & B & C>
 
 ### Generic Method
 - 메서드 자체가 제네릭이 될 수 있다.
-```markdown
+```java
 public static <T> T genericMethod(T t)
 => Integer num = genericMethod(10);
 => 컴파일러가 타입 추론한다.
 ```
 
 ### Instance / Static Generic Method
-```markdown
+```java
 class Box<T> {
 
     static <V> V staticMethod(V v) {}
@@ -111,7 +111,7 @@ class Box<T> {
 ```
 
 ### Class Generic vs Method Generic
-```markdown
+```java
 클래스 제네릭
 => class Box<T>
 
@@ -121,7 +121,7 @@ class Box<T> {
 
 #### 우선순위
 - 메서드 제네릭이 클래스 제네릭보다 우선
-```markdown
+```java
 class Box<T> {
     <T> T method(T t) { }
 }
@@ -130,7 +130,7 @@ class Box<T> {
 
 ### Raw Type
 - 제네릭을 사용하지 않는 타입
-```markdown
+```java
 List list = new ArrayList();
 => List<Object>처럼 동작
 ```
@@ -142,7 +142,7 @@ List list = new ArrayList();
 
 ### Wildcard
 - 제네릭 타입을 사용할 때 타입 범위를 표현
-```markdown
+```java
 Box<?>
 ```
 
@@ -151,7 +151,7 @@ Box<?>
 - 사용 시점 타입 표현
 
 #### 비제한 wildcard
-```markdown
+```java
 Box<?> box
 => 모든 타입 허용
 Box<String>
@@ -161,7 +161,7 @@ Box<Dog>
 ```
 
 #### 상한 wildcard
-```markdown
+```java
 <? extends Animal>
 => Animal 이하
 Animal
@@ -173,7 +173,7 @@ Cat
 ```
 
 #### 하한 wildcard
-```markdown
+```java
 <? super Animal>
 => Animal 이상
 Animal
@@ -185,7 +185,7 @@ Object
 
 ### PECS 원칙 (매우 중요)
 - 제네릭 설계 핵심 원칙
-```markdown
+```java
 Producer Extends
 Consumer Super
 ```
@@ -195,7 +195,7 @@ Consumer Super
 | 데이터를 넣는 곳  | super   |
 
 #### 예시
-```markdown
+```java
 public static double sum(List<? extends Number> list)
 => 데이터를 꺼낼 수 있지만, 어떤 리스트인지 몰라 넣을 수 없음
 
@@ -205,14 +205,14 @@ public static void add(List<? super Integer> list)
 
 ### 제네릭 불공변성 (Invariance)
 - Java 제네릭은 불공변
-```markdown
+```java
 List<Dog>은 List<Animal>의 하위 타입이 아니다.
 List<Animal> animals = new ArrayList<Dog>(); // 오류
 => 그래서 등장한 것이 [wildcard]
 ```
 
 ### Generic 배열 생성 제한
-```markdown
+```java
 => 불가능
 T[] array = new T[10];
 => 가능
@@ -222,7 +222,7 @@ List<T>
 
 ### Type Erasure (타입 소거)
 - 자바 제네릭은 컴파일 이후 제거된다.
-```markdown
+```java
 => 컴파일 전
 List<String>
 List<Integer>
@@ -232,7 +232,7 @@ List
 ```
 
 #### Type Erasure 과정
-```markdown
+```java
 => 시작
 class Box<T> {
     T value;
@@ -251,7 +251,7 @@ class Box {
 ```
 
 #### Type Erasure 때문에 불가능한 것
-```markdown
+```java
 => new T()
 => T.class
 => instanceof T

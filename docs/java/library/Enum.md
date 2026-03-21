@@ -6,7 +6,7 @@
 3. 타입이 int, String 같은 기본 상수보다 타입 안정성(Type Safety) 이 높다.
 
 ### 예시
-```markdown
+```java
 public class Grade { 
     
     private int point;
@@ -33,11 +33,11 @@ public class Grade {
 ### 단점
 - 코드가 번거롭다 -> 상수마다 객체를 직접 만들어야 한다.
 - 상수 목록을 자동으로 조회할 수 없다
-```markdown
+```java
 // GOLD, DIAMOND 목록 조회 불가능
 ```
 - switch 문 사용 불가
-```markdown
+```java
 switch(grade) { } // 사용 불편
 ```
 - 직렬화 / 비교 / 이름 관리 기능 부족
@@ -46,7 +46,7 @@ switch(grade) { } // 사용 불편
 - `Enum`은 서로 관련된 상수들의 집합을 타입으로 정의하는 특별한 클래스이다.
 
 ### 예시
-```markdown
+```java
 enum Grade {
     GOLD(10),
     DIAMOND(20);
@@ -68,11 +68,11 @@ int point = grade.getPoint();
 
 ### 장점
 - 타입 안정성 (Type Safety)
-```markdown
+```java
 Grade grade = Grade.GOLD;
 ```
 - `Enum`은 클래스이다
-```markdown
+```java
 class Grade extends Enum<Grade> {
 
     public static final Grade GOLD = new Grade("GOLD",0,10);
@@ -81,14 +81,14 @@ class Grade extends Enum<Grade> {
 }
 ```
 - `Enum`은 싱글톤 객체이다
-```markdown
+```java
 Grade a = Grade.GOLD;
 Grade b = Grade.GOLD;
 
 System.out.println(a == b); // true
 ```
 - `Enum`은 여러 유용한 메서드를 제공한다.
-```markdown
+```java
 for (Grade g : Grade.values()) {
     System.out.println(g);
 }
