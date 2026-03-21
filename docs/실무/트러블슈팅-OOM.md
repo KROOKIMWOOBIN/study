@@ -1,3 +1,5 @@
+> [← 홈](/README.md) · [실무](/docs/실무/실무.md)
+
 # 트러블슈팅: OOM (OutOfMemoryError)
 
 ## OOM이란?
