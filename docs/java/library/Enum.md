@@ -1,3 +1,5 @@
+> [← 홈](/README.md) · [Java](/docs/java/java.md) · [중급 1편](/docs/java/mid1.md)
+
 ## Type-safe Enum Pattern
 
 ### 설명

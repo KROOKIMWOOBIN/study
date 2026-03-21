@@ -1,3 +1,5 @@
+> [← 홈](/README.md) · [Java](/docs/java/java.md) · [중급 2편](/docs/java/mid2.md)
+
 ## 배열 리스트 (ArrayList)
 
 > 동적 배열 기반의 `List` 구현체. 내부 배열을 자동으로 확장/축소한다.

@@ -1,3 +1,5 @@
+> [← 홈](/README.md) · [Java](/docs/java/java.md) · [중급 2편](/docs/java/mid2.md)
+
 ## 스택 (Stack)
 
 > **후입선출(LIFO, Last In First Out)** 구조의 자료구조

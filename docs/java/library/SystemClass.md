@@ -1,3 +1,5 @@
+> [← 홈](/README.md) · [Java](/docs/java/java.md) · [중급 1편](/docs/java/mid1.md)
+
 ## System Class
 - JVM과 운영체제 수준의 시스템 기능을 접근하기 위한 유틸리티 클래스
 - `java.lang` 패키지에 포함 → `import` 없이 사용 가능

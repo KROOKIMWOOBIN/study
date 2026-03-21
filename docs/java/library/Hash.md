@@ -1,3 +1,5 @@
+> [← 홈](/README.md) · [Java](/docs/java/java.md) · [중급 2편](/docs/java/mid2.md)
+
 ## 해시 알고리즘 (Hash)
 
 ### 왜 사용하는가?

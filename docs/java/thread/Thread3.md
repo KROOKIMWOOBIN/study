@@ -1,3 +1,5 @@
+> [← 홈](/README.md) · [Java](/docs/java/java.md) · [멀티스레드](/docs/java/thread.md)
+
 ## Interrupt
 - 스레드에게 중단 요청을 전달한다.
 - JVM에서 인터럽트 오류가 발생하면 인터럽트 플래그를 다시 초기화 해준다. (기본: false)

@@ -1,3 +1,5 @@
+> [← 홈](/README.md) · [Java](/docs/java/java.md) · [중급 1편](/docs/java/mid1.md)
+
 ## Object (java.lang.Object)
 - 자바의 모든 클래스가 암묵적으로 상속받는 최상위 클래스
 - 명시적으로 상속을 선언하지 않아도 자동으로 `Object`를 상속

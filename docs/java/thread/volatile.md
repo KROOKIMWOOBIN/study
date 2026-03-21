@@ -1,3 +1,5 @@
+> [← 홈](/README.md) · [Java](/docs/java/java.md) · [멀티스레드](/docs/java/thread.md)
+
 ## 메모리 가시성
 - 한 스레드가 변경한 값이 다른 스레드에서 언제, 어떻게 보이느냐의 문제
 

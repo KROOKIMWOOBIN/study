@@ -1,3 +1,5 @@
+> [← 홈](/README.md) · [Java](/docs/java/java.md) · [중급 2편](/docs/java/mid2.md)
+
 ## 연결 리스트 (LinkedList)
 
 > 노드(Node)들이 다음 노드의 참조를 통해 연결된 리스트 구조. 내부 배열 없이 포인터로 연결된다.

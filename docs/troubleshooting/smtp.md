@@ -1,3 +1,5 @@
+> [← 홈](/README.md)
+
 # Trouble Shooting
 
 운영 중 발생한 문제 해결 기록.

@@ -1,3 +1,5 @@
+> [← 홈](/README.md) · [Java](/docs/java/java.md) · [중급 1편](/docs/java/mid1.md)
+
 ## 불변객체 (Immutable Object)
 - 객체 생성 이후 외부에서 관찰 가능한 상태가 절대 변하지 않는 객체
 - 상태 변경이 필요하면 기존 객체를 수정하지 않고 새로운 객체를 생성한다
