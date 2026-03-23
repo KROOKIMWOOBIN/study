@@ -382,7 +382,6 @@ Function<String, Integer> f = String::length;
 
 ## ⚙️ 지연 연산 (Lazy Evaluation)
 
-```md
 ### 정의
 - 실제 연산을 즉시 수행하지 않고, 최종 연산이 호출될 때 실행하는 방식
 
@@ -415,7 +414,7 @@ Function<String, Integer> f = String::length;
 - 연산 최소화
 
 ### 예시
-```java
+```markdown
 numbers.stream()
        .filter(n -> n > 10)
        .findFirst(); // 조건 만족 시 즉시 종료
