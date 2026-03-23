@@ -363,3 +363,5 @@ Function<String, Integer> f = String::length;
 ## Stream Api
 
 ### 일괄 처리 방식 VS 파이프라인 방식
+
+### 지연 연산 
