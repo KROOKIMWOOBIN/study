@@ -409,6 +409,17 @@ for (Integer n : filtered) {
 }
 
 System.out.println(mapped);
+
+// 실행 흐름
+filter: 1
+filter: 2
+filter: 3
+filter: 4
+filter: 5
+map: 3
+map: 4
+map: 5
+-> filter 전체 → map 전체
 ```
 #### 📌 지연 연산 예시 (Lazy - Stream)
 ```markdown
@@ -424,4 +435,17 @@ numbers.stream()
            return n * 2;
        })
        .forEach(System.out::println);
+
+// 실행 흐름
+filter: 1
+filter: 2
+filter: 3
+map: 3
+6
+filter: 4
+map: 4
+8
+filter: 5
+map: 5
+10
 ```
