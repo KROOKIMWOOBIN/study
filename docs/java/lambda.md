@@ -376,10 +376,6 @@ Function<String, Integer> f = String::length;
 | 가독성 | 상대적으로 낮음 | 높음 |
 | 대표 예시 | for-loop 기반 처리 | stream().filter().map() |
 
-### 지연 연산 
-
----
-
 ## ⚙️ 지연 연산 (Lazy Evaluation)
 
 ### 정의
