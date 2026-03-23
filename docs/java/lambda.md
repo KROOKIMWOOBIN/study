@@ -389,3 +389,39 @@ Function<String, Integer> f = String::length;
 | 코드 스타일 | 명령형 (Imperative) | 선언형 (Declarative) |
 | 대표 예시 | for-loop, 컬렉션 조작 | Stream API (filter, map 등) |
 | 실행 트리거 | 없음 (즉시 실행) | 최종 연산 (forEach, collect 등) |
+
+#### 📌 즉시 연산 예시 (Eager)
+```markdown
+List<Integer> numbers = List.of(1, 2, 3, 4, 5);
+
+List<Integer> filtered = new ArrayList<>();
+for (Integer n : numbers) {
+    System.out.println("filter: " + n);
+    if (n > 2) {
+        filtered.add(n);
+    }
+}
+
+List<Integer> mapped = new ArrayList<>();
+for (Integer n : filtered) {
+    System.out.println("map: " + n);
+    mapped.add(n * 2);
+}
+
+System.out.println(mapped);
+```
+#### 📌 지연 연산 예시 (Lazy - Stream)
+```markdown
+List<Integer> numbers = List.of(1, 2, 3, 4, 5);
+
+numbers.stream()
+       .filter(n -> {
+           System.out.println("filter: " + n);
+           return n > 2;
+       })
+       .map(n -> {
+           System.out.println("map: " + n);
+           return n * 2;
+       })
+       .forEach(System.out::println);
+```
