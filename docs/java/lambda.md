@@ -361,3 +361,5 @@ Function<String, Integer> f = String::length;
   - 로직이 아닌 “전달”에 초점
 
 ## Stream Api
+
+### 파이프라인 방식
