@@ -475,12 +475,28 @@ map: 5
 | Optional | `Optional.stream()`           | Optional → Stream | Java 9+   | null-safe                |
 | 병렬 스트림   | `collection.parallelStream()` | 병렬 처리             | 멀티코어 활용   | 병렬 연산                    |
 
-### 메서드 종류
-| 메서드           | 반환 타입       | 설명                | 종료 조건        |
-| ------------- | ----------- | ----------------- | ------------ |
-| `anyMatch()`  | boolean     | 하나라도 조건 만족        | true 나오면 종료  |
-| `allMatch()`  | boolean     | 모두 조건 만족          | false 나오면 종료 |
-| `noneMatch()` | boolean     | 모두 조건 불만족         | true 나오면 종료  |
-| `findFirst()` | Optional<T> | 첫 번째 요소 반환        | 하나 찾으면 종료    |
-| `findAny()`   | Optional<T> | 아무 요소 반환 (병렬 최적화) | 하나 찾으면 종료    |
-| `limit()`     | Stream<T>   | n개까지만 처리          | n개 처리 시 종료   |
+### 중간 연산
+| 메서드                 | 설명            |
+| ------------------- | ------------- |
+| `filter(Predicate)` | 조건에 맞는 요소만 추출 |
+| `map(Function)`     | 요소 변환         |
+| `flatMap(Function)` | 1:N 구조 평탄화    |
+| `distinct()`        | 중복 제거         |
+| `sorted()`          | 정렬            |
+| `limit(n)`          | 앞에서 n개        |
+| `skip(n)`           | n개 건너뜀        |
+| `peek(Consumer)`    | 중간 확인 (디버깅용)  |
+
+### 최종 연산
+| 메서드                  | 설명      |
+| -------------------- | ------- |
+| `forEach(Consumer)`  | 요소 반복   |
+| `collect(Collector)` | 컬렉션 변환  |
+| `toArray()`          | 배열 변환   |
+| `reduce()`           | 누적 연산   |
+| `count()`            | 개수      |
+| `findFirst()`        | 첫 요소    |
+| `findAny()`          | 아무 요소   |
+| `anyMatch()`         | 하나라도 만족 |
+| `allMatch()`         | 모두 만족   |
+| `noneMatch()`        | 모두 불만족  |
