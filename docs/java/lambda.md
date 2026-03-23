@@ -458,6 +458,23 @@ map: 5
 결과가 이미 확정되면 이후 연산을 수행하지 않고 즉시 종료하는 방식이다.
 ```
 
+### 스트림 생성 단계
+| 분류       | 메서드                           | 설명                | 특징        | 예시                       |
+| -------- | ----------------------------- | ----------------- | --------- | ------------------------ |
+| 컬렉션 기반   | `collection.stream()`         | 컬렉션 → 스트림         | 가장 기본     | `list.stream()`          |
+| 배열 기반    | `Arrays.stream()`             | 배열 → 스트림          | 범위 지정 가능  | `Arrays.stream(arr)`     |
+| 값 직접 생성  | `Stream.of()`                 | 값 나열 → 스트림        | 간단한 데이터   | `Stream.of(1,2,3)`       |
+| 빈 스트림    | `Stream.empty()`              | 빈 스트림 생성          | 안전 처리     | `Stream.empty()`         |
+| 무한 스트림   | `Stream.iterate()`            | 이전 값 기반 생성        | 상태 있음     | `iterate(0, n→n+1)`      |
+| 무한 스트림   | `Stream.generate()`           | Supplier 기반 생성    | 상태 없음     | `generate(Math::random)` |
+| 범위 스트림   | `IntStream.range()`           | 정수 범위             | 성능 최적화    | `range(1,10)`            |
+| 범위 스트림   | `IntStream.rangeClosed()`     | 포함 범위             | 끝값 포함     | `rangeClosed(1,10)`      |
+| 파일       | `Files.lines()`               | 파일 → 스트림          | lazy read | 파일 처리                    |
+| 랜덤       | `Random.ints()`               | 랜덤 스트림            | 무한 가능     | 난수 처리                    |
+| 빌더       | `Stream.builder()`            | 수동 추가             | 유연성 높음    | builder.add()            |
+| Optional | `Optional.stream()`           | Optional → Stream | Java 9+   | null-safe                |
+| 병렬 스트림   | `collection.parallelStream()` | 병렬 처리             | 멀티코어 활용   | 병렬 연산                    |
+
 ### 메서드 종류
 | 메서드           | 반환 타입       | 설명                | 종료 조건        |
 | ------------- | ----------- | ----------------- | ------------ |
