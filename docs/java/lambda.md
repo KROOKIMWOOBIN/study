@@ -376,42 +376,16 @@ Function<String, Integer> f = String::length;
 | 가독성 | 상대적으로 낮음 | 높음 |
 | 대표 예시 | for-loop 기반 처리 | stream().filter().map() |
 
-## ⚙️ 지연 연산 (Lazy Evaluation)
-
-### 정의
-- 실제 연산을 즉시 수행하지 않고, 최종 연산이 호출될 때 실행하는 방식
-
-### 연산 종류
-| 구분 | 설명 | 예시 |
-|------|------|------|
-| 중간 연산 | 실행되지 않고 대기 | filter, map, sorted |
-| 최종 연산 | 실행을 트리거 | forEach, collect, toList |
-
-### 동작 방식
-- 요소 하나씩 처리됨 (Loop Fusion)
-- 전체 → filter → map ❌
-- 요소 → filter → map → 소비 ✔️
-
-### 특징
-- 필요할 때만 연산 수행
-- 불필요한 연산 제거
-- Short-Circuiting 가능
-
-### Short-Circuiting 예시
-| 메서드 | 설명 |
-|--------|------|
-| findFirst | 하나 찾으면 종료 |
-| anyMatch | 조건 만족 시 종료 |
-| limit(n) | n개만 처리 |
-
-### 장점
-- 성능 최적화
-- 메모리 효율성
-- 연산 최소화
-
-### 예시
-```markdown
-numbers.stream()
-       .filter(n -> n > 10)
-       .findFirst(); // 조건 만족 시 즉시 종료
-```
+### 즉시 연산 VS 지연 연산
+| 구분 | 즉시 연산 (Eager Evaluation) | 지연 연산 (Lazy Evaluation) |
+|------|----------------------------|-----------------------------|
+| 실행 시점 | 연산 정의 즉시 실행 | 최종 연산 시점까지 지연 |
+| 처리 방식 | 전체 데이터를 먼저 처리 | 요소 단위로 순차 처리 |
+| 연산 흐름 | 단계별로 전체 반복 | 한 요소씩 파이프라인 통과 |
+| 중간 결과 | 매 단계마다 생성 | 생성되지 않음 |
+| 메모리 사용 | 높음 | 낮음 |
+| 성능 | 불필요한 연산 포함 가능 | 필요한 만큼만 수행 |
+| 최적화 | 어려움 | Short-Circuiting 가능 |
+| 코드 스타일 | 명령형 (Imperative) | 선언형 (Declarative) |
+| 대표 예시 | for-loop, 컬렉션 조작 | Stream API (filter, map 등) |
+| 실행 트리거 | 없음 (즉시 실행) | 최종 연산 (forEach, collect 등) |
