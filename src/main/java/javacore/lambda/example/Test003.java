@@ -2,7 +2,6 @@ package javacore.lambda.example;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class Test003 {
 
