@@ -9,8 +9,7 @@ public class Test003 {
     public static void main(String[] args) {
         List<List<Integer>> list = List.of(List.of(1, 2, 3), List.of(4, 5, 6));
         System.out.println("list = " + list);
-        Stream<List<Integer>> stream = list.stream();
-        List<Integer> integerList = stream.flatMap(Collection::stream)
+        List<Integer> integerList = list.stream().flatMap(Collection::stream)
                 .toList();
         System.out.println("integerList = " + integerList);
     }
