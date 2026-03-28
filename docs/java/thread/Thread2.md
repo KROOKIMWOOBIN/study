@@ -1,4 +1,4 @@
-> [← 홈](/README.md) · [Java](/docs/java/java.md) · [멀티스레드](/docs/java/thread.md)
+> [← 홈](/README.md) · [Java](/docs/java/java.md) · [멀티스레드](/docs/java/thread/thread.md)
 
 ## Thread State
 

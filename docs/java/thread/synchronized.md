@@ -1,4 +1,4 @@
-> [← 홈](/README.md) · [Java](/docs/java/java.md) · [멀티스레드](/docs/java/thread.md)
+> [← 홈](/README.md) · [Java](/docs/java/java.md) · [멀티스레드](/docs/java/thread/thread.md)
 
 ## 임계 영역
 - 여러 스레드가 공유 자원(shared resource) 에 동시에 접근할 경우 데이터 불일치 또는 예측 불가능한 결과가 발생할 수 있는 코드 영역
