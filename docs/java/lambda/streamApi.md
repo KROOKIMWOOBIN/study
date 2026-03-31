@@ -378,6 +378,105 @@ Map<Boolean, Long> passCount = students.stream()
 
 ---
 
+#### Downstream Collector — 그룹 내 추가 집계
+
+**왜 쓰는가:**
+`groupingBy` / `partitioningBy`는 그룹을 나누는 것까지만 한다. 나눠진 각 그룹에 **추가 집계(개수, 합계, 변환 등)** 를 적용하고 싶을 때 downstream collector를 두 번째 인자로 전달한다.
+
+```
+groupingBy(분류기준, downstream)
+                      ↑
+           각 그룹의 List<T>에 이 collector를 적용
+```
+
+**주요 downstream collectors:**
+
+| Collector | 결과 타입 | 설명 |
+|---|---|---|
+| `counting()` | `Long` | 그룹 내 요소 개수 |
+| `summingInt/Long/Double(fn)` | 숫자 | 그룹 내 합계 |
+| `averagingInt/Long/Double(fn)` | `Double` | 그룹 내 평균 |
+| `mapping(fn, downstream)` | 변환 후 수집 | 요소 변환 후 다시 수집 |
+| `toList()` | `List<T>` | 기본값 (생략 시와 동일) |
+| `toSet()` | `Set<T>` | 중복 제거 |
+| `joining(delimiter)` | `String` | 문자열 요소 이어붙이기 |
+| `maxBy/minBy(comparator)` | `Optional<T>` | 그룹 내 최댓값/최솟값 |
+| `collectingAndThen(downstream, fn)` | 변환 결과 | 수집 후 추가 변환 |
+
+```markdown
+// ── counting: 부서별 인원 수 ──────────────────────────────────────────
+// 결과: {"개발팀": 5, "기획팀": 2}
+Map<String, Long> countByDept = employees.stream()
+    .collect(Collectors.groupingBy(
+        Employee::getDepartment,
+        Collectors.counting()
+    ));
+
+// ── summingInt: 부서별 연봉 합계 ──────────────────────────────────────
+// 결과: {"개발팀": 350000000, "기획팀": 120000000}
+Map<String, Integer> salaryByDept = employees.stream()
+    .collect(Collectors.groupingBy(
+        Employee::getDepartment,
+        Collectors.summingInt(Employee::getSalary)
+    ));
+
+// ── averagingInt: 부서별 평균 나이 ────────────────────────────────────
+Map<String, Double> avgAgeByDept = employees.stream()
+    .collect(Collectors.groupingBy(
+        Employee::getDepartment,
+        Collectors.averagingInt(Employee::getAge)
+    ));
+
+// ── mapping: 부서별 이름 목록 (Employee → String 변환 후 수집) ─────────
+// mapping(변환함수, 이후적용할downstream)
+// 결과: {"개발팀": ["김철수", "이영희"], ...}
+Map<String, List<String>> namesByDept = employees.stream()
+    .collect(Collectors.groupingBy(
+        Employee::getDepartment,
+        Collectors.mapping(Employee::getName, Collectors.toList())
+    ));
+
+// ── joining: 부서별 이름을 쉼표로 연결 ────────────────────────────────
+// 결과: {"개발팀": "김철수, 이영희", "기획팀": "박민수"}
+Map<String, String> nameStrByDept = employees.stream()
+    .collect(Collectors.groupingBy(
+        Employee::getDepartment,
+        Collectors.mapping(Employee::getName, Collectors.joining(", "))
+    ));
+
+// ── maxBy: 부서별 최고 연봉자 ────────────────────────────────────────
+Map<String, Optional<Employee>> topEarnerByDept = employees.stream()
+    .collect(Collectors.groupingBy(
+        Employee::getDepartment,
+        Collectors.maxBy(Comparator.comparing(Employee::getSalary))
+    ));
+
+// ── collectingAndThen: 수집 후 추가 변환 ─────────────────────────────
+// toList()로 수집한 뒤 불변 리스트로 변환 (unmodifiableList 래핑)
+Map<String, List<Employee>> byDept = employees.stream()
+    .collect(Collectors.groupingBy(
+        Employee::getDepartment,
+        Collectors.collectingAndThen(
+            Collectors.toList(),           // 먼저 List로 수집
+            Collections::unmodifiableList  // 수집 완료 후 불변으로 변환
+        )
+    ));
+
+// ── 2단계 중첩: 부서 → 직급별 인원 수 ────────────────────────────────
+// 결과: {"개발팀": {"시니어": 3, "주니어": 2}, ...}
+// downstream 자체에 다시 groupingBy를 넣을 수 있음 (2단계 이상이면 메서드 분리 권장)
+Map<String, Map<String, Long>> byDeptAndLevel = employees.stream()
+    .collect(Collectors.groupingBy(
+        Employee::getDepartment,
+        Collectors.groupingBy(        // downstream으로 또 groupingBy
+            Employee::getLevel,
+            Collectors.counting()
+        )
+    ));
+```
+
+---
+
 #### joining — 문자열 합치기
 
 **언제 쓰는가:** 스트림 요소들을 하나의 문자열로 이어붙일 때. `StringBuilder` 반복보다 간결하다.
