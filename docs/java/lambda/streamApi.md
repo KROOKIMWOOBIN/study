@@ -274,9 +274,15 @@ Map<String, List<Employee>> result = employees.stream()
 | `Collectors.toSet()` | 가변 Set | 순서 미보장, 중복 제거 |
 
 ```markdown
-List<String> mutable   = stream.collect(Collectors.toList());  // 가변
-List<String> immutable = stream.toList();                      // 불변 (Java 16+)
-Set<String>  set       = stream.collect(Collectors.toSet());
+// 가변 List — 이후에 .add(), .remove() 가능
+List<String> mutable = stream.collect(Collectors.toList());
+
+// 불변 List (Java 16+) — 수정 시 UnsupportedOperationException 발생
+// 읽기 전용으로 넘길 때 사용 (방어적 복사 불필요)
+List<String> immutable = stream.toList();
+
+// 가변 Set — 순서 미보장, 중복 자동 제거
+Set<String> set = stream.collect(Collectors.toSet());
 ```
 
 > **주의:** `toList()`(불변)와 `Collectors.toList()`(가변)는 다르다. 반환 결과에 `.add()`를 호출할 계획이면 반드시 `Collectors.toList()`를 사용할 것.
@@ -288,20 +294,22 @@ Set<String>  set       = stream.collect(Collectors.toSet());
 **언제 쓰는가:** 요소를 키-값 쌍으로 변환해 Map이 필요할 때
 
 ```markdown
-// key: 이름, value: 나이
+// ── 기본: 이름 → 나이 Map ───────────────────────────────────────────
+// 이름이 중복되면 IllegalStateException — 키가 유일하다고 확신할 때만 사용
 Map<String, Integer> map = people.stream()
     .collect(Collectors.toMap(
-        Person::getName,   // keyMapper
-        Person::getAge     // valueMapper
+        Person::getName,  // keyMapper   : 각 요소에서 키를 추출
+        Person::getAge    // valueMapper : 각 요소에서 값을 추출
     ));
 
-// 중복 키 충돌 처리 (mergeFunction) + Map 구현체 지정
+// ── 안전한 버전: 중복 키 처리 + Map 구현체 지정 ───────────────────────
 Map<String, Integer> map = people.stream()
     .collect(Collectors.toMap(
         Person::getName,
         Person::getAge,
-        (existing, incoming) -> existing,  // 충돌 시 기존 값 유지
-        LinkedHashMap::new                 // 삽입 순서 유지
+        (existing, incoming) -> existing,  // mergeFunction: 동일 키 충돌 시 기존 값 유지
+                                           // incoming을 반환하면 새 값으로 덮어씀
+        LinkedHashMap::new                 // mapFactory: 결과 Map 구현체 (삽입 순서 유지)
     ));
 ```
 
@@ -314,22 +322,32 @@ Map<String, Integer> map = people.stream()
 **언제 쓰는가:** 특정 기준으로 요소를 분류해 `Map<K, List<V>>` 구조가 필요할 때
 
 ```markdown
-// 부서별 직원 목록: Map<String, List<Employee>>
+// ── 기본: 부서명 → 직원 목록 ──────────────────────────────────────────
+// 결과: {"개발팀": [e1, e2], "기획팀": [e3], ...}
+// 각 그룹의 값은 기본적으로 List<Employee>로 수집됨
 Map<String, List<Employee>> byDept = employees.stream()
     .collect(Collectors.groupingBy(Employee::getDepartment));
 
-// downstream collector 조합: 그룹별 인원 수
+// ── downstream 조합: 그룹별 인원 수 ──────────────────────────────────
+// groupingBy 두 번째 인자 = downstream collector
+// "그룹을 나눈 뒤, 각 그룹에 추가로 이 collector를 적용해라"
+// 결과: {"개발팀": 5, "기획팀": 2, ...}
 Map<String, Long> countByDept = employees.stream()
     .collect(Collectors.groupingBy(
-        Employee::getDepartment,
-        Collectors.counting()          // downstream — 각 그룹에 적용할 추가 집계
+        Employee::getDepartment,  // classifier : 그룹 기준
+        Collectors.counting()     // downstream : 각 그룹 내 요소 개수 세기
     ));
 
-// 그룹별 이름만 추출
+// ── downstream 조합: 그룹별 이름 목록 ────────────────────────────────
+// mapping(변환함수, 수집방법) — 그룹 내 요소를 변환 후 수집
+// 결과: {"개발팀": ["김철수", "이영희"], ...}
 Map<String, List<String>> namesByDept = employees.stream()
     .collect(Collectors.groupingBy(
         Employee::getDepartment,
-        Collectors.mapping(Employee::getName, Collectors.toList())
+        Collectors.mapping(
+            Employee::getName,       // 각 Employee에서 이름 추출
+            Collectors.toList()      // 추출된 이름들을 List로 수집
+        )
     ));
 ```
 
@@ -342,16 +360,19 @@ Map<String, List<String>> namesByDept = employees.stream()
 **언제 쓰는가:** `true` / `false` 두 그룹으로만 나눌 때. `groupingBy`보다 의도가 명확하다.
 
 ```markdown
-// 짝수 / 홀수 분리: Map<Boolean, List<Integer>>
+// ── 기본: 짝수 / 홀수 두 그룹으로 분리 ──────────────────────────────
+// groupingBy와 달리 키가 항상 true/false 두 개만 존재
+// 결과: {false=[1, 3, 5], true=[2, 4]}
 Map<Boolean, List<Integer>> partition = Stream.of(1, 2, 3, 4, 5)
     .collect(Collectors.partitioningBy(n -> n % 2 == 0));
-// {false=[1, 3, 5], true=[2, 4]}
+//                                     ↑ Predicate: true 그룹과 false 그룹으로 분류
 
-// downstream 조합: 합격/불합격 인원 수
+// ── downstream 조합: 합격/불합격 인원 수 ─────────────────────────────
+// 결과: {false=3(불합격 인원), true=7(합격 인원)}
 Map<Boolean, Long> passCount = students.stream()
     .collect(Collectors.partitioningBy(
-        s -> s.getScore() >= 60,
-        Collectors.counting()
+        s -> s.getScore() >= 60,  // 60점 이상이면 true(합격) 그룹
+        Collectors.counting()     // 각 그룹의 인원 수 집계
     ));
 ```
 
@@ -362,14 +383,19 @@ Map<Boolean, Long> passCount = students.stream()
 **언제 쓰는가:** 스트림 요소들을 하나의 문자열로 이어붙일 때. `StringBuilder` 반복보다 간결하다.
 
 ```markdown
+// joining(구분자, 접두사, 접미사)
+// 결과: "[Java, Stream, API]"
 String result = Stream.of("Java", "Stream", "API")
-    .collect(Collectors.joining(", ", "[", "]"));
-// "[Java, Stream, API]"
-//                  ↑ delimiter  ↑ prefix  ↑ suffix
+    .collect(Collectors.joining(
+        ", ",   // delimiter : 요소 사이에 삽입
+        "[",    // prefix    : 전체 문자열 앞에 붙임
+        "]"     // suffix    : 전체 문자열 뒤에 붙임
+    ));
 
-// 단순 연결
+// 구분자만 지정 — CSV 형태
+// 결과: "a,b,c"
 String csv = Stream.of("a", "b", "c")
-    .collect(Collectors.joining(","));  // "a,b,c"
+    .collect(Collectors.joining(","));
 ```
 
 ---
@@ -379,17 +405,27 @@ String csv = Stream.of("a", "b", "c")
 **언제 쓰는가:** 그룹별 합계, 평균, 최댓값 등 집계가 필요할 때. `IntStream.summaryStatistics()`의 Collector 버전.
 
 ```markdown
-// 나이 통계 한 번에
+// ── 종합 통계: 합계/평균/최솟값/최댓값/개수를 한 번의 순회로 모두 구함 ──
 IntSummaryStatistics stats = people.stream()
     .collect(Collectors.summarizingInt(Person::getAge));
-// stats.getSum(), getAverage(), getMin(), getMax(), getCount()
 
-// 개수
+stats.getCount();    // 전체 인원 수
+stats.getSum();      // 나이 합계
+stats.getAverage();  // 평균 나이 (double)
+stats.getMin();      // 최솟값
+stats.getMax();      // 최댓값
+
+// ── 개수만 필요할 때 ───────────────────────────────────────────────
+// stream.count()와 동일하지만 downstream collector로 사용할 수 있어 groupingBy와 조합됨
 long count = people.stream().collect(Collectors.counting());
 
-// 최댓값 (Optional 반환 — 빈 스트림 대비)
+// ── 최댓값/최솟값: Optional 반환 (빈 스트림이면 Optional.empty()) ──
+// Comparator로 비교 기준을 직접 지정
 Optional<Person> oldest = people.stream()
     .collect(Collectors.maxBy(Comparator.comparing(Person::getAge)));
+// minBy: 최솟값
+Optional<Person> youngest = people.stream()
+    .collect(Collectors.minBy(Comparator.comparing(Person::getAge)));
 ```
 
 ---
