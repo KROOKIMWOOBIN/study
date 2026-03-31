@@ -242,13 +242,15 @@ Stream 중간 연산 결과를 실제 자료구조나 단일 값으로 변환할
 단순한 `toList()`만으로는 부족한 **그룹화, 파티셔닝, 집계, 문자열 합치기** 등 복잡한 변환을 선언적으로 표현할 수 있다.
 
 ```markdown
-// Collector 없이 부서별 그룹화 — 명령형
+// ── Collector 없이 부서별 그룹화 — 명령형 ──────────────────────────────
 Map<String, List<Employee>> result = new HashMap<>();
 for (Employee e : employees) {
+    // 키가 없으면 빈 리스트 생성 후 직원 추가 — 반복적인 보일러플레이트
     result.computeIfAbsent(e.getDepartment(), k -> new ArrayList<>()).add(e);
 }
 
-// Collector 사용 — 선언형
+// ── Collector 사용 — 선언형 ───────────────────────────────────────────
+// "부서명으로 그룹화해라"는 의도만 명시, 내부 Map 생성/리스트 추가는 Collector가 처리
 Map<String, List<Employee>> result = employees.stream()
     .collect(Collectors.groupingBy(Employee::getDepartment));
 ```
