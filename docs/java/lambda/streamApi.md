@@ -261,7 +261,8 @@ Map<String, Integer> map = people.stream()
     .collect(Collectors.toMap(
         Person::getName,
         Person::getAge,
-        (existing, incoming) -> existing  // 충돌 시 기존 값 유지
+        (existing, incoming) -> existing,  // 충돌 시 기존 값 유지
+        
     ));
 ```
 
