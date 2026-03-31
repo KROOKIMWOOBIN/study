@@ -14,11 +14,24 @@
 <body>
   <div id="app"></div>
   <script>
+    // GitHub Pages SPA 라우팅 복원 (404.html → index.html 리다이렉트 처리)
+    (function(l) {
+      if (l.search[1] === '/') {
+        var decoded = l.search.slice(1).split('&').map(function(s) {
+          return s.replace(/~and~/g, '&');
+        }).join('?');
+        window.history.replaceState(null, null,
+          l.pathname.slice(0, -1) + decoded + l.hash
+        );
+      }
+    }(window.location));
+
     window.$docsify = {
       name: '학습 노트',
-      repo: '',
+      repo: 'https://github.com/KROOKIMWOOBIN/study',
       loadSidebar: true,
       subMaxLevel: 2,
+      relativePath: true,  // 마크다운 내부 상대경로 링크 처리
       alias: {
         '/.*/_sidebar.md': '/_sidebar.md'
       },
