@@ -236,17 +236,54 @@ Stream<String>  obj   = IntStream.range(1, 6).mapToObj(n -> "item" + n);
 
 ### Collectors — collect()의 핵심
 
-`collect(Collectors.xxx())`로 다양한 결과물을 만든다.
+#### 왜 쓰는가?
+
+Stream 중간 연산 결과를 실제 자료구조나 단일 값으로 변환할 때 사용한다.
+단순한 `toList()`만으로는 부족한 **그룹화, 파티셔닝, 집계, 문자열 합치기** 등 복잡한 변환을 선언적으로 표현할 수 있다.
+
+```markdown
+// Collector 없이 부서별 그룹화 — 명령형
+Map<String, List<Employee>> result = new HashMap<>();
+for (Employee e : employees) {
+    result.computeIfAbsent(e.getDepartment(), k -> new ArrayList<>()).add(e);
+}
+
+// Collector 사용 — 선언형
+Map<String, List<Employee>> result = employees.stream()
+    .collect(Collectors.groupingBy(Employee::getDepartment));
+```
+
+#### 특징
+
+- `Collector`는 **전략 객체** — `collect()`에 "어떻게 수집할지"를 위임한다
+- `Collectors`는 자주 쓰는 구현체를 제공하는 **팩토리 클래스**
+- downstream collector 조합으로 **중첩 집계** 표현 가능
+- `Collector.of()`로 직접 커스텀 Collector 구현도 가능
+
+---
 
 #### 기본 수집
 
+| 방법 | 결과 | 특징 |
+|---|---|---|
+| `Collectors.toList()` | 가변 List | 추가/삭제 가능 |
+| `stream.toList()` | 불변 List | Java 16+, 수정 시 UnsupportedOperationException |
+| `Collectors.toUnmodifiableList()` | 불변 List | Java 10+ |
+| `Collectors.toSet()` | 가변 Set | 순서 미보장, 중복 제거 |
+
 ```markdown
-List<String> names = stream.collect(Collectors.toList());    // 변경 가능한 List
-List<String> names = stream.toList();                        // 불변 List (Java 16+)
-Set<String>  names = stream.collect(Collectors.toSet());
+List<String> mutable   = stream.collect(Collectors.toList());  // 가변
+List<String> immutable = stream.toList();                      // 불변 (Java 16+)
+Set<String>  set       = stream.collect(Collectors.toSet());
 ```
 
-#### toMap
+> **주의:** `toList()`(불변)와 `Collectors.toList()`(가변)는 다르다. 반환 결과에 `.add()`를 호출할 계획이면 반드시 `Collectors.toList()`를 사용할 것.
+
+---
+
+#### toMap — 스트림을 Map으로 변환
+
+**언제 쓰는가:** 요소를 키-값 쌍으로 변환해 Map이 필요할 때
 
 ```markdown
 // key: 이름, value: 나이
@@ -256,31 +293,37 @@ Map<String, Integer> map = people.stream()
         Person::getAge     // valueMapper
     ));
 
-// 중복 키 충돌 처리 (mergeFunction)
+// 중복 키 충돌 처리 (mergeFunction) + Map 구현체 지정
 Map<String, Integer> map = people.stream()
     .collect(Collectors.toMap(
         Person::getName,
         Person::getAge,
         (existing, incoming) -> existing,  // 충돌 시 기존 값 유지
-        LinkedHashMap::New
+        LinkedHashMap::new                 // 삽입 순서 유지
     ));
 ```
 
+> **주의:** `mergeFunction`을 생략하면 키 중복 시 `IllegalStateException` 발생. 실무에서는 항상 세 번째 인자를 명시하는 것이 안전하다.
+
+---
+
 #### groupingBy — 그룹화
 
+**언제 쓰는가:** 특정 기준으로 요소를 분류해 `Map<K, List<V>>` 구조가 필요할 때
+
 ```markdown
-// 나이대별 그룹화: Map<Integer, List<Person>>
-Map<Integer, List<Person>> byAge = people.stream()
-    .collect(Collectors.groupingBy(Person::getAge));
+// 부서별 직원 목록: Map<String, List<Employee>>
+Map<String, List<Employee>> byDept = employees.stream()
+    .collect(Collectors.groupingBy(Employee::getDepartment));
 
 // downstream collector 조합: 그룹별 인원 수
 Map<String, Long> countByDept = employees.stream()
     .collect(Collectors.groupingBy(
         Employee::getDepartment,
-        Collectors.counting()          // downstream
+        Collectors.counting()          // downstream — 각 그룹에 적용할 추가 집계
     ));
 
-// 그룹별 이름 목록
+// 그룹별 이름만 추출
 Map<String, List<String>> namesByDept = employees.stream()
     .collect(Collectors.groupingBy(
         Employee::getDepartment,
@@ -288,32 +331,73 @@ Map<String, List<String>> namesByDept = employees.stream()
     ));
 ```
 
+> **주의:** `groupingBy` 결과 Map은 순서를 보장하지 않는다. 삽입 순서가 필요하면 `groupingBy(classifier, LinkedHashMap::new, downstream)` 형태로 Map 구현체를 지정한다.
+
+---
+
 #### partitioningBy — 조건으로 두 그룹 분리
 
+**언제 쓰는가:** `true` / `false` 두 그룹으로만 나눌 때. `groupingBy`보다 의도가 명확하다.
+
 ```markdown
-// true / false 두 그룹으로 분리: Map<Boolean, List<T>>
+// 짝수 / 홀수 분리: Map<Boolean, List<Integer>>
 Map<Boolean, List<Integer>> partition = Stream.of(1, 2, 3, 4, 5)
     .collect(Collectors.partitioningBy(n -> n % 2 == 0));
 // {false=[1, 3, 5], true=[2, 4]}
+
+// downstream 조합: 합격/불합격 인원 수
+Map<Boolean, Long> passCount = students.stream()
+    .collect(Collectors.partitioningBy(
+        s -> s.getScore() >= 60,
+        Collectors.counting()
+    ));
 ```
 
+---
+
 #### joining — 문자열 합치기
+
+**언제 쓰는가:** 스트림 요소들을 하나의 문자열로 이어붙일 때. `StringBuilder` 반복보다 간결하다.
 
 ```markdown
 String result = Stream.of("Java", "Stream", "API")
     .collect(Collectors.joining(", ", "[", "]"));
 // "[Java, Stream, API]"
 //                  ↑ delimiter  ↑ prefix  ↑ suffix
+
+// 단순 연결
+String csv = Stream.of("a", "b", "c")
+    .collect(Collectors.joining(","));  // "a,b,c"
 ```
+
+---
 
 #### 통계 Collectors
 
+**언제 쓰는가:** 그룹별 합계, 평균, 최댓값 등 집계가 필요할 때. `IntStream.summaryStatistics()`의 Collector 버전.
+
 ```markdown
+// 나이 통계 한 번에
 IntSummaryStatistics stats = people.stream()
     .collect(Collectors.summarizingInt(Person::getAge));
+// stats.getSum(), getAverage(), getMin(), getMax(), getCount()
 
-long count   = people.stream().collect(Collectors.counting());
+// 개수
+long count = people.stream().collect(Collectors.counting());
+
+// 최댓값 (Optional 반환 — 빈 스트림 대비)
 Optional<Person> oldest = people.stream()
     .collect(Collectors.maxBy(Comparator.comparing(Person::getAge)));
 ```
+
+---
+
+#### 단점 / 주의할 점
+
+| 상황 | 문제 | 해결 |
+|---|---|---|
+| `toMap` 키 중복 | `IllegalStateException` | mergeFunction 명시 |
+| `groupingBy` 순서 | 결과 Map 순서 미보장 | `LinkedHashMap::new` 지정 |
+| `toList()` vs `Collectors.toList()` | 불변/가변 혼동 | 수정 필요 시 `Collectors.toList()` 사용 |
+| downstream 중첩 | 가독성 저하 | 2단계 이상이면 메서드 분리 고려 |
 
