@@ -262,7 +262,7 @@ Map<String, Integer> map = people.stream()
         Person::getName,
         Person::getAge,
         (existing, incoming) -> existing,  // 충돌 시 기존 값 유지
-        
+        LinkedHashMap::New
     ));
 ```
 
