@@ -4,7 +4,7 @@
 - 컴파일 타임 의존관계
   - 코드 컴파일 시점
   - 컴파일 시점에 어떤 클래스/인터페이스를 의존하는지
-  ```java
+  ```markdown
     public class Batch {
         // 컴파일 시점에 의존성 주입이 된다.
         private final List<?> list;
@@ -16,7 +16,7 @@
 - 런타임
   - 프로그램 실행 시점
   - 실제로 어떤 구현체 인스턴스를 의존하는지
-  ```java
+  ```markdown
   public class Main {
     public static void main(String[] args){
         List<Integer> intList = new ArrayList<>();
@@ -46,7 +46,7 @@
 - 모든 컬렉션은 `Iterable`을 구현하여 for-each 사용 가능 (Map 제외)
 
 ### 구조
-```text
+```markdown
 Iterable
  └─ Collection
      ├─ List
