@@ -89,7 +89,7 @@ Map (별도)
 | FIFO 큐 | `ArrayDeque` |
 
 ### 어떻게 사용하는가?
-```java
+```markdown
 // List
 List<String> list = new ArrayList<>();
 list.add("A");
