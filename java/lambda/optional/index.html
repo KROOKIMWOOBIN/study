@@ -11,6 +11,10 @@
         <link rel="canonical" href="https://krookimwoobin.github.io/study/java/lambda/optional/">
       
       
+        <link rel="prev" href="../streamApi/">
+      
+      
+        <link rel="next" href="../../thread/thread/">
       
       
         
@@ -280,8 +284,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -292,11 +298,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -317,7 +323,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1343,6 +1349,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1352,11 +1360,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
         
           
           <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
@@ -1377,7 +1385,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1551,6 +1559,210 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optional
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Optional">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optional_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional이란?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        왜 쓰는가?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional 생성
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        값 존재 여부 확인
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        값 추출
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="값 추출">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orelse-vs-orelseget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        orElse vs orElseGet
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        값 변환
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        소비 (값 사용)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stream과의 연계
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점 / 주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3528,6 +3740,128 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Optional">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optional_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional이란?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        왜 쓰는가?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional 생성
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        값 존재 여부 확인
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        값 추출
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="값 추출">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orelse-vs-orelseget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        orElse vs orElseGet
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        값 변환
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        소비 (값 사용)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stream과의 연계
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점 / 주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -3553,6 +3887,379 @@
   <h1>Optional</h1>
 
 <h2 id="optional">Optional</h2>
+<h3 id="optional_1">Optional이란?</h3>
+<p><code>Optional&lt;T&gt;</code>는 값이 있거나 없을 수 있는 컨테이너 객체다. Java 8에서 도입됐으며, 메서드 반환 타입으로 사용해 "값이 없을 수 있음"을 타입 수준에서 표현한다.</p>
+<p>Stream 최종 연산 중 <code>findFirst()</code>, <code>findAny()</code>, <code>min()</code>, <code>max()</code>, <code>reduce()</code> 등이 <code>Optional</code>을 반환한다.</p>
+<hr />
+<h3 id="_1">왜 쓰는가?</h3>
+<p><strong>null 직접 반환 vs Optional 반환</strong></p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>null 직접 반환</th>
+<th>Optional 반환</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NPE 가능성</td>
+<td>호출자가 null 체크를 잊으면 즉시 NPE</td>
+<td>컴파일러가 명시적 처리를 유도</td>
+</tr>
+<tr>
+<td>의도 표현</td>
+<td>반환값이 없을 수 있음을 타입으로 표현 못함</td>
+<td><code>Optional&lt;T&gt;</code> 타입 자체가 "없을 수 있음"을 선언</td>
+</tr>
+<tr>
+<td>체이닝</td>
+<td>단계마다 null 체크 필요</td>
+<td><code>map</code>, <code>flatMap</code>, <code>filter</code>로 안전하게 체이닝</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-markdown">// Before: 다단계 null 체크
+String city = null;
+if (user != null &amp;&amp; user.getAddress() != null) {
+    city = user.getAddress().getCity();
+}
+
+// After: Optional 체이닝
+String city = Optional.ofNullable(user)
+    .map(User::getAddress)
+    .map(Address::getCity)
+    .orElse(&quot;미입력&quot;);
+</code></pre>
+<p><strong>언제 쓰는가</strong></p>
+<table>
+<thead>
+<tr>
+<th>적합</th>
+<th>부적합</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>메서드 반환 타입 (DB 조회, 컬렉션 검색)</td>
+<td>필드 타입 (직렬화 불가)</td>
+</tr>
+<tr>
+<td>값이 없을 수 있음을 명시적으로 표현할 때</td>
+<td>메서드 파라미터</td>
+</tr>
+<tr>
+<td>Stream 최종 연산 결과 처리</td>
+<td>컬렉션 원소 타입</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="optional_2">Optional 생성</h3>
+<table>
+<thead>
+<tr>
+<th>메서드</th>
+<th>설명</th>
+<th>null 허용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Optional.of(value)</code></td>
+<td>값이 반드시 존재할 때</td>
+<td>X — null이면 NPE</td>
+</tr>
+<tr>
+<td><code>Optional.ofNullable(value)</code></td>
+<td>값이 있을 수도 없을 수도 있을 때</td>
+<td>O — null이면 empty 반환</td>
+</tr>
+<tr>
+<td><code>Optional.empty()</code></td>
+<td>"결과 없음"을 명시적으로 반환할 때</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-markdown">Optional&lt;String&gt; a = Optional.of(&quot;hello&quot;);           // 값이 확실히 있음
+Optional&lt;String&gt; b = Optional.ofNullable(findUser()); // DB 조회 결과
+Optional&lt;String&gt; c = Optional.empty();               // 빈 결과 명시 반환
+</code></pre>
+<hr />
+<h3 id="_2">값 존재 여부 확인</h3>
+<table>
+<thead>
+<tr>
+<th>메서드</th>
+<th>설명</th>
+<th>Java 버전</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>isPresent()</code></td>
+<td>값이 있으면 true</td>
+<td>Java 8</td>
+</tr>
+<tr>
+<td><code>isEmpty()</code></td>
+<td>값이 없으면 true</td>
+<td>Java 11</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-markdown">Optional&lt;String&gt; opt = Optional.of(&quot;hello&quot;);
+
+if (opt.isPresent()) { ... }  // 값이 있을 때
+if (opt.isEmpty()) { ... }    // 값이 없을 때
+</code></pre>
+<blockquote>
+<p><strong>주의:</strong> <code>isPresent()</code> + <code>get()</code> 조합은 null 체크와 다를 바 없어 Optional의 장점을 살리지 못한다. <code>map</code>, <code>orElse</code>, <code>ifPresent</code> 계열을 사용하자.</p>
+</blockquote>
+<hr />
+<h3 id="_3">값 추출</h3>
+<table>
+<thead>
+<tr>
+<th>메서드</th>
+<th>값 없을 때</th>
+<th>언제 사용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>get()</code></td>
+<td><code>NoSuchElementException</code></td>
+<td>값이 반드시 있음을 확신할 때만 (지양)</td>
+</tr>
+<tr>
+<td><code>orElse(T)</code></td>
+<td>인자로 준 기본값 반환</td>
+<td>기본값이 상수·단순 값일 때</td>
+</tr>
+<tr>
+<td><code>orElseGet(Supplier&lt;T&gt;)</code></td>
+<td>Supplier 실행 결과 반환</td>
+<td>기본값 생성 비용이 클 때</td>
+</tr>
+<tr>
+<td><code>orElseThrow()</code></td>
+<td><code>NoSuchElementException</code></td>
+<td>없으면 반드시 에러 (Java 10+)</td>
+</tr>
+<tr>
+<td><code>orElseThrow(Supplier)</code></td>
+<td>Supplier가 던지는 예외</td>
+<td>커스텀 예외 지정</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-markdown">opt.orElse(&quot;기본값&quot;);
+opt.orElseGet(() -&gt; expensiveDefault());
+opt.orElseThrow(() -&gt; new EntityNotFoundException(&quot;사용자 없음&quot;));
+</code></pre>
+<h4 id="orelse-vs-orelseget">orElse vs orElseGet</h4>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th><code>orElse(T)</code></th>
+<th><code>orElseGet(Supplier&lt;T&gt;)</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>인자 평가 시점</td>
+<td><strong>항상 즉시 평가</strong> (값이 있어도 실행)</td>
+<td><strong>값이 없을 때만 실행</strong> (Lazy)</td>
+</tr>
+<tr>
+<td>적합한 경우</td>
+<td><code>"N/A"</code>, <code>0</code> 등 상수</td>
+<td><code>new Object()</code>, DB 쿼리, 파일 I/O</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-markdown">Optional&lt;String&gt; opt = Optional.of(&quot;있음&quot;);
+
+opt.orElse(expensiveMethod());          // expensiveMethod()가 호출됨!
+opt.orElseGet(() -&gt; expensiveMethod()); // expensiveMethod() 호출 안 됨
+</code></pre>
+<hr />
+<h3 id="_4">값 변환</h3>
+<table>
+<thead>
+<tr>
+<th>메서드</th>
+<th>인자</th>
+<th>설명</th>
+<th>반환</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>map(Function&lt;T,U&gt;)</code></td>
+<td><code>T → U</code></td>
+<td>값 변환 (값 없으면 empty 유지)</td>
+<td><code>Optional&lt;U&gt;</code></td>
+</tr>
+<tr>
+<td><code>flatMap(Function&lt;T, Optional&lt;U&gt;&gt;)</code></td>
+<td><code>T → Optional&lt;U&gt;</code></td>
+<td>중첩 Optional 방지</td>
+<td><code>Optional&lt;U&gt;</code></td>
+</tr>
+<tr>
+<td><code>filter(Predicate&lt;T&gt;)</code></td>
+<td><code>T → boolean</code></td>
+<td>조건 불충족이면 empty</td>
+<td><code>Optional&lt;T&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>map — null 체크 없이 안전한 체이닝</strong></p>
+<pre><code class="language-markdown">String city = Optional.ofNullable(user)
+    .map(User::getAddress)
+    .map(Address::getCity)
+    .orElse(&quot;미입력&quot;);
+</code></pre>
+<p><strong>flatMap — 반환 타입이 이미 Optional인 메서드와 연결</strong></p>
+<p><code>map</code>을 쓰면 <code>Optional&lt;Optional&lt;String&gt;&gt;</code>이 중첩되므로 <code>flatMap</code>을 사용한다.</p>
+<pre><code class="language-markdown">// getEmail()이 Optional&lt;String&gt;을 반환하는 경우
+Optional&lt;String&gt; email = Optional.ofNullable(user)
+    .flatMap(User::getEmail);  // map이면 Optional&lt;Optional&lt;String&gt;&gt;이 됨
+</code></pre>
+<p><strong>filter — 조건 불일치 시 empty</strong></p>
+<pre><code class="language-markdown">Optional.of(age)
+    .filter(a -&gt; a &gt;= 19)
+    .orElseThrow(() -&gt; new IllegalArgumentException(&quot;미성년자&quot;));
+</code></pre>
+<hr />
+<h3 id="_5">소비 (값 사용)</h3>
+<table>
+<thead>
+<tr>
+<th>메서드</th>
+<th>설명</th>
+<th>Java 버전</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ifPresent(Consumer&lt;T&gt;)</code></td>
+<td>값이 있으면 Consumer 실행</td>
+<td>Java 8</td>
+</tr>
+<tr>
+<td><code>ifPresentOrElse(Consumer, Runnable)</code></td>
+<td>있으면 Consumer, 없으면 Runnable 실행</td>
+<td>Java 9</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-markdown">// 값이 있을 때만 처리
+opt.ifPresent(user -&gt; log.info(&quot;로그인: {}&quot;, user.getName()));
+
+// 있을 때 / 없을 때 분기
+opt.ifPresentOrElse(
+    user -&gt; log.info(&quot;로그인: {}&quot;, user.getName()),
+    () -&gt; log.warn(&quot;사용자 없음&quot;)
+);
+</code></pre>
+<blockquote>
+<p><strong>주의:</strong> <code>ifPresent</code> 내부에서 외부 변수에 값을 대입하려는 패턴(<code>ifPresent(v -&gt; result = v)</code>)은 effectively final 제약으로 컴파일 오류다. 이 경우 <code>orElse</code> 계열을 사용한다.</p>
+</blockquote>
+<hr />
+<h3 id="stream">Stream과의 연계</h3>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>코드 패턴</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stream 최종 연산 결과 처리</td>
+<td><code>findFirst()</code>, <code>findAny()</code>, <code>min()</code>, <code>max()</code> → Optional</td>
+</tr>
+<tr>
+<td><code>Optional&lt;T&gt;</code> → <code>Stream&lt;T&gt;</code></td>
+<td><code>optional.stream()</code> (Java 9+) — 0개 또는 1개 요소 스트림</td>
+</tr>
+<tr>
+<td><code>List&lt;Optional&lt;T&gt;&gt;</code>에서 값만 추출</td>
+<td><code>flatMap(Optional::stream)</code></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-markdown">// findFirst 결과를 Optional로 처리
+String name = users.stream()
+    .filter(u -&gt; u.getId() == targetId)
+    .findFirst()
+    .map(User::getName)
+    .orElse(&quot;미등록 사용자&quot;);
+
+// Optional::stream — 값 있는 것만 추출
+List&lt;Optional&lt;String&gt;&gt; optionals = List.of(Optional.of(&quot;A&quot;), Optional.empty(), Optional.of(&quot;B&quot;));
+List&lt;String&gt; present = optionals.stream()
+    .flatMap(Optional::stream)  // empty는 제거, 값 있는 것만
+    .toList();  // [&quot;A&quot;, &quot;B&quot;]
+</code></pre>
+<hr />
+<h3 id="_6">단점 / 주의할 점</h3>
+<table>
+<thead>
+<tr>
+<th>안티패턴</th>
+<th>문제</th>
+<th>대안</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Optional</code>을 필드 타입으로 사용</td>
+<td><code>Serializable</code> 미구현 — 직렬화 불가</td>
+<td>반환 타입으로만 사용</td>
+</tr>
+<tr>
+<td><code>Optional</code>을 메서드 파라미터로 사용</td>
+<td>호출부 불편, 코드 복잡도 증가</td>
+<td>오버로딩 또는 null 허용 파라미터</td>
+</tr>
+<tr>
+<td><code>isPresent()</code> + <code>get()</code> 조합</td>
+<td>null 체크와 동일, Optional 도입 효과 없음</td>
+<td><code>map</code>, <code>orElse</code>, <code>ifPresent</code> 사용</td>
+</tr>
+<tr>
+<td><code>orElse(expensiveOp())</code></td>
+<td>값이 있어도 항상 실행됨</td>
+<td><code>orElseGet(() -&gt; expensiveOp())</code></td>
+</tr>
+<tr>
+<td><code>get()</code> 남용</td>
+<td>값 없으면 <code>NoSuchElementException</code></td>
+<td><code>orElseThrow()</code> 또는 <code>isPresent()</code> 선검사</td>
+</tr>
+<tr>
+<td><code>List&lt;Optional&lt;T&gt;&gt;</code></td>
+<td>불필요하게 복잡</td>
+<td>빈 컬렉션 반환으로 대체</td>
+</tr>
+<tr>
+<td><code>Optional.of(null)</code></td>
+<td>즉시 NPE</td>
+<td>null 가능성이 있으면 <code>ofNullable</code> 사용</td>
+</tr>
+<tr>
+<td><code>Optional</code>을 반환하는 메서드가 null 반환</td>
+<td>Optional의 의미가 사라짐</td>
+<td>반드시 <code>Optional.empty()</code> 반환</td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -3575,7 +4282,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 1일 11:34:00 UTC">2026년 4월 1일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 1일 12:02:58 UTC">2026년 4월 1일</span>
   </span>
 
     
