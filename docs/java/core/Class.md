@@ -1,4 +1,4 @@
-> [← 홈](/README.md) · [Java](/docs/java/java.md) · [중급 1편](/docs/java/core/core.md)
+> [← 홈](/index.md) · [Java](/java/java.md) · [중급 1편](/java/core/core.md)
 
 ## Class (java.lang.Class)
 - `Class`는 `JVM`에서 로딩된 클래스의 메타데이터를 표현하는 객체다.

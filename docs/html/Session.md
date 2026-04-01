@@ -1,4 +1,4 @@
-> [← 홈](/README.md) · [HTTP/Web](/docs/html/html.md)
+> [← 홈](/index.md) · [HTTP/Web](/html/html.md)
 
 ### HTTP Session
 - HTTP는 무상태 프로토콜

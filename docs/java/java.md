@@ -1,4 +1,4 @@
-> [← 홈](/README.md)
+> [← 홈](/index.md)
 
 # Java
 

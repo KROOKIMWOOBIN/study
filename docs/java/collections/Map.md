@@ -1,4 +1,4 @@
-> [← 홈](/README.md) · [Java](/docs/java/java.md) · [중급 2편](/docs/java/collections/collections.md)
+> [← 홈](/index.md) · [Java](/java/java.md) · [중급 2편](/java/collections/collections.md)
 
 ## Map
 - Key–Value 쌍으로 데이터를 저장하는 컬렉션 구조

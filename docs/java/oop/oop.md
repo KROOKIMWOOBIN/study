@@ -1,4 +1,4 @@
-> [← 홈](/README.md) · [Java](/docs/java/java.md)
+> [← 홈](/index.md) · [Java](/java/java.md)
 
 # Java 기초 — 객체 지향 4원칙
 

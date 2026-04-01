@@ -1,4 +1,4 @@
-> [← 홈](/README.md) · [Java](/docs/java/java.md) · [I/O·네트워크·리플렉션](/docs/java/io-network.md)
+> [← 홈](/index.md) · [Java](/java/java.md) · [I/O·네트워크·리플렉션](/java/io-network.md)
 
 ## 문자 집합 조회
 ```java

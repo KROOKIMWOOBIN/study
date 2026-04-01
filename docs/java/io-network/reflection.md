@@ -1,4 +1,4 @@
-> [← 홈](/README.md) · [Java](/docs/java/java.md) · [I/O·네트워크·리플렉션](/docs/java/io-network.md)
+> [← 홈](/index.md) · [Java](/java/java.md) · [I/O·네트워크·리플렉션](/java/io-network.md)
 
 ## Reflection
 - 런타임 시점에 클래스 구조를 분석하고, 동적으로 제어

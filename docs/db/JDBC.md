@@ -1,4 +1,4 @@
-> [← 홈](/README.md) · [DB](/docs/db/db.md)
+> [← 홈](/index.md) · [DB](/db/db.md)
 
 # JDBC (Java Database Connectivity)
 

@@ -1,4 +1,4 @@
-> [← 홈](/README.md) · [Java](/docs/java/java.md) · [멀티스레드](/docs/java/thread/thread.md)
+> [← 홈](/index.md) · [Java](/java/java.md) · [멀티스레드](/java/thread/thread.md)
 
 ## Interrupt
 - 스레드에게 중단 요청을 전달한다.

@@ -1,4 +1,4 @@
-> [← 홈](/README.md) · [Java](/docs/java/java.md) · [멀티스레드](/docs/java/thread/thread.md)
+> [← 홈](/index.md) · [Java](/java/java.md) · [멀티스레드](/java/thread/thread.md)
 
 ## LockSupport
 1. 스레드를 잠재우고(park) 깨우는(unpark) 저수준 도구 

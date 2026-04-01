@@ -1,5 +1,8 @@
 site_name: 학습 노트
 site_url: https://krookimwoobin.github.io/study/
+repo_url: https://github.com/KROOKIMWOOBIN/study
+repo_name: KROOKIMWOOBIN/study
+edit_uri: edit/main/docs/
 docs_dir: docs
 
 theme:

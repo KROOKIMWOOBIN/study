@@ -1,4 +1,4 @@
-> [← 홈](/README.md) · [Java](/docs/java/java.md) · [중급 2편](/docs/java/collections/collections.md)
+> [← 홈](/index.md) · [Java](/java/java.md) · [중급 2편](/java/collections/collections.md)
 
 ## 배열 (Array)
 - 동일한 타입의 데이터를 연속된 메모리 공간에 저장하는 자료구조

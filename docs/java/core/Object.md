@@ -1,4 +1,4 @@
-> [← 홈](/README.md) · [Java](/docs/java/java.md) · [중급 1편](/docs/java/core/core.md)
+> [← 홈](/index.md) · [Java](/java/java.md) · [중급 1편](/java/core/core.md)
 
 ## Object (java.lang.Object)
 - 자바의 모든 클래스가 암묵적으로 상속받는 최상위 클래스

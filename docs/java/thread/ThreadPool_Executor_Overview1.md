@@ -1,4 +1,4 @@
-> [← 홈](/README.md) · [Java](/docs/java/java.md) · [멀티스레드](/docs/java/thread/thread.md)
+> [← 홈](/index.md) · [Java](/java/java.md) · [멀티스레드](/java/thread/thread.md)
 
 ## 스레드를 직접 사용할 때 단점
 1. 생산 비용

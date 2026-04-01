@@ -1,4 +1,4 @@
-> [← 홈](/README.md) · [실무](/docs/실무/실무.md)
+> [← 홈](/index.md) · [실무](/실무/실무.md)
 
 # 트랜잭션 & AOP 문제 (@Transactional이 작동하지 않는 케이스)
 

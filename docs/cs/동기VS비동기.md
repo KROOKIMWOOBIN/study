@@ -1,4 +1,4 @@
-> [← 홈](/README.md) · [CS](/docs/cs/cs.md)
+> [← 홈](/index.md) · [CS](/cs/cs.md)
 
 ## 동기 VS 비동기
 
