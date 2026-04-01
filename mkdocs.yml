@@ -33,6 +33,10 @@ theme:
 plugins:
   - search:
       lang: ko
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: date
+      locale: ko
 
 nav:
   - 홈: index.md

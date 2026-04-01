@@ -13,13 +13,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # git-revision-date 플러그인이 커밋 히스토리 필요
 
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
+          cache: pip  # pip 캐시로 설치 속도 향상
 
-      - name: Install MkDocs Material
-        run: pip install mkdocs-material
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
       - name: Deploy
         run: mkdocs gh-deploy --force
