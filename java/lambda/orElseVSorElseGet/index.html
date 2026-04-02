@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://krookimwoobin.github.io/study/java/thread/ThreadPool_Executor_Overview2/">
+        <link rel="canonical" href="https://krookimwoobin.github.io/study/java/lambda/orElseVSorElseGet/">
       
       
-        <link rel="prev" href="../ThreadPool_Executor_Overview1/">
+        <link rel="prev" href="../optional/">
       
       
-        <link rel="next" href="../../io-network/IO/">
+        <link rel="next" href="../../thread/thread/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>스레드풀·Executor 2 - 학습 노트</title>
+        <title>orElse() VS orElseGet() - 학습 노트</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#executorservice" class="md-skip">
+        <a href="#orelse-vs-orelseget" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              스레드풀·Executor 2
+              orElse() VS orElseGet()
             
           </span>
         </div>
@@ -1349,6 +1349,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1358,11 +1360,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
         
           
           <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
@@ -1383,7 +1385,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1401,7 +1403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lambda/start/" class="md-nav__link">
+      <a href="../start/" class="md-nav__link">
         
   
   
@@ -1429,7 +1431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lambda/function/" class="md-nav__link">
+      <a href="../function/" class="md-nav__link">
         
   
   
@@ -1457,7 +1459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lambda/method/" class="md-nav__link">
+      <a href="../method/" class="md-nav__link">
         
   
   
@@ -1485,7 +1487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lambda/programming/" class="md-nav__link">
+      <a href="../programming/" class="md-nav__link">
         
   
   
@@ -1513,7 +1515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lambda/stream/" class="md-nav__link">
+      <a href="../stream/" class="md-nav__link">
         
   
   
@@ -1541,7 +1543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lambda/streamApi/" class="md-nav__link">
+      <a href="../streamApi/" class="md-nav__link">
         
   
   
@@ -1569,7 +1571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lambda/%EC%A6%89%EC%8B%9CVS%EC%A7%80%EC%97%B0/" class="md-nav__link">
+      <a href="../%EC%A6%89%EC%8B%9CVS%EC%A7%80%EC%97%B0/" class="md-nav__link">
         
   
   
@@ -1597,7 +1599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lambda/optional/" class="md-nav__link">
+      <a href="../optional/" class="md-nav__link">
         
   
   
@@ -1605,429 +1607,6 @@
     
   
     Optional
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../lambda/orElseVSorElseGet/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    orElse() VS orElseGet()
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-    
-    
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    멀티스레드
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2_6">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    멀티스레드
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../thread/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    개요
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    기본 개념
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Thread1/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Thread 1
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Thread2/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Thread 2
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Thread3/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Thread 3
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../synchronized/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    synchronized
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../volatile/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    volatile
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%EB%8F%99%EA%B8%B0%ED%99%94%EC%99%80%EC%9B%90%EC%9E%90%EC%A0%81%EC%97%B0%EC%82%B0/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    동기화와 원자적 연산
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Lock/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Lock
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%EB%8F%99%EC%8B%9C%EC%84%B1%EC%BB%AC%EB%A0%89%EC%85%98/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    동시성 컬렉션
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%EC%83%9D%EC%82%B0%EC%9E%90%EC%86%8C%EB%B9%84%EC%9E%90%EB%AC%B8%EC%A0%9C/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    생산자 소비자 문제
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ThreadPool_Executor_Overview1/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    스레드풀·Executor 1
   
 
     
@@ -2062,7 +1641,7 @@
   <span class="md-ellipsis">
     
   
-    스레드풀·Executor 2
+    orElse() VS orElseGet()
   
 
     
@@ -2080,7 +1659,7 @@
   <span class="md-ellipsis">
     
   
-    스레드풀·Executor 2
+    orElse() VS orElseGet()
   
 
     
@@ -2104,112 +1683,77 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#executorservice" class="md-nav__link">
+  <a href="#orelse-vs-orelseget" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ExecutorService 우아한 종료
+        orElse() VS orElseGet()
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="ExecutorService 우아한 종료">
+    <nav class="md-nav" aria-label="orElse() VS orElseGet()">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#shutdown" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        shutdown()
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#showdownnow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        showdownNow()
-      
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        예시 코드
+        차이점 한 줄 요약
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#executor-thread-pool" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Executor Thread Pool 관리
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Executor Thread Pool 관리">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        스레드 생성 흐름
+        왜 구분해야 하는가?
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#executor" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Executor 전략
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Executor 전략">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        고정 풀 전략
+        비교
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="고정 풀 전략">
-      <ul class="md-nav__list">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orelse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        언제 orElse를 쓰는가
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orelseget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        언제 orElseGet을 쓰는가
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        장점
+        실수하기 쉬운 패턴
       
     </span>
   </a>
@@ -2220,182 +1764,10 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        단점
+        정리
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        캐시 풀 전략
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="캐시 풀 전략">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        장점
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        단점 (치명적)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        사용자 정의 풀 전략
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="사용자 정의 풀 전략">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        장점
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        단점
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#executor_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Executor 예외 정책
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Executor 예외 정책">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        거절 정책
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        거절이 발생하는 조건
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="거절이 발생하는 조건">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#abortpolicy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        AbortPolicy (기본 정책)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#discardpolicy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DiscardPolicy
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#callerrunspolicy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CallerRunsPolicy
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        사용자 정의
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -2408,6 +1780,427 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    멀티스레드
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    멀티스레드
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../thread/thread/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../thread/%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기본 개념
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../thread/Thread1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thread 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../thread/Thread2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thread 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../thread/Thread3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thread 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../thread/synchronized/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    synchronized
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../thread/volatile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    volatile
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../thread/%EB%8F%99%EA%B8%B0%ED%99%94%EC%99%80%EC%9B%90%EC%9E%90%EC%A0%81%EC%97%B0%EC%82%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    동기화와 원자적 연산
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../thread/Lock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lock
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../thread/%EB%8F%99%EC%8B%9C%EC%84%B1%EC%BB%AC%EB%A0%89%EC%85%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    동시성 컬렉션
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../thread/%EC%83%9D%EC%82%B0%EC%9E%90%EC%86%8C%EB%B9%84%EC%9E%90%EB%AC%B8%EC%A0%9C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    생산자 소비자 문제
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../thread/ThreadPool_Executor_Overview1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    스레드풀·Executor 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../thread/ThreadPool_Executor_Overview2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    스레드풀·Executor 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -3956,112 +3749,77 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#executorservice" class="md-nav__link">
+  <a href="#orelse-vs-orelseget" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ExecutorService 우아한 종료
+        orElse() VS orElseGet()
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="ExecutorService 우아한 종료">
+    <nav class="md-nav" aria-label="orElse() VS orElseGet()">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#shutdown" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        shutdown()
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#showdownnow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        showdownNow()
-      
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        예시 코드
+        차이점 한 줄 요약
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#executor-thread-pool" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Executor Thread Pool 관리
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Executor Thread Pool 관리">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        스레드 생성 흐름
+        왜 구분해야 하는가?
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#executor" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Executor 전략
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Executor 전략">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        고정 풀 전략
+        비교
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="고정 풀 전략">
-      <ul class="md-nav__list">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orelse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        언제 orElse를 쓰는가
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orelseget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        언제 orElseGet을 쓰는가
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        장점
+        실수하기 쉬운 패턴
       
     </span>
   </a>
@@ -4072,182 +3830,10 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        단점
+        정리
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        캐시 풀 전략
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="캐시 풀 전략">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        장점
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        단점 (치명적)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        사용자 정의 풀 전략
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="사용자 정의 풀 전략">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        장점
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        단점
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#executor_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Executor 예외 정책
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Executor 예외 정책">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        거절 정책
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        거절이 발생하는 조건
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="거절이 발생하는 조건">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#abortpolicy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        AbortPolicy (기본 정책)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#discardpolicy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DiscardPolicy
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#callerrunspolicy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CallerRunsPolicy
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        사용자 정의
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -4276,295 +3862,105 @@
   
 
 
-  <h1>스레드풀·Executor 2</h1>
+  <h1>orElse() VS orElseGet()</h1>
 
 <blockquote>
-<p><a href="/index.md">← 홈</a> · <a href="/java/java.md">Java</a> · <a href="/java/thread/thread.md">멀티스레드</a></p>
+<p><a href="/index.md">← 홈</a> · <a href="/java/java.md">Java</a> · <a href="/java/lambda/lambda.md">람다 &amp; 스트림</a></p>
 </blockquote>
-<h2 id="executorservice">ExecutorService 우아한 종료</h2>
-<h3 id="shutdown">shutdown()</h3>
-<ul>
-<li>새 작업은 더 이상 받지 않음</li>
-<li>이미 제출된 작업은 끝까지 실행</li>
-<li>호출 즉시 종료되지 않음</li>
-</ul>
-<h3 id="showdownnow">showdownNow()</h3>
-<ul>
-<li>새 작업 거절</li>
-<li>실행 중인 작업에 interrupt() 시도</li>
-<li>대기 중인 작업 큐를 반환</li>
-</ul>
-<h3 id="_1">예시 코드</h3>
-<pre><code class="language-java">public class Main {
+<h2 id="orelse-vs-orelseget">orElse() VS orElseGet()</h2>
+<h3 id="_1">차이점 한 줄 요약</h3>
+<p><code>orElse(T)</code>는 <strong>항상</strong> 인자를 평가하고, <code>orElseGet(Supplier&lt;T&gt;)</code>는 값이 <strong>없을 때만</strong> 평가한다.</p>
+<hr />
+<h3 id="_2">왜 구분해야 하는가?</h3>
+<p>겉보기엔 동일해 보이지만 <strong>실행 시점</strong>이 다르다. 인자로 비용이 큰 연산을 넘기면 성능 차이가 발생한다.</p>
+<pre><code class="language-markdown">Optional&lt;String&gt; opt = Optional.of(&quot;존재하는 값&quot;);
 
-    public static void main(String[] args) {
-        ExecutorService es = Executors.newFixedThreadPool(2);
-        es.execute(new RunnableTask(&quot;taskA&quot;));
-        es.execute(new RunnableTask(&quot;taskB&quot;));
-        es.execute(new RunnableTask(&quot;taskC&quot;));
-        es.execute(new RunnableTask(&quot;longTask&quot;, 100_000));
-        printState(es);
-        log(&quot;== shutdown start ==&quot;);
-        shutdownAndAwaitTermination(es);
-        log(&quot;== shutdown finish ==&quot;);
-        printState(es);
-    }
-
-    private static void shutdownAndAwaitTermination(ExecutorService es) {
-        es.shutdown(); // non-blocking, 새로운 작업을 받지 않는다. 처리 중이거나 큐에 이미 대기중인 작업은 처리한다. 이 후에 풀의 스레드를 종료한다.
-        try {
-            // 이미 대기중인 작업들을 모두 완료할 때 까지 10초 기다린다.
-            if (!es.awaitTermination(10, TimeUnit.SECONDS)) {
-                log(&quot;서비스 정상 종료 실패 -&gt; 강제 종료 시도&quot;);
-                es.shutdownNow();
-                // 작업이 취소할 때 까지 대기한다.
-                if (!es.awaitTermination(10, TimeUnit.SECONDS)) {
-                    log(&quot;서비스가 종료되지 않았습니다.&quot;);
-                }
-            }
-        } catch (InterruptedException e) {
-            // awaitTermination()으로 대기중인 현재 스레드가 인터럽트 될 수 있다.
-            es.shutdownNow();
-        }
-    }
-
-}
+opt.orElse(heavyOperation());          // heavyOperation() 항상 실행됨
+opt.orElseGet(() -&gt; heavyOperation()); // 값이 있으므로 실행 안 됨
 </code></pre>
-<h2 id="executor-thread-pool">Executor Thread Pool 관리</h2>
-<ul>
-<li>
-<p>스레드를 “필요할 때 늘리고, 필요 없으면 줄인다”</p>
-</li>
-<li>
-<p>corePoolSize</p>
-</li>
-<li>풀의 기본 유지 스레드 수</li>
-<li>작업이 없어도 항상 살아 있음</li>
-<li>성능의 하한선</li>
-</ul>
-<pre><code class="language-markdown">작업 수 ≤ corePoolSize → 즉시 스레드 실행
+<p>값이 있음에도 <code>orElse</code>는 <code>heavyOperation()</code>을 호출한다.</p>
+<hr />
+<h3 id="_3">비교</h3>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th><code>orElse(T)</code></th>
+<th><code>orElseGet(Supplier&lt;T&gt;)</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>인자 타입</td>
+<td>값 직접 전달</td>
+<td>Supplier (람다) 전달</td>
+</tr>
+<tr>
+<td>평가 시점</td>
+<td><strong>항상</strong> 즉시 평가 (Eager)</td>
+<td>값이 없을 때만 평가 (Lazy)</td>
+</tr>
+<tr>
+<td>값이 있을 때</td>
+<td>인자 평가 후 무시</td>
+<td>인자 평가 자체를 안 함</td>
+</tr>
+<tr>
+<td>값이 없을 때</td>
+<td>인자 반환</td>
+<td>Supplier 실행 결과 반환</td>
+</tr>
+<tr>
+<td>적합한 인자</td>
+<td>상수, 이미 생성된 객체</td>
+<td>메서드 호출, 객체 생성, DB 조회</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="orelse">언제 orElse를 쓰는가</h3>
+<p>인자가 <strong>상수이거나 이미 생성된 객체</strong>일 때. 어차피 평가 비용이 없으므로 차이가 없다.</p>
+<pre><code class="language-markdown">opt.orElse(&quot;기본값&quot;);           // 문자열 리터럴 — 비용 없음
+opt.orElse(0);                  // 기본 정수 — 비용 없음
+opt.orElse(Collections.emptyList()); // 이미 존재하는 싱글톤 — 비용 없음
 </code></pre>
-<ol>
-<li>maximumPoolSize</li>
-<li>생성 가능한 최대 스레드 수</li>
-<li>큐가 가득 찼을 때만 확장</li>
-</ol>
-<pre><code class="language-markdown">corePoolSize 초과 + 큐 가득 → 스레드 증가
+<hr />
+<h3 id="orelseget">언제 orElseGet을 쓰는가</h3>
+<p>인자가 <strong>새 객체 생성, 메서드 호출, DB 조회</strong> 등 비용이 있는 연산일 때.</p>
+<pre><code class="language-markdown">// 새 객체 생성
+opt.orElseGet(() -&gt; new User(&quot;guest&quot;));
+
+// 다른 메서드 호출
+opt.orElseGet(() -&gt; userRepository.findDefault());
+
+// 복잡한 연산
+opt.orElseGet(() -&gt; {
+    String name = config.getDefaultName();
+    return name.toUpperCase();
+});
 </code></pre>
-<ol>
-<li>keepAliveTime</li>
-<li><code>corePoolSize</code>를 초과해 생성된 스레드의 유지 시간</li>
-<li>작업 없이 시간 초과 시 스레드 제거</li>
-</ol>
-<pre><code class="language-markdown">확장 스레드 → idle → keepAliveTime 초과 → 제거
+<hr />
+<h3 id="_4">실수하기 쉬운 패턴</h3>
+<pre><code class="language-markdown">// 문제: 값이 있어도 새 객체가 매번 생성됨
+Optional&lt;User&gt; opt = Optional.of(existingUser);
+User result = opt.orElse(new User(&quot;guest&quot;)); // new User()가 항상 실행됨
+
+// 해결
+User result = opt.orElseGet(() -&gt; new User(&quot;guest&quot;)); // 값 없을 때만 생성
 </code></pre>
-<h3 id="_2">스레드 생성 흐름</h3>
-<pre><code class="language-markdown">1. 스레드 수 &lt; corePoolSize
-   → 새 스레드 생성
+<pre><code class="language-markdown">// 문제: 값이 있어도 DB를 매번 조회함
+User result = opt.orElse(userRepository.findDefault()); // DB 쿼리 항상 실행
 
-2. 스레드 수 ≥ corePoolSize
-   → 큐에 적재
-
-3. 큐가 가득 참
-   → `maxPoolSize`까지 스레드 확장
-
-4. maxPoolSize 도달
-   → 작업 거절 (RejectedExecutionHandler)
+// 해결
+User result = opt.orElseGet(() -&gt; userRepository.findDefault()); // 값 없을 때만 조회
 </code></pre>
-<h2 id="executor">Executor 전략</h2>
+<hr />
+<h3 id="_5">정리</h3>
 <ul>
-<li>스레드를 언제 생성하고, 얼마나 유지할 것인가에 대한 정책</li>
+<li>인자가 <strong>상수·리터럴</strong> → <code>orElse</code></li>
+<li>인자가 <strong>연산·생성·IO</strong> → <code>orElseGet</code></li>
+<li>확신이 없으면 <code>orElseGet</code>이 안전하다</li>
 </ul>
-<h3 id="_3">고정 풀 전략</h3>
-<ul>
-<li>스레드 개수가 고정</li>
-<li>초과 작업은 큐에서 대기</li>
-</ul>
-<pre><code class="language-java">ExecutorService executor = Executors.newFixedThreadPool(10);
-</code></pre>
-<h4 id="_4">장점</h4>
-<ul>
-<li>스레드 수 예측 가능</li>
-<li>안정적</li>
-<li>설정 단순</li>
-</ul>
-<h4 id="_5">단점</h4>
-<ul>
-<li>큐가 무한 → 메모리 위험(OOM)</li>
-<li>작업이 쌓이면 응답 지연 폭증</li>
-<li>장애 시 폭발적으로 누적</li>
-</ul>
-<h3 id="_6">캐시 풀 전략</h3>
-<ul>
-<li>필요 시 스레드를 무제한 생성 사용하지 않으면 일정 시간 후 제거</li>
-</ul>
-<pre><code class="language-java">import java.util.concurrent.SynchronousQueue;
-
-ExecutorService executor =
-        new ThreadPoolExecutor(
-                10,                     // corePoolSize
-                20,                     // maxPoolSize
-                60,                     // keepAliveTime
-                TimeUnit.SECONDS, // 시간
-                new SynchronousQueue&lt;&gt;() // 큐가 들어오자마자 쌓이지 않고 바로 바로 실행된다.
-        );
-</code></pre>
-<h4 id="_7">장점</h4>
-<ul>
-<li>짧은 작업에 빠른 응답</li>
-<li>유휴 스레드 자동 정리</li>
-</ul>
-<h4 id="_8">단점 (치명적)</h4>
-<ul>
-<li>스레드 수 폭증 가능</li>
-<li>DB / 외부 API 호출 시 장애 유발</li>
-<li>운영 환경에서는 매우 위험</li>
-</ul>
-<h3 id="_9">사용자 정의 풀 전략</h3>
-<ul>
-<li><code>ThreadPoolExecutor</code>를 직접 구성 가장 권장되는 실무 전략</li>
-</ul>
-<pre><code class="language-java">ExecutorService executor =
-    new ThreadPoolExecutor(
-        10,                     // corePoolSize
-        20,                     // maxPoolSize
-        60,                     // keepAliveTime
-        TimeUnit.SECONDS, // 시간
-        new ArrayBlockingQueue&lt;&gt;(100),  // 큐 크기
-        new ThreadPoolExecutor.CallerRunsPolicy()
-    );
-</code></pre>
-<h4 id="_10">장점</h4>
-<ol>
-<li>스레드 수 통제 가능</li>
-<li>큐 크기 제한 가능</li>
-<li>거절 정책으로 장애 전파 방지 </li>
-<li>시스템 특성에 맞게 튜닝 가능</li>
-</ol>
-<h4 id="_11">단점</h4>
-<ol>
-<li>설정이 복잡</li>
-<li>설계 이해 필요</li>
-</ol>
-<h2 id="executor_1">Executor 예외 정책</h2>
-<h3 id="_12">거절 정책</h3>
-<ul>
-<li><code>ThreadPoolExecutor</code>가 새로운 작업을 더 이상 수용할 수 없을 때, 해당 작업을 어떻게 처리할지 정의하는 정책이다.</li>
-</ul>
-<h3 id="_13">거절이 발생하는 조건</h3>
-<ol>
-<li>스레드 풀의 모든 스레드가 사용 중</li>
-<li>작업 큐(BlockingQueue)가 가득 참</li>
-<li><code>maximumPoolSize</code>까지 스레드 확장도 불가능</li>
-</ol>
-<h4 id="abortpolicy">AbortPolicy (기본 정책)</h4>
-<ul>
-<li><code>ThreadPoolExecutor</code>가 새로운 작업을 더 이상 수용할 수 없을 때, 새로운 작업을 제출할 때 <code>RejectedExecutionException</code>을 발생 시킨다.</li>
-</ul>
-<pre><code class="language-java">public class Main {
-
-    public static void main(String[] args) {
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(1, 1, 0, TimeUnit.SECONDS,
-                new SynchronousQueue&lt;&gt;(), new ThreadPoolExecutor.AbortPolicy());
-        executor.execute(new MyJob());
-        try {
-            executor.execute(new MyJob());
-        } catch (RejectedExecutionException e) {
-            System.out.println(&quot;더 이상 작업을 제출할 수 없음&quot;);
-        }
-        System.out.println(&quot;종료&quot;);
-        executor.shutdown();
-    }
-
-    private static class MyJob implements Runnable {
-        @Override
-        public void run() {
-            System.out.println(&quot;실행&quot;);
-        }
-    }
-
-}
-</code></pre>
-<h4 id="discardpolicy">DiscardPolicy</h4>
-<ul>
-<li><code>ThreadPoolExecutor</code>가 새로운 작업을 더 이상 수용할 수 없을 때, 새로운 작업을 조용히 버린다. (실행하지 않고 넘어간다.)</li>
-</ul>
-<pre><code class="language-java">public class Main {
-
-   public static void main(String[] args) {
-      ThreadPoolExecutor executor = new ThreadPoolExecutor(1, 1, 0, TimeUnit.SECONDS,
-              new SynchronousQueue&lt;&gt;(), new ThreadPoolExecutor.DiscardPolicy());
-      executor.execute(new MyJob());
-      executor.execute(new MyJob()); // 여기서 작업을 더 이상 넣을 수 없으면, 아무런 반응 없이 조용히 버린다.
-      System.out.println(&quot;종료&quot;);
-      executor.shutdown();
-   }
-
-   private static class MyJob implements Runnable {
-      @Override
-      public void run() {
-         System.out.println(&quot;실행&quot;);
-      }
-   }
-
-}
-</code></pre>
-<h4 id="callerrunspolicy">CallerRunsPolicy</h4>
-<ul>
-<li><code>ThreadPoolExecutor</code>가 새로운 작업을 더 이상 수용할 수 없을 때, 새로운 작업을 제출한 호출자 스레드가 직접 작업을 실행한다.</li>
-<li>호출자 스레드가 작업을 처리하는 동안 작업 제출이 지연되어, 결과적으로 생산 속도가 느려지며 소비 속도에 맞춰 자연스러운 <code>Back Pressure</code>가 걸린다</li>
-</ul>
-<pre><code class="language-java">public class Main {
-
-   public static void main(String[] args) {
-      ThreadPoolExecutor executor = new ThreadPoolExecutor(1, 1, 0, TimeUnit.SECONDS,
-              new SynchronousQueue&lt;&gt;(), new ThreadPoolExecutor.CallerRunsPolicy());
-      executor.execute(new MyJob());
-      executor.execute(new MyJob()); // 여기서 작업을 더 이상 넣을 수 없으면, 호출한 스레드(main)가 대신 실행한다.
-      System.out.println(&quot;종료&quot;);
-      executor.shutdown();
-   }
-
-   private static class MyJob implements Runnable {
-      @Override
-      public void run() {
-         System.out.println(&quot;실행&quot;);
-      }
-   }
-
-}
-</code></pre>
-<h4 id="_14">사용자 정의</h4>
-<ul>
-<li>직접 사용자가 정의하여 거절 정책을 커스텀 할 수 있다.</li>
-</ul>
-<pre><code class="language-java">public class Main {
-
-    public static void main(String[] args) {
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(1, 1, 0, TimeUnit.SECONDS,
-                new SynchronousQueue&lt;&gt;(), new MyRejectedExecutionHandler());
-        executor.execute(new MyJob());
-        executor.execute(new MyJob());
-        System.out.println(&quot;종료&quot;);
-        executor.shutdown();
-    }
-
-    private static class MyRejectedExecutionHandler implements RejectedExecutionHandler {
-        @Override
-        public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
-            System.out.println(r.getClass().getSimpleName() + &quot; 거절함&quot;);
-        }
-    }
-
-    private static class MyJob implements Runnable {
-        @Override
-        public void run() {
-            System.out.println(&quot;실행&quot;);
-        }
-    }
-
-}
-</code></pre>
 
 
 
@@ -4587,7 +3983,7 @@ ExecutorService executor =
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 1일 11:04:00 UTC">2026년 4월 1일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 2일 12:55:02 UTC">2026년 4월 2일</span>
   </span>
 
     
@@ -4597,7 +3993,7 @@ ExecutorService executor =
     <span class="md-icon" title="작성일">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 1월 13일 13:21:10 UTC">2026년 1월 13일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 2일 12:55:02 UTC">2026년 4월 2일</span>
   </span>
 
     
