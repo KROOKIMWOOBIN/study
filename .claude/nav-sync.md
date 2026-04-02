@@ -4,6 +4,19 @@
 
 기존 파일을 **수정만** 하는 경우에는 갱신 불필요.
 
+## 새 문서 작성 시 Breadcrumb 필수
+
+`docs/` 하위에 파일을 새로 작성할 때 **파일 최상단 첫 줄**에 breadcrumb 네비게이션을 반드시 추가한다.
+
+```
+> [← 홈](/index.md) · [Java](/java/java.md) · [섹션명](/java/섹션/섹션.md)
+```
+
+계층에 따라 적절히 조정한다:
+- 최상위 섹션 인덱스: `> [← 홈](/index.md)`
+- 섹션 인덱스: `> [← 홈](/index.md) · [Java](/java/java.md)`
+- 하위 파일: `> [← 홈](/index.md) · [Java](/java/java.md) · [섹션명](/java/섹션/섹션.md)`
+
 ## GitHub Pages 배포 구조
 
 | 브랜치 | 역할 | 관리 주체 |
