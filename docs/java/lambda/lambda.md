@@ -8,3 +8,4 @@
 6. [Stream Api](./streamApi.md)
 7. [즉시 연산 VS 지연 연산](./즉시VS지연.md)
 8. [Optional](./optional.md)
+9. [orElse() VS orElseGet()](./orElseVSorElseGet.md)

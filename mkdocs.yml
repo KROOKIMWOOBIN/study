@@ -81,6 +81,7 @@ nav:
       - Stream API: java/lambda/streamApi.md
       - 즉시 VS 지연 연산: java/lambda/즉시VS지연.md
       - Optional: java/lambda/optional.md
+      - orElse() VS orElseGet(): java/lambda/orElseVSorElseGet.md
     - 멀티스레드:
       - 개요: java/thread/thread.md
       - 기본 개념: java/thread/기본개념.md
