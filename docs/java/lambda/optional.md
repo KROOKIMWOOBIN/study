@@ -1,3 +1,5 @@
+> [← 홈](/index.md) · [Java](/java/java.md) · [람다 & 스트림](/java/lambda/lambda.md)
+
 ## Optional
 
 ### Optional이란?
