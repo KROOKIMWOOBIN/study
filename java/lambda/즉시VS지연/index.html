@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://krookimwoobin.github.io/study/java/lambda/programming/">
+        <link rel="canonical" href="https://krookimwoobin.github.io/study/java/lambda/%EC%A6%89%EC%8B%9CVS%EC%A7%80%EC%97%B0/">
       
       
-        <link rel="prev" href="../method/">
+        <link rel="prev" href="../streamApi/">
       
       
-        <link rel="next" href="../stream/">
+        <link rel="next" href="../optional/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>함수형 프로그래밍 - 학습 노트</title>
+        <title>즉시 VS 지연 연산 - 학습 노트</title>
       
     
     
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              함수형 프로그래밍
+              즉시 VS 지연 연산
             
           </span>
         </div>
@@ -1484,35 +1484,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    함수형 프로그래밍
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../programming/" class="md-nav__link">
         
   
   
@@ -1528,97 +1503,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="목차">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      목차
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#vs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        명령어 프로그래밍 VS 선언적 프로그래밍
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="명령어 프로그래밍 VS 선언적 프로그래밍">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#imperative" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        명령형 (Imperative)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="명령형 (Imperative)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        특징
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#declarative" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        선언형 (Declarative)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="선언형 (Declarative)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        특징
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1684,10 +1568,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../%EC%A6%89%EC%8B%9CVS%EC%A7%80%EC%97%B0/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    즉시 VS 지연 연산
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1703,6 +1612,96 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        즉시 연산 VS 지연 연산
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="즉시 연산 VS 지연 연산">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개념
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        왜 쓰는가?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stream의 지연 연산
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-circuiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단축 평가 (Short-Circuiting)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점 / 주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3703,67 +3702,66 @@
   <a href="#vs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        명령어 프로그래밍 VS 선언적 프로그래밍
+        즉시 연산 VS 지연 연산
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="명령어 프로그래밍 VS 선언적 프로그래밍">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#imperative" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        명령형 (Imperative)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="명령형 (Imperative)">
+    <nav class="md-nav" aria-label="즉시 연산 VS 지연 연산">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        특징
+        개념
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#declarative" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        선언형 (Declarative)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="선언형 (Declarative)">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        특징
+        왜 쓰는가?
       
     </span>
   </a>
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stream의 지연 연산
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-circuiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단축 평가 (Short-Circuiting)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점 / 주의할 점
+      
+    </span>
+  </a>
   
 </li>
         
@@ -3792,43 +3790,181 @@
   
 
 
-  <h1>함수형 프로그래밍</h1>
+  <h1>즉시 VS 지연 연산</h1>
 
-<h2 id="vs">명령어 프로그래밍 VS 선언적 프로그래밍</h2>
-<h3 id="imperative">명령형 (Imperative)</h3>
-<ul>
-<li>어떻게(how) 할지를 직접 기술</li>
-<li>상태 변화, 반복문, 인덱스 중심</li>
-</ul>
-<pre><code class="language-markdown">List&lt;String&gt; result = new ArrayList&lt;&gt;();
-for (String s : list) {
-    if (s.length() &gt; 3) {
-        result.add(s.toUpperCase());
-    }
+<blockquote>
+<p><a href="/index.md">← 홈</a> · <a href="/java/java.md">Java</a> · <a href="/java/lambda/lambda.md">람다 &amp; 스트림</a></p>
+</blockquote>
+<h2 id="vs">즉시 연산 VS 지연 연산</h2>
+<h3 id="_1">개념</h3>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>즉시 연산 (Eager Evaluation)</th>
+<th>지연 연산 (Lazy Evaluation)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>실행 시점</td>
+<td>연산 정의 즉시 실행</td>
+<td>최종 연산 호출 시점까지 실행 안 함</td>
+</tr>
+<tr>
+<td>처리 단위</td>
+<td>전체 데이터를 단계별로 처리</td>
+<td>요소 하나씩 파이프라인 전체 통과</td>
+</tr>
+<tr>
+<td>중간 결과</td>
+<td>매 단계마다 컬렉션 생성</td>
+<td>중간 결과 저장 없음</td>
+</tr>
+<tr>
+<td>메모리</td>
+<td>높음</td>
+<td>낮음</td>
+</tr>
+<tr>
+<td>최적화</td>
+<td>어려움</td>
+<td>Short-Circuiting 가능</td>
+</tr>
+<tr>
+<td>대표 예시</td>
+<td>for-loop, 컬렉션 직접 조작</td>
+<td>Stream API</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_2">왜 쓰는가?</h3>
+<p>즉시 연산은 불필요한 연산을 포함할 수 있다. 지연 연산은 <strong>실제로 필요한 만큼만</strong> 실행해 성능을 높인다.</p>
+<pre><code class="language-markdown">// 즉시 연산: filter 전체 → map 전체 (5번 + 3번 = 8번 실행)
+List&lt;Integer&gt; filtered = new ArrayList&lt;&gt;();
+for (Integer n : List.of(1, 2, 3, 4, 5)) {
+    if (n &gt; 2) filtered.add(n);
+}
+List&lt;Integer&gt; mapped = new ArrayList&lt;&gt;();
+for (Integer n : filtered) {
+    mapped.add(n * 2);
 }
 </code></pre>
-<h4 id="_1">특징</h4>
-<ol>
-<li>제어 흐름 직접 관리</li>
-<li>가변 상태 많음</li>
-<li>코드 길고 버그 가능성↑</li>
-</ol>
-<h3 id="declarative">선언형 (Declarative)</h3>
-<ul>
-<li>무엇(what) 을 원하는지만 표현</li>
-<li>내부 동작은 라이브러리가 처리</li>
-</ul>
-<pre><code class="language-markdown">list.stream()
-    .filter(s -&gt; s.length() &gt; 3)
-    .map(String::toUpperCase)
+<pre><code class="language-markdown">// 지연 연산: 요소 하나씩 파이프라인 통과 (중간 컬렉션 없음)
+List.of(1, 2, 3, 4, 5).stream()
+    .filter(n -&gt; n &gt; 2)
+    .map(n -&gt; n * 2)
+    .toList();
+
+// 실행 흐름: 1(filter) → 2(filter) → 3(filter→map) → 4(filter→map) → 5(filter→map)
+</code></pre>
+<hr />
+<h3 id="stream">Stream의 지연 연산</h3>
+<p>Stream에서 <strong>중간 연산</strong>은 지연 연산, <strong>최종 연산</strong>은 즉시 연산이다.</p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>종류</th>
+<th>실행 시점</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>중간 연산</td>
+<td><code>filter</code>, <code>map</code>, <code>flatMap</code>, <code>sorted</code>, <code>distinct</code>, <code>peek</code> 등</td>
+<td>최종 연산 호출 전까지 실행 안 함</td>
+</tr>
+<tr>
+<td>최종 연산</td>
+<td><code>forEach</code>, <code>collect</code>, <code>toList</code>, <code>count</code>, <code>findFirst</code> 등</td>
+<td>호출 즉시 파이프라인 실행</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-markdown">Stream&lt;Integer&gt; stream = List.of(1, 2, 3).stream()
+    .filter(n -&gt; {
+        System.out.println(&quot;filter: &quot; + n);  // 최종 연산 전까지 출력 안 됨
+        return n &gt; 1;
+    });
+
+System.out.println(&quot;최종 연산 전&quot;);
+stream.toList();  // 여기서 filter가 실행됨
+System.out.println(&quot;최종 연산 후&quot;);
+
+// 출력:
+// 최종 연산 전
+// filter: 1
+// filter: 2
+// filter: 3
+// 최종 연산 후
+</code></pre>
+<hr />
+<h3 id="short-circuiting">단축 평가 (Short-Circuiting)</h3>
+<p>지연 연산의 핵심 최적화. 결과가 확정되는 순간 나머지 요소를 처리하지 않고 종료한다.</p>
+<pre><code class="language-markdown">// anyMatch: 조건 맞는 요소 발견 즉시 종료
+boolean result = Stream.of(1, 2, 3, 4, 5)
+    .filter(n -&gt; {
+        System.out.println(&quot;check: &quot; + n);
+        return n % 2 == 0;
+    })
+    .anyMatch(n -&gt; true);
+// check: 1 → check: 2 → 종료 (나머지 3, 4, 5는 처리 안 함)
+
+// findFirst: 조건 맞는 첫 요소 찾으면 종료
+Optional&lt;Integer&gt; first = Stream.of(1, 2, 3, 4, 5)
+    .filter(n -&gt; n &gt; 3)
+    .findFirst();  // 4 발견 → 5는 처리 안 함
+
+// limit: 무한 스트림을 유한하게 만들 때 필수
+List&lt;Integer&gt; evens = Stream.iterate(0, n -&gt; n + 1)
+    .filter(n -&gt; n % 2 == 0)
+    .limit(5)    // 짝수 5개 찾으면 무한 스트림 중단
+    .toList();   // [0, 2, 4, 6, 8]
+</code></pre>
+<p>단축 평가 적용 연산: <code>anyMatch</code>, <code>allMatch</code>, <code>noneMatch</code>, <code>findFirst</code>, <code>findAny</code>, <code>limit</code></p>
+<hr />
+<h3 id="_3">단점 / 주의할 점</h3>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>문제</th>
+<th>해결</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>스트림 재사용</td>
+<td>최종 연산 후 스트림은 소비됨 — 다시 사용하면 <code>IllegalStateException</code></td>
+<td>필요하면 새 스트림 생성</td>
+</tr>
+<tr>
+<td>사이드 이펙트</td>
+<td>중간 연산에서 외부 상태 변경 시 실행 순서 예측 어려움</td>
+<td>중간 연산은 순수 함수로 작성</td>
+</tr>
+<tr>
+<td>디버깅</td>
+<td>실행 시점이 분리되어 있어 흐름 파악이 어려움</td>
+<td><code>peek()</code>으로 중간값 확인</td>
+</tr>
+<tr>
+<td>무한 스트림</td>
+<td><code>limit</code> 없이 최종 연산 호출 시 무한 루프</td>
+<td>무한 스트림엔 반드시 <code>limit</code> 또는 단축 평가 연산 사용</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-markdown">// peek으로 디버깅
+List.of(1, 2, 3, 4, 5).stream()
+    .filter(n -&gt; n &gt; 2)
+    .peek(n -&gt; System.out.println(&quot;filter 통과: &quot; + n))
+    .map(n -&gt; n * 2)
+    .peek(n -&gt; System.out.println(&quot;map 결과: &quot; + n))
     .toList();
 </code></pre>
-<h4 id="_2">특징</h4>
-<ol>
-<li>로직 의도가 명확</li>
-<li>내부 구현 숨김</li>
-<li>병렬 처리 최적화 쉬움</li>
-</ol>
 
 
 
@@ -3851,7 +3987,7 @@ for (String s : list) {
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 3월 23일 12:19:01 UTC">2026년 3월 23일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 2일 12:27:39 UTC">2026년 4월 2일</span>
   </span>
 
     
@@ -3861,7 +3997,7 @@ for (String s : list) {
     <span class="md-icon" title="작성일">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 3월 23일 12:19:01 UTC">2026년 3월 23일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 2일 12:27:39 UTC">2026년 4월 2일</span>
   </span>
 
     
