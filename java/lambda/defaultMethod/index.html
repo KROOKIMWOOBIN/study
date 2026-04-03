@@ -8,9 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://krookimwoobin.github.io/study/java/lambda/lambda/">
+        <link rel="canonical" href="https://krookimwoobin.github.io/study/java/lambda/defaultMethod/">
       
       
+        <link rel="prev" href="../orElseVSorElseGet/">
+      
+      
+        <link rel="next" href="../../thread/thread/">
       
       
         
@@ -21,7 +25,7 @@
     
     
       
-        <title>Lambda - 학습 노트</title>
+        <title>Default Method - 학습 노트</title>
       
     
     
@@ -71,6 +75,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#default-method" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -103,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lambda
+              Default Method
             
           </span>
         </div>
@@ -275,8 +284,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -287,11 +298,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -312,7 +323,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1338,6 +1349,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1347,11 +1360,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
         
           
           <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
@@ -1372,7 +1385,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1639,10 +1652,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../defaultMethod/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Default Method
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1658,6 +1696,96 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#default-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Default Method
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Default Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        왜 쓰는가?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        특징
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        오버라이드
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        다이아몬드 문제
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점 / 주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3620,6 +3748,86 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#default-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Default Method
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Default Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        왜 쓰는가?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        특징
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        오버라이드
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        다이아몬드 문제
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점 / 주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3638,23 +3846,112 @@
   
 
 
-  <h1>Lambda</h1>
+  <h1>Default Method</h1>
 
 <blockquote>
-<p><a href="/index.md">← 홈</a> · <a href="/java/java.md">Java</a></p>
+<p><a href="/index.md">← 홈</a> · <a href="/java/java.md">Java</a> · <a href="/java/lambda/lambda.md">람다 &amp; 스트림</a></p>
 </blockquote>
-<ol>
-<li><a href="../start/">람다, 함수형 프로그래밍</a></li>
-<li><a href="../function/">고차 함수</a></li>
-<li><a href="../programming/">명령어 프로그래밍 VS 선언적 프로그래밍</a></li>
-<li><a href="../stream/">스트림</a></li>
-<li><a href="../method/">메서드 참조</a></li>
-<li><a href="../streamApi/">Stream Api</a></li>
-<li><a href="../%EC%A6%89%EC%8B%9CVS%EC%A7%80%EC%97%B0/">즉시 연산 VS 지연 연산</a></li>
-<li><a href="../optional/">Optional</a></li>
-<li><a href="../orElseVSorElseGet/">orElse() VS orElseGet()</a></li>
-<li><a href="../defaultMethod/">Default Method</a></li>
-</ol>
+<h2 id="default-method">Default Method</h2>
+<p>Java 8에서 인터페이스에 <strong>구현부를 포함할 수 있게</strong> 된 메서드. <code>default</code> 키워드를 붙인다.</p>
+<pre><code class="language-markdown">interface Greeting {
+    default void hello() {
+        System.out.println(&quot;Hello!&quot;);
+    }
+}
+</code></pre>
+<h3 id="_1">왜 쓰는가?</h3>
+<p>기존 인터페이스에 메서드를 추가하면 구현 클래스 전체가 컴파일 오류가 난다. Default Method는 <strong>기존 구현 클래스를 깨지 않고</strong> 인터페이스에 새 기능을 추가할 수 있게 해준다.</p>
+<p>Java 8에서 <code>Collection</code>에 <code>stream()</code>, <code>forEach()</code> 등을 추가할 때 이 방식을 사용했다.</p>
+<pre><code class="language-markdown">// Collection 인터페이스 내부 (Java 8)
+default Stream&lt;E&gt; stream() {
+    return StreamSupport.stream(spliterator(), false);
+}
+</code></pre>
+<h3 id="_2">특징</h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>선언 위치</td>
+<td>인터페이스</td>
+</tr>
+<tr>
+<td>구현 여부</td>
+<td>구현부 포함</td>
+</tr>
+<tr>
+<td>오버라이드</td>
+<td>구현 클래스에서 선택적으로 가능</td>
+</tr>
+<tr>
+<td>상속</td>
+<td>구현 클래스가 자동으로 상속받음</td>
+</tr>
+<tr>
+<td>접근 제어자</td>
+<td>항상 <code>public</code> (생략 가능)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_3">오버라이드</h3>
+<p>구현 클래스에서 필요하면 재정의할 수 있다.</p>
+<pre><code class="language-markdown">interface Greeting {
+    default void hello() {
+        System.out.println(&quot;Hello!&quot;);
+    }
+}
+
+class KoreanGreeting implements Greeting {
+    @Override
+    public void hello() {
+        System.out.println(&quot;안녕하세요!&quot;);  // 재정의
+    }
+}
+</code></pre>
+<h3 id="_4">다이아몬드 문제</h3>
+<p>두 인터페이스가 동일한 시그니처의 default method를 가질 때 충돌이 발생한다. 구현 클래스에서 <strong>반드시 명시적으로 해결</strong>해야 한다.</p>
+<pre><code class="language-markdown">interface A {
+    default void hello() { System.out.println(&quot;A&quot;); }
+}
+interface B {
+    default void hello() { System.out.println(&quot;B&quot;); }
+}
+
+class C implements A, B {
+    @Override
+    public void hello() {
+        A.super.hello(); // 어느 쪽을 쓸지 명시
+    }
+}
+</code></pre>
+<h3 id="_5">단점 / 주의할 점</h3>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>문제</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>두 인터페이스의 default method 충돌</td>
+<td>컴파일 오류 — 구현 클래스에서 반드시 오버라이드</td>
+</tr>
+<tr>
+<td>남용</td>
+<td>인터페이스가 구현 클래스처럼 비대해져 책임이 불명확해짐</td>
+</tr>
+<tr>
+<td>상태(필드) 없음</td>
+<td>default method는 인터페이스 필드를 가질 수 없어 상태 기반 로직 구현 불가</td>
+</tr>
+</tbody>
+</table>
 
 
 
