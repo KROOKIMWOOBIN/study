@@ -71,6 +71,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#default-method" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -3592,6 +3597,86 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#default-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Default Method
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Default Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        왜 쓰는가?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        특징
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        오버라이드
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        다이아몬드 문제
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점 / 주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3625,7 +3710,110 @@
 <li><a href="../%EC%A6%89%EC%8B%9CVS%EC%A7%80%EC%97%B0/">즉시 연산 VS 지연 연산</a></li>
 <li><a href="../optional/">Optional</a></li>
 <li><a href="../orElseVSorElseGet/">orElse() VS orElseGet()</a></li>
+<li>Default Method</li>
 </ol>
+<hr />
+<h2 id="default-method">Default Method</h2>
+<p>Java 8에서 인터페이스에 <strong>구현부를 포함할 수 있게</strong> 된 메서드. <code>default</code> 키워드를 붙인다.</p>
+<pre><code class="language-markdown">interface Greeting {
+    default void hello() {
+        System.out.println(&quot;Hello!&quot;);
+    }
+}
+</code></pre>
+<h3 id="_1">왜 쓰는가?</h3>
+<p>기존 인터페이스에 메서드를 추가하면 구현 클래스 전체가 컴파일 오류가 난다. Default Method는 <strong>기존 구현 클래스를 깨지 않고</strong> 인터페이스에 새 기능을 추가할 수 있게 해준다.</p>
+<p>Java 8에서 <code>Collection</code>에 <code>stream()</code>, <code>forEach()</code> 등을 추가할 때 이 방식을 사용했다.</p>
+<pre><code class="language-markdown">// Collection 인터페이스 내부 (Java 8)
+default Stream&lt;E&gt; stream() {
+    return StreamSupport.stream(spliterator(), false);
+}
+</code></pre>
+<h3 id="_2">특징</h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>선언 위치</td>
+<td>인터페이스</td>
+</tr>
+<tr>
+<td>구현 여부</td>
+<td>구현부 포함</td>
+</tr>
+<tr>
+<td>오버라이드</td>
+<td>구현 클래스에서 선택적으로 가능</td>
+</tr>
+<tr>
+<td>상속</td>
+<td>구현 클래스가 자동으로 상속받음</td>
+</tr>
+<tr>
+<td>접근 제어자</td>
+<td>항상 <code>public</code> (생략 가능)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_3">오버라이드</h3>
+<p>구현 클래스에서 필요하면 재정의할 수 있다.</p>
+<pre><code class="language-markdown">interface Greeting {
+    default void hello() {
+        System.out.println(&quot;Hello!&quot;);
+    }
+}
+
+class KoreanGreeting implements Greeting {
+    @Override
+    public void hello() {
+        System.out.println(&quot;안녕하세요!&quot;);  // 재정의
+    }
+}
+</code></pre>
+<h3 id="_4">다이아몬드 문제</h3>
+<p>두 인터페이스가 동일한 시그니처의 default method를 가질 때 충돌이 발생한다. 구현 클래스에서 <strong>반드시 명시적으로 해결</strong>해야 한다.</p>
+<pre><code class="language-markdown">interface A {
+    default void hello() { System.out.println(&quot;A&quot;); }
+}
+interface B {
+    default void hello() { System.out.println(&quot;B&quot;); }
+}
+
+class C implements A, B {
+    @Override
+    public void hello() {
+        A.super.hello(); // 어느 쪽을 쓸지 명시
+    }
+}
+</code></pre>
+<h3 id="_5">단점 / 주의할 점</h3>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>문제</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>두 인터페이스의 default method 충돌</td>
+<td>컴파일 오류 — 구현 클래스에서 반드시 오버라이드</td>
+</tr>
+<tr>
+<td>남용</td>
+<td>인터페이스가 구현 클래스처럼 비대해져 책임이 불명확해짐</td>
+</tr>
+<tr>
+<td>상태(필드) 없음</td>
+<td>default method는 인터페이스 필드를 가질 수 없어 상태 기반 로직 구현 불가</td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -3648,7 +3836,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 2일 12:55:02 UTC">2026년 4월 2일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 3일 11:10:59 UTC">2026년 4월 3일</span>
   </span>
 
     
