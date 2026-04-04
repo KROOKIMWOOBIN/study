@@ -1,4 +1,4 @@
-> [← 홈](/index.md) · [Java](/java/java.md)
+> [← 홈](/) · [Java](/java/java/)
 
 # 멀티스레드와 동시성
 

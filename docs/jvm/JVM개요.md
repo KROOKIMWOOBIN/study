@@ -1,4 +1,4 @@
-> [← 홈](/index.md) · [JVM](/jvm/jvm.md)
+> [← 홈](/) · [JVM](/jvm/jvm/)
 
 ## JVM 개요
 

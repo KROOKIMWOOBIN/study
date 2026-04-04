@@ -1,4 +1,4 @@
-> [← 홈](/index.md) · [Java](/java/java.md) · [중급 1편](/java/core/core.md)
+> [← 홈](/) · [Java](/java/java/) · [중급 1편](/java/core/core/)
 
 ## System Class
 - JVM과 운영체제 수준의 시스템 기능을 접근하기 위한 유틸리티 클래스

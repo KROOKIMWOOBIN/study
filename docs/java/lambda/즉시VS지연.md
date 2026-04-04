@@ -1,4 +1,4 @@
-> [← 홈](/index.md) · [Java](/java/java.md) · [람다 & 스트림](/java/lambda/lambda.md)
+> [← 홈](/) · [Java](/java/java/) · [람다 & 스트림](/java/lambda/lambda/)
 
 ## 즉시 연산 VS 지연 연산
 

@@ -1,4 +1,4 @@
-> [← 홈](/index.md) · [Java](/java/java.md)
+> [← 홈](/) · [Java](/java/java/)
 
 # Java 중급 2편
 

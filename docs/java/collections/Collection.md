@@ -1,4 +1,4 @@
-> [← 홈](/index.md) · [Java](/java/java.md) · [중급 2편](/java/collections/collections.md)
+> [← 홈](/) · [Java](/java/java/) · [중급 2편](/java/collections/collections/)
 
 ## 컴파일 타임 의존관계 VS 런타임 의존관계
 - 컴파일 타임 의존관계

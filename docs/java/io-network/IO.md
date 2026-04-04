@@ -1,4 +1,4 @@
-> [← 홈](/index.md) · [Java](/java/java.md) · [I/O·네트워크·리플렉션](/java/io-network.md)
+> [← 홈](/) · [Java](/java/java/) · [I/O·네트워크·리플렉션](/java/io-network/)
 
 ## Stream
 - 데이터의 연속적인 흐름
