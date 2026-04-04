@@ -1,4 +1,4 @@
-> [← 홈](/) · [Spring](/spring/basic/)
+> [← 홈](/study/) · [Spring](/spring/basic/)
 
 # IoC & DI (제어의 역전 & 의존성 주입)
 

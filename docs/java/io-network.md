@@ -1,4 +1,4 @@
-> [← 홈](/) · [Java](/java/java/)
+> [← 홈](/study/) · [Java](/java/java/)
 
 # I/O, 네트워크, 리플렉션
 

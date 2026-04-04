@@ -1,4 +1,4 @@
-> [← 홈](/) · [DB](/db/db/)
+> [← 홈](/study/) · [DB](/db/db/)
 
 # JDBC (Java Database Connectivity)
 

@@ -1,4 +1,4 @@
-> [← 홈](/) · [Java](/java/java/) · [멀티스레드](/java/thread/thread/)
+> [← 홈](/study/) · [Java](/java/java/) · [멀티스레드](/java/thread/thread/)
 
 ## 메모리 가시성
 - 한 스레드가 변경한 값이 다른 스레드에서 언제, 어떻게 보이느냐의 문제

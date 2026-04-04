@@ -1,4 +1,4 @@
-> [← 홈](/) · [HTTP/Web](/html/html/)
+> [← 홈](/study/) · [HTTP/Web](/html/html/)
 
 ### HTTP Session
 - HTTP는 무상태 프로토콜

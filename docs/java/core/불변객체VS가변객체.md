@@ -1,4 +1,4 @@
-> [← 홈](/) · [Java](/java/java/) · [중급 1편](/java/core/core/)
+> [← 홈](/study/) · [Java](/java/java/) · [중급 1편](/java/core/core/)
 
 ## 불변객체 (Immutable Object)
 - 객체 생성 이후 외부에서 관찰 가능한 상태가 절대 변하지 않는 객체

@@ -1,4 +1,4 @@
-> [← 홈](/) · [Java](/java/java/) · [중급 1편](/java/core/core/)
+> [← 홈](/study/) · [Java](/java/java/) · [중급 1편](/java/core/core/)
 
 ## Type-safe Enum Pattern
 

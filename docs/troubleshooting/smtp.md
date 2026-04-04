@@ -1,4 +1,4 @@
-> [← 홈](/)
+> [← 홈](/study/)
 
 # Trouble Shooting
 

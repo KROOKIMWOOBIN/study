@@ -1,4 +1,4 @@
-> [← 홈](/) · [Java](/java/java/) · [중급 2편](/java/collections/collections/)
+> [← 홈](/study/) · [Java](/java/java/) · [중급 2편](/java/collections/collections/)
 
 ## 배열 리스트 (ArrayList)
 

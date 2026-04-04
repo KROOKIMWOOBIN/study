@@ -1,4 +1,4 @@
-> [← 홈](/) · [Java](/java/java/)
+> [← 홈](/study/) · [Java](/java/java/)
 
 # Java 기초 — 객체 지향 4원칙
 

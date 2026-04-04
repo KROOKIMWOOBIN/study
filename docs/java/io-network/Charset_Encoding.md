@@ -1,4 +1,4 @@
-> [← 홈](/) · [Java](/java/java/) · [I/O·네트워크·리플렉션](/java/io-network/)
+> [← 홈](/study/) · [Java](/java/java/) · [I/O·네트워크·리플렉션](/java/io-network/)
 
 ## 문자 집합 조회
 ```java
