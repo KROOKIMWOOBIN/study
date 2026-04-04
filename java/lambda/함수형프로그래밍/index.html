@@ -8,27 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://krookimwoobin.github.io/study/java/io-network/">
+        <link rel="canonical" href="https://krookimwoobin.github.io/study/java/lambda/%ED%95%A8%EC%88%98%ED%98%95%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/">
       
       
+        <link rel="prev" href="../%EB%B3%91%EB%A0%AC%EC%8A%A4%ED%8A%B8%EB%A6%BC/">
+      
+      
+        <link rel="next" href="../../thread/thread/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Io network - 학습 노트</title>
+        <title>함수형 프로그래밍 심화 - 학습 노트</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -47,7 +51,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -72,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#io" class="md-skip">
+        <a href="#functional-programming" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -88,7 +92,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="상단/헤더">
-    <a href="../.." title="학습 노트" class="md-header__button md-logo" aria-label="학습 노트" data-md-component="logo">
+    <a href="../../.." title="학습 노트" class="md-header__button md-logo" aria-label="학습 노트" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -108,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Io network
+              함수형 프로그래밍 심화
             
           </span>
         </div>
@@ -226,7 +230,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="네비게이션" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="학습 노트" class="md-nav__button md-logo" aria-label="학습 노트" data-md-component="logo">
+    <a href="../../.." title="학습 노트" class="md-nav__button md-logo" aria-label="학습 노트" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -256,7 +260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -280,8 +284,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -292,11 +298,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -317,7 +323,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -335,7 +341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../java/" class="md-nav__link">
+      <a href="../../java/" class="md-nav__link">
         
   
   
@@ -412,7 +418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../oop/%EB%8B%A4%ED%98%95%EC%84%B1/" class="md-nav__link">
+      <a href="../../oop/%EB%8B%A4%ED%98%95%EC%84%B1/" class="md-nav__link">
         
   
   
@@ -440,7 +446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../oop/%EC%83%81%EC%86%8D/" class="md-nav__link">
+      <a href="../../oop/%EC%83%81%EC%86%8D/" class="md-nav__link">
         
   
   
@@ -468,7 +474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../oop/%EC%B6%94%EC%83%81%ED%99%94/" class="md-nav__link">
+      <a href="../../oop/%EC%B6%94%EC%83%81%ED%99%94/" class="md-nav__link">
         
   
   
@@ -496,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../oop/%EC%BA%A1%EC%8A%90%ED%99%94/" class="md-nav__link">
+      <a href="../../oop/%EC%BA%A1%EC%8A%90%ED%99%94/" class="md-nav__link">
         
   
   
@@ -581,7 +587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../core/core/" class="md-nav__link">
+      <a href="../../core/core/" class="md-nav__link">
         
   
   
@@ -609,7 +615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../core/Object/" class="md-nav__link">
+      <a href="../../core/Object/" class="md-nav__link">
         
   
   
@@ -637,7 +643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../core/%EB%B6%88%EB%B3%80%EA%B0%9D%EC%B2%B4VS%EA%B0%80%EB%B3%80%EA%B0%9D%EC%B2%B4/" class="md-nav__link">
+      <a href="../../core/%EB%B6%88%EB%B3%80%EA%B0%9D%EC%B2%B4VS%EA%B0%80%EB%B3%80%EA%B0%9D%EC%B2%B4/" class="md-nav__link">
         
   
   
@@ -665,7 +671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../core/%EB%9E%98%ED%8D%BC%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
+      <a href="../../core/%EB%9E%98%ED%8D%BC%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -693,7 +699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../core/Enum/" class="md-nav__link">
+      <a href="../../core/Enum/" class="md-nav__link">
         
   
   
@@ -721,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../core/%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
+      <a href="../../core/%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
         
   
   
@@ -749,7 +755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../core/%EC%A4%91%EC%B2%A9%EB%82%B4%EB%B6%80%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
+      <a href="../../core/%EC%A4%91%EC%B2%A9%EB%82%B4%EB%B6%80%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -777,7 +783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../core/Class/" class="md-nav__link">
+      <a href="../../core/Class/" class="md-nav__link">
         
   
   
@@ -805,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../core/Math/" class="md-nav__link">
+      <a href="../../core/Math/" class="md-nav__link">
         
   
   
@@ -833,7 +839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../core/SystemClass/" class="md-nav__link">
+      <a href="../../core/SystemClass/" class="md-nav__link">
         
   
   
@@ -918,7 +924,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../collections/collections/" class="md-nav__link">
+      <a href="../../collections/collections/" class="md-nav__link">
         
   
   
@@ -946,7 +952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../collections/Collection/" class="md-nav__link">
+      <a href="../../collections/Collection/" class="md-nav__link">
         
   
   
@@ -974,7 +980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../collections/Generic/" class="md-nav__link">
+      <a href="../../collections/Generic/" class="md-nav__link">
         
   
   
@@ -1002,7 +1008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../collections/Array/" class="md-nav__link">
+      <a href="../../collections/Array/" class="md-nav__link">
         
   
   
@@ -1030,7 +1036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../collections/List/" class="md-nav__link">
+      <a href="../../collections/List/" class="md-nav__link">
         
   
   
@@ -1058,7 +1064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../collections/ArrayList/" class="md-nav__link">
+      <a href="../../collections/ArrayList/" class="md-nav__link">
         
   
   
@@ -1086,7 +1092,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../collections/LinkedList/" class="md-nav__link">
+      <a href="../../collections/LinkedList/" class="md-nav__link">
         
   
   
@@ -1114,7 +1120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../collections/Set/" class="md-nav__link">
+      <a href="../../collections/Set/" class="md-nav__link">
         
   
   
@@ -1142,7 +1148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../collections/HashSet/" class="md-nav__link">
+      <a href="../../collections/HashSet/" class="md-nav__link">
         
   
   
@@ -1170,7 +1176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../collections/Map/" class="md-nav__link">
+      <a href="../../collections/Map/" class="md-nav__link">
         
   
   
@@ -1198,7 +1204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../collections/Stack/" class="md-nav__link">
+      <a href="../../collections/Stack/" class="md-nav__link">
         
   
   
@@ -1226,7 +1232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../collections/Queue/" class="md-nav__link">
+      <a href="../../collections/Queue/" class="md-nav__link">
         
   
   
@@ -1254,7 +1260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../collections/%EC%88%9C%ED%9A%8C/" class="md-nav__link">
+      <a href="../../collections/%EC%88%9C%ED%9A%8C/" class="md-nav__link">
         
   
   
@@ -1282,7 +1288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../collections/%EB%B9%84%EA%B5%90/" class="md-nav__link">
+      <a href="../../collections/%EB%B9%84%EA%B5%90/" class="md-nav__link">
         
   
   
@@ -1310,7 +1316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../collections/BigO/" class="md-nav__link">
+      <a href="../../collections/BigO/" class="md-nav__link">
         
   
   
@@ -1343,6 +1349,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1352,11 +1360,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
         
           
           <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
@@ -1377,7 +1385,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1395,7 +1403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lambda/start/" class="md-nav__link">
+      <a href="../start/" class="md-nav__link">
         
   
   
@@ -1423,7 +1431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lambda/function/" class="md-nav__link">
+      <a href="../function/" class="md-nav__link">
         
   
   
@@ -1451,7 +1459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lambda/method/" class="md-nav__link">
+      <a href="../method/" class="md-nav__link">
         
   
   
@@ -1479,7 +1487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lambda/programming/" class="md-nav__link">
+      <a href="../programming/" class="md-nav__link">
         
   
   
@@ -1507,7 +1515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lambda/stream/" class="md-nav__link">
+      <a href="../stream/" class="md-nav__link">
         
   
   
@@ -1535,7 +1543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lambda/streamApi/" class="md-nav__link">
+      <a href="../streamApi/" class="md-nav__link">
         
   
   
@@ -1563,7 +1571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lambda/%EC%A6%89%EC%8B%9CVS%EC%A7%80%EC%97%B0/" class="md-nav__link">
+      <a href="../%EC%A6%89%EC%8B%9CVS%EC%A7%80%EC%97%B0/" class="md-nav__link">
         
   
   
@@ -1591,7 +1599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lambda/optional/" class="md-nav__link">
+      <a href="../optional/" class="md-nav__link">
         
   
   
@@ -1619,7 +1627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lambda/orElseVSorElseGet/" class="md-nav__link">
+      <a href="../orElseVSorElseGet/" class="md-nav__link">
         
   
   
@@ -1647,7 +1655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lambda/defaultMethod/" class="md-nav__link">
+      <a href="../defaultMethod/" class="md-nav__link">
         
   
   
@@ -1675,7 +1683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lambda/%EB%B3%91%EB%A0%AC%EC%8A%A4%ED%8A%B8%EB%A6%BC/" class="md-nav__link">
+      <a href="../%EB%B3%91%EB%A0%AC%EC%8A%A4%ED%8A%B8%EB%A6%BC/" class="md-nav__link">
         
   
   
@@ -1700,10 +1708,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../lambda/%ED%95%A8%EC%88%98%ED%98%95%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    함수형 프로그래밍 심화
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1719,6 +1752,207 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#functional-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        함수형 프로그래밍 (Functional Programming)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="함수형 프로그래밍 (Functional Programming)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        왜 쓰는지
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        핵심 개념
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="핵심 개념">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pure-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        순수 함수 (Pure Function)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#immutability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        불변성 (Immutability)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-first-class-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1급 함수 (First-class Function)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#higher-order-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        고차 함수 (Higher-order Function)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Java에서 함수형 프로그래밍
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Java에서 함수형 프로그래밍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요 함수형 인터페이스
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        함수 합성
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#predicate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Predicate 합성
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oop-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OOP vs 함수형 비교
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1788,7 +2022,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../thread/thread/" class="md-nav__link">
+      <a href="../../thread/thread/" class="md-nav__link">
         
   
   
@@ -1816,7 +2050,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../thread/%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/" class="md-nav__link">
+      <a href="../../thread/%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/" class="md-nav__link">
         
   
   
@@ -1844,7 +2078,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../thread/Thread1/" class="md-nav__link">
+      <a href="../../thread/Thread1/" class="md-nav__link">
         
   
   
@@ -1872,7 +2106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../thread/Thread2/" class="md-nav__link">
+      <a href="../../thread/Thread2/" class="md-nav__link">
         
   
   
@@ -1900,7 +2134,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../thread/Thread3/" class="md-nav__link">
+      <a href="../../thread/Thread3/" class="md-nav__link">
         
   
   
@@ -1928,7 +2162,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../thread/synchronized/" class="md-nav__link">
+      <a href="../../thread/synchronized/" class="md-nav__link">
         
   
   
@@ -1956,7 +2190,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../thread/volatile/" class="md-nav__link">
+      <a href="../../thread/volatile/" class="md-nav__link">
         
   
   
@@ -1984,7 +2218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../thread/%EB%8F%99%EA%B8%B0%ED%99%94%EC%99%80%EC%9B%90%EC%9E%90%EC%A0%81%EC%97%B0%EC%82%B0/" class="md-nav__link">
+      <a href="../../thread/%EB%8F%99%EA%B8%B0%ED%99%94%EC%99%80%EC%9B%90%EC%9E%90%EC%A0%81%EC%97%B0%EC%82%B0/" class="md-nav__link">
         
   
   
@@ -2012,7 +2246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../thread/Lock/" class="md-nav__link">
+      <a href="../../thread/Lock/" class="md-nav__link">
         
   
   
@@ -2040,7 +2274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../thread/%EB%8F%99%EC%8B%9C%EC%84%B1%EC%BB%AC%EB%A0%89%EC%85%98/" class="md-nav__link">
+      <a href="../../thread/%EB%8F%99%EC%8B%9C%EC%84%B1%EC%BB%AC%EB%A0%89%EC%85%98/" class="md-nav__link">
         
   
   
@@ -2068,7 +2302,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../thread/%EC%83%9D%EC%82%B0%EC%9E%90%EC%86%8C%EB%B9%84%EC%9E%90%EB%AC%B8%EC%A0%9C/" class="md-nav__link">
+      <a href="../../thread/%EC%83%9D%EC%82%B0%EC%9E%90%EC%86%8C%EB%B9%84%EC%9E%90%EB%AC%B8%EC%A0%9C/" class="md-nav__link">
         
   
   
@@ -2096,7 +2330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../thread/ThreadPool_Executor_Overview1/" class="md-nav__link">
+      <a href="../../thread/ThreadPool_Executor_Overview1/" class="md-nav__link">
         
   
   
@@ -2124,7 +2358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../thread/ThreadPool_Executor_Overview2/" class="md-nav__link">
+      <a href="../../thread/ThreadPool_Executor_Overview2/" class="md-nav__link">
         
   
   
@@ -2209,7 +2443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="IO/" class="md-nav__link">
+      <a href="../../io-network/IO/" class="md-nav__link">
         
   
   
@@ -2237,7 +2471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="network/" class="md-nav__link">
+      <a href="../../io-network/network/" class="md-nav__link">
         
   
   
@@ -2265,7 +2499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Charset_Encoding/" class="md-nav__link">
+      <a href="../../io-network/Charset_Encoding/" class="md-nav__link">
         
   
   
@@ -2293,7 +2527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="annotation/" class="md-nav__link">
+      <a href="../../io-network/annotation/" class="md-nav__link">
         
   
   
@@ -2321,7 +2555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reflection/" class="md-nav__link">
+      <a href="../../io-network/reflection/" class="md-nav__link">
         
   
   
@@ -2416,7 +2650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../html/html/" class="md-nav__link">
+      <a href="../../../html/html/" class="md-nav__link">
         
   
   
@@ -2444,7 +2678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../html/Session/" class="md-nav__link">
+      <a href="../../../html/Session/" class="md-nav__link">
         
   
   
@@ -2531,7 +2765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/basic/" class="md-nav__link">
+      <a href="../../../spring/basic/" class="md-nav__link">
         
   
   
@@ -2559,7 +2793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/IoC-DI/" class="md-nav__link">
+      <a href="../../../spring/IoC-DI/" class="md-nav__link">
         
   
   
@@ -2587,7 +2821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/%EC%8A%A4%ED%94%84%EB%A7%81%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88/" class="md-nav__link">
+      <a href="../../../spring/%EC%8A%A4%ED%94%84%EB%A7%81%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88/" class="md-nav__link">
         
   
   
@@ -2615,7 +2849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/%EC%8B%B1%EA%B8%80%ED%86%A4/" class="md-nav__link">
+      <a href="../../../spring/%EC%8B%B1%EA%B8%80%ED%86%A4/" class="md-nav__link">
         
   
   
@@ -2643,7 +2877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%8A%A4%EC%BA%94/" class="md-nav__link">
+      <a href="../../../spring/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%8A%A4%EC%BA%94/" class="md-nav__link">
         
   
   
@@ -2671,7 +2905,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84%EC%A3%BC%EC%9E%85/" class="md-nav__link">
+      <a href="../../../spring/%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84%EC%A3%BC%EC%9E%85/" class="md-nav__link">
         
   
   
@@ -2699,7 +2933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/%EB%B9%88%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0/" class="md-nav__link">
+      <a href="../../../spring/%EB%B9%88%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0/" class="md-nav__link">
         
   
   
@@ -2727,7 +2961,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/%EB%B9%88%EC%8A%A4%EC%BD%94%ED%94%84/" class="md-nav__link">
+      <a href="../../../spring/%EB%B9%88%EC%8A%A4%EC%BD%94%ED%94%84/" class="md-nav__link">
         
   
   
@@ -2814,7 +3048,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/db/" class="md-nav__link">
+      <a href="../../../db/db/" class="md-nav__link">
         
   
   
@@ -2842,7 +3076,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/JDBC/" class="md-nav__link">
+      <a href="../../../db/JDBC/" class="md-nav__link">
         
   
   
@@ -2870,7 +3104,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%BB%A4%EB%84%A5%EC%85%98%ED%92%80-DataSource/" class="md-nav__link">
+      <a href="../../../db/%EC%BB%A4%EB%84%A5%EC%85%98%ED%92%80-DataSource/" class="md-nav__link">
         
   
   
@@ -2898,7 +3132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/" class="md-nav__link">
+      <a href="../../../db/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/" class="md-nav__link">
         
   
   
@@ -2926,7 +3160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EA%B2%A9%EB%A6%AC%EC%88%98%EC%A4%80/" class="md-nav__link">
+      <a href="../../../db/%EA%B2%A9%EB%A6%AC%EC%88%98%EC%A4%80/" class="md-nav__link">
         
   
   
@@ -2954,7 +3188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
+      <a href="../../../db/%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
         
   
   
@@ -3041,7 +3275,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../jvm/jvm/" class="md-nav__link">
+      <a href="../../../jvm/jvm/" class="md-nav__link">
         
   
   
@@ -3069,7 +3303,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../jvm/JVM%EA%B0%9C%EC%9A%94/" class="md-nav__link">
+      <a href="../../../jvm/JVM%EA%B0%9C%EC%9A%94/" class="md-nav__link">
         
   
   
@@ -3156,7 +3390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/cs/" class="md-nav__link">
+      <a href="../../../cs/cs/" class="md-nav__link">
         
   
   
@@ -3184,7 +3418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/%EB%8F%99%EA%B8%B0VS%EB%B9%84%EB%8F%99%EA%B8%B0/" class="md-nav__link">
+      <a href="../../../cs/%EB%8F%99%EA%B8%B0VS%EB%B9%84%EB%8F%99%EA%B8%B0/" class="md-nav__link">
         
   
   
@@ -3271,7 +3505,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%EC%8B%A4%EB%AC%B4/%EC%8B%A4%EB%AC%B4/" class="md-nav__link">
+      <a href="../../../%EC%8B%A4%EB%AC%B4/%EC%8B%A4%EB%AC%B4/" class="md-nav__link">
         
   
   
@@ -3299,7 +3533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%EC%8B%A4%EB%AC%B4/N%2B1%EB%AC%B8%EC%A0%9C/" class="md-nav__link">
+      <a href="../../../%EC%8B%A4%EB%AC%B4/N%2B1%EB%AC%B8%EC%A0%9C/" class="md-nav__link">
         
   
   
@@ -3327,7 +3561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%EC%8B%A4%EB%AC%B4/REST-API%EC%84%A4%EA%B3%84/" class="md-nav__link">
+      <a href="../../../%EC%8B%A4%EB%AC%B4/REST-API%EC%84%A4%EA%B3%84/" class="md-nav__link">
         
   
   
@@ -3355,7 +3589,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%EC%8B%A4%EB%AC%B4/%EB%82%99%EA%B4%80%EC%A0%81%EB%9D%BD-%EB%B9%84%EA%B4%80%EC%A0%81%EB%9D%BD/" class="md-nav__link">
+      <a href="../../../%EC%8B%A4%EB%AC%B4/%EB%82%99%EA%B4%80%EC%A0%81%EB%9D%BD-%EB%B9%84%EA%B4%80%EC%A0%81%EB%9D%BD/" class="md-nav__link">
         
   
   
@@ -3383,7 +3617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%EC%8B%A4%EB%AC%B4/%EB%8D%B0%EB%93%9C%EB%9D%BD/" class="md-nav__link">
+      <a href="../../../%EC%8B%A4%EB%AC%B4/%EB%8D%B0%EB%93%9C%EB%9D%BD/" class="md-nav__link">
         
   
   
@@ -3411,7 +3645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%EC%8B%A4%EB%AC%B4/%EB%8F%99%EC%8B%9C%EC%84%B1%EC%9D%B4%EC%8A%88/" class="md-nav__link">
+      <a href="../../../%EC%8B%A4%EB%AC%B4/%EB%8F%99%EC%8B%9C%EC%84%B1%EC%9D%B4%EC%8A%88/" class="md-nav__link">
         
   
   
@@ -3439,7 +3673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%EC%8B%A4%EB%AC%B4/%EB%A9%B1%EB%93%B1%EC%84%B1/" class="md-nav__link">
+      <a href="../../../%EC%8B%A4%EB%AC%B4/%EB%A9%B1%EB%93%B1%EC%84%B1/" class="md-nav__link">
         
   
   
@@ -3467,7 +3701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%EC%8B%A4%EB%AC%B4/%EC%9D%B8%EB%8D%B1%EC%8A%A4/" class="md-nav__link">
+      <a href="../../../%EC%8B%A4%EB%AC%B4/%EC%9D%B8%EB%8D%B1%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -3495,7 +3729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%EC%8B%A4%EB%AC%B4/%EC%BA%90%EC%8B%9C%EC%A0%84%EB%9E%B5/" class="md-nav__link">
+      <a href="../../../%EC%8B%A4%EB%AC%B4/%EC%BA%90%EC%8B%9C%EC%A0%84%EB%9E%B5/" class="md-nav__link">
         
   
   
@@ -3523,7 +3757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%EC%8B%A4%EB%AC%B4/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-AOP%EB%AC%B8%EC%A0%9C/" class="md-nav__link">
+      <a href="../../../%EC%8B%A4%EB%AC%B4/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-AOP%EB%AC%B8%EC%A0%9C/" class="md-nav__link">
         
   
   
@@ -3551,7 +3785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%EC%8B%A4%EB%AC%B4/%EC%8A%AC%EB%A1%9C%EC%9A%B0%EC%BF%BC%EB%A6%AC/" class="md-nav__link">
+      <a href="../../../%EC%8B%A4%EB%AC%B4/%EC%8A%AC%EB%A1%9C%EC%9A%B0%EC%BF%BC%EB%A6%AC/" class="md-nav__link">
         
   
   
@@ -3579,7 +3813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%EC%8B%A4%EB%AC%B4/%ED%8A%B8%EB%9F%AC%EB%B8%94%EC%8A%88%ED%8C%85-OOM/" class="md-nav__link">
+      <a href="../../../%EC%8B%A4%EB%AC%B4/%ED%8A%B8%EB%9F%AC%EB%B8%94%EC%8A%88%ED%8C%85-OOM/" class="md-nav__link">
         
   
   
@@ -3607,7 +3841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%EC%8B%A4%EB%AC%B4/%ED%8A%B8%EB%9F%AC%EB%B8%94%EC%8A%88%ED%8C%85-%EC%BB%A4%EB%84%A5%EC%85%98%ED%92%80%EA%B3%A0%EA%B0%88/" class="md-nav__link">
+      <a href="../../../%EC%8B%A4%EB%AC%B4/%ED%8A%B8%EB%9F%AC%EB%B8%94%EC%8A%88%ED%8C%85-%EC%BB%A4%EB%84%A5%EC%85%98%ED%92%80%EA%B3%A0%EA%B0%88/" class="md-nav__link">
         
   
   
@@ -3635,7 +3869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../troubleshooting/smtp/" class="md-nav__link">
+      <a href="../../../troubleshooting/smtp/" class="md-nav__link">
         
   
   
@@ -3680,8 +3914,197 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#functional-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        함수형 프로그래밍 (Functional Programming)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="함수형 프로그래밍 (Functional Programming)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        왜 쓰는지
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        핵심 개념
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="핵심 개념">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pure-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        순수 함수 (Pure Function)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#immutability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        불변성 (Immutability)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-first-class-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1급 함수 (First-class Function)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#higher-order-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        고차 함수 (Higher-order Function)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Java에서 함수형 프로그래밍
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Java에서 함수형 프로그래밍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요 함수형 인터페이스
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        함수 합성
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#predicate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Predicate 합성
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oop-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OOP vs 함수형 비교
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -3701,42 +4124,164 @@
   
 
 
+  <h1>함수형 프로그래밍 심화</h1>
+
 <blockquote>
-<p><a href="/index.md">← 홈</a> · <a href="/java/java.md">Java</a></p>
+<p><a href="/index.md">← 홈</a> · <a href="/java/java.md">Java</a> · <a href="/java/lambda/lambda.md">람다 &amp; 스트림</a></p>
 </blockquote>
-<h1 id="io">I/O, 네트워크, 리플렉션</h1>
-<p>Java 고급 2편 — 파일 입출력, 소켓 통신, 리플렉션과 어노테이션 정리.</p>
-<hr />
+<h2 id="functional-programming">함수형 프로그래밍 (Functional Programming)</h2>
+<h3 id="_1">왜 쓰는지</h3>
+<p>객체지향 프로그래밍(OOP)은 상태(state)를 객체에 담아 변경하며 동작한다. 이 방식은 시스템이 커질수록 어디서 상태가 바뀌는지 추적하기 어려워지고, 멀티스레드 환경에서 버그가 생기기 쉽다.</p>
+<p>함수형 프로그래밍은 <strong>불변 데이터</strong>와 <strong>순수 함수</strong>를 중심으로, 상태 변경 없이 값을 변환하는 방식으로 이 문제를 해결한다.</p>
+<h3 id="_2">핵심 개념</h3>
+<h4 id="pure-function">순수 함수 (Pure Function)</h4>
+<p>같은 입력이면 항상 같은 출력. 외부 상태를 읽거나 변경하지 않는다.</p>
+<pre><code class="language-markdown">// 순수 함수
+int add(int a, int b) {
+    return a + b; // 외부 의존 없음, 사이드 이펙트 없음
+}
+
+// 순수 함수가 아닌 예
+int count = 0;
+void increment() {
+    count++; // 외부 상태 변경 → 부작용(side effect)
+}
+</code></pre>
+<h4 id="immutability">불변성 (Immutability)</h4>
+<p>데이터를 변경하지 않고, 변환된 새 값을 반환한다.</p>
+<pre><code class="language-markdown">// 가변 방식
+List&lt;String&gt; list = new ArrayList&lt;&gt;();
+list.add(&quot;a&quot;); // 원본 변경
+
+// 불변 방식 (스트림)
+List&lt;String&gt; newList = original.stream()
+    .filter(s -&gt; !s.isEmpty())
+    .toList(); // 원본 그대로, 새 리스트 반환
+</code></pre>
+<h4 id="1-first-class-function">1급 함수 (First-class Function)</h4>
+<p>함수를 값처럼 다룰 수 있다. 변수에 저장하고, 파라미터로 전달하고, 반환값으로 돌려줄 수 있다.</p>
+<pre><code class="language-markdown">// 함수를 변수에 저장
+Function&lt;Integer, Integer&gt; square = x -&gt; x * x;
+
+// 함수를 파라미터로 전달
+List&lt;Integer&gt; result = numbers.stream()
+    .map(square)   // 함수 전달
+    .toList();
+
+// 함수를 반환하는 함수 (고차 함수)
+Function&lt;Integer, Function&lt;Integer, Integer&gt;&gt; adder = a -&gt; b -&gt; a + b;
+Function&lt;Integer, Integer&gt; add5 = adder.apply(5);
+add5.apply(3); // 8
+</code></pre>
+<h4 id="higher-order-function">고차 함수 (Higher-order Function)</h4>
+<p>함수를 인자로 받거나 함수를 반환하는 함수.</p>
+<pre><code class="language-markdown">// map, filter, reduce 모두 고차 함수
+list.stream()
+    .filter(x -&gt; x &gt; 0)      // 조건 함수를 받음
+    .map(x -&gt; x * 2)          // 변환 함수를 받음
+    .reduce(0, Integer::sum); // 누산 함수를 받음
+</code></pre>
+<h3 id="java">Java에서 함수형 프로그래밍</h3>
+<p>Java 8부터 람다, Stream API, 함수형 인터페이스로 함수형 스타일을 지원한다.</p>
+<h4 id="_3">주요 함수형 인터페이스</h4>
+<pre><code class="language-markdown">Function&lt;T, R&gt;    // T 받아 R 반환: map에 사용
+Predicate&lt;T&gt;      // T 받아 boolean: filter에 사용
+Consumer&lt;T&gt;       // T 받아 반환 없음: forEach에 사용
+Supplier&lt;T&gt;       // 인자 없이 T 반환: 지연 생성에 사용
+UnaryOperator&lt;T&gt;  // T 받아 T 반환: 같은 타입 변환
+BinaryOperator&lt;T&gt; // T 두 개 받아 T 반환: reduce에 사용
+</code></pre>
+<h4 id="_4">함수 합성</h4>
+<pre><code class="language-markdown">Function&lt;Integer, Integer&gt; times2 = x -&gt; x * 2;
+Function&lt;Integer, Integer&gt; plus3  = x -&gt; x + 3;
+
+// andThen: times2 실행 후 plus3
+Function&lt;Integer, Integer&gt; times2ThenPlus3 = times2.andThen(plus3);
+times2ThenPlus3.apply(5); // (5 * 2) + 3 = 13
+
+// compose: plus3 먼저, 그 다음 times2
+Function&lt;Integer, Integer&gt; plus3ThenTimes2 = times2.compose(plus3);
+plus3ThenTimes2.apply(5); // (5 + 3) * 2 = 16
+</code></pre>
+<h4 id="predicate">Predicate 합성</h4>
+<pre><code class="language-markdown">Predicate&lt;Integer&gt; isPositive = x -&gt; x &gt; 0;
+Predicate&lt;Integer&gt; isEven     = x -&gt; x % 2 == 0;
+
+Predicate&lt;Integer&gt; isPositiveAndEven = isPositive.and(isEven);
+Predicate&lt;Integer&gt; isPositiveOrEven  = isPositive.or(isEven);
+Predicate&lt;Integer&gt; isNotPositive     = isPositive.negate();
+
+list.stream()
+    .filter(isPositiveAndEven)
+    .toList();
+</code></pre>
+<h3 id="oop-vs">OOP vs 함수형 비교</h3>
 <table>
 <thead>
 <tr>
-<th>주제</th>
-<th>한 줄 설명</th>
+<th>항목</th>
+<th>OOP</th>
+<th>함수형</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="Charset_Encoding/">Charset / Encoding</a></td>
-<td>문자 집합, 인코딩/디코딩 방식</td>
+<td>중심 개념</td>
+<td>객체와 상태</td>
+<td>함수와 값 변환</td>
 </tr>
 <tr>
-<td><a href="IO/">I/O</a></td>
-<td>Stream, InputStream, OutputStream</td>
+<td>상태</td>
+<td>가변 (mutable)</td>
+<td>불변 (immutable)</td>
 </tr>
 <tr>
-<td><a href="network/">Network</a></td>
-<td>Socket, ServerSocket, JVM Shutdown Hook, setSoTimeout, FIN vs RST</td>
+<td>부작용</td>
+<td>허용</td>
+<td>최소화</td>
 </tr>
 <tr>
-<td><a href="reflection/">Reflection</a></td>
-<td>클래스 메타데이터, 메서드 동적 호출, 필드 값 변경</td>
+<td>코드 재사용</td>
+<td>상속, 다형성</td>
+<td>함수 합성</td>
 </tr>
 <tr>
-<td><a href="annotation/">Annotation</a></td>
-<td>커스텀 어노테이션 정의 및 리플렉션 기반 처리</td>
+<td>멀티스레드</td>
+<td>동기화 필요</td>
+<td>상태 없으므로 안전</td>
 </tr>
 </tbody>
 </table>
+<h3 id="_5">장점</h3>
+<ul>
+<li>사이드 이펙트가 없어 버그 추적이 쉬움</li>
+<li>순수 함수는 테스트가 간단 (입력→출력만 검증)</li>
+<li>함수 합성으로 복잡한 로직을 작은 단위로 분리</li>
+<li>불변 데이터로 멀티스레드 안전성 확보</li>
+</ul>
+<h3 id="_6">단점</h3>
+<ul>
+<li>익숙하지 않으면 가독성이 오히려 낮아짐</li>
+<li>불변 데이터는 매번 새 객체 생성 → 메모리 사용량 증가 가능</li>
+<li>완전한 불변성은 Java에서 강제되지 않아 규율 필요</li>
+<li>재귀 중심 코드는 스택 오버플로우 위험 (Java는 꼬리재귀 최적화 없음)</li>
+</ul>
+<h3 id="_7">주의할 점</h3>
+<p><strong>람다 안에서 외부 변수 변경 불가</strong></p>
+<pre><code class="language-markdown">int count = 0;
+list.forEach(s -&gt; count++); // 컴파일 오류 - effectively final 위반
+
+// 대신 스트림으로 집계
+long count = list.stream().count();
+</code></pre>
+<p><strong>사이드 이펙트를 forEach에 몰아넣기</strong></p>
+<p>순수 함수 파이프라인 끝에만 부작용을 허용하는 패턴을 권장한다.</p>
+<pre><code class="language-markdown">// 좋은 패턴: 변환은 map/filter, 출력은 마지막 forEach
+list.stream()
+    .filter(s -&gt; s.length() &gt; 3)
+    .map(String::toUpperCase)
+    .forEach(System.out::println); // 사이드 이펙트는 맨 끝에만
+</code></pre>
 
 
 
@@ -3759,7 +4304,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 1일 11:04:00 UTC">2026년 4월 1일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 4일 03:18:39 UTC">2026년 4월 4일</span>
   </span>
 
     
@@ -3769,7 +4314,7 @@
     <span class="md-icon" title="작성일">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 3월 28일 00:25:46 UTC">2026년 3월 28일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 4일 03:18:39 UTC">2026년 4월 4일</span>
   </span>
 
     
@@ -3824,10 +4369,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.instant", "search.highlight", "search.suggest", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections", "navigation.top", "navigation.instant", "search.highlight", "search.suggest", "content.code.copy", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
