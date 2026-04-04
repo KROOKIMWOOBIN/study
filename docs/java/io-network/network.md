@@ -1,4 +1,4 @@
-> [← 홈](/study/) · [Java](/java/java/) · [I/O·네트워크·리플렉션](/java/io-network/)
+> [← 홈](/study/) · [Java](/study/java/java/) · [I/O·네트워크·리플렉션](/study/java/io-network/)
 
 ## localhost VS 127.0.0.1
 ```markdown

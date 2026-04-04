@@ -1,4 +1,4 @@
-> [← 홈](/study/) · [Java](/java/java/)
+> [← 홈](/study/) · [Java](/study/java/java/)
 
 1. [람다, 함수형 프로그래밍](./start.md)
 2. [고차 함수](./function.md)

@@ -1,4 +1,4 @@
-> [← 홈](/study/) · [Java](/java/java/)
+> [← 홈](/study/) · [Java](/study/java/java/)
 
 # Java 중급 1편
 

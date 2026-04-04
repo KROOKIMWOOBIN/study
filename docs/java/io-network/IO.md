@@ -1,4 +1,4 @@
-> [← 홈](/study/) · [Java](/java/java/) · [I/O·네트워크·리플렉션](/java/io-network/)
+> [← 홈](/study/) · [Java](/study/java/java/) · [I/O·네트워크·리플렉션](/study/java/io-network/)
 
 ## Stream
 - 데이터의 연속적인 흐름

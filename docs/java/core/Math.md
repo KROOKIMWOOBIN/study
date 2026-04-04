@@ -1,4 +1,4 @@
-> [← 홈](/study/) · [Java](/java/java/) · [중급 1편](/java/core/core/)
+> [← 홈](/study/) · [Java](/study/java/java/) · [중급 1편](/study/java/core/core/)
 
 ## Math Class
 - Java Standard Library에 포함된 수학 연산 전용 유틸리티 클래스

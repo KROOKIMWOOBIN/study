@@ -1,4 +1,4 @@
-> [← 홈](/study/) · [JVM](/jvm/jvm/)
+> [← 홈](/study/) · [JVM](/study/jvm/jvm/)
 
 ## JVM 개요
 

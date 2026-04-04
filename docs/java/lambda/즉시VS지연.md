@@ -1,4 +1,4 @@
-> [← 홈](/study/) · [Java](/java/java/) · [람다 & 스트림](/java/lambda/lambda/)
+> [← 홈](/study/) · [Java](/study/java/java/) · [람다 & 스트림](/study/java/lambda/lambda/)
 
 ## 즉시 연산 VS 지연 연산
 

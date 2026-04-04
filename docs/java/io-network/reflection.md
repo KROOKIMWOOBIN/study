@@ -1,4 +1,4 @@
-> [← 홈](/study/) · [Java](/java/java/) · [I/O·네트워크·리플렉션](/java/io-network/)
+> [← 홈](/study/) · [Java](/study/java/java/) · [I/O·네트워크·리플렉션](/study/java/io-network/)
 
 ## Reflection
 - 런타임 시점에 클래스 구조를 분석하고, 동적으로 제어

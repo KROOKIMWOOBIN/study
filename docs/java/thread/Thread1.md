@@ -1,4 +1,4 @@
-> [← 홈](/study/) · [Java](/java/java/) · [멀티스레드](/java/thread/thread/)
+> [← 홈](/study/) · [Java](/study/java/java/) · [멀티스레드](/study/java/thread/thread/)
 
 ## Thread
 - 스레드는 프로세스 안에서 독립적인 실행 흐름을 가진 실행 단위이다.

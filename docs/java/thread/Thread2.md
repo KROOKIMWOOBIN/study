@@ -1,4 +1,4 @@
-> [← 홈](/study/) · [Java](/java/java/) · [멀티스레드](/java/thread/thread/)
+> [← 홈](/study/) · [Java](/study/java/java/) · [멀티스레드](/study/java/thread/thread/)
 
 ## Thread State
 

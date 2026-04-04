@@ -1,4 +1,4 @@
-> [← 홈](/study/) · [DB](/db/db/)
+> [← 홈](/study/) · [DB](/study/db/db/)
 
 # 커넥션 풀 & DataSource
 

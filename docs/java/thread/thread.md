@@ -1,4 +1,4 @@
-> [← 홈](/study/) · [Java](/java/java/)
+> [← 홈](/study/) · [Java](/study/java/java/)
 
 # 멀티스레드와 동시성
 

@@ -1,4 +1,4 @@
-> [← 홈](/study/) · [Java](/java/java/) · [중급 2편](/java/collections/collections/)
+> [← 홈](/study/) · [Java](/study/java/java/) · [중급 2편](/study/java/collections/collections/)
 
 ## Map
 - Key–Value 쌍으로 데이터를 저장하는 컬렉션 구조

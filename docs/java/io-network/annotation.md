@@ -1,4 +1,4 @@
-> [← 홈](/study/) · [Java](/java/java/) · [I/O·네트워크·리플렉션](/java/io-network/)
+> [← 홈](/study/) · [Java](/study/java/java/) · [I/O·네트워크·리플렉션](/study/java/io-network/)
 
 ## Annotation
 - `Annotation(어노테이션)`은 코드에 `메타데이터(metadata)`를 붙이는 문법이다.
