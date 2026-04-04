@@ -83,6 +83,8 @@ nav:
       - Optional: java/lambda/optional.md
       - orElse() VS orElseGet(): java/lambda/orElseVSorElseGet.md
       - Default Method: java/lambda/defaultMethod.md
+      - 병렬 스트림: java/lambda/병렬스트림.md
+      - 함수형 프로그래밍 심화: java/lambda/함수형프로그래밍.md
     - 멀티스레드:
       - 개요: java/thread/thread.md
       - 기본 개념: java/thread/기본개념.md

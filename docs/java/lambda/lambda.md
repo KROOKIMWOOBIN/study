@@ -10,3 +10,5 @@
 8. [Optional](./optional.md)
 9. [orElse() VS orElseGet()](./orElseVSorElseGet.md)
 10. [Default Method](./defaultMethod.md)
+11. [병렬 스트림](./병렬스트림.md)
+12. [함수형 프로그래밍](./함수형프로그래밍.md)
