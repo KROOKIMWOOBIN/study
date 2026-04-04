@@ -9,13 +9,13 @@
 `docs/` 하위에 파일을 새로 작성할 때 **파일 최상단 첫 줄**에 breadcrumb 네비게이션을 반드시 추가한다.
 
 ```
-> [← 홈](/index.md) · [Java](/java/java.md) · [섹션명](/java/섹션/섹션.md)
+> [← 홈](/study/) · [Java](/java/java/) · [섹션명](/java/섹션/섹션/)
 ```
 
 계층에 따라 적절히 조정한다:
-- 최상위 섹션 인덱스: `> [← 홈](/index.md)`
-- 섹션 인덱스: `> [← 홈](/index.md) · [Java](/java/java.md)`
-- 하위 파일: `> [← 홈](/index.md) · [Java](/java/java.md) · [섹션명](/java/섹션/섹션.md)`
+- 최상위 섹션 인덱스: `> [← 홈](/study/)`
+- 섹션 인덱스: `> [← 홈](/study/) · [Java](/java/java/)`
+- 하위 파일: `> [← 홈](/study/) · [Java](/java/java/) · [섹션명](/java/섹션/섹션/)`
 
 ## GitHub Pages 배포 구조
 
