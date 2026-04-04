@@ -14,8 +14,8 @@
 
 계층에 따라 적절히 조정한다:
 - 최상위 섹션 인덱스: `> [← 홈](/study/)`
-- 섹션 인덱스: `> [← 홈](/study/) · [Java](/java/java/)`
-- 하위 파일: `> [← 홈](/study/) · [Java](/java/java/) · [섹션명](/java/섹션/섹션/)`
+- 섹션 인덱스: `> [← 홈](/study/) · [Java](/study/java/java/)`
+- 하위 파일: `> [← 홈](/study/) · [Java](/study/java/java/) · [섹션명](/study/java/섹션/섹션/)`
 
 ## GitHub Pages 배포 구조
 
