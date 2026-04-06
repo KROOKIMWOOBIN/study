@@ -4,6 +4,8 @@
 
 | 카테고리 | 설명 |
 | --- | --- |
+| [Java](java/java.md) | 객체지향, 자료구조, 멀티스레드, 람다/스트림 |
+| [Spring](spring/spring.md) | 스프링 핵심 원리, MVC, JPA, 보안 |
 | [HTTP / Web](html/html.md) | HTTP 프로토콜, 쿠키, 세션, 캐시 |
 | [DB](db/db.md) | 트랜잭션, 격리수준, JDBC, 커넥션풀 |
 | [JVM](jvm/jvm.md) | JVM 구조, 클래스 로딩, 메모리, GC |
