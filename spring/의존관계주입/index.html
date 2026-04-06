@@ -2740,38 +2740,10 @@
   <a href="#autowired_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        @Autowired 동작 방식
+        @Autowired 기본 동작
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="@Autowired 동작 방식">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        기본 동작: 타입으로 조회
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        주입 과정
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2779,27 +2751,10 @@
   <a href="#autowired_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        @Autowired 옵션 처리
+        @Autowired 옵션 처리 (빈이 없을 때)
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="@Autowired 옵션 처리">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#required" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        required 옵션
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2807,35 +2762,18 @@
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        조회 대상 빈이 2개 이상일 때 문제
+        빈이 2개 이상일 때 문제
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="조회 대상 빈이 2개 이상일 때 문제">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        문제 발생 상황
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-autowired" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        해결 방법 1: @Autowired + 필드명/파라미터명
+        해결 방법 1: 필드명/파라미터명 매칭
       
     </span>
   </a>
@@ -2846,38 +2784,16 @@
   <a href="#2-qualifier" class="md-nav__link">
     <span class="md-ellipsis">
       
-        해결 방법 2: @Qualifier
+        해결 방법 2: @Qualifier (추가 구별자)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="해결 방법 2: @Qualifier">
+    <nav class="md-nav" aria-label="해결 방법 2: @Qualifier (추가 구별자)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        적용 방법
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#qualifier" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        @Qualifier 매칭 과정
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         커스텀 어노테이션으로 개선 (타입 안전)
@@ -2896,12 +2812,12 @@
   <a href="#3-primary" class="md-nav__link">
     <span class="md-ellipsis">
       
-        해결 방법 3: @Primary
+        해결 방법 3: @Primary (우선순위)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="해결 방법 3: @Primary">
+    <nav class="md-nav" aria-label="해결 방법 3: @Primary (우선순위)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2916,7 +2832,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         실무 활용 패턴
@@ -2935,7 +2851,18 @@
   <a href="#list-map" class="md-nav__link">
     <span class="md-ellipsis">
       
-        조회한 빈이 모두 필요할 때: List, Map
+        모든 구현체가 필요할 때: List, Map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autowired_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        @Autowired 매칭 전체 흐름
       
     </span>
   </a>
@@ -2946,35 +2873,7 @@
   <a href="#vs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        자동 등록 vs 수동 등록 선택 기준
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="자동 등록 vs 수동 등록 선택 기준">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#-" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        다형성 빈 관리 - 수동 등록 예시
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#autowired_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        @Autowired 매칭 정리
+        자동 vs 수동 등록 선택 기준
       
     </span>
   </a>
@@ -4187,38 +4086,10 @@
   <a href="#autowired_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        @Autowired 동작 방식
+        @Autowired 기본 동작
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="@Autowired 동작 방식">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        기본 동작: 타입으로 조회
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        주입 과정
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -4226,27 +4097,10 @@
   <a href="#autowired_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        @Autowired 옵션 처리
+        @Autowired 옵션 처리 (빈이 없을 때)
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="@Autowired 옵션 처리">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#required" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        required 옵션
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -4254,35 +4108,18 @@
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        조회 대상 빈이 2개 이상일 때 문제
+        빈이 2개 이상일 때 문제
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="조회 대상 빈이 2개 이상일 때 문제">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        문제 발생 상황
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-autowired" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        해결 방법 1: @Autowired + 필드명/파라미터명
+        해결 방법 1: 필드명/파라미터명 매칭
       
     </span>
   </a>
@@ -4293,38 +4130,16 @@
   <a href="#2-qualifier" class="md-nav__link">
     <span class="md-ellipsis">
       
-        해결 방법 2: @Qualifier
+        해결 방법 2: @Qualifier (추가 구별자)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="해결 방법 2: @Qualifier">
+    <nav class="md-nav" aria-label="해결 방법 2: @Qualifier (추가 구별자)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        적용 방법
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#qualifier" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        @Qualifier 매칭 과정
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         커스텀 어노테이션으로 개선 (타입 안전)
@@ -4343,12 +4158,12 @@
   <a href="#3-primary" class="md-nav__link">
     <span class="md-ellipsis">
       
-        해결 방법 3: @Primary
+        해결 방법 3: @Primary (우선순위)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="해결 방법 3: @Primary">
+    <nav class="md-nav" aria-label="해결 방법 3: @Primary (우선순위)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -4363,7 +4178,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         실무 활용 패턴
@@ -4382,7 +4197,18 @@
   <a href="#list-map" class="md-nav__link">
     <span class="md-ellipsis">
       
-        조회한 빈이 모두 필요할 때: List, Map
+        모든 구현체가 필요할 때: List, Map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autowired_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        @Autowired 매칭 전체 흐름
       
     </span>
   </a>
@@ -4393,35 +4219,7 @@
   <a href="#vs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        자동 등록 vs 수동 등록 선택 기준
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="자동 등록 vs 수동 등록 선택 기준">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#-" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        다형성 빈 관리 - 수동 등록 예시
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#autowired_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        @Autowired 매칭 정리
+        자동 vs 수동 등록 선택 기준
       
     </span>
   </a>
@@ -4450,39 +4248,37 @@
 
 <h1 id="autowired">의존관계 자동 주입 (@Autowired)</h1>
 <hr />
-<h2 id="autowired_1">@Autowired 동작 방식</h2>
-<h3 id="_1">기본 동작: 타입으로 조회</h3>
-<pre><code class="language-java">@Autowired
+<h2 id="autowired_1">@Autowired 기본 동작</h2>
+<p><code>@Autowired</code>는 스프링 컨테이너에서 <strong>타입이 일치하는 빈</strong>을 찾아 주입한다.</p>
+<pre><code class="language-markdown">@Autowired
 private MemberRepository memberRepository;
-// = ac.getBean(MemberRepository.class)와 동일
+// 내부적으로 ac.getBean(MemberRepository.class)와 동일하게 동작
 </code></pre>
-<p>스프링 컨테이너에서 <strong>타입이 일치하는 빈</strong>을 찾아서 주입한다.</p>
-<h3 id="_2">주입 과정</h3>
+<p>주입 흐름:</p>
 <pre><code>@Autowired 발견
     ↓
-타입으로 스프링 컨테이너 조회
+스프링 컨테이너에서 타입으로 빈 조회
     ↓
-빈 1개 → 주입 성공
-빈 0개 → 기본적으로 NoSuchBeanDefinitionException
-         (@Autowired(required=false) 설정 시 주입 생략)
-빈 2개 이상 → NoUniqueBeanDefinitionException
+빈 1개  → 주입 성공
+빈 0개  → NoSuchBeanDefinitionException
+          (@Autowired(required=false) 설정 시 주입 생략)
+빈 2개↑ → NoUniqueBeanDefinitionException → 추가 처리 필요
 </code></pre>
 <hr />
-<h2 id="autowired_2">@Autowired 옵션 처리</h2>
-<h3 id="required">required 옵션</h3>
-<pre><code class="language-java">// 빈이 없어도 됨 (주입 생략)
+<h2 id="autowired_2">@Autowired 옵션 처리 (빈이 없을 때)</h2>
+<pre><code class="language-markdown">// 방법 1: required = false — 빈이 없으면 메서드 호출 자체가 안 됨
 @Autowired(required = false)
 public void setMailSender(MailSender mailSender) {
-    this.mailSender = mailSender; // 빈 없으면 호출 자체가 안 됨
+    this.mailSender = mailSender;
 }
 
-// @Nullable 사용 (빈 없으면 null 주입)
+// 방법 2: @Nullable — 빈이 없으면 null 주입
 @Autowired
 public void setMailSender(@Nullable MailSender mailSender) {
     this.mailSender = mailSender; // null 허용
 }
 
-// Optional 사용
+// 방법 3: Optional — 빈이 없으면 Optional.empty()
 @Autowired
 public void setMailSender(Optional&lt;MailSender&gt; mailSender) {
     this.mailSender = mailSender.orElse(null);
@@ -4498,14 +4294,14 @@ public void setMailSender(Optional&lt;MailSender&gt; mailSender) {
 </thead>
 <tbody>
 <tr>
-<td><code>@Autowired(required=false)</code></td>
-<td>메서드 호출 자체 안 함</td>
-<td>주입</td>
+<td><code>required=false</code></td>
+<td>메서드 자체 호출 안 함</td>
+<td>정상 주입</td>
 </tr>
 <tr>
 <td><code>@Nullable</code></td>
-<td>null 주입</td>
-<td>주입</td>
+<td><code>null</code> 주입</td>
+<td>정상 주입</td>
 </tr>
 <tr>
 <td><code>Optional&lt;T&gt;</code></td>
@@ -4515,9 +4311,9 @@ public void setMailSender(Optional&lt;MailSender&gt; mailSender) {
 </tbody>
 </table>
 <hr />
-<h2 id="2">조회 대상 빈이 2개 이상일 때 문제</h2>
-<h3 id="_3">문제 발생 상황</h3>
-<pre><code class="language-java">public interface DiscountPolicy { int discount(Member member, int price); }
+<h2 id="2">빈이 2개 이상일 때 문제</h2>
+<p>같은 인터페이스를 구현한 빈이 두 개 등록되면 주입 시 예외가 발생한다.</p>
+<pre><code class="language-markdown">public interface DiscountPolicy { int discount(Member member, int price); }
 
 @Component
 public class FixDiscountPolicy implements DiscountPolicy { ... }
@@ -4525,68 +4321,64 @@ public class FixDiscountPolicy implements DiscountPolicy { ... }
 @Component
 public class RateDiscountPolicy implements DiscountPolicy { ... }
 </code></pre>
-<pre><code class="language-java">@Autowired
+<pre><code class="language-markdown">@Autowired
 private DiscountPolicy discountPolicy;
-// NoUniqueBeanDefinitionException:
-// expected single matching bean but found 2: fixDiscountPolicy, rateDiscountPolicy
+// → NoUniqueBeanDefinitionException:
+//   expected single matching bean but found 2: fixDiscountPolicy, rateDiscountPolicy
 </code></pre>
+<p>해결 방법이 세 가지 있다.</p>
 <hr />
-<h2 id="1-autowired">해결 방법 1: @Autowired + 필드명/파라미터명</h2>
-<p><code>@Autowired</code>는 타입 매칭 실패 시 <strong>필드명(또는 파라미터명)으로 빈 이름을 추가 매칭</strong>한다.</p>
-<pre><code class="language-java">// 필드명을 빈 이름과 일치시킴
+<h2 id="1">해결 방법 1: 필드명/파라미터명 매칭</h2>
+<p><code>@Autowired</code>는 타입 매칭 실패 시 <strong>필드명 또는 파라미터명으로 빈 이름을 추가 매칭</strong>한다.</p>
+<pre><code class="language-markdown">// 필드명을 빈 이름과 일치시키면 rateDiscountPolicy 빈이 주입됨
 @Autowired
-private DiscountPolicy rateDiscountPolicy; // rateDiscountPolicy 빈 주입
+private DiscountPolicy rateDiscountPolicy; // 필드명 = 빈 이름
 
-// 생성자 파라미터명 이용
+// 생성자 파라미터명으로도 가능
 @Autowired
-public OrderServiceImpl(MemberRepository memberRepository,
-                        DiscountPolicy rateDiscountPolicy) { // 파라미터명으로 매칭
-    this.memberRepository = memberRepository;
+public OrderServiceImpl(DiscountPolicy rateDiscountPolicy) { // 파라미터명 = 빈 이름
     this.discountPolicy = rateDiscountPolicy;
 }
 </code></pre>
-<p><strong>단점</strong>: 필드명/파라미터명이 특정 구현체 이름에 종속되어 가독성이 좋지 않을 수 있음.</p>
+<p>단점: 필드명이나 파라미터명이 특정 구현체 이름에 묶이게 되어 리팩터링할 때 놓치기 쉽다.</p>
 <hr />
-<h2 id="2-qualifier">해결 방법 2: @Qualifier</h2>
-<p>추가 구별자를 붙여서 매칭한다.</p>
-<h3 id="_4">적용 방법</h3>
-<pre><code class="language-java">// 빈에 @Qualifier 적용
+<h2 id="2-qualifier">해결 방법 2: @Qualifier (추가 구별자)</h2>
+<p>빈에 추가 이름표를 붙여서 주입 시 구분한다.</p>
+<pre><code class="language-markdown">// 빈에 @Qualifier 붙이기
 @Component
-@Qualifier(&quot;mainDiscountPolicy&quot;) // 구별자 지정
+@Qualifier(&quot;mainDiscountPolicy&quot;)
 public class RateDiscountPolicy implements DiscountPolicy { ... }
 
 @Component
 @Qualifier(&quot;fixDiscountPolicy&quot;)
 public class FixDiscountPolicy implements DiscountPolicy { ... }
 </code></pre>
-<pre><code class="language-java">// 주입 시 @Qualifier 사용
+<pre><code class="language-markdown">// 주입할 때 @Qualifier로 지정
 @Autowired
 public OrderServiceImpl(MemberRepository memberRepository,
                         @Qualifier(&quot;mainDiscountPolicy&quot;) DiscountPolicy discountPolicy) {
-    this.memberRepository = memberRepository;
     this.discountPolicy = discountPolicy;
 }
 </code></pre>
-<h3 id="qualifier">@Qualifier 매칭 과정</h3>
-<pre><code>@Qualifier(&quot;mainDiscountPolicy&quot;) 발견
-    ↓
-@Qualifier(&quot;mainDiscountPolicy&quot;) 찾음 → 주입 성공
-찾지 못하면 → 빈 이름 &quot;mainDiscountPolicy&quot;로 추가 탐색
-또 없으면 → NoSuchBeanDefinitionException
+<p><code>@Qualifier</code> 매칭 순서:</p>
+<pre><code>1. @Qualifier(&quot;mainDiscountPolicy&quot;) 이름으로 빈 탐색
+2. 없으면 &quot;mainDiscountPolicy&quot;라는 이름의 빈 탐색
+3. 없으면 NoSuchBeanDefinitionException
 </code></pre>
-<h3 id="_5">커스텀 어노테이션으로 개선 (타입 안전)</h3>
-<pre><code class="language-java">// 문자열은 컴파일 타임에 오류를 잡을 수 없음 (오타 위험)
-// @Qualifier(&quot;mainDiscountPolicy&quot;) 대신 커스텀 어노테이션 사용
-
-@Target({ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER, ElementType.TYPE, ElementType.ANNOTATION_TYPE})
+<h3 id="_1">커스텀 어노테이션으로 개선 (타입 안전)</h3>
+<p><code>@Qualifier("mainDiscountPolicy")</code>는 문자열이라 오타가 생겨도 컴파일 에러가 나지 않는다.
+커스텀 어노테이션으로 만들면 오타를 컴파일 타임에 잡을 수 있다.</p>
+<pre><code class="language-markdown">// 커스텀 어노테이션 정의
+@Target({ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER,
+         ElementType.TYPE, ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Qualifier(&quot;mainDiscountPolicy&quot;)
-public @interface MainDiscountPolicy { // 커스텀 어노테이션
-}
+@Qualifier(&quot;mainDiscountPolicy&quot;) // 내부에 @Qualifier 포함
+public @interface MainDiscountPolicy {}
 </code></pre>
-<pre><code class="language-java">@Component
-@MainDiscountPolicy // 타입 안전 (오타 시 컴파일 오류)
+<pre><code class="language-markdown">// 적용
+@Component
+@MainDiscountPolicy // 오타 시 컴파일 에러 → 안전
 public class RateDiscountPolicy implements DiscountPolicy { ... }
 
 @Autowired
@@ -4596,45 +4388,47 @@ public OrderServiceImpl(MemberRepository memberRepository,
 }
 </code></pre>
 <hr />
-<h2 id="3-primary">해결 방법 3: @Primary</h2>
-<p>우선순위를 지정한다. 여러 빈 중 우선 주입될 빈에 <code>@Primary</code>를 붙인다.</p>
-<pre><code class="language-java">@Component
-@Primary // 우선순위 최고
+<h2 id="3-primary">해결 방법 3: @Primary (우선순위)</h2>
+<p>여러 빈 중 하나에 <code>@Primary</code>를 붙이면 타입 매칭 시 우선으로 선택된다.</p>
+<pre><code class="language-markdown">@Component
+@Primary // 타입으로 주입 시 이 빈이 선택됨
 public class RateDiscountPolicy implements DiscountPolicy { ... }
 
 @Component
 public class FixDiscountPolicy implements DiscountPolicy { ... }
 </code></pre>
-<pre><code class="language-java">// @Primary 설정 후에는 그냥 타입으로 주입 가능
+<pre><code class="language-markdown">// @Primary가 있으면 타입 그대로 주입 가능
 @Autowired
 private DiscountPolicy discountPolicy; // RateDiscountPolicy 주입됨
 </code></pre>
 <h3 id="primary-vs-qualifier">@Primary vs @Qualifier 우선순위</h3>
 <pre><code>@Qualifier &gt; @Primary
 
-@Qualifier를 명시하면 @Primary보다 우선 적용
+@Qualifier를 명시하면 @Primary보다 우선 적용된다.
 </code></pre>
-<h3 id="_6">실무 활용 패턴</h3>
-<pre><code class="language-java">// 기본 DB (메인 DB) - @Primary
+<h3 id="_2">실무 활용 패턴</h3>
+<pre><code class="language-markdown">// 주 DB — @Primary (평소에 항상 쓰는 것)
 @Bean
 @Primary
-public DataSource dataSource() {
+public DataSource mainDataSource() {
     return new HikariDataSource(); // 주 DB
 }
 
-// 서브 DB (통계용) - @Qualifier
+// 서브 DB — @Qualifier (특별히 필요할 때만)
 @Bean
 @Qualifier(&quot;subDataSource&quot;)
 public DataSource subDataSource() {
-    return new HikariDataSource(); // 서브 DB
+    return new HikariDataSource(); // 통계용 서브 DB
 }
 </code></pre>
 <hr />
-<h2 id="list-map">조회한 빈이 모두 필요할 때: List, Map</h2>
-<pre><code class="language-java">@Service
+<h2 id="list-map">모든 구현체가 필요할 때: List, Map</h2>
+<p>전략 패턴처럼 런타임에 구현체를 선택해야 할 때 사용한다.</p>
+<pre><code class="language-markdown">@Service
 public class DiscountService {
 
-    // 모든 DiscountPolicy 구현체를 Map으로 주입
+    // DiscountPolicy를 구현한 빈 전부를 Map으로 받음
+    // key: 빈 이름, value: 구현체
     private final Map&lt;String, DiscountPolicy&gt; policyMap;
     private final List&lt;DiscountPolicy&gt; policies;
 
@@ -4643,88 +4437,73 @@ public class DiscountService {
                            List&lt;DiscountPolicy&gt; policies) {
         this.policyMap = policyMap;
         this.policies = policies;
-        // policyMap: {&quot;fixDiscountPolicy&quot;: FixDiscountPolicy, &quot;rateDiscountPolicy&quot;: RateDiscountPolicy}
-        // policies: [FixDiscountPolicy, RateDiscountPolicy]
+        // policyMap = {&quot;fixDiscountPolicy&quot;: Fix..., &quot;rateDiscountPolicy&quot;: Rate...}
+        // policies  = [FixDiscountPolicy, RateDiscountPolicy]
     }
 
+    // 클라이언트가 선택한 정책 이름으로 동적으로 처리
     public int discount(Member member, int price, String discountCode) {
-        // 클라이언트가 선택한 할인 정책을 동적으로 사용
         DiscountPolicy discountPolicy = policyMap.get(discountCode);
         return discountPolicy.discount(member, price);
     }
 }
 </code></pre>
-<pre><code class="language-java">// 테스트
-@Test
-void findAllBean() {
-    ApplicationContext ac = new AnnotationConfigApplicationContext(
-        AutoAppConfig.class, DiscountService.class);
-    DiscountService discountService = ac.getBean(DiscountService.class);
-
-    int fixDiscountPrice = discountService.discount(member, 10000, &quot;fixDiscountPolicy&quot;);
-    int rateDiscountPrice = discountService.discount(member, 10000, &quot;rateDiscountPolicy&quot;);
-
-    assertThat(fixDiscountPrice).isEqualTo(1000);
-    assertThat(rateDiscountPrice).isEqualTo(1000);
-}
+<pre><code class="language-markdown">// 사용
+discountService.discount(member, 10000, &quot;fixDiscountPolicy&quot;);  // 정액 할인
+discountService.discount(member, 10000, &quot;rateDiscountPolicy&quot;); // 정률 할인
 </code></pre>
 <hr />
-<h2 id="vs">자동 등록 vs 수동 등록 선택 기준</h2>
+<h2 id="autowired_3">@Autowired 매칭 전체 흐름</h2>
+<pre><code>1. 타입 매칭 시도
+        ↓
+2. 타입 매칭 결과가 2개 이상
+        ↓
+3. @Qualifier 확인 → 있으면 매칭
+        ↓ (없으면)
+4. @Primary 확인 → 있으면 매칭
+        ↓ (없으면)
+5. 필드명/파라미터명으로 빈 이름 매칭
+        ↓ (없으면)
+6. NoUniqueBeanDefinitionException 발생
+</code></pre>
+<hr />
+<h2 id="vs">자동 vs 수동 등록 선택 기준</h2>
 <table>
 <thead>
 <tr>
 <th>상황</th>
 <th>권장 방식</th>
-<th>이유</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>일반 비즈니스 로직</td>
-<td>자동 (@ComponentScan)</td>
-<td>수가 많고 패턴이 명확</td>
+<td>자동 (<code>@ComponentScan</code>)</td>
 </tr>
 <tr>
 <td>기술 지원 빈 (AOP, DataSource 등)</td>
-<td>수동 (@Bean)</td>
-<td>애플리케이션 전반에 영향, 명확히 드러내야</td>
+<td>수동 (<code>@Bean</code>) — 명확히 드러내야 함</td>
 </tr>
 <tr>
-<td>다형성 활용 (여러 구현체 존재)</td>
-<td>수동 (@Bean) 또는 @Qualifier</td>
-<td>어떤 빈이 주입될지 한 눈에 보여야 함</td>
+<td>다형성 활용 (구현체 여러 개)</td>
+<td>수동 or <code>@Qualifier</code> — 어떤 빈인지 한눈에 보여야 함</td>
 </tr>
 <tr>
 <td>외부 라이브러리 빈</td>
-<td>수동 (@Bean)</td>
-<td>소스 코드에 어노테이션 추가 불가</td>
+<td>수동 (<code>@Bean</code>) — 어노테이션 추가 불가</td>
 </tr>
 </tbody>
 </table>
-<h3 id="-">다형성 빈 관리 - 수동 등록 예시</h3>
-<pre><code class="language-java">@Configuration
+<pre><code class="language-markdown">// 다형성 빈 관리 — 수동 등록이 명확함
+@Configuration
 public class DiscountPolicyConfig {
-    // 어떤 할인 정책 빈이 있는지 한 눈에 파악 가능
+    // 어떤 할인 정책 빈이 있는지 한눈에 파악 가능
     @Bean
-    public DiscountPolicy rateDiscountPolicy() {
-        return new RateDiscountPolicy();
-    }
+    public DiscountPolicy rateDiscountPolicy() { return new RateDiscountPolicy(); }
 
     @Bean
-    public DiscountPolicy fixDiscountPolicy() {
-        return new FixDiscountPolicy();
-    }
+    public DiscountPolicy fixDiscountPolicy() { return new FixDiscountPolicy(); }
 }
-</code></pre>
-<hr />
-<h2 id="autowired_3">@Autowired 매칭 정리</h2>
-<pre><code>@Autowired 주입 순서:
-1. 타입 매칭 시도
-2. 타입 매칭 결과가 2개 이상이면:
-   → 2-1. @Qualifier 확인 → 있으면 매칭
-   → 2-2. @Primary 확인 → 있으면 매칭
-   → 2-3. 필드명/파라미터명으로 빈 이름 매칭
-3. 모두 실패하면 예외
 </code></pre>
 
 
@@ -4748,7 +4527,7 @@ public class DiscountPolicyConfig {
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 6일 11:46:41 UTC">2026년 4월 6일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 6일 12:06:24 UTC">2026년 4월 6일</span>
   </span>
 
     
