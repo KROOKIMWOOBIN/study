@@ -130,6 +130,7 @@ nav:
     - Session: html/Session.md
   - Spring:
     - 개요 & 로드맵: spring/spring.md
+    - SOLID 원칙: spring/solid.md
     - IoC·DI: spring/IoC-DI.md
     - 스프링 컨테이너: spring/스프링컨테이너.md
     - 싱글톤: spring/싱글톤.md
