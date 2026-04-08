@@ -4419,9 +4419,11 @@
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
 </code></pre></div>
 <p>프로젝트가 커지면 이 방식은 유지보수가 매우 힘들어진다.</p>
+<div class="concept-box">
 <p><code>@ComponentScan</code>은 이 문제를 해결한다.
 클래스패스를 탐색해서 <code>@Component</code>가 붙은 클래스를 <strong>자동으로 빈으로 등록</strong>해준다.
 <code>AppConfig</code>에 일일이 <code>@Bean</code>을 작성할 필요가 없다.</p>
+</div>
 <hr />
 <h2 id="_2">동작 방식</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>1. @ComponentScan이 선언된 위치를 기준으로 하위 패키지 전체를 탐색
@@ -4615,8 +4617,10 @@ JPA, MyBatis, JDBC 등 기술마다 예외 클래스가 다르다. (<code>JpaExc
 <a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>    └── RateDiscountPolicy.java   ← @Component
 </code></pre></div>
 <h3 id="spring-boot">Spring Boot의 경우</h3>
+<div class="tip-box">
 <p><code>@SpringBootApplication</code>이 내부에 <code>@ComponentScan</code>을 포함하고 있다.
 별도 설정 없이 <code>main</code> 클래스가 있는 패키지부터 전체를 스캔한다.</p>
+</div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nd">@SpringBootApplication</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="c1">// 내부 = @SpringBootConfiguration + @ComponentScan + @EnableAutoConfiguration</span>
 <a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Application</span><span class="w"> </span><span class="p">{</span>
@@ -4707,7 +4711,9 @@ JPA, MyBatis, JDBC 등 기술마다 예외 클래스가 다르다. (<code>JpaExc
 <hr />
 <h2 id="_10">중복 등록 문제</h2>
 <h3 id="vs">자동 vs 자동 (항상 오류)</h3>
-<p>같은 이름의 빈이 자동 등록으로 중복되면 <code>ConflictingBeanDefinitionException</code>이 발생한다.</p>
+<div class="danger-box">
+<p>같은 이름의 빈이 자동 등록으로 중복되면 ==ConflictingBeanDefinitionException==이 발생한다.</p>
+</div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nd">@Component</span>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MemoryMemberRepository</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">MemberRepository</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
 <a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="c1">// 빈 이름: memoryMemberRepository</span>
@@ -4737,9 +4743,9 @@ JPA, MyBatis, JDBC 등 기술마다 예외 클래스가 다르다. (<code>JpaExc
 <p>허용하려면 application.properties에 설정을 추가해야 한다:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="na">spring.main.allow-bean-definition-overriding</span><span class="o">=</span><span class="s">true</span>
 </code></pre></div>
-<blockquote>
+<div class="success-box">
 <p><strong>권장</strong>: 수동/자동 빈 이름이 겹치지 않도록 처음부터 명확하게 구분한다.</p>
-</blockquote>
+</div>
 <hr />
 <h2 id="_11">언제 자동 등록, 언제 수동 등록?</h2>
 <table>
@@ -4817,7 +4823,7 @@ JPA, MyBatis, JDBC 등 기술마다 예외 클래스가 다르다. (<code>JpaExc
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 8일 10:39:58 UTC">2026년 4월 8일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 8일 11:06:13 UTC">2026년 4월 8일</span>
   </span>
 
     
