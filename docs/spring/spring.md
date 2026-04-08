@@ -4,154 +4,230 @@
 
 ## Spring이란?
 
-자바로 웹 애플리케이션을 만들 때 반복적으로 필요한 기능들(객체 생성, 의존관계 연결, 트랜잭션 처리 등)을 대신 처리해주는 **프레임워크**.
+자바로 웹 애플리케이션을 만들 때 반복적으로 필요한 기능들을 프레임워크 수준에서 대신 처리해주는 도구다.
 
 ```
 내가 할 일:  비즈니스 로직 (회원가입, 주문, 결제 등) 작성
-Spring 할 일: 객체 생성/연결, HTTP 요청 처리, DB 연결, 트랜잭션 관리 등
+Spring 할 일: 객체 생성/연결, HTTP 요청 처리, DB 연결/트랜잭션 관리, 보안 등
 ```
+
+그런데 단순히 "편리해서" Spring을 쓰는 게 아니다.
+Spring의 핵심 철학은 **좋은 객체지향 설계**를 쉽게 할 수 있도록 돕는 것이다.
 
 ---
 
-## 왜 Spring을 쓰는가 — SOLID 원칙
+## 왜 Spring을 쓰는가
 
-Spring이 존재하는 핵심 이유는 **좋은 객체지향 설계**를 쉽게 할 수 있도록 돕기 위해서다.
+### 순수 자바의 한계
 
-좋은 설계의 기준이 되는 5가지 원칙이 SOLID다.
+Spring 없이 자바로만 주문 서비스를 만든다고 하자.
 
-### SRP — 단일 책임 원칙 (Single Responsibility Principle)
+```java
+public class OrderServiceImpl implements OrderService {
+    // 직접 구현체를 선택하고 생성
+    private MemberRepository memberRepository = new MemoryMemberRepository();
+    private DiscountPolicy discountPolicy = new FixDiscountPolicy();
+
+    public Order createOrder(Long memberId, String itemName, int itemPrice) {
+        Member member = memberRepository.findById(memberId);
+        int discount = discountPolicy.discount(member, itemPrice);
+        return new Order(memberId, itemName, itemPrice, discount);
+    }
+}
+```
+
+이 코드의 문제는 무엇인가?
+
+**요구사항이 바뀌면 어떻게 되는가?**
+
+> "정액 할인(1000원 고정)에서 정률 할인(10%)으로 바꿔주세요."
+
+```java
+public class OrderServiceImpl implements OrderService {
+    // OrderServiceImpl을 직접 수정해야 한다
+    // private DiscountPolicy discountPolicy = new FixDiscountPolicy();
+    private DiscountPolicy discountPolicy = new RateDiscountPolicy(); // 변경!
+}
+```
+
+`OrderServiceImpl`은 주문 처리가 담당인데, 할인 정책 변경 때문에 코드를 건드려야 한다.
+이는 명백한 설계 원칙 위반이다.
+
+---
+
+## SOLID 원칙
+
+좋은 객체지향 설계의 기준. Spring은 이 원칙들을 실현하는 도구다.
+
+### SRP — 단일 책임 원칙
 
 > **하나의 클래스는 하나의 책임만 가진다.**
 
-```markdown
-// 나쁜 예: 주문 서비스가 너무 많은 일을 한다
+"책임"이란 "변경의 이유"다. 변경해야 할 이유가 하나여야 한다는 뜻.
+
+```java
+// 위반: 주문 서비스가 너무 많은 일을 한다
 public class OrderService {
-    public void order(...) { ... }         // 주문 처리
-    public void sendEmail(...) { ... }     // 이메일 발송
-    public void saveToFile(...) { ... }    // 파일 저장
+    public void order(...) { ... }          // 주문 처리
+    public void sendEmail(...) { ... }      // 이메일 발송
+    public void saveToFile(...) { ... }     // 파일 저장
     public void validateMember(...) { ... } // 회원 검증
+    // 이메일 발송 로직이 바뀌면 OrderService를 수정해야 함 → SRP 위반
 }
 
-// 좋은 예: 역할을 나눈다
-public class OrderService { public void order(...) { ... } }
-public class EmailService { public void send(...) { ... } }
+// 준수: 역할을 분리
+public class OrderService   { public void order(...) { ... } }
+public class EmailService   { public void send(...) { ... } }
 public class MemberValidator { public void validate(...) { ... } }
+// 이메일 로직이 바뀌면 EmailService만 수정하면 됨
 ```
 
-변경 사유가 하나일수록 변경 범위가 좁아지고, 영향이 줄어든다.
+SRP를 지키면 변경 범위가 좁아져서 버그가 퍼지지 않는다.
 
 ---
 
-### OCP — 개방-폐쇄 원칙 (Open/Closed Principle)
+### OCP — 개방-폐쇄 원칙
 
 > **확장에는 열려 있고, 변경에는 닫혀 있어야 한다.**
 > 새 기능을 추가할 때 기존 코드를 수정하면 안 된다.
 
-```markdown
-// 할인 정책을 정액에서 정률로 바꾸는 상황
-
-// OCP 위반 — OrderService 코드를 직접 수정해야 함
+```java
+// 위반: 구현체를 직접 선택하므로 변경 시 OrderServiceImpl 코드를 수정해야 함
 public class OrderServiceImpl {
-    // private DiscountPolicy discountPolicy = new FixDiscountPolicy();  // 변경 전
-    private DiscountPolicy discountPolicy = new RateDiscountPolicy();    // 변경 후 → OrderService 수정!
+    private DiscountPolicy discountPolicy = new RateDiscountPolicy(); // 변경하려면 이 줄을 건드려야 함
 }
 
-// OCP 준수 — AppConfig(설정)만 바꾸면 됨
+// 준수: 설정 코드(AppConfig)만 바꾸면 OrderServiceImpl은 그대로
 public class AppConfig {
-    // 여기만 바꾸면 OrderServiceImpl은 건드리지 않아도 됨
     public DiscountPolicy discountPolicy() {
         // return new FixDiscountPolicy();
-        return new RateDiscountPolicy(); // 이 한 줄만 변경
+        return new RateDiscountPolicy(); // 이 한 줄만 바꾸면 됨
+    }
+}
+public class OrderServiceImpl {
+    private final DiscountPolicy discountPolicy; // 인터페이스에만 의존
+    public OrderServiceImpl(DiscountPolicy discountPolicy) {
+        this.discountPolicy = discountPolicy; // 외부에서 주입받음
     }
 }
 ```
 
-Spring의 DI가 OCP를 실현해준다.
+**Spring DI가 OCP를 실현해준다.** 설정만 바꾸면 코드 로직은 건드리지 않아도 된다.
 
 ---
 
-### LSP — 리스코프 치환 원칙 (Liskov Substitution Principle)
+### LSP — 리스코프 치환 원칙
 
-> **구현체는 인터페이스가 약속한 기능을 위반하면 안 된다.**
+> **구현체는 인터페이스가 약속한 동작을 반드시 지켜야 한다.**
+> 부모 타입이 들어가는 자리에 자식 타입이 들어가도 프로그램이 정상 동작해야 한다.
 
-```markdown
+```java
 public interface DiscountPolicy {
-    int discount(Member member, int price); // "할인 금액을 반환"이라는 약속
+    int discount(Member member, int price); // "할인 금액을 반환"한다는 계약
 }
 
-// LSP 위반 — 인터페이스 약속을 어김
+// LSP 위반: 계약을 어김
 public class BadDiscountPolicy implements DiscountPolicy {
+    @Override
     public int discount(Member member, int price) {
         return price * 2; // 할인인데 오히려 가격을 올림 → 계약 위반
     }
 }
+
+// LSP 준수: 계약을 지킴
+public class RateDiscountPolicy implements DiscountPolicy {
+    @Override
+    public int discount(Member member, int price) {
+        return price / 10; // 10% 할인 금액 반환 → 계약 준수
+    }
+}
 ```
+
+LSP를 지켜야 다형성이 의도대로 동작한다.
 
 ---
 
-### ISP — 인터페이스 분리 원칙 (Interface Segregation Principle)
+### ISP — 인터페이스 분리 원칙
 
 > **범용 인터페이스 하나보다 작은 인터페이스 여러 개가 낫다.**
 
-```markdown
-// 나쁜 예: 모든 기능이 한 인터페이스에
+```java
+// 위반: 모든 기능이 한 인터페이스에
 public interface UserInterface {
     void login();
     void logout();
     void changePassword();
-    void viewAdminPanel();  // 일반 사용자는 필요 없음
-    void deleteUser();      // 일반 사용자는 필요 없음
+    void viewAdminPanel(); // 일반 사용자는 필요 없는 기능
+    void deleteUser();     // 일반 사용자는 필요 없는 기능
+    // 일반 사용자가 이 인터페이스를 구현하면 불필요한 메서드까지 구현 강제됨
 }
 
-// 좋은 예: 역할별로 분리
-public interface UserAuth { void login(); void logout(); }
-public interface AdminOps { void viewAdminPanel(); void deleteUser(); }
+// 준수: 역할별로 분리
+public interface UserAuth  { void login(); void logout(); void changePassword(); }
+public interface AdminOps  { void viewAdminPanel(); void deleteUser(); }
+
+// 일반 사용자
+public class RegularUser implements UserAuth { ... }
+
+// 관리자
+public class AdminUser implements UserAuth, AdminOps { ... }
 ```
 
-불필요한 메서드에 의존하지 않아도 된다.
+인터페이스가 명확해지고, 구현 클래스에서 불필요한 메서드를 강제로 구현하지 않아도 된다.
 
 ---
 
-### DIP — 의존관계 역전 원칙 (Dependency Inversion Principle)
+### DIP — 의존관계 역전 원칙
 
 > **구현 클래스가 아닌 인터페이스(추상)에 의존해야 한다.**
 
-Spring DI의 핵심 원칙. 가장 중요하다.
+Spring DI의 핵심 원칙이다.
 
-```markdown
-// DIP 위반 — 구현 클래스에 직접 의존
+```java
+// 위반: 구현 클래스에 직접 의존
 public class OrderServiceImpl {
     private MemoryMemberRepository memberRepository = new MemoryMemberRepository(); // 구체 클래스!
     private FixDiscountPolicy discountPolicy = new FixDiscountPolicy();              // 구체 클래스!
-    // 구현체가 바뀌면 이 코드도 바꿔야 함
+    // MemoryMemberRepository → JdbcMemberRepository로 바꾸면 이 코드도 수정 필요
 }
 
-// DIP 준수 — 인터페이스에만 의존
+// 준수: 인터페이스에만 의존
 public class OrderServiceImpl {
-    private MemberRepository memberRepository;  // 인터페이스만 알면 됨
-    private DiscountPolicy discountPolicy;       // 인터페이스만 알면 됨
-    // 어떤 구현체가 들어올지는 Spring이 결정해서 주입해줌
+    private MemberRepository memberRepository;  // 인터페이스만 앎
+    private DiscountPolicy discountPolicy;       // 인터페이스만 앎
+    // 어떤 구현체가 들어오는지는 외부(Spring)가 결정 — 이 클래스는 모름
 }
 ```
+
+그런데 문제가 있다:
+
+```java
+// 딜레마: 인터페이스에만 의존하면 구현체를 어디서 만드나?
+private MemberRepository memberRepository; // 타입만 있고
+// memberRepository = new ??? → 누군가는 구현체를 new 해야 함
+```
+
+**이 문제를 Spring이 해결한다.** Spring이 구현체를 만들어서 주입해준다.
 
 ---
 
-## Spring이 SOLID를 어떻게 실현하는가
-
-순수 자바만으로는 DIP를 지키기 어렵다. 인터페이스에만 의존하면 구현체를 `new`로 직접 생성하지 못하기 때문이다.
-
-```markdown
-// 딜레마: 인터페이스에 의존하면 구현체를 어디서 생성하나?
-MemberRepository memberRepository; // 인터페이스만 있고
-// memberRepository = new ??? → 누군가는 구현체를 만들어야 함
-```
-
-Spring이 이 역할을 대신한다.
+## Spring이 SOLID를 실현하는 방법
 
 ```
-개발자 →  인터페이스 기반으로 코드 작성
-Spring → 구현체를 생성하고, 의존관계를 연결(주입)해줌
+[개발자]
+  OrderServiceImpl은 MemberRepository, DiscountPolicy 인터페이스에만 의존하여 작성
+
+[Spring]
+  1. MemoryMemberRepository 객체 생성 (new)
+  2. RateDiscountPolicy 객체 생성 (new)
+  3. OrderServiceImpl 생성자에 1, 2번 주입
+  → OrderServiceImpl은 어떤 구현체가 들어왔는지 모름
 ```
+
+`OrderServiceImpl` 입장에서는 "누가 만들어서 줬는지"를 전혀 모른다.
+인터페이스만 알면 된다. 이것이 DIP 준수다.
+
+구현체를 교체할 때 `OrderServiceImpl`을 건드리지 않아도 된다. 이것이 OCP 준수다.
 
 ---
 
