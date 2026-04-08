@@ -4223,7 +4223,9 @@
 <hr />
 <h2 id="_2">컬렉션 프레임워크</h2>
 <h3 id="_3">왜 쓰는가?</h3>
+<div class="concept-box">
 <p>배열은 크기가 고정되고 삽입·삭제 시 직접 인덱스를 관리해야 한다. 컬렉션 프레임워크는 <strong>동적 크기 조절, 중복 제거, 순서 보장, 키-값 매핑</strong> 등 다양한 요구에 맞는 자료구조를 표준 인터페이스로 제공한다.</p>
+</div>
 <h3 id="_4">특징</h3>
 <ul>
 <li><code>Collection</code> 인터페이스 아래 List, Set, Queue가 통합된 계층 구조</li>
@@ -4295,12 +4297,14 @@
 <li>기본 구현체들은 스레드 안전하지 않음 → 멀티스레드 환경에서 <code>ConcurrentHashMap</code> 등 별도 사용</li>
 </ul>
 <h3 id="_8">주의할 점</h3>
+<div class="warning-box">
 <ul>
 <li><code>Stack</code> 클래스는 레거시 — 스택이 필요하면 <code>ArrayDeque</code>를 사용한다</li>
 <li><code>LinkedList</code>는 List이면서 Deque도 구현하지만, 실무에서 Queue/Deque 용도라면 <code>ArrayDeque</code>가 성능상 유리하다</li>
 <li>크기가 확실히 고정이면 배열이 컬렉션보다 빠르다 (박싱 없음, 오버헤드 없음)</li>
 <li><code>HashMap</code>은 <code>null</code> 키/값을 허용하지만 <code>TreeMap</code>은 <code>null</code> 키를 허용하지 않는다 (정렬 비교 불가)</li>
 </ul>
+</div>
 <hr />
 <h3 id="_9">계층 구조</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Collection
@@ -4399,7 +4403,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 6일 11:46:41 UTC">2026년 4월 6일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 8일 11:02:50 UTC">2026년 4월 8일</span>
   </span>
 
     
