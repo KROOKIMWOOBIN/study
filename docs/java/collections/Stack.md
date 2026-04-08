@@ -1,6 +1,10 @@
 ## 스택 (Stack)
 
-> **후입선출(LIFO, Last In First Out)** 구조의 자료구조
+<div class="concept-box" markdown="1">
+
+==Stack==: **후입선출(LIFO, Last In First Out)** 구조의 자료구조. 마지막에 들어온 데이터가 먼저 나온다.
+
+</div>
 
 ---
 

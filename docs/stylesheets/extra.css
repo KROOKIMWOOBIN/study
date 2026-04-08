@@ -101,6 +101,8 @@
 .compare-grid .after {
   padding: 14px 16px;
   border-radius: 6px;
+  min-width: 0;        /* 그리드 셀이 콘텐츠 크기에 맞게 줄어들도록 허용 */
+  overflow-x: auto;    /* 긴 코드블록은 셀 안에서 스크롤 */
 }
 
 /* Before — 빨간 (나쁜 코드) */
@@ -119,8 +121,8 @@
 [data-md-color-scheme="slate"] .compare-grid .before { background-color: #2a1010; border-top-color: #ef9a9a; }
 [data-md-color-scheme="slate"] .compare-grid .after  { background-color: #0e2010; border-top-color: #81c784; }
 
-/* 모바일 — 세로 전환 */
-@media (max-width: 700px) {
+/* 좁은 화면 — 세로 전환 (노트북 포함) */
+@media (max-width: 900px) {
   .compare-grid {
     grid-template-columns: 1fr;
   }

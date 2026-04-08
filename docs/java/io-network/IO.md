@@ -1,6 +1,11 @@
 ## Stream
-- 데이터의 연속적인 흐름
-- 바이트 단위로 데이터를 처리한다.
+
+<div class="concept-box" markdown="1">
+
+==I/O Stream==: 데이터의 연속적인 흐름. 바이트 단위로 데이터를 처리한다.
+
+</div>
+
 
 ### InputStream
 - 외부 데이터 소스로부터 바이트를 읽는 추상 클래스

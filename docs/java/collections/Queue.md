@@ -1,6 +1,10 @@
 ## 큐 (Queue)
 
-> **선입선출(FIFO, First In First Out)** 구조의 자료구조
+<div class="concept-box" markdown="1">
+
+==Queue==: **선입선출(FIFO, First In First Out)** 구조의 자료구조. 먼저 들어온 데이터를 먼저 처리한다.
+
+</div>
 
 ---
 

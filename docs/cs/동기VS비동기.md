@@ -1,10 +1,22 @@
 ## 동기 VS 비동기
 
-### 동기
-- 요청한 쪽이 결과를 직접 받아야 다음 흐름으로 진행한다.
+<div class="compare-grid" markdown="1">
+<div class="before" markdown="1">
 
-### 비동기
-- 요청만 하고, 작업 완료 통지는 콜백/이벤트 등으로 전달된다.
+**동기(Synchronous)**
+
+요청한 쪽이 결과를 직접 받아야 다음 흐름으로 진행한다.
+
+</div>
+<div class="after" markdown="1">
+
+**비동기(Asynchronous)**
+
+요청만 하고, 작업 완료 통지는 콜백/이벤트 등으로 전달된다.
+
+</div>
+</div>
+
 
 ### 블로킹
 - 그 자리에서 아무것도 못 함

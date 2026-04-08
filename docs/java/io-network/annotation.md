@@ -1,5 +1,11 @@
 ## Annotation
-- `Annotation(어노테이션)`은 코드에 `메타데이터(metadata)`를 붙이는 문법이다.
+
+<div class="concept-box" markdown="1">
+
+==어노테이션(Annotation)==: 코드에 `메타데이터(metadata)`를 붙이는 문법. 컴파일러, 프레임워크, 런타임에 정보를 전달한다.
+
+</div>
+
 
 ### 중요
 - @Target

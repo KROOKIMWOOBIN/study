@@ -2,7 +2,12 @@
 
 ### 차이점 한 줄 요약
 
+<div class="warning-box" markdown="1">
+
 `orElse(T)`는 **항상** 인자를 평가하고, `orElseGet(Supplier<T>)`는 값이 **없을 때만** 평가한다.
+인자로 비용이 큰 연산(DB 조회, 객체 생성 등)을 넘길 때 `orElse`를 사용하면 불필요한 실행이 발생한다.
+
+</div>
 
 ---
 

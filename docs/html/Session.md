@@ -1,6 +1,11 @@
 ### HTTP Session
-- HTTP는 무상태 프로토콜
-- 이 문제를 해결하기 위해 세션 개념 등장
+
+<div class="concept-box" markdown="1">
+
+HTTP는 ==무상태(Stateless) 프로토콜==이다. 이 문제를 해결하기 위해 세션(Session) 개념이 등장했다.
+
+</div>
+
 
 #### Session 구조
 - 서버: 사용자별 상태 정보를 저장

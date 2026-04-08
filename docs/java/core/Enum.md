@@ -1,5 +1,11 @@
 ## Type-safe Enum Pattern
 
+<div class="tip-box" markdown="1">
+
+`Enum`이 등장하기 전에 상수 집합을 표현하기 위해 사용하던 패턴. int·String 상수보다 ==타입 안전성(Type Safety)==이 높다.
+
+</div>
+
 ### 설명
 1. `Enum`이 등장하기 전에 상수 집합을 표현하기 위해 사용하던 패턴
 2. 객체를 생성하고 미리 정적 상수(static final) 로 만들어 사용한다.

@@ -1,5 +1,11 @@
 ## 즉시 연산 VS 지연 연산
 
+<div class="tip-box" markdown="1">
+
+==스트림의 지연 연산(Lazy Evaluation)==: 최종 연산이 호출될 때까지 중간 연산을 실행하지 않는다. Short-Circuiting 최적화로 불필요한 연산을 건너뛸 수 있다.
+
+</div>
+
 ### 개념
 
 | 구분 | 즉시 연산 (Eager Evaluation) | 지연 연산 (Lazy Evaluation) |
