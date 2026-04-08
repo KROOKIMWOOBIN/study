@@ -4190,7 +4190,9 @@
 
 <h2 id="jpa">JPA 성능 최적화</h2>
 <h3 id="n1">N+1 문제</h3>
-<p>연관 엔티티를 <code>LAZY</code>로 로딩할 때, 목록 조회 후 각 엔티티의 연관 데이터를 개별 쿼리로 로딩하는 문제. N개 결과에 대해 N번의 추가 쿼리가 발생한다.</p>
+<div class="danger-box">
+<p><mark>N+1 문제</mark>: 연관 엔티티를 <code>LAZY</code>로 로딩할 때, 목록 조회 후 각 엔티티의 연관 데이터를 개별 쿼리로 로딩하는 문제. N개 결과에 대해 N번의 추가 쿼리가 발생한다.</p>
+</div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>// 문제 코드
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>List&lt;Member&gt; members = memberRepository.findAll();  // 쿼리 1번
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>for (Member m : members) {
@@ -4360,7 +4362,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 6일 11:46:41 UTC">2026년 4월 6일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 8일 11:08:33 UTC">2026년 4월 8일</span>
   </span>
 
     
