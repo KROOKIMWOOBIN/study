@@ -3027,6 +3027,45 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        내부 동작 원리
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="내부 동작 원리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-requestcontextholder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request 스코프 — RequestContextHolder 내부 메커니즘
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cglib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CGLIB 스코프 프록시 내부 동작
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4378,6 +4417,45 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        내부 동작 원리
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="내부 동작 원리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-requestcontextholder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request 스코프 — RequestContextHolder 내부 메커니즘
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cglib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CGLIB 스코프 프록시 내부 동작
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4886,6 +4964,112 @@ request 스코프를 쓰면 파라미터 없이 메서드 어디서든 <code>myL
 </table>
 <p>실무에서는 <code>singleton</code>이 거의 전부고, <code>request</code> 스코프가 간헐적으로 쓰인다.
 <code>prototype</code>은 매우 드물게 사용된다.</p>
+<hr />
+<h2 id="_12">내부 동작 원리</h2>
+<h3 id="request-requestcontextholder">Request 스코프 — RequestContextHolder 내부 메커니즘</h3>
+<p>request 스코프 빈이 어떻게 HTTP 요청마다 독립적인 인스턴스를 유지하는가?</p>
+<div class="concept-box">
+<p>핵심: <code>RequestContextHolder</code>가 내부적으로 <code>ThreadLocal</code>을 사용한다.
+톰캣은 스레드풀을 사용하고, <strong>HTTP 요청 하나가 스레드 하나를 독점</strong>한다.
+따라서 ThreadLocal(스레드별 독립 저장소)에 요청 정보를 저장하면 = 요청별로 독립된다.</p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>HTTP 요청 도착
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>        ↓
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>DispatcherServlet.service() 실행
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>        ↓
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request))
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>  → ThreadLocal&lt;RequestAttributes&gt;에 현재 스레드의 요청 정보 저장
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>비즈니스 로직 처리 (Controller → Service → Repository)
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>  같은 스레드이므로 ThreadLocal에서 항상 같은 요청 정보 조회 가능
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>HTTP 응답 완료
+<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>        ↓
+<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>RequestContextHolder.resetRequestAttributes()
+<a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>  → ThreadLocal에서 요청 정보 제거 (스레드풀 반환 전 정리)
+</code></pre></div>
+<p>request 스코프 빈이 요청 정보를 조회하는 실제 흐름:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>myLogger.log(&quot;message&quot;) 호출 (프록시를 통해)
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>        ↓
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>CGLIB 프록시가 가로챔
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>        ↓
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>RequestScope.get(beanName, objectFactory)
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>  → RequestContextHolder.currentRequestAttributes() 호출
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>  → ThreadLocal에서 현재 스레드의 RequestAttributes 조회
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>  → request.getAttribute(&quot;scopedTarget.myLogger&quot;) 확인
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>  → 없으면: objectFactory.getObject() → 새 MyLogger 인스턴스 생성
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>            request.setAttribute(&quot;scopedTarget.myLogger&quot;, newBean) → 요청 속성에 저장
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>  → 있으면: 기존 인스턴스 반환 (같은 요청 내에서는 항상 동일 인스턴스)
+<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>        ↓
+<a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>실제 MyLogger 인스턴스에 log(&quot;message&quot;) 위임
+</code></pre></div>
+<blockquote>
+<p><strong>왜 ThreadLocal인가?</strong>
+톰캣의 스레드풀 모델: 요청마다 풀에서 스레드를 꺼내 처리하고 반환한다.
+한 요청은 처음부터 끝까지 <strong>같은 스레드</strong>가 처리한다.
+ThreadLocal에 저장된 값은 해당 스레드 내에서만 접근되므로, 요청 격리가 자연스럽게 달성된다.</p>
+</blockquote>
+<hr />
+<h3 id="cglib">CGLIB 스코프 프록시 내부 동작</h3>
+<p><code>proxyMode = ScopedProxyMode.TARGET_CLASS</code> 설정 시 스프링이 생성하는 프록시의 실제 동작:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1">// 스프링이 CGLIB으로 생성하는 프록시 (의사코드)</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyLogger$$EnhancerBySpringCGLIB</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">MyLogger</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">    </span><span class="c1">// 실제 스코프 관리자 (request, prototype 등에 따라 다름)</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Scope</span><span class="w"> </span><span class="n">scope</span><span class="p">;</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">targetBeanName</span><span class="p">;</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="w">        </span><span class="c1">// 1. 현재 스코프에서 실제 빈 조회</span>
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="w">        </span><span class="n">MyLogger</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">MyLogger</span><span class="p">)</span><span class="w"> </span><span class="n">scope</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">targetBeanName</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="w">            </span><span class="c1">// 없으면 새로 생성 (prototype이면 항상 새로, request면 요청당 한 번)</span>
+<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">beanFactory</span><span class="p">.</span><span class="na">createBean</span><span class="p">(</span><span class="n">MyLogger</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="w">        </span><span class="p">});</span>
+<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a><span class="w">        </span><span class="c1">// 2. 실제 빈에 위임</span>
+<a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a><span class="w">        </span><span class="n">target</span><span class="p">.</span><span class="na">log</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+<a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a>
+<a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setRequestURL</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">url</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a><span class="w">        </span><span class="n">MyLogger</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">MyLogger</span><span class="p">)</span><span class="w"> </span><span class="n">scope</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">targetBeanName</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span>
+<a id="__codelineno-22-22" name="__codelineno-22-22" href="#__codelineno-22-22"></a><span class="w">        </span><span class="n">target</span><span class="p">.</span><span class="na">setRequestURL</span><span class="p">(</span><span class="n">url</span><span class="p">);</span>
+<a id="__codelineno-22-23" name="__codelineno-22-23" href="#__codelineno-22-23"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-22-24" name="__codelineno-22-24" href="#__codelineno-22-24"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>LogDemoController가 보는 것:
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>  myLogger = MyLogger$$EnhancerBySpringCGLIB@proxy (항상 같은 프록시 객체)
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>실제 동작:
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>  myLogger.log(&quot;test&quot;) 호출
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>    → 프록시: RequestScope.get() → ThreadLocal로 현재 요청의 MyLogger 조회
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>    → 실제 MyLogger@{요청별_인스턴스}.log(&quot;test&quot;) 실행
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>요청 A: MyLogger@x01 사용
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>요청 B: MyLogger@x02 사용 (완전히 다른 인스턴스, 다른 스레드의 ThreadLocal)
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>프록시 관점</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>컨트롤러/서비스가 주입받는 것</td>
+<td>항상 동일한 CGLIB 프록시 객체 (싱글톤처럼 보임)</td>
+</tr>
+<tr>
+<td>실제 메서드 호출 시</td>
+<td>프록시가 현재 스코프에서 실제 빈을 조회해서 위임</td>
+</tr>
+<tr>
+<td>request 스코프의 격리</td>
+<td>ThreadLocal + HttpServletRequest.getAttribute()로 요청별 인스턴스 구분</td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -4908,7 +5092,7 @@ request 스코프를 쓰면 파라미터 없이 메서드 어디서든 <code>myL
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 8일 11:06:13 UTC">2026년 4월 8일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 8일 11:39:32 UTC">2026년 4월 8일</span>
   </span>
 
     

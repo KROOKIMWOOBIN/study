@@ -2932,6 +2932,45 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        내부 동작 원리
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="내부 동작 원리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#autowired_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        @Autowired는 어떻게 처리되는가
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolvabletype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        제네릭 타입 주입 — ResolvableType
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4300,6 +4339,45 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        내부 동작 원리
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="내부 동작 원리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#autowired_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        @Autowired는 어떻게 처리되는가
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolvabletype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        제네릭 타입 주입 — ResolvableType
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4651,6 +4729,94 @@
 </code></pre></div>
 <p>자동 등록만 사용하면 어떤 구현체들이 등록되어 있는지 파악하기 위해 전체 코드를 뒤져야 한다.
 수동 등록으로 설정 파일에 모아두면 한 곳에서 관리된다.</p>
+<hr />
+<h2 id="_4">내부 동작 원리</h2>
+<h3 id="autowired_4">@Autowired는 어떻게 처리되는가</h3>
+<p><code>@Autowired</code>를 실제로 처리하는 클래스는 <code>AutowiredAnnotationBeanPostProcessor</code>다.
+스프링 컨테이너가 빈을 생성한 직후, 이 처리기가 <code>postProcessProperties()</code>를 호출해 의존관계를 주입한다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>빈 생성 (Constructor 호출) 완료
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>        ↓
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>AutowiredAnnotationBeanPostProcessor.postProcessProperties() 호출
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>1. 빈 클래스를 리플렉션으로 분석
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>   → 모든 필드, 메서드를 스캔
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>   → @Autowired / @Value / @Inject 발견 시 목록 수집
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>2. 각 주입 대상에 대해:
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>   → 필드 타입(또는 파라미터 타입)으로 DefaultListableBeanFactory에 빈 요청
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>   → 해당 타입 빈이 1개면 즉시 반환
+<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>   → 2개 이상이면 @Qualifier, @Primary, 이름 순서로 좁히기
+<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>
+<a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>3. 리플렉션으로 실제 주입:
+<a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>   field.setAccessible(true)  // private 필드도 접근 허용
+<a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a>   field.set(bean, resolvedBean) // 빈 주입
+<a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a>
+<a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a>        ↓
+<a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a>주입 완료 → 생명주기 콜백 (@PostConstruct 등) 실행
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1">// 실제 처리 흐름 (의사코드)</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="kd">class</span> <span class="nc">AutowiredAnnotationBeanPostProcessor</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">PropertyValues</span><span class="w"> </span><span class="nf">postProcessProperties</span><span class="p">(</span><span class="n">PropertyValues</span><span class="w"> </span><span class="n">pvs</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">bean</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">beanName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">        </span><span class="c1">// 1. 이 빈 클래스의 @Autowired 메타데이터 캐시에서 조회 (또는 새로 수집)</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">        </span><span class="n">InjectionMetadata</span><span class="w"> </span><span class="n">metadata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findAutowiringMetadata</span><span class="p">(</span><span class="n">bean</span><span class="p">.</span><span class="na">getClass</span><span class="p">());</span>
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="w">        </span><span class="c1">// 2. 각 주입 포인트에 대해 처리</span>
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">InjectedElement</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">metadata</span><span class="p">.</span><span class="na">injectedElements</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>
+<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="w">            </span><span class="c1">// 3. 타입으로 빈 찾기</span>
+<a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a><span class="w">            </span><span class="n">Object</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">beanFactory</span><span class="p">.</span><span class="na">resolveDependency</span><span class="p">(</span>
+<a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a><span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">DependencyDescriptor</span><span class="p">(</span><span class="n">element</span><span class="p">.</span><span class="na">field</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">),</span><span class="w">  </span><span class="c1">// 필드 정보</span>
+<a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a><span class="w">                </span><span class="n">beanName</span>
+<a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a><span class="w">            </span><span class="p">);</span>
+<a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a>
+<a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a><span class="w">            </span><span class="c1">// 4. 리플렉션으로 주입</span>
+<a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a><span class="w">            </span><span class="n">Field</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">element</span><span class="p">.</span><span class="na">field</span><span class="p">;</span>
+<a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a><span class="w">            </span><span class="n">field</span><span class="p">.</span><span class="na">setAccessible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w">   </span><span class="c1">// private 접근 허용</span>
+<a id="__codelineno-21-21" name="__codelineno-21-21" href="#__codelineno-21-21"></a><span class="w">            </span><span class="n">field</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">bean</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w">      </span><span class="c1">// 실제 주입</span>
+<a id="__codelineno-21-22" name="__codelineno-21-22" href="#__codelineno-21-22"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-21-23" name="__codelineno-21-23" href="#__codelineno-21-23"></a>
+<a id="__codelineno-21-24" name="__codelineno-21-24" href="#__codelineno-21-24"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pvs</span><span class="p">;</span>
+<a id="__codelineno-21-25" name="__codelineno-21-25" href="#__codelineno-21-25"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-21-26" name="__codelineno-21-26" href="#__codelineno-21-26"></a><span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p><strong>왜 <code>setAccessible(true)</code>가 필요한가?</strong>
+자바의 접근 제어자(<code>private</code>)는 일반 코드에서는 접근을 막는다.
+리플렉션 API의 <code>setAccessible(true)</code>는 접근 제어자를 런타임에 무력화한다.
+이 덕분에 <code>private DiscountPolicy discountPolicy</code>처럼 private 필드에도 <code>@Autowired</code>가 동작한다.</p>
+</blockquote>
+<hr />
+<h3 id="resolvabletype">제네릭 타입 주입 — ResolvableType</h3>
+<p><code>List&lt;DiscountPolicy&gt;</code> 주입 시 문제가 있다. 자바는 런타임에 제네릭 타입 정보를 지우는 <strong>타입 소거(Type Erasure)</strong>를 한다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1">// 컴파일 후 바이트코드에서는 이 두 줄이 동일하게 보임</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">DiscountPolicy</span><span class="o">&gt;</span><span class="w"> </span><span class="n">policies1</span><span class="p">;</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">MemberRepository</span><span class="o">&gt;</span><span class="w"> </span><span class="n">policies2</span><span class="p">;</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="c1">// 런타임에는 둘 다 그냥 List로 처리</span>
+</code></pre></div>
+<p>스프링은 이 문제를 <code>ResolvableType</code>으로 해결한다:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1">// 스프링 내부 처리 (의사코드)</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="c1">// 필드: private List&lt;DiscountPolicy&gt; policies</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="c1">// 1. 필드의 제네릭 타입 정보를 ResolvableType으로 추출</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="n">ResolvableType</span><span class="w"> </span><span class="n">resolvableType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ResolvableType</span><span class="p">.</span><span class="na">forField</span><span class="p">(</span><span class="n">field</span><span class="p">);</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="c1">// → ResolvableType{List&lt;DiscountPolicy&gt;}</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="c1">// 2. 제네릭 파라미터 타입 추출</span>
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="n">Class</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">elementType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">resolvableType</span><span class="p">.</span><span class="na">getGeneric</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="na">resolve</span><span class="p">();</span>
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="c1">// → DiscountPolicy.class</span>
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a>
+<a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="c1">// 3. 컨테이너에서 DiscountPolicy 타입 빈을 모두 조회</span>
+<a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">DiscountPolicy</span><span class="o">&gt;</span><span class="w"> </span><span class="n">beansOfType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">beanFactory</span><span class="p">.</span><span class="na">getBeansOfType</span><span class="p">(</span><span class="n">DiscountPolicy</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="c1">// → {fixDiscountPolicy: FixDiscountPolicy@x01, rateDiscountPolicy: RateDiscountPolicy@x02}</span>
+<a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a>
+<a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a><span class="c1">// 4. 리스트로 변환하여 주입</span>
+<a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a><span class="n">policies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">beansOfType</span><span class="p">.</span><span class="na">values</span><span class="p">());</span>
+</code></pre></div>
+<blockquote>
+<p>이것이 <code>List&lt;DiscountPolicy&gt;</code> 주입이 모든 구현체를 자동으로 수집해주는 이유다.</p>
+</blockquote>
 
 
 
@@ -4673,7 +4839,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 8일 11:06:13 UTC">2026년 4월 8일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 8일 11:39:32 UTC">2026년 4월 8일</span>
   </span>
 
     

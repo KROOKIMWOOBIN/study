@@ -2949,6 +2949,56 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        내부 동작 원리
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="내부 동작 원리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beanpostprocessor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BeanPostProcessor — 스프링의 핵심 확장 포인트
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postconstruct" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        @PostConstruct가 실제로 처리되는 방법
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        완전한 빈 생명주기 12단계
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4278,6 +4328,56 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        내부 동작 원리
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="내부 동작 원리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beanpostprocessor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BeanPostProcessor — 스프링의 핵심 확장 포인트
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postconstruct" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        @PostConstruct가 실제로 처리되는 방법
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        완전한 빈 생명주기 12단계
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4664,6 +4764,114 @@
 </code></pre></div>
 <p>초기화 코드는 ③ DI가 완료된 이후에 실행된다는 것이 핵심이다.
 DI가 완료되어야 주입된 의존 객체를 안전하게 사용할 수 있기 때문이다.</p>
+<hr />
+<h2 id="_9">내부 동작 원리</h2>
+<h3 id="beanpostprocessor">BeanPostProcessor — 스프링의 핵심 확장 포인트</h3>
+<div class="concept-box">
+<p><code>BeanPostProcessor</code>는 빈 생성 전후에 스프링이 제공하는 <strong>확장 포인트(Extension Point)</strong>다.
+스프링 내부적으로 <code>@PostConstruct</code>, <code>@PreDestroy</code>, AOP 프록시 생성 등이 모두 이 인터페이스를 통해 구현된다.</p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1">// BeanPostProcessor 인터페이스</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">BeanPostProcessor</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="c1">// 빈의 초기화 메서드(@PostConstruct, afterPropertiesSet) 호출 전</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="nf">postProcessBeforeInitialization</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">bean</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">beanName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">bean</span><span class="p">;</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">    </span><span class="c1">// 빈의 초기화 메서드 호출 후</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="nf">postProcessAfterInitialization</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">bean</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">beanName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">bean</span><span class="p">;</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="p">}</span>
+</code></pre></div>
+<p>스프링 내부에서 등록된 주요 BeanPostProcessor:</p>
+<table>
+<thead>
+<tr>
+<th>BeanPostProcessor</th>
+<th>하는 일</th>
+<th>실행 단계</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CommonAnnotationBeanPostProcessor</code></td>
+<td><code>@PostConstruct</code>, <code>@PreDestroy</code> 처리</td>
+<td>Before</td>
+</tr>
+<tr>
+<td><code>AutowiredAnnotationBeanPostProcessor</code></td>
+<td><code>@Autowired</code>, <code>@Value</code> 처리</td>
+<td>프로퍼티 주입 단계</td>
+</tr>
+<tr>
+<td><code>AnnotationAwareAspectJAutoProxyCreator</code></td>
+<td>AOP 프록시 객체 생성</td>
+<td>After</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="postconstruct">@PostConstruct가 실제로 처리되는 방법</h3>
+<p><code>@PostConstruct</code>는 <code>CommonAnnotationBeanPostProcessor</code>가 처리한다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>빈 생성 완료
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>        ↓
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>@Autowired 주입 (AutowiredAnnotationBeanPostProcessor)
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>        ↓
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>CommonAnnotationBeanPostProcessor.postProcessBeforeInitialization() 호출
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>  → 빈 클래스에서 @PostConstruct 달린 메서드를 리플렉션으로 탐색
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>  → 발견 시: method.invoke(bean) — 실제 초기화 메서드 실행
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>        ↓
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>InitializingBean.afterPropertiesSet() 호출 (있는 경우)
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>        ↓
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>@Bean(initMethod=&quot;...&quot;) 호출 (있는 경우)
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>        ↓
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>AnnotationAwareAspectJAutoProxyCreator.postProcessAfterInitialization() 호출
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>  → @Transactional, @Aspect 등이 붙은 빈이면 CGLIB 프록시로 교체
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>        ↓
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>최종 빈 완성 → singletonObjects에 저장
+</code></pre></div>
+<hr />
+<h3 id="12">완전한 빈 생명주기 12단계</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>[빈 생성 및 초기화]
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>① BeanDefinition 등록
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>   컨테이너 시작 시 설계도(메타데이터) 수집
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>② 인스턴스 생성 (Constructor 호출)
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>   new 객체가 힙에 생성됨 (DI는 아직 안 됨)
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>③ 프로퍼티 설정 — setter / 필드 DI 처리
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>④ BeanNameAware.setBeanName() 호출
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>   빈이 자신의 이름을 알아야 할 때 (드물게 사용)
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>⑤ BeanFactoryAware.setBeanFactory() 호출
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>   빈이 BeanFactory를 직접 사용해야 할 때 (드물게 사용)
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>
+<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>⑥ ApplicationContextAware.setApplicationContext() 호출
+<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>   빈이 ApplicationContext를 직접 사용해야 할 때 (드물게 사용)
+<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a>
+<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>⑦ BeanPostProcessor.postProcessBeforeInitialization()
+<a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a>   ← @PostConstruct 실행 (CommonAnnotationBeanPostProcessor)
+<a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a>
+<a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a>⑧ InitializingBean.afterPropertiesSet() 호출 (구현한 경우)
+<a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a>
+<a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a>⑨ @Bean(initMethod=&quot;...&quot;) 실행 (지정한 경우)
+<a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a>
+<a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a>⑩ BeanPostProcessor.postProcessAfterInitialization()
+<a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a>   ← AOP 프록시 생성 (AnnotationAwareAspectJAutoProxyCreator)
+<a id="__codelineno-16-28" name="__codelineno-16-28" href="#__codelineno-16-28"></a>   ← @Transactional, @Aspect 등이 있으면 실제 빈이 프록시로 교체됨
+<a id="__codelineno-16-29" name="__codelineno-16-29" href="#__codelineno-16-29"></a>
+<a id="__codelineno-16-30" name="__codelineno-16-30" href="#__codelineno-16-30"></a>⑪ 빈 사용 (사용자 코드)
+<a id="__codelineno-16-31" name="__codelineno-16-31" href="#__codelineno-16-31"></a>
+<a id="__codelineno-16-32" name="__codelineno-16-32" href="#__codelineno-16-32"></a>[빈 소멸]
+<a id="__codelineno-16-33" name="__codelineno-16-33" href="#__codelineno-16-33"></a>⑫ 소멸 단계:
+<a id="__codelineno-16-34" name="__codelineno-16-34" href="#__codelineno-16-34"></a>   @PreDestroy 실행 → DisposableBean.destroy() → @Bean(destroyMethod=&quot;...&quot;)
+</code></pre></div>
+<blockquote>
+<p><strong>실무에서 자주 쓰는 것</strong>: ②, ③, ⑦(@PostConstruct), ⑩(AOP), ⑫(@PreDestroy)
+④⑤⑥은 스프링 내부 빈에서 주로 사용하고, 일반 비즈니스 코드에서는 거의 쓰지 않는다.</p>
+</blockquote>
 
 
 
@@ -4686,7 +4894,7 @@ DI가 완료되어야 주입된 의존 객체를 안전하게 사용할 수 있�
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 8일 11:06:13 UTC">2026년 4월 8일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 8일 11:39:32 UTC">2026년 4월 8일</span>
   </span>
 
     

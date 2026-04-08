@@ -2960,6 +2960,45 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        내부 동작 원리
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="내부 동작 원리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classpathbeandefinitionscanner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ClassPathBeanDefinitionScanner — 실제 탐색 메커니즘
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#component_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        @Component 계열 어노테이션의 메타 어노테이션 탐색
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4412,6 +4451,45 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        내부 동작 원리
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="내부 동작 원리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classpathbeandefinitionscanner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ClassPathBeanDefinitionScanner — 실제 탐색 메커니즘
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#component_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        @Component 계열 어노테이션의 메타 어노테이션 탐색
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4829,6 +4907,64 @@ JPA, MyBatis, JDBC 등 기술마다 예외 클래스가 다르다. (<code>JpaExc
 <a id="__codelineno-18-25" name="__codelineno-18-25" href="#__codelineno-18-25"></a><span class="nd">@Repository</span>
 <a id="__codelineno-18-26" name="__codelineno-18-26" href="#__codelineno-18-26"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MemberRepository</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
+<hr />
+<h2 id="_12">내부 동작 원리</h2>
+<h3 id="classpathbeandefinitionscanner">ClassPathBeanDefinitionScanner — 실제 탐색 메커니즘</h3>
+<p>컴포넌트 스캔은 <code>ClassPathBeanDefinitionScanner</code>가 담당한다. 핵심은 <strong>ASM(바이트코드 분석 라이브러리)</strong>을 사용한다는 점이다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>① ClassLoader로 classpath(jar 파일, classes 디렉터리)의 .class 파일 목록 수집
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>   → basePackage=&quot;hello.core&quot; 이면 hello/core/ 하위 .class 파일 전부 나열
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>② .class 파일을 직접 읽어서 애노테이션 확인 (ASM 사용)
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>   → Class.forName() 을 쓰지 않음! (이유: 클래스 로딩 시 static 블록 실행 부작용)
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>   → 대신 .class 파일 바이트코드를 직접 파싱해서 @Component 존재 여부 확인
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>   → 실제 JVM 클래스 로딩 없이 메타데이터만 빠르게 읽음
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>③ @Component(또는 @Service, @Repository 등 메타 어노테이션)가 발견되면
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>   → BeanDefinition 생성 (클래스 정보, 스코프 등)
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>   → beanDefinitionMap에 등록
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>④ 이후 finishBeanFactoryInitialization() 단계에서 실제 인스턴스 생성
+</code></pre></div>
+<blockquote>
+<p><strong>왜 ASM을 쓰는가?</strong>
+<code>Class.forName("hello.core.member.SomeClass")</code>로 클래스를 로딩하면 그 클래스의 <code>static</code> 초기화 블록이 실행된다.
+수백 개의 클래스를 스캔할 때 의도치 않은 코드 실행, 메모리 낭비, 느린 시작이 발생할 수 있다.
+ASM은 .class 파일을 바이트 스트림으로 읽기만 하므로 클래스 로딩 부작용이 없고, 대규모 프로젝트에서도 빠르게 스캔할 수 있다.</p>
+</blockquote>
+<hr />
+<h3 id="component_1">@Component 계열 어노테이션의 메타 어노테이션 탐색</h3>
+<p><code>@Service</code>, <code>@Controller</code>, <code>@Repository</code>가 컴포넌트 스캔 대상이 되는 이유:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1">// @Service 내부</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="nd">@Target</span><span class="p">(</span><span class="n">ElementType</span><span class="p">.</span><span class="na">TYPE</span><span class="p">)</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="nd">@Retention</span><span class="p">(</span><span class="n">RetentionPolicy</span><span class="p">.</span><span class="na">RUNTIME</span><span class="p">)</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="nd">@Documented</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="nd">@Component</span><span class="w">  </span><span class="c1">// ← @Component를 메타 어노테이션으로 포함</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="kd">public</span><span class="w"> </span><span class="nd">@interface</span><span class="w"> </span><span class="n">Service</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="c1">// @Controller 내부</span>
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="nd">@Target</span><span class="p">(</span><span class="n">ElementType</span><span class="p">.</span><span class="na">TYPE</span><span class="p">)</span>
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="nd">@Retention</span><span class="p">(</span><span class="n">RetentionPolicy</span><span class="p">.</span><span class="na">RUNTIME</span><span class="p">)</span>
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="nd">@Documented</span>
+<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="nd">@Component</span><span class="w">  </span><span class="c1">// ← 마찬가지</span>
+<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="kd">public</span><span class="w"> </span><span class="nd">@interface</span><span class="w"> </span><span class="n">Controller</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p>스프링의 애노테이션 스캐너는 단순히 <code>@Component</code>를 직접 찾는 것이 아니라,
+<strong>애노테이션의 애노테이션(메타 어노테이션)까지 재귀적으로 탐색</strong>한다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>@Service가 붙은 클래스 발견
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>  → @Service의 메타 어노테이션 확인
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>  → @Component 발견
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>  → 컴포넌트 스캔 대상으로 등록
+</code></pre></div>
+<p>이 덕분에 커스텀 어노테이션을 만들고 <code>@Component</code>를 붙이면 자동으로 스캔 대상이 된다:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nd">@Target</span><span class="p">(</span><span class="n">ElementType</span><span class="p">.</span><span class="na">TYPE</span><span class="p">)</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="nd">@Retention</span><span class="p">(</span><span class="n">RetentionPolicy</span><span class="p">.</span><span class="na">RUNTIME</span><span class="p">)</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="nd">@Component</span><span class="w">          </span><span class="c1">// ← 이걸 붙이면 컴포넌트 스캔 대상이 됨</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="nd">@Transactional</span><span class="w">      </span><span class="c1">// ← 동시에 트랜잭션 처리도 가능</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="kd">public</span><span class="w"> </span><span class="nd">@interface</span><span class="w"> </span><span class="n">MyService</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="nd">@MyService</span><span class="w">          </span><span class="c1">// ← @Component + @Transactional 효과</span>
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OrderService</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
 
 
 
@@ -4851,7 +4987,7 @@ JPA, MyBatis, JDBC 등 기술마다 예외 클래스가 다르다. (<code>JpaExc
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 8일 11:06:13 UTC">2026년 4월 8일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 8일 11:39:32 UTC">2026년 4월 8일</span>
   </span>
 
     

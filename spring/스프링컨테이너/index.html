@@ -2976,6 +2976,56 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        내부 동작 원리
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="내부 동작 원리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        컨테이너 내부 자료구조
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applicationcontextrefresh-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ApplicationContext.refresh() — 컨테이너 초기화 8단계
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        의존성 순서 해결 — 왜 순서가 보장되는가
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4556,6 +4606,56 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        내부 동작 원리
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="내부 동작 원리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        컨테이너 내부 자료구조
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applicationcontextrefresh-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ApplicationContext.refresh() — 컨테이너 초기화 8단계
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        의존성 순서 해결 — 왜 순서가 보장되는가
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4903,6 +5003,96 @@ Spring Boot 포함 현재 대부분의 프로젝트에서 사용하는 방식이
 <code>BeanDefinition</code>이라는 공통 형식으로 변환되기 때문이다.</p>
 <p>직접 BeanDefinition을 만들어서 등록할 수도 있지만, 실무에서 그럴 일은 없다.
 "왜 다양한 설정 방식을 지원할 수 있는가"를 이해하는 용도로만 알아두면 된다.</p>
+<hr />
+<h2 id="_11">내부 동작 원리</h2>
+<h3 id="_12">컨테이너 내부 자료구조</h3>
+<p>스프링 컨테이너는 내부적으로 두 개의 <code>ConcurrentHashMap</code>을 사용한다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1">// DefaultListableBeanFactory 내부 (의사코드)</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DefaultListableBeanFactory</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">    </span><span class="c1">// BeanDefinition 저장소 — 빈의 &quot;설계도&quot;</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">    </span><span class="c1">// key: 빈 이름, value: BeanDefinition (클래스, 스코프, 의존관계 등 메타데이터)</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">BeanDefinition</span><span class="o">&gt;</span><span class="w"> </span><span class="n">beanDefinitionMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ConcurrentHashMap</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">256</span><span class="p">);</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="w">    </span><span class="c1">// 싱글톤 빈 저장소 — 완성된 빈 인스턴스</span>
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="w">    </span><span class="c1">// key: 빈 이름, value: 실제 객체</span>
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">singletonObjects</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ConcurrentHashMap</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">256</span><span class="p">);</span>
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>컨테이너 시작 흐름:
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>1. beanDefinitionMap 채우기 (설계도 수집)
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>   &quot;memberService&quot; → BeanDefinition{class=MemberServiceImpl, scope=singleton, ...}
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>   &quot;memberRepository&quot; → BeanDefinition{class=MemoryMemberRepository, ...}
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>2. singletonObjects 채우기 (실제 객체 생성)
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>   &quot;memberService&quot; → MemberServiceImpl 인스턴스
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>   &quot;memberRepository&quot; → MemoryMemberRepository 인스턴스
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>getBean() 호출 시:
+<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>   1. singletonObjects에서 이름으로 검색 → 있으면 즉시 반환 (O(1))
+<a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>   2. 없으면 beanDefinitionMap으로 새로 생성 (프로토타입 스코프 등)
+</code></pre></div>
+<blockquote>
+<p><strong>왜 <code>ConcurrentHashMap</code>인가?</strong>
+스프링 컨테이너는 멀티스레드 환경에서 동작한다. 여러 스레드가 동시에 <code>getBean()</code>을 호출해도
+스레드 안전하게 빈을 조회할 수 있도록 <code>ConcurrentHashMap</code>을 사용한다.</p>
+</blockquote>
+<hr />
+<h3 id="applicationcontextrefresh-8">ApplicationContext.refresh() — 컨테이너 초기화 8단계</h3>
+<p><code>new AnnotationConfigApplicationContext(AppConfig.class)</code> 내부에서 <code>refresh()</code>가 호출된다.
+이 메서드 하나가 스프링 컨테이너 전체 초기화를 담당한다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>① prepareRefresh()
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>   환경변수(application.yml, 시스템 프로퍼티) 로딩, 유효성 검증
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>② obtainFreshBeanFactory()
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>   DefaultListableBeanFactory 생성
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>   beanDefinitionMap 초기화 (아직 비어있음)
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>③ invokeBeanFactoryPostProcessors()
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>   ← 핵심 단계
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>   @Configuration 클래스 파싱 → @Bean 메서드를 BeanDefinition으로 변환
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>   @ComponentScan 실행 → classpath 스캔 → @Component 빈들을 BeanDefinition으로 등록
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>   이 단계 끝에 beanDefinitionMap이 모두 채워짐
+<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>
+<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a>④ registerBeanPostProcessors()
+<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a>   BeanPostProcessor 등록:
+<a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a>   - AutowiredAnnotationBeanPostProcessor (@Autowired 처리)
+<a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a>   - CommonAnnotationBeanPostProcessor (@PostConstruct/@PreDestroy 처리)
+<a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a>   - AnnotationAwareAspectJAutoProxyCreator (AOP 프록시 생성)
+<a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a>
+<a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a>⑤ initMessageSource()
+<a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a>   국제화 설정 (messages.properties 로딩)
+<a id="__codelineno-22-22" name="__codelineno-22-22" href="#__codelineno-22-22"></a>
+<a id="__codelineno-22-23" name="__codelineno-22-23" href="#__codelineno-22-23"></a>⑥ initApplicationEventMulticaster()
+<a id="__codelineno-22-24" name="__codelineno-22-24" href="#__codelineno-22-24"></a>   이벤트 발행자 초기화
+<a id="__codelineno-22-25" name="__codelineno-22-25" href="#__codelineno-22-25"></a>
+<a id="__codelineno-22-26" name="__codelineno-22-26" href="#__codelineno-22-26"></a>⑦ finishBeanFactoryInitialization()
+<a id="__codelineno-22-27" name="__codelineno-22-27" href="#__codelineno-22-27"></a>   ← 핵심 단계 (여기서 실제 new 발생)
+<a id="__codelineno-22-28" name="__codelineno-22-28" href="#__codelineno-22-28"></a>   beanDefinitionMap의 모든 싱글톤 빈을 순서대로 생성
+<a id="__codelineno-22-29" name="__codelineno-22-29" href="#__codelineno-22-29"></a>   → 의존 그래프 분석 → 의존되는 빈부터 먼저 생성 → singletonObjects에 저장
+<a id="__codelineno-22-30" name="__codelineno-22-30" href="#__codelineno-22-30"></a>
+<a id="__codelineno-22-31" name="__codelineno-22-31" href="#__codelineno-22-31"></a>⑧ finishRefresh()
+<a id="__codelineno-22-32" name="__codelineno-22-32" href="#__codelineno-22-32"></a>   ApplicationStartedEvent, ApplicationReadyEvent 발행
+<a id="__codelineno-22-33" name="__codelineno-22-33" href="#__codelineno-22-33"></a>   → @EventListener(ApplicationReadyEvent.class) 메서드가 여기서 실행됨
+</code></pre></div>
+<hr />
+<h3 id="_13">의존성 순서 해결 — 왜 순서가 보장되는가</h3>
+<p>A → B → C 의존관계가 있을 때 (A가 B를 사용하고, B가 C를 사용) 스프링은 C → B → A 순으로 생성한다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>빈 생성 요청: A를 만들어야 함
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>1. A의 BeanDefinition을 읽음 → &quot;A는 B가 필요하다&quot;
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>2. B를 먼저 만들려고 하니 → &quot;B는 C가 필요하다&quot;
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>3. C를 먼저 만들려고 하니 → &quot;C는 의존관계 없음&quot; → C 생성 완료
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>4. B 생성 시 C를 주입 → B 생성 완료
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>5. A 생성 시 B를 주입 → A 생성 완료
+</code></pre></div>
+<p>이 과정이 자동으로 처리되기 때문에 개발자는 빈 생성 순서를 신경 쓸 필요가 없다.</p>
+<div class="warning-box">
+<p><strong>순환 참조(A → B → A)는 이 방식으로 해결할 수 없다.</strong>
+스프링은 생성자 주입의 경우 순환 참조를 시작 시점에 감지하고 <code>BeanCreationException</code>을 발생시킨다.
+필드/Setter 주입은 3단계 캐시로 해결하려 하지만, 권장하지 않는다 (싱글톤.md 참고).</p>
+</div>
 
 
 
@@ -4925,7 +5115,7 @@ Spring Boot 포함 현재 대부분의 프로젝트에서 사용하는 방식이
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 8일 11:06:13 UTC">2026년 4월 8일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 8일 11:39:32 UTC">2026년 4월 8일</span>
   </span>
 
     
