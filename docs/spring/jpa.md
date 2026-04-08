@@ -2,7 +2,11 @@
 
 ### 왜 쓰는가?
 
-JDBC로 직접 SQL을 작성하면 반복 코드가 많고, 객체와 테이블 간 변환을 직접 해야 한다. JPA는 **객체 중심으로 DB를 다루게** 해주는 ORM(Object-Relational Mapping)이다.
+<div class="concept-box" markdown="1">
+
+JDBC로 직접 SQL을 작성하면 반복 코드가 많고, 객체와 테이블 간 변환을 직접 해야 한다. ==JPA==는 **객체 중심으로 DB를 다루게** 해주는 ==ORM(Object-Relational Mapping)==이다.
+
+</div>
 
 | 구분 | JDBC | JPA |
 |------|------|-----|

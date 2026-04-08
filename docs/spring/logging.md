@@ -2,7 +2,11 @@
 
 ### 왜 쓰는가?
 
+<div class="concept-box" markdown="1">
+
 장애 발생 시 원인을 파악할 수 있는 유일한 수단이 로그다. 적절한 로깅 전략 없이는 문제가 발생해도 원인을 찾을 수 없다.
+
+</div>
 
 ### Logback (Spring Boot 기본)
 

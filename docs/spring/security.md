@@ -2,7 +2,11 @@
 
 ### 왜 쓰는가?
 
-로그인, 권한 제어는 거의 모든 서비스의 필수 요소다. Spring Security는 **인증(Authentication)**과 **인가(Authorization)**를 표준화된 방식으로 제공한다.
+<div class="concept-box" markdown="1">
+
+로그인, 권한 제어는 거의 모든 서비스의 필수 요소다. Spring Security는 ==인증(Authentication)==과 ==인가(Authorization)==를 표준화된 방식으로 제공한다.
+
+</div>
 
 ### 핵심 개념
 
