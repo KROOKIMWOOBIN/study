@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4202,18 +4204,18 @@
 
 <h2 id="reflection">Reflection</h2>
 <ul>
-<li>런타임 시점에 클래스 구조를 분석하고, 동적으로 제어</li>
+<li>런타임 시점에 클래스 구조를 분석하고, 동적으로 제어
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Reflection은 일반적인 정적 호출(컴파일 타임 결정)이 아니라,
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>실행 중(Runtime)에 클래스 메타정보를 읽고 조작하는 메커니즘이다.
+</code></pre></div></li>
 </ul>
-<pre><code class="language-markdown">Reflection은 일반적인 정적 호출(컴파일 타임 결정)이 아니라,
-실행 중(Runtime)에 클래스 메타정보를 읽고 조작하는 메커니즘이다.
-</code></pre>
 <h2 id="_1">클래스 메타데이터</h2>
 <ul>
-<li>Class 객체는 JVM이 로딩한 타입의 메타정보 컨테이너다.</li>
+<li>Class 객체는 JVM이 로딩한 타입의 메타정보 컨테이너다.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Class&lt;?&gt; clazz = String.class;
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Class&lt;?&gt; clazz2 = Class.forName(&quot;java.lang.String&quot;);
+</code></pre></div></li>
 </ul>
-<pre><code class="language-markdown">Class&lt;?&gt; clazz = String.class;
-Class&lt;?&gt; clazz2 = Class.forName(&quot;java.lang.String&quot;);
-</code></pre>
 <h3 id="_2">얻을 수 있는 정보</h3>
 <ul>
 <li>클래스 이름</li>
@@ -4226,35 +4228,31 @@ Class&lt;?&gt; clazz2 = Class.forName(&quot;java.lang.String&quot;);
 <li>애노테이션 정보</li>
 </ul>
 <h2 id="_3">메서드 탐색과 동적 호출</h2>
-<pre><code class="language-markdown">런타임에 특정 메서드를 찾고
-객체에 대해 동적으로 호출
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>런타임에 특정 메서드를 찾고
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>객체에 대해 동적으로 호출
+</code></pre></div>
 <h3 id="_4">메서드 탐색</h3>
-<pre><code class="language-markdown">Method method = clazz.getDeclaredMethod(&quot;hello&quot;, String.class);
-</code></pre>
-<ul>
-<li>첫 번째 파라미터 → 메서드명</li>
-<li>이후 파라미터 → 타입 목록</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Method method = clazz.getDeclaredMethod(&quot;hello&quot;, String.class);
+</code></pre></div>
+- 첫 번째 파라미터 → 메서드명
+- 이후 파라미터 → 타입 목록</p>
 <h3 id="_5">동적 호출</h3>
-<pre><code class="language-markdown">Object result = method.invoke(targetObject, &quot;개발자&quot;);
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Object result = method.invoke(targetObject, &quot;개발자&quot;);
+</code></pre></div>
 <h3 id="private">private 메서드 접근</h3>
-<pre><code class="language-markdown">method.setAccessible(true);
-</code></pre>
-<ul>
-<li>접근 제어 무시</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>method.setAccessible(true);
+</code></pre></div>
+- 접근 제어 무시</p>
 <h3 id="_6">필드 조회</h3>
-<pre><code class="language-markdown">Field field = clazz.getDeclaredField(&quot;name&quot;);
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Field field = clazz.getDeclaredField(&quot;name&quot;);
+</code></pre></div>
 <h3 id="_7">값 조회</h3>
-<pre><code class="language-markdown">field.setAccessible(true);
-Object value = field.get(target);
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>field.setAccessible(true);
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Object value = field.get(target);
+</code></pre></div>
 <h3 id="_8">값 변경</h3>
-<pre><code class="language-markdown">field.set(target, &quot;newName&quot;);
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>field.set(target, &quot;newName&quot;);
+</code></pre></div>
 
 
 

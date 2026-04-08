@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4227,34 +4229,33 @@
 <td>어노테이션</td>
 <td><code>getAnnotations()</code></td>
 </tr>
+<tr>
+<td><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Class&lt;?&gt; clazz = String.class;
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>System.out.println(clazz.getName());          // java.lang.String
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>System.out.println(clazz.getSuperclass());    // Object
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>for (Method method : clazz.getDeclaredMethods()) {
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    System.out.println(method.getName());
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>}
+</code></pre></div></td>
+<td></td>
+</tr>
 </tbody>
 </table>
-<pre><code class="language-markdown">Class&lt;?&gt; clazz = String.class;
-
-System.out.println(clazz.getName());          // java.lang.String
-System.out.println(clazz.getSuperclass());    // Object
-
-for (Method method : clazz.getDeclaredMethods()) {
-    System.out.println(method.getName());
-}
-</code></pre>
 <h3 id="class_1">Class 객체 얻는 방법</h3>
 <ol>
-<li>.class</li>
+<li>.class
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Class&lt;String&gt; clazz = String.class;
+</code></pre></div></li>
+<li>getClass()
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>String str = &quot;hello&quot;;
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Class&lt;?&gt; clazz = str.getClass();
+</code></pre></div></li>
+<li>Class.forName()
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Class&lt;?&gt; clazz = Class.forName(&quot;java.lang.String&quot;);
+</code></pre></div></li>
 </ol>
-<pre><code class="language-markdown">Class&lt;String&gt; clazz = String.class;
-</code></pre>
-<ol>
-<li>getClass()</li>
-</ol>
-<pre><code class="language-markdown">String str = &quot;hello&quot;;
-Class&lt;?&gt; clazz = str.getClass();
-</code></pre>
-<ol>
-<li>Class.forName()</li>
-</ol>
-<pre><code class="language-markdown">Class&lt;?&gt; clazz = Class.forName(&quot;java.lang.String&quot;);
-</code></pre>
 <h3 id="_1">리플렉션</h3>
 <ul>
 <li>리플렉션은 런타임에 클래스 정보를 분석하고 조작하는 기술이다.</li>
@@ -4265,20 +4266,20 @@ Class&lt;?&gt; clazz = str.getClass();
 <li>접근 제어자 무시 (private 접근)</li>
 </ul>
 <h4 id="_2">예시 (리플렉션으로 메서드 실행)</h4>
-<pre><code class="language-markdown">Class&lt;?&gt; clazz = Class.forName(&quot;java.lang.String&quot;);
-
-Method method = clazz.getMethod(&quot;length&quot;);
-
-String str = &quot;hello&quot;;
-int result = (int) method.invoke(str);
-
-System.out.println(result); // 5
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Class&lt;?&gt; clazz = Class.forName(&quot;java.lang.String&quot;);
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Method method = clazz.getMethod(&quot;length&quot;);
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>String str = &quot;hello&quot;;
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>int result = (int) method.invoke(str);
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>System.out.println(result); // 5
+</code></pre></div>
 <h4 id="private">private 필드 접근</h4>
-<pre><code class="language-markdown">Field field = clazz.getDeclaredField(&quot;value&quot;);
-field.setAccessible(true);
--&gt; setAccessible(true) → 접근 제어 무시
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Field field = clazz.getDeclaredField(&quot;value&quot;);
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>field.setAccessible(true);
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>-&gt; setAccessible(true) → 접근 제어 무시
+</code></pre></div>
 <h4 id="_3">리플렉션이 사용되는 실제 기술</h4>
 <table>
 <thead>
@@ -4334,16 +4335,16 @@ field.setAccessible(true);
 </tbody>
 </table>
 <h4 id="jvm">핵심 구조 (JVM 관점)</h4>
-<pre><code class="language-markdown">.class 파일
-      ↓
-ClassLoader
-      ↓
-JVM Method Area (메타정보 저장)
-      ↓
-java.lang.Class 객체 생성
-      ↓
-Reflection으로 접근
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>.class 파일
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>      ↓
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>ClassLoader
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>      ↓
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>JVM Method Area (메타정보 저장)
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>      ↓
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>java.lang.Class 객체 생성
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>      ↓
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>Reflection으로 접근
+</code></pre></div>
 
 
 

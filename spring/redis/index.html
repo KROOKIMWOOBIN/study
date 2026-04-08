@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4146,75 +4148,75 @@
 <h3 id="_1">왜 쓰는가?</h3>
 <p>DB는 디스크 기반이라 반복 조회 시 느리다. Redis는 <strong>인메모리 저장소</strong>로 DB보다 10~100배 빠른 응답을 제공한다. 캐시, 세션, 분산 락 등 다양한 용도로 활용한다.</p>
 <h3 id="_2">의존성</h3>
-<pre><code class="language-markdown">implementation 'org.springframework.boot:spring-boot-starter-data-redis'
-</code></pre>
-<pre><code class="language-markdown"># application.yml
-spring:
-  data:
-    redis:
-      host: localhost
-      port: 6379
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>implementation &#39;org.springframework.boot:spring-boot-starter-data-redis&#39;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gh"># application.yml</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>spring:
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  data:
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    redis:
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>      host: localhost
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>      port: 6379
+</code></pre></div>
 <h3 id="spring-cache-cacheable">Spring Cache — @Cacheable</h3>
 <p>가장 간단한 캐시 적용 방법. 메서드 결과를 자동으로 Redis에 저장하고 재사용한다.</p>
-<pre><code class="language-markdown">@Configuration
-@EnableCaching
-public class CacheConfig {
-
-    @Bean
-    public CacheManager cacheManager(RedisConnectionFactory factory) {
-        RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig()
-            .entryTtl(Duration.ofMinutes(10))  // TTL 10분
-            .serializeKeysWith(RedisSerializationContext.SerializationPair
-                .fromSerializer(new StringRedisSerializer()))
-            .serializeValuesWith(RedisSerializationContext.SerializationPair
-                .fromSerializer(new GenericJackson2JsonRedisSerializer()));
-
-        return RedisCacheManager.create(factory);
-    }
-}
-</code></pre>
-<pre><code class="language-markdown">@Service
-public class ProductService {
-
-    @Cacheable(value = &quot;products&quot;, key = &quot;#id&quot;)
-    public ProductResponse findById(Long id) {
-        // 캐시 미스 시에만 실행
-        return productRepository.findById(id).map(ProductResponse::from).orElseThrow();
-    }
-
-    @CacheEvict(value = &quot;products&quot;, key = &quot;#id&quot;)
-    public void update(Long id, ProductUpdateRequest request) {
-        // 수정 시 캐시 삭제
-    }
-
-    @CachePut(value = &quot;products&quot;, key = &quot;#result.id&quot;)
-    public ProductResponse save(ProductCreateRequest request) {
-        // 저장 후 캐시 갱신
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="ni">@Configuration</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="ni">@EnableCaching</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>public class CacheConfig {
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="ni">@Bean</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    public CacheManager cacheManager(RedisConnectionFactory factory) {
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig()
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>            .entryTtl(Duration.ofMinutes(10))  // TTL 10분
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>            .serializeKeysWith(RedisSerializationContext.SerializationPair
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>                .fromSerializer(new StringRedisSerializer()))
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>            .serializeValuesWith(RedisSerializationContext.SerializationPair
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>                .fromSerializer(new GenericJackson2JsonRedisSerializer()));
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>        return RedisCacheManager.create(factory);
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    }
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>}
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="ni">@Service</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>public class ProductService {
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="ni">@Cacheable</span>(value = &quot;products&quot;, key = &quot;#id&quot;)
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    public ProductResponse findById(Long id) {
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        // 캐시 미스 시에만 실행
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        return productRepository.findById(id).map(ProductResponse::from).orElseThrow();
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    }
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="ni">@CacheEvict</span>(value = &quot;products&quot;, key = &quot;#id&quot;)
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    public void update(Long id, ProductUpdateRequest request) {
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>        // 수정 시 캐시 삭제
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    }
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    <span class="ni">@CachePut</span>(value = &quot;products&quot;, key = &quot;#result.id&quot;)
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>    public ProductResponse save(ProductCreateRequest request) {
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>        // 저장 후 캐시 갱신
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>    }
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>}
+</code></pre></div>
 <h3 id="redistemplate">RedisTemplate — 직접 제어</h3>
-<pre><code class="language-markdown">@Service
-@RequiredArgsConstructor
-public class TokenService {
-
-    private final RedisTemplate&lt;String, String&gt; redisTemplate;
-
-    public void saveRefreshToken(Long userId, String token) {
-        redisTemplate.opsForValue()
-            .set(&quot;refresh:&quot; + userId, token, Duration.ofDays(7));
-    }
-
-    public String getRefreshToken(Long userId) {
-        return redisTemplate.opsForValue().get(&quot;refresh:&quot; + userId);
-    }
-
-    public void deleteRefreshToken(Long userId) {
-        redisTemplate.delete(&quot;refresh:&quot; + userId);
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="ni">@Service</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="ni">@RequiredArgsConstructor</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>public class TokenService {
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    private final RedisTemplate&lt;String, String&gt; redisTemplate;
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    public void saveRefreshToken(Long userId, String token) {
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>        redisTemplate.opsForValue()
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>            .set(&quot;refresh:&quot; + userId, token, Duration.ofDays(7));
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    }
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    public String getRefreshToken(Long userId) {
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>        return redisTemplate.opsForValue().get(&quot;refresh:&quot; + userId);
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    }
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    public void deleteRefreshToken(Long userId) {
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>        redisTemplate.delete(&quot;refresh:&quot; + userId);
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>    }
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>}
+</code></pre></div>
 <h3 id="_3">주요 자료구조</h3>
 <table>
 <thead>
@@ -4253,21 +4255,21 @@ public class TokenService {
 </tbody>
 </table>
 <h3 id="_4">인기 게시글 캐시 전략</h3>
-<pre><code class="language-markdown">// 조회 요청 시: Cache-Aside 패턴
-public PostResponse findPost(Long id) {
-    String key = &quot;post:&quot; + id;
-    String cached = redisTemplate.opsForValue().get(key);
-
-    if (cached != null) {
-        return objectMapper.readValue(cached, PostResponse.class);  // 캐시 히트
-    }
-
-    PostResponse response = postRepository.findById(id)...;  // DB 조회
-    redisTemplate.opsForValue().set(key, objectMapper.writeValueAsString(response),
-        Duration.ofMinutes(30));  // 캐시 저장
-    return response;
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>// 조회 요청 시: Cache-Aside 패턴
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>public PostResponse findPost(Long id) {
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    String key = &quot;post:&quot; + id;
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    String cached = redisTemplate.opsForValue().get(key);
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    if (cached != null) {
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>        return objectMapper.readValue(cached, PostResponse.class);  // 캐시 히트
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    }
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    PostResponse response = postRepository.findById(id)...;  // DB 조회
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    redisTemplate.opsForValue().set(key, objectMapper.writeValueAsString(response),
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>        Duration.ofMinutes(30));  // 캐시 저장
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>    return response;
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>}
+</code></pre></div>
 <h3 id="_5">단점 / 주의할 점</h3>
 <table>
 <thead>

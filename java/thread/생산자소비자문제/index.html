@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4816,59 +4818,59 @@
 </ul>
 <h2 id="wait-set">스레드 대기 집합(wait set)</h2>
 <h3 id="_6">정의</h3>
-<pre><code class="language-markdown">조건이 만족되지 않아 락을 반납하고 대기 중인 스레드들이
-객체 상태 변화(notify)를 기다리는 공간이다
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>조건이 만족되지 않아 락을 반납하고 대기 중인 스레드들이
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>객체 상태 변화(notify)를 기다리는 공간이다
+</code></pre></div>
 <h3 id="_7">왜 필요한가?</h3>
-<pre><code class="language-markdown">“락을 반납한 채로, 객체의 상태(WAITING)가 바뀔 때까지 CPU를 쓰지 않고 기다리게 하기 위해” 필요하다.
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>“락을 반납한 채로, 객체의 상태(WAITING)가 바뀔 때까지 CPU를 쓰지 않고 기다리게 하기 위해” 필요하다.
+</code></pre></div>
 <h3 id="_8">예시 코드</h3>
-<pre><code class="language-java">public class Main {
-
-    private final Queue&lt;String&gt; queue = new ArrayDeque&lt;&gt;(); // 버퍼
-    private final int MAX; // 버퍼 최대 크기
-
-    public Main(int max) {
-        this.MAX = max;
-    }
-
-    public synchronized void put(String data) { // 생산자
-        while (queue.size() == MAX) { // 버퍼 가득참
-            try {
-                wait(); // RUNNABLE -&gt; WAITING, 락 반납
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        queue.offer(data); // 락 획득 후 데이터 인입
-        notify(); // 대기 스레드, WAITING -&gt; BLOCKED -&gt; RUNNABLE
-    }
-
-    public synchronized String take() { // 소비자
-        while (queue.isEmpty()) { // 버퍼 비었음
-            try {
-                wait(); // RUNNABLE -&gt; WAITING, 락 반납
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        String data =  queue.poll(); // 락 획득 후 데이터 꺼냄
-        notify(); // 대기 스레드, WAITING -&gt; BLOCKED -&gt; RUNNABLE
-        return data;
-    }
-
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">queue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayDeque</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w"> </span><span class="c1">// 버퍼</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MAX</span><span class="p">;</span><span class="w"> </span><span class="c1">// 버퍼 최대 크기</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">max</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">MAX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">;</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">synchronized</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">put</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 생산자</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">MAX</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 버퍼 가득참</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">            </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">                </span><span class="n">wait</span><span class="p">();</span><span class="w"> </span><span class="c1">// RUNNABLE -&gt; WAITING, 락 반납</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">InterruptedException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">        </span><span class="n">queue</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"> </span><span class="c1">// 락 획득 후 데이터 인입</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">        </span><span class="n">notify</span><span class="p">();</span><span class="w"> </span><span class="c1">// 대기 스레드, WAITING -&gt; BLOCKED -&gt; RUNNABLE</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">synchronized</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">take</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 소비자</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 버퍼 비었음</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">            </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">                </span><span class="n">wait</span><span class="p">();</span><span class="w"> </span><span class="c1">// RUNNABLE -&gt; WAITING, 락 반납</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">InterruptedException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">queue</span><span class="p">.</span><span class="na">poll</span><span class="p">();</span><span class="w"> </span><span class="c1">// 락 획득 후 데이터 꺼냄</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">        </span><span class="n">notify</span><span class="p">();</span><span class="w"> </span><span class="c1">// 대기 스레드, WAITING -&gt; BLOCKED -&gt; RUNNABLE</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a>
+<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="reentrantlock-condition">ReentrantLock + Condition</h2>
 <h3 id="condition"><strong>Condition</strong>이란?</h3>
 <ul>
-<li>[Lock]에 종속된 조건 대기 큐다.</li>
+<li>[Lock]에 종속된 조건 대기 큐다.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ReentrantLock 1개
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a> ├─ Condition A (대기 큐 1)
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a> ├─ Condition B (대기 큐 2)
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a> └─ Condition C (대기 큐 3)
+</code></pre></div></li>
 </ul>
-<pre><code class="language-markdown">ReentrantLock 1개
- ├─ Condition A (대기 큐 1)
- ├─ Condition B (대기 큐 2)
- └─ Condition C (대기 큐 3)
-</code></pre>
 <h3 id="_9">사용하는 이유</h3>
 <h4 id="1-wait-set">1. wait set 분리</h4>
 <ul>
@@ -4877,14 +4879,12 @@
 <li>생산자/소비자, 읽기/쓰기 등 <strong>서로 다른 조건을 분리해 제어하기 어려움</strong></li>
 <li><code>ReentrantLock</code> + <code>Condition</code>은 <strong>여러 개의 조건 대기 집합 생성 가능</strong></li>
 </ul>
-<pre><code class="language-java">Condition notEmpty = lock.newCondition(); // 소비자 대기
-Condition notFull  = lock.newCondition(); // 생산자 대기
-</code></pre>
-<ul>
-<li>이를 통해 다음 패턴을 명확히 보장</li>
-<li>생산자 → 소비자</li>
-<li>소비자 → 생산자</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">Condition</span><span class="w"> </span><span class="n">notEmpty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="na">newCondition</span><span class="p">();</span><span class="w"> </span><span class="c1">// 소비자 대기</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">Condition</span><span class="w"> </span><span class="n">notFull</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="na">newCondition</span><span class="p">();</span><span class="w"> </span><span class="c1">// 생산자 대기</span>
+</code></pre></div>
+- 이를 통해 다음 패턴을 명확히 보장
+  - 생산자 → 소비자
+  - 소비자 → 생산자</p>
 <h4 id="2-fifo">2. FIFO 구조 보장</h4>
 <ul>
 <li>ReentrantLock(true) 사용 시 공정 락(Fair Lock) 제공</li>
@@ -4910,19 +4910,19 @@ Condition notFull  = lock.newCondition(); // 생산자 대기
 </ul>
 <h2 id="_11">락 대기 집합 흐름</h2>
 <h3 id="synchronized">synchronized</h3>
-<pre><code class="language-markdown">wait set 대기 집합 (WAITING)
-        ↓ signal()
-락 대기 큐 (BLOCKED)
-        ↓ lock 획득
-실행 상태 (RUNNABLE)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>wait set 대기 집합 (WAITING)
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>        ↓ signal()
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>락 대기 큐 (BLOCKED)
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>        ↓ lock 획득
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>실행 상태 (RUNNABLE)
+</code></pre></div>
 <h3 id="reentrantlock">ReentrantLock</h3>
-<pre><code class="language-markdown">Condition 대기 집합 (WAITING)
-        ↓ signal()
-락 대기 큐 (WAITING)
-        ↓ lock 획득
-실행 상태 (RUNNABLE)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Condition 대기 집합 (WAITING)
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>        ↓ signal()
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>락 대기 큐 (WAITING)
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>        ↓ lock 획득
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>실행 상태 (RUNNABLE)
+</code></pre></div>
 <h2 id="synchronized-vs-reentrantlock">synchronized VS ReentrantLock 대기 구조 비교</h2>
 <h3 id="synchronized_1">synchronized</h3>
 <h4 id="_12">구조</h4>

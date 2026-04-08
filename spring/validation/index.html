@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4168,8 +4170,8 @@
 <h3 id="_1">왜 쓰는가?</h3>
 <p>잘못된 요청이 서비스 레이어나 DB까지 도달하면 예외 처리가 복잡해지고 에러 원인 파악이 어렵다. 컨트롤러 진입 시점에 <strong>요청 데이터의 유효성을 검증</strong>해 조기에 차단한다.</p>
 <h3 id="_2">의존성</h3>
-<pre><code class="language-markdown">implementation 'org.springframework.boot:spring-boot-starter-validation'
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>implementation &#39;org.springframework.boot:spring-boot-starter-validation&#39;
+</code></pre></div>
 <h3 id="_3">주요 어노테이션</h3>
 <table>
 <thead>
@@ -4228,78 +4230,78 @@
 </tbody>
 </table>
 <h3 id="_4">기본 사용</h3>
-<pre><code class="language-markdown">public class MemberCreateRequest {
-
-    @NotBlank(message = &quot;이름은 필수입니다&quot;)
-    @Size(max = 50, message = &quot;이름은 50자 이내여야 합니다&quot;)
-    private String name;
-
-    @NotBlank
-    @Email(message = &quot;올바른 이메일 형식이 아닙니다&quot;)
-    private String email;
-
-    @NotNull
-    @Min(value = 0, message = &quot;나이는 0 이상이어야 합니다&quot;)
-    private Integer age;
-
-    @Pattern(regexp = &quot;^(?=.*[A-Za-z])(?=.*\\d).{8,}$&quot;,
-             message = &quot;비밀번호는 영문+숫자 8자 이상이어야 합니다&quot;)
-    private String password;
-}
-</code></pre>
-<pre><code class="language-markdown">@RestController
-public class MemberController {
-
-    @PostMapping(&quot;/api/members&quot;)
-    public ResponseEntity&lt;?&gt; create(@RequestBody @Valid MemberCreateRequest request) {
-        // @Valid가 없으면 검증 안 함
-        return ResponseEntity.ok(memberService.save(request));
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>public class MemberCreateRequest {
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="ni">@NotBlank</span>(message = &quot;이름은 필수입니다&quot;)
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="ni">@Size</span>(max = 50, message = &quot;이름은 50자 이내여야 합니다&quot;)
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    private String name;
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="ni">@NotBlank</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="ni">@Email</span>(message = &quot;올바른 이메일 형식이 아닙니다&quot;)
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    private String email;
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="ni">@NotNull</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="ni">@Min</span>(value = 0, message = &quot;나이는 0 이상이어야 합니다&quot;)
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    private Integer age;
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    <span class="ni">@Pattern</span>(regexp = &quot;^(?=.*[A-Za-z])(?=.*\\d).{8,}$&quot;,
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>             message = &quot;비밀번호는 영문+숫자 8자 이상이어야 합니다&quot;)
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    private String password;
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>}
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="ni">@RestController</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>public class MemberController {
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="ni">@PostMapping</span>(&quot;/api/members&quot;)
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    public ResponseEntity&lt;?&gt; create(@RequestBody <span class="ni">@Valid</span> MemberCreateRequest request) {
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        // <span class="ni">@Valid가</span> 없으면 검증 안 함
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        return ResponseEntity.ok(memberService.save(request));
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    }
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>}
+</code></pre></div>
 <h3 id="validated">@Validated — 그룹 검증 &amp; 서비스 레이어 검증</h3>
-<pre><code class="language-markdown">// 클래스 레벨에 @Validated 추가 시 메서드 파라미터 검증 가능
-@Service
-@Validated
-public class MemberService {
-    public void save(@Valid MemberCreateRequest request) { ... }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>// 클래스 레벨에 <span class="ni">@Validated</span> 추가 시 메서드 파라미터 검증 가능
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="ni">@Service</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="ni">@Validated</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>public class MemberService {
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    public void save(@Valid MemberCreateRequest request) { ... }
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>}
+</code></pre></div>
 <h3 id="custom-validator">Custom Validator</h3>
-<pre><code class="language-markdown">// 어노테이션 정의
-@Target({ElementType.FIELD})
-@Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = UniqueEmailValidator.class)
-public @interface UniqueEmail {
-    String message() default &quot;이미 사용 중인 이메일입니다&quot;;
-    Class&lt;?&gt;[] groups() default {};
-    Class&lt;? extends Payload&gt;[] payload() default {};
-}
-
-// 검증 로직
-public class UniqueEmailValidator implements ConstraintValidator&lt;UniqueEmail, String&gt; {
-
-    private final MemberRepository memberRepository;
-
-    @Override
-    public boolean isValid(String email, ConstraintValidatorContext context) {
-        return !memberRepository.existsByEmail(email);
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>// 어노테이션 정의
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="ni">@Target</span>({ElementType.FIELD})
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="ni">@Retention</span>(RetentionPolicy.RUNTIME)
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="ni">@Constraint</span>(validatedBy = UniqueEmailValidator.class)
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>public <span class="ni">@interface</span> UniqueEmail {
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    String message() default &quot;이미 사용 중인 이메일입니다&quot;;
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    Class&lt;?&gt;[] groups() default {};
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    Class&lt;? extends Payload&gt;[] payload() default {};
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>}
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>// 검증 로직
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>public class UniqueEmailValidator implements ConstraintValidator&lt;UniqueEmail, String&gt; {
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    private final MemberRepository memberRepository;
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    <span class="ni">@Override</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>    public boolean isValid(String email, ConstraintValidatorContext context) {
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>        return !memberRepository.existsByEmail(email);
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>    }
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>}
+</code></pre></div>
 <h3 id="_5">에러 응답 처리</h3>
 <p>검증 실패 시 <code>MethodArgumentNotValidException</code>이 발생한다. GlobalExceptionHandler에서 처리한다.</p>
-<pre><code class="language-markdown">@ExceptionHandler(MethodArgumentNotValidException.class)
-public ResponseEntity&lt;ErrorResponse&gt; handleValidation(MethodArgumentNotValidException e) {
-    List&lt;String&gt; errors = e.getBindingResult()
-        .getFieldErrors()
-        .stream()
-        .map(error -&gt; error.getField() + &quot;: &quot; + error.getDefaultMessage())
-        .toList();
-
-    return ResponseEntity.badRequest().body(new ErrorResponse(&quot;VALIDATION_FAILED&quot;, errors));
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="ni">@ExceptionHandler</span>(MethodArgumentNotValidException.class)
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>public ResponseEntity&lt;ErrorResponse&gt; handleValidation(MethodArgumentNotValidException e) {
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    List&lt;String&gt; errors = e.getBindingResult()
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>        .getFieldErrors()
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>        .stream()
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>        .map(error -&gt; error.getField() + &quot;: &quot; + error.getDefaultMessage())
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>        .toList();
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    return ResponseEntity.badRequest().body(new ErrorResponse(&quot;VALIDATION_FAILED&quot;, errors));
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>}
+</code></pre></div>
 <h3 id="_6">단점 / 주의할 점</h3>
 <table>
 <thead>

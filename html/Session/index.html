@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4172,10 +4174,10 @@
 <h4 id="session">Session 구조</h4>
 <ul>
 <li>서버: 사용자별 상태 정보를 저장</li>
-<li>클라이언트(브라우저): 그 사용자를 시벽할 수 있는 세션 ID만 보관</li>
+<li>클라이언트(브라우저): 그 사용자를 시벽할 수 있는 세션 ID만 보관
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[브라우저] -&gt; 세션ID -&gt; [서버]
+</code></pre></div></li>
 </ul>
-<pre><code class="language-markdown">[브라우저] -&gt; 세션ID -&gt; [서버]
-</code></pre>
 <h4 id="session_1">Session 구성 요소</h4>
 <table>
 <thead>
@@ -4204,18 +4206,18 @@
 <li>사용자가 ID/PW로 로그인 요청</li>
 <li>서버가 인증 성공</li>
 <li>서버가 세션 생성
-  <code>http
-  Session ID: ABC123
-  Session Data: { userId: 10, role: ADMIN }</code> </li>
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="err">Session ID: ABC123</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="err">Session Data: { userId: 10, role: ADMIN }</span>
+</code></pre></div></li>
 <li>서버가 응답 헤더에 쿠기 설정
-  <code>http
-  Set-Cookie: JSESSIONID=ABC123; HttpOnly; Path=/</code></li>
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="err">Set-Cookie: JSESSIONID=ABC123; HttpOnly; Path=/</span>
+</code></pre></div></li>
 </ul>
 </li>
 <li>이후 요청<ul>
 <li>브라우저가 자동으로 쿠기 전송
-  <code>http
-  Cookie: JSESSIONID=ABC123</code></li>
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="err">Cookie: JSESSIONID=ABC123</span>
+</code></pre></div></li>
 <li>서버가 세션 저장소에서 조회</li>
 <li>로그인된 사용자로 판단</li>
 </ul>
@@ -4286,37 +4288,17 @@
 </tbody>
 </table>
 <h4 id="_2">세션 탈취 방어 방법</h4>
-<pre><code class="language-html">Set-Cookie: JSESSIONID=ABC;
-    HttpOnly;
-    Secure;
-    SameSite=Strict
-</code></pre>
-<table>
-<thead>
-<tr>
-<th>옵션</th>
-<th>의미</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>HttpOnly</td>
-<td>JS에서 접근 불가 (XSS 방어)</td>
-</tr>
-<tr>
-<td>Secure</td>
-<td>HTTPS에서만 전송</td>
-</tr>
-<tr>
-<td>SameSite</td>
-<td>CSRF 방어</td>
-</tr>
-<tr>
-<td>- 로그인 시 세션 재발급</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Set-Cookie: JSESSIONID=ABC;
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    HttpOnly;
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    Secure;
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    SameSite=Strict
+</code></pre></div>
+|옵션| 의미 |
+|--|--|
+|HttpOnly|JS에서 접근 불가 (XSS 방어)|
+|Secure|HTTPS에서만 전송|
+|SameSite|CSRF 방어|
+- 로그인 시 세션 재발급</p>
 
 
 

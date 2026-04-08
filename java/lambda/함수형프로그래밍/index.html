@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4329,85 +4331,85 @@
 <h3 id="_2">핵심 개념</h3>
 <h4 id="pure-function">순수 함수 (Pure Function)</h4>
 <p>같은 입력이면 항상 같은 출력. 외부 상태를 읽거나 변경하지 않는다.</p>
-<pre><code class="language-markdown">// 순수 함수
-int add(int a, int b) {
-    return a + b; // 외부 의존 없음, 사이드 이펙트 없음
-}
-
-// 순수 함수가 아닌 예
-int count = 0;
-void increment() {
-    count++; // 외부 상태 변경 → 부작용(side effect)
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>// 순수 함수
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>int add(int a, int b) {
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    return a + b; // 외부 의존 없음, 사이드 이펙트 없음
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>}
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>// 순수 함수가 아닌 예
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>int count = 0;
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>void increment() {
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    count++; // 외부 상태 변경 → 부작용(side effect)
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>}
+</code></pre></div>
 <h4 id="immutability">불변성 (Immutability)</h4>
 <p>데이터를 변경하지 않고, 변환된 새 값을 반환한다.</p>
-<pre><code class="language-markdown">// 가변 방식
-List&lt;String&gt; list = new ArrayList&lt;&gt;();
-list.add(&quot;a&quot;); // 원본 변경
-
-// 불변 방식 (스트림)
-List&lt;String&gt; newList = original.stream()
-    .filter(s -&gt; !s.isEmpty())
-    .toList(); // 원본 그대로, 새 리스트 반환
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>// 가변 방식
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>List&lt;String&gt; list = new ArrayList&lt;&gt;();
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>list.add(&quot;a&quot;); // 원본 변경
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>// 불변 방식 (스트림)
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>List&lt;String&gt; newList = original.stream()
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    .filter(s -&gt; !s.isEmpty())
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    .toList(); // 원본 그대로, 새 리스트 반환
+</code></pre></div>
 <h4 id="1-first-class-function">1급 함수 (First-class Function)</h4>
 <p>함수를 값처럼 다룰 수 있다. 변수에 저장하고, 파라미터로 전달하고, 반환값으로 돌려줄 수 있다.</p>
-<pre><code class="language-markdown">// 함수를 변수에 저장
-Function&lt;Integer, Integer&gt; square = x -&gt; x * x;
-
-// 함수를 파라미터로 전달
-List&lt;Integer&gt; result = numbers.stream()
-    .map(square)   // 함수 전달
-    .toList();
-
-// 함수를 반환하는 함수 (고차 함수)
-Function&lt;Integer, Function&lt;Integer, Integer&gt;&gt; adder = a -&gt; b -&gt; a + b;
-Function&lt;Integer, Integer&gt; add5 = adder.apply(5);
-add5.apply(3); // 8
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>// 함수를 변수에 저장
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Function&lt;Integer, Integer&gt; square = x -&gt; x * x;
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>// 함수를 파라미터로 전달
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>List&lt;Integer&gt; result = numbers.stream()
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    .map(square)   // 함수 전달
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    .toList();
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>// 함수를 반환하는 함수 (고차 함수)
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>Function&lt;Integer, Function&lt;Integer, Integer&gt;&gt; adder = a -&gt; b -&gt; a + b;
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>Function&lt;Integer, Integer&gt; add5 = adder.apply(5);
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>add5.apply(3); // 8
+</code></pre></div>
 <h4 id="higher-order-function">고차 함수 (Higher-order Function)</h4>
 <p>함수를 인자로 받거나 함수를 반환하는 함수.</p>
-<pre><code class="language-markdown">// map, filter, reduce 모두 고차 함수
-list.stream()
-    .filter(x -&gt; x &gt; 0)      // 조건 함수를 받음
-    .map(x -&gt; x * 2)          // 변환 함수를 받음
-    .reduce(0, Integer::sum); // 누산 함수를 받음
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>// map, filter, reduce 모두 고차 함수
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>list.stream()
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    .filter(x -&gt; x &gt; 0)      // 조건 함수를 받음
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    .map(x -&gt; x * 2)          // 변환 함수를 받음
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    .reduce(0, Integer::sum); // 누산 함수를 받음
+</code></pre></div>
 <h3 id="java">Java에서 함수형 프로그래밍</h3>
 <p>Java 8부터 람다, Stream API, 함수형 인터페이스로 함수형 스타일을 지원한다.</p>
 <h4 id="_3">주요 함수형 인터페이스</h4>
-<pre><code class="language-markdown">Function&lt;T, R&gt;    // T 받아 R 반환: map에 사용
-Predicate&lt;T&gt;      // T 받아 boolean: filter에 사용
-Consumer&lt;T&gt;       // T 받아 반환 없음: forEach에 사용
-Supplier&lt;T&gt;       // 인자 없이 T 반환: 지연 생성에 사용
-UnaryOperator&lt;T&gt;  // T 받아 T 반환: 같은 타입 변환
-BinaryOperator&lt;T&gt; // T 두 개 받아 T 반환: reduce에 사용
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Function&lt;T, R&gt;    // T 받아 R 반환: map에 사용
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Predicate&lt;T&gt;      // T 받아 boolean: filter에 사용
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Consumer&lt;T&gt;       // T 받아 반환 없음: forEach에 사용
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Supplier&lt;T&gt;       // 인자 없이 T 반환: 지연 생성에 사용
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>UnaryOperator&lt;T&gt;  // T 받아 T 반환: 같은 타입 변환
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>BinaryOperator&lt;T&gt; // T 두 개 받아 T 반환: reduce에 사용
+</code></pre></div>
 <h4 id="_4">함수 합성</h4>
-<pre><code class="language-markdown">Function&lt;Integer, Integer&gt; times2 = x -&gt; x * 2;
-Function&lt;Integer, Integer&gt; plus3  = x -&gt; x + 3;
-
-// andThen: times2 실행 후 plus3
-Function&lt;Integer, Integer&gt; times2ThenPlus3 = times2.andThen(plus3);
-times2ThenPlus3.apply(5); // (5 * 2) + 3 = 13
-
-// compose: plus3 먼저, 그 다음 times2
-Function&lt;Integer, Integer&gt; plus3ThenTimes2 = times2.compose(plus3);
-plus3ThenTimes2.apply(5); // (5 + 3) * 2 = 16
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Function&lt;Integer, Integer&gt; times2 = x -&gt; x * 2;
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Function&lt;Integer, Integer&gt; plus3  = x -&gt; x + 3;
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>// andThen: times2 실행 후 plus3
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>Function&lt;Integer, Integer&gt; times2ThenPlus3 = times2.andThen(plus3);
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>times2ThenPlus3.apply(5); // (5 * 2) + 3 = 13
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>// compose: plus3 먼저, 그 다음 times2
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>Function&lt;Integer, Integer&gt; plus3ThenTimes2 = times2.compose(plus3);
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>plus3ThenTimes2.apply(5); // (5 + 3) * 2 = 16
+</code></pre></div>
 <h4 id="predicate">Predicate 합성</h4>
-<pre><code class="language-markdown">Predicate&lt;Integer&gt; isPositive = x -&gt; x &gt; 0;
-Predicate&lt;Integer&gt; isEven     = x -&gt; x % 2 == 0;
-
-Predicate&lt;Integer&gt; isPositiveAndEven = isPositive.and(isEven);
-Predicate&lt;Integer&gt; isPositiveOrEven  = isPositive.or(isEven);
-Predicate&lt;Integer&gt; isNotPositive     = isPositive.negate();
-
-list.stream()
-    .filter(isPositiveAndEven)
-    .toList();
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Predicate&lt;Integer&gt; isPositive = x -&gt; x &gt; 0;
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Predicate&lt;Integer&gt; isEven     = x -&gt; x % 2 == 0;
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Predicate&lt;Integer&gt; isPositiveAndEven = isPositive.and(isEven);
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>Predicate&lt;Integer&gt; isPositiveOrEven  = isPositive.or(isEven);
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>Predicate&lt;Integer&gt; isNotPositive     = isPositive.negate();
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>list.stream()
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    .filter(isPositiveAndEven)
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    .toList();
+</code></pre></div>
 <h3 id="oop-vs">OOP vs 함수형 비교</h3>
 <table>
 <thead>
@@ -4461,20 +4463,20 @@ list.stream()
 </ul>
 <h3 id="_7">주의할 점</h3>
 <p><strong>람다 안에서 외부 변수 변경 불가</strong></p>
-<pre><code class="language-markdown">int count = 0;
-list.forEach(s -&gt; count++); // 컴파일 오류 - effectively final 위반
-
-// 대신 스트림으로 집계
-long count = list.stream().count();
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>int count = 0;
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>list.forEach(s -&gt; count++); // 컴파일 오류 - effectively final 위반
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>// 대신 스트림으로 집계
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>long count = list.stream().count();
+</code></pre></div>
 <p><strong>사이드 이펙트를 forEach에 몰아넣기</strong></p>
 <p>순수 함수 파이프라인 끝에만 부작용을 허용하는 패턴을 권장한다.</p>
-<pre><code class="language-markdown">// 좋은 패턴: 변환은 map/filter, 출력은 마지막 forEach
-list.stream()
-    .filter(s -&gt; s.length() &gt; 3)
-    .map(String::toUpperCase)
-    .forEach(System.out::println); // 사이드 이펙트는 맨 끝에만
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>// 좋은 패턴: 변환은 map/filter, 출력은 마지막 forEach
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>list.stream()
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    .filter(s -&gt; s.length() &gt; 3)
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    .map(String::toUpperCase)
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    .forEach(System.out::println); // 사이드 이펙트는 맨 끝에만
+</code></pre></div>
 
 
 

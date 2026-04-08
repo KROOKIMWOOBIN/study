@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4148,18 +4150,18 @@
 <hr />
 <h3 id="spring-actuator">Spring Actuator</h3>
 <p>애플리케이션 상태를 HTTP 엔드포인트로 노출한다.</p>
-<pre><code class="language-markdown">implementation 'org.springframework.boot:spring-boot-starter-actuator'
-</code></pre>
-<pre><code class="language-markdown"># application.yml
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health, info, metrics, prometheus
-  endpoint:
-    health:
-      show-details: always
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>implementation &#39;org.springframework.boot:spring-boot-starter-actuator&#39;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gh"># application.yml</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>management:
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  endpoints:
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    web:
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>      exposure:
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        include: health, info, metrics, prometheus
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  endpoint:
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    health:
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>      show-details: always
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4186,51 +4188,51 @@ management:
 </tr>
 </tbody>
 </table>
-<pre><code class="language-markdown">// 헬스체크 응답
-{
-  &quot;status&quot;: &quot;UP&quot;,
-  &quot;components&quot;: {
-    &quot;db&quot;: { &quot;status&quot;: &quot;UP&quot; },
-    &quot;redis&quot;: { &quot;status&quot;: &quot;UP&quot; }
-  }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>// 헬스체크 응답
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>{
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  &quot;status&quot;: &quot;UP&quot;,
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  &quot;components&quot;: {
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    &quot;db&quot;: { &quot;status&quot;: &quot;UP&quot; },
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    &quot;redis&quot;: { &quot;status&quot;: &quot;UP&quot; }
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  }
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>}
+</code></pre></div>
 <hr />
 <h3 id="prometheus-grafana">Prometheus + Grafana 연동</h3>
-<pre><code class="language-markdown">implementation 'io.micrometer:micrometer-registry-prometheus'
-</code></pre>
-<pre><code class="language-markdown"># prometheus.yml
-scrape_configs:
-  - job_name: 'spring-app'
-    metrics_path: '/actuator/prometheus'
-    scrape_interval: 15s
-    static_configs:
-      - targets: ['app:8080']
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>implementation &#39;io.micrometer:micrometer-registry-prometheus&#39;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gh"># prometheus.yml</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>scrape_configs:
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="k">-</span><span class="w"> </span>job_name: &#39;spring-app&#39;
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    metrics_path: &#39;/actuator/prometheus&#39;
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    scrape_interval: 15s
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    static_configs:
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">      </span><span class="k">-</span><span class="w"> </span>targets: [&#39;app:8080&#39;]
+</code></pre></div>
 <p>Prometheus가 15초마다 <code>/actuator/prometheus</code>에서 메트릭 수집 → Grafana에서 시각화.</p>
 <hr />
 <h3 id="_2">커스텀 메트릭</h3>
-<pre><code class="language-markdown">@Service
-@RequiredArgsConstructor
-public class OrderService {
-
-    private final MeterRegistry meterRegistry;
-    private final Counter orderCounter;
-
-    @PostConstruct
-    public void init() {
-        orderCounter = Counter.builder(&quot;order.count&quot;)
-            .description(&quot;총 주문 수&quot;)
-            .tag(&quot;type&quot;, &quot;all&quot;)
-            .register(meterRegistry);
-    }
-
-    public void placeOrder(OrderRequest request) {
-        // 주문 처리...
-        orderCounter.increment();  // 메트릭 기록
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="ni">@Service</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="ni">@RequiredArgsConstructor</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>public class OrderService {
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    private final MeterRegistry meterRegistry;
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    private final Counter orderCounter;
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="ni">@PostConstruct</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    public void init() {
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>        orderCounter = Counter.builder(&quot;order.count&quot;)
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>            .description(&quot;총 주문 수&quot;)
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>            .tag(&quot;type&quot;, &quot;all&quot;)
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>            .register(meterRegistry);
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    }
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    public void placeOrder(OrderRequest request) {
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>        // 주문 처리...
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>        orderCounter.increment();  // 메트릭 기록
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>    }
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>}
+</code></pre></div>
 <hr />
 <h3 id="_3">주요 모니터링 지표</h3>
 <table>
@@ -4271,21 +4273,21 @@ public class OrderService {
 </table>
 <hr />
 <h3 id="_4">헬스체크 커스터마이징</h3>
-<pre><code class="language-markdown">@Component
-public class ExternalApiHealthIndicator implements HealthIndicator {
-
-    @Override
-    public Health health() {
-        try {
-            // 외부 API 상태 확인
-            restTemplate.getForObject(&quot;https://api.external.com/health&quot;, String.class);
-            return Health.up().withDetail(&quot;externalApi&quot;, &quot;정상&quot;).build();
-        } catch (Exception e) {
-            return Health.down().withDetail(&quot;externalApi&quot;, e.getMessage()).build();
-        }
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="ni">@Component</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>public class ExternalApiHealthIndicator implements HealthIndicator {
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="ni">@Override</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    public Health health() {
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>        try {
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>            // 외부 API 상태 확인
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>            restTemplate.getForObject(&quot;https://api.external.com/health&quot;, String.class);
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>            return Health.up().withDetail(&quot;externalApi&quot;, &quot;정상&quot;).build();
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>        } catch (Exception e) {
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>            return Health.down().withDetail(&quot;externalApi&quot;, e.getMessage()).build();
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>        }
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    }
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>}
+</code></pre></div>
 <h3 id="_5">단점 / 주의할 점</h3>
 <table>
 <thead>

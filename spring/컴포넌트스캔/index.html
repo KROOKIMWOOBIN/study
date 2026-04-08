@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4406,82 +4408,82 @@
 <hr />
 <h2 id="_1">왜 필요한가</h2>
 <p><code>@Bean</code>으로 빈을 등록하면 클래스마다 직접 작성해야 한다.</p>
-<pre><code class="language-java">@Configuration
-public class AppConfig {
-    @Bean public MemberService memberService() { return new MemberServiceImpl(memberRepository()); }
-    @Bean public MemberRepository memberRepository() { return new MemoryMemberRepository(); }
-    @Bean public OrderService orderService() { return new OrderServiceImpl(memberRepository(), discountPolicy()); }
-    @Bean public DiscountPolicy discountPolicy() { return new RateDiscountPolicy(); }
-    // 빈이 수십, 수백 개가 되면?
-    // 클래스 만들 때마다 여기에도 추가해야 하고, 실수로 누락하기 쉬움
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nd">@Configuration</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AppConfig</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nd">@Bean</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="n">MemberService</span><span class="w"> </span><span class="nf">memberService</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MemberServiceImpl</span><span class="p">(</span><span class="n">memberRepository</span><span class="p">());</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nd">@Bean</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="n">MemberRepository</span><span class="w"> </span><span class="nf">memberRepository</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MemoryMemberRepository</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nd">@Bean</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="n">OrderService</span><span class="w"> </span><span class="nf">orderService</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OrderServiceImpl</span><span class="p">(</span><span class="n">memberRepository</span><span class="p">(),</span><span class="w"> </span><span class="n">discountPolicy</span><span class="p">());</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nd">@Bean</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="n">DiscountPolicy</span><span class="w"> </span><span class="nf">discountPolicy</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RateDiscountPolicy</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="c1">// 빈이 수십, 수백 개가 되면?</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="c1">// 클래스 만들 때마다 여기에도 추가해야 하고, 실수로 누락하기 쉬움</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
+</code></pre></div>
 <p>프로젝트가 커지면 이 방식은 유지보수가 매우 힘들어진다.</p>
 <p><code>@ComponentScan</code>은 이 문제를 해결한다.
 클래스패스를 탐색해서 <code>@Component</code>가 붙은 클래스를 <strong>자동으로 빈으로 등록</strong>해준다.
 <code>AppConfig</code>에 일일이 <code>@Bean</code>을 작성할 필요가 없다.</p>
 <hr />
 <h2 id="_2">동작 방식</h2>
-<pre><code>1. @ComponentScan이 선언된 위치를 기준으로 하위 패키지 전체를 탐색
-        ↓
-2. @Component가 붙은 클래스를 발견
-        ↓
-3. 스프링 빈으로 자동 등록
-   (빈 이름: 클래스명 첫 글자를 소문자로 변환 — MemberServiceImpl → memberServiceImpl)
-        ↓
-4. @Autowired 어노테이션을 발견하면 타입에 맞는 빈을 찾아서 자동 주입
-</code></pre>
-<pre><code class="language-java">// 1. @ComponentScan 선언
-@Configuration
-@ComponentScan // 이 클래스가 있는 패키지부터 하위 전체를 탐색
-public class AutoAppConfig {
-    // @Bean 없이 비어있어도 됨 — 클래스들의 @Component를 보고 자동 등록
-}
-
-// 2. 등록하고 싶은 클래스에 @Component 추가
-@Component
-public class MemoryMemberRepository implements MemberRepository {
-    // ...
-}
-
-// 3. 의존관계는 @Autowired로 자동 주입
-@Component
-public class MemberServiceImpl implements MemberService {
-    private final MemberRepository memberRepository;
-
-    @Autowired // 스프링이 MemberRepository 타입의 빈을 찾아서 여기에 주입
-    public MemberServiceImpl(MemberRepository memberRepository) {
-        this.memberRepository = memberRepository;
-    }
-}
-</code></pre>
-<pre><code class="language-java">// 사용 — 기존과 동일하게 ApplicationContext를 통해 빈 조회
-ApplicationContext ac = new AnnotationConfigApplicationContext(AutoAppConfig.class);
-MemberService memberService = ac.getBean(MemberService.class);
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>1. @ComponentScan이 선언된 위치를 기준으로 하위 패키지 전체를 탐색
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>        ↓
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>2. @Component가 붙은 클래스를 발견
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        ↓
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>3. 스프링 빈으로 자동 등록
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>   (빈 이름: 클래스명 첫 글자를 소문자로 변환 — MemberServiceImpl → memberServiceImpl)
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        ↓
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>4. @Autowired 어노테이션을 발견하면 타입에 맞는 빈을 찾아서 자동 주입
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// 1. @ComponentScan 선언</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nd">@Configuration</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nd">@ComponentScan</span><span class="w"> </span><span class="c1">// 이 클래스가 있는 패키지부터 하위 전체를 탐색</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AutoAppConfig</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="c1">// @Bean 없이 비어있어도 됨 — 클래스들의 @Component를 보고 자동 등록</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1">// 2. 등록하고 싶은 클래스에 @Component 추가</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="nd">@Component</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MemoryMemberRepository</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">MemberRepository</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="c1">// ...</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="p">}</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="c1">// 3. 의존관계는 @Autowired로 자동 주입</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="nd">@Component</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MemberServiceImpl</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">MemberService</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">MemberRepository</span><span class="w"> </span><span class="n">memberRepository</span><span class="p">;</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="nd">@Autowired</span><span class="w"> </span><span class="c1">// 스프링이 MemberRepository 타입의 빈을 찾아서 여기에 주입</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">MemberServiceImpl</span><span class="p">(</span><span class="n">MemberRepository</span><span class="w"> </span><span class="n">memberRepository</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">memberRepository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">memberRepository</span><span class="p">;</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// 사용 — 기존과 동일하게 ApplicationContext를 통해 빈 조회</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">ApplicationContext</span><span class="w"> </span><span class="n">ac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AnnotationConfigApplicationContext</span><span class="p">(</span><span class="n">AutoAppConfig</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">MemberService</span><span class="w"> </span><span class="n">memberService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ac</span><span class="p">.</span><span class="na">getBean</span><span class="p">(</span><span class="n">MemberService</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+</code></pre></div>
 <hr />
 <h2 id="_3">빈 이름 규칙</h2>
 <p>기본적으로 클래스 이름의 <strong>첫 글자를 소문자</strong>로 바꾼 이름이 빈 이름이 된다.</p>
-<pre><code>MemberServiceImpl    → memberServiceImpl
-MemoryMemberRepository → memoryMemberRepository
-RateDiscountPolicy   → rateDiscountPolicy
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>MemberServiceImpl    → memberServiceImpl
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>MemoryMemberRepository → memoryMemberRepository
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>RateDiscountPolicy   → rateDiscountPolicy
+</code></pre></div>
 <p>직접 이름을 지정할 수도 있다.</p>
-<pre><code class="language-java">@Component(&quot;myMemberService&quot;) // 빈 이름: myMemberService
-public class MemberServiceImpl implements MemberService { ... }
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nd">@Component</span><span class="p">(</span><span class="s">&quot;myMemberService&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// 빈 이름: myMemberService</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MemberServiceImpl</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">MemberService</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
 <hr />
 <h2 id="component">@Component 계열 어노테이션</h2>
 <p>실무에서는 <code>@Component</code>를 직접 쓰는 경우는 드물다.
 역할을 명확히 표현하는 <strong>특화 어노테이션</strong>을 사용한다.</p>
 <p>내부적으로 모두 <code>@Component</code>를 포함하고 있어서 컴포넌트 스캔의 대상이 된다.</p>
-<pre><code class="language-java">// @Service 내부를 보면
-@Target(ElementType.TYPE)
-@Retention(RetentionPolicy.RUNTIME)
-@Documented
-@Component // ← @Component가 들어있어서 컴포넌트 스캔 대상이 됨
-public @interface Service { ... }
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// @Service 내부를 보면</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nd">@Target</span><span class="p">(</span><span class="n">ElementType</span><span class="p">.</span><span class="na">TYPE</span><span class="p">)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nd">@Retention</span><span class="p">(</span><span class="n">RetentionPolicy</span><span class="p">.</span><span class="na">RUNTIME</span><span class="p">)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nd">@Documented</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nd">@Component</span><span class="w"> </span><span class="c1">// ← @Component가 들어있어서 컴포넌트 스캔 대상이 됨</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="kd">public</span><span class="w"> </span><span class="nd">@interface</span><span class="w"> </span><span class="n">Service</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4523,147 +4525,147 @@ JPA, MyBatis, JDBC 등 기술마다 예외 클래스가 다르다. (<code>JpaExc
 <code>@Repository</code>가 있으면 스프링 AOP가 이 예외들을 <code>DataAccessException</code>으로 통일시켜준다.
 서비스 계층에서 DB 기술에 종속되지 않은 예외 처리를 할 수 있게 된다.</p>
 <h3 id="_4">계층별 어노테이션 전체 예제</h3>
-<pre><code class="language-java">// 웹 계층 — HTTP 요청을 받고 응답을 반환
-@Controller
-public class MemberController {
-    private final MemberService memberService;
-
-    @Autowired
-    public MemberController(MemberService memberService) {
-        this.memberService = memberService;
-    }
-
-    @GetMapping(&quot;/members/{id}&quot;)
-    @ResponseBody
-    public MemberDto getMember(@PathVariable Long id) {
-        return memberService.findMember(id);
-    }
-}
-
-// 서비스 계층 — 비즈니스 로직
-@Service
-public class MemberServiceImpl implements MemberService {
-    private final MemberRepository memberRepository;
-
-    @Autowired
-    public MemberServiceImpl(MemberRepository memberRepository) {
-        this.memberRepository = memberRepository;
-    }
-
-    @Override
-    public MemberDto findMember(Long id) {
-        Member member = memberRepository.findById(id)
-            .orElseThrow(() -&gt; new MemberNotFoundException(id));
-        return new MemberDto(member);
-    }
-}
-
-// 레포지토리 계층 — DB 접근
-@Repository
-public class JpaMemberRepository implements MemberRepository {
-    private final EntityManager em;
-
-    public JpaMemberRepository(EntityManager em) {
-        this.em = em;
-    }
-
-    @Override
-    public Optional&lt;Member&gt; findById(Long id) {
-        return Optional.ofNullable(em.find(Member.class, id));
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// 웹 계층 — HTTP 요청을 받고 응답을 반환</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nd">@Controller</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MemberController</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">MemberService</span><span class="w"> </span><span class="n">memberService</span><span class="p">;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="nd">@Autowired</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">MemberController</span><span class="p">(</span><span class="n">MemberService</span><span class="w"> </span><span class="n">memberService</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">memberService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">memberService</span><span class="p">;</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/members/{id}&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="nd">@ResponseBody</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">MemberDto</span><span class="w"> </span><span class="nf">getMember</span><span class="p">(</span><span class="nd">@PathVariable</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">memberService</span><span class="p">.</span><span class="na">findMember</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="p">}</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="c1">// 서비스 계층 — 비즈니스 로직</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="nd">@Service</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MemberServiceImpl</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">MemberService</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">MemberRepository</span><span class="w"> </span><span class="n">memberRepository</span><span class="p">;</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="w">    </span><span class="nd">@Autowired</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">MemberServiceImpl</span><span class="p">(</span><span class="n">MemberRepository</span><span class="w"> </span><span class="n">memberRepository</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">memberRepository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">memberRepository</span><span class="p">;</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>
+<a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">MemberDto</span><span class="w"> </span><span class="nf">findMember</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="w">        </span><span class="n">Member</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">memberRepository</span><span class="p">.</span><span class="na">findById</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="w">            </span><span class="p">.</span><span class="na">orElseThrow</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MemberNotFoundException</span><span class="p">(</span><span class="n">id</span><span class="p">));</span>
+<a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MemberDto</span><span class="p">(</span><span class="n">member</span><span class="p">);</span>
+<a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a><span class="p">}</span>
+<a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a>
+<a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a><span class="c1">// 레포지토리 계층 — DB 접근</span>
+<a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a><span class="nd">@Repository</span>
+<a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">JpaMemberRepository</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">MemberRepository</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">EntityManager</span><span class="w"> </span><span class="n">em</span><span class="p">;</span>
+<a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a>
+<a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">JpaMemberRepository</span><span class="p">(</span><span class="n">EntityManager</span><span class="w"> </span><span class="n">em</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">em</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">em</span><span class="p">;</span>
+<a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a>
+<a id="__codelineno-7-45" name="__codelineno-7-45" href="#__codelineno-7-45"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-7-46" name="__codelineno-7-46" href="#__codelineno-7-46"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">Member</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findById</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-47" name="__codelineno-7-47" href="#__codelineno-7-47"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Optional</span><span class="p">.</span><span class="na">ofNullable</span><span class="p">(</span><span class="n">em</span><span class="p">.</span><span class="na">find</span><span class="p">(</span><span class="n">Member</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">));</span>
+<a id="__codelineno-7-48" name="__codelineno-7-48" href="#__codelineno-7-48"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-49" name="__codelineno-7-49" href="#__codelineno-7-49"></a><span class="p">}</span>
+</code></pre></div>
 <hr />
 <h2 id="_5">스캔 범위 설정</h2>
 <h3 id="_6">기본값 (권장)</h3>
 <p><code>@ComponentScan</code>이 선언된 클래스의 패키지부터 하위 전체를 탐색한다.</p>
-<pre><code class="language-java">package hello.core;
-
-@ComponentScan // hello.core 패키지와 그 하위 패키지 전체 탐색
-public class AppConfig { ... }
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">hello.core</span><span class="p">;</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nd">@ComponentScan</span><span class="w"> </span><span class="c1">// hello.core 패키지와 그 하위 패키지 전체 탐색</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AppConfig</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
 <p><code>hello.core.member</code>, <code>hello.core.order</code> 등 하위 패키지 전부 스캔됨.
 <code>hello.core</code> 밖의 패키지는 스캔 안 됨.</p>
 <h3 id="_7">직접 지정</h3>
-<pre><code class="language-java">@ComponentScan(basePackages = &quot;hello.core&quot;)
-// hello.core와 그 하위 패키지 탐색
-
-@ComponentScan(basePackages = {&quot;hello.core&quot;, &quot;hello.service&quot;})
-// 여러 패키지 지정
-
-@ComponentScan(basePackageClasses = AppConfig.class)
-// 특정 클래스가 속한 패키지부터 탐색 (문자열 대신 클래스를 지정 — 리팩터링에 안전)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nd">@ComponentScan</span><span class="p">(</span><span class="n">basePackages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello.core&quot;</span><span class="p">)</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="c1">// hello.core와 그 하위 패키지 탐색</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="nd">@ComponentScan</span><span class="p">(</span><span class="n">basePackages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;hello.core&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;hello.service&quot;</span><span class="p">})</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1">// 여러 패키지 지정</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="nd">@ComponentScan</span><span class="p">(</span><span class="n">basePackageClasses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AppConfig</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="c1">// 특정 클래스가 속한 패키지부터 탐색 (문자열 대신 클래스를 지정 — 리팩터링에 안전)</span>
+</code></pre></div>
 <h3 id="_8">권장 프로젝트 구조</h3>
 <p>설정 클래스를 <strong>프로젝트 최상위 패키지</strong>에 두면 하위 전체가 자동으로 탐색된다.
 별도로 <code>basePackages</code>를 지정할 필요가 없어 실수를 줄일 수 있다.</p>
-<pre><code>com.myapp                        ← AppConfig 위치 (최상위)
-├── AppConfig.java                ← @ComponentScan (com.myapp 부터 전체 탐색)
-├── member/
-│   ├── MemberController.java     ← @Controller
-│   ├── MemberService.java
-│   ├── MemberServiceImpl.java    ← @Service
-│   └── MemberRepository.java
-├── order/
-│   ├── OrderController.java      ← @Controller
-│   ├── OrderServiceImpl.java     ← @Service
-│   └── OrderRepository.java      ← @Repository
-└── discount/
-    ├── DiscountPolicy.java
-    └── RateDiscountPolicy.java   ← @Component
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>com.myapp                        ← AppConfig 위치 (최상위)
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>├── AppConfig.java                ← @ComponentScan (com.myapp 부터 전체 탐색)
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>├── member/
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>│   ├── MemberController.java     ← @Controller
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>│   ├── MemberService.java
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>│   ├── MemberServiceImpl.java    ← @Service
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>│   └── MemberRepository.java
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>├── order/
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>│   ├── OrderController.java      ← @Controller
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>│   ├── OrderServiceImpl.java     ← @Service
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>│   └── OrderRepository.java      ← @Repository
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>└── discount/
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>    ├── DiscountPolicy.java
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>    └── RateDiscountPolicy.java   ← @Component
+</code></pre></div>
 <h3 id="spring-boot">Spring Boot의 경우</h3>
 <p><code>@SpringBootApplication</code>이 내부에 <code>@ComponentScan</code>을 포함하고 있다.
 별도 설정 없이 <code>main</code> 클래스가 있는 패키지부터 전체를 스캔한다.</p>
-<pre><code class="language-java">@SpringBootApplication
-// 내부 = @SpringBootConfiguration + @ComponentScan + @EnableAutoConfiguration
-public class Application {
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
-    }
-}
-// Application.java가 com.myapp 패키지에 있으면 → com.myapp 하위 전체 스캔
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nd">@SpringBootApplication</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="c1">// 내부 = @SpringBootConfiguration + @ComponentScan + @EnableAutoConfiguration</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Application</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">        </span><span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">Application</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">);</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="p">}</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="c1">// Application.java가 com.myapp 패키지에 있으면 → com.myapp 하위 전체 스캔</span>
+</code></pre></div>
 <hr />
 <h2 id="_9">필터 설정</h2>
 <p>기본 스캔 규칙에서 특정 클래스를 포함하거나 제외하고 싶을 때 사용한다.</p>
 <h3 id="includefilters">includeFilters — 스캔 대상 추가</h3>
 <p><code>@Component</code>가 없어도 스캔 대상에 포함시킨다.</p>
-<pre><code class="language-java">// 커스텀 어노테이션 정의
-@Target(ElementType.TYPE)
-@Retention(RetentionPolicy.RUNTIME)
-public @interface MyIncludeComponent {}
-
-// 이 어노테이션이 붙은 클래스도 자동 등록
-@MyIncludeComponent
-public class BeanA { ... }
-
-// 설정
-@ComponentScan(
-    includeFilters = @ComponentScan.Filter(
-        type = FilterType.ANNOTATION,
-        classes = MyIncludeComponent.class
-    )
-)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">// 커스텀 어노테이션 정의</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nd">@Target</span><span class="p">(</span><span class="n">ElementType</span><span class="p">.</span><span class="na">TYPE</span><span class="p">)</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="nd">@Retention</span><span class="p">(</span><span class="n">RetentionPolicy</span><span class="p">.</span><span class="na">RUNTIME</span><span class="p">)</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="kd">public</span><span class="w"> </span><span class="nd">@interface</span><span class="w"> </span><span class="n">MyIncludeComponent</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="c1">// 이 어노테이션이 붙은 클래스도 자동 등록</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="nd">@MyIncludeComponent</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BeanA</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="c1">// 설정</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="nd">@ComponentScan</span><span class="p">(</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">    </span><span class="n">includeFilters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nd">@ComponentScan.Filter</span><span class="p">(</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">        </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FilterType</span><span class="p">.</span><span class="na">ANNOTATION</span><span class="p">,</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">        </span><span class="n">classes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MyIncludeComponent</span><span class="p">.</span><span class="na">class</span>
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">    </span><span class="p">)</span>
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="p">)</span>
+</code></pre></div>
 <h3 id="excludefilters">excludeFilters — 스캔 대상 제외</h3>
 <p><code>@Component</code>가 있어도 스캔 대상에서 제외한다.</p>
-<pre><code class="language-java">// 특정 어노테이션이 붙은 클래스 제외
-@ComponentScan(
-    excludeFilters = @ComponentScan.Filter(
-        type = FilterType.ANNOTATION,
-        classes = Configuration.class // @Configuration 붙은 클래스 제외
-    )
-)
-
-// 특정 클래스 제외
-@ComponentScan(
-    excludeFilters = @ComponentScan.Filter(
-        type = FilterType.ASSIGNABLE_TYPE,
-        classes = MemoryMemberRepository.class // 이 클래스 제외
-    )
-)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1">// 특정 어노테이션이 붙은 클래스 제외</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nd">@ComponentScan</span><span class="p">(</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="n">excludeFilters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nd">@ComponentScan.Filter</span><span class="p">(</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">        </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FilterType</span><span class="p">.</span><span class="na">ANNOTATION</span><span class="p">,</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">        </span><span class="n">classes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Configuration</span><span class="p">.</span><span class="na">class</span><span class="w"> </span><span class="c1">// @Configuration 붙은 클래스 제외</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="p">)</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="p">)</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="c1">// 특정 클래스 제외</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="nd">@ComponentScan</span><span class="p">(</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">    </span><span class="n">excludeFilters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nd">@ComponentScan.Filter</span><span class="p">(</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">        </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FilterType</span><span class="p">.</span><span class="na">ASSIGNABLE_TYPE</span><span class="p">,</span>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">        </span><span class="n">classes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MemoryMemberRepository</span><span class="p">.</span><span class="na">class</span><span class="w"> </span><span class="c1">// 이 클래스 제외</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="w">    </span><span class="p">)</span>
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="p">)</span>
+</code></pre></div>
 <h3 id="filtertype">FilterType 종류</h3>
 <table>
 <thead>
@@ -4706,35 +4708,35 @@ public class BeanA { ... }
 <h2 id="_10">중복 등록 문제</h2>
 <h3 id="vs">자동 vs 자동 (항상 오류)</h3>
 <p>같은 이름의 빈이 자동 등록으로 중복되면 <code>ConflictingBeanDefinitionException</code>이 발생한다.</p>
-<pre><code class="language-java">@Component
-public class MemoryMemberRepository implements MemberRepository { ... }
-// 빈 이름: memoryMemberRepository
-
-@Component(&quot;memoryMemberRepository&quot;) // 이름 충돌!
-public class OtherRepository implements MemberRepository { ... }
-// → ConflictingBeanDefinitionException
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nd">@Component</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MemoryMemberRepository</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">MemberRepository</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="c1">// 빈 이름: memoryMemberRepository</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="nd">@Component</span><span class="p">(</span><span class="s">&quot;memoryMemberRepository&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// 이름 충돌!</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OtherRepository</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">MemberRepository</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="c1">// → ConflictingBeanDefinitionException</span>
+</code></pre></div>
 <h3 id="vs-spring-boot">수동 vs 자동 (Spring Boot에서는 오류)</h3>
-<pre><code class="language-java">// 자동 등록
-@Component
-public class MemoryMemberRepository implements MemberRepository { ... }
-// 빈 이름: memoryMemberRepository
-
-// 수동 등록 (같은 이름)
-@Configuration
-public class AppConfig {
-    @Bean(name = &quot;memoryMemberRepository&quot;) // 자동 등록된 이름과 충돌
-    public MemberRepository memberRepository() { return new MemoryMemberRepository(); }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1">// 자동 등록</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nd">@Component</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MemoryMemberRepository</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">MemberRepository</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="c1">// 빈 이름: memoryMemberRepository</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="c1">// 수동 등록 (같은 이름)</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="nd">@Configuration</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AppConfig</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">    </span><span class="nd">@Bean</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;memoryMemberRepository&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// 자동 등록된 이름과 충돌</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">MemberRepository</span><span class="w"> </span><span class="nf">memberRepository</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MemoryMemberRepository</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="p">}</span>
+</code></pre></div>
 <p>과거 Spring에서는 수동 등록이 자동 등록을 오버라이딩했다. 조용히 덮어씌워지기 때문에 의도치 않은 버그를 유발했다.</p>
 <p>Spring Boot는 기본적으로 이 상황을 <strong>오류로 처리</strong>한다.</p>
-<pre><code>BeanDefinitionOverrideException:
-Invalid bean definition with name 'memoryMemberRepository' defined in ...
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>BeanDefinitionOverrideException:
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>Invalid bean definition with name &#39;memoryMemberRepository&#39; defined in ...
+</code></pre></div>
 <p>허용하려면 application.properties에 설정을 추가해야 한다:</p>
-<pre><code class="language-properties">spring.main.allow-bean-definition-overriding=true
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="na">spring.main.allow-bean-definition-overriding</span><span class="o">=</span><span class="s">true</span>
+</code></pre></div>
 <blockquote>
 <p><strong>권장</strong>: 수동/자동 빈 이름이 겹치지 않도록 처음부터 명확하게 구분한다.</p>
 </blockquote>
@@ -4766,33 +4768,33 @@ Invalid bean definition with name 'memoryMemberRepository' defined in ...
 </tr>
 </tbody>
 </table>
-<pre><code class="language-java">// 실무 패턴: 비즈니스 빈은 자동, 인프라 빈은 수동
-@Configuration
-public class InfraConfig {
-    @Bean
-    public DataSource dataSource() {
-        HikariDataSource ds = new HikariDataSource();
-        ds.setJdbcUrl(&quot;jdbc:mysql://localhost:3306/mydb&quot;);
-        ds.setUsername(&quot;root&quot;);
-        ds.setPassword(&quot;password&quot;);
-        return ds; // 외부 라이브러리 → 수동 등록
-    }
-
-    @Bean
-    public RedisTemplate&lt;String, Object&gt; redisTemplate(RedisConnectionFactory connectionFactory) {
-        RedisTemplate&lt;String, Object&gt; template = new RedisTemplate&lt;&gt;();
-        template.setConnectionFactory(connectionFactory);
-        return template;
-    }
-}
-
-// 비즈니스 로직은 컴포넌트 스캔
-@Service
-public class MemberService { ... }
-
-@Repository
-public class MemberRepository { ... }
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1">// 실무 패턴: 비즈니스 빈은 자동, 인프라 빈은 수동</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="nd">@Configuration</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">InfraConfig</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span><span class="nd">@Bean</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">DataSource</span><span class="w"> </span><span class="nf">dataSource</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">        </span><span class="n">HikariDataSource</span><span class="w"> </span><span class="n">ds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HikariDataSource</span><span class="p">();</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">        </span><span class="n">ds</span><span class="p">.</span><span class="na">setJdbcUrl</span><span class="p">(</span><span class="s">&quot;jdbc:mysql://localhost:3306/mydb&quot;</span><span class="p">);</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="w">        </span><span class="n">ds</span><span class="p">.</span><span class="na">setUsername</span><span class="p">(</span><span class="s">&quot;root&quot;</span><span class="p">);</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="w">        </span><span class="n">ds</span><span class="p">.</span><span class="na">setPassword</span><span class="p">(</span><span class="s">&quot;password&quot;</span><span class="p">);</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ds</span><span class="p">;</span><span class="w"> </span><span class="c1">// 외부 라이브러리 → 수동 등록</span>
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="w">    </span><span class="nd">@Bean</span>
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">RedisTemplate</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">redisTemplate</span><span class="p">(</span><span class="n">RedisConnectionFactory</span><span class="w"> </span><span class="n">connectionFactory</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="w">        </span><span class="n">RedisTemplate</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">template</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RedisTemplate</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="w">        </span><span class="n">template</span><span class="p">.</span><span class="na">setConnectionFactory</span><span class="p">(</span><span class="n">connectionFactory</span><span class="p">);</span>
+<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">template</span><span class="p">;</span>
+<a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a><span class="p">}</span>
+<a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a>
+<a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a><span class="c1">// 비즈니스 로직은 컴포넌트 스캔</span>
+<a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a><span class="nd">@Service</span>
+<a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MemberService</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a>
+<a id="__codelineno-18-25" name="__codelineno-18-25" href="#__codelineno-18-25"></a><span class="nd">@Repository</span>
+<a id="__codelineno-18-26" name="__codelineno-18-26" href="#__codelineno-18-26"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MemberRepository</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
 
 
 

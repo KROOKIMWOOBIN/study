@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4481,76 +4483,76 @@
 <li><code>Executor Framework</code>의 실질적인 구현체이며, 스레드 풀 기반으로 작업을 실행한다.</li>
 </ul>
 <h4 id="_3">예시 코드</h4>
-<pre><code class="language-java">public class Main {
-
-    public static void main(String[] args) {
-        ExecutorService es = new ThreadPoolExecutor(2, 2, 0, TimeUnit.MILLISECONDS, new LinkedBlockingQueue&lt;&gt;());
-        log(&quot;== 초기 상태 ==&quot;);
-        printState(es);
-        es.execute(new RunnableTask(&quot;taskA&quot;));
-        es.execute(new RunnableTask(&quot;taskB&quot;));
-        es.execute(new RunnableTask(&quot;taskC&quot;));
-        es.execute(new RunnableTask(&quot;taskD&quot;));
-        log(&quot;== 작업 수행중 ==&quot;);
-        printState(es);
-
-        sleep(3_000);
-        log(&quot;== 작업 수행 완료 ==&quot;);
-        printState(es);
-
-        es.shutdown();
-        log(&quot;== shutdown 완료 ==&quot;);
-        printState(es);
-    }
-
-    private static void printState(ExecutorService executorService) {
-        if (executorService instanceof ThreadPoolExecutor poolExecutor) {
-            int pool = poolExecutor.getPoolSize();                      // 스레드 풀에서 관리하는 스레드의 숫자
-            int active = poolExecutor.getActiveCount();                 // 작업을 수행하는 스레드의 숫자
-            int queuedTasks = poolExecutor.getQueue().size();           // 큐에 대기중인 작업의 숫자
-            long completedTask = poolExecutor.getCompletedTaskCount();  // 완료된 작업의 숫자
-            log(&quot;[pool = &quot; + pool + &quot;, active = &quot; + active + &quot;, queuedTasks = &quot; + queuedTasks + &quot;, completedTask = &quot; + completedTask + &quot;]&quot;);
-        } else {
-            log(executorService);
-        }
-    }
-
-    private static class RunnableTask implements Runnable {
-
-        private int sleepMs = 1_000;
-
-        @Override
-        public void run() {
-            log(name + &quot; 시작&quot;);
-            sleep(sleepMs);
-            log(name + &quot; 완료&quot;);
-        }
-
-    }
-
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">        </span><span class="n">ExecutorService</span><span class="w"> </span><span class="n">es</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">TimeUnit</span><span class="p">.</span><span class="na">MILLISECONDS</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedBlockingQueue</span><span class="o">&lt;&gt;</span><span class="p">());</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;== 초기 상태 ==&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="n">printState</span><span class="p">(</span><span class="n">es</span><span class="p">);</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="n">es</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">RunnableTask</span><span class="p">(</span><span class="s">&quot;taskA&quot;</span><span class="p">));</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="n">es</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">RunnableTask</span><span class="p">(</span><span class="s">&quot;taskB&quot;</span><span class="p">));</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="n">es</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">RunnableTask</span><span class="p">(</span><span class="s">&quot;taskC&quot;</span><span class="p">));</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="n">es</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">RunnableTask</span><span class="p">(</span><span class="s">&quot;taskD&quot;</span><span class="p">));</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">        </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;== 작업 수행중 ==&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="n">printState</span><span class="p">(</span><span class="n">es</span><span class="p">);</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="n">sleep</span><span class="p">(</span><span class="mi">3_000</span><span class="p">);</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">        </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;== 작업 수행 완료 ==&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">        </span><span class="n">printState</span><span class="p">(</span><span class="n">es</span><span class="p">);</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">        </span><span class="n">es</span><span class="p">.</span><span class="na">shutdown</span><span class="p">();</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">        </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;== shutdown 완료 ==&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">        </span><span class="n">printState</span><span class="p">(</span><span class="n">es</span><span class="p">);</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">printState</span><span class="p">(</span><span class="n">ExecutorService</span><span class="w"> </span><span class="n">executorService</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">executorService</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">ThreadPoolExecutor</span><span class="w"> </span><span class="n">poolExecutor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">poolExecutor</span><span class="p">.</span><span class="na">getPoolSize</span><span class="p">();</span><span class="w">                      </span><span class="c1">// 스레드 풀에서 관리하는 스레드의 숫자</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">active</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">poolExecutor</span><span class="p">.</span><span class="na">getActiveCount</span><span class="p">();</span><span class="w">                 </span><span class="c1">// 작업을 수행하는 스레드의 숫자</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">queuedTasks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">poolExecutor</span><span class="p">.</span><span class="na">getQueue</span><span class="p">().</span><span class="na">size</span><span class="p">();</span><span class="w">           </span><span class="c1">// 큐에 대기중인 작업의 숫자</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">            </span><span class="kt">long</span><span class="w"> </span><span class="n">completedTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">poolExecutor</span><span class="p">.</span><span class="na">getCompletedTaskCount</span><span class="p">();</span><span class="w">  </span><span class="c1">// 완료된 작업의 숫자</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">            </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;[pool = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, active = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">active</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, queuedTasks = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">queuedTasks</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, completedTask = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">completedTask</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;]&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">            </span><span class="n">log</span><span class="p">(</span><span class="n">executorService</span><span class="p">);</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">RunnableTask</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Runnable</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">sleepMs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1_000</span><span class="p">;</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">        </span><span class="nd">@Override</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">            </span><span class="n">log</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; 시작&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">            </span><span class="n">sleep</span><span class="p">(</span><span class="n">sleepMs</span><span class="p">);</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">            </span><span class="n">log</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; 완료&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="p">}</span>
+</code></pre></div>
 <h4 id="threadpoolexecutor_1">ThreadPoolExecutor 내부</h4>
 <blockquote>
 <p>ThreadPoolExecutor는 단순한 큐 실행기가 아니라<br />
-<strong>스레드 수 → 큐 → 최대 스레드 → 거절 정책</strong> 순으로 판단한다</p>
+<strong>스레드 수 → 큐 → 최대 스레드 → 거절 정책</strong> 순으로 판단한다
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[Task 제출]
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    ↓
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>(corePoolSize 미만?)
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    ├─ YES → Thread Pool (Worker 생성) → Task 실행
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    └─ NO
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        ↓
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    BlockingQueue (작업 대기)
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        ↓
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>(Queue full?)
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    ├─ NO → Worker가 가져가 실행
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    └─ YES
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>        ↓
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>(maxPoolSize 미만?)
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    ├─ YES → Worker 생성 → Task 실행
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    └─ NO → Reject
+</code></pre></div></p>
 </blockquote>
-<pre><code class="language-markdown">[Task 제출]
-    ↓
-(corePoolSize 미만?)
-    ├─ YES → Thread Pool (Worker 생성) → Task 실행
-    └─ NO
-        ↓
-    BlockingQueue (작업 대기)
-        ↓
-(Queue full?)
-    ├─ NO → Worker가 가져가 실행
-    └─ YES
-        ↓
-(maxPoolSize 미만?)
-    ├─ YES → Worker 생성 → Task 실행
-    └─ NO → Reject
-</code></pre>
 <h3 id="runnable-vs-callable">Runnable VS Callable</h3>
 <h4 id="_4">공통점</h4>
 <ul>
@@ -4561,22 +4563,22 @@
 <ul>
 <li>반환값 없음</li>
 <li>예외 처리 불가 (Checked Exception X)</li>
-<li>단순한 비동기 작업에 적합</li>
+<li>단순한 비동기 작업에 적합
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">Runnable</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">();</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">}</span>
+</code></pre></div></li>
 </ul>
-<pre><code class="language-java">public interface Runnable {
-    void run();
-}
-</code></pre>
 <h4 id="callable">Callable</h4>
 <ul>
 <li>반환값 존재</li>
 <li>Checked Exception 허용</li>
-<li>결과가 필요한 비동기 작업에 적합</li>
+<li>결과가 필요한 비동기 작업에 적합
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">Callable</span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="n">V</span><span class="w"> </span><span class="nf">call</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">}</span>
+</code></pre></div></li>
 </ul>
-<pre><code class="language-java">public interface Callable&lt;V&gt; {
-    V call() throws Exception;
-}
-</code></pre>
 <h3 id="future">Future</h3>
 <ul>
 <li>비동기 작업의 미래 결과를 표현하는 핸들 객체</li>
@@ -4584,15 +4586,15 @@
 <li>호출 스레드는 결과를 즉시 받지 않고, 필요 시점에 조회</li>
 </ul>
 <h4 id="future_1">Future 내부</h4>
-<pre><code class="language-markdown">Future
- ├─ Task (Callable / Runnable)
- ├─ Result (T 또는 Exception)
- └─ State
-     ├─ NEW
-     ├─ RUNNING
-     ├─ COMPLETED
-     ├─ CANCELLED
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Future
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a> ├─ Task (Callable / Runnable)
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a> ├─ Result (T 또는 Exception)
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a> └─ State
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>     ├─ NEW
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>     ├─ RUNNING
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>     ├─ COMPLETED
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>     ├─ CANCELLED
+</code></pre></div>
 <h4 id="future-vs">Future 완료 VS 미완료</h4>
 <ul>
 <li>완료 상태</li>
@@ -4618,46 +4620,46 @@
 <li>submit()</li>
 <li>작업을 스레드 풀에 제출</li>
 <li>즉시 반환</li>
-<li>반환 값은 결과 그 자체가 아닌 Future</li>
+<li>반환 값은 결과 그 자체가 아닌 Future
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Future&lt;T&gt; future = executorService.submit(callable);
+</code></pre></div></li>
 </ul>
-<pre><code class="language-markdown">Future&lt;T&gt; future = executorService.submit(callable);
-</code></pre>
 <h4 id="_5">예시 코드</h4>
-<pre><code class="language-java">public class Main {
-
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
-        ExecutorService es = Executors.newFixedThreadPool(1);
-        log(&quot;submit() call&quot;);
-        Future&lt;Integer&gt; future = es.submit(new MyCallable());
-        log(&quot;future now return, future = &quot; + future);
-        log(&quot;future.get() [BLOCKING] Method call start -&gt; Main Thread WAITING&quot;);
-        Integer result = future.get();
-        log(&quot;future.get() [BLOCKING] Method call end -&gt; Main Thread RUNNABLE&quot;);
-        log(&quot;result value = &quot; + result);
-        log(&quot;future end, future = &quot; + future);
-        es.shutdown();
-    }
-
-    private static class MyCallable implements Callable&lt;Integer&gt; {
-        @Override
-        public Integer call() throws Exception {
-            log(&quot;Callable Start&quot;);
-            sleep(2_000);
-            int value = new Random().nextInt(10);
-            log(&quot;create value = &quot; + value);
-            log(&quot;Callable End&quot;);
-            return value;
-        }
-    }
-
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">ExecutionException</span><span class="p">,</span><span class="w"> </span><span class="n">InterruptedException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">        </span><span class="n">ExecutorService</span><span class="w"> </span><span class="n">es</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newFixedThreadPool</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">        </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;submit() call&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">        </span><span class="n">Future</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">future</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">es</span><span class="p">.</span><span class="na">submit</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">MyCallable</span><span class="p">());</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">        </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;future now return, future = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">future</span><span class="p">);</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">        </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;future.get() [BLOCKING] Method call start -&gt; Main Thread WAITING&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">        </span><span class="n">Integer</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">future</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">        </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;future.get() [BLOCKING] Method call end -&gt; Main Thread RUNNABLE&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">        </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;result value = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">result</span><span class="p">);</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">        </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;future end, future = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">future</span><span class="p">);</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">        </span><span class="n">es</span><span class="p">.</span><span class="na">shutdown</span><span class="p">();</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyCallable</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Callable</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">        </span><span class="nd">@Override</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="nf">call</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">            </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;Callable Start&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">            </span><span class="n">sleep</span><span class="p">(</span><span class="mi">2_000</span><span class="p">);</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Random</span><span class="p">().</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">            </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;create value = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="w">            </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;Callable End&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>
+<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="p">}</span>
+</code></pre></div>
 <h4 id="_6">나쁜코드</h4>
 <ul>
-<li>아래와 같이 Future.get()으로 바로 호출하면 결과를 기다리기 위해 호출 스레드가 대기 상태에 빠지며, 동기 스레드가 되어버린다.</li>
+<li>아래와 같이 Future.get()으로 바로 호출하면 결과를 기다리기 위해 호출 스레드가 대기 상태에 빠지며, 동기 스레드가 되어버린다.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Future&lt;Integer&gt; future = es.submit(new MyCallable()).get();
+</code></pre></div></li>
 </ul>
-<pre><code class="language-markdown">Future&lt;Integer&gt; future = es.submit(new MyCallable()).get();
-</code></pre>
 <h3 id="blocking-method">Blocking Method</h3>
 <ul>
 <li>호출 스레드가 다른 스레드의 작업 완료를 기다리는 메서드</li>

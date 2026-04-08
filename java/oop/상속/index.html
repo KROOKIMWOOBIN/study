@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4118,19 +4120,19 @@
 </ul>
 <h3 id="_2">공통 개념</h3>
 <ul>
-<li>여러 클래스가 동일한 본질(is-a) 을 가질 때 상위 타입으로 묶어 의미를 드러냄</li>
+<li>여러 클래스가 동일한 본질(is-a) 을 가질 때 상위 타입으로 묶어 의미를 드러냄
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">class</span> <span class="nc">Dog</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">class</span> <span class="nc">Cat</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div></li>
 </ul>
-<pre><code class="language-java">class Dog extends Animal { }
-class Cat extends Animal { }
-</code></pre>
 <h3 id="_3">다형성 기반 제공</h3>
 <ul>
 <li>부모 타입으로 자식 객체를 다룰 수 있음</li>
-<li>동적 바인딩을 통한 행위 위임</li>
+<li>동적 바인딩을 통한 행위 위임
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">Animal</span><span class="w"> </span><span class="n">animal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">();</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">animal</span><span class="p">.</span><span class="na">sound</span><span class="p">();</span><span class="w"> </span><span class="c1">// 멍멍 출력</span>
+</code></pre></div></li>
 </ul>
-<pre><code class="language-java">Animal animal = new Dog();
-animal.sound(); // 멍멍 출력
-</code></pre>
 <h2 id="_4">상속의 위험성</h2>
 <ul>
 <li>상속은 가장 강한 결합을 만든다.</li>
@@ -4142,8 +4144,8 @@ animal.sound(); // 멍멍 출력
 <li>사이드 이펙트 발생 가능성 큼</li>
 <li>잘못된 is-a 관계</li>
 <li>개념적으로 성립하지 않는 상속
-   <code>java
-   class Engine extends Car {} // is-a가 아닌 has-a 관계</code></li>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">class</span> <span class="nc">Engine</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Car</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// is-a가 아닌 has-a 관계</span>
+</code></pre></div></li>
 <li>캡슐화 붕괴</li>
 <li>부모의 내부 구현에 자식이 의존</li>
 <li>부모 구현 변경 시 자식 로직 깨짐</li>
@@ -4155,10 +4157,10 @@ animal.sound(); // 멍멍 출력
 <ul>
 <li>하나의 클래스가 둘 이상의 부모 클래스를 상속받는 것</li>
 <li>자바에서는 구현 클래스는 1개만 제한하며, 역할 상속(Interface)은 제한이 없다. 이유는 다이아몬드 구조 이슈</li>
-<li>자바8 이상부터는 <code>Interface</code>에 <code>default Method</code>가 생기면서 다이아몬드 이슈가 다시 발생하였다.</li>
+<li>자바8 이상부터는 <code>Interface</code>에 <code>default Method</code>가 생기면서 다이아몬드 이슈가 다시 발생하였다.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">class</span> <span class="nc">Dog</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Move</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span>
+</code></pre></div></li>
 </ul>
-<pre><code class="language-java">class Dog extends Animal implements Move {} 
-</code></pre>
 
 
 

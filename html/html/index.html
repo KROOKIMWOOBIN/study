@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4918,55 +4920,18 @@
 <li>Identifier : 다른 항목과 구분하는데 필요한 정보</li>
 </ul>
 <h4 id="url-resource-locator">URL - Resource Locator (리소스가 있는 위치를 지정)</h4>
-<pre><code>scheme://[userinfo@]host[:port][/path][?query][#fragment]
-https://www.google.com:443/search?q=hello&amp;hl=ko
-</code></pre>
-<table>
-<thead>
-<tr>
-<th>구성 요소</th>
-<th>값</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>프로토콜</td>
-<td><code>https</code></td>
-<td>통신 방식</td>
-</tr>
-<tr>
-<td>호스트명</td>
-<td><code>www.google.com</code></td>
-<td>도메인</td>
-</tr>
-<tr>
-<td>포트</td>
-<td><code>443</code></td>
-<td>생략 가능</td>
-</tr>
-<tr>
-<td>패스</td>
-<td><code>/search</code></td>
-<td>리소스 경로</td>
-</tr>
-<tr>
-<td>쿼리</td>
-<td><code>?q=hello&amp;hl=ko</code></td>
-<td>파라미터</td>
-</tr>
-<tr>
-<td>userinfo</td>
-<td>-</td>
-<td>인증 정보 (거의 미사용)</td>
-</tr>
-<tr>
-<td>fragment</td>
-<td><code>#section</code></td>
-<td>HTML 내부 북마크 (서버 미전송)</td>
-</tr>
-</tbody>
-</table>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>scheme://[userinfo@]host[:port][/path][?query][#fragment]
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>https://www.google.com:443/search?q=hello&amp;hl=ko
+</code></pre></div>
+| 구성 요소 | 값 | 설명 |
+| --- | --- | --- |
+| 프로토콜 | <code>https</code> | 통신 방식 |
+| 호스트명 | <code>www.google.com</code> | 도메인 |
+| 포트 | <code>443</code> | 생략 가능 |
+| 패스 | <code>/search</code> | 리소스 경로 |
+| 쿼리 | <code>?q=hello&amp;hl=ko</code> | 파라미터 |
+| userinfo | - | 인증 정보 (거의 미사용) |
+| fragment | <code>#section</code> | HTML 내부 북마크 (서버 미전송) |</p>
 <h4 id="urn-resource-name">URN - Resource Name (리소스에 이름을 부여)</h4>
 <hr />
 <h3 id="stateful-vs-stateless">Stateful VS Stateless</h3>
@@ -5057,9 +5022,9 @@ https://www.google.com:443/search?q=hello&amp;hl=ko
 </tbody>
 </table>
 <h4 id="_12">캐시 무효화</h4>
-<pre><code>Cache-Control: no-cache, no-store, must-revalidate
-Pragma: no-cache
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Cache-Control: no-cache, no-store, must-revalidate
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Pragma: no-cache
+</code></pre></div>
 <h4 id="_13">검증 헤더</h4>
 <table>
 <thead>

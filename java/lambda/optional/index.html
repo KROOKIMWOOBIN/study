@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4255,18 +4257,18 @@
 </tr>
 </tbody>
 </table>
-<pre><code class="language-markdown">// Before: 다단계 null 체크
-String city = null;
-if (user != null &amp;&amp; user.getAddress() != null) {
-    city = user.getAddress().getCity();
-}
-
-// After: Optional 체이닝
-String city = Optional.ofNullable(user)
-    .map(User::getAddress)
-    .map(Address::getCity)
-    .orElse(&quot;미입력&quot;);
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>// Before: 다단계 null 체크
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>String city = null;
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>if (user != null &amp;&amp; user.getAddress() != null) {
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    city = user.getAddress().getCity();
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>}
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>// After: Optional 체이닝
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>String city = Optional.ofNullable(user)
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    .map(User::getAddress)
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    .map(Address::getCity)
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    .orElse(&quot;미입력&quot;);
+</code></pre></div>
 <p><strong>언제 쓰는가</strong></p>
 <table>
 <thead>
@@ -4318,10 +4320,10 @@ String city = Optional.ofNullable(user)
 </tr>
 </tbody>
 </table>
-<pre><code class="language-markdown">Optional&lt;String&gt; a = Optional.of(&quot;hello&quot;);           // 값이 확실히 있음
-Optional&lt;String&gt; b = Optional.ofNullable(findUser()); // DB 조회 결과
-Optional&lt;String&gt; c = Optional.empty();               // 빈 결과 명시 반환
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Optional&lt;String&gt; a = Optional.of(&quot;hello&quot;);           // 값이 확실히 있음
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Optional&lt;String&gt; b = Optional.ofNullable(findUser()); // DB 조회 결과
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Optional&lt;String&gt; c = Optional.empty();               // 빈 결과 명시 반환
+</code></pre></div>
 <hr />
 <h3 id="_2">값 존재 여부 확인</h3>
 <table>
@@ -4345,11 +4347,11 @@ Optional&lt;String&gt; c = Optional.empty();               // 빈 결과 명시 
 </tr>
 </tbody>
 </table>
-<pre><code class="language-markdown">Optional&lt;String&gt; opt = Optional.of(&quot;hello&quot;);
-
-if (opt.isPresent()) { ... }  // 값이 있을 때
-if (opt.isEmpty()) { ... }    // 값이 없을 때
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Optional&lt;String&gt; opt = Optional.of(&quot;hello&quot;);
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>if (opt.isPresent()) { ... }  // 값이 있을 때
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>if (opt.isEmpty()) { ... }    // 값이 없을 때
+</code></pre></div>
 <blockquote>
 <p><strong>주의:</strong> <code>isPresent()</code> + <code>get()</code> 조합은 null 체크와 다를 바 없어 Optional의 장점을 살리지 못한다. <code>map</code>, <code>orElse</code>, <code>ifPresent</code> 계열을 사용하자.</p>
 </blockquote>
@@ -4391,10 +4393,10 @@ if (opt.isEmpty()) { ... }    // 값이 없을 때
 </tr>
 </tbody>
 </table>
-<pre><code class="language-markdown">opt.orElse(&quot;기본값&quot;);
-opt.orElseGet(() -&gt; expensiveDefault());
-opt.orElseThrow(() -&gt; new EntityNotFoundException(&quot;사용자 없음&quot;));
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>opt.orElse(&quot;기본값&quot;);
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>opt.orElseGet(() -&gt; expensiveDefault());
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>opt.orElseThrow(() -&gt; new EntityNotFoundException(&quot;사용자 없음&quot;));
+</code></pre></div>
 <h4 id="orelse-vs-orelseget">orElse vs orElseGet</h4>
 <table>
 <thead>
@@ -4417,11 +4419,11 @@ opt.orElseThrow(() -&gt; new EntityNotFoundException(&quot;사용자 없음&quot
 </tr>
 </tbody>
 </table>
-<pre><code class="language-markdown">Optional&lt;String&gt; opt = Optional.of(&quot;있음&quot;);
-
-opt.orElse(expensiveMethod());          // expensiveMethod()가 호출됨!
-opt.orElseGet(() -&gt; expensiveMethod()); // expensiveMethod() 호출 안 됨
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Optional&lt;String&gt; opt = Optional.of(&quot;있음&quot;);
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>opt.orElse(expensiveMethod());          // expensiveMethod()가 호출됨!
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>opt.orElseGet(() -&gt; expensiveMethod()); // expensiveMethod() 호출 안 됨
+</code></pre></div>
 <hr />
 <h3 id="_4">값 변환</h3>
 <table>
@@ -4455,22 +4457,22 @@ opt.orElseGet(() -&gt; expensiveMethod()); // expensiveMethod() 호출 안 됨
 </tbody>
 </table>
 <p><strong>map — null 체크 없이 안전한 체이닝</strong></p>
-<pre><code class="language-markdown">String city = Optional.ofNullable(user)
-    .map(User::getAddress)
-    .map(Address::getCity)
-    .orElse(&quot;미입력&quot;);
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>String city = Optional.ofNullable(user)
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    .map(User::getAddress)
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    .map(Address::getCity)
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    .orElse(&quot;미입력&quot;);
+</code></pre></div>
 <p><strong>flatMap — 반환 타입이 이미 Optional인 메서드와 연결</strong></p>
 <p><code>map</code>을 쓰면 <code>Optional&lt;Optional&lt;String&gt;&gt;</code>이 중첩되므로 <code>flatMap</code>을 사용한다.</p>
-<pre><code class="language-markdown">// getEmail()이 Optional&lt;String&gt;을 반환하는 경우
-Optional&lt;String&gt; email = Optional.ofNullable(user)
-    .flatMap(User::getEmail);  // map이면 Optional&lt;Optional&lt;String&gt;&gt;이 됨
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>// getEmail()이 Optional&lt;String&gt;을 반환하는 경우
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Optional&lt;String&gt; email = Optional.ofNullable(user)
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    .flatMap(User::getEmail);  // map이면 Optional&lt;Optional&lt;String&gt;&gt;이 됨
+</code></pre></div>
 <p><strong>filter — 조건 불일치 시 empty</strong></p>
-<pre><code class="language-markdown">Optional.of(age)
-    .filter(a -&gt; a &gt;= 19)
-    .orElseThrow(() -&gt; new IllegalArgumentException(&quot;미성년자&quot;));
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Optional.of(age)
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    .filter(a -&gt; a &gt;= 19)
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    .orElseThrow(() -&gt; new IllegalArgumentException(&quot;미성년자&quot;));
+</code></pre></div>
 <hr />
 <h3 id="_5">소비 (값 사용)</h3>
 <table>
@@ -4494,15 +4496,15 @@ Optional&lt;String&gt; email = Optional.ofNullable(user)
 </tr>
 </tbody>
 </table>
-<pre><code class="language-markdown">// 값이 있을 때만 처리
-opt.ifPresent(user -&gt; log.info(&quot;로그인: {}&quot;, user.getName()));
-
-// 있을 때 / 없을 때 분기
-opt.ifPresentOrElse(
-    user -&gt; log.info(&quot;로그인: {}&quot;, user.getName()),
-    () -&gt; log.warn(&quot;사용자 없음&quot;)
-);
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>// 값이 있을 때만 처리
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>opt.ifPresent(user -&gt; log.info(&quot;로그인: {}&quot;, user.getName()));
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>// 있을 때 / 없을 때 분기
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>opt.ifPresentOrElse(
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    user -&gt; log.info(&quot;로그인: {}&quot;, user.getName()),
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    () -&gt; log.warn(&quot;사용자 없음&quot;)
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>);
+</code></pre></div>
 <blockquote>
 <p><strong>주의:</strong> <code>ifPresent</code> 내부에서 외부 변수에 값을 대입하려는 패턴(<code>ifPresent(v -&gt; result = v)</code>)은 effectively final 제약으로 컴파일 오류다. 이 경우 <code>orElse</code> 계열을 사용한다.</p>
 </blockquote>
@@ -4530,19 +4532,19 @@ opt.ifPresentOrElse(
 </tr>
 </tbody>
 </table>
-<pre><code class="language-markdown">// findFirst 결과를 Optional로 처리
-String name = users.stream()
-    .filter(u -&gt; u.getId() == targetId)
-    .findFirst()
-    .map(User::getName)
-    .orElse(&quot;미등록 사용자&quot;);
-
-// Optional::stream — 값 있는 것만 추출
-List&lt;Optional&lt;String&gt;&gt; optionals = List.of(Optional.of(&quot;A&quot;), Optional.empty(), Optional.of(&quot;B&quot;));
-List&lt;String&gt; present = optionals.stream()
-    .flatMap(Optional::stream)  // empty는 제거, 값 있는 것만
-    .toList();  // [&quot;A&quot;, &quot;B&quot;]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>// findFirst 결과를 Optional로 처리
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>String name = users.stream()
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    .filter(u -&gt; u.getId() == targetId)
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    .findFirst()
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    .map(User::getName)
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    .orElse(&quot;미등록 사용자&quot;);
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>// Optional::stream — 값 있는 것만 추출
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>List&lt;Optional&lt;String&gt;&gt; optionals = List.of(Optional.of(&quot;A&quot;), Optional.empty(), Optional.of(&quot;B&quot;));
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>List&lt;String&gt; present = optionals.stream()
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>    .flatMap(Optional::stream)  // empty는 제거, 값 있는 것만
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>    .toList();  // [&quot;A&quot;, &quot;B&quot;]
+</code></pre></div>
 <hr />
 <h3 id="_6">단점 / 주의할 점</h3>
 <table>

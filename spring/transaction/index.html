@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4146,18 +4148,18 @@
 <h3 id="_1">왜 쓰는가?</h3>
 <p>결제, 주문, 포인트 같은 여러 DB 작업은 <strong>모두 성공하거나 모두 실패</strong>해야 한다. <code>@Transactional</code>은 AOP 기반으로 트랜잭션 시작/커밋/롤백을 자동 처리한다.</p>
 <h3 id="_2">기본 사용</h3>
-<pre><code class="language-markdown">@Service
-public class OrderService {
-
-    @Transactional
-    public void placeOrder(OrderRequest request) {
-        Order order = orderRepository.save(new Order(request));
-        inventoryService.decrease(request.getItemId(), request.getQuantity());
-        paymentService.pay(request.getAmount());
-        // 위 중 하나라도 예외 발생 시 전체 롤백
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="ni">@Service</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>public class OrderService {
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="ni">@Transactional</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    public void placeOrder(OrderRequest request) {
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        Order order = orderRepository.save(new Order(request));
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        inventoryService.decrease(request.getItemId(), request.getQuantity());
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        paymentService.pay(request.getAmount());
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        // 위 중 하나라도 예외 발생 시 전체 롤백
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    }
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>}
+</code></pre></div>
 <h3 id="propagation">전파(Propagation)</h3>
 <p>부모 트랜잭션이 있을 때 자식 메서드의 트랜잭션 참여 방식을 결정한다.</p>
 <table>
@@ -4206,17 +4208,17 @@ public class OrderService {
 </tr>
 </tbody>
 </table>
-<pre><code class="language-markdown">@Transactional
-public void placeOrder(OrderRequest request) {
-    orderRepository.save(order);
-    notificationService.sendEmail(request);  // 실패해도 주문은 유지됨
-}
-
-@Transactional(propagation = Propagation.REQUIRES_NEW)
-public void sendEmail(OrderRequest request) {
-    // 독립 트랜잭션으로 실행
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="ni">@Transactional</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>public void placeOrder(OrderRequest request) {
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    orderRepository.save(order);
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    notificationService.sendEmail(request);  // 실패해도 주문은 유지됨
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>}
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="ni">@Transactional</span>(propagation = Propagation.REQUIRES_NEW)
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>public void sendEmail(OrderRequest request) {
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    // 독립 트랜잭션으로 실행
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>}
+</code></pre></div>
 <h3 id="isolation">격리 수준(Isolation)</h3>
 <table>
 <thead>
@@ -4256,21 +4258,21 @@ public void sendEmail(OrderRequest request) {
 </table>
 <p>기본값은 DB 설정을 따른다 (MySQL InnoDB: <code>REPEATABLE_READ</code>).</p>
 <h3 id="_3">롤백 규칙</h3>
-<pre><code class="language-markdown">// 기본: RuntimeException, Error → 롤백
-//       CheckedException → 커밋
-
-// CheckedException도 롤백하려면
-@Transactional(rollbackFor = Exception.class)
-
-// 특정 예외는 롤백 제외
-@Transactional(noRollbackFor = BusinessException.class)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>// 기본: RuntimeException, Error → 롤백
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>//       CheckedException → 커밋
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>// CheckedException도 롤백하려면
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="ni">@Transactional</span>(rollbackFor = Exception.class)
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>// 특정 예외는 롤백 제외
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="ni">@Transactional</span>(noRollbackFor = BusinessException.class)
+</code></pre></div>
 <h3 id="readonly">readOnly 최적화</h3>
-<pre><code class="language-markdown">@Transactional(readOnly = true)
-public Member findById(Long id) {
-    return memberRepository.findById(id).orElseThrow();
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="ni">@Transactional</span>(readOnly = true)
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>public Member findById(Long id) {
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    return memberRepository.findById(id).orElseThrow();
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>}
+</code></pre></div>
 <p><code>readOnly = true</code>로 지정하면:
 - Dirty Checking 스킵 → 성능 향상
 - DB에 읽기 전용 커넥션 사용 가능 (레플리카 분기)
@@ -4278,26 +4280,26 @@ public Member findById(Long id) {
 <h3 id="_4">주의할 점</h3>
 <p><strong>Self-Invocation (내부 호출)</strong></p>
 <p>같은 클래스 내에서 <code>@Transactional</code> 메서드를 호출하면 프록시를 거치지 않아 트랜잭션이 적용되지 않는다.</p>
-<pre><code class="language-markdown">@Service
-public class MemberService {
-
-    public void outer() {
-        inner();  // 프록시를 거치지 않음 → @Transactional 무시됨!
-    }
-
-    @Transactional
-    public void inner() { ... }
-}
-
-// 해결: 별도 클래스로 분리 또는 ApplicationContext에서 Self 주입
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="ni">@Service</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>public class MemberService {
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    public void outer() {
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        inner();  // 프록시를 거치지 않음 → <span class="ni">@Transactional</span> 무시됨!
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    }
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="ni">@Transactional</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    public void inner() { ... }
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>}
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>// 해결: 별도 클래스로 분리 또는 ApplicationContext에서 Self 주입
+</code></pre></div>
 <p><strong>트랜잭션 밖에서 LAZY 로딩</strong></p>
-<pre><code class="language-markdown">// 컨트롤러에서 직접 엔티티의 LAZY 필드 접근 시 예외
-Member member = memberService.findById(1L);
-member.getOrders().size();  // LazyInitializationException!
-
-// 해결: 서비스에서 DTO로 변환 후 반환
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>// 컨트롤러에서 직접 엔티티의 LAZY 필드 접근 시 예외
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Member member = memberService.findById(1L);
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>member.getOrders().size();  // LazyInitializationException!
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>// 해결: 서비스에서 DTO로 변환 후 반환
+</code></pre></div>
 <table>
 <thead>
 <tr>

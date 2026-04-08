@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4416,11 +4418,11 @@
 <ul>
 <li>람다식에서 이미 존재하는 메서드를 그대로 전달</li>
 <li>:: 연산자를 사용</li>
-<li>함수형 인터페이스와 결합됨</li>
+<li>함수형 인터페이스와 결합됨
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>list.forEach(System.out::println);
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>// (x) -&gt; System.out.println(x)
+</code></pre></div></li>
 </ul>
-<pre><code class="language-markdown">list.forEach(System.out::println);
-// (x) -&gt; System.out.println(x)
-</code></pre>
 <h3 id="static-method-reference">정적 메서드 참조 (Static Method Reference)</h3>
 <h4 id="_2">개념</h4>
 <ul>
@@ -4428,18 +4430,18 @@
 <li>인스턴스 생성 없이 호출</li>
 </ul>
 <h4 id="_3">문법</h4>
-<pre><code class="language-markdown">ClassName::staticMethod
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ClassName::staticMethod
+</code></pre></div>
 <h4 id="_4">예제</h4>
-<pre><code class="language-markdown">public class Main {
-    public static void main(String[] args) {
-        BinaryOperator&lt;Integer&gt; max = Math::max;
-
-        int result = max.apply(10, 20);
-        System.out.println(result); // 20
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>public class Main {
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    public static void main(String[] args) {
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>        BinaryOperator&lt;Integer&gt; max = Math::max;
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        int result = max.apply(10, 20);
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        System.out.println(result); // 20
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    }
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>}
+</code></pre></div>
 <h3 id="_5">인스턴스 메서드 참조 (특정 객체)</h3>
 <h4 id="_6">개념</h4>
 <ul>
@@ -4447,24 +4449,24 @@
 <li>고정된 객체 기준으로 동작</li>
 </ul>
 <h4 id="_7">문법</h4>
-<pre><code class="language-markdown">instance::method
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>instance::method
+</code></pre></div>
 <h4 id="_8">예제</h4>
-<pre><code class="language-markdown">public class Main {
-    public static void main(String[] args) {
-        Printer printer = new Printer();
-
-        Consumer&lt;String&gt; consumer = printer::print;
-        consumer.accept(&quot;Hello&quot;);
-    }
-}
-
-class Printer {
-    public void print(String message) {
-        System.out.println(message);
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>public class Main {
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    public static void main(String[] args) {
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>        Printer printer = new Printer();
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        Consumer&lt;String&gt; consumer = printer::print;
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        consumer.accept(&quot;Hello&quot;);
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    }
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>}
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>class Printer {
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    public void print(String message) {
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>        System.out.println(message);
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    }
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>}
+</code></pre></div>
 <h3 id="_9">인스턴스 메서드 참조 (임의 객체)</h3>
 <h4 id="_10">개념</h4>
 <ul>
@@ -4472,17 +4474,17 @@ class Printer {
 <li>첫 번째 인자가 "this" 역할을 함</li>
 </ul>
 <h4 id="_11">문법</h4>
-<pre><code class="language-markdown">ClassName::method
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ClassName::method
+</code></pre></div>
 <h4 id="_12">예시</h4>
-<pre><code class="language-markdown">public class Main {
-    public static void main(String[] args) {
-        Function&lt;String, Integer&gt; lengthFunc = String::length;
-        int len = lengthFunc.apply(&quot;hello&quot;);
-        System.out.println(len); // 5
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>public class Main {
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    public static void main(String[] args) {
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>        Function&lt;String, Integer&gt; lengthFunc = String::length;
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>        int len = lengthFunc.apply(&quot;hello&quot;);
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>        System.out.println(len); // 5
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    }
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>}
+</code></pre></div>
 <h3 id="constructor-reference">생성자 참조 (Constructor Reference)</h3>
 <h4 id="_13">개념</h4>
 <ul>
@@ -4490,39 +4492,33 @@ class Printer {
 <li>객체 생성 로직을 람다로 대체</li>
 </ul>
 <h4 id="_14">문법</h4>
-<pre><code class="language-markdown">ClassName::new
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ClassName::new
+</code></pre></div>
 <h4 id="_15">예시</h4>
-<pre><code class="language-markdown">public class Main {
-    public static void main(String[] args) {
-        Supplier&lt;ArrayList&lt;String&gt;&gt; supplier = ArrayList::new;
-        ArrayList&lt;String&gt; list = supplier.get();
-        list.add(&quot;A&quot;);
-        System.out.println(list);
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>public class Main {
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    public static void main(String[] args) {
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>        Supplier&lt;ArrayList&lt;String&gt;&gt; supplier = ArrayList::new;
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>        ArrayList&lt;String&gt; list = supplier.get();
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>        list.add(&quot;A&quot;);
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>        System.out.println(list);
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    }
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>}
+</code></pre></div>
 <h3 id="_16">특징</h3>
 <ul>
-<li>람다의 축약형</li>
-</ul>
-<pre><code class="language-markdown">(x) -&gt; x.toLowerCase()
-String::toLowerCase
-</code></pre>
-<ul>
-<li>함수형 인터페이스 필수</li>
-</ul>
-<pre><code class="language-markdown">Function&lt;String, Integer&gt; f = String::length;
-</code></pre>
-<ul>
+<li>람다의 축약형
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>(x) -&gt; x.toLowerCase()
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>String::toLowerCase
+</code></pre></div></li>
+<li>함수형 인터페이스 필수
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Function&lt;String, Integer&gt; f = String::length;
+</code></pre></div></li>
 <li>타입 추론 의존<ul>
-<li>컴파일러가 문맥으로 매칭</li>
+<li>컴파일러가 문맥으로 매칭
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Function&lt;String, Integer&gt; f = String::length;
+</code></pre></div></li>
 </ul>
 </li>
-</ul>
-<pre><code class="language-markdown">Function&lt;String, Integer&gt; f = String::length;
-</code></pre>
-<ul>
 <li>가독성 중심 기능<ul>
 <li>로직이 아닌 “전달”에 초점</li>
 </ul>

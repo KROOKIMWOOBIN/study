@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4168,14 +4170,14 @@
 <h3 id="_1">개념</h3>
 <p>Spring MVC는 <strong>프론트 컨트롤러 패턴</strong> 기반의 웹 프레임워크다. 모든 HTTP 요청이 <code>DispatcherServlet</code> 하나를 거쳐 적절한 컨트롤러로 분배된다.</p>
 <h3 id="_2">요청 처리 흐름</h3>
-<pre><code class="language-markdown">HTTP 요청
-  → DispatcherServlet
-    → HandlerMapping (어떤 컨트롤러?)
-    → HandlerAdapter (어떻게 호출?)
-    → Controller (비즈니스 로직)
-    → ViewResolver (어떤 뷰?)
-  → HTTP 응답
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>HTTP 요청
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  → DispatcherServlet
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    → HandlerMapping (어떤 컨트롤러?)
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    → HandlerAdapter (어떻게 호출?)
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    → Controller (비즈니스 로직)
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    → ViewResolver (어떤 뷰?)
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  → HTTP 응답
+</code></pre></div>
 <h3 id="_3">핵심 구성 요소</h3>
 <table>
 <thead>
@@ -4210,22 +4212,22 @@
 <h3 id="_4">왜 쓰는가?</h3>
 <p>서블릿 기반 개발은 URL마다 서블릿 클래스를 만들어야 했다. DispatcherServlet이 이를 통합해 <strong>공통 처리(인코딩, 보안, 로깅)를 중앙화</strong>하고, 개발자는 비즈니스 로직만 집중할 수 있다.</p>
 <h3 id="_5">기본 사용</h3>
-<pre><code class="language-markdown">@Controller
-public class MemberController {
-
-    @GetMapping(&quot;/members&quot;)
-    public String list(Model model) {
-        model.addAttribute(&quot;members&quot;, memberService.findAll());
-        return &quot;members/list&quot;; // ViewResolver가 templates/members/list.html로 변환
-    }
-
-    @PostMapping(&quot;/members&quot;)
-    public String create(@ModelAttribute MemberDto dto) {
-        memberService.save(dto);
-        return &quot;redirect:/members&quot;;
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="ni">@Controller</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>public class MemberController {
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="ni">@GetMapping</span>(&quot;/members&quot;)
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    public String list(Model model) {
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        model.addAttribute(&quot;members&quot;, memberService.findAll());
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        return &quot;members/list&quot;; // ViewResolver가 templates/members/list.html로 변환
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    }
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="ni">@PostMapping</span>(&quot;/members&quot;)
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    public String create(@ModelAttribute MemberDto dto) {
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>        memberService.save(dto);
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        return &quot;redirect:/members&quot;;
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    }
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>}
+</code></pre></div>
 <h3 id="_6">주요 어노테이션</h3>
 <table>
 <thead>

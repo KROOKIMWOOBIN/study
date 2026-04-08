@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4195,52 +4197,52 @@
 <h3 id="_1">왜 쓰는가?</h3>
 <p>프론트엔드(React, Vue 등)와 분리된 구조에서 서버는 JSON 데이터만 제공하면 된다. <code>@RestController</code>는 반환 객체를 자동으로 JSON으로 변환해 응답한다.</p>
 <h3 id="crud-api">기본 CRUD API</h3>
-<pre><code class="language-markdown">@RestController
-@RequestMapping(&quot;/api/members&quot;)
-public class MemberApiController {
-
-    @GetMapping
-    public List&lt;MemberResponse&gt; list() {
-        return memberService.findAll();
-    }
-
-    @GetMapping(&quot;/{id}&quot;)
-    public MemberResponse find(@PathVariable Long id) {
-        return memberService.findById(id);
-    }
-
-    @PostMapping
-    public ResponseEntity&lt;MemberResponse&gt; create(@RequestBody @Valid MemberCreateRequest request) {
-        MemberResponse response = memberService.save(request);
-        return ResponseEntity.created(URI.create(&quot;/api/members/&quot; + response.getId())).body(response);
-    }
-
-    @PutMapping(&quot;/{id}&quot;)
-    public MemberResponse update(@PathVariable Long id, @RequestBody @Valid MemberUpdateRequest request) {
-        return memberService.update(id, request);
-    }
-
-    @DeleteMapping(&quot;/{id}&quot;)
-    public ResponseEntity&lt;Void&gt; delete(@PathVariable Long id) {
-        memberService.delete(id);
-        return ResponseEntity.noContent().build();
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="ni">@RestController</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="ni">@RequestMapping</span>(&quot;/api/members&quot;)
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>public class MemberApiController {
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="ni">@GetMapping</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    public List&lt;MemberResponse&gt; list() {
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        return memberService.findAll();
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    }
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="ni">@GetMapping</span>(&quot;/{id}&quot;)
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    public MemberResponse find(@PathVariable Long id) {
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        return memberService.findById(id);
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    }
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="ni">@PostMapping</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    public ResponseEntity&lt;MemberResponse&gt; create(@RequestBody <span class="ni">@Valid</span> MemberCreateRequest request) {
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>        MemberResponse response = memberService.save(request);
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        return ResponseEntity.created(URI.create(&quot;/api/members/&quot; + response.getId())).body(response);
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    }
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    <span class="ni">@PutMapping</span>(&quot;/{id}&quot;)
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    public MemberResponse update(@PathVariable Long id, <span class="ni">@RequestBody</span> <span class="ni">@Valid</span> MemberUpdateRequest request) {
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>        return memberService.update(id, request);
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>    }
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>    <span class="ni">@DeleteMapping</span>(&quot;/{id}&quot;)
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>    public ResponseEntity&lt;Void&gt; delete(@PathVariable Long id) {
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>        memberService.delete(id);
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>        return ResponseEntity.noContent().build();
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>    }
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>}
+</code></pre></div>
 <h3 id="responseentity">ResponseEntity</h3>
 <p>응답 상태 코드와 헤더를 직접 제어할 때 사용한다.</p>
-<pre><code class="language-markdown">// 201 Created + Location 헤더
-ResponseEntity.created(URI.create(&quot;/api/members/1&quot;)).body(response);
-
-// 200 OK
-ResponseEntity.ok(response);
-
-// 204 No Content
-ResponseEntity.noContent().build();
-
-// 400 Bad Request
-ResponseEntity.badRequest().body(errorResponse);
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>// 201 Created + Location 헤더
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>ResponseEntity.created(URI.create(&quot;/api/members/1&quot;)).body(response);
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>// 200 OK
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>ResponseEntity.ok(response);
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>// 204 No Content
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>ResponseEntity.noContent().build();
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>// 400 Bad Request
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>ResponseEntity.badRequest().body(errorResponse);
+</code></pre></div>
 <h3 id="http">HTTP 메서드와 의미</h3>
 <table>
 <thead>
@@ -4285,32 +4287,32 @@ ResponseEntity.badRequest().body(errorResponse);
 </tbody>
 </table>
 <h3 id="api">API 설계 원칙</h3>
-<pre><code class="language-markdown">// Good: 명사, 계층 구조
-GET    /api/orders
-GET    /api/orders/{orderId}
-POST   /api/orders
-DELETE /api/orders/{orderId}
-GET    /api/orders/{orderId}/items
-
-// Bad: 동사 사용
-GET    /api/getOrders
-POST   /api/createOrder
-POST   /api/deleteOrder
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>// Good: 명사, 계층 구조
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>GET    /api/orders
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>GET    /api/orders/{orderId}
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>POST   /api/orders
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>DELETE /api/orders/{orderId}
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>GET    /api/orders/{orderId}/items
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>// Bad: 동사 사용
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>GET    /api/getOrders
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>POST   /api/createOrder
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>POST   /api/deleteOrder
+</code></pre></div>
 <h3 id="dto">실무 패턴 — DTO 분리</h3>
-<pre><code class="language-markdown">// 요청 DTO (외부 입력)
-public class MemberCreateRequest {
-    @NotBlank private String name;
-    @Email    private String email;
-}
-
-// 응답 DTO (외부 노출)
-public class MemberResponse {
-    private Long   id;
-    private String name;
-    // 비밀번호 등 민감 정보 제외
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>// 요청 DTO (외부 입력)
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>public class MemberCreateRequest {
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="ni">@NotBlank</span> private String name;
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="ni">@Email</span>    private String email;
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>}
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>// 응답 DTO (외부 노출)
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>public class MemberResponse {
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    private Long   id;
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    private String name;
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    // 비밀번호 등 민감 정보 제외
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>}
+</code></pre></div>
 <p>엔티티를 직접 노출하지 않고 DTO를 사용한다. 엔티티 변경이 API 스펙에 영향을 주지 않도록 격리한다.</p>
 <h3 id="_2">단점 / 주의할 점</h3>
 <table>

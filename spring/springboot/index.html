@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4200,83 +4202,83 @@
 </table>
 <h3 id="auto-configuration">Auto Configuration</h3>
 <p><code>@SpringBootApplication</code> 내부에 <code>@EnableAutoConfiguration</code>이 있다. classpath에 라이브러리가 있으면 자동으로 Bean을 등록한다.</p>
-<pre><code class="language-markdown">@SpringBootApplication  // @Configuration + @ComponentScan + @EnableAutoConfiguration
-public class Application {
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="ni">@SpringBootApplication</span>  // <span class="ni">@Configuration</span> + <span class="ni">@ComponentScan</span> + <span class="ni">@EnableAutoConfiguration</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>public class Application {
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    public static void main(String[] args) {
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        SpringApplication.run(Application.class, args);
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    }
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>}
+</code></pre></div>
 <p>예: <code>spring-boot-starter-data-jpa</code>가 있으면 <code>DataSource</code>, <code>EntityManagerFactory</code>, <code>TransactionManager</code>를 자동 등록한다.</p>
 <h3 id="starter">Starter</h3>
 <p>검증된 의존성 묶음. 버전 호환성을 Spring Boot가 관리한다.</p>
-<pre><code class="language-markdown">dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'       // MVC + Tomcat
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'  // JPA + Hibernate
-    implementation 'org.springframework.boot:spring-boot-starter-security'  // Spring Security
-    implementation 'org.springframework.boot:spring-boot-starter-data-redis' // Redis
-    implementation 'org.springframework.boot:spring-boot-starter-validation' // Bean Validation
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'  // JUnit5 + Mockito
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>dependencies {
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    implementation &#39;org.springframework.boot:spring-boot-starter-web&#39;       // MVC + Tomcat
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    implementation &#39;org.springframework.boot:spring-boot-starter-data-jpa&#39;  // JPA + Hibernate
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    implementation &#39;org.springframework.boot:spring-boot-starter-security&#39;  // Spring Security
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    implementation &#39;org.springframework.boot:spring-boot-starter-data-redis&#39; // Redis
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    implementation &#39;org.springframework.boot:spring-boot-starter-validation&#39; // Bean Validation
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    testImplementation &#39;org.springframework.boot:spring-boot-starter-test&#39;  // JUnit5 + Mockito
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>}
+</code></pre></div>
 <h3 id="applicationyml">application.yml</h3>
-<pre><code class="language-markdown">spring:
-  datasource:
-    url: jdbc:mysql://localhost:3306/mydb
-    username: root
-    password: secret
-  jpa:
-    hibernate:
-      ddl-auto: validate   # 운영: validate, 개발: create-drop
-    show-sql: false
-
-server:
-  port: 8080
-
-logging:
-  level:
-    com.myapp: DEBUG
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>spring:
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  datasource:
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    url: jdbc:mysql://localhost:3306/mydb
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    username: root
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    password: secret
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  jpa:
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    hibernate:
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>      ddl-auto: validate   # 운영: validate, 개발: create-drop
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    show-sql: false
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>server:
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>  port: 8080
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>logging:
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>  level:
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    com.myapp: DEBUG
+</code></pre></div>
 <h3 id="profile">Profile — 환경 분리</h3>
-<pre><code class="language-markdown"># application-dev.yml (개발)
-spring:
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: create-drop
-  datasource:
-    url: jdbc:h2:mem:testdb
-
----
-# application-prod.yml (운영)
-spring:
-  jpa:
-    show-sql: false
-    hibernate:
-      ddl-auto: validate
-  datasource:
-    url: jdbc:mysql://prod-db:3306/mydb
-</code></pre>
-<pre><code class="language-markdown">// 실행 시 프로파일 지정
-java -jar app.jar --spring.profiles.active=prod
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="gh"># application-dev.yml (개발)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>spring:
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  jpa:
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    show-sql: true
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    hibernate:
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>      ddl-auto: create-drop
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  datasource:
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    url: jdbc:h2:mem:testdb
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>---
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="gh"># application-prod.yml (운영)</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>spring:
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>  jpa:
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    show-sql: false
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    hibernate:
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>      ddl-auto: validate
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>  datasource:
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>    url: jdbc:mysql://prod-db:3306/mydb
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>// 실행 시 프로파일 지정
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>java -jar app.jar --spring.profiles.active=prod
+</code></pre></div>
 <h3 id="tomcat">내장 Tomcat</h3>
 <p>별도 서버 설치 없이 <code>java -jar app.jar</code>로 실행 가능하다. Docker 이미지로 만들기도 간단하다.</p>
 <h3 id="configurationproperties">@ConfigurationProperties — 설정값 바인딩</h3>
-<pre><code class="language-markdown">@ConfigurationProperties(prefix = &quot;app.jwt&quot;)
-@Component
-public class JwtProperties {
-    private String secret;
-    private long expiration;
-    // getter/setter
-}
-</code></pre>
-<pre><code class="language-markdown"># application.yml
-app:
-  jwt:
-    secret: my-secret-key
-    expiration: 3600000
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="ni">@ConfigurationProperties</span>(prefix = &quot;app.jwt&quot;)
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="ni">@Component</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>public class JwtProperties {
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    private String secret;
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    private long expiration;
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    // getter/setter
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>}
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="gh"># application.yml</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>app:
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  jwt:
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    secret: my-secret-key
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    expiration: 3600000
+</code></pre></div>
 <h3 id="_2">단점 / 주의할 점</h3>
 <table>
 <thead>

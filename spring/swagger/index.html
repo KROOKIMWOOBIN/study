@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4168,60 +4170,60 @@
 <h3 id="_1">왜 쓰는가?</h3>
 <p>프론트엔드, 외부 팀, QA가 API를 사용하려면 문서가 필요하다. 수동으로 문서를 작성하면 코드와 문서가 불일치하는 문제가 생긴다. Swagger는 <strong>코드에서 자동으로 API 문서를 생성</strong>한다.</p>
 <h3 id="springdoc-openapi">의존성 (Springdoc OpenAPI)</h3>
-<pre><code class="language-markdown">implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>implementation &#39;org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0&#39;
+</code></pre></div>
 <h3 id="_2">기본 설정</h3>
-<pre><code class="language-markdown"># application.yml
-springdoc:
-  api-docs:
-    path: /api-docs
-  swagger-ui:
-    path: /swagger-ui.html
-    operations-sorter: alpha
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gh"># application.yml</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>springdoc:
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  api-docs:
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    path: /api-docs
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  swagger-ui:
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    path: /swagger-ui.html
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    operations-sorter: alpha
+</code></pre></div>
 <p>실행 후 <code>http://localhost:8080/swagger-ui.html</code>에서 확인.</p>
 <h3 id="_3">전역 설정</h3>
-<pre><code class="language-markdown">@OpenAPIDefinition(
-    info = @Info(
-        title = &quot;My API&quot;,
-        description = &quot;서비스 API 문서&quot;,
-        version = &quot;v1&quot;
-    ),
-    servers = @Server(url = &quot;http://localhost:8080&quot;)
-)
-@Configuration
-public class SwaggerConfig { }
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="ni">@OpenAPIDefinition</span>(
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    info = <span class="ni">@Info</span>(
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>        title = &quot;My API&quot;,
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        description = &quot;서비스 API 문서&quot;,
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        version = &quot;v1&quot;
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    ),
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    servers = <span class="ni">@Server</span>(url = &quot;http://localhost:8080&quot;)
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>)
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="ni">@Configuration</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>public class SwaggerConfig { }
+</code></pre></div>
 <h3 id="_4">컨트롤러 문서화</h3>
-<pre><code class="language-markdown">@Tag(name = &quot;회원&quot;, description = &quot;회원 관련 API&quot;)
-@RestController
-@RequestMapping(&quot;/api/members&quot;)
-public class MemberController {
-
-    @Operation(
-        summary = &quot;회원 조회&quot;,
-        description = &quot;ID로 특정 회원 정보를 조회합니다&quot;
-    )
-    @ApiResponses({
-        @ApiResponse(responseCode = &quot;200&quot;, description = &quot;조회 성공&quot;),
-        @ApiResponse(responseCode = &quot;404&quot;, description = &quot;회원 없음&quot;)
-    })
-    @GetMapping(&quot;/{id}&quot;)
-    public MemberResponse find(
-        @Parameter(description = &quot;회원 ID&quot;) @PathVariable Long id
-    ) {
-        return memberService.findById(id);
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="ni">@Tag</span>(name = &quot;회원&quot;, description = &quot;회원 관련 API&quot;)
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="ni">@RestController</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="ni">@RequestMapping</span>(&quot;/api/members&quot;)
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>public class MemberController {
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="ni">@Operation</span>(
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        summary = &quot;회원 조회&quot;,
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>        description = &quot;ID로 특정 회원 정보를 조회합니다&quot;
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    )
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="ni">@ApiResponses</span>({
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>        <span class="ni">@ApiResponse</span>(responseCode = &quot;200&quot;, description = &quot;조회 성공&quot;),
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>        <span class="ni">@ApiResponse</span>(responseCode = &quot;404&quot;, description = &quot;회원 없음&quot;)
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    })
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    <span class="ni">@GetMapping</span>(&quot;/{id}&quot;)
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    public MemberResponse find(
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>        <span class="ni">@Parameter</span>(description = &quot;회원 ID&quot;) <span class="ni">@PathVariable</span> Long id
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    ) {
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>        return memberService.findById(id);
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>    }
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>}
+</code></pre></div>
 <h3 id="_5">운영 환경에서 비활성화</h3>
-<pre><code class="language-markdown"># application-prod.yml
-springdoc:
-  api-docs:
-    enabled: false
-  swagger-ui:
-    enabled: false
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gh"># application-prod.yml</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>springdoc:
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  api-docs:
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    enabled: false
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  swagger-ui:
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    enabled: false
+</code></pre></div>
 <h3 id="swagger-vs-spring-rest-docs">Swagger vs Spring REST Docs</h3>
 <table>
 <thead>

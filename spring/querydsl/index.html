@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4177,91 +4179,91 @@
 </tbody>
 </table>
 <h3 id="_2">설정</h3>
-<pre><code class="language-markdown">// build.gradle
-dependencies {
-    implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
-    annotationProcessor 'com.querydsl:querydsl-apt:5.0.0:jakarta'
-    annotationProcessor 'jakarta.annotation:jakarta.annotation-api'
-    annotationProcessor 'jakarta.persistence:jakarta.persistence-api'
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>// build.gradle
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>dependencies {
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    implementation &#39;com.querydsl:querydsl-jpa:5.0.0:jakarta&#39;
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    annotationProcessor &#39;com.querydsl:querydsl-apt:5.0.0:jakarta&#39;
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    annotationProcessor &#39;jakarta.annotation:jakarta.annotation-api&#39;
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    annotationProcessor &#39;jakarta.persistence:jakarta.persistence-api&#39;
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>}
+</code></pre></div>
 <p>빌드 후 Q클래스가 자동 생성된다: <code>QMember</code>, <code>QOrder</code> 등</p>
 <h3 id="_3">기본 사용</h3>
-<pre><code class="language-markdown">@Repository
-@RequiredArgsConstructor
-public class MemberQueryRepository {
-
-    private final JPAQueryFactory queryFactory;
-
-    public List&lt;Member&gt; findByName(String name) {
-        return queryFactory
-            .selectFrom(member)
-            .where(member.name.eq(name))
-            .orderBy(member.createdAt.desc())
-            .fetch();
-    }
-}
-</code></pre>
-<pre><code class="language-markdown">// JPAQueryFactory Bean 등록
-@Bean
-public JPAQueryFactory jpaQueryFactory(EntityManager em) {
-    return new JPAQueryFactory(em);
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="ni">@Repository</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="ni">@RequiredArgsConstructor</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>public class MemberQueryRepository {
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    private final JPAQueryFactory queryFactory;
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    public List&lt;Member&gt; findByName(String name) {
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        return queryFactory
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>            .selectFrom(member)
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>            .where(member.name.eq(name))
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>            .orderBy(member.createdAt.desc())
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>            .fetch();
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    }
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>}
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>// JPAQueryFactory Bean 등록
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="ni">@Bean</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>public JPAQueryFactory jpaQueryFactory(EntityManager em) {
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    return new JPAQueryFactory(em);
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>}
+</code></pre></div>
 <h3 id="booleanexpression">동적 쿼리 — BooleanExpression</h3>
 <p>null을 반환하면 자동으로 조건에서 제외된다. 이를 활용해 동적 검색을 구현한다.</p>
-<pre><code class="language-markdown">public List&lt;Member&gt; search(String name, MemberStatus status, Integer minAge) {
-    return queryFactory
-        .selectFrom(member)
-        .where(
-            nameContains(name),
-            statusEq(status),
-            ageGoe(minAge)
-        )
-        .fetch();
-}
-
-private BooleanExpression nameContains(String name) {
-    return name != null ? member.name.contains(name) : null;
-}
-
-private BooleanExpression statusEq(MemberStatus status) {
-    return status != null ? member.status.eq(status) : null;
-}
-
-private BooleanExpression ageGoe(Integer age) {
-    return age != null ? member.age.goe(age) : null;
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>public List&lt;Member&gt; search(String name, MemberStatus status, Integer minAge) {
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    return queryFactory
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        .selectFrom(member)
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>        .where(
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>            nameContains(name),
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>            statusEq(status),
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>            ageGoe(minAge)
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>        )
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>        .fetch();
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>}
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>private BooleanExpression nameContains(String name) {
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    return name != null ? member.name.contains(name) : null;
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>}
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>private BooleanExpression statusEq(MemberStatus status) {
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    return status != null ? member.status.eq(status) : null;
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>}
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>private BooleanExpression ageGoe(Integer age) {
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>    return age != null ? member.age.goe(age) : null;
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>}
+</code></pre></div>
 <h3 id="_4">페이징</h3>
-<pre><code class="language-markdown">public Page&lt;MemberResponse&gt; searchWithPaging(MemberSearchRequest request, Pageable pageable) {
-    List&lt;MemberResponse&gt; content = queryFactory
-        .select(new QMemberResponse(member.id, member.name, member.email))
-        .from(member)
-        .where(nameContains(request.getName()))
-        .orderBy(member.createdAt.desc())
-        .offset(pageable.getOffset())
-        .limit(pageable.getPageSize())
-        .fetch();
-
-    Long total = queryFactory
-        .select(member.count())
-        .from(member)
-        .where(nameContains(request.getName()))
-        .fetchOne();
-
-    return new PageImpl&lt;&gt;(content, pageable, total);
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>public Page&lt;MemberResponse&gt; searchWithPaging(MemberSearchRequest request, Pageable pageable) {
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    List&lt;MemberResponse&gt; content = queryFactory
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>        .select(new QMemberResponse(member.id, member.name, member.email))
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>        .from(member)
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        .where(nameContains(request.getName()))
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        .orderBy(member.createdAt.desc())
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>        .offset(pageable.getOffset())
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>        .limit(pageable.getPageSize())
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>        .fetch();
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    Long total = queryFactory
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>        .select(member.count())
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>        .from(member)
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>        .where(nameContains(request.getName()))
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>        .fetchOne();
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>    return new PageImpl&lt;&gt;(content, pageable, total);
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>}
+</code></pre></div>
 <h3 id="join">Join</h3>
-<pre><code class="language-markdown">// 회원 + 주문 조인
-queryFactory
-    .selectFrom(member)
-    .leftJoin(member.orders, order).fetchJoin()
-    .where(order.status.eq(OrderStatus.PENDING))
-    .distinct()
-    .fetch();
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>// 회원 + 주문 조인
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>queryFactory
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    .selectFrom(member)
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    .leftJoin(member.orders, order).fetchJoin()
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    .where(order.status.eq(OrderStatus.PENDING))
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    .distinct()
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    .fetch();
+</code></pre></div>
 <h3 id="_5">단점 / 주의할 점</h3>
 <table>
 <thead>

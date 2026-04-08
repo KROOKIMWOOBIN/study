@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4131,17 +4133,17 @@
 <p><code>ArrayList</code>는 앞/중간 삽입·삭제 시 요소를 이동시켜야 해서 O(n)이 발생한다.
 <code>LinkedList</code>는 노드 간 참조를 변경하는 방식이라 <strong>첫 번째 위치 삽입·삭제가 O(1)</strong>이다.</p>
 <h3 id="_2">어떻게 쓰는가?</h3>
-<pre><code class="language-java">LinkedList&lt;String&gt; list = new LinkedList&lt;&gt;();
-
-list.add(&quot;A&quot;);          // 마지막에 추가
-list.addFirst(&quot;B&quot;);     // 맨 앞에 추가 O(1)
-list.addLast(&quot;C&quot;);      // 맨 뒤에 추가
-
-list.removeFirst();     // 맨 앞 삭제 O(1)
-list.removeLast();      // 맨 뒤 삭제
-
-String s = list.get(1); // 인덱스 조회 O(n)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">);</span><span class="w">          </span><span class="c1">// 마지막에 추가</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">list</span><span class="p">.</span><span class="na">addFirst</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">);</span><span class="w">     </span><span class="c1">// 맨 앞에 추가 O(1)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">list</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">);</span><span class="w">      </span><span class="c1">// 맨 뒤에 추가</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">list</span><span class="p">.</span><span class="na">removeFirst</span><span class="p">();</span><span class="w">     </span><span class="c1">// 맨 앞 삭제 O(1)</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">list</span><span class="p">.</span><span class="na">removeLast</span><span class="p">();</span><span class="w">      </span><span class="c1">// 맨 뒤 삭제</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// 인덱스 조회 O(n)</span>
+</code></pre></div>
 <h3 id="_3">어디 상황에서 자주 쓰는가?</h3>
 <ul>
 <li>앞·중간에 <strong>삽입·삭제가 빈번</strong>한 경우</li>

@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4273,55 +4275,55 @@
 <h2 id="_1">왜 싱글톤이 필요한가</h2>
 <p>웹 애플리케이션은 수많은 사용자가 동시에 요청을 보낸다.
 만약 요청마다 새 객체를 생성하면 어떻게 될까?</p>
-<pre><code class="language-java">// 스프링 없이 순수 자바로 구현한다면
-public class AppConfig {
-    public OrderService orderService() {
-        return new OrderServiceImpl(memberRepository(), discountPolicy()); // 매번 새 객체 생성
-    }
-    public MemberRepository memberRepository() {
-        return new MemoryMemberRepository(); // 매번 새 객체 생성
-    }
-}
-</code></pre>
-<pre><code>클라이언트 A 요청 → new OrderServiceImpl 생성, new MemoryMemberRepository 생성 ...
-클라이언트 B 요청 → new OrderServiceImpl 생성, new MemoryMemberRepository 생성 ...
-클라이언트 C 요청 → new OrderServiceImpl 생성, new MemoryMemberRepository 생성 ...
-
-초당 10,000개 요청 → 초당 수만 개의 객체 생성 → GC 과부하 → 성능 저하
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// 스프링 없이 순수 자바로 구현한다면</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AppConfig</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">OrderService</span><span class="w"> </span><span class="nf">orderService</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OrderServiceImpl</span><span class="p">(</span><span class="n">memberRepository</span><span class="p">(),</span><span class="w"> </span><span class="n">discountPolicy</span><span class="p">());</span><span class="w"> </span><span class="c1">// 매번 새 객체 생성</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">MemberRepository</span><span class="w"> </span><span class="nf">memberRepository</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MemoryMemberRepository</span><span class="p">();</span><span class="w"> </span><span class="c1">// 매번 새 객체 생성</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>클라이언트 A 요청 → new OrderServiceImpl 생성, new MemoryMemberRepository 생성 ...
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>클라이언트 B 요청 → new OrderServiceImpl 생성, new MemoryMemberRepository 생성 ...
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>클라이언트 C 요청 → new OrderServiceImpl 생성, new MemoryMemberRepository 생성 ...
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>초당 10,000개 요청 → 초당 수만 개의 객체 생성 → GC 과부하 → 성능 저하
+</code></pre></div>
 <p><code>OrderServiceImpl</code>은 상태가 없는 객체다. 굳이 요청마다 새로 만들 이유가 없다.
 <strong>하나만 만들어서 공유하면 메모리 낭비 없이 효율적이다.</strong></p>
 <p>이것이 <strong>싱글톤 패턴</strong>이다: 클래스의 인스턴스가 딱 1개만 생성되도록 보장하는 패턴.</p>
 <hr />
 <h2 id="_2">순수 자바 싱글톤 패턴</h2>
 <p>자바로 직접 구현하면 이렇다.</p>
-<pre><code class="language-java">public class SingletonService {
-
-    // 1. 클래스 로딩 시점에 인스턴스를 딱 1개 생성하고 static으로 보관
-    private static final SingletonService instance = new SingletonService();
-
-    // 2. 생성자를 private으로 막아 외부에서 new 불가
-    private SingletonService() {}
-
-    // 3. 유일한 인스턴스를 반환하는 정적 메서드
-    public static SingletonService getInstance() {
-        return instance;
-    }
-
-    public void logic() {
-        System.out.println(&quot;싱글톤 객체 로직 호출&quot;);
-    }
-}
-</code></pre>
-<pre><code class="language-java">// 테스트
-SingletonService s1 = SingletonService.getInstance();
-SingletonService s2 = SingletonService.getInstance();
-
-assertThat(s1).isSameAs(s2); // true — 같은 인스턴스!
-// s1 == s2 (메모리 주소가 동일)
-
-// new SingletonService(); // 컴파일 에러 — private 생성자라서 외부에서 호출 불가
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SingletonService</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="c1">// 1. 클래스 로딩 시점에 인스턴스를 딱 1개 생성하고 static으로 보관</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">SingletonService</span><span class="w"> </span><span class="n">instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SingletonService</span><span class="p">();</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="c1">// 2. 생성자를 private으로 막아 외부에서 new 불가</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="nf">SingletonService</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="c1">// 3. 유일한 인스턴스를 반환하는 정적 메서드</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">SingletonService</span><span class="w"> </span><span class="nf">getInstance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">instance</span><span class="p">;</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">logic</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;싱글톤 객체 로직 호출&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// 테스트</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">SingletonService</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SingletonService</span><span class="p">.</span><span class="na">getInstance</span><span class="p">();</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">SingletonService</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SingletonService</span><span class="p">.</span><span class="na">getInstance</span><span class="p">();</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">assertThat</span><span class="p">(</span><span class="n">s1</span><span class="p">).</span><span class="na">isSameAs</span><span class="p">(</span><span class="n">s2</span><span class="p">);</span><span class="w"> </span><span class="c1">// true — 같은 인스턴스!</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1">// s1 == s2 (메모리 주소가 동일)</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1">// new SingletonService(); // 컴파일 에러 — private 생성자라서 외부에서 호출 불가</span>
+</code></pre></div>
 <hr />
 <h2 id="_3">순수 싱글톤 패턴의 문제점</h2>
 <p>직접 구현하는 싱글톤은 여러 문제가 있다.</p>
@@ -4355,23 +4357,23 @@ assertThat(s1).isSameAs(s2); // true — 같은 인스턴스!
 </tr>
 </tbody>
 </table>
-<pre><code class="language-java">// DIP 위반 예
-public class ClientA {
-    // SingletonService의 구체 클래스에 직접 의존 — 인터페이스 기반으로 바꾸기 어려움
-    private SingletonService service = SingletonService.getInstance();
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// DIP 위반 예</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ClientA</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="c1">// SingletonService의 구체 클래스에 직접 의존 — 인터페이스 기반으로 바꾸기 어려움</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">SingletonService</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SingletonService</span><span class="p">.</span><span class="na">getInstance</span><span class="p">();</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">}</span>
+</code></pre></div>
 <hr />
 <h2 id="_4">스프링의 싱글톤 컨테이너</h2>
 <p>스프링은 위 문제를 모두 해결하면서 싱글톤을 보장한다.</p>
-<pre><code class="language-java">ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
-
-MemberService s1 = ac.getBean(&quot;memberService&quot;, MemberService.class);
-MemberService s2 = ac.getBean(&quot;memberService&quot;, MemberService.class);
-
-assertThat(s1).isSameAs(s2); // true — 스프링이 같은 인스턴스를 반환
-// s1 == s2
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">ApplicationContext</span><span class="w"> </span><span class="n">ac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AnnotationConfigApplicationContext</span><span class="p">(</span><span class="n">AppConfig</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">MemberService</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ac</span><span class="p">.</span><span class="na">getBean</span><span class="p">(</span><span class="s">&quot;memberService&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">MemberService</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">MemberService</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ac</span><span class="p">.</span><span class="na">getBean</span><span class="p">(</span><span class="s">&quot;memberService&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">MemberService</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="n">assertThat</span><span class="p">(</span><span class="n">s1</span><span class="p">).</span><span class="na">isSameAs</span><span class="p">(</span><span class="n">s2</span><span class="p">);</span><span class="w"> </span><span class="c1">// true — 스프링이 같은 인스턴스를 반환</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1">// s1 == s2</span>
+</code></pre></div>
 <p>스프링은 <code>private</code> 생성자 같은 부가 코드 없이도 싱글톤을 보장한다.
 DI로 주입받기 때문에 클라이언트는 인터페이스에만 의존하면 된다.</p>
 <table>
@@ -4409,54 +4411,54 @@ DI로 주입받기 때문에 클라이언트는 인터페이스에만 의존하�
 <p>하나의 싱글톤 객체를 여러 스레드가 동시에 공유한다.
 인스턴스 변수(필드)에 값을 저장하면, 한 스레드가 쓴 값을 다른 스레드가 읽어버리는 심각한 버그가 발생한다.</p>
 <h3 id="_5">문제 예시</h3>
-<pre><code class="language-java">// 위험한 코드!
-@Component
-public class StatefulService {
-    private int price; // 공유 필드 → 여러 스레드가 동시에 쓸 수 있음!!
-
-    public void order(String name, int price) {
-        System.out.println(&quot;주문: name=&quot; + name + &quot; price=&quot; + price);
-        this.price = price; // 인스턴스 변수에 저장 — 위험!
-    }
-
-    public int getPrice() {
-        return price; // 다른 스레드가 바꿔놨을 수 있음!
-    }
-}
-</code></pre>
-<pre><code class="language-java">// 멀티스레드 환경에서 발생하는 버그
-StatefulService service = ...; // 싱글톤 — 모든 스레드가 같은 객체 사용
-
-// [스레드 A] 김철수가 10,000원 주문
-service.order(&quot;김철수&quot;, 10000); // this.price = 10000
-
-// [스레드 B] 스레드 A가 getPrice() 호출하기 직전에 끼어들어서 주문
-service.order(&quot;김영희&quot;, 20000); // this.price = 20000 (덮어씀!)
-
-// [스레드 A] 가격 조회
-int price = service.getPrice();
-// 기대: 10000  실제: 20000 ← 버그!
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// 위험한 코드!</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nd">@Component</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StatefulService</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">;</span><span class="w"> </span><span class="c1">// 공유 필드 → 여러 스레드가 동시에 쓸 수 있음!!</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">order</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;주문: name=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; price=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">price</span><span class="p">);</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">price</span><span class="p">;</span><span class="w"> </span><span class="c1">// 인스턴스 변수에 저장 — 위험!</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getPrice</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">price</span><span class="p">;</span><span class="w"> </span><span class="c1">// 다른 스레드가 바꿔놨을 수 있음!</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// 멀티스레드 환경에서 발생하는 버그</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">StatefulService</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w"> </span><span class="c1">// 싱글톤 — 모든 스레드가 같은 객체 사용</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1">// [스레드 A] 김철수가 10,000원 주문</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">service</span><span class="p">.</span><span class="na">order</span><span class="p">(</span><span class="s">&quot;김철수&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10000</span><span class="p">);</span><span class="w"> </span><span class="c1">// this.price = 10000</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1">// [스레드 B] 스레드 A가 getPrice() 호출하기 직전에 끼어들어서 주문</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="n">service</span><span class="p">.</span><span class="na">order</span><span class="p">(</span><span class="s">&quot;김영희&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">20000</span><span class="p">);</span><span class="w"> </span><span class="c1">// this.price = 20000 (덮어씀!)</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="c1">// [스레드 A] 가격 조회</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">service</span><span class="p">.</span><span class="na">getPrice</span><span class="p">();</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="c1">// 기대: 10000  실제: 20000 ← 버그!</span>
+</code></pre></div>
 <p>실제 서비스에서 이런 버그가 발생하면 <strong>다른 사람의 결제 금액이 내 영수증에 찍히는 상황</strong>이 된다.
 은행, 결제 시스템에서 치명적인 결함이다.</p>
 <h3 id="_6">올바른 무상태 설계</h3>
-<pre><code class="language-java">// 안전한 코드 — 인스턴스 변수를 사용하지 않음
-@Component
-public class StatelessService {
-
-    public int order(String name, int price) {
-        System.out.println(&quot;주문: name=&quot; + name + &quot; price=&quot; + price);
-        return price; // 지역 변수로 처리 — 스레드마다 독립적인 스택에 저장
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// 안전한 코드 — 인스턴스 변수를 사용하지 않음</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nd">@Component</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StatelessService</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">order</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;주문: name=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; price=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">price</span><span class="p">);</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">price</span><span class="p">;</span><span class="w"> </span><span class="c1">// 지역 변수로 처리 — 스레드마다 독립적인 스택에 저장</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="p">}</span>
+</code></pre></div>
 <p>지역 변수, 파라미터, 반환값은 스레드마다 독립적인 <strong>스택(Stack)</strong> 메모리에 저장된다.
 스레드끼리 공유하지 않으므로 안전하다.</p>
 <p>인스턴스 변수(필드)는 <strong>힙(Heap)</strong> 메모리에 저장된다. 모든 스레드가 공유한다.</p>
-<pre><code>스레드 A 스택: price = 10000 (지역 변수) → 스레드 A만 사용
-스레드 B 스택: price = 20000 (지역 변수) → 스레드 B만 사용
-힙 (싱글톤 객체): StatelessService@x01 → 모든 스레드 공유, 상태 없으므로 안전
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>스레드 A 스택: price = 10000 (지역 변수) → 스레드 A만 사용
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>스레드 B 스택: price = 20000 (지역 변수) → 스레드 B만 사용
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>힙 (싱글톤 객체): StatelessService@x01 → 모든 스레드 공유, 상태 없으므로 안전
+</code></pre></div>
 <h3 id="_7">무상태 설계 체크리스트</h3>
 <table>
 <thead>
@@ -4493,36 +4495,36 @@ public class StatelessService {
 <p>싱글톤 빈인데, 스레드마다 다른 값을 저장해야 하는 경우가 있다.
 예: 현재 로그인한 사용자 정보를 요청 처리 중 여러 계층에서 참조해야 할 때.</p>
 <p>이때 <code>ThreadLocal</code>을 사용한다.</p>
-<pre><code class="language-java">// ThreadLocal: 스레드마다 독립된 저장 공간 제공
-public class UserContext {
-    // static이지만 내부적으로 스레드마다 별도 공간을 가짐
-    private static final ThreadLocal&lt;String&gt; currentUser = new ThreadLocal&lt;&gt;();
-
-    public static void set(String user) {
-        currentUser.set(user);
-    }
-
-    public static String get() {
-        return currentUser.get(); // 현재 스레드에 저장된 값만 반환
-    }
-
-    public static void clear() {
-        currentUser.remove(); // 사용 후 반드시 제거!
-    }
-}
-</code></pre>
-<pre><code class="language-java">// 스레드 A: 사용자 &quot;김철수&quot;
-UserContext.set(&quot;김철수&quot;);
-
-// 스레드 B: 사용자 &quot;김영희&quot;
-UserContext.set(&quot;김영희&quot;);
-
-// 스레드 A에서 조회
-UserContext.get(); // &quot;김철수&quot; — 스레드 A의 데이터만 나옴
-
-// 스레드 B에서 조회
-UserContext.get(); // &quot;김영희&quot; — 스레드 B의 데이터만 나옴
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">// ThreadLocal: 스레드마다 독립된 저장 공간 제공</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserContext</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="c1">// static이지만 내부적으로 스레드마다 별도 공간을 가짐</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ThreadLocal</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">currentUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ThreadLocal</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">set</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">user</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">        </span><span class="n">currentUser</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">get</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">currentUser</span><span class="p">.</span><span class="na">get</span><span class="p">();</span><span class="w"> </span><span class="c1">// 현재 스레드에 저장된 값만 반환</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">clear</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">        </span><span class="n">currentUser</span><span class="p">.</span><span class="na">remove</span><span class="p">();</span><span class="w"> </span><span class="c1">// 사용 후 반드시 제거!</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">// 스레드 A: 사용자 &quot;김철수&quot;</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">UserContext</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">&quot;김철수&quot;</span><span class="p">);</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1">// 스레드 B: 사용자 &quot;김영희&quot;</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="n">UserContext</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">&quot;김영희&quot;</span><span class="p">);</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="c1">// 스레드 A에서 조회</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="n">UserContext</span><span class="p">.</span><span class="na">get</span><span class="p">();</span><span class="w"> </span><span class="c1">// &quot;김철수&quot; — 스레드 A의 데이터만 나옴</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="c1">// 스레드 B에서 조회</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="n">UserContext</span><span class="p">.</span><span class="na">get</span><span class="p">();</span><span class="w"> </span><span class="c1">// &quot;김영희&quot; — 스레드 B의 데이터만 나옴</span>
+</code></pre></div>
 <blockquote>
 <p><strong>ThreadLocal 주의사항</strong>: 요청 처리가 끝난 후 반드시 <code>remove()</code>를 호출해야 한다.
 스레드 풀 환경에서는 스레드가 재사용되므로, 제거하지 않으면 이전 요청의 사용자 정보가 다음 요청에 그대로 남아있게 된다.</p>
@@ -4530,81 +4532,81 @@ UserContext.get(); // &quot;김영희&quot; — 스레드 B의 데이터만 나�
 <hr />
 <h2 id="configuration-cglib">@Configuration과 CGLIB — 스프링이 싱글톤을 보장하는 방법</h2>
 <h3 id="_8">문제: 자바 코드 그대로라면 싱글톤이 깨진다</h3>
-<pre><code class="language-java">@Configuration
-public class AppConfig {
-    @Bean
-    public MemberService memberService() {
-        return new MemberServiceImpl(memberRepository()); // memberRepository() 호출 1
-    }
-
-    @Bean
-    public OrderService orderService() {
-        return new OrderServiceImpl(memberRepository(), discountPolicy()); // memberRepository() 호출 2
-    }
-
-    @Bean
-    public MemberRepository memberRepository() {
-        return new MemoryMemberRepository(); // new!
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nd">@Configuration</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AppConfig</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="nd">@Bean</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">MemberService</span><span class="w"> </span><span class="nf">memberService</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MemberServiceImpl</span><span class="p">(</span><span class="n">memberRepository</span><span class="p">());</span><span class="w"> </span><span class="c1">// memberRepository() 호출 1</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">    </span><span class="nd">@Bean</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">OrderService</span><span class="w"> </span><span class="nf">orderService</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OrderServiceImpl</span><span class="p">(</span><span class="n">memberRepository</span><span class="p">(),</span><span class="w"> </span><span class="n">discountPolicy</span><span class="p">());</span><span class="w"> </span><span class="c1">// memberRepository() 호출 2</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">    </span><span class="nd">@Bean</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">MemberRepository</span><span class="w"> </span><span class="nf">memberRepository</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MemoryMemberRepository</span><span class="p">();</span><span class="w"> </span><span class="c1">// new!</span>
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="p">}</span>
+</code></pre></div>
 <p>자바 코드대로 실행된다면 <code>memberRepository()</code>가 2번 호출되어 <code>MemoryMemberRepository</code>가 2개 생길 것 같다.
 그러면 <code>MemberServiceImpl</code>이 사용하는 레포지토리와 <code>OrderServiceImpl</code>이 사용하는 레포지토리가 서로 다른 인스턴스가 된다.</p>
 <p>하지만 실제로 실행해보면 <strong>1개만 생성된다</strong>. 어떻게 된 것일까?</p>
 <h3 id="cglib">CGLIB 바이트코드 조작</h3>
 <p>스프링은 <code>@Configuration</code>이 붙은 클래스를 <strong>그대로 쓰지 않는다</strong>.
 CGLIB 라이브러리를 이용해 <code>AppConfig</code>를 상속한 <strong>프록시(Proxy) 클래스</strong>를 만들고, 그것을 빈으로 등록한다.</p>
-<pre><code class="language-java">// 확인 방법
-ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
-AppConfig bean = ac.getBean(AppConfig.class);
-System.out.println(bean.getClass());
-// 출력: class hello.core.AppConfig$$EnhancerBySpringCGLIB$$12ab34cd
-// → 원본 AppConfig가 아니라 CGLIB이 만든 프록시 클래스!
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1">// 확인 방법</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">ApplicationContext</span><span class="w"> </span><span class="n">ac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AnnotationConfigApplicationContext</span><span class="p">(</span><span class="n">AppConfig</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">AppConfig</span><span class="w"> </span><span class="n">bean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ac</span><span class="p">.</span><span class="na">getBean</span><span class="p">(</span><span class="n">AppConfig</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">bean</span><span class="p">.</span><span class="na">getClass</span><span class="p">());</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="c1">// 출력: class hello.core.AppConfig$$EnhancerBySpringCGLIB$$12ab34cd</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="c1">// → 원본 AppConfig가 아니라 CGLIB이 만든 프록시 클래스!</span>
+</code></pre></div>
 <p>CGLIB이 만든 프록시는 <code>@Bean</code> 메서드를 오버라이딩해서 다음과 같은 로직을 끼워 넣는다:</p>
-<pre><code class="language-java">// CGLIB이 생성하는 코드 (개념적 설명)
-@Bean
-public MemberRepository memberRepository() {
-    if (스프링 컨테이너에 &quot;memberRepository&quot; 빈이 이미 존재하는가?) {
-        return 기존 빈을 반환; // 싱글톤 보장
-    } else {
-        MemberRepository repo = new MemoryMemberRepository();
-        스프링 컨테이너에 등록;
-        return repo;
-    }
-}
-</code></pre>
-<pre><code>처음 호출: memberRepository 빈 없음 → new MemoryMemberRepository() → 컨테이너에 등록
-두 번째 호출: memberRepository 빈 이미 있음 → 기존 빈 반환 → new 안 함
-
-결과: MemoryMemberRepository는 딱 1개만 생성됨 → 싱글톤 보장!
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1">// CGLIB이 생성하는 코드 (개념적 설명)</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nd">@Bean</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="kd">public</span><span class="w"> </span><span class="n">MemberRepository</span><span class="w"> </span><span class="nf">memberRepository</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">스프링</span><span class="w"> </span><span class="n">컨테이너에</span><span class="w"> </span><span class="s">&quot;memberRepository&quot;</span><span class="w"> </span><span class="n">빈이</span><span class="w"> </span><span class="n">이미</span><span class="w"> </span><span class="n">존재하는가</span><span class="o">?</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">기존</span><span class="w"> </span><span class="n">빈을</span><span class="w"> </span><span class="n">반환</span><span class="p">;</span><span class="w"> </span><span class="c1">// 싱글톤 보장</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">        </span><span class="n">MemberRepository</span><span class="w"> </span><span class="n">repo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MemoryMemberRepository</span><span class="p">();</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">        </span><span class="n">스프링</span><span class="w"> </span><span class="n">컨테이너에</span><span class="w"> </span><span class="n">등록</span><span class="p">;</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">repo</span><span class="p">;</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>처음 호출: memberRepository 빈 없음 → new MemoryMemberRepository() → 컨테이너에 등록
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>두 번째 호출: memberRepository 빈 이미 있음 → 기존 빈 반환 → new 안 함
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>결과: MemoryMemberRepository는 딱 1개만 생성됨 → 싱글톤 보장!
+</code></pre></div>
 <h3 id="configuration-bean">@Configuration 없이 @Bean만 쓰면?</h3>
-<pre><code class="language-java">// @Configuration 없이 사용
-public class AppConfig { // @Configuration 제거!
-    @Bean
-    public MemberService memberService() {
-        return new MemberServiceImpl(memberRepository()); // 순수 자바 메서드 호출
-    }
-
-    @Bean
-    public OrderService orderService() {
-        return new OrderServiceImpl(memberRepository(), discountPolicy()); // 또 순수 자바 메서드 호출
-    }
-
-    @Bean
-    public MemberRepository memberRepository() {
-        return new MemoryMemberRepository(); // 호출될 때마다 new!
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1">// @Configuration 없이 사용</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AppConfig</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// @Configuration 제거!</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="nd">@Bean</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">MemberService</span><span class="w"> </span><span class="nf">memberService</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MemberServiceImpl</span><span class="p">(</span><span class="n">memberRepository</span><span class="p">());</span><span class="w"> </span><span class="c1">// 순수 자바 메서드 호출</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">    </span><span class="nd">@Bean</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">OrderService</span><span class="w"> </span><span class="nf">orderService</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OrderServiceImpl</span><span class="p">(</span><span class="n">memberRepository</span><span class="p">(),</span><span class="w"> </span><span class="n">discountPolicy</span><span class="p">());</span><span class="w"> </span><span class="c1">// 또 순수 자바 메서드 호출</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">    </span><span class="nd">@Bean</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">MemberRepository</span><span class="w"> </span><span class="nf">memberRepository</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MemoryMemberRepository</span><span class="p">();</span><span class="w"> </span><span class="c1">// 호출될 때마다 new!</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="p">}</span>
+</code></pre></div>
 <p><code>@Configuration</code>이 없으면 CGLIB 프록시가 만들어지지 않는다.
 <code>memberRepository()</code>는 단순 자바 메서드 호출이 되어 호출할 때마다 <code>new MemoryMemberRepository()</code>를 생성한다.
 <strong>싱글톤이 깨진다.</strong></p>
-<pre><code>결론:
-@Configuration + @Bean → CGLIB 프록시 적용 → 싱글톤 보장 ✓
-@Bean만 (단독)         → 순수 자바 코드   → 싱글톤 미보장 ✗
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>결론:
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>@Configuration + @Bean → CGLIB 프록시 적용 → 싱글톤 보장 ✓
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>@Bean만 (단독)         → 순수 자바 코드   → 싱글톤 미보장 ✗
+</code></pre></div>
 <blockquote>
 <p><strong>항상 <code>@Configuration</code>과 <code>@Bean</code>을 함께 사용할 것.</strong></p>
 </blockquote>

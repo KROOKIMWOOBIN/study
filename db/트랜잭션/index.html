@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4921,36 +4923,36 @@
 </tbody>
 </table>
 <h3 id="atomicity">원자성 (Atomicity)</h3>
-<pre><code>계좌 이체 트랜잭션:
-  ① A -2000원  ─┐
-  ② B +2000원  ─┘ 두 작업 모두 성공 → COMMIT
-                   둘 중 하나 실패  → ROLLBACK (모두 취소)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>계좌 이체 트랜잭션:
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  ① A -2000원  ─┐
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  ② B +2000원  ─┘ 두 작업 모두 성공 → COMMIT
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>                   둘 중 하나 실패  → ROLLBACK (모두 취소)
+</code></pre></div>
 <h3 id="isolation">격리성 (Isolation)</h3>
 <p>격리성을 완벽히 보장하려면 동시 처리 성능이 크게 떨어진다.
 그래서 ANSI 표준은 4단계 격리 수준을 정의한다. → <a href="../%EA%B2%A9%EB%A6%AC%EC%88%98%EC%A4%80/">격리 수준 참고</a></p>
 <hr />
 <h2 id="vs">자동 커밋 vs 수동 커밋</h2>
 <h3 id="auto-commit">자동 커밋 (Auto Commit) — 기본값</h3>
-<pre><code class="language-java">con.setAutoCommit(true); // 기본값
-
-// 아래 각 SQL 실행 시마다 자동으로 커밋됨
-executeQuery(&quot;UPDATE member SET money=...&quot;);  // 즉시 커밋
-executeQuery(&quot;UPDATE member SET money=...&quot;);  // 즉시 커밋
-// 두 작업을 하나의 트랜잭션으로 묶을 수 없음!
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">con</span><span class="p">.</span><span class="na">setAutoCommit</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w"> </span><span class="c1">// 기본값</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1">// 아래 각 SQL 실행 시마다 자동으로 커밋됨</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">executeQuery</span><span class="p">(</span><span class="s">&quot;UPDATE member SET money=...&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// 즉시 커밋</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">executeQuery</span><span class="p">(</span><span class="s">&quot;UPDATE member SET money=...&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// 즉시 커밋</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1">// 두 작업을 하나의 트랜잭션으로 묶을 수 없음!</span>
+</code></pre></div>
 <h3 id="manual-commit">수동 커밋 (Manual Commit)</h3>
-<pre><code class="language-java">con.setAutoCommit(false); // 수동 커밋 모드
-
-try {
-    executeQuery(&quot;UPDATE member SET money = money - 2000 WHERE member_id = 'memberA'&quot;);
-    executeQuery(&quot;UPDATE member SET money = money + 2000 WHERE member_id = 'memberB'&quot;);
-
-    con.commit(); // 모두 성공 → 커밋
-} catch (Exception e) {
-    con.rollback(); // 실패 → 롤백
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">con</span><span class="p">.</span><span class="na">setAutoCommit</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span><span class="w"> </span><span class="c1">// 수동 커밋 모드</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">executeQuery</span><span class="p">(</span><span class="s">&quot;UPDATE member SET money = money - 2000 WHERE member_id = &#39;memberA&#39;&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="n">executeQuery</span><span class="p">(</span><span class="s">&quot;UPDATE member SET money = money + 2000 WHERE member_id = &#39;memberB&#39;&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="n">con</span><span class="p">.</span><span class="na">commit</span><span class="p">();</span><span class="w"> </span><span class="c1">// 모두 성공 → 커밋</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="n">con</span><span class="p">.</span><span class="na">rollback</span><span class="p">();</span><span class="w"> </span><span class="c1">// 실패 → 롤백</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">}</span>
+</code></pre></div>
 <blockquote>
 <p>수동 커밋 모드로 변경하는 것 = <strong>트랜잭션 시작</strong></p>
 </blockquote>
@@ -4958,134 +4960,134 @@ try {
 <h2 id="db">DB 연결 구조와 트랜잭션</h2>
 <h3 id="_4">같은 커넥션을 사용해야 하는 이유</h3>
 <p>DB 트랜잭션은 <strong>하나의 커넥션(세션) 안에서</strong> 처리된다.</p>
-<pre><code>[애플리케이션]
-   Service 계층
-      ├── Repository A (SQL 1 실행)
-      └── Repository B (SQL 2 실행)
-
-[DB 서버]
-   세션 1 (커넥션 1) ← SQL 1
-   세션 2 (커넥션 2) ← SQL 2
-   → 서로 다른 세션이므로 하나의 트랜잭션으로 묶을 수 없음!
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>[애플리케이션]
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>   Service 계층
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>      ├── Repository A (SQL 1 실행)
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>      └── Repository B (SQL 2 실행)
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>[DB 서버]
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>   세션 1 (커넥션 1) ← SQL 1
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>   세션 2 (커넥션 2) ← SQL 2
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>   → 서로 다른 세션이므로 하나의 트랜잭션으로 묶을 수 없음!
+</code></pre></div>
 <p>따라서 하나의 트랜잭션으로 묶으려면 <strong>같은 커넥션</strong>을 Repository A와 B에서 공유해야 한다.</p>
 <h3 id="jdbc">순수 JDBC 방식의 문제점</h3>
-<pre><code class="language-java">// 서비스 계층에서 커넥션을 직접 파라미터로 전달해야 하는 문제
-public void accountTransfer(String fromId, String toId, int money) throws SQLException {
-    Connection con = dataSource.getConnection();
-    try {
-        con.setAutoCommit(false);
-
-        // 커넥션을 파라미터로 넘겨야 같은 커넥션 사용 가능
-        memberRepository.update(con, fromId, money - 2000);
-        memberRepository.update(con, toId, money + 2000);
-
-        con.commit();
-    } catch (Exception e) {
-        con.rollback();
-        throw new IllegalStateException(e);
-    } finally {
-        release(con);
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// 서비스 계층에서 커넥션을 직접 파라미터로 전달해야 하는 문제</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">accountTransfer</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">fromId</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">toId</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">money</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">SQLException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="n">Connection</span><span class="w"> </span><span class="n">con</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dataSource</span><span class="p">.</span><span class="na">getConnection</span><span class="p">();</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="n">con</span><span class="p">.</span><span class="na">setAutoCommit</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="c1">// 커넥션을 파라미터로 넘겨야 같은 커넥션 사용 가능</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">        </span><span class="n">memberRepository</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="w"> </span><span class="n">fromId</span><span class="p">,</span><span class="w"> </span><span class="n">money</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2000</span><span class="p">);</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">        </span><span class="n">memberRepository</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="w"> </span><span class="n">toId</span><span class="p">,</span><span class="w"> </span><span class="n">money</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2000</span><span class="p">);</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="n">con</span><span class="p">.</span><span class="na">commit</span><span class="p">();</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">        </span><span class="n">con</span><span class="p">.</span><span class="na">rollback</span><span class="p">();</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">        </span><span class="n">release</span><span class="p">(</span><span class="n">con</span><span class="p">);</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="p">}</span>
+</code></pre></div>
 <p><strong>문제</strong>: 서비스 계층이 JDBC(기술)에 의존하게 됨. 나중에 JPA로 교체하면 서비스 코드도 변경해야 함.</p>
 <hr />
 <h2 id="_5">스프링 트랜잭션 추상화</h2>
 <h3 id="platformtransactionmanager">PlatformTransactionManager</h3>
 <p>스프링은 트랜잭션 기술(JDBC, JPA, Hibernate 등)을 추상화한 인터페이스를 제공한다.</p>
-<pre><code class="language-java">public interface PlatformTransactionManager extends TransactionManager {
-    TransactionStatus getTransaction(@Nullable TransactionDefinition definition);
-    void commit(TransactionStatus status);
-    void rollback(TransactionStatus status);
-}
-</code></pre>
-<pre><code>[서비스 계층]
-    ↓ PlatformTransactionManager (인터페이스)
-    ├── DataSourceTransactionManager  (JDBC, MyBatis용)
-    ├── JpaTransactionManager         (JPA용)
-    ├── HibernateTransactionManager   (Hibernate용)
-    └── JtaTransactionManager         (분산 트랜잭션)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">PlatformTransactionManager</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">TransactionManager</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="n">TransactionStatus</span><span class="w"> </span><span class="nf">getTransaction</span><span class="p">(</span><span class="nd">@Nullable</span><span class="w"> </span><span class="n">TransactionDefinition</span><span class="w"> </span><span class="n">definition</span><span class="p">);</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">commit</span><span class="p">(</span><span class="n">TransactionStatus</span><span class="w"> </span><span class="n">status</span><span class="p">);</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">rollback</span><span class="p">(</span><span class="n">TransactionStatus</span><span class="w"> </span><span class="n">status</span><span class="p">);</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>[서비스 계층]
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    ↓ PlatformTransactionManager (인터페이스)
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    ├── DataSourceTransactionManager  (JDBC, MyBatis용)
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    ├── JpaTransactionManager         (JPA용)
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    ├── HibernateTransactionManager   (Hibernate용)
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    └── JtaTransactionManager         (분산 트랜잭션)
+</code></pre></div>
 <p>서비스 계층은 <code>PlatformTransactionManager</code>에만 의존하므로 기술이 바뀌어도 코드 변경 없음.</p>
 <h3 id="_6">스프링 부트 자동 등록</h3>
-<pre><code class="language-yaml"># Spring Boot는 datasource 설정이 있으면 자동으로
-# DataSourceTransactionManager를 빈으로 등록
-spring:
-  datasource:
-    url: jdbc:mysql://localhost:3306/testdb
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Spring Boot는 datasource 설정이 있으면 자동으로</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1"># DataSourceTransactionManager를 빈으로 등록</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nt">spring</span><span class="p">:</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="nt">datasource</span><span class="p">:</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jdbc:mysql://localhost:3306/testdb</span>
+</code></pre></div>
 <p>JPA 사용 시에는 <code>JpaTransactionManager</code>가 자동 등록된다.</p>
 <hr />
 <h2 id="transactionsynchronizationmanager">트랜잭션 동기화 (TransactionSynchronizationManager)</h2>
 <h3 id="_7">역할</h3>
 <p>스프링은 <strong>트랜잭션 동기화 매니저</strong>를 통해 커넥션을 스레드 로컬(ThreadLocal)에 보관한다.</p>
-<pre><code>[트랜잭션 매니저]
-    1. DataSource에서 커넥션 획득
-    2. 커넥션에 setAutoCommit(false)
-    3. 커넥션을 트랜잭션 동기화 매니저에 보관
-
-[트랜잭션 동기화 매니저]
-    ThreadLocal&lt;Map&lt;DataSource, Connection&gt;&gt;
-    → 스레드마다 독립적인 커넥션 저장
-
-[Repository]
-    DataSourceUtils.getConnection(dataSource)
-    → 동기화 매니저에서 현재 스레드의 커넥션 꺼내서 사용
-    → 없으면 새 커넥션 생성
-</code></pre>
-<pre><code class="language-java">// DataSourceUtils.getConnection() 내부 동작
-public static Connection getConnection(DataSource dataSource) {
-    // 1. 트랜잭션 동기화 매니저에서 현재 스레드의 커넥션 조회
-    // 2. 있으면 그 커넥션 반환 (같은 트랜잭션)
-    // 3. 없으면 새 커넥션 생성
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>[트랜잭션 매니저]
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    1. DataSource에서 커넥션 획득
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    2. 커넥션에 setAutoCommit(false)
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    3. 커넥션을 트랜잭션 동기화 매니저에 보관
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>[트랜잭션 동기화 매니저]
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    ThreadLocal&lt;Map&lt;DataSource, Connection&gt;&gt;
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    → 스레드마다 독립적인 커넥션 저장
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>[Repository]
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>    DataSourceUtils.getConnection(dataSource)
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>    → 동기화 매니저에서 현재 스레드의 커넥션 꺼내서 사용
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>    → 없으면 새 커넥션 생성
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// DataSourceUtils.getConnection() 내부 동작</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Connection</span><span class="w"> </span><span class="nf">getConnection</span><span class="p">(</span><span class="n">DataSource</span><span class="w"> </span><span class="n">dataSource</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="c1">// 1. 트랜잭션 동기화 매니저에서 현재 스레드의 커넥션 조회</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="c1">// 2. 있으면 그 커넥션 반환 (같은 트랜잭션)</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="c1">// 3. 없으면 새 커넥션 생성</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="p">}</span>
+</code></pre></div>
 <p>덕분에 서비스에서 파라미터로 커넥션을 넘기지 않아도 된다!</p>
 <hr />
 <h2 id="transactional">@Transactional 사용법</h2>
 <h3 id="_8">기본 사용</h3>
-<pre><code class="language-java">@Service
-@Slf4j
-public class MemberService {
-
-    private final MemberRepository memberRepository;
-
-    public MemberService(MemberRepository memberRepository) {
-        this.memberRepository = memberRepository;
-    }
-
-    @Transactional
-    public void accountTransfer(String fromId, String toId, int money) {
-        Member fromMember = memberRepository.findById(fromId);
-        Member toMember = memberRepository.findById(toId);
-
-        memberRepository.update(fromId, fromMember.getMoney() - money);
-        validation(toMember); // 예외 발생 시 자동 롤백
-        memberRepository.update(toId, toMember.getMoney() + money);
-    }
-
-    private void validation(Member toMember) {
-        if (toMember.getMemberId().equals(&quot;ex&quot;)) {
-            throw new IllegalStateException(&quot;이체 중 예외 발생&quot;);
-        }
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nd">@Service</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nd">@Slf4j</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MemberService</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">MemberRepository</span><span class="w"> </span><span class="n">memberRepository</span><span class="p">;</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">MemberService</span><span class="p">(</span><span class="n">MemberRepository</span><span class="w"> </span><span class="n">memberRepository</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">memberRepository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">memberRepository</span><span class="p">;</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">    </span><span class="nd">@Transactional</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">accountTransfer</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">fromId</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">toId</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">money</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">        </span><span class="n">Member</span><span class="w"> </span><span class="n">fromMember</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">memberRepository</span><span class="p">.</span><span class="na">findById</span><span class="p">(</span><span class="n">fromId</span><span class="p">);</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">        </span><span class="n">Member</span><span class="w"> </span><span class="n">toMember</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">memberRepository</span><span class="p">.</span><span class="na">findById</span><span class="p">(</span><span class="n">toId</span><span class="p">);</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">        </span><span class="n">memberRepository</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">fromId</span><span class="p">,</span><span class="w"> </span><span class="n">fromMember</span><span class="p">.</span><span class="na">getMoney</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">money</span><span class="p">);</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">        </span><span class="n">validation</span><span class="p">(</span><span class="n">toMember</span><span class="p">);</span><span class="w"> </span><span class="c1">// 예외 발생 시 자동 롤백</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">        </span><span class="n">memberRepository</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">toId</span><span class="p">,</span><span class="w"> </span><span class="n">toMember</span><span class="p">.</span><span class="na">getMoney</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">money</span><span class="p">);</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>
+<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">validation</span><span class="p">(</span><span class="n">Member</span><span class="w"> </span><span class="n">toMember</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">toMember</span><span class="p">.</span><span class="na">getMemberId</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;ex&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">&quot;이체 중 예외 발생&quot;</span><span class="p">);</span>
+<a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a><span class="p">}</span>
+</code></pre></div>
 <h3 id="aop">동작 원리 (AOP 프록시)</h3>
-<pre><code>[클라이언트]
-    ↓ 호출
-[MemberService$$EnhancerBySpringCGLIB] ← 스프링이 만든 프록시 객체
-    ↓ 트랜잭션 시작 (getTransaction)
-[MemberService] ← 실제 객체 호출
-    ↓ 작업 완료
-[프록시]
-    ↓ 성공 시 commit(), 예외 시 rollback()
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>[클라이언트]
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    ↓ 호출
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>[MemberService$$EnhancerBySpringCGLIB] ← 스프링이 만든 프록시 객체
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    ↓ 트랜잭션 시작 (getTransaction)
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>[MemberService] ← 실제 객체 호출
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    ↓ 작업 완료
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>[프록시]
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>    ↓ 성공 시 commit(), 예외 시 rollback()
+</code></pre></div>
 <h3 id="_9">주요 옵션</h3>
 <h4 id="propagation">propagation (전파)</h4>
-<pre><code class="language-java">@Transactional(propagation = Propagation.REQUIRED) // 기본값
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nd">@Transactional</span><span class="p">(</span><span class="n">propagation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Propagation</span><span class="p">.</span><span class="na">REQUIRED</span><span class="p">)</span><span class="w"> </span><span class="c1">// 기본값</span>
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -5125,167 +5127,167 @@ public class MemberService {
 </tbody>
 </table>
 <h4 id="isolation_1">isolation (격리 수준)</h4>
-<pre><code class="language-java">@Transactional(isolation = Isolation.DEFAULT)           // DB 기본값 사용
-@Transactional(isolation = Isolation.READ_UNCOMMITTED)
-@Transactional(isolation = Isolation.READ_COMMITTED)
-@Transactional(isolation = Isolation.REPEATABLE_READ)
-@Transactional(isolation = Isolation.SERIALIZABLE)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nd">@Transactional</span><span class="p">(</span><span class="n">isolation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Isolation</span><span class="p">.</span><span class="na">DEFAULT</span><span class="p">)</span><span class="w">           </span><span class="c1">// DB 기본값 사용</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nd">@Transactional</span><span class="p">(</span><span class="n">isolation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Isolation</span><span class="p">.</span><span class="na">READ_UNCOMMITTED</span><span class="p">)</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="nd">@Transactional</span><span class="p">(</span><span class="n">isolation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Isolation</span><span class="p">.</span><span class="na">READ_COMMITTED</span><span class="p">)</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="nd">@Transactional</span><span class="p">(</span><span class="n">isolation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Isolation</span><span class="p">.</span><span class="na">REPEATABLE_READ</span><span class="p">)</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="nd">@Transactional</span><span class="p">(</span><span class="n">isolation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Isolation</span><span class="p">.</span><span class="na">SERIALIZABLE</span><span class="p">)</span>
+</code></pre></div>
 <h4 id="readonly">readOnly</h4>
-<pre><code class="language-java">@Transactional(readOnly = true) // 읽기 전용 트랜잭션
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nd">@Transactional</span><span class="p">(</span><span class="n">readOnly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="c1">// 읽기 전용 트랜잭션</span>
+</code></pre></div>
 <ul>
 <li>JPA: Dirty Checking(변경 감지) 스킵 → 성능 향상</li>
 <li>DB 드라이버: 읽기 전용 최적화 가능</li>
 <li>명시적으로 쓰기 불가 표시 → 코드 의도 명확</li>
 </ul>
 <h4 id="rollbackfor">rollbackFor</h4>
-<pre><code class="language-java">// 기본: 런타임 예외, Error만 롤백
-// 체크 예외는 기본적으로 롤백하지 않음!
-@Transactional(rollbackFor = Exception.class) // 모든 예외에 롤백
-@Transactional(rollbackFor = {SQLException.class, DataException.class})
-
-// 특정 예외는 롤백하지 않음
-@Transactional(noRollbackFor = IllegalArgumentException.class)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1">// 기본: 런타임 예외, Error만 롤백</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="c1">// 체크 예외는 기본적으로 롤백하지 않음!</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="nd">@Transactional</span><span class="p">(</span><span class="n">rollbackFor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Exception</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w"> </span><span class="c1">// 모든 예외에 롤백</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="nd">@Transactional</span><span class="p">(</span><span class="n">rollbackFor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">SQLException</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">DataException</span><span class="p">.</span><span class="na">class</span><span class="p">})</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="c1">// 특정 예외는 롤백하지 않음</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="nd">@Transactional</span><span class="p">(</span><span class="n">noRollbackFor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+</code></pre></div>
 <h4 id="timeout">timeout</h4>
-<pre><code class="language-java">@Transactional(timeout = 10) // 10초 초과 시 롤백
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nd">@Transactional</span><span class="p">(</span><span class="n">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="c1">// 10초 초과 시 롤백</span>
+</code></pre></div>
 <hr />
 <h2 id="propagation_1">트랜잭션 전파 (Propagation) 상세</h2>
 <h3 id="required">REQUIRED (기본값)</h3>
-<pre><code>[외부 트랜잭션 시작]
-    ↓
-[내부 메서드 호출 - @Transactional]
-    → 기존 트랜잭션에 참여 (같은 물리 트랜잭션)
-    ↓
-외부 커밋 → 전체 커밋
-외부 롤백 → 전체 롤백
-내부 롤백 → rollback-only 마킹 → 외부도 롤백 (UnexpectedRollbackException)
-</code></pre>
-<pre><code class="language-java">@Transactional
-public void outer() {
-    inner(); // 같은 트랜잭션 참여
-    // inner()에서 예외 발생해서 rollback-only 설정되면
-    // outer()에서 커밋해도 UnexpectedRollbackException 발생!
-}
-
-@Transactional
-public void inner() {
-    // ...
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>[외부 트랜잭션 시작]
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>    ↓
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>[내부 메서드 호출 - @Transactional]
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>    → 기존 트랜잭션에 참여 (같은 물리 트랜잭션)
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>    ↓
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>외부 커밋 → 전체 커밋
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>외부 롤백 → 전체 롤백
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>내부 롤백 → rollback-only 마킹 → 외부도 롤백 (UnexpectedRollbackException)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nd">@Transactional</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">outer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">    </span><span class="n">inner</span><span class="p">();</span><span class="w"> </span><span class="c1">// 같은 트랜잭션 참여</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span><span class="c1">// inner()에서 예외 발생해서 rollback-only 설정되면</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">    </span><span class="c1">// outer()에서 커밋해도 UnexpectedRollbackException 발생!</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="p">}</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="nd">@Transactional</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">inner</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="w">    </span><span class="c1">// ...</span>
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="p">}</span>
+</code></pre></div>
 <h3 id="requires_new">REQUIRES_NEW</h3>
-<pre><code>[외부 트랜잭션]
-    ↓
-[내부 메서드 - REQUIRES_NEW]
-    → 외부 트랜잭션 잠시 중단
-    → 새 트랜잭션 시작 (독립적)
-    → 내부 커밋/롤백은 외부에 영향 없음
-    → 내부 완료 후 외부 트랜잭션 재개
-</code></pre>
-<pre><code class="language-java">@Transactional
-public void outer() {
-    // ...
-    inner(); // 별도 트랜잭션으로 실행
-    // inner()가 롤백되어도 outer()는 계속 진행 가능
-}
-
-@Transactional(propagation = Propagation.REQUIRES_NEW)
-public void inner() {
-    // 독립적인 트랜잭션
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>[외부 트랜잭션]
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>    ↓
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>[내부 메서드 - REQUIRES_NEW]
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>    → 외부 트랜잭션 잠시 중단
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>    → 새 트랜잭션 시작 (독립적)
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>    → 내부 커밋/롤백은 외부에 영향 없음
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>    → 내부 완료 후 외부 트랜잭션 재개
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nd">@Transactional</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">outer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">    </span><span class="c1">// ...</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">    </span><span class="n">inner</span><span class="p">();</span><span class="w"> </span><span class="c1">// 별도 트랜잭션으로 실행</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">    </span><span class="c1">// inner()가 롤백되어도 outer()는 계속 진행 가능</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="p">}</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="nd">@Transactional</span><span class="p">(</span><span class="n">propagation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Propagation</span><span class="p">.</span><span class="na">REQUIRES_NEW</span><span class="p">)</span>
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">inner</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="w">    </span><span class="c1">// 독립적인 트랜잭션</span>
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="p">}</span>
+</code></pre></div>
 <p><strong>주의</strong>: REQUIRES_NEW는 커넥션을 2개 사용하므로 풀 크기를 고려해야 함.</p>
 <h3 id="nested">NESTED (중첩 트랜잭션)</h3>
-<pre><code class="language-java">@Transactional(propagation = Propagation.NESTED)
-public void nestedMethod() {
-    // 외부 트랜잭션의 savepoint 생성
-    // 내부 롤백 → savepoint까지만 롤백 (외부 영향 없음)
-    // 외부 롤백 → 내부 포함 전체 롤백
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nd">@Transactional</span><span class="p">(</span><span class="n">propagation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Propagation</span><span class="p">.</span><span class="na">NESTED</span><span class="p">)</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">nestedMethod</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">    </span><span class="c1">// 외부 트랜잭션의 savepoint 생성</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">    </span><span class="c1">// 내부 롤백 → savepoint까지만 롤백 (외부 영향 없음)</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">    </span><span class="c1">// 외부 롤백 → 내부 포함 전체 롤백</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="p">}</span>
+</code></pre></div>
 <p>JDBC의 savepoint를 사용. JPA에서는 지원하지 않음.</p>
 <hr />
 <h2 id="_10">주의사항</h2>
 <h3 id="1">1. 같은 클래스 내 메서드 호출 문제</h3>
-<pre><code class="language-java">@Service
-public class MemberService {
-
-    public void callMethod() {
-        // this.internalMethod() 호출 → 프록시를 거치지 않음!
-        // @Transactional 동작 안 함!
-        internalMethod();
-    }
-
-    @Transactional
-    public void internalMethod() {
-        // 트랜잭션 적용 안 됨!
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nd">@Service</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MemberService</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">callMethod</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">        </span><span class="c1">// this.internalMethod() 호출 → 프록시를 거치지 않음!</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">        </span><span class="c1">// @Transactional 동작 안 함!</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="w">        </span><span class="n">internalMethod</span><span class="p">();</span>
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="w">    </span><span class="nd">@Transactional</span>
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">internalMethod</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="w">        </span><span class="c1">// 트랜잭션 적용 안 됨!</span>
+<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="p">}</span>
+</code></pre></div>
 <p><strong>이유</strong>: 스프링 트랜잭션은 AOP 프록시 기반. 같은 클래스 내 메서드 호출은 프록시를 거치지 않음.</p>
 <p><strong>해결책</strong>:
 - 별도 클래스로 분리 (권장)
 - <code>@Transactional</code> 대상 메서드를 직접 외부에서 호출</p>
 <h3 id="2-public">2. public 메서드에만 동작</h3>
-<pre><code class="language-java">// 이런 코드는 @Transactional이 동작하지 않음
-@Transactional
-private void privateMethod() { ... }
-
-@Transactional
-protected void protectedMethod() { ... }
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1">// 이런 코드는 @Transactional이 동작하지 않음</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="nd">@Transactional</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">privateMethod</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="nd">@Transactional</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">protectedMethod</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
 <h3 id="3">3. 초기화 코드에서 트랜잭션</h3>
-<pre><code class="language-java">@PostConstruct
-@Transactional
-public void init() {
-    // @PostConstruct와 @Transactional을 함께 쓰면 트랜잭션 적용 안 됨
-    // 스프링 초기화 시점에 AOP가 아직 준비되지 않았을 수 있음
-}
-
-// 해결책: ApplicationReadyEvent 사용
-@EventListener(ApplicationReadyEvent.class)
-@Transactional
-public void init() {
-    // 모든 스프링 초기화 완료 후 실행
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nd">@PostConstruct</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="nd">@Transactional</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">    </span><span class="c1">// @PostConstruct와 @Transactional을 함께 쓰면 트랜잭션 적용 안 됨</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="w">    </span><span class="c1">// 스프링 초기화 시점에 AOP가 아직 준비되지 않았을 수 있음</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="p">}</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="c1">// 해결책: ApplicationReadyEvent 사용</span>
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="nd">@EventListener</span><span class="p">(</span><span class="n">ApplicationReadyEvent</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a><span class="nd">@Transactional</span>
+<a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a><span class="w">    </span><span class="c1">// 모든 스프링 초기화 완료 후 실행</span>
+<a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a><span class="p">}</span>
+</code></pre></div>
 <h3 id="4">4. 체크 예외는 기본적으로 롤백하지 않음</h3>
-<pre><code class="language-java">@Transactional
-public void method() throws Exception {
-    // Exception(체크 예외) 던져도 기본적으로 롤백 안 됨!
-    throw new Exception(&quot;체크 예외&quot;);
-}
-
-// 해결책
-@Transactional(rollbackFor = Exception.class)
-public void method() throws Exception {
-    throw new Exception(&quot;이제 롤백됨&quot;);
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nd">@Transactional</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">method</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">    </span><span class="c1">// Exception(체크 예외) 던져도 기본적으로 롤백 안 됨!</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Exception</span><span class="p">(</span><span class="s">&quot;체크 예외&quot;</span><span class="p">);</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="p">}</span>
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="c1">// 해결책</span>
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="nd">@Transactional</span><span class="p">(</span><span class="n">rollbackFor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Exception</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">method</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Exception</span><span class="p">(</span><span class="s">&quot;이제 롤백됨&quot;</span><span class="p">);</span>
+<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a><span class="p">}</span>
+</code></pre></div>
 <hr />
 <h2 id="_11">전체 흐름 다이어그램</h2>
-<pre><code>클라이언트 요청
-    ↓
-[트랜잭션 AOP 프록시]
-    ↓ 트랜잭션 시작 (getTransaction)
-[트랜잭션 매니저]
-    ↓ 커넥션 획득 + setAutoCommit(false)
-[DataSource (커넥션 풀)]
-    ↓ 커넥션 획득 + 동기화 매니저에 저장
-[트랜잭션 동기화 매니저 (ThreadLocal)]
-    ↓
-[서비스 비즈니스 로직 실행]
-    ↓
-[Repository]
-    ↓ DataSourceUtils.getConnection() → 동기화 매니저에서 커넥션 꺼냄
-[DB 작업 수행]
-    ↓
-[트랜잭션 AOP 프록시]
-    ↓ 성공: commit() / 실패: rollback()
-[응답 반환]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>클라이언트 요청
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>    ↓
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>[트랜잭션 AOP 프록시]
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>    ↓ 트랜잭션 시작 (getTransaction)
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>[트랜잭션 매니저]
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>    ↓ 커넥션 획득 + setAutoCommit(false)
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>[DataSource (커넥션 풀)]
+<a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>    ↓ 커넥션 획득 + 동기화 매니저에 저장
+<a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>[트랜잭션 동기화 매니저 (ThreadLocal)]
+<a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>    ↓
+<a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a>[서비스 비즈니스 로직 실행]
+<a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a>    ↓
+<a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a>[Repository]
+<a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a>    ↓ DataSourceUtils.getConnection() → 동기화 매니저에서 커넥션 꺼냄
+<a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a>[DB 작업 수행]
+<a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a>    ↓
+<a id="__codelineno-26-17" name="__codelineno-26-17" href="#__codelineno-26-17"></a>[트랜잭션 AOP 프록시]
+<a id="__codelineno-26-18" name="__codelineno-26-18" href="#__codelineno-26-18"></a>    ↓ 성공: commit() / 실패: rollback()
+<a id="__codelineno-26-19" name="__codelineno-26-19" href="#__codelineno-26-19"></a>[응답 반환]
+</code></pre></div>
 
 
 

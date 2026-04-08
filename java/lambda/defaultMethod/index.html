@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4102,20 +4104,20 @@
 
 <h2 id="default-method">Default Method</h2>
 <p>Java 8에서 인터페이스에 <strong>구현부를 포함할 수 있게</strong> 된 메서드. <code>default</code> 키워드를 붙인다.</p>
-<pre><code class="language-markdown">interface Greeting {
-    default void hello() {
-        System.out.println(&quot;Hello!&quot;);
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>interface Greeting {
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    default void hello() {
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        System.out.println(&quot;Hello!&quot;);
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    }
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>}
+</code></pre></div>
 <h3 id="_1">왜 쓰는가?</h3>
 <p>기존 인터페이스에 메서드를 추가하면 구현 클래스 전체가 컴파일 오류가 난다. Default Method는 <strong>기존 구현 클래스를 깨지 않고</strong> 인터페이스에 새 기능을 추가할 수 있게 해준다.</p>
 <p>Java 8에서 <code>Collection</code>에 <code>stream()</code>, <code>forEach()</code> 등을 추가할 때 이 방식을 사용했다.</p>
-<pre><code class="language-markdown">// Collection 인터페이스 내부 (Java 8)
-default Stream&lt;E&gt; stream() {
-    return StreamSupport.stream(spliterator(), false);
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>// Collection 인터페이스 내부 (Java 8)
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>default Stream&lt;E&gt; stream() {
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    return StreamSupport.stream(spliterator(), false);
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>}
+</code></pre></div>
 <h3 id="_2">특징</h3>
 <table>
 <thead>
@@ -4149,35 +4151,35 @@ default Stream&lt;E&gt; stream() {
 </table>
 <h3 id="_3">오버라이드</h3>
 <p>구현 클래스에서 필요하면 재정의할 수 있다.</p>
-<pre><code class="language-markdown">interface Greeting {
-    default void hello() {
-        System.out.println(&quot;Hello!&quot;);
-    }
-}
-
-class KoreanGreeting implements Greeting {
-    @Override
-    public void hello() {
-        System.out.println(&quot;안녕하세요!&quot;);  // 재정의
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>interface Greeting {
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    default void hello() {
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>        System.out.println(&quot;Hello!&quot;);
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    }
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>}
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>class KoreanGreeting implements Greeting {
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="ni">@Override</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    public void hello() {
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>        System.out.println(&quot;안녕하세요!&quot;);  // 재정의
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    }
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>}
+</code></pre></div>
 <h3 id="_4">다이아몬드 문제</h3>
 <p>두 인터페이스가 동일한 시그니처의 default method를 가질 때 충돌이 발생한다. 구현 클래스에서 <strong>반드시 명시적으로 해결</strong>해야 한다.</p>
-<pre><code class="language-markdown">interface A {
-    default void hello() { System.out.println(&quot;A&quot;); }
-}
-interface B {
-    default void hello() { System.out.println(&quot;B&quot;); }
-}
-
-class C implements A, B {
-    @Override
-    public void hello() {
-        A.super.hello(); // 어느 쪽을 쓸지 명시
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>interface A {
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    default void hello() { System.out.println(&quot;A&quot;); }
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>}
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>interface B {
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    default void hello() { System.out.println(&quot;B&quot;); }
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>}
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>class C implements A, B {
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="ni">@Override</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    public void hello() {
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>        A.super.hello(); // 어느 쪽을 쓸지 명시
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    }
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>}
+</code></pre></div>
 <h3 id="_5">단점 / 주의할 점</h3>
 <table>
 <thead>

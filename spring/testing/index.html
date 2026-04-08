@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4200,118 +4202,118 @@
 </table>
 <p>실무에서는 <strong>단위 테스트를 많이, 통합 테스트를 적절히</strong> 작성한다.</p>
 <h3 id="junit5">JUnit5 기본</h3>
-<pre><code class="language-markdown">class MemberServiceTest {
-
-    @Test
-    @DisplayName(&quot;이메일로 회원 조회 성공&quot;)
-    void findByEmail_success() {
-        // given
-        String email = &quot;test@example.com&quot;;
-
-        // when
-        Member result = memberService.findByEmail(email);
-
-        // then
-        assertThat(result.getEmail()).isEqualTo(email);
-    }
-
-    @Test
-    @DisplayName(&quot;존재하지 않는 회원 조회 시 예외 발생&quot;)
-    void findByEmail_notFound() {
-        assertThatThrownBy(() -&gt; memberService.findByEmail(&quot;no@example.com&quot;))
-            .isInstanceOf(MemberNotFoundException.class);
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>class MemberServiceTest {
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="ni">@Test</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="ni">@DisplayName</span>(&quot;이메일로 회원 조회 성공&quot;)
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    void findByEmail_success() {
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        // given
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        String email = &quot;test@example.com&quot;;
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        // when
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        Member result = memberService.findByEmail(email);
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        // then
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        assertThat(result.getEmail()).isEqualTo(email);
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    }
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="ni">@Test</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="ni">@DisplayName</span>(&quot;존재하지 않는 회원 조회 시 예외 발생&quot;)
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    void findByEmail_notFound() {
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>        assertThatThrownBy(() -&gt; memberService.findByEmail(&quot;no@example.com&quot;))
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>            .isInstanceOf(MemberNotFoundException.class);
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    }
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>}
+</code></pre></div>
 <h3 id="mockito">Mockito — 단위 테스트</h3>
 <p>외부 의존성(Repository, 외부 API)을 가짜 객체로 대체해 순수하게 로직만 테스트한다.</p>
-<pre><code class="language-markdown">@ExtendWith(MockitoExtension.class)
-class MemberServiceTest {
-
-    @InjectMocks
-    private MemberService memberService;
-
-    @Mock
-    private MemberRepository memberRepository;
-
-    @Mock
-    private EmailService emailService;
-
-    @Test
-    @DisplayName(&quot;회원 저장 시 이메일 발송&quot;)
-    void save_sendEmail() {
-        // given
-        MemberCreateRequest request = new MemberCreateRequest(&quot;홍길동&quot;, &quot;test@test.com&quot;);
-        Member savedMember = new Member(1L, &quot;홍길동&quot;, &quot;test@test.com&quot;);
-
-        given(memberRepository.existsByEmail(&quot;test@test.com&quot;)).willReturn(false);
-        given(memberRepository.save(any(Member.class))).willReturn(savedMember);
-
-        // when
-        memberService.save(request);
-
-        // then
-        verify(emailService, times(1)).sendWelcome(&quot;test@test.com&quot;);
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="ni">@ExtendWith</span>(MockitoExtension.class)
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>class MemberServiceTest {
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="ni">@InjectMocks</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    private MemberService memberService;
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="ni">@Mock</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    private MemberRepository memberRepository;
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="ni">@Mock</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    private EmailService emailService;
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="ni">@Test</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="ni">@DisplayName</span>(&quot;회원 저장 시 이메일 발송&quot;)
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    void save_sendEmail() {
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>        // given
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>        MemberCreateRequest request = new MemberCreateRequest(&quot;홍길동&quot;, &quot;test@test.com&quot;);
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>        Member savedMember = new Member(1L, &quot;홍길동&quot;, &quot;test@test.com&quot;);
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>        given(memberRepository.existsByEmail(&quot;test@test.com&quot;)).willReturn(false);
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>        given(memberRepository.save(any(Member.class))).willReturn(savedMember);
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>        // when
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>        memberService.save(request);
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>        // then
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>        verify(emailService, times(1)).sendWelcome(&quot;test@test.com&quot;);
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>    }
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>}
+</code></pre></div>
 <h3 id="springboottest">@SpringBootTest — 통합 테스트</h3>
 <p>실제 Spring 컨텍스트를 띄워 DB까지 포함한 전체 흐름을 테스트한다.</p>
-<pre><code class="language-markdown">@SpringBootTest
-@Transactional  // 테스트 후 롤백
-class MemberServiceIntegrationTest {
-
-    @Autowired
-    private MemberService memberService;
-
-    @Autowired
-    private MemberRepository memberRepository;
-
-    @Test
-    void save_and_find() {
-        MemberCreateRequest request = new MemberCreateRequest(&quot;홍길동&quot;, &quot;test@test.com&quot;);
-        memberService.save(request);
-
-        Optional&lt;Member&gt; found = memberRepository.findByEmail(&quot;test@test.com&quot;);
-        assertThat(found).isPresent();
-        assertThat(found.get().getName()).isEqualTo(&quot;홍길동&quot;);
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="ni">@SpringBootTest</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="ni">@Transactional</span>  // 테스트 후 롤백
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>class MemberServiceIntegrationTest {
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="ni">@Autowired</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    private MemberService memberService;
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="ni">@Autowired</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    private MemberRepository memberRepository;
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    <span class="ni">@Test</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    void save_and_find() {
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>        MemberCreateRequest request = new MemberCreateRequest(&quot;홍길동&quot;, &quot;test@test.com&quot;);
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>        memberService.save(request);
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>        Optional&lt;Member&gt; found = memberRepository.findByEmail(&quot;test@test.com&quot;);
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>        assertThat(found).isPresent();
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>        assertThat(found.get().getName()).isEqualTo(&quot;홍길동&quot;);
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>    }
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>}
+</code></pre></div>
 <h3 id="mockmvc">MockMvc — 컨트롤러 테스트</h3>
-<pre><code class="language-markdown">@WebMvcTest(MemberController.class)  // 컨트롤러 레이어만 로드
-class MemberControllerTest {
-
-    @Autowired
-    private MockMvc mockMvc;
-
-    @MockBean
-    private MemberService memberService;
-
-    @Test
-    @DisplayName(&quot;POST /api/members - 회원 생성 성공&quot;)
-    void create_success() throws Exception {
-        MemberResponse response = new MemberResponse(1L, &quot;홍길동&quot;, &quot;test@test.com&quot;);
-        given(memberService.save(any())).willReturn(response);
-
-        mockMvc.perform(post(&quot;/api/members&quot;)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(&quot;&quot;&quot;
-                    {&quot;name&quot;: &quot;홍길동&quot;, &quot;email&quot;: &quot;test@test.com&quot;}
-                &quot;&quot;&quot;))
-            .andExpect(status().isOk())
-            .andExpect(jsonPath(&quot;$.name&quot;).value(&quot;홍길동&quot;))
-            .andDo(print());
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="ni">@WebMvcTest</span>(MemberController.class)  // 컨트롤러 레이어만 로드
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>class MemberControllerTest {
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="ni">@Autowired</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    private MockMvc mockMvc;
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="ni">@MockBean</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    private MemberService memberService;
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="ni">@Test</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="ni">@DisplayName</span>(&quot;POST /api/members - 회원 생성 성공&quot;)
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    void create_success() throws Exception {
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>        MemberResponse response = new MemberResponse(1L, &quot;홍길동&quot;, &quot;test@test.com&quot;);
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>        given(memberService.save(any())).willReturn(response);
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>        mockMvc.perform(post(&quot;/api/members&quot;)
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>                .contentType(MediaType.APPLICATION_JSON)
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>                .content(&quot;&quot;&quot;
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>                    {&quot;name&quot;: &quot;홍길동&quot;, &quot;email&quot;: &quot;test@test.com&quot;}
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>                &quot;&quot;&quot;))
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>            .andExpect(status().isOk())
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>            .andExpect(jsonPath(&quot;$.name&quot;).value(&quot;홍길동&quot;))
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>            .andDo(print());
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>    }
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>}
+</code></pre></div>
 <h3 id="beforeeach">테스트 픽스처 — @BeforeEach</h3>
-<pre><code class="language-markdown">@BeforeEach
-void setUp() {
-    memberRepository.deleteAll();
-    testMember = memberRepository.save(new Member(&quot;홍길동&quot;, &quot;test@test.com&quot;));
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="ni">@BeforeEach</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>void setUp() {
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    memberRepository.deleteAll();
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    testMember = memberRepository.save(new Member(&quot;홍길동&quot;, &quot;test@test.com&quot;));
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>}
+</code></pre></div>
 <h3 id="_3">단점 / 주의할 점</h3>
 <table>
 <thead>

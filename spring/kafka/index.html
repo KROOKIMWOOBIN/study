@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4212,73 +4214,73 @@
 </tbody>
 </table>
 <h3 id="_3">의존성</h3>
-<pre><code class="language-markdown">implementation 'org.springframework.kafka:spring-kafka'
-</code></pre>
-<pre><code class="language-markdown"># application.yml
-spring:
-  kafka:
-    bootstrap-servers: localhost:9092
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-    consumer:
-      group-id: my-service
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-      properties:
-        spring.json.trusted.packages: &quot;*&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>implementation &#39;org.springframework.kafka:spring-kafka&#39;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gh"># application.yml</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>spring:
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  kafka:
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    bootstrap-servers: localhost:9092
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    producer:
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    consumer:
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>      group-id: my-service
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>      properties:
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        spring.json.trusted.packages: &quot;*&quot;
+</code></pre></div>
 <h3 id="producer">Producer — 이벤트 발행</h3>
-<pre><code class="language-markdown">@Service
-@RequiredArgsConstructor
-public class OrderService {
-
-    private final KafkaTemplate&lt;String, OrderEvent&gt; kafkaTemplate;
-
-    @Transactional
-    public void placeOrder(OrderRequest request) {
-        Order order = orderRepository.save(new Order(request));
-
-        // 주문 완료 이벤트 발행
-        OrderEvent event = new OrderEvent(order.getId(), order.getMemberId(), order.getAmount());
-        kafkaTemplate.send(&quot;order-completed&quot;, String.valueOf(order.getId()), event);
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="ni">@Service</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="ni">@RequiredArgsConstructor</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>public class OrderService {
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    private final KafkaTemplate&lt;String, OrderEvent&gt; kafkaTemplate;
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="ni">@Transactional</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    public void placeOrder(OrderRequest request) {
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>        Order order = orderRepository.save(new Order(request));
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>        // 주문 완료 이벤트 발행
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>        OrderEvent event = new OrderEvent(order.getId(), order.getMemberId(), order.getAmount());
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>        kafkaTemplate.send(&quot;order-completed&quot;, String.valueOf(order.getId()), event);
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    }
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>}
+</code></pre></div>
 <h3 id="consumer">Consumer — 이벤트 구독</h3>
-<pre><code class="language-markdown">@Slf4j
-@Service
-public class NotificationConsumer {
-
-    @KafkaListener(topics = &quot;order-completed&quot;, groupId = &quot;notification-service&quot;)
-    public void handleOrderCompleted(OrderEvent event) {
-        log.info(&quot;주문 완료 이벤트 수신: orderId={}&quot;, event.getOrderId());
-        emailService.sendOrderConfirmation(event.getMemberId(), event.getOrderId());
-    }
-}
-
-@Service
-public class InventoryConsumer {
-
-    @KafkaListener(topics = &quot;order-completed&quot;, groupId = &quot;inventory-service&quot;)
-    public void handleOrderCompleted(OrderEvent event) {
-        // 같은 토픽을 다른 Consumer Group이 독립적으로 구독
-        inventoryService.decrease(event.getItemId());
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="ni">@Slf4j</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="ni">@Service</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>public class NotificationConsumer {
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="ni">@KafkaListener</span>(topics = &quot;order-completed&quot;, groupId = &quot;notification-service&quot;)
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    public void handleOrderCompleted(OrderEvent event) {
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        log.info(&quot;주문 완료 이벤트 수신: orderId={}&quot;, event.getOrderId());
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>        emailService.sendOrderConfirmation(event.getMemberId(), event.getOrderId());
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    }
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>}
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="ni">@Service</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>public class InventoryConsumer {
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    <span class="ni">@KafkaListener</span>(topics = &quot;order-completed&quot;, groupId = &quot;inventory-service&quot;)
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>    public void handleOrderCompleted(OrderEvent event) {
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>        // 같은 토픽을 다른 Consumer Group이 독립적으로 구독
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>        inventoryService.decrease(event.getItemId());
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>    }
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>}
+</code></pre></div>
 <h3 id="transactional-outbox">실무 패턴 — Transactional Outbox</h3>
 <p>DB와 Kafka 발행을 하나의 트랜잭션으로 묶는 패턴. Kafka 발행 실패 시 이벤트 유실을 방지한다.</p>
-<pre><code class="language-markdown">@Transactional
-public void placeOrder(OrderRequest request) {
-    Order order = orderRepository.save(new Order(request));
-
-    // 같은 트랜잭션에 outbox 테이블에 이벤트 저장
-    OutboxEvent outbox = new OutboxEvent(&quot;order-completed&quot;, toJson(order));
-    outboxRepository.save(outbox);
-    // 별도 스케줄러가 outbox를 읽어 Kafka에 발행
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="ni">@Transactional</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>public void placeOrder(OrderRequest request) {
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    Order order = orderRepository.save(new Order(request));
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    // 같은 트랜잭션에 outbox 테이블에 이벤트 저장
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    OutboxEvent outbox = new OutboxEvent(&quot;order-completed&quot;, toJson(order));
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    outboxRepository.save(outbox);
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    // 별도 스케줄러가 outbox를 읽어 Kafka에 발행
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>}
+</code></pre></div>
 <h3 id="_4">단점 / 주의할 점</h3>
 <table>
 <thead>

@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4295,53 +4297,53 @@
 <h2 id="autowired_1">@Autowired 기본 동작</h2>
 <p><code>@Autowired</code>는 스프링 컨테이너에서 <strong>타입이 일치하는 빈을 찾아 주입</strong>한다.
 내부적으로 <code>ac.getBean(MemberRepository.class)</code>와 동일하게 동작한다.</p>
-<pre><code class="language-java">@Component
-public class MemberServiceImpl implements MemberService {
-
-    private final MemberRepository memberRepository;
-
-    @Autowired
-    public MemberServiceImpl(MemberRepository memberRepository) {
-        // 스프링이 MemberRepository 타입 빈을 컨테이너에서 찾아서 여기에 주입
-        this.memberRepository = memberRepository;
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nd">@Component</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MemberServiceImpl</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">MemberService</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">MemberRepository</span><span class="w"> </span><span class="n">memberRepository</span><span class="p">;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nd">@Autowired</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">MemberServiceImpl</span><span class="p">(</span><span class="n">MemberRepository</span><span class="w"> </span><span class="n">memberRepository</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="c1">// 스프링이 MemberRepository 타입 빈을 컨테이너에서 찾아서 여기에 주입</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">memberRepository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">memberRepository</span><span class="p">;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span>
+</code></pre></div>
 <p>주입 흐름:</p>
-<pre><code>@Autowired 발견
-    ↓
-스프링 컨테이너에서 해당 타입(MemberRepository)으로 빈 조회
-    ↓
-빈 1개  → 주입 성공 ✓
-빈 0개  → NoSuchBeanDefinitionException
-          (@Autowired(required=false) 설정 시 주입 생략)
-빈 2개↑ → NoUniqueBeanDefinitionException → 추가 처리 필요
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>@Autowired 발견
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    ↓
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>스프링 컨테이너에서 해당 타입(MemberRepository)으로 빈 조회
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    ↓
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>빈 1개  → 주입 성공 ✓
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>빈 0개  → NoSuchBeanDefinitionException
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>          (@Autowired(required=false) 설정 시 주입 생략)
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>빈 2개↑ → NoUniqueBeanDefinitionException → 추가 처리 필요
+</code></pre></div>
 <hr />
 <h2 id="autowired_2">@Autowired 옵션 처리 — 빈이 없을 때</h2>
 <p>주입 대상 빈이 스프링 컨테이너에 없어도 동작해야 하는 경우가 있다.
 예: 메일 서버가 없는 환경에서도 앱이 돌아가야 하는 경우.</p>
-<pre><code class="language-java">// 방법 1: required = false
-// 빈이 없으면 이 setter 메서드 자체가 호출되지 않음 (mailSender = null 유지)
-@Autowired(required = false)
-public void setMailSender(MailSender mailSender) {
-    this.mailSender = mailSender;
-}
-
-// 방법 2: @Nullable
-// 빈이 없으면 null이 주입됨 (메서드는 호출됨)
-@Autowired
-public void setMailSender(@Nullable MailSender mailSender) {
-    this.mailSender = mailSender; // mailSender가 null일 수 있음
-}
-
-// 방법 3: Optional
-// 빈이 없으면 Optional.empty() 주입
-@Autowired
-public void setMailSender(Optional&lt;MailSender&gt; mailSender) {
-    this.mailSender = mailSender.orElse(null);
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// 방법 1: required = false</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1">// 빈이 없으면 이 setter 메서드 자체가 호출되지 않음 (mailSender = null 유지)</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nd">@Autowired</span><span class="p">(</span><span class="n">required</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setMailSender</span><span class="p">(</span><span class="n">MailSender</span><span class="w"> </span><span class="n">mailSender</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">mailSender</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mailSender</span><span class="p">;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1">// 방법 2: @Nullable</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1">// 빈이 없으면 null이 주입됨 (메서드는 호출됨)</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="nd">@Autowired</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setMailSender</span><span class="p">(</span><span class="nd">@Nullable</span><span class="w"> </span><span class="n">MailSender</span><span class="w"> </span><span class="n">mailSender</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">mailSender</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mailSender</span><span class="p">;</span><span class="w"> </span><span class="c1">// mailSender가 null일 수 있음</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">}</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="c1">// 방법 3: Optional</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="c1">// 빈이 없으면 Optional.empty() 주입</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="nd">@Autowired</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setMailSender</span><span class="p">(</span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">MailSender</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mailSender</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">mailSender</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mailSender</span><span class="p">.</span><span class="na">orElse</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="p">}</span>
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4371,40 +4373,40 @@ public void setMailSender(Optional&lt;MailSender&gt; mailSender) {
 <hr />
 <h2 id="2">빈이 2개 이상일 때 문제</h2>
 <p>같은 인터페이스를 구현한 빈이 두 개 등록되어 있으면 <code>@Autowired</code>가 어느 것을 주입해야 할지 모른다.</p>
-<pre><code class="language-java">// 인터페이스
-public interface DiscountPolicy { int discount(Member member, int price); }
-
-// 구현체 1
-@Component
-public class FixDiscountPolicy implements DiscountPolicy { ... }
-
-// 구현체 2
-@Component
-public class RateDiscountPolicy implements DiscountPolicy { ... }
-</code></pre>
-<pre><code class="language-java">// @Autowired로 주입받으려 하면
-@Autowired
-private DiscountPolicy discountPolicy;
-// → NoUniqueBeanDefinitionException:
-//   expected single matching bean but found 2: fixDiscountPolicy, rateDiscountPolicy
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// 인터페이스</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">DiscountPolicy</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">discount</span><span class="p">(</span><span class="n">Member</span><span class="w"> </span><span class="n">member</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1">// 구현체 1</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nd">@Component</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FixDiscountPolicy</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">DiscountPolicy</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1">// 구현체 2</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="nd">@Component</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">RateDiscountPolicy</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">DiscountPolicy</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// @Autowired로 주입받으려 하면</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nd">@Autowired</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kd">private</span><span class="w"> </span><span class="n">DiscountPolicy</span><span class="w"> </span><span class="n">discountPolicy</span><span class="p">;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1">// → NoUniqueBeanDefinitionException:</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1">//   expected single matching bean but found 2: fixDiscountPolicy, rateDiscountPolicy</span>
+</code></pre></div>
 <p>이 상황을 해결하는 방법이 3가지 있다.</p>
 <hr />
 <h2 id="1">해결 방법 1: 필드명/파라미터명 매칭</h2>
 <p><code>@Autowired</code>는 타입 매칭에 실패했을 때(같은 타입이 2개 이상),
 <strong>필드명 또는 파라미터명을 빈 이름으로 추가 매칭</strong>한다.</p>
-<pre><code class="language-java">// 방법: 필드명 또는 파라미터명을 원하는 빈 이름과 일치시킨다
-
-// 필드 주입의 경우
-@Autowired
-private DiscountPolicy rateDiscountPolicy; // 필드명 = &quot;rateDiscountPolicy&quot; → 이 이름의 빈 주입
-
-// 생성자 주입의 경우
-@Autowired
-public OrderServiceImpl(DiscountPolicy rateDiscountPolicy) { // 파라미터명 = &quot;rateDiscountPolicy&quot;
-    this.discountPolicy = rateDiscountPolicy; // RateDiscountPolicy 주입됨
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// 방법: 필드명 또는 파라미터명을 원하는 빈 이름과 일치시킨다</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1">// 필드 주입의 경우</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="nd">@Autowired</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="kd">private</span><span class="w"> </span><span class="n">DiscountPolicy</span><span class="w"> </span><span class="n">rateDiscountPolicy</span><span class="p">;</span><span class="w"> </span><span class="c1">// 필드명 = &quot;rateDiscountPolicy&quot; → 이 이름의 빈 주입</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1">// 생성자 주입의 경우</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="nd">@Autowired</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="kd">public</span><span class="w"> </span><span class="nf">OrderServiceImpl</span><span class="p">(</span><span class="n">DiscountPolicy</span><span class="w"> </span><span class="n">rateDiscountPolicy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 파라미터명 = &quot;rateDiscountPolicy&quot;</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">discountPolicy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rateDiscountPolicy</span><span class="p">;</span><span class="w"> </span><span class="c1">// RateDiscountPolicy 주입됨</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="p">}</span>
+</code></pre></div>
 <p>단점: 파라미터명이 특정 구현체 이름에 묶여버린다.
 나중에 <code>rateDiscountPolicy</code>를 <code>mainDiscountPolicy</code>로 리팩터링하면 DI가 깨질 수 있다.
 컴파일 에러가 나지 않아서 실수를 발견하기 어렵다.</p>
@@ -4412,161 +4414,161 @@ public OrderServiceImpl(DiscountPolicy rateDiscountPolicy) { // 파라미터명 
 <h2 id="2-qualifier">해결 방법 2: @Qualifier (추가 구별자)</h2>
 <p>빈에 <strong>추가 이름표(Qualifier)</strong>를 붙이고, 주입 시 그 이름표로 지정한다.
 <code>@Autowired</code>의 1순위는 타입이고, 2순위는 <code>@Qualifier</code>다.</p>
-<pre><code class="language-java">// 빈에 @Qualifier 붙이기
-@Component
-@Qualifier(&quot;mainDiscountPolicy&quot;) // &quot;mainDiscountPolicy&quot;라는 추가 이름표
-public class RateDiscountPolicy implements DiscountPolicy { ... }
-
-@Component
-@Qualifier(&quot;fixDiscountPolicy&quot;)
-public class FixDiscountPolicy implements DiscountPolicy { ... }
-</code></pre>
-<pre><code class="language-java">// 주입할 때 @Qualifier로 지정
-@Autowired
-public OrderServiceImpl(@Qualifier(&quot;mainDiscountPolicy&quot;) DiscountPolicy discountPolicy) {
-    this.discountPolicy = discountPolicy; // RateDiscountPolicy 주입됨
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// 빈에 @Qualifier 붙이기</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nd">@Component</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nd">@Qualifier</span><span class="p">(</span><span class="s">&quot;mainDiscountPolicy&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// &quot;mainDiscountPolicy&quot;라는 추가 이름표</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">RateDiscountPolicy</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">DiscountPolicy</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nd">@Component</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="nd">@Qualifier</span><span class="p">(</span><span class="s">&quot;fixDiscountPolicy&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FixDiscountPolicy</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">DiscountPolicy</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// 주입할 때 @Qualifier로 지정</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nd">@Autowired</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kd">public</span><span class="w"> </span><span class="nf">OrderServiceImpl</span><span class="p">(</span><span class="nd">@Qualifier</span><span class="p">(</span><span class="s">&quot;mainDiscountPolicy&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">DiscountPolicy</span><span class="w"> </span><span class="n">discountPolicy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">discountPolicy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">discountPolicy</span><span class="p">;</span><span class="w"> </span><span class="c1">// RateDiscountPolicy 주입됨</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="p">}</span>
+</code></pre></div>
 <h3 id="qualifier">@Qualifier 매칭 순서</h3>
-<pre><code>1. @Qualifier(&quot;mainDiscountPolicy&quot;) 값으로 빈의 Qualifier를 탐색
-2. 없으면 &quot;mainDiscountPolicy&quot; 이름의 빈을 탐색
-3. 없으면 NoSuchBeanDefinitionException 발생
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>1. @Qualifier(&quot;mainDiscountPolicy&quot;) 값으로 빈의 Qualifier를 탐색
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>2. 없으면 &quot;mainDiscountPolicy&quot; 이름의 빈을 탐색
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>3. 없으면 NoSuchBeanDefinitionException 발생
+</code></pre></div>
 <h3 id="_1">문제: 문자열이라 오타를 컴파일 타임에 잡을 수 없다</h3>
-<pre><code class="language-java">@Qualifier(&quot;mainDiscountPolicy&quot;) // 오타를 내도 컴파일 에러 없음
-@Qualifier(&quot;mainDiscoutPolicy&quot;)  // 오타! → 런타임에 NoSuchBeanDefinitionException
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nd">@Qualifier</span><span class="p">(</span><span class="s">&quot;mainDiscountPolicy&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// 오타를 내도 컴파일 에러 없음</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nd">@Qualifier</span><span class="p">(</span><span class="s">&quot;mainDiscoutPolicy&quot;</span><span class="p">)</span><span class="w">  </span><span class="c1">// 오타! → 런타임에 NoSuchBeanDefinitionException</span>
+</code></pre></div>
 <h3 id="_2">해결: 커스텀 어노테이션으로 타입 안전하게 만들기</h3>
-<pre><code class="language-java">// 커스텀 어노테이션 정의
-@Target({ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER,
-         ElementType.TYPE, ElementType.ANNOTATION_TYPE})
-@Retention(RetentionPolicy.RUNTIME)
-@Documented
-@Qualifier(&quot;mainDiscountPolicy&quot;) // 내부에 @Qualifier 포함
-public @interface MainDiscountPolicy {}
-</code></pre>
-<pre><code class="language-java">// 빈에 커스텀 어노테이션 적용
-@Component
-@MainDiscountPolicy // 오타 시 컴파일 에러! → 안전
-public class RateDiscountPolicy implements DiscountPolicy { ... }
-
-// 주입 시에도 커스텀 어노테이션 사용
-@Autowired
-public OrderServiceImpl(@MainDiscountPolicy DiscountPolicy discountPolicy) {
-    this.discountPolicy = discountPolicy;
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">// 커스텀 어노테이션 정의</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nd">@Target</span><span class="p">({</span><span class="n">ElementType</span><span class="p">.</span><span class="na">FIELD</span><span class="p">,</span><span class="w"> </span><span class="n">ElementType</span><span class="p">.</span><span class="na">METHOD</span><span class="p">,</span><span class="w"> </span><span class="n">ElementType</span><span class="p">.</span><span class="na">PARAMETER</span><span class="p">,</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">         </span><span class="n">ElementType</span><span class="p">.</span><span class="na">TYPE</span><span class="p">,</span><span class="w"> </span><span class="n">ElementType</span><span class="p">.</span><span class="na">ANNOTATION_TYPE</span><span class="p">})</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="nd">@Retention</span><span class="p">(</span><span class="n">RetentionPolicy</span><span class="p">.</span><span class="na">RUNTIME</span><span class="p">)</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="nd">@Documented</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="nd">@Qualifier</span><span class="p">(</span><span class="s">&quot;mainDiscountPolicy&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// 내부에 @Qualifier 포함</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="kd">public</span><span class="w"> </span><span class="nd">@interface</span><span class="w"> </span><span class="n">MainDiscountPolicy</span><span class="w"> </span><span class="p">{}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">// 빈에 커스텀 어노테이션 적용</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nd">@Component</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nd">@MainDiscountPolicy</span><span class="w"> </span><span class="c1">// 오타 시 컴파일 에러! → 안전</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">RateDiscountPolicy</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">DiscountPolicy</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="c1">// 주입 시에도 커스텀 어노테이션 사용</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="nd">@Autowired</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="kd">public</span><span class="w"> </span><span class="nf">OrderServiceImpl</span><span class="p">(</span><span class="nd">@MainDiscountPolicy</span><span class="w"> </span><span class="n">DiscountPolicy</span><span class="w"> </span><span class="n">discountPolicy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">discountPolicy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">discountPolicy</span><span class="p">;</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="p">}</span>
+</code></pre></div>
 <p>커스텀 어노테이션을 쓰면 오타를 컴파일 타임에 잡을 수 있고, IDE 자동완성도 지원된다.</p>
 <hr />
 <h2 id="3-primary">해결 방법 3: @Primary (우선순위)</h2>
 <p>여러 빈 중 하나에 <code>@Primary</code>를 붙이면, 타입 매칭 시 이 빈이 우선으로 선택된다.
 매번 <code>@Qualifier</code>를 붙이지 않아도 되어 편리하다.</p>
-<pre><code class="language-java">@Component
-@Primary // 타입으로 주입 시 이 빈이 기본으로 선택됨
-public class RateDiscountPolicy implements DiscountPolicy { ... }
-
-@Component
-public class FixDiscountPolicy implements DiscountPolicy { ... }
-</code></pre>
-<pre><code class="language-java">// @Primary가 있으면 타입 그대로 주입 가능
-@Autowired
-private DiscountPolicy discountPolicy; // → RateDiscountPolicy 주입됨
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nd">@Component</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nd">@Primary</span><span class="w"> </span><span class="c1">// 타입으로 주입 시 이 빈이 기본으로 선택됨</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">RateDiscountPolicy</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">DiscountPolicy</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="nd">@Component</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FixDiscountPolicy</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">DiscountPolicy</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1">// @Primary가 있으면 타입 그대로 주입 가능</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nd">@Autowired</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="kd">private</span><span class="w"> </span><span class="n">DiscountPolicy</span><span class="w"> </span><span class="n">discountPolicy</span><span class="p">;</span><span class="w"> </span><span class="c1">// → RateDiscountPolicy 주입됨</span>
+</code></pre></div>
 <h3 id="primary-vs-qualifier">@Primary vs @Qualifier — 우선순위</h3>
 <p><code>@Qualifier</code>와 <code>@Primary</code>가 동시에 있으면 <code>@Qualifier</code>가 더 우선이다.</p>
-<pre><code>타입 매칭으로 여러 빈이 나오면:
-  @Qualifier 있음 → @Qualifier 매칭 (더 구체적)
-  @Qualifier 없음 → @Primary 있는 빈 선택
-  @Primary 없음  → 필드명/파라미터명 매칭
-  모두 해당 없음 → NoUniqueBeanDefinitionException
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>타입 매칭으로 여러 빈이 나오면:
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>  @Qualifier 있음 → @Qualifier 매칭 (더 구체적)
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>  @Qualifier 없음 → @Primary 있는 빈 선택
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>  @Primary 없음  → 필드명/파라미터명 매칭
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>  모두 해당 없음 → NoUniqueBeanDefinitionException
+</code></pre></div>
 <h3 id="_3">실무 활용 패턴</h3>
-<pre><code class="language-java">// 주 DB — @Primary (평소에 항상 쓰는 것)
-@Bean
-@Primary
-public DataSource mainDataSource() {
-    HikariDataSource ds = new HikariDataSource();
-    ds.setJdbcUrl(&quot;jdbc:mysql://main-db:3306/mydb&quot;);
-    return ds;
-}
-
-// 서브 DB — @Qualifier (통계, 배치 등 특별히 필요할 때만)
-@Bean
-@Qualifier(&quot;subDataSource&quot;)
-public DataSource subDataSource() {
-    HikariDataSource ds = new HikariDataSource();
-    ds.setJdbcUrl(&quot;jdbc:mysql://sub-db:3306/mydb&quot;);
-    return ds;
-}
-
-// 일반 서비스: @Primary인 mainDataSource 자동 주입
-@Autowired
-private DataSource dataSource; // mainDataSource
-
-// 통계 서비스: @Qualifier로 subDataSource 지정
-@Autowired
-@Qualifier(&quot;subDataSource&quot;)
-private DataSource subDataSource;
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1">// 주 DB — @Primary (평소에 항상 쓰는 것)</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nd">@Bean</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="nd">@Primary</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="kd">public</span><span class="w"> </span><span class="n">DataSource</span><span class="w"> </span><span class="nf">mainDataSource</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">    </span><span class="n">HikariDataSource</span><span class="w"> </span><span class="n">ds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HikariDataSource</span><span class="p">();</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">    </span><span class="n">ds</span><span class="p">.</span><span class="na">setJdbcUrl</span><span class="p">(</span><span class="s">&quot;jdbc:mysql://main-db:3306/mydb&quot;</span><span class="p">);</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ds</span><span class="p">;</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="p">}</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="c1">// 서브 DB — @Qualifier (통계, 배치 등 특별히 필요할 때만)</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="nd">@Bean</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="nd">@Qualifier</span><span class="p">(</span><span class="s">&quot;subDataSource&quot;</span><span class="p">)</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="kd">public</span><span class="w"> </span><span class="n">DataSource</span><span class="w"> </span><span class="nf">subDataSource</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="w">    </span><span class="n">HikariDataSource</span><span class="w"> </span><span class="n">ds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HikariDataSource</span><span class="p">();</span>
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="w">    </span><span class="n">ds</span><span class="p">.</span><span class="na">setJdbcUrl</span><span class="p">(</span><span class="s">&quot;jdbc:mysql://sub-db:3306/mydb&quot;</span><span class="p">);</span>
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ds</span><span class="p">;</span>
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="p">}</span>
+<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a>
+<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="c1">// 일반 서비스: @Primary인 mainDataSource 자동 주입</span>
+<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="nd">@Autowired</span>
+<a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="kd">private</span><span class="w"> </span><span class="n">DataSource</span><span class="w"> </span><span class="n">dataSource</span><span class="p">;</span><span class="w"> </span><span class="c1">// mainDataSource</span>
+<a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a>
+<a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="c1">// 통계 서비스: @Qualifier로 subDataSource 지정</span>
+<a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a><span class="nd">@Autowired</span>
+<a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a><span class="nd">@Qualifier</span><span class="p">(</span><span class="s">&quot;subDataSource&quot;</span><span class="p">)</span>
+<a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a><span class="kd">private</span><span class="w"> </span><span class="n">DataSource</span><span class="w"> </span><span class="n">subDataSource</span><span class="p">;</span>
+</code></pre></div>
 <hr />
 <h2 id="list-map">모든 구현체가 필요할 때: List, Map</h2>
 <p>런타임에 구현체를 동적으로 선택해야 하는 <strong>전략 패턴</strong>에서 유용하다.
 <code>DiscountPolicy</code> 구현체가 여러 개일 때, 클라이언트가 선택한 정책에 따라 적용하는 방법.</p>
-<pre><code class="language-java">@Service
-public class DiscountService {
-
-    // DiscountPolicy를 구현한 모든 빈을 주입받음
-    private final Map&lt;String, DiscountPolicy&gt; policyMap;
-    private final List&lt;DiscountPolicy&gt; policies;
-
-    @Autowired
-    public DiscountService(Map&lt;String, DiscountPolicy&gt; policyMap,
-                           List&lt;DiscountPolicy&gt; policies) {
-        this.policyMap = policyMap;
-        this.policies = policies;
-        // policyMap = {
-        //   &quot;fixDiscountPolicy&quot;  : FixDiscountPolicy@x01,
-        //   &quot;rateDiscountPolicy&quot; : RateDiscountPolicy@x02
-        // }
-        // policies = [FixDiscountPolicy@x01, RateDiscountPolicy@x02]
-    }
-
-    // 클라이언트가 선택한 할인 코드에 따라 동적으로 처리
-    public int discount(Member member, int price, String discountCode) {
-        DiscountPolicy discountPolicy = policyMap.get(discountCode);
-        if (discountPolicy == null) {
-            throw new IllegalArgumentException(&quot;존재하지 않는 할인 코드: &quot; + discountCode);
-        }
-        return discountPolicy.discount(member, price);
-    }
-}
-</code></pre>
-<pre><code class="language-java">// 사용
-discountService.discount(member, 10000, &quot;fixDiscountPolicy&quot;);  // 정액 할인
-discountService.discount(member, 10000, &quot;rateDiscountPolicy&quot;); // 정률 할인
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nd">@Service</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DiscountService</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="c1">// DiscountPolicy를 구현한 모든 빈을 주입받음</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">DiscountPolicy</span><span class="o">&gt;</span><span class="w"> </span><span class="n">policyMap</span><span class="p">;</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">DiscountPolicy</span><span class="o">&gt;</span><span class="w"> </span><span class="n">policies</span><span class="p">;</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">    </span><span class="nd">@Autowired</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">DiscountService</span><span class="p">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">DiscountPolicy</span><span class="o">&gt;</span><span class="w"> </span><span class="n">policyMap</span><span class="p">,</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">                           </span><span class="n">List</span><span class="o">&lt;</span><span class="n">DiscountPolicy</span><span class="o">&gt;</span><span class="w"> </span><span class="n">policies</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">policyMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">policyMap</span><span class="p">;</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">policies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">policies</span><span class="p">;</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">        </span><span class="c1">// policyMap = {</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">        </span><span class="c1">//   &quot;fixDiscountPolicy&quot;  : FixDiscountPolicy@x01,</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="w">        </span><span class="c1">//   &quot;rateDiscountPolicy&quot; : RateDiscountPolicy@x02</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="w">        </span><span class="c1">// }</span>
+<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="w">        </span><span class="c1">// policies = [FixDiscountPolicy@x01, RateDiscountPolicy@x02]</span>
+<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>
+<a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a><span class="w">    </span><span class="c1">// 클라이언트가 선택한 할인 코드에 따라 동적으로 처리</span>
+<a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">discount</span><span class="p">(</span><span class="n">Member</span><span class="w"> </span><span class="n">member</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">discountCode</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a><span class="w">        </span><span class="n">DiscountPolicy</span><span class="w"> </span><span class="n">discountPolicy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">policyMap</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">discountCode</span><span class="p">);</span>
+<a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">discountPolicy</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;존재하지 않는 할인 코드: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">discountCode</span><span class="p">);</span>
+<a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">discountPolicy</span><span class="p">.</span><span class="na">discount</span><span class="p">(</span><span class="n">member</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="p">);</span>
+<a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-16-28" name="__codelineno-16-28" href="#__codelineno-16-28"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1">// 사용</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">discountService</span><span class="p">.</span><span class="na">discount</span><span class="p">(</span><span class="n">member</span><span class="p">,</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;fixDiscountPolicy&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// 정액 할인</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="n">discountService</span><span class="p">.</span><span class="na">discount</span><span class="p">(</span><span class="n">member</span><span class="p">,</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;rateDiscountPolicy&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 정률 할인</span>
+</code></pre></div>
 <p>새로운 할인 정책 <code>NewYearDiscountPolicy</code>를 추가하면 <code>@Component</code>만 붙이면 된다.
 <code>DiscountService</code> 코드는 건드리지 않아도 된다. OCP 준수.</p>
 <hr />
 <h2 id="autowired_3">@Autowired 매칭 전체 흐름</h2>
-<pre><code>1. 타입(Type) 매칭 시도
-        ↓ 빈이 1개면 바로 주입 성공
-        ↓ 빈이 2개 이상이면 아래로
-
-2. @Qualifier 확인
-        ↓ @Qualifier 있으면 해당 값으로 매칭 → 주입 성공
-        ↓ 없으면 아래로
-
-3. @Primary 확인
-        ↓ @Primary 있는 빈이 있으면 주입 성공
-        ↓ 없으면 아래로
-
-4. 필드명 / 파라미터명으로 빈 이름 매칭
-        ↓ 이름이 일치하는 빈 있으면 주입 성공
-        ↓ 없으면
-
-5. NoUniqueBeanDefinitionException 발생
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>1. 타입(Type) 매칭 시도
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>        ↓ 빈이 1개면 바로 주입 성공
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>        ↓ 빈이 2개 이상이면 아래로
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>2. @Qualifier 확인
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>        ↓ @Qualifier 있으면 해당 값으로 매칭 → 주입 성공
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>        ↓ 없으면 아래로
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>3. @Primary 확인
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>        ↓ @Primary 있는 빈이 있으면 주입 성공
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>        ↓ 없으면 아래로
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>4. 필드명 / 파라미터명으로 빈 이름 매칭
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>        ↓ 이름이 일치하는 빈 있으면 주입 성공
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>        ↓ 없으면
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>
+<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>5. NoUniqueBeanDefinitionException 발생
+</code></pre></div>
 <hr />
 <h2 id="vs">자동 vs 수동 등록 선택 기준</h2>
 <table>
@@ -4600,17 +4602,17 @@ discountService.discount(member, 10000, &quot;rateDiscountPolicy&quot;); // 정�
 </tr>
 </tbody>
 </table>
-<pre><code class="language-java">// 다형성 빈 관리 — 수동 등록이 명확함
-@Configuration
-public class DiscountPolicyConfig {
-    // 어떤 할인 정책 빈이 있는지 이 파일 하나를 보면 바로 알 수 있음
-    @Bean
-    public DiscountPolicy rateDiscountPolicy() { return new RateDiscountPolicy(); }
-
-    @Bean
-    public DiscountPolicy fixDiscountPolicy() { return new FixDiscountPolicy(); }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1">// 다형성 빈 관리 — 수동 등록이 명확함</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nd">@Configuration</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DiscountPolicyConfig</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">    </span><span class="c1">// 어떤 할인 정책 빈이 있는지 이 파일 하나를 보면 바로 알 수 있음</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">    </span><span class="nd">@Bean</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">DiscountPolicy</span><span class="w"> </span><span class="nf">rateDiscountPolicy</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RateDiscountPolicy</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="w">    </span><span class="nd">@Bean</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">DiscountPolicy</span><span class="w"> </span><span class="nf">fixDiscountPolicy</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FixDiscountPolicy</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="p">}</span>
+</code></pre></div>
 <p>자동 등록만 사용하면 어떤 구현체들이 등록되어 있는지 파악하기 위해 전체 코드를 뒤져야 한다.
 수동 등록으로 설정 파일에 모아두면 한 곳에서 관리된다.</p>
 

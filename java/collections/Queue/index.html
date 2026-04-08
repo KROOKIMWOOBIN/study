@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4153,34 +4155,34 @@
 <p>먼저 들어온 데이터를 먼저 처리해야 하는 <strong>순서 보장</strong>이 필요한 상황에서 사용한다.
 메시지 처리, 작업 대기열, BFS 탐색 등에서 핵심 자료구조다.</p>
 <h3 id="_2">어떻게 쓰는가?</h3>
-<pre><code class="language-java">// 권장 방식 (ArrayDeque를 큐로 사용)
-Queue&lt;String&gt; queue = new ArrayDeque&lt;&gt;();
-
-queue.offer(&quot;A&quot;);   // 추가 (뒤에 넣기)
-queue.offer(&quot;B&quot;);
-queue.offer(&quot;C&quot;);
-
-queue.poll();       // 꺼내기 → &quot;A&quot; (처음 들어온 것)
-queue.peek();       // 확인만 → &quot;B&quot; (제거하지 않음)
-queue.isEmpty();    // 비어있는지 확인
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// 권장 방식 (ArrayDeque를 큐로 사용)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">Queue</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">queue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayDeque</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">queue</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">);</span><span class="w">   </span><span class="c1">// 추가 (뒤에 넣기)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">queue</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">queue</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">queue</span><span class="p">.</span><span class="na">poll</span><span class="p">();</span><span class="w">       </span><span class="c1">// 꺼내기 → &quot;A&quot; (처음 들어온 것)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">queue</span><span class="p">.</span><span class="na">peek</span><span class="p">();</span><span class="w">       </span><span class="c1">// 확인만 → &quot;B&quot; (제거하지 않음)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">queue</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">();</span><span class="w">    </span><span class="c1">// 비어있는지 확인</span>
+</code></pre></div>
 <h3 id="deque-double-ended-queue">Deque (Double-Ended Queue)</h3>
 <p>양쪽 끝에서 추가·제거가 모두 가능한 자료구조. Queue + Stack 역할을 동시에 할 수 있다.</p>
-<pre><code class="language-java">Deque&lt;Integer&gt; deque = new ArrayDeque&lt;&gt;();
-
-deque.offerFirst(1);  // 앞에 추가
-deque.offerLast(2);   // 뒤에 추가
-
-deque.pollFirst();    // 앞에서 꺼내기
-deque.pollLast();     // 뒤에서 꺼내기
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">Deque</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">deque</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayDeque</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">deque</span><span class="p">.</span><span class="na">offerFirst</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w">  </span><span class="c1">// 앞에 추가</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">deque</span><span class="p">.</span><span class="na">offerLast</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w">   </span><span class="c1">// 뒤에 추가</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">deque</span><span class="p">.</span><span class="na">pollFirst</span><span class="p">();</span><span class="w">    </span><span class="c1">// 앞에서 꺼내기</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">deque</span><span class="p">.</span><span class="na">pollLast</span><span class="p">();</span><span class="w">     </span><span class="c1">// 뒤에서 꺼내기</span>
+</code></pre></div>
 <h3 id="_3">컬렉션 계층</h3>
-<pre><code class="language-text">Collection
- └─ Queue
-     └─ Deque
-         ├─ ArrayDeque   ← 권장
-         └─ LinkedList
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Collection
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a> └─ Queue
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>     └─ Deque
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>         ├─ ArrayDeque   ← 권장
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>         └─ LinkedList
+</code></pre></div>
 <h3 id="_4">어디 상황에서 자주 쓰는가?</h3>
 <table>
 <thead>

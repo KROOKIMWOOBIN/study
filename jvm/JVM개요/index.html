@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4519,13 +4521,13 @@
 </li>
 </ul>
 <h3 id="jdk-jre-jvm_1">JDK / JRE / JVM 차이</h3>
-<pre><code class="language-markdown">JVM은 JRE안에 들어있고, JRE는 JDK안에 들어있다.
-   JVM
-    ↓
-   JRE
-    ↓
-   JDK
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>JVM은 JRE안에 들어있고, JRE는 JDK안에 들어있다.
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>   JVM
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    ↓
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>   JRE
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    ↓
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>   JDK
+</code></pre></div>
 <h4 id="jvm-java-virtual-machine-">JVM (Java Virtual Machine) - 실행 엔진 + 메모리 관리자</h4>
 <ul>
 <li>.class 바이트코드 실행</li>
@@ -4551,14 +4553,14 @@
 </ul>
 <h3 id="java_1">Java의 플랫폼 독립성 원리</h3>
 <ul>
-<li>Java는 소스를 OS에 맞게 컴파일하지 않고, 중간 산출물인 바이트코드를 생성한 뒤 각 플랫폼별 JVM이 이를 실행함으로써 플랫폼 독립성을 확보한다.</li>
+<li>Java는 소스를 OS에 맞게 컴파일하지 않고, 중간 산출물인 바이트코드를 생성한 뒤 각 플랫폼별 JVM이 이를 실행함으로써 플랫폼 독립성을 확보한다.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Java 소스
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a> → javac
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a> → Bytecode (.class)
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a> → JVM (플랫폼별 구현)
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a> → OS / Hardware
+</code></pre></div></li>
 </ul>
-<pre><code class="language-markdown">Java 소스
- → javac
- → Bytecode (.class)
- → JVM (플랫폼별 구현)
- → OS / Hardware
-</code></pre>
 <h3 id="jvm-kotlin-scala_1">JVM 기반 언어 개요 (Kotlin, Scala 등)</h3>
 <h4 id="jvm_1">JVM 기반 언어란?</h4>
 <ul>
@@ -4570,18 +4572,18 @@
 <li>Java 생태계를 그대로 사용 가능 =&gt; 수십 년 누적된 라이브러리</li>
 <li>플랫폼 독립성 자동 확보<ul>
 <li>JVM만 있으면 실행 가능</li>
-<li>OS/CPU 이식성 확보</li>
+<li>OS/CPU 이식성 확보
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>[ Kotlin / Scala / Groovy ]
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>            ↓
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>      JVM Bytecode
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>            ↓
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>          JVM
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>            ↓
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>      OS / Hardware
+</code></pre></div></li>
 </ul>
 </li>
 </ol>
-<pre><code class="language-markdown">[ Kotlin / Scala / Groovy ]
-            ↓
-      JVM Bytecode
-            ↓
-          JVM
-            ↓
-      OS / Hardware
-</code></pre>
 <h2 id="_7"><a href="../jvm/">홈으로</a></h2>
 
 

@@ -46,10 +46,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4476,65 +4478,65 @@
 <h4 id="forkjoin">ForkJoin이란?</h4>
 <p><strong>Fork(분기):</strong> 작업을 더 작은 단위로 재귀적으로 쪼갠다.
 <strong>Join(합류):</strong> 쪼갠 작업들이 완료되면 결과를 합친다.</p>
-<pre><code class="language-markdown">// 개념적 흐름
-전체 리스트 [1~100만]
-    → Fork → [1~50만] / [50만~100만]
-        → Fork → [1~25만] / [25만~50만] / ...
-            → 각 스레드가 처리
-        → Join → 결과 합산
-    → Join → 최종 결과
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>// 개념적 흐름
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>전체 리스트 [1~100만]
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    → Fork → [1~50만] / [50만~100만]
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        → Fork → [1~25만] / [25만~50만] / ...
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>            → 각 스레드가 처리
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        → Join → 결과 합산
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    → Join → 최종 결과
+</code></pre></div>
 <h4 id="_2">스레드 수</h4>
 <p>기본으로 <code>ForkJoinPool.commonPool()</code>을 공유해서 사용한다.
 <strong>기본 스레드 수 = CPU 코어 수 - 1</strong> (메인 스레드가 1개를 쓰므로)</p>
-<pre><code class="language-markdown">// 확인 방법
-ForkJoinPool.commonPool().getParallelism(); // 8코어면 7 반환
-
-// JVM 옵션으로 변경 가능
-// -Djava.util.concurrent.ForkJoinPool.common.parallelism=4
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>// 확인 방법
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>ForkJoinPool.commonPool().getParallelism(); // 8코어면 7 반환
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>// JVM 옵션으로 변경 가능
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>// -Djava.util.concurrent.ForkJoinPool.common.parallelism=4
+</code></pre></div>
 <p><code>commonPool</code>은 JVM 전체에서 공유된다. 즉, 내 병렬 스트림과 다른 곳의 병렬 처리가 같은 풀을 경쟁해서 쓴다.</p>
 <h4 id="_3">커스텀 풀로 격리하기</h4>
-<pre><code class="language-markdown">// commonPool 대신 전용 풀 사용
-ForkJoinPool customPool = new ForkJoinPool(4);
-List&lt;Integer&gt; result = customPool.submit(() -&gt;
-    list.parallelStream()
-        .filter(n -&gt; n % 2 == 0)
-        .collect(Collectors.toList())
-).get();
-customPool.shutdown();
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>// commonPool 대신 전용 풀 사용
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>ForkJoinPool customPool = new ForkJoinPool(4);
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>List&lt;Integer&gt; result = customPool.submit(() -&gt;
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    list.parallelStream()
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        .filter(n -&gt; n % 2 == 0)
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        .collect(Collectors.toList())
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>).get();
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>customPool.shutdown();
+</code></pre></div>
 <p>다른 작업의 영향을 받지 않아야 할 때, 또는 스레드 수를 명시적으로 제한할 때 사용한다.</p>
 <hr />
 <h3 id="work-stealing">작업 훔치기 알고리즘 (Work Stealing)</h3>
 <p>ForkJoinPool이 일반 스레드풀과 가장 다른 핵심 메커니즘이다.</p>
 <h4 id="_4">일반 스레드풀의 문제</h4>
 <p>일반 <code>ThreadPoolExecutor</code>는 작업 큐가 하나다. 모든 스레드가 하나의 큐를 두고 경쟁한다.</p>
-<pre><code class="language-markdown">[작업 큐] ← 모든 스레드가 여기서 꺼냄
-Task1, Task2, Task3, Task4, Task5 ...
-
-Thread-1: 큐에서 Task1 꺼냄
-Thread-2: 큐에서 Task2 꺼냄
-Thread-3: 큐에서 Task3 꺼냄 (큐 접근 경합 발생)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>[작업 큐] ← 모든 스레드가 여기서 꺼냄
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Task1, Task2, Task3, Task4, Task5 ...
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Thread-1: 큐에서 Task1 꺼냄
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>Thread-2: 큐에서 Task2 꺼냄
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>Thread-3: 큐에서 Task3 꺼냄 (큐 접근 경합 발생)
+</code></pre></div>
 <p>스레드가 많아질수록 큐 접근 경합(contention)이 심해진다.</p>
 <h4 id="forkjoinpool-deque">ForkJoinPool의 해결책 — 스레드별 데크(Deque)</h4>
 <p>각 스레드가 <strong>자신만의 작업 큐(덱, double-ended queue)</strong>를 가진다.</p>
-<pre><code class="language-markdown">Thread-1 Deque: [Task1-1] [Task1-2] [Task1-3]  ← 앞에서 꺼내 처리
-Thread-2 Deque: [Task2-1] [Task2-2]             ← 앞에서 꺼내 처리
-Thread-3 Deque: []                              ← 할 일 없음!
-Thread-4 Deque: [Task4-1] [Task4-2] [Task4-3]  ← 앞에서 꺼내 처리
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Thread-1 Deque: [Task1-1] [Task1-2] [Task1-3]  ← 앞에서 꺼내 처리
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Thread-2 Deque: [Task2-1] [Task2-2]             ← 앞에서 꺼내 처리
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Thread-3 Deque: []                              ← 할 일 없음!
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Thread-4 Deque: [Task4-1] [Task4-2] [Task4-3]  ← 앞에서 꺼내 처리
+</code></pre></div>
 <h4 id="_5">작업 훔치기 발동</h4>
 <p>Thread-3의 큐가 비어있으면, 다른 스레드의 큐 <strong>뒤쪽(tail)</strong>에서 작업을 훔쳐온다.</p>
-<pre><code class="language-markdown">// 훔치기 전
-Thread-3 Deque: []                               ← 비어있음
-Thread-4 Deque: [Task4-1] [Task4-2] [Task4-3]   ← 바쁨
-
-// Thread-3이 Thread-4의 뒤쪽에서 훔침
-Thread-3 Deque: [Task4-3]   ← 훔쳐온 작업 처리
-Thread-4 Deque: [Task4-1] [Task4-2]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>// 훔치기 전
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Thread-3 Deque: []                               ← 비어있음
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Thread-4 Deque: [Task4-1] [Task4-2] [Task4-3]   ← 바쁨
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>// Thread-3이 Thread-4의 뒤쪽에서 훔침
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>Thread-3 Deque: [Task4-3]   ← 훔쳐온 작업 처리
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>Thread-4 Deque: [Task4-1] [Task4-2]
+</code></pre></div>
 <h4 id="_6">왜 뒤쪽에서 훔치나?</h4>
 <ul>
 <li>원래 스레드는 <strong>앞(head)</strong>에서 꺼내 처리한다 (LIFO 방식, 캐시 지역성 좋음)</li>
@@ -4550,11 +4552,11 @@ Thread-4 Deque: [Task4-1] [Task4-2]
 <hr />
 <h3 id="spliterator">데이터 분할 — Spliterator</h3>
 <p>병렬 스트림이 데이터를 어떻게 쪼개는지는 <strong>Spliterator</strong>가 결정한다.</p>
-<pre><code class="language-markdown">// Spliterator의 역할
-// 1. trySplit() : 데이터를 절반으로 분할
-// 2. tryAdvance() : 다음 요소 처리
-// 3. estimateSize() : 남은 요소 수 추정
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>// Spliterator의 역할
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>// 1. trySplit() : 데이터를 절반으로 분할
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>// 2. tryAdvance() : 다음 요소 처리
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>// 3. estimateSize() : 남은 요소 수 추정
+</code></pre></div>
 <p>자료구조마다 분할 효율이 다르다:</p>
 <table>
 <thead>
@@ -4595,21 +4597,21 @@ Thread-4 Deque: [Task4-1] [Task4-2]
 <p><code>LinkedList</code>나 <code>Stream.iterate()</code>로 만든 스트림은 병렬 스트림으로 전환해도 성능 이득이 없다.</p>
 <hr />
 <h3 id="_8">사용법</h3>
-<pre><code class="language-markdown">// 방법 1: 컬렉션에서 직접 생성
-List&lt;Integer&gt; result = list.parallelStream()
-    .filter(n -&gt; n % 2 == 0)
-    .map(n -&gt; n * n)
-    .collect(Collectors.toList());
-
-// 방법 2: 기존 스트림을 병렬로 전환
-list.stream()
-    .parallel()
-    .map(String::toUpperCase)
-    .toList();
-
-// 방법 3: 배열에서 생성
-Arrays.stream(arr).parallel().sum();
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>// 방법 1: 컬렉션에서 직접 생성
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>List&lt;Integer&gt; result = list.parallelStream()
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    .filter(n -&gt; n % 2 == 0)
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    .map(n -&gt; n * n)
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    .collect(Collectors.toList());
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>// 방법 2: 기존 스트림을 병렬로 전환
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>list.stream()
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    .parallel()
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    .map(String::toUpperCase)
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>    .toList();
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>// 방법 3: 배열에서 생성
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>Arrays.stream(arr).parallel().sum();
+</code></pre></div>
 <hr />
 <h3 id="_9">언제 써야 하는가</h3>
 <table>
@@ -4652,52 +4654,52 @@ Arrays.stream(arr).parallel().sum();
 <hr />
 <h3 id="_10">주의할 점</h3>
 <h4 id="1">1. 공유 상태 변경 금지 (레이스 컨디션)</h4>
-<pre><code class="language-markdown">// 잘못된 예 — ArrayList는 스레드 안전하지 않음
-List&lt;Integer&gt; result = new ArrayList&lt;&gt;();
-list.parallelStream().forEach(result::add); // 데이터 유실, 예외 가능
-
-// 올바른 예 — collect()는 내부적으로 스레드별 컨테이너 분리 후 합산
-List&lt;Integer&gt; result = list.parallelStream()
-    .filter(n -&gt; n &gt; 0)
-    .collect(Collectors.toList());
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>// 잘못된 예 — ArrayList는 스레드 안전하지 않음
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>List&lt;Integer&gt; result = new ArrayList&lt;&gt;();
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>list.parallelStream().forEach(result::add); // 데이터 유실, 예외 가능
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>// 올바른 예 — collect()는 내부적으로 스레드별 컨테이너 분리 후 합산
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>List&lt;Integer&gt; result = list.parallelStream()
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    .filter(n -&gt; n &gt; 0)
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    .collect(Collectors.toList());
+</code></pre></div>
 <h4 id="2">2. 순서 의존 연산</h4>
-<pre><code class="language-markdown">// findFirst()는 순서를 보장해야 해서 병렬에서도 오버헤드 발생
-list.parallelStream().findFirst();
-
-// 순서 무관하면 findAny()가 훨씬 빠름
-list.parallelStream().findAny();
-
-// forEach는 실행 순서가 보장되지 않음
-// 순서 보장이 필요하면 forEachOrdered (단, 병렬 이점 감소)
-list.parallelStream().forEachOrdered(System.out::println);
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>// findFirst()는 순서를 보장해야 해서 병렬에서도 오버헤드 발생
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>list.parallelStream().findFirst();
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>// 순서 무관하면 findAny()가 훨씬 빠름
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>list.parallelStream().findAny();
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>// forEach는 실행 순서가 보장되지 않음
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>// 순서 보장이 필요하면 forEachOrdered (단, 병렬 이점 감소)
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>list.parallelStream().forEachOrdered(System.out::println);
+</code></pre></div>
 <h4 id="3-reduce">3. reduce 초기값 주의</h4>
-<pre><code class="language-markdown">// 잘못된 예 — 초기값 1이 스레드 수만큼 더해짐
-// 4스레드면 1 * 4 = 4가 추가로 곱해진 결과가 나올 수 있음
-list.parallelStream().reduce(1, (a, b) -&gt; a * b); // 위험!
-
-// 올바른 예 — 곱셈의 항등원은 1이지만
-// 실제로 병렬 reduce에서 초기값은 각 서브태스크마다 적용됨
-// 덧셈이면 초기값 0, 곱셈이면 초기값 1 — 항등원만 사용할 것
-list.parallelStream().reduce(0, Integer::sum); // 덧셈은 안전
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>// 잘못된 예 — 초기값 1이 스레드 수만큼 더해짐
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>// 4스레드면 1 * 4 = 4가 추가로 곱해진 결과가 나올 수 있음
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>list.parallelStream().reduce(1, (a, b) -&gt; a * b); // 위험!
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>// 올바른 예 — 곱셈의 항등원은 1이지만
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>// 실제로 병렬 reduce에서 초기값은 각 서브태스크마다 적용됨
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>// 덧셈이면 초기값 0, 곱셈이면 초기값 1 — 항등원만 사용할 것
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>list.parallelStream().reduce(0, Integer::sum); // 덧셈은 안전
+</code></pre></div>
 <h4 id="4-commonpool">4. commonPool 고갈 위험</h4>
-<pre><code class="language-markdown">// 병렬 스트림 안에서 또 병렬 스트림 사용
-// → commonPool의 스레드가 서로를 기다리며 데드락 위험
-list.parallelStream()
-    .map(item -&gt; subList.parallelStream()  // 위험!
-        .filter(...)
-        .toList())
-    .toList();
-
-// 해결: 내부 스트림은 순차로 처리
-list.parallelStream()
-    .map(item -&gt; subList.stream()  // 안전
-        .filter(...)
-        .toList())
-    .toList();
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>// 병렬 스트림 안에서 또 병렬 스트림 사용
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>// → commonPool의 스레드가 서로를 기다리며 데드락 위험
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>list.parallelStream()
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    .map(item -&gt; subList.parallelStream()  // 위험!
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>        .filter(...)
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>        .toList())
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>    .toList();
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>// 해결: 내부 스트림은 순차로 처리
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>list.parallelStream()
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>    .map(item -&gt; subList.stream()  // 안전
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>        .filter(...)
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>        .toList())
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>    .toList();
+</code></pre></div>
 <hr />
 <h3 id="_11">특징 요약</h3>
 <table>
