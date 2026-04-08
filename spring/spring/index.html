@@ -14,7 +14,7 @@
         <link rel="prev" href="../../html/Session/">
       
       
-        <link rel="next" href="../IoC-DI/">
+        <link rel="next" href="../solid/">
       
       
         
@@ -2646,78 +2646,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="SOLID 원칙">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#srp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SRP — 단일 책임 원칙
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ocp-" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OCP — 개방-폐쇄 원칙
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lsp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LSP — 리스코프 치환 원칙
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#isp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ISP — 인터페이스 분리 원칙
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dip" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DIP — 의존관계 역전 원칙
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#spring-solid" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Spring이 SOLID를 실현하는 방법
-      
-    </span>
-  </a>
-  
 </li>
       
         <li class="md-nav__item">
@@ -2818,6 +2746,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SOLID 원칙
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -4204,78 +4160,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="SOLID 원칙">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#srp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SRP — 단일 책임 원칙
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ocp-" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OCP — 개방-폐쇄 원칙
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lsp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LSP — 리스코프 치환 원칙
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#isp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ISP — 인터페이스 분리 원칙
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dip" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DIP — 의존관계 역전 원칙
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#spring-solid" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Spring이 SOLID를 실현하는 방법
-      
-    </span>
-  </a>
-  
 </li>
       
         <li class="md-nav__item">
@@ -4433,181 +4317,44 @@
 이는 명백한 설계 원칙 위반이다.</p>
 <hr />
 <h2 id="solid">SOLID 원칙</h2>
-<p>좋은 객체지향 설계의 기준. Spring은 이 원칙들을 실현하는 도구다.</p>
-<h3 id="srp">SRP — 단일 책임 원칙</h3>
-<blockquote>
-<p><strong>하나의 클래스는 하나의 책임만 가진다.</strong></p>
-</blockquote>
-<p>"책임"이란 "변경의 이유"다. 변경해야 할 이유가 하나여야 한다는 뜻.</p>
-<div class="compare-grid">
-<div class="before">
-<p><strong>Bad</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// 위반: 주문 서비스가 너무 많은 일을 한다</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OrderService</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">order</span><span class="p">(...)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w">          </span><span class="c1">// 주문 처리</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sendEmail</span><span class="p">(...)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w">      </span><span class="c1">// 이메일 발송</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">saveToFile</span><span class="p">(...)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w">     </span><span class="c1">// 파일 저장</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">validateMember</span><span class="p">(...)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// 회원 검증</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="c1">// 이메일 발송 로직이 바뀌면 OrderService를 수정해야 함 → SRP 위반</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="after">
-<p><strong>Good</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// 준수: 역할을 분리</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OrderService</span><span class="w">   </span><span class="p">{</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">order</span><span class="p">(...)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">EmailService</span><span class="w">   </span><span class="p">{</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">send</span><span class="p">(...)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MemberValidator</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">validate</span><span class="p">(...)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1">// 이메일 로직이 바뀌면 EmailService만 수정하면 됨</span>
-</code></pre></div>
-</div>
-</div>
-<p>SRP를 지키면 변경 범위가 좁아져서 버그가 퍼지지 않는다.</p>
-<hr />
-<h3 id="ocp-">OCP — 개방-폐쇄 원칙</h3>
-<blockquote>
-<p><strong>확장에는 열려 있고, 변경에는 닫혀 있어야 한다.</strong>
-새 기능을 추가할 때 기존 코드를 수정하면 안 된다.</p>
-</blockquote>
-<div class="compare-grid">
-<div class="before">
-<p><strong>Bad</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// 위반: 구현체를 직접 선택하므로 변경 시 OrderServiceImpl 코드를 수정해야 함</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OrderServiceImpl</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">DiscountPolicy</span><span class="w"> </span><span class="n">discountPolicy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RateDiscountPolicy</span><span class="p">();</span><span class="w"> </span><span class="c1">// 변경하려면 이 줄을 건드려야 함</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="after">
-<p><strong>Good</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// 준수: 설정 코드(AppConfig)만 바꾸면 OrderServiceImpl은 그대로</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AppConfig</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">DiscountPolicy</span><span class="w"> </span><span class="nf">discountPolicy</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">        </span><span class="c1">// return new FixDiscountPolicy();</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RateDiscountPolicy</span><span class="p">();</span><span class="w"> </span><span class="c1">// 이 한 줄만 바꾸면 됨</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">}</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OrderServiceImpl</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">DiscountPolicy</span><span class="w"> </span><span class="n">discountPolicy</span><span class="p">;</span><span class="w"> </span><span class="c1">// 인터페이스에만 의존</span>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">OrderServiceImpl</span><span class="p">(</span><span class="n">DiscountPolicy</span><span class="w"> </span><span class="n">discountPolicy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">discountPolicy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">discountPolicy</span><span class="p">;</span><span class="w"> </span><span class="c1">// 외부에서 주입받음</span>
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="p">}</span>
-</code></pre></div>
-</div>
-</div>
-<p><strong>Spring DI가 OCP를 실현해준다.</strong> 설정만 바꾸면 코드 로직은 건드리지 않아도 된다.</p>
-<hr />
-<h3 id="lsp">LSP — 리스코프 치환 원칙</h3>
-<blockquote>
-<p><strong>구현체는 인터페이스가 약속한 동작을 반드시 지켜야 한다.</strong>
-부모 타입이 들어가는 자리에 자식 타입이 들어가도 프로그램이 정상 동작해야 한다.</p>
-</blockquote>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">DiscountPolicy</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">discount</span><span class="p">(</span><span class="n">Member</span><span class="w"> </span><span class="n">member</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">);</span><span class="w"> </span><span class="c1">// &quot;할인 금액을 반환&quot;한다는 계약</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">}</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1">// LSP 위반: 계약을 어김</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BadDiscountPolicy</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">DiscountPolicy</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="nd">@Override</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">discount</span><span class="p">(</span><span class="n">Member</span><span class="w"> </span><span class="n">member</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// 할인인데 오히려 가격을 올림 → 계약 위반</span>
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="p">}</span>
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
-<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="c1">// LSP 준수: 계약을 지킴</span>
-<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">RateDiscountPolicy</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">DiscountPolicy</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="nd">@Override</span>
-<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">discount</span><span class="p">(</span><span class="n">Member</span><span class="w"> </span><span class="n">member</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="c1">// 10% 할인 금액 반환 → 계약 준수</span>
-<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="p">}</span>
-</code></pre></div>
-<p>LSP를 지켜야 다형성이 의도대로 동작한다.</p>
-<hr />
-<h3 id="isp">ISP — 인터페이스 분리 원칙</h3>
-<blockquote>
-<p><strong>범용 인터페이스 하나보다 작은 인터페이스 여러 개가 낫다.</strong></p>
-</blockquote>
-<div class="compare-grid">
-<div class="before">
-<p><strong>Bad</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// 위반: 모든 기능이 한 인터페이스에</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">UserInterface</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">login</span><span class="p">();</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">logout</span><span class="p">();</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">changePassword</span><span class="p">();</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">viewAdminPanel</span><span class="p">();</span><span class="w"> </span><span class="c1">// 일반 사용자는 필요 없는 기능</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">deleteUser</span><span class="p">();</span><span class="w">     </span><span class="c1">// 일반 사용자는 필요 없는 기능</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="c1">// 일반 사용자가 이 인터페이스를 구현하면 불필요한 메서드까지 구현 강제됨</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="after">
-<p><strong>Good</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// 준수: 역할별로 분리</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">UserAuth</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">login</span><span class="p">();</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">logout</span><span class="p">();</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">changePassword</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">AdminOps</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">viewAdminPanel</span><span class="p">();</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">deleteUser</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1">// 일반 사용자</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">RegularUser</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">UserAuth</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="c1">// 관리자</span>
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AdminUser</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">UserAuth</span><span class="p">,</span><span class="w"> </span><span class="n">AdminOps</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
-</code></pre></div>
-</div>
-</div>
-<p>인터페이스가 명확해지고, 구현 클래스에서 불필요한 메서드를 강제로 구현하지 않아도 된다.</p>
-<hr />
-<h3 id="dip">DIP — 의존관계 역전 원칙</h3>
-<blockquote>
-<p><strong>구현 클래스가 아닌 인터페이스(추상)에 의존해야 한다.</strong></p>
-</blockquote>
-<p>==Spring DI==의 핵심 원칙이다.</p>
-<div class="compare-grid">
-<div class="before">
-<p><strong>Bad</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">// 위반: 구현 클래스에 직접 의존</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OrderServiceImpl</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">MemoryMemberRepository</span><span class="w"> </span><span class="n">memberRepository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MemoryMemberRepository</span><span class="p">();</span><span class="w"> </span><span class="c1">// 구체 클래스!</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">FixDiscountPolicy</span><span class="w"> </span><span class="n">discountPolicy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FixDiscountPolicy</span><span class="p">();</span><span class="w">              </span><span class="c1">// 구체 클래스!</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="c1">// MemoryMemberRepository → JdbcMemberRepository로 바꾸면 이 코드도 수정 필요</span>
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="after">
-<p><strong>Good</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">// 준수: 인터페이스에만 의존</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OrderServiceImpl</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">MemberRepository</span><span class="w"> </span><span class="n">memberRepository</span><span class="p">;</span><span class="w">  </span><span class="c1">// 인터페이스만 앎</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">DiscountPolicy</span><span class="w"> </span><span class="n">discountPolicy</span><span class="p">;</span><span class="w">       </span><span class="c1">// 인터페이스만 앎</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="c1">// 어떤 구현체가 들어오는지는 외부(Spring)가 결정 — 이 클래스는 모름</span>
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="p">}</span>
-</code></pre></div>
-</div>
-</div>
-<p>그런데 문제가 있다:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">// 딜레마: 인터페이스에만 의존하면 구현체를 어디서 만드나?</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kd">private</span><span class="w"> </span><span class="n">MemberRepository</span><span class="w"> </span><span class="n">memberRepository</span><span class="p">;</span><span class="w"> </span><span class="c1">// 타입만 있고</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c1">// memberRepository = new ??? → 누군가는 구현체를 new 해야 함</span>
-</code></pre></div>
-<div class="success-box">
-<p><strong>이 문제를 Spring이 해결한다.</strong> Spring이 구현체를 만들어서 주입해준다.</p>
-</div>
-<hr />
-<h2 id="spring-solid">Spring이 SOLID를 실현하는 방법</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>[개발자]
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>  OrderServiceImpl은 MemberRepository, DiscountPolicy 인터페이스에만 의존하여 작성
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>[Spring]
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>  1. MemoryMemberRepository 객체 생성 (new)
-<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>  2. RateDiscountPolicy 객체 생성 (new)
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>  3. OrderServiceImpl 생성자에 1, 2번 주입
-<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>  → OrderServiceImpl은 어떤 구현체가 들어왔는지 모름
-</code></pre></div>
-<p><code>OrderServiceImpl</code> 입장에서는 "누가 만들어서 줬는지"를 전혀 모른다.
-인터페이스만 알면 된다. 이것이 DIP 준수다.</p>
-<p>구현체를 교체할 때 <code>OrderServiceImpl</code>을 건드리지 않아도 된다. 이것이 OCP 준수다.</p>
+<p>좋은 객체지향 설계의 5가지 기준. Spring은 이 원칙들을 실현하는 도구다.
+→ <a href="../solid/">SOLID 원칙 상세 보기</a></p>
+<table>
+<thead>
+<tr>
+<th>원칙</th>
+<th>이름</th>
+<th>한 줄 요약</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>S</strong></td>
+<td>SRP — 단일 책임 원칙</td>
+<td>하나의 클래스는 변경 이유가 하나뿐이어야 한다</td>
+</tr>
+<tr>
+<td><strong>O</strong></td>
+<td>OCP — 개방-폐쇄 원칙</td>
+<td>확장에는 열려 있고, 변경에는 닫혀 있어야 한다</td>
+</tr>
+<tr>
+<td><strong>L</strong></td>
+<td>LSP — 리스코프 치환 원칙</td>
+<td>구현체는 인터페이스의 계약을 반드시 지켜야 한다</td>
+</tr>
+<tr>
+<td><strong>I</strong></td>
+<td>ISP — 인터페이스 분리 원칙</td>
+<td>범용 인터페이스 하나보다 작은 인터페이스 여러 개가 낫다</td>
+</tr>
+<tr>
+<td><strong>D</strong></td>
+<td>DIP — 의존관계 역전 원칙</td>
+<td>구현이 아닌 인터페이스(추상)에 의존해야 한다</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="_2">학습 순서</h2>
 <h3 id="spring-core">Spring Core (기초)</h3>
@@ -4825,7 +4572,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 8일 11:02:50 UTC">2026년 4월 8일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 8일 11:24:26 UTC">2026년 4월 8일</span>
   </span>
 
     
