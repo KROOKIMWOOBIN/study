@@ -4,6 +4,8 @@
 
 ## Spring이란?
 
+<div class="concept-box" markdown="1">
+
 자바로 웹 애플리케이션을 만들 때 반복적으로 필요한 기능들을 프레임워크 수준에서 대신 처리해주는 도구다.
 
 ```
@@ -11,8 +13,9 @@
 Spring 할 일: 객체 생성/연결, HTTP 요청 처리, DB 연결/트랜잭션 관리, 보안 등
 ```
 
-그런데 단순히 "편리해서" Spring을 쓰는 게 아니다.
 Spring의 핵심 철학은 **좋은 객체지향 설계**를 쉽게 할 수 있도록 돕는 것이다.
+
+</div>
 
 ---
 
@@ -65,6 +68,10 @@ public class OrderServiceImpl implements OrderService {
 
 "책임"이란 "변경의 이유"다. 변경해야 할 이유가 하나여야 한다는 뜻.
 
+<div class="compare-grid" markdown="1">
+<div class="before" markdown="1">
+**Bad**
+
 ```java
 // 위반: 주문 서비스가 너무 많은 일을 한다
 public class OrderService {
@@ -74,13 +81,22 @@ public class OrderService {
     public void validateMember(...) { ... } // 회원 검증
     // 이메일 발송 로직이 바뀌면 OrderService를 수정해야 함 → SRP 위반
 }
+```
 
+</div>
+<div class="after" markdown="1">
+**Good**
+
+```java
 // 준수: 역할을 분리
 public class OrderService   { public void order(...) { ... } }
 public class EmailService   { public void send(...) { ... } }
 public class MemberValidator { public void validate(...) { ... } }
 // 이메일 로직이 바뀌면 EmailService만 수정하면 됨
 ```
+
+</div>
+</div>
 
 SRP를 지키면 변경 범위가 좁아져서 버그가 퍼지지 않는다.
 
@@ -91,12 +107,22 @@ SRP를 지키면 변경 범위가 좁아져서 버그가 퍼지지 않는다.
 > **확장에는 열려 있고, 변경에는 닫혀 있어야 한다.**
 > 새 기능을 추가할 때 기존 코드를 수정하면 안 된다.
 
+<div class="compare-grid" markdown="1">
+<div class="before" markdown="1">
+**Bad**
+
 ```java
 // 위반: 구현체를 직접 선택하므로 변경 시 OrderServiceImpl 코드를 수정해야 함
 public class OrderServiceImpl {
     private DiscountPolicy discountPolicy = new RateDiscountPolicy(); // 변경하려면 이 줄을 건드려야 함
 }
+```
 
+</div>
+<div class="after" markdown="1">
+**Good**
+
+```java
 // 준수: 설정 코드(AppConfig)만 바꾸면 OrderServiceImpl은 그대로
 public class AppConfig {
     public DiscountPolicy discountPolicy() {
@@ -111,6 +137,9 @@ public class OrderServiceImpl {
     }
 }
 ```
+
+</div>
+</div>
 
 **Spring DI가 OCP를 실현해준다.** 설정만 바꾸면 코드 로직은 건드리지 않아도 된다.
 
@@ -151,6 +180,10 @@ LSP를 지켜야 다형성이 의도대로 동작한다.
 
 > **범용 인터페이스 하나보다 작은 인터페이스 여러 개가 낫다.**
 
+<div class="compare-grid" markdown="1">
+<div class="before" markdown="1">
+**Bad**
+
 ```java
 // 위반: 모든 기능이 한 인터페이스에
 public interface UserInterface {
@@ -161,7 +194,13 @@ public interface UserInterface {
     void deleteUser();     // 일반 사용자는 필요 없는 기능
     // 일반 사용자가 이 인터페이스를 구현하면 불필요한 메서드까지 구현 강제됨
 }
+```
 
+</div>
+<div class="after" markdown="1">
+**Good**
+
+```java
 // 준수: 역할별로 분리
 public interface UserAuth  { void login(); void logout(); void changePassword(); }
 public interface AdminOps  { void viewAdminPanel(); void deleteUser(); }
@@ -173,6 +212,9 @@ public class RegularUser implements UserAuth { ... }
 public class AdminUser implements UserAuth, AdminOps { ... }
 ```
 
+</div>
+</div>
+
 인터페이스가 명확해지고, 구현 클래스에서 불필요한 메서드를 강제로 구현하지 않아도 된다.
 
 ---
@@ -181,7 +223,11 @@ public class AdminUser implements UserAuth, AdminOps { ... }
 
 > **구현 클래스가 아닌 인터페이스(추상)에 의존해야 한다.**
 
-Spring DI의 핵심 원칙이다.
+==Spring DI==의 핵심 원칙이다.
+
+<div class="compare-grid" markdown="1">
+<div class="before" markdown="1">
+**Bad**
 
 ```java
 // 위반: 구현 클래스에 직접 의존
@@ -190,7 +236,13 @@ public class OrderServiceImpl {
     private FixDiscountPolicy discountPolicy = new FixDiscountPolicy();              // 구체 클래스!
     // MemoryMemberRepository → JdbcMemberRepository로 바꾸면 이 코드도 수정 필요
 }
+```
 
+</div>
+<div class="after" markdown="1">
+**Good**
+
+```java
 // 준수: 인터페이스에만 의존
 public class OrderServiceImpl {
     private MemberRepository memberRepository;  // 인터페이스만 앎
@@ -198,6 +250,9 @@ public class OrderServiceImpl {
     // 어떤 구현체가 들어오는지는 외부(Spring)가 결정 — 이 클래스는 모름
 }
 ```
+
+</div>
+</div>
 
 그런데 문제가 있다:
 
@@ -207,7 +262,11 @@ private MemberRepository memberRepository; // 타입만 있고
 // memberRepository = new ??? → 누군가는 구현체를 new 해야 함
 ```
 
+<div class="success-box" markdown="1">
+
 **이 문제를 Spring이 해결한다.** Spring이 구현체를 만들어서 주입해준다.
+
+</div>
 
 ---
 

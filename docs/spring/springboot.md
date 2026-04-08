@@ -2,7 +2,11 @@
 
 ### 왜 쓰는가?
 
+<div class="concept-box" markdown="1">
+
 Spring Framework는 강력하지만 XML 설정, 서버 설정, 의존성 버전 관리가 복잡했다. Spring Boot는 이를 **자동화**해 개발자가 비즈니스 로직에 집중하게 한다.
+
+</div>
 
 | 항목 | Spring Framework | Spring Boot |
 |------|-----------------|-------------|
@@ -13,7 +17,11 @@ Spring Framework는 강력하지만 XML 설정, 서버 설정, 의존성 버전 
 
 ### Auto Configuration
 
+<div class="tip-box" markdown="1">
+
 `@SpringBootApplication` 내부에 `@EnableAutoConfiguration`이 있다. classpath에 라이브러리가 있으면 자동으로 Bean을 등록한다.
+
+</div>
 
 ```markdown
 @SpringBootApplication  // @Configuration + @ComponentScan + @EnableAutoConfiguration
@@ -116,9 +124,13 @@ app:
 
 ### 단점 / 주의할 점
 
+<div class="warning-box" markdown="1">
+
 | 상황 | 문제 | 해결 |
 |------|------|------|
 | Auto Configuration 오동작 | 의도치 않은 Bean 자동 등록 | `@SpringBootApplication(exclude = ...)` |
 | `ddl-auto: create` 운영 사용 | DB 테이블 초기화됨 | 운영은 반드시 `validate` 또는 `none` |
 | application.yml에 비밀번호 평문 저장 | 보안 위험 | 환경 변수 또는 Secret Manager 사용 |
 | 모든 설정을 yml에 | 관리 복잡 | Profile별 yml 분리 |
+
+</div>

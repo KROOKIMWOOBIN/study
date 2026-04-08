@@ -18,7 +18,11 @@
 
 ### 왜 쓰는가?
 
+<div class="concept-box" markdown="1">
+
 배열은 크기가 고정되고 삽입·삭제 시 직접 인덱스를 관리해야 한다. 컬렉션 프레임워크는 **동적 크기 조절, 중복 제거, 순서 보장, 키-값 매핑** 등 다양한 요구에 맞는 자료구조를 표준 인터페이스로 제공한다.
+
+</div>
 
 ### 특징
 
@@ -61,10 +65,14 @@ Map<String, Integer> map = new HashMap<>();
 
 ### 주의할 점
 
+<div class="warning-box" markdown="1">
+
 - `Stack` 클래스는 레거시 — 스택이 필요하면 `ArrayDeque`를 사용한다
 - `LinkedList`는 List이면서 Deque도 구현하지만, 실무에서 Queue/Deque 용도라면 `ArrayDeque`가 성능상 유리하다
 - 크기가 확실히 고정이면 배열이 컬렉션보다 빠르다 (박싱 없음, 오버헤드 없음)
 - `HashMap`은 `null` 키/값을 허용하지만 `TreeMap`은 `null` 키를 허용하지 않는다 (정렬 비교 불가)
+
+</div>
 
 ---
 

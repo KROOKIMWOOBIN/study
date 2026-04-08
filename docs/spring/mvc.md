@@ -2,7 +2,11 @@
 
 ### 개념
 
-Spring MVC는 **프론트 컨트롤러 패턴** 기반의 웹 프레임워크다. 모든 HTTP 요청이 `DispatcherServlet` 하나를 거쳐 적절한 컨트롤러로 분배된다.
+<div class="concept-box" markdown="1">
+
+Spring MVC는 ==프론트 컨트롤러 패턴== 기반의 웹 프레임워크다. 모든 HTTP 요청이 `DispatcherServlet` 하나를 거쳐 적절한 컨트롤러로 분배된다.
+
+</div>
 
 ### 요청 처리 흐름
 
@@ -63,12 +67,17 @@ public class MemberController {
 
 ### 실무에서의 사용
 
-REST API 위주인 실무에서는 `@Controller` + 뷰 반환보다 `@RestController`를 주로 쓴다. Spring MVC의 DispatcherServlet 흐름 자체는 REST API에서도 동일하게 작동한다. (→ [REST API](./restapi.md) 참고)
+!!! tip "실무 팁"
+    REST API 위주인 실무에서는 `@Controller` + 뷰 반환보다 `@RestController`를 주로 쓴다. Spring MVC의 DispatcherServlet 흐름 자체는 REST API에서도 동일하게 작동한다. (→ [REST API](./restapi.md) 참고)
 
 ### 단점 / 주의할 점
+
+<div class="warning-box" markdown="1">
 
 | 상황 | 문제 | 해결 |
 |------|------|------|
 | `redirect:` vs `forward:` 혼동 | redirect는 새 요청, forward는 같은 요청 | POST 후 redirect(PRG 패턴) 사용 |
 | Model에 민감 정보 담기 | 뷰에 노출될 수 있음 | DTO로 필요한 데이터만 전달 |
 | 컨트롤러에 비즈니스 로직 | 테스트 어렵고 재사용 불가 | Service 레이어로 분리 |
+
+</div>

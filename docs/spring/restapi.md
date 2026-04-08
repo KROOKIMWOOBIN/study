@@ -10,7 +10,11 @@
 
 ### 왜 쓰는가?
 
+<div class="concept-box" markdown="1">
+
 프론트엔드(React, Vue 등)와 분리된 구조에서 서버는 JSON 데이터만 제공하면 된다. `@RestController`는 반환 객체를 자동으로 JSON으로 변환해 응답한다.
+
+</div>
 
 ### 기본 CRUD API
 
@@ -109,12 +113,20 @@ public class MemberResponse {
 }
 ```
 
+<div class="success-box" markdown="1">
+
 엔티티를 직접 노출하지 않고 DTO를 사용한다. 엔티티 변경이 API 스펙에 영향을 주지 않도록 격리한다.
 
+</div>
+
 ### 단점 / 주의할 점
+
+<div class="warning-box" markdown="1">
 
 | 상황 | 문제 | 해결 |
 |------|------|------|
 | 엔티티 직접 반환 | 순환 참조, 민감 정보 노출, API 스펙 결합 | DTO로 변환 후 반환 |
 | `ResponseEntity` 남용 | 모든 메서드에 `ResponseEntity` 사용 시 코드 복잡 | 단순 조회는 객체 직접 반환 |
 | URL에 행위 표현 | RESTful하지 않음 | 명사 + HTTP 메서드로 표현 |
+
+</div>

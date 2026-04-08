@@ -37,9 +37,13 @@ public class OrderServiceImpl implements OrderService {
 `OrderServiceImpl`의 역할은 주문 처리다. 할인 정책이 어떻게 되는지는 관심 없어야 한다.
 그런데 할인 정책이 바뀌었다는 이유로 `OrderServiceImpl` 코드를 건드려야 한다.
 
-> **이것이 OCP 위반, DIP 위반이다.**
+<div class="warning-box" markdown="1">
+
+**이것이 OCP 위반, DIP 위반이다.**
 
 `OrderServiceImpl`이 인터페이스(`DiscountPolicy`)에 의존하는 척하지만, 실제로는 구현체(`FixDiscountPolicy`)까지 직접 `new`로 생성하고 있다. 인터페이스에만 의존한다는 말이 무색하다.
+
+</div>
 
 ---
 
@@ -48,7 +52,7 @@ public class OrderServiceImpl implements OrderService {
 역할을 분리한다.
 
 - `OrderServiceImpl` → 주문 처리만 담당. 어떤 구현체를 쓸지는 모른다.
-- `AppConfig` → 구현체를 선택하고 조립하는 역할만 담당.
+- ==AppConfig== → 구현체를 선택하고 조립하는 역할만 담당.
 
 ```java
 // AppConfig: 구현체를 선택하고, 객체를 생성하고, 연결한다
@@ -103,7 +107,13 @@ OrderServiceImpl             → 코드 변경 없음 ✓
 
 ### 개념
 
-> **객체를 누가 만들고, 어떤 의존관계로 연결할지에 대한 제어권을 외부로 넘기는 것.**
+<div class="concept-box" markdown="1">
+
+**객체를 누가 만들고, 어떤 의존관계로 연결할지에 대한 제어권을 외부로 넘기는 것.**
+
+프로그램의 흐름을 직접 제어하는 것이 아니라, 외부에서 관리하는 것을 ==제어의 역전(IoC)==이라 한다.
+
+</div>
 
 원래 방식:
 ```
@@ -116,8 +126,6 @@ IoC 적용 후:
 AppConfig가 결정 → OrderServiceImpl에게 어떤 구현체를 줄지 AppConfig가 정함
 OrderServiceImpl은 받기만 함 — 자신이 어떤 구현체를 사용하는지도 모름
 ```
-
-이처럼 프로그램의 흐름을 직접 제어하는 것이 아니라, 외부에서 관리하는 것을 **제어의 역전(IoC)**이라 한다.
 
 ### 프레임워크 vs 라이브러리
 
