@@ -1,0 +1,184 @@
+/* ============================================================
+   학습 노트 커스텀 스타일시트
+   ============================================================ */
+
+
+/* ----------------------------------------------------------
+   1. 인라인 텍스트 색상 유틸리티
+   사용: <span class="text-red">경고</span>
+   ---------------------------------------------------------- */
+
+.text-red    { color: #e53935; font-weight: 600; }
+.text-blue   { color: #1565c0; font-weight: 600; }
+.text-green  { color: #2e7d32; font-weight: 600; }
+.text-orange { color: #e65100; font-weight: 600; }
+.text-purple { color: #6a1b9a; font-weight: 600; }
+.text-gray   { color: #616161; }
+
+/* 다크 모드 대응 */
+[data-md-color-scheme="slate"] .text-red    { color: #ef9a9a; }
+[data-md-color-scheme="slate"] .text-blue   { color: #90caf9; }
+[data-md-color-scheme="slate"] .text-green  { color: #a5d6a7; }
+[data-md-color-scheme="slate"] .text-orange { color: #ffcc80; }
+[data-md-color-scheme="slate"] .text-purple { color: #ce93d8; }
+[data-md-color-scheme="slate"] .text-gray   { color: #bdbdbd; }
+
+
+/* ----------------------------------------------------------
+   2. 개념·정보 박스
+   사용: <div class="concept-box" markdown="1"> 내용 </div>
+   ---------------------------------------------------------- */
+
+.concept-box,
+.warning-box,
+.danger-box,
+.success-box,
+.tip-box {
+  padding: 14px 18px;
+  border-radius: 6px;
+  margin: 16px 0;
+}
+
+/* 파란 박스 — 핵심 개념 */
+.concept-box {
+  background-color: #e8f4fd;
+  border-left: 4px solid #1976d2;
+}
+
+/* 주황 박스 — 주의 사항 */
+.warning-box {
+  background-color: #fff8e1;
+  border-left: 4px solid #f9a825;
+}
+
+/* 빨간 박스 — 위험·금지 */
+.danger-box {
+  background-color: #fce4ec;
+  border-left: 4px solid #e53935;
+}
+
+/* 초록 박스 — 정답·권장 */
+.success-box {
+  background-color: #e8f5e9;
+  border-left: 4px solid #388e3c;
+}
+
+/* 보라 박스 — 팁·추가 정보 */
+.tip-box {
+  background-color: #f3e5f5;
+  border-left: 4px solid #7b1fa2;
+}
+
+/* 다크 모드 대응 */
+[data-md-color-scheme="slate"] .concept-box { background-color: #1a2a3a; border-left-color: #64b5f6; }
+[data-md-color-scheme="slate"] .warning-box  { background-color: #2a2010; border-left-color: #ffca28; }
+[data-md-color-scheme="slate"] .danger-box   { background-color: #2a1010; border-left-color: #ef9a9a; }
+[data-md-color-scheme="slate"] .success-box  { background-color: #0e2010; border-left-color: #81c784; }
+[data-md-color-scheme="slate"] .tip-box      { background-color: #1e1030; border-left-color: #ce93d8; }
+
+
+/* ----------------------------------------------------------
+   3. Before / After 비교 그리드
+   사용:
+   <div class="compare-grid" markdown="1">
+   <div class="before" markdown="1">
+   나쁜 코드
+   </div>
+   <div class="after" markdown="1">
+   좋은 코드
+   </div>
+   </div>
+   ---------------------------------------------------------- */
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 16px 0;
+}
+
+.compare-grid .before,
+.compare-grid .after {
+  padding: 14px 16px;
+  border-radius: 6px;
+}
+
+/* Before — 빨간 (나쁜 코드) */
+.compare-grid .before {
+  background-color: #fff5f5;
+  border-top: 3px solid #ef5350;
+}
+
+/* After — 초록 (좋은 코드) */
+.compare-grid .after {
+  background-color: #f1f8f1;
+  border-top: 3px solid #66bb6a;
+}
+
+/* 다크 모드 대응 */
+[data-md-color-scheme="slate"] .compare-grid .before { background-color: #2a1010; border-top-color: #ef9a9a; }
+[data-md-color-scheme="slate"] .compare-grid .after  { background-color: #0e2010; border-top-color: #81c784; }
+
+/* 모바일 — 세로 전환 */
+@media (max-width: 700px) {
+  .compare-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ----------------------------------------------------------
+   4. pymdownx.mark 하이라이트 색상 개선
+   사용: ==강조할 텍스트==
+   ---------------------------------------------------------- */
+
+.md-typeset mark {
+  background-color: #fff59d;
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+[data-md-color-scheme="slate"] .md-typeset mark {
+  background-color: #5d4e00;
+  color: #fff9c4;
+}
+
+
+/* ----------------------------------------------------------
+   5. 전체 타이포그래피 개선
+   ---------------------------------------------------------- */
+
+/* 본문 줄간격 */
+.md-typeset {
+  line-height: 1.8;
+}
+
+/* 코드블록 폰트 크기 */
+.md-typeset pre > code {
+  font-size: 0.85em;
+}
+
+/* 인라인 코드 강조 */
+.md-typeset code:not(.highlight code) {
+  background-color: #f0f0ff;
+  color: #3730a3;
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-size: 0.875em;
+}
+
+[data-md-color-scheme="slate"] .md-typeset code:not(.highlight code) {
+  background-color: #1e1b4b;
+  color: #a5b4fc;
+}
+
+/* h2 구분선 */
+.md-typeset h2 {
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 6px;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h2 {
+  border-bottom-color: #424242;
+}
