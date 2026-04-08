@@ -2779,27 +2779,10 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        빈 생명주기 순서
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="빈 생명주기 순서">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
         생성자에서 초기화하면 안 되는가?
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2854,7 +2837,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         세 가지 방법 비교
@@ -2865,7 +2848,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         실제 활용 예제
@@ -2888,10 +2871,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#datasource-bean" class="md-nav__link">
+  <a href="#hikaricp-datasource-bean" class="md-nav__link">
     <span class="md-ellipsis">
       
-        외부 라이브러리 (DataSource) — @Bean 방식
+        외부 라이브러리 (HikariCP DataSource) — @Bean 방식
       
     </span>
   </a>
@@ -2899,10 +2882,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        캐시 워밍업 (앱 완전 시작 후 실행)
+        캐시 워밍업 — 모든 빈 초기화 완료 후 실행
       
     </span>
   </a>
@@ -2915,10 +2898,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         소멸 콜백 주의사항
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        빈 생명주기 전체 타임라인
       
     </span>
   </a>
@@ -4114,27 +4108,10 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        빈 생명주기 순서
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="빈 생명주기 순서">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
         생성자에서 초기화하면 안 되는가?
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -4189,7 +4166,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         세 가지 방법 비교
@@ -4200,7 +4177,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         실제 활용 예제
@@ -4223,10 +4200,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#datasource-bean" class="md-nav__link">
+  <a href="#hikaricp-datasource-bean" class="md-nav__link">
     <span class="md-ellipsis">
       
-        외부 라이브러리 (DataSource) — @Bean 방식
+        외부 라이브러리 (HikariCP DataSource) — @Bean 방식
       
     </span>
   </a>
@@ -4234,10 +4211,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        캐시 워밍업 (앱 완전 시작 후 실행)
+        캐시 워밍업 — 모든 빈 초기화 완료 후 실행
       
     </span>
   </a>
@@ -4250,10 +4227,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         소멸 콜백 주의사항
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        빈 생명주기 전체 타임라인
       
     </span>
   </a>
@@ -4283,28 +4271,29 @@
 <h1 id="_1">빈 생명주기 콜백</h1>
 <hr />
 <h2 id="_2">왜 필요한가</h2>
-<p>애플리케이션이 시작되면 DB 커넥션 풀, 외부 API 연결 등을 미리 준비해야 하는 경우가 있다.
-반대로 종료 시점에는 열어둔 연결을 안전하게 닫아야 한다.</p>
-<p>스프링은 빈이 <strong>생성된 직후</strong>와 <strong>소멸 직전</strong>에 개발자가 원하는 코드를 실행할 수 있는 콜백을 제공한다.</p>
-<hr />
-<h2 id="_3">빈 생명주기 순서</h2>
+<p>애플리케이션이 시작되면 DB 커넥션 풀, 외부 API 연결 등을 <strong>미리 준비</strong>해야 하는 경우가 있다.
+반대로 종료 시점에는 열어둔 연결을 <strong>안전하게 닫아야</strong> 한다.</p>
+<p>그런데 스프링 빈은 이런 과정이 어떤 순서로 일어나는가?</p>
 <pre><code>스프링 컨테이너 생성
     ↓
 빈 생성 (객체 new)
     ↓
-의존관계 주입 (DI)
+의존관계 주입 (DI)   ← 이 시점이 되어야 모든 의존관계가 준비됨
     ↓
-[초기화 콜백] ← 여기서 초기화 코드 실행 (DB 연결, 소켓 열기 등)
+[초기화 콜백] ← 여기서 초기화 코드 실행 가능 (DB 연결, 소켓 열기 등)
     ↓
 애플리케이션 동작
     ↓
-[소멸 전 콜백] ← 여기서 정리 코드 실행 (연결 닫기 등)
+[소멸 전 콜백] ← 여기서 정리 코드 실행 가능 (연결 닫기 등)
     ↓
 스프링 종료
 </code></pre>
-<p>생성자 주입의 경우 빈 생성과 DI가 동시에 일어난다.</p>
-<h3 id="_4">생성자에서 초기화하면 안 되는가?</h3>
-<pre><code class="language-markdown">// 이렇게 하면 안 됨
+<p>초기화 코드는 DI가 완료된 이후에 실행해야 한다.
+그래야 주입된 의존 객체를 안전하게 사용할 수 있다.
+스프링은 이 시점(DI 완료 직후, 소멸 직전)에 개발자가 원하는 코드를 실행할 수 있는 <strong>콜백</strong>을 제공한다.</p>
+<hr />
+<h2 id="_3">생성자에서 초기화하면 안 되는가?</h2>
+<pre><code class="language-java">// 이렇게 하면 안 됨
 public class NetworkClient {
     private String url;
 
@@ -4312,14 +4301,24 @@ public class NetworkClient {
         this.url = url;
         connect(); // 생성자에서 초기화 — 비권장
     }
+
+    private void connect() {
+        System.out.println(&quot;connect: &quot; + url);
+    }
 }
 </code></pre>
-<p>생성자는 <strong>객체를 만드는 일</strong>에만 집중해야 한다. (단일 책임 원칙)
-초기화(외부 연결 등)는 무거운 작업이 많고, 유지보수와 테스트가 어려워진다.</p>
+<p><strong>단일 책임 원칙(SRP)</strong> 위반이다.
+생성자의 역할은 <strong>객체를 만드는 것</strong>에 집중해야 한다.
+초기화는 외부 연결, 파일 오픈 등 무거운 작업이 많다.
+생성자에서 무거운 작업을 하면 테스트가 어려워지고, 유지보수가 힘들어진다.</p>
+<p>또한 생성자 주입의 경우 DI와 빈 생성이 동시에 일어나므로, 생성자 실행 시점에 아직 DI가 완료되지 않았을 수 있다.</p>
+<p><strong>생성자</strong>: 필드에 값 넣는 것만.
+<strong>초기화</strong>: @PostConstruct 등 별도 메서드에서.</p>
 <hr />
 <h2 id="3">초기화/소멸 콜백 3가지 방법</h2>
 <h3 id="1-postconstruct-predestroy">방법 1: @PostConstruct / @PreDestroy (권장)</h3>
-<pre><code class="language-markdown">import jakarta.annotation.PostConstruct;
+<p>가장 간결하고 표준적인 방법이다.</p>
+<pre><code class="language-java">import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 
 @Component
@@ -4331,7 +4330,7 @@ public class NetworkClient {
         this.url = url;
     }
 
-    @PostConstruct // 의존관계 주입 완료 후 자동 호출
+    @PostConstruct // DI 완료 직후 자동 호출
     public void init() {
         System.out.println(&quot;NetworkClient.init — 연결 시작: &quot; + url);
         connect();
@@ -4343,9 +4342,25 @@ public class NetworkClient {
         disconnect();
     }
 
-    private void connect() { System.out.println(&quot;connect: &quot; + url); }
-    private void disconnect() { System.out.println(&quot;close: &quot; + url); }
+    private void connect() {
+        System.out.println(&quot;connect: &quot; + url);
+        // 실제로는 소켓 열기, HTTP 클라이언트 초기화 등
+    }
+
+    private void disconnect() {
+        System.out.println(&quot;close: &quot; + url);
+        // 실제로는 소켓 닫기, 연결 해제 등
+    }
 }
+</code></pre>
+<pre><code>앱 시작:
+    NetworkClient 빈 생성
+    DI (url 주입)
+    @PostConstruct → init() 호출 → connect: http://hello.dev
+
+앱 종료:
+    @PreDestroy → close() 호출 → close: http://hello.dev
+    빈 소멸
 </code></pre>
 <p>권장하는 이유:</p>
 <table>
@@ -4362,11 +4377,11 @@ public class NetworkClient {
 </tr>
 <tr>
 <td>간결함</td>
-<td>어노테이션 하나로 해결</td>
+<td>어노테이션 하나로 해결, 별도 설정 코드 불필요</td>
 </tr>
 <tr>
 <td>컴포넌트 스캔 친화적</td>
-<td>별도 설정 코드 불필요</td>
+<td><code>@Bean</code> 속성 지정 없이 동작</td>
 </tr>
 <tr>
 <td>가독성</td>
@@ -4374,30 +4389,36 @@ public class NetworkClient {
 </tr>
 </tbody>
 </table>
-<p>단점: <strong>외부 라이브러리에는 적용 불가</strong> (내가 코드를 수정할 수 없으므로 어노테이션을 달 수 없음)</p>
+<p><strong>단점</strong>: 외부 라이브러리에는 적용 불가.
+내가 소스 코드를 수정할 수 없는 외부 라이브러리 클래스에는 어노테이션을 달 수 없다.</p>
 <hr />
 <h3 id="2-bean-initmethod-destroymethod">방법 2: @Bean initMethod / destroyMethod</h3>
-<p>외부 라이브러리처럼 내 코드를 직접 수정할 수 없을 때 사용한다.</p>
-<pre><code class="language-markdown">// 외부 라이브러리 (수정 불가 가정)
+<p>외부 라이브러리처럼 내 코드를 직접 수정할 수 없을 때 사용한다.
+<code>@Bean</code> 어노테이션의 속성으로 초기화/소멸 메서드 이름을 지정한다.</p>
+<pre><code class="language-java">// 외부 라이브러리 (수정 불가 가정)
 public class NetworkClient {
     private String url;
 
     public void setUrl(String url) { this.url = url; }
 
-    public void init() { // 이름은 자유롭게 지정
+    public void init() { // 메서드 이름은 자유
         System.out.println(&quot;NetworkClient.init&quot;);
         connect();
     }
 
-    public void close() { // 이름은 자유롭게 지정
+    public void close() { // 메서드 이름은 자유
         System.out.println(&quot;NetworkClient.close&quot;);
         disconnect();
     }
+
+    private void connect() { System.out.println(&quot;connect: &quot; + url); }
+    private void disconnect() { System.out.println(&quot;close: &quot; + url); }
 }
 </code></pre>
-<pre><code class="language-markdown">// @Bean 속성으로 연결
+<pre><code class="language-java">// @Bean 속성으로 연결
 @Configuration
 public class LifeCycleConfig {
+
     @Bean(initMethod = &quot;init&quot;, destroyMethod = &quot;close&quot;)
     public NetworkClient networkClient() {
         NetworkClient client = new NetworkClient();
@@ -4430,38 +4451,41 @@ public class LifeCycleConfig {
 </tbody>
 </table>
 <p><code>destroyMethod</code> 기본값 추론 기능:</p>
-<pre><code class="language-markdown">@Bean(initMethod = &quot;init&quot;)
+<pre><code class="language-java">@Bean(initMethod = &quot;init&quot;)
 // destroyMethod를 생략하면 기본값 &quot;(inferred)&quot;
-// &quot;close&quot; 또는 &quot;shutdown&quot; 이름의 메서드를 자동으로 찾아서 호출
-// 대부분의 외부 라이브러리(HikariCP 등)가 close()를 제공하므로 편리
+// → 빈 클래스에서 &quot;close&quot; 또는 &quot;shutdown&quot; 이름의 메서드를 자동으로 찾아서 호출
+// → HikariCP, JDBC Connection Pool 등 대부분의 외부 라이브러리가 close()를 가지므로 편리
 
 // 추론 기능을 끄려면
 @Bean(destroyMethod = &quot;&quot;) // 빈 문자열 지정
 </code></pre>
 <hr />
 <h3 id="3-initializingbean-disposablebean">방법 3: InitializingBean / DisposableBean (레거시, 비권장)</h3>
-<pre><code class="language-markdown">import org.springframework.beans.factory.DisposableBean;
+<pre><code class="language-java">import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
 public class NetworkClient implements InitializingBean, DisposableBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        // DI 완료 후 호출 — 메서드 이름 고정
+        // DI 완료 후 호출 — 메서드 이름이 고정됨
         connect();
     }
 
     @Override
     public void destroy() throws Exception {
-        // 소멸 전 호출 — 메서드 이름 고정
+        // 소멸 전 호출 — 메서드 이름이 고정됨
         disconnect();
     }
 }
 </code></pre>
-<p>단점: 스프링 전용 인터페이스에 의존, 메서드 이름 변경 불가, 외부 라이브러리 적용 불가.
-스프링 초창기 방식으로 현재는 사용하지 않는다.</p>
+<p>단점:
+- 스프링 전용 인터페이스에 의존 → 스프링 없이 쓸 수 없음
+- 메서드 이름 변경 불가 (<code>afterPropertiesSet</code>, <code>destroy</code> 고정)
+- 외부 라이브러리에 적용 불가</p>
+<p>스프링 초창기(2.x 이전) 방식으로 현재는 사용하지 않는다.</p>
 <hr />
-<h2 id="_5">세 가지 방법 비교</h2>
+<h2 id="_4">세 가지 방법 비교</h2>
 <table>
 <thead>
 <tr>
@@ -4485,7 +4509,7 @@ public class NetworkClient implements InitializingBean, DisposableBean {
 <td>있음</td>
 </tr>
 <tr>
-<td>외부 라이브러리</td>
+<td>외부 라이브러리 적용</td>
 <td><strong>불가</strong></td>
 <td><strong>가능</strong></td>
 <td>불가</td>
@@ -4505,15 +4529,15 @@ public class NetworkClient implements InitializingBean, DisposableBean {
 </tbody>
 </table>
 <hr />
-<h2 id="_6">실제 활용 예제</h2>
+<h2 id="_5">실제 활용 예제</h2>
 <h3 id="db">DB 커넥션 풀 초기화 / 종료</h3>
-<pre><code class="language-markdown">@Component
+<pre><code class="language-java">@Component
 public class DatabaseConnectionPool {
     private List&lt;Connection&gt; pool = new ArrayList&lt;&gt;();
 
     @PostConstruct
     public void init() {
-        // 앱 시작 시 커넥션 10개 미리 생성
+        // 앱 시작 시 커넥션 10개 미리 생성 — DB와 연결을 미리 맺어둠
         for (int i = 0; i &lt; 10; i++) {
             pool.add(createConnection());
         }
@@ -4522,7 +4546,7 @@ public class DatabaseConnectionPool {
 
     @PreDestroy
     public void close() {
-        // 앱 종료 시 모든 커넥션 반환
+        // 앱 종료 시 모든 커넥션 반환 — DB 연결을 정리
         for (Connection conn : pool) {
             closeConnection(conn);
         }
@@ -4530,23 +4554,29 @@ public class DatabaseConnectionPool {
     }
 }
 </code></pre>
-<h3 id="datasource-bean">외부 라이브러리 (DataSource) — @Bean 방식</h3>
-<pre><code class="language-markdown">@Configuration
+<h3 id="hikaricp-datasource-bean">외부 라이브러리 (HikariCP DataSource) — @Bean 방식</h3>
+<pre><code class="language-java">@Configuration
 public class DataSourceConfig {
+
     @Bean(destroyMethod = &quot;close&quot;) // HikariDataSource.close() 자동 호출
     public DataSource dataSource() {
         HikariDataSource ds = new HikariDataSource();
         ds.setJdbcUrl(&quot;jdbc:mysql://localhost:3306/mydb&quot;);
         ds.setUsername(&quot;root&quot;);
-        ds.setPassword(&quot;1234&quot;);
+        ds.setPassword(&quot;password&quot;);
+        ds.setMaximumPoolSize(10);
         return ds;
+        // destroyMethod = &quot;close&quot; → 앱 종료 시 HikariDataSource.close() 호출
+        // → 커넥션 풀에 있는 모든 연결을 DB에 반환
     }
 }
 </code></pre>
-<h3 id="_7">캐시 워밍업 (앱 완전 시작 후 실행)</h3>
-<p><code>@PostConstruct</code>는 빈 초기화 시점이라 다른 빈의 초기화가 다 끝나지 않을 수 있다.
-<strong>모든 초기화가 완료된 이후</strong>에 실행하려면 <code>ApplicationReadyEvent</code>를 사용한다.</p>
-<pre><code class="language-markdown">@Component
+<h3 id="_6">캐시 워밍업 — 모든 빈 초기화 완료 후 실행</h3>
+<p><code>@PostConstruct</code>는 해당 빈의 DI가 완료된 직후에 실행된다.
+그런데 어떤 경우에는 <strong>다른 빈들의 초기화도 모두 완료된 이후</strong>에 실행해야 할 수 있다.
+예: 캐시에 데이터를 넣으려면 <code>ProductRepository</code> 빈이 완전히 초기화되어 있어야 함.</p>
+<p>이때는 <code>ApplicationReadyEvent</code>를 사용한다.</p>
+<pre><code class="language-java">@Component
 public class CacheWarmup {
 
     private final ProductRepository productRepository;
@@ -4555,21 +4585,44 @@ public class CacheWarmup {
         this.productRepository = productRepository;
     }
 
-    @EventListener(ApplicationReadyEvent.class) // 모든 빈 초기화 완료 후 실행
+    // @PostConstruct ← 이걸 쓰면 다른 빈이 아직 초기화 중일 수 있음
+
+    @EventListener(ApplicationReadyEvent.class)
+    // 모든 빈 초기화 완료, 앱이 완전히 구동된 후에 실행됨
     public void warmup() {
-        List&lt;Product&gt; popular = productRepository.findTop100ByOrderBySalesDesc();
-        // 캐시에 저장...
-        System.out.println(&quot;캐시 워밍업 완료: &quot; + popular.size() + &quot;건&quot;);
+        List&lt;Product&gt; popularProducts = productRepository.findTop100ByOrderBySalesDesc();
+        // 캐시(Redis, EhCache 등)에 저장...
+        System.out.println(&quot;캐시 워밍업 완료: &quot; + popularProducts.size() + &quot;건&quot;);
     }
 }
 </code></pre>
-<hr />
-<h2 id="_8">소멸 콜백 주의사항</h2>
-<pre><code>싱글톤 빈: 스프링 컨테이너 종료 시 소멸 콜백 호출 O
-프로토타입 빈: 스프링이 소멸 콜백을 호출하지 않음!
-              → 클라이언트(사용자)가 직접 close() 해줘야 함
+<pre><code>@PostConstruct       → 해당 빈의 DI 완료 직후 (다른 빈의 초기화 상태 보장 없음)
+ApplicationReadyEvent → 모든 빈 초기화 완료, 서버 준비 완료 후 (완전히 안전)
 </code></pre>
-<p>프로토타입 빈은 스프링이 생성과 DI까지만 관여하고, 이후 관리는 클라이언트 책임이다.</p>
+<hr />
+<h2 id="_7">소멸 콜백 주의사항</h2>
+<pre><code>싱글톤 빈:   스프링 컨테이너 종료 시 소멸 콜백 호출 O
+프로토타입 빈: 스프링이 소멸 콜백을 호출하지 않음!
+             → 클라이언트(사용자)가 직접 close() 해줘야 함
+</code></pre>
+<p>프로토타입 빈은 스프링이 생성과 DI까지만 관여하고, 이후 관리는 클라이언트 책임이다.
+자세한 내용은 <a href="../%EB%B9%88%EC%8A%A4%EC%BD%94%ED%94%84/">빈 스코프</a> 참고.</p>
+<hr />
+<h2 id="_8">빈 생명주기 전체 타임라인</h2>
+<pre><code>[앱 시작]
+  ① 스프링 컨테이너 생성
+  ② 빈 생성 (new)
+  ③ 의존관계 주입 (DI)
+  ④ @PostConstruct (초기화 콜백)
+  ⑤ 앱 구동 완료 → ApplicationReadyEvent 발생
+  ⑥ 서비스 운영 중 (HTTP 요청 처리 등)
+
+[앱 종료]
+  ⑦ @PreDestroy (소멸 콜백)
+  ⑧ 스프링 컨테이너 종료
+</code></pre>
+<p>초기화 코드는 ③ DI가 완료된 이후에 실행된다는 것이 핵심이다.
+DI가 완료되어야 주입된 의존 객체를 안전하게 사용할 수 있기 때문이다.</p>
 
 
 
@@ -4592,7 +4645,7 @@ public class CacheWarmup {
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 6일 12:06:24 UTC">2026년 4월 6일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 8일 10:39:58 UTC">2026년 4월 8일</span>
   </span>
 
     
