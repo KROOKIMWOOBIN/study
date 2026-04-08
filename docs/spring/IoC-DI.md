@@ -395,3 +395,110 @@ public class B {
 | 권장 여부 | **강력 권장** | 선택적 의존관계에만 | 테스트 코드 외 비권장 |
 
 > **원칙**: 기본은 생성자 주입. 선택적 의존관계는 `@Autowired(required=false)` Setter 주입.
+
+---
+
+## 내부 동작 원리
+
+### BeanFactory vs ApplicationContext
+
+<div class="concept-box" markdown="1">
+
+`BeanFactory`는 스프링 컨테이너의 최상위 인터페이스다. 빈 조회·생성의 핵심 기능만 가진다.
+`ApplicationContext`는 `BeanFactory`를 상속하면서 6가지 부가 기능을 추가한 것이다.
+
+실무에서는 항상 `ApplicationContext`를 사용한다.
+
+</div>
+
+```
+BeanFactory
+  └─ ApplicationContext
+       ├─ MessageSource          — 국제화(i18n): getMessage("hello", Locale.KOREAN)
+       ├─ EnvironmentCapable     — 환경변수 분리: dev/prod 프로필, application.yml 프로퍼티
+       ├─ ApplicationEventPublisher — 이벤트 발행/구독 (Observer 패턴)
+       ├─ ResourcePatternResolver — 파일, URL, classpath 등 리소스 추상화
+       ├─ HierarchicalBeanFactory — 부모 컨테이너 위임 (컨텍스트 계층 구조)
+       └─ ListableBeanFactory    — 여러 빈을 목록으로 조회
+```
+
+| 구분 | BeanFactory | ApplicationContext |
+|------|------------|-------------------|
+| 빈 생성 시점 | 요청 시 지연 생성 (Lazy) | 컨테이너 시작 시 즉시 생성 (Eager) |
+| 국제화 | X | O |
+| 이벤트 발행 | X | O |
+| 환경변수 처리 | X | O |
+| 실무 사용 | 거의 안 씀 | 항상 사용 |
+
+> **왜 ApplicationContext가 Eager 로딩인가?**
+> 시작 시점에 모든 빈을 생성하면 설정 오류(순환참조, 누락된 빈)를 배포 전에 발견할 수 있다.
+> BeanFactory의 지연 생성은 첫 요청 때 오류가 발생해 운영 중에 장애를 내는 위험이 있다.
+
+---
+
+### 스프링 컨테이너 내부 동작 5단계
+
+`new AnnotationConfigApplicationContext(AppConfig.class)` 한 줄이 실행될 때 내부에서 일어나는 일:
+
+```
+① @Configuration 클래스 로딩
+   AppConfig.class를 읽어 BeanDefinition(메타데이터) 수집
+   — 클래스명, 스코프, 의존관계, 초기화 메서드 등을 Map에 저장
+
+② BeanDefinition 메타데이터 수집
+   스프링은 빈을 "생성"하기 전에 먼저 "설계도"를 만든다
+   BeanDefinition {
+     beanClass     = OrderServiceImpl.class
+     scope         = singleton
+     lazyInit      = false
+     constructorArgs = [MemberRepository, DiscountPolicy]
+     initMethodName = null
+   }
+
+③ 빈 인스턴스 생성 (리플렉션)
+   Class.forName("OrderServiceImpl")
+     → Constructor con = clazz.getDeclaredConstructor(MemberRepository.class, DiscountPolicy.class)
+     → con.newInstance(memberRepository, discountPolicy)
+   → 실제 객체가 힙에 생성됨
+
+④ 의존관계 주입 (AutowiredAnnotationBeanPostProcessor)
+   @Autowired가 붙은 필드·메서드를 리플렉션으로 탐색
+   → 타입으로 빈 검색 → field.setAccessible(true) → field.set(bean, resolvedBean)
+
+⑤ 생명주기 콜백
+   @PostConstruct → InitializingBean.afterPropertiesSet() → init-method 순으로 실행
+```
+
+---
+
+### @Autowired가 실제로 처리되는 방법
+
+`@Autowired`는 `AutowiredAnnotationBeanPostProcessor`가 처리한다. 이 처리기는 빈이 생성된 직후 `postProcessProperties()`를 호출한다.
+
+```java
+// AutowiredAnnotationBeanPostProcessor 의사코드
+public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) {
+
+    // 1. 이 빈 클래스에서 @Autowired 달린 필드·메서드 목록 수집
+    InjectionMetadata metadata = findAutowiringMetadata(bean.getClass());
+
+    // 2. 각 주입 대상에 대해 실행
+    for (InjectedElement element : metadata.injectedElements) {
+
+        // 3. 필드 타입으로 컨테이너에서 빈 검색
+        Object value = beanFactory.resolveDependency(element.type);
+
+        // 4. 리플렉션으로 실제 주입
+        Field field = element.field;
+        field.setAccessible(true);   // private 접근 허용
+        field.set(bean, value);      // 값 주입
+    }
+
+    return pvs;
+}
+```
+
+> **왜 리플렉션을 쓰는가?**
+> 스프링은 컴파일 시점에 어떤 클래스의 어떤 필드에 주입해야 할지 알 수 없다.
+> 런타임에 클래스 구조를 읽어서 동적으로 주입하기 위해 리플렉션을 사용한다.
+> 이것이 `private` 필드에도 `@Autowired`가 동작하는 이유다.
