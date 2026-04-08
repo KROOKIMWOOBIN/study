@@ -6,7 +6,11 @@
 
 ### 문제 배경: DB마다 다른 접근법
 
+<div class="warning-box" markdown="1">
+
 과거에는 데이터베이스 벤더(MySQL, Oracle, PostgreSQL 등)마다 커넥션 연결, SQL 전달, 결과 수신 방법이 모두 달랐다.
+
+</div>
 
 ```
 MySQL 사용 시    → MySQL 전용 API 학습 + 코드 작성

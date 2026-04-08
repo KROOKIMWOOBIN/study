@@ -1,6 +1,10 @@
 ## 배열 리스트 (ArrayList)
 
-> 동적 배열 기반의 `List` 구현체. 내부 배열을 자동으로 확장/축소한다.
+<div class="concept-box" markdown="1">
+
+==ArrayList==: 동적 배열 기반의 `List` 구현체. 내부 배열을 자동으로 확장/축소한다.
+
+</div>
 
 ---
 

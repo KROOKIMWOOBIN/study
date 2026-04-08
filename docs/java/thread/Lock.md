@@ -1,4 +1,12 @@
 ## LockSupport
+
+<div class="concept-box" markdown="1">
+
+==LockSupport==: 스레드를 잠재우고(park) 깨우는(unpark) 저수준 도구.
+CPU를 점유하지 않고 스레드를 대기시킨다.
+
+</div>
+
 1. 스레드를 잠재우고(park) 깨우는(unpark) 저수준 도구 
 2. CPU를 점유하지 않고 스레드를 대기시킨다.
 3. unpark()는 park()보다 먼저 호출돼도 유효하다.

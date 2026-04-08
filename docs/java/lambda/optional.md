@@ -2,7 +2,11 @@
 
 ### Optional이란?
 
-`Optional<T>`는 값이 있거나 없을 수 있는 컨테이너 객체다. Java 8에서 도입됐으며, 메서드 반환 타입으로 사용해 "값이 없을 수 있음"을 타입 수준에서 표현한다.
+<div class="concept-box" markdown="1">
+
+==Optional\<T\>==: 값이 있거나 없을 수 있는 컨테이너 객체. Java 8에서 도입됐으며, 메서드 반환 타입으로 사용해 "값이 없을 수 있음"을 타입 수준에서 표현한다.
+
+</div>
 
 Stream 최종 연산 중 `findFirst()`, `findAny()`, `min()`, `max()`, `reduce()` 등이 `Optional`을 반환한다.
 

@@ -1,7 +1,12 @@
 ## Map
-- Key–Value 쌍으로 데이터를 저장하는 컬렉션 구조
-- 하나의 `Key`는 반드시 유일(unique) 해야 한다.
-- 동일한 `Key`로 값을 저장하면 기존 값이 덮어쓴다.
+
+<div class="concept-box" markdown="1">
+
+==Map==: Key–Value 쌍으로 데이터를 저장하는 컬렉션 구조.
+하나의 `Key`는 반드시 유일(unique)해야 하며, 동일한 `Key`로 값을 저장하면 기존 값이 덮어쓰인다.
+
+</div>
+
 
 ### HashMap
 - `Key`의 hashCode() 값을 이용해 버킷 위치를 계산하여 데이터를 저장한다.

@@ -1,5 +1,11 @@
 ## 메모리 가시성
-- 한 스레드가 변경한 값이 다른 스레드에서 언제, 어떻게 보이느냐의 문제
+
+<div class="concept-box" markdown="1">
+
+==메모리 가시성(Memory Visibility)==: 한 스레드가 변경한 값이 다른 스레드에서 언제, 어떻게 보이느냐의 문제.
+
+</div>
+
 
 ### 메모리 구조
 ```markdown
@@ -19,9 +25,14 @@
   - RAM 접근: 수백 CPU 사이클
 
 ## volatile
-- volatile은 메모리 가시성(visibility)을 보장하기 위한 키워드다.
-  - 한 스레드가 값을 변경하면 다른 스레드가 반드시 최신 값을 보게 만든다.
-- volatile 변수에 대한 쓰기(write)는 즉시 메인 메모리에 반영되고, 읽기(read)는 CPU 캐시가 아닌 메인 메모리 기준으로 수행되도록 보장된다.
+
+<div class="concept-box" markdown="1">
+
+==volatile==: 메모리 가시성(visibility)을 보장하기 위한 키워드.
+한 스레드가 값을 변경하면 다른 스레드가 반드시 최신 값을 보게 만든다.
+`volatile` 변수에 대한 쓰기는 즉시 메인 메모리에 반영되고, 읽기는 CPU 캐시가 아닌 메인 메모리 기준으로 수행된다.
+
+</div>
 ```java
 volatile boolean running = true;
 ```
