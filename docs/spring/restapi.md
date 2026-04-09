@@ -130,3 +130,95 @@ public class MemberResponse {
 | URL에 행위 표현 | RESTful하지 않음 | 명사 + HTTP 메서드로 표현 |
 
 </div>
+
+---
+
+## 내부 동작 원리
+
+### HttpMessageConverter — JSON 변환의 실체
+
+> `@RestController`에서 객체를 반환하면 어떻게 JSON 문자열로 바뀌는 걸까?
+> 그 역할을 하는 것이 **HttpMessageConverter**다. "HTTP 메시지(요청/응답 바디)와 자바 객체 사이를 변환해주는 컨버터"라는 뜻이다.
+
+```
+[요청 처리 — @RequestBody]
+클라이언트 → JSON 문자열 전송
+  → RequestResponseBodyMethodProcessor
+  → 등록된 HttpMessageConverter 목록 순회
+  → Content-Type: application/json이면 MappingJackson2HttpMessageConverter 선택
+  → converter.read(MemberCreateRequest.class, request)
+  → Jackson ObjectMapper.readValue(json, MemberCreateRequest.class)
+  → 자바 객체 생성 → 컨트롤러 메서드 파라미터로 전달
+
+[응답 처리 — @ResponseBody / @RestController]
+컨트롤러 메서드 반환값 (MemberResponse 객체)
+  → RequestResponseBodyMethodProcessor
+  → 클라이언트 Accept: application/json 확인
+  → MappingJackson2HttpMessageConverter 선택
+  → converter.write(memberResponse, response)
+  → Jackson ObjectMapper.writeValueAsString(memberResponse)
+  → JSON 문자열 → HTTP 응답 바디에 기록
+```
+
+### 컨버터 선택 기준 — Content Negotiation
+
+클라이언트 요청의 `Content-Type`(요청 바디 형식)과 `Accept`(원하는 응답 형식) 헤더를 보고 컨버터를 선택한다.
+
+| 상황 | 헤더 | 선택되는 컨버터 |
+|------|------|---------------|
+| JSON 요청 파싱 | `Content-Type: application/json` | `MappingJackson2HttpMessageConverter` |
+| JSON 응답 생성 | `Accept: application/json` | `MappingJackson2HttpMessageConverter` |
+| 문자열 응답 | `Accept: text/plain` | `StringHttpMessageConverter` |
+| 폼 데이터 | `Content-Type: application/x-www-form-urlencoded` | `FormHttpMessageConverter` |
+
+### Jackson ObjectMapper — 직렬화 규칙
+
+`MappingJackson2HttpMessageConverter`는 내부적으로 Jackson의 **ObjectMapper**를 사용한다.
+
+```
+직렬화 (자바 → JSON):
+  MemberResponse {id=1, name="김철수", email="kim@test.com"}
+  ObjectMapper.writeValueAsString()
+    → 리플렉션으로 필드/getter 탐색
+    → {"id":1,"name":"김철수","email":"kim@test.com"}
+
+역직렬화 (JSON → 자바):
+  {"name":"김철수","email":"kim@test.com"}
+  ObjectMapper.readValue()
+    → 기본 생성자로 객체 생성
+    → 리플렉션으로 필드 값 주입
+    → MemberCreateRequest {name="김철수", email="kim@test.com"}
+```
+
+<div class="warning-box" markdown="1">
+
+**역직렬화 주의**: Jackson이 JSON → 자바 객체로 변환할 때 **기본 생성자(no-args constructor)**가 필요하다.
+`@RequestBody`로 받는 DTO에 기본 생성자가 없으면 `InvalidDefinitionException` 발생.
+
+```java
+// 문제: Lombok @AllArgsConstructor만 있고 기본 생성자 없음
+@AllArgsConstructor
+public class MemberCreateRequest {
+    private String name;
+    private String email;
+}
+
+// 해결: @NoArgsConstructor 추가
+@NoArgsConstructor
+@AllArgsConstructor
+public class MemberCreateRequest {
+    private String name;
+    private String email;
+}
+```
+
+</div>
+
+### @RequestBody vs @ModelAttribute 차이
+
+| | `@RequestBody` | `@ModelAttribute` |
+|--|---------------|------------------|
+| 데이터 위치 | HTTP 바디 (JSON) | URL 파라미터 / 폼 데이터 |
+| 변환 방식 | HttpMessageConverter (Jackson) | DataBinder (setter/생성자) |
+| Content-Type | `application/json` | `application/x-www-form-urlencoded` |
+| 주 용도 | REST API | HTML 폼 제출 |

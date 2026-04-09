@@ -134,3 +134,97 @@ app:
 | 모든 설정을 yml에 | 관리 복잡 | Profile별 yml 분리 |
 
 </div>
+
+---
+
+## 내부 동작 원리
+
+### Auto Configuration 메커니즘
+
+`@EnableAutoConfiguration`이 실제로 어떻게 클래스패스를 스캔해 Bean을 자동 등록하는지 단계별로 설명한다.
+
+```
+① @SpringBootApplication
+      ↓ 포함
+   @EnableAutoConfiguration
+      ↓ import
+   AutoConfigurationImportSelector
+      ↓ loadFactoryNames()
+   META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports
+      ↓ 수백 개의 AutoConfiguration 클래스 목록
+   예: DataSourceAutoConfiguration, JpaAutoConfiguration, SecurityAutoConfiguration ...
+      ↓ @Conditional 조건 평가
+   조건 통과한 것만 Bean 등록
+```
+
+<div class="concept-box" markdown="1">
+
+**핵심**: Spring Boot 3.x 기준으로 `META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports` 파일에 자동 설정 클래스 목록이 있다. (이전 버전은 `spring.factories`)
+`AutoConfigurationImportSelector`가 이 파일을 읽어 등록 후보 목록을 만들고, 각 클래스의 `@Conditional` 조건을 검사해 실제 등록 여부를 결정한다.
+
+</div>
+
+### @Conditional 조건 체계
+
+Auto Configuration이 충돌하지 않는 핵심 이유 — 모든 자동 설정은 `@Conditional`로 조건을 건다.
+
+| 어노테이션 | 의미 |
+|-----------|------|
+| `@ConditionalOnClass` | 특정 클래스가 클래스패스에 있을 때만 등록 |
+| `@ConditionalOnMissingBean` | 해당 타입의 Bean이 없을 때만 등록 (개발자가 직접 등록하면 자동 등록 스킵) |
+| `@ConditionalOnProperty` | 특정 프로퍼티 값이 설정됐을 때만 등록 |
+| `@ConditionalOnWebApplication` | 웹 애플리케이션일 때만 등록 |
+
+```java
+// DataSourceAutoConfiguration 내부 (실제 소스 단순화)
+@Configuration
+@ConditionalOnClass(DataSource.class)          // JDBC 드라이버가 클래스패스에 있을 때
+@ConditionalOnMissingBean(DataSource.class)    // DataSource Bean이 없을 때 (직접 정의 시 스킵)
+@EnableConfigurationProperties(DataSourceProperties.class)
+public class DataSourceAutoConfiguration {
+
+    @Bean
+    public DataSource dataSource(DataSourceProperties properties) {
+        return properties.initializeDataSourceBuilder().build();
+    }
+}
+```
+
+→ `spring-boot-starter-data-jpa`를 추가하면 `HikariCP`가 클래스패스에 들어오고, `DataSourceAutoConfiguration`이 조건을 통과해 `HikariDataSource`가 자동 등록된다.
+
+### SpringApplication.run() 부트스트랩 순서
+
+```
+SpringApplication.run(Application.class, args)
+  ① 환경(Environment) 준비
+     → application.yml 로딩
+     → 시스템 환경 변수, 커맨드라인 인수 통합
+  ② ApplicationContext 생성
+     → 웹 환경 감지 → AnnotationConfigServletWebServerApplicationContext
+  ③ ApplicationContext.refresh() 실행
+     → @ComponentScan으로 @Component 탐색
+     → AutoConfiguration 클래스들 @Conditional 평가 후 Bean 등록
+     → 내장 Tomcat 시작 (onRefresh() 단계)
+  ④ ApplicationRunner / CommandLineRunner 실행
+  ⑤ 준비 완료 → ApplicationReadyEvent 발행
+```
+
+### @SpringBootApplication 분해
+
+```java
+@SpringBootApplication
+// 사실상 아래 세 가지를 합친 것:
+
+@SpringBootConfiguration   // = @Configuration (이 클래스가 설정 클래스임을 명시)
+@EnableAutoConfiguration   // Auto Configuration 활성화
+@ComponentScan             // 현재 패키지 하위를 컴포넌트 스캔
+public class Application { ... }
+```
+
+<div class="tip-box" markdown="1">
+
+**내가 직접 Bean을 등록하면?** `@ConditionalOnMissingBean` 덕분에 자동 설정이 스킵된다.
+예: 내가 `DataSource` Bean을 직접 정의 → `DataSourceAutoConfiguration`은 조건 실패 → 자동 등록 안 함.
+이것이 "Auto Configuration은 개발자 설정에 지지 않는다"는 원칙이다.
+
+</div>

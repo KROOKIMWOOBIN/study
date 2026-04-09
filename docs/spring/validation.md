@@ -124,3 +124,88 @@ public ResponseEntity<ErrorResponse> handleValidation(MethodArgumentNotValidExce
 | Custom Validator에서 DB 조회 | 성능 부담 | 서비스 레이어에서 별도 검증 고려 |
 | `@NotNull` vs `@NotBlank` 혼동 | `@NotNull`은 빈 문자열 허용 | String에는 `@NotBlank` 사용 |
 | 중첩 객체 검증 누락 | 내부 객체는 `@Valid` 추가 필요 | 중첩 DTO 필드에 `@Valid` 추가 |
+
+---
+
+## 내부 동작 원리
+
+### Bean Validation이 뭔가?
+
+> Bean Validation은 Java 표준 명세(JSR-380)다. 스프링이 만든 것이 아니라 **자바 생태계 표준**이고, Hibernate Validator가 대표적인 구현체다.
+> `spring-boot-starter-validation`을 추가하면 Hibernate Validator가 자동으로 등록된다.
+
+```
+표준 (명세)              구현체
+Bean Validation API  →  Hibernate Validator
+(javax.validation.*)     (실제 검증 로직)
+```
+
+### @Valid 처리 흐름 — 어디서 검증이 실행되나?
+
+```
+컨트롤러 메서드 호출 직전
+  ↓
+RequestMappingHandlerAdapter
+  → ArgumentResolver 목록에서 @RequestBody 처리할 것 선택
+  → RequestResponseBodyMethodProcessor.resolveArgument()
+       ① HttpMessageConverter로 JSON → 자바 객체 변환
+       ② @Valid 어노테이션 감지
+       ③ SmartValidator.validate(object, bindingResult) 호출
+            → Hibernate Validator가 각 필드의 제약 어노테이션 검사
+            → @NotBlank: 값이 blank인가? → 위반이면 ConstraintViolation 추가
+            → @Email: 이메일 형식인가? → 위반이면 ConstraintViolation 추가
+       ④ ConstraintViolation이 하나라도 있으면
+            → BindingResult에 오류 정보 기록
+            → MethodArgumentNotValidException 던짐
+  ↓
+GlobalExceptionHandler.handleValidation() 에서 처리
+```
+
+### ConstraintValidator 구현 원리
+
+> `@NotBlank`, `@Email` 같은 어노테이션 뒤에는 실제 검증 로직을 가진 `ConstraintValidator` 구현체가 있다.
+
+```java
+// @NotBlank 어노테이션 선언 (스프링 내부)
+@Constraint(validatedBy = NotBlankValidator.class)  // 실제 검증 클래스 연결
+public @interface NotBlank { ... }
+
+// NotBlank 실제 검증 로직 (Hibernate Validator 내부)
+public class NotBlankValidator implements ConstraintValidator<NotBlank, CharSequence> {
+    @Override
+    public boolean isValid(CharSequence value, ConstraintValidatorContext context) {
+        if (value == null) return false;
+        return value.toString().strip().length() > 0;  // 공백 제거 후 길이 확인
+    }
+}
+```
+
+커스텀 `@UniqueEmail`을 만들 때 `ConstraintValidator`를 구현하는 것이 이 패턴을 따르는 것이다.
+
+### @Valid vs @Validated
+
+| | `@Valid` | `@Validated` |
+|--|---------|-------------|
+| 출처 | Java 표준 (javax.validation) | Spring 전용 |
+| 그룹 검증 | 불가 | 가능 (`groups` 파라미터 활용) |
+| 중첩 객체 검증 | 가능 | 가능 |
+| 메서드 파라미터 검증 | 컨트롤러만 | 서비스 등 모든 스프링 빈 |
+
+```java
+// @Validated로 서비스 레이어 검증 (AOP 기반)
+@Service
+@Validated  // 클래스 레벨에 선언
+public class MemberService {
+
+    public void save(@Valid MemberCreateRequest request) {
+        // 컨트롤러를 거치지 않고 서비스 직접 호출해도 검증 실행됨
+        memberRepository.save(request.toEntity());
+    }
+}
+```
+
+<div class="tip-box" markdown="1">
+
+**@Validated는 AOP 기반**: `@Validated`가 붙은 빈의 메서드 호출 시 스프링이 AOP 프록시를 통해 `MethodValidationInterceptor`를 실행한다. 따라서 같은 클래스 내 Self-Invocation에서는 검증이 실행되지 않는다.
+
+</div>

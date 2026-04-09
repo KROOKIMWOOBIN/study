@@ -126,3 +126,108 @@ member.getOrders().size();  // LazyInitializationException!
 | 너무 긴 트랜잭션 | 커넥션 점유, 락 경합 | 트랜잭션 범위 최소화 |
 | 조회에 `@Transactional` 없음 | LAZY 로딩 오류 | `readOnly = true` 추가 |
 | CheckedException 롤백 누락 | 데이터 불일치 | `rollbackFor = Exception.class` |
+
+---
+
+## 내부 동작 원리
+
+### @Transactional은 사실 AOP다
+
+> `@Transactional`은 마법이 아니다. 내부적으로 **AOP 프록시**가 트랜잭션 시작/커밋/롤백을 자동으로 처리할 뿐이다.
+
+```
+@Transactional이 붙은 OrderService 빈을 요청
+  → 스프링 컨테이너가 실제 빈 대신 프록시 반환
+  → orderService.placeOrder() 호출
+
+프록시 내부 실행 (TransactionInterceptor.invoke()):
+  ① TransactionManager.getTransaction()   ← 트랜잭션 시작
+      → DataSource에서 Connection 획득
+      → connection.setAutoCommit(false)    ← DB 자동 커밋 끔
+  ② 실제 OrderService.placeOrder() 실행
+  ③ 예외 없이 완료 → connection.commit()  ← 커밋
+     RuntimeException 발생 → connection.rollback() ← 롤백
+  ④ connection 반환 (커넥션 풀로)
+```
+
+### TransactionSynchronizationManager — ThreadLocal로 커넥션 공유
+
+> 한 트랜잭션 안에서 여러 Repository가 같은 커넥션을 써야 한다. 어떻게 같은 커넥션을 공유할까?
+
+```
+@Transactional
+public void placeOrder(OrderRequest request) {
+    orderRepository.save(order);         // DB 연산 1
+    inventoryService.decrease(...);      // DB 연산 2 (InventoryRepository 호출)
+    paymentService.pay(...);             // DB 연산 3 (PaymentRepository 호출)
+}
+```
+
+```
+TransactionSynchronizationManager (내부: ThreadLocal<Map<DataSource, Connection>>)
+
+① 트랜잭션 시작 시
+   → DataSource에서 Connection 획득
+   → ThreadLocal에 {dataSource → connection} 저장
+
+② orderRepository.save() 실행
+   → JdbcTemplate이 DataSourceUtils.getConnection(dataSource) 호출
+   → ThreadLocal에서 현재 스레드의 Connection 조회 → 같은 Connection 반환
+
+③ inventoryRepository, paymentRepository도 동일하게 같은 Connection 사용
+   → 모두 같은 트랜잭션 안에서 실행
+
+④ 트랜잭션 종료 시 ThreadLocal에서 Connection 제거
+```
+
+<div class="concept-box" markdown="1">
+
+**ThreadLocal**: 스레드마다 독립적인 변수 공간을 제공하는 Java 기능.
+같은 `TransactionSynchronizationManager` 인스턴스를 여러 스레드가 공유해도, 각 스레드는 자기 자신의 Connection을 독립적으로 가진다.
+→ 동시에 여러 사용자 요청이 와도 커넥션이 섞이지 않는다.
+
+</div>
+
+### PlatformTransactionManager — DB 기술에 독립적인 트랜잭션
+
+스프링은 트랜잭션 처리를 `PlatformTransactionManager` 인터페이스로 추상화한다.
+`@Transactional` 코드는 그대로 두고 DB 기술만 교체할 수 있다.
+
+| 구현체 | 사용 시 |
+|--------|--------|
+| `DataSourceTransactionManager` | JDBC, MyBatis |
+| `JpaTransactionManager` | JPA, Hibernate |
+| `JtaTransactionManager` | 분산 트랜잭션 (XA) |
+
+```
+@Transactional
+  → TransactionInterceptor
+  → PlatformTransactionManager.getTransaction()
+       ↓
+  [JPA 사용 시] JpaTransactionManager
+       → EntityManager의 트랜잭션 시작
+       → JDBC Connection도 함께 바인딩 (JPA와 JDBC 공존 가능)
+```
+
+### REQUIRES_NEW 동작 원리 — 왜 커넥션이 2개 필요한가?
+
+```
+@Transactional                          ← 외부 트랜잭션 (Connection A)
+public void placeOrder() {
+    orderRepository.save(order);
+
+    notificationService.sendEmail();    ← REQUIRES_NEW (Connection B 새로 획득)
+    // sendEmail() 실패해도 placeOrder()는 롤백 안 됨
+    // Connection A, B가 독립적이기 때문
+}
+
+@Transactional(propagation = REQUIRES_NEW)
+public void sendEmail() { ... }         ← 별도 트랜잭션 (Connection B)
+```
+
+<div class="warning-box" markdown="1">
+
+**REQUIRES_NEW 주의**: 커넥션을 2개 동시에 점유한다. 커넥션 풀 크기가 작으면 데드락 위험.
+최대 커넥션 수보다 많은 중첩 REQUIRES_NEW가 발생하면 모든 스레드가 커넥션을 기다리다 교착 상태에 빠질 수 있다.
+
+</div>
