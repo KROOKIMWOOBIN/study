@@ -3007,6 +3007,67 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        내부 동작 원리
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="내부 동작 원리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#httpmessageconverter-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HttpMessageConverter — JSON 변환의 실체
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-negotiation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        컨버터 선택 기준 — Content Negotiation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jackson-objectmapper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jackson ObjectMapper — 직렬화 규칙
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requestbody-vs-modelattribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        @RequestBody vs @ModelAttribute 차이
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4172,6 +4233,67 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        내부 동작 원리
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="내부 동작 원리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#httpmessageconverter-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HttpMessageConverter — JSON 변환의 실체
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-negotiation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        컨버터 선택 기준 — Content Negotiation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jackson-objectmapper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jackson ObjectMapper — 직렬화 규칙
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requestbody-vs-modelattribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        @RequestBody vs @ModelAttribute 차이
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4375,6 +4497,130 @@
 </tbody>
 </table>
 </div>
+<hr />
+<h2 id="_3">내부 동작 원리</h2>
+<h3 id="httpmessageconverter-json">HttpMessageConverter — JSON 변환의 실체</h3>
+<blockquote>
+<p><code>@RestController</code>에서 객체를 반환하면 어떻게 JSON 문자열로 바뀌는 걸까?
+그 역할을 하는 것이 <strong>HttpMessageConverter</strong>다. "HTTP 메시지(요청/응답 바디)와 자바 객체 사이를 변환해주는 컨버터"라는 뜻이다.</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>[요청 처리 — @RequestBody]
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>클라이언트 → JSON 문자열 전송
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  → RequestResponseBodyMethodProcessor
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  → 등록된 HttpMessageConverter 목록 순회
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  → Content-Type: application/json이면 MappingJackson2HttpMessageConverter 선택
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  → converter.read(MemberCreateRequest.class, request)
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>  → Jackson ObjectMapper.readValue(json, MemberCreateRequest.class)
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>  → 자바 객체 생성 → 컨트롤러 메서드 파라미터로 전달
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>[응답 처리 — @ResponseBody / @RestController]
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>컨트롤러 메서드 반환값 (MemberResponse 객체)
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>  → RequestResponseBodyMethodProcessor
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>  → 클라이언트 Accept: application/json 확인
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>  → MappingJackson2HttpMessageConverter 선택
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>  → converter.write(memberResponse, response)
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>  → Jackson ObjectMapper.writeValueAsString(memberResponse)
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>  → JSON 문자열 → HTTP 응답 바디에 기록
+</code></pre></div>
+<h3 id="content-negotiation">컨버터 선택 기준 — Content Negotiation</h3>
+<p>클라이언트 요청의 <code>Content-Type</code>(요청 바디 형식)과 <code>Accept</code>(원하는 응답 형식) 헤더를 보고 컨버터를 선택한다.</p>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>헤더</th>
+<th>선택되는 컨버터</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JSON 요청 파싱</td>
+<td><code>Content-Type: application/json</code></td>
+<td><code>MappingJackson2HttpMessageConverter</code></td>
+</tr>
+<tr>
+<td>JSON 응답 생성</td>
+<td><code>Accept: application/json</code></td>
+<td><code>MappingJackson2HttpMessageConverter</code></td>
+</tr>
+<tr>
+<td>문자열 응답</td>
+<td><code>Accept: text/plain</code></td>
+<td><code>StringHttpMessageConverter</code></td>
+</tr>
+<tr>
+<td>폼 데이터</td>
+<td><code>Content-Type: application/x-www-form-urlencoded</code></td>
+<td><code>FormHttpMessageConverter</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="jackson-objectmapper">Jackson ObjectMapper — 직렬화 규칙</h3>
+<p><code>MappingJackson2HttpMessageConverter</code>는 내부적으로 Jackson의 <strong>ObjectMapper</strong>를 사용한다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>직렬화 (자바 → JSON):
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  MemberResponse {id=1, name=&quot;김철수&quot;, email=&quot;kim@test.com&quot;}
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  ObjectMapper.writeValueAsString()
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    → 리플렉션으로 필드/getter 탐색
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    → {&quot;id&quot;:1,&quot;name&quot;:&quot;김철수&quot;,&quot;email&quot;:&quot;kim@test.com&quot;}
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>역직렬화 (JSON → 자바):
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>  {&quot;name&quot;:&quot;김철수&quot;,&quot;email&quot;:&quot;kim@test.com&quot;}
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>  ObjectMapper.readValue()
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    → 기본 생성자로 객체 생성
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    → 리플렉션으로 필드 값 주입
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    → MemberCreateRequest {name=&quot;김철수&quot;, email=&quot;kim@test.com&quot;}
+</code></pre></div>
+<div class="warning-box">
+<p><strong>역직렬화 주의</strong>: Jackson이 JSON → 자바 객체로 변환할 때 <strong>기본 생성자(no-args constructor)</strong>가 필요하다.
+<code>@RequestBody</code>로 받는 DTO에 기본 생성자가 없으면 <code>InvalidDefinitionException</code> 발생.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// 문제: Lombok @AllArgsConstructor만 있고 기본 생성자 없음</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nd">@AllArgsConstructor</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MemberCreateRequest</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">;</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="p">}</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="c1">// 해결: @NoArgsConstructor 추가</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="nd">@NoArgsConstructor</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="nd">@AllArgsConstructor</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MemberCreateRequest</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">;</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<h3 id="requestbody-vs-modelattribute">@RequestBody vs @ModelAttribute 차이</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>@RequestBody</code></th>
+<th><code>@ModelAttribute</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>데이터 위치</td>
+<td>HTTP 바디 (JSON)</td>
+<td>URL 파라미터 / 폼 데이터</td>
+</tr>
+<tr>
+<td>변환 방식</td>
+<td>HttpMessageConverter (Jackson)</td>
+<td>DataBinder (setter/생성자)</td>
+</tr>
+<tr>
+<td>Content-Type</td>
+<td><code>application/json</code></td>
+<td><code>application/x-www-form-urlencoded</code></td>
+</tr>
+<tr>
+<td>주 용도</td>
+<td>REST API</td>
+<td>HTML 폼 제출</td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -4397,7 +4643,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 8일 11:02:50 UTC">2026년 4월 8일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 9일 11:26:13 UTC">2026년 4월 9일</span>
   </span>
 
     
