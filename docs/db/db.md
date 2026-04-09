@@ -4,22 +4,66 @@
 
 ---
 
+## 데이터베이스란?
+
+<div class="concept-box" markdown="1">
+
+**데이터베이스(Database)**: 데이터의 집합소. 여러 사람이 공유하고 사용할 목적으로 체계적으로 저장·관리하는 데이터 모음.
+
+</div>
+
+| 용어 | 설명 |
+|------|------|
+| **데이터(Data)** | 개별적인 사실 (예: 27, "김철수", true) |
+| **정보(Information)** | 가공·처리된 데이터 — 의미가 부여된 것 (예: "나이 27살인 회원 김철수") |
+
+---
+
+## 데이터베이스를 쓰는 이유
+
+파일 시스템(텍스트 파일, 엑셀 등)에 데이터를 저장하면 생기는 문제를 DB가 해결한다.
+
+| 문제 | DB가 해결하는 방법 |
+|------|------------------|
+| **보안** | 접근 권한(Role) 관리, 인증 없이는 데이터 접근 불가 |
+| **동시성** | 여러 사용자가 동시에 읽고 쓸 때 충돌 방지 (Lock, MVCC) |
+| **데이터 회복 & 백업** | 장애 발생 시 트랜잭션 로그로 복구 가능 |
+| **ACID 보장** | 데이터 일관성과 무결성을 트랜잭션 수준에서 보장 |
+
+---
+
+## DBMS (DataBase Management System)
+
+<div class="concept-box" markdown="1">
+
+**DBMS**: 데이터베이스를 관리하는 소프트웨어. 사용자가 SQL로 요청하면 DBMS가 실제 데이터를 읽고 쓴다.
+
+대표적인 DBMS: MySQL, PostgreSQL, Oracle, MariaDB, SQLite
+
+</div>
+
+DBMS가 제공하는 핵심 언어:
+
+| 분류 | 이름 | 역할 | 주요 명령어 |
+|------|------|------|------------|
+| **DDL** | Data Definition Language | 구조(스키마) 정의 | `CREATE`, `ALTER`, `DROP`, `TRUNCATE` |
+| **DML** | Data Manipulation Language | 데이터 조작 | `SELECT`, `INSERT`, `UPDATE`, `DELETE` |
+| **DCL** | Data Control Language | 권한 제어 | `GRANT`, `REVOKE` |
+| **TCL** | Transaction Control Language | 트랜잭션 제어 | `COMMIT`, `ROLLBACK`, `SAVEPOINT` |
+
+DBMS의 부가 기능:
+- **보안**: 사용자별 접근 권한 제어
+- **동시성 제어**: Lock, MVCC로 동시 접근 충돌 방지
+- **트랜잭션 관리**: ACID 보장
+
+---
+
+## 학습 목록
+
 | 주제 | 한 줄 설명 |
-| --- | --- |
+|------|-----------|
 | [JDBC](./JDBC.md) | Java DB 표준 인터페이스 — Connection, Statement, ResultSet |
 | [커넥션 풀 & DataSource](./커넥션풀-DataSource.md) | HikariCP, 커넥션 재사용, DataSource 추상화 |
 | [트랜잭션](./트랜잭션.md) | ACID, @Transactional, 전파(Propagation), 동기화 매니저 |
 | [트랜잭션 격리 수준](./격리수준.md) | READ UNCOMMITTED ~ SERIALIZABLE, Dirty Read / Phantom Read |
 | [예외 처리](./예외처리.md) | SQLException 문제, DataAccessException 계층, 예외 변환기 |
-
-
-1. 데이터베이스란?
-    - 데이터 집합소
-    - 정보(가공되어 사용자에게 정보를 알려주는 데이터)
-    - 데이터(조각)
-2. 데이터베이스를 쓰는 이유
-    - 보안
-    - 동시성
-    - 데이터 회복 & 백업
-    - ACID
-
