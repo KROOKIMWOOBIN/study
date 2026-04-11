@@ -160,6 +160,12 @@ nav:
     - MSA: spring/msa.md
   - DB:
     - 개요: db/db.md
+    - ACID: db/ACID.md
+    - SQL: db/SQL.md
+    - 데이터 타입: db/데이터타입.md
+    - 제약 조건: db/제약조건.md
+    - 인덱스: db/인덱스.md
+    - JOIN: db/JOIN.md
     - JDBC: db/JDBC.md
     - 커넥션풀·DataSource: db/커넥션풀-DataSource.md
     - 트랜잭션: db/트랜잭션.md
