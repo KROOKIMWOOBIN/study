@@ -4672,23 +4672,23 @@
 <p><code>@RestController</code>에서 객체를 반환하면 어떻게 JSON 문자열로 바뀌는 걸까?
 그 역할을 하는 것이 <strong>HttpMessageConverter</strong>다. "<abbr title="HyperText Transfer Protocol. 웹에서 클라이언트-서버 간 데이터를 주고받는 애플리케이션 계층 프로토콜.">HTTP</abbr> 메시지(요청/응답 바디)와 자바 객체 사이를 변환해주는 컨버터"라는 뜻이다.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>[요청 처리 — @RequestBody]
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>클라이언트 → JSON 문자열 전송
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  → RequestResponseBodyMethodProcessor
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  → 등록된 HttpMessageConverter 목록 순회
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  → Content-Type: application/json이면 MappingJackson2HttpMessageConverter 선택
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  → converter.read(MemberCreateRequest.class, request)
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>  → Jackson ObjectMapper.readValue(json, MemberCreateRequest.class)
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>  → 자바 객체 생성 → 컨트롤러 메서드 파라미터로 전달
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="o">[</span><span class="n">요청</span><span class="w"> </span><span class="n">처리</span><span class="w"> </span><span class="err">—</span><span class="w"> </span><span class="nd">@RequestBody</span><span class="o">]</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">클라이언트</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">JSON</span><span class="w"> </span><span class="n">문자열</span><span class="w"> </span><span class="n">전송</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="n">RequestResponseBodyMethodProcessor</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="n">등록된</span><span class="w"> </span><span class="n">HttpMessageConverter</span><span class="w"> </span><span class="n">목록</span><span class="w"> </span><span class="n">순회</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span><span class="w"> </span><span class="n">application</span><span class="o">/</span><span class="n">json이면</span><span class="w"> </span><span class="n">MappingJackson2HttpMessageConverter</span><span class="w"> </span><span class="n">선택</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="n">converter</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">MemberCreateRequest</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">request</span><span class="p">)</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="n">Jackson</span><span class="w"> </span><span class="n">ObjectMapper</span><span class="p">.</span><span class="na">readValue</span><span class="p">(</span><span class="n">json</span><span class="p">,</span><span class="w"> </span><span class="n">MemberCreateRequest</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="n">자바</span><span class="w"> </span><span class="n">객체</span><span class="w"> </span><span class="n">생성</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">컨트롤러</span><span class="w"> </span><span class="n">메서드</span><span class="w"> </span><span class="n">파라미터로</span><span class="w"> </span><span class="n">전달</span>
 <a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>[응답 처리 — @ResponseBody / @RestController]
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>컨트롤러 메서드 반환값 (MemberResponse 객체)
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>  → RequestResponseBodyMethodProcessor
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>  → 클라이언트 Accept: application/json 확인
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>  → MappingJackson2HttpMessageConverter 선택
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>  → converter.write(memberResponse, response)
-<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>  → Jackson ObjectMapper.writeValueAsString(memberResponse)
-<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>  → JSON 문자열 → HTTP 응답 바디에 기록
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="o">[</span><span class="n">응답</span><span class="w"> </span><span class="n">처리</span><span class="w"> </span><span class="err">—</span><span class="w"> </span><span class="nd">@ResponseBody</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nd">@RestController</span><span class="o">]</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="n">컨트롤러</span><span class="w"> </span><span class="n">메서드</span><span class="w"> </span><span class="nf">반환값</span><span class="w"> </span><span class="p">(</span><span class="n">MemberResponse</span><span class="w"> </span><span class="n">객체</span><span class="p">)</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="n">RequestResponseBodyMethodProcessor</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="n">클라이언트</span><span class="w"> </span><span class="n">Accept</span><span class="p">:</span><span class="w"> </span><span class="n">application</span><span class="o">/</span><span class="n">json</span><span class="w"> </span><span class="n">확인</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="n">MappingJackson2HttpMessageConverter</span><span class="w"> </span><span class="n">선택</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="n">converter</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">memberResponse</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">)</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="n">Jackson</span><span class="w"> </span><span class="n">ObjectMapper</span><span class="p">.</span><span class="na">writeValueAsString</span><span class="p">(</span><span class="n">memberResponse</span><span class="p">)</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="n">JSON</span><span class="w"> </span><span class="n">문자열</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">HTTP</span><span class="w"> </span><span class="n">응답</span><span class="w"> </span><span class="n">바디에</span><span class="w"> </span><span class="n">기록</span>
 </code></pre></div>
 <h3 id="content-negotiation">컨버터 선택 기준 — Content Negotiation</h3>
 <p>클라이언트 요청의 <code>Content-Type</code>(요청 바디 형식)과 <code>Accept</code>(원하는 응답 형식) 헤더를 보고 컨버터를 선택한다.</p>
@@ -4725,18 +4725,18 @@
 </table>
 <h3 id="jackson-objectmapper">Jackson ObjectMapper — 직렬화 규칙</h3>
 <p><code>MappingJackson2HttpMessageConverter</code>는 내부적으로 Jackson의 <strong>ObjectMapper</strong>를 사용한다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>직렬화 (자바 → JSON):
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  MemberResponse {id=1, name=&quot;김철수&quot;, email=&quot;kim@test.com&quot;}
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  ObjectMapper.writeValueAsString()
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    → 리플렉션으로 필드/getter 탐색
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    → {&quot;id&quot;:1,&quot;name&quot;:&quot;김철수&quot;,&quot;email&quot;:&quot;kim@test.com&quot;}
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">직렬화</span><span class="w"> </span><span class="p">(</span><span class="n">자바</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">JSON</span><span class="p">):</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="n">MemberResponse</span><span class="w"> </span><span class="p">{</span><span class="n">id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s">&quot;김철수&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="o">=</span><span class="s">&quot;kim@test.com&quot;</span><span class="p">}</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="n">ObjectMapper</span><span class="p">.</span><span class="na">writeValueAsString</span><span class="p">()</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="err">→</span><span class="w"> </span><span class="n">리플렉션으로</span><span class="w"> </span><span class="n">필드</span><span class="o">/</span><span class="n">getter</span><span class="w"> </span><span class="n">탐색</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="err">→</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="s">&quot;김철수&quot;</span><span class="p">,</span><span class="s">&quot;email&quot;</span><span class="p">:</span><span class="s">&quot;kim@test.com&quot;</span><span class="p">}</span>
 <a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>역직렬화 (JSON → 자바):
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>  {&quot;name&quot;:&quot;김철수&quot;,&quot;email&quot;:&quot;kim@test.com&quot;}
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>  ObjectMapper.readValue()
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    → 기본 생성자로 객체 생성
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    → 리플렉션으로 필드 값 주입
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    → MemberCreateRequest {name=&quot;김철수&quot;, email=&quot;kim@test.com&quot;}
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">역직렬화</span><span class="w"> </span><span class="p">(</span><span class="n">JSON</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">자바</span><span class="p">):</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="s">&quot;김철수&quot;</span><span class="p">,</span><span class="s">&quot;email&quot;</span><span class="p">:</span><span class="s">&quot;kim@test.com&quot;</span><span class="p">}</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="n">ObjectMapper</span><span class="p">.</span><span class="na">readValue</span><span class="p">()</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="err">→</span><span class="w"> </span><span class="n">기본</span><span class="w"> </span><span class="n">생성자로</span><span class="w"> </span><span class="n">객체</span><span class="w"> </span><span class="n">생성</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="err">→</span><span class="w"> </span><span class="n">리플렉션으로</span><span class="w"> </span><span class="n">필드</span><span class="w"> </span><span class="n">값</span><span class="w"> </span><span class="n">주입</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="err">→</span><span class="w"> </span><span class="n">MemberCreateRequest</span><span class="w"> </span><span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;김철수&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="o">=</span><span class="s">&quot;kim@test.com&quot;</span><span class="p">}</span>
 </code></pre></div>
 <div class="warning-box">
 <p><strong>역직렬화 주의</strong>: Jackson이 JSON → 자바 객체로 변환할 때 <strong>기본 생성자(no-args constructor)</strong>가 필요하다.
@@ -4817,7 +4817,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 9일 11:26:13 UTC">2026년 4월 9일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 11일 11:10:27 UTC">2026년 4월 11일</span>
   </span>
 
     

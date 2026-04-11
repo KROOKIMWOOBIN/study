@@ -4657,29 +4657,29 @@
 <blockquote>
 <p><code>@Transactional</code>은 마법이 아니다. 내부적으로 <strong><abbr title="Aspect-Oriented Programming. 관점 지향 프로그래밍. 로깅·트랜잭션 등 횡단 관심사를 핵심 로직과 분리해 모듈화한다.">AOP</abbr> 프록시</strong>가 트랜잭션 시작/커밋/롤백을 자동으로 처리할 뿐이다.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>@Transactional이 붙은 OrderService 빈을 요청
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  → 스프링 컨테이너가 실제 빈 대신 프록시 반환
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  → orderService.placeOrder() 호출
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nd">@Transactional이</span><span class="w"> </span><span class="n">붙은</span><span class="w"> </span><span class="n">OrderService</span><span class="w"> </span><span class="n">빈을</span><span class="w"> </span><span class="n">요청</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="n">스프링</span><span class="w"> </span><span class="n">컨테이너가</span><span class="w"> </span><span class="n">실제</span><span class="w"> </span><span class="n">빈</span><span class="w"> </span><span class="n">대신</span><span class="w"> </span><span class="n">프록시</span><span class="w"> </span><span class="n">반환</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="n">orderService</span><span class="p">.</span><span class="na">placeOrder</span><span class="p">()</span><span class="w"> </span><span class="n">호출</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>프록시 내부 실행 (TransactionInterceptor.invoke()):
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>  ① TransactionManager.getTransaction()   ← 트랜잭션 시작
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>      → DataSource에서 Connection 획득
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>      → connection.setAutoCommit(false)    ← DB 자동 커밋 끔
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>  ② 실제 OrderService.placeOrder() 실행
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>  ③ 예외 없이 완료 → connection.commit()  ← 커밋
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>     RuntimeException 발생 → connection.rollback() ← 롤백
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>  ④ connection 반환 (커넥션 풀로)
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">프록시</span><span class="w"> </span><span class="n">내부</span><span class="w"> </span><span class="nf">실행</span><span class="w"> </span><span class="p">(</span><span class="n">TransactionInterceptor</span><span class="p">.</span><span class="na">invoke</span><span class="p">()):</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span><span class="n">①</span><span class="w"> </span><span class="n">TransactionManager</span><span class="p">.</span><span class="na">getTransaction</span><span class="p">()</span><span class="w">   </span><span class="err">←</span><span class="w"> </span><span class="n">트랜잭션</span><span class="w"> </span><span class="n">시작</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">      </span><span class="err">→</span><span class="w"> </span><span class="n">DataSource에서</span><span class="w"> </span><span class="n">Connection</span><span class="w"> </span><span class="n">획득</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">      </span><span class="err">→</span><span class="w"> </span><span class="n">connection</span><span class="p">.</span><span class="na">setAutoCommit</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span><span class="w">    </span><span class="err">←</span><span class="w"> </span><span class="n">DB</span><span class="w"> </span><span class="n">자동</span><span class="w"> </span><span class="n">커밋</span><span class="w"> </span><span class="n">끔</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">  </span><span class="n">②</span><span class="w"> </span><span class="n">실제</span><span class="w"> </span><span class="n">OrderService</span><span class="p">.</span><span class="na">placeOrder</span><span class="p">()</span><span class="w"> </span><span class="n">실행</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">  </span><span class="n">③</span><span class="w"> </span><span class="n">예외</span><span class="w"> </span><span class="n">없이</span><span class="w"> </span><span class="n">완료</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">connection</span><span class="p">.</span><span class="na">commit</span><span class="p">()</span><span class="w">  </span><span class="err">←</span><span class="w"> </span><span class="n">커밋</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">     </span><span class="n">RuntimeException</span><span class="w"> </span><span class="n">발생</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">connection</span><span class="p">.</span><span class="na">rollback</span><span class="p">()</span><span class="w"> </span><span class="err">←</span><span class="w"> </span><span class="n">롤백</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">  </span><span class="n">④</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="nf">반환</span><span class="w"> </span><span class="p">(</span><span class="n">커넥션</span><span class="w"> </span><span class="n">풀로</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="transactionsynchronizationmanager-threadlocal">TransactionSynchronizationManager — ThreadLocal로 커넥션 공유</h3>
 <blockquote>
 <p>한 트랜잭션 안에서 여러 Repository가 같은 커넥션을 써야 한다. 어떻게 같은 커넥션을 공유할까?</p>
 </blockquote>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>@Transactional
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>public void placeOrder(OrderRequest request) {
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    orderRepository.save(order);         // DB 연산 1
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    inventoryService.decrease(...);      // DB 연산 2 (InventoryRepository 호출)
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    paymentService.pay(...);             // DB 연산 3 (PaymentRepository 호출)
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>}
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nd">@Transactional</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">placeOrder</span><span class="p">(</span><span class="n">OrderRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="n">orderRepository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">order</span><span class="p">);</span><span class="w">         </span><span class="c1">// DB 연산 1</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="n">inventoryService</span><span class="p">.</span><span class="na">decrease</span><span class="p">(...);</span><span class="w">      </span><span class="c1">// DB 연산 2 (InventoryRepository 호출)</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="n">paymentService</span><span class="p">.</span><span class="na">pay</span><span class="p">(...);</span><span class="w">             </span><span class="c1">// DB 연산 3 (PaymentRepository 호출)</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">}</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>TransactionSynchronizationManager (내부: ThreadLocal&lt;Map&lt;DataSource, Connection&gt;&gt;)
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
@@ -4726,26 +4726,26 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>@Transactional
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>  → TransactionInterceptor
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>  → PlatformTransactionManager.getTransaction()
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>       ↓
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>  [JPA 사용 시] JpaTransactionManager
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>       → EntityManager의 트랜잭션 시작
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>       → JDBC Connection도 함께 바인딩 (JPA와 JDBC 공존 가능)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nd">@Transactional</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="n">TransactionInterceptor</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="n">PlatformTransactionManager</span><span class="p">.</span><span class="na">getTransaction</span><span class="p">()</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">       </span><span class="err">↓</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span><span class="o">[</span><span class="n">JPA</span><span class="w"> </span><span class="n">사용</span><span class="w"> </span><span class="n">시</span><span class="o">]</span><span class="w"> </span><span class="n">JpaTransactionManager</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">       </span><span class="err">→</span><span class="w"> </span><span class="n">EntityManager의</span><span class="w"> </span><span class="n">트랜잭션</span><span class="w"> </span><span class="n">시작</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">       </span><span class="err">→</span><span class="w"> </span><span class="n">JDBC</span><span class="w"> </span><span class="n">Connection도</span><span class="w"> </span><span class="n">함께</span><span class="w"> </span><span class="nf">바인딩</span><span class="w"> </span><span class="p">(</span><span class="n">JPA와</span><span class="w"> </span><span class="n">JDBC</span><span class="w"> </span><span class="n">공존</span><span class="w"> </span><span class="n">가능</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="requires_new-2">REQUIRES_NEW 동작 원리 — 왜 커넥션이 2개 필요한가?</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>@Transactional                          ← 외부 트랜잭션 (Connection A)
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>public void placeOrder() {
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    orderRepository.save(order);
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nd">@Transactional</span><span class="w">                          </span><span class="err">←</span><span class="w"> </span><span class="n">외부</span><span class="w"> </span><span class="nf">트랜잭션</span><span class="w"> </span><span class="p">(</span><span class="n">Connection</span><span class="w"> </span><span class="n">A</span><span class="p">)</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">placeOrder</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="n">orderRepository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">order</span><span class="p">);</span>
 <a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    notificationService.sendEmail();    ← REQUIRES_NEW (Connection B 새로 획득)
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    // sendEmail() 실패해도 placeOrder()는 롤백 안 됨
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>    // Connection A, B가 독립적이기 때문
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>}
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="n">notificationService</span><span class="p">.</span><span class="na">sendEmail</span><span class="p">();</span><span class="w">    </span><span class="err">←</span><span class="w"> </span><span class="n">REQUIRES_NEW</span><span class="w"> </span><span class="p">(</span><span class="n">Connection</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="n">새로</span><span class="w"> </span><span class="n">획득</span><span class="p">)</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="c1">// sendEmail() 실패해도 placeOrder()는 롤백 안 됨</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="c1">// Connection A, B가 독립적이기 때문</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="p">}</span>
 <a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
-<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>@Transactional(propagation = REQUIRES_NEW)
-<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>public void sendEmail() { ... }         ← 별도 트랜잭션 (Connection B)
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="nd">@Transactional</span><span class="p">(</span><span class="n">propagation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">REQUIRES_NEW</span><span class="p">)</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sendEmail</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w">         </span><span class="err">←</span><span class="w"> </span><span class="n">별도</span><span class="w"> </span><span class="nf">트랜잭션</span><span class="w"> </span><span class="p">(</span><span class="n">Connection</span><span class="w"> </span><span class="n">B</span><span class="p">)</span>
 </code></pre></div>
 <div class="warning-box">
 <p><strong>REQUIRES_NEW 주의</strong>: 커넥션을 2개 동시에 점유한다. 커넥션 풀 크기가 작으면 데드락 위험.
@@ -4779,7 +4779,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 9일 11:26:13 UTC">2026년 4월 9일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 11일 11:10:27 UTC">2026년 4월 11일</span>
   </span>
 
     

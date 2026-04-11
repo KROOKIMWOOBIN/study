@@ -4584,14 +4584,14 @@
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span>
 </code></pre></div>
 <p>주입 흐름:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>@Autowired 발견
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    ↓
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>스프링 컨테이너에서 해당 타입(MemberRepository)으로 빈 조회
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    ↓
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>빈 1개  → 주입 성공 ✓
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>빈 0개  → NoSuchBeanDefinitionException
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>          (@Autowired(required=false) 설정 시 주입 생략)
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>빈 2개↑ → NoUniqueBeanDefinitionException → 추가 처리 필요
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nd">@Autowired</span><span class="w"> </span><span class="n">발견</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="err">↓</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">스프링</span><span class="w"> </span><span class="n">컨테이너에서</span><span class="w"> </span><span class="n">해당</span><span class="w"> </span><span class="nf">타입</span><span class="p">(</span><span class="n">MemberRepository</span><span class="p">)</span><span class="n">으로</span><span class="w"> </span><span class="n">빈</span><span class="w"> </span><span class="n">조회</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="err">↓</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">빈</span><span class="w"> </span><span class="mi">1</span><span class="n">개</span><span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="n">주입</span><span class="w"> </span><span class="n">성공</span><span class="w"> </span><span class="err">✓</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">빈</span><span class="w"> </span><span class="mi">0</span><span class="n">개</span><span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="n">NoSuchBeanDefinitionException</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">          </span><span class="p">(</span><span class="nd">@Autowired</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span><span class="w"> </span><span class="n">설정</span><span class="w"> </span><span class="n">시</span><span class="w"> </span><span class="n">주입</span><span class="w"> </span><span class="n">생략</span><span class="p">)</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">빈</span><span class="w"> </span><span class="mi">2</span><span class="n">개</span><span class="err">↑</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">NoUniqueBeanDefinitionException</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">추가</span><span class="w"> </span><span class="n">처리</span><span class="w"> </span><span class="n">필요</span>
 </code></pre></div>
 <hr />
 <h2 id="autowired_2">@Autowired 옵션 처리 — 빈이 없을 때</h2>
@@ -4902,25 +4902,25 @@
 <h3 id="autowired_4">@Autowired는 어떻게 처리되는가</h3>
 <p><code>@Autowired</code>를 실제로 처리하는 클래스는 <code>AutowiredAnnotationBeanPostProcessor</code>다.
 스프링 컨테이너가 빈을 생성한 직후, 이 처리기가 <code>postProcessProperties()</code>를 호출해 의존관계를 주입한다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>빈 생성 (Constructor 호출) 완료
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>        ↓
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>AutowiredAnnotationBeanPostProcessor.postProcessProperties() 호출
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">빈</span><span class="w"> </span><span class="nf">생성</span><span class="w"> </span><span class="p">(</span><span class="n">Constructor</span><span class="w"> </span><span class="n">호출</span><span class="p">)</span><span class="w"> </span><span class="n">완료</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">        </span><span class="err">↓</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="n">AutowiredAnnotationBeanPostProcessor</span><span class="p">.</span><span class="na">postProcessProperties</span><span class="p">()</span><span class="w"> </span><span class="n">호출</span>
 <a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>
-<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>1. 빈 클래스를 리플렉션으로 분석
-<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>   → 모든 필드, 메서드를 스캔
-<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>   → @Autowired / @Value / @Inject 발견 시 목록 수집
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="mf">1.</span><span class="w"> </span><span class="n">빈</span><span class="w"> </span><span class="n">클래스를</span><span class="w"> </span><span class="n">리플렉션으로</span><span class="w"> </span><span class="n">분석</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">   </span><span class="err">→</span><span class="w"> </span><span class="n">모든</span><span class="w"> </span><span class="n">필드</span><span class="p">,</span><span class="w"> </span><span class="n">메서드를</span><span class="w"> </span><span class="n">스캔</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="w">   </span><span class="err">→</span><span class="w"> </span><span class="nd">@Autowired</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nd">@Value</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nd">@Inject</span><span class="w"> </span><span class="n">발견</span><span class="w"> </span><span class="n">시</span><span class="w"> </span><span class="n">목록</span><span class="w"> </span><span class="n">수집</span>
 <a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>
-<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>2. 각 주입 대상에 대해:
-<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>   → 필드 타입(또는 파라미터 타입)으로 DefaultListableBeanFactory에 빈 요청
-<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>   → 해당 타입 빈이 1개면 즉시 반환
-<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>   → 2개 이상이면 @Qualifier, @Primary, 이름 순서로 좁히기
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="mf">2.</span><span class="w"> </span><span class="n">각</span><span class="w"> </span><span class="n">주입</span><span class="w"> </span><span class="n">대상에</span><span class="w"> </span><span class="n">대해</span><span class="p">:</span>
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="w">   </span><span class="err">→</span><span class="w"> </span><span class="n">필드</span><span class="w"> </span><span class="nf">타입</span><span class="p">(</span><span class="n">또는</span><span class="w"> </span><span class="n">파라미터</span><span class="w"> </span><span class="n">타입</span><span class="p">)</span><span class="n">으로</span><span class="w"> </span><span class="n">DefaultListableBeanFactory에</span><span class="w"> </span><span class="n">빈</span><span class="w"> </span><span class="n">요청</span>
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="w">   </span><span class="err">→</span><span class="w"> </span><span class="n">해당</span><span class="w"> </span><span class="n">타입</span><span class="w"> </span><span class="n">빈이</span><span class="w"> </span><span class="mi">1</span><span class="n">개면</span><span class="w"> </span><span class="n">즉시</span><span class="w"> </span><span class="n">반환</span>
+<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="w">   </span><span class="err">→</span><span class="w"> </span><span class="mi">2</span><span class="n">개</span><span class="w"> </span><span class="n">이상이면</span><span class="w"> </span><span class="nd">@Qualifier</span><span class="p">,</span><span class="w"> </span><span class="nd">@Primary</span><span class="p">,</span><span class="w"> </span><span class="n">이름</span><span class="w"> </span><span class="n">순서로</span><span class="w"> </span><span class="n">좁히기</span>
 <a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>
-<a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>3. 리플렉션으로 실제 주입:
-<a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>   field.setAccessible(true)  // private 필드도 접근 허용
-<a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a>   field.set(bean, resolvedBean) // 빈 주입
+<a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="mf">3.</span><span class="w"> </span><span class="n">리플렉션으로</span><span class="w"> </span><span class="n">실제</span><span class="w"> </span><span class="n">주입</span><span class="p">:</span>
+<a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a><span class="w">   </span><span class="n">field</span><span class="p">.</span><span class="na">setAccessible</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w">  </span><span class="c1">// private 필드도 접근 허용</span>
+<a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a><span class="w">   </span><span class="n">field</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">bean</span><span class="p">,</span><span class="w"> </span><span class="n">resolvedBean</span><span class="p">)</span><span class="w"> </span><span class="c1">// 빈 주입</span>
 <a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a>
-<a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a>        ↓
-<a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a>주입 완료 → 생명주기 콜백 (@PostConstruct 등) 실행
+<a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a><span class="w">        </span><span class="err">↓</span>
+<a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a><span class="n">주입</span><span class="w"> </span><span class="n">완료</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">생명주기</span><span class="w"> </span><span class="nf">콜백</span><span class="w"> </span><span class="p">(</span><span class="nd">@PostConstruct</span><span class="w"> </span><span class="n">등</span><span class="p">)</span><span class="w"> </span><span class="n">실행</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1">// 실제 처리 흐름 (의사코드)</span>
 <a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="kd">class</span> <span class="nc">AutowiredAnnotationBeanPostProcessor</span><span class="w"> </span><span class="p">{</span>
@@ -5013,7 +5013,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 8일 11:39:32 UTC">2026년 4월 8일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 11일 11:10:27 UTC">2026년 4월 11일</span>
   </span>
 
     
