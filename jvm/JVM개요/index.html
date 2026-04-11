@@ -4120,6 +4120,17 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
+        단점 / 제한사항
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         홈으로
       
     </span>
@@ -4601,6 +4612,17 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
+        단점 / 제한사항
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         홈으로
       
     </span>
@@ -4783,7 +4805,37 @@
 </ul>
 </li>
 </ol>
-<h2 id="_7"><a href="../jvm/">홈으로</a></h2>
+<h2 id="_7">단점 / 제한사항</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>워밍업 시간</td>
+<td><abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr> 시작 후 JIT 컴파일이 완료되기 전까지 초기 실행 속도가 느리다.</td>
+</tr>
+<tr>
+<td>메모리 오버헤드</td>
+<td><abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr> 자체가 메모리를 점유한다. C/C++ 대비 메모리 사용량이 높다.</td>
+</tr>
+<tr>
+<td><abbr title="Stop-The-World. GC 실행 중 JVM이 애플리케이션 스레드를 일시 정지시키는 현상. GC 튜닝의 주요 목표.">STW</abbr> (Stop-The-World)</td>
+<td><abbr title="Garbage Collection. JVM이 더 이상 참조되지 않는 객체를 자동으로 메모리에서 해제하는 과정.">GC</abbr> 실행 중 애플리케이션 스레드가 일시 정지된다. 실시간성이 중요한 시스템에서 문제가 될 수 있다.</td>
+</tr>
+<tr>
+<td>네이티브 성능 한계</td>
+<td>C/C++ 대비 시스템 자원 직접 접근이 불가능해 극한의 성능이 필요한 영역에서 불리하다.</td>
+</tr>
+</tbody>
+</table>
+<div class="warning-box">
+<p><strong>주의</strong>: 서버리스(Lambda, Cloud Run 등) 환경에서는 <abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr> 콜드 스타트 시간이 응답 지연으로 직결된다. 이런 환경에서는 GraalVM Native Image나 경량 런타임을 고려해야 한다.</p>
+</div>
+<h2 id="_8"><a href="../jvm/">홈으로</a></h2>
 <!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
 
 <!-- ===== DB / SQL ===== -->
@@ -4812,7 +4864,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 11일 11:10:27 UTC">2026년 4월 11일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 11일 14:01:17 UTC">2026년 4월 11일</span>
   </span>
 
     
