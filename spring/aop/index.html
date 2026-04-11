@@ -4506,10 +4506,10 @@
 
   <h1>AOP</h1>
 
-<h2 id="aop-aspect-oriented-programming">AOP (Aspect-Oriented Programming)</h2>
+<h2 id="aop-aspect-oriented-programming"><abbr title="Aspect-Oriented Programming. 관점 지향 프로그래밍. 로깅·트랜잭션 등 횡단 관심사를 핵심 로직과 분리해 모듈화한다.">AOP</abbr> (Aspect-Oriented Programming)</h2>
 <h3 id="_1">왜 쓰는가?</h3>
 <div class="concept-box">
-<p>로깅, 트랜잭션, 보안, 성능 측정 같은 <strong>횡단 관심사(Cross-Cutting Concern)</strong>는 여러 클래스에 반복 등장한다. ==AOP==는 이를 핵심 비즈니스 로직과 분리해 <strong>코드 중복을 제거</strong>하고 관심사를 분리한다.</p>
+<p>로깅, 트랜잭션, 보안, 성능 측정 같은 <strong>횡단 관심사(Cross-Cutting Concern)</strong>는 여러 클래스에 반복 등장한다. ==<abbr title="Aspect-Oriented Programming. 관점 지향 프로그래밍. 로깅·트랜잭션 등 횡단 관심사를 핵심 로직과 분리해 모듈화한다.">AOP</abbr>==는 이를 핵심 비즈니스 로직과 분리해 <strong>코드 중복을 제거</strong>하고 관심사를 분리한다.</p>
 </div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>// Before AOP: 모든 메서드에 중복
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>public class MemberService {
@@ -4627,7 +4627,7 @@
 <a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>// 특정 파라미터 타입
 <a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>&quot;execution(* com.myapp..*(*..Member, ..))&quot;
 </code></pre></div>
-<h3 id="aop">커스텀 어노테이션 기반 AOP</h3>
+<h3 id="aop">커스텀 어노테이션 기반 <abbr title="Aspect-Oriented Programming. 관점 지향 프로그래밍. 로깅·트랜잭션 등 횡단 관심사를 핵심 로직과 분리해 모듈화한다.">AOP</abbr></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>// 어노테이션 정의
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="ni">@Target</span>(ElementType.METHOD)
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="ni">@Retention</span>(RetentionPolicy.RUNTIME)
@@ -4651,7 +4651,7 @@
 <a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="ni">@Loggable</span>
 <a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>public Member findById(Long id) { ... }
 </code></pre></div>
-<h3 id="aop_1">프록시 기반 AOP</h3>
+<h3 id="aop_1">프록시 기반 <abbr title="Aspect-Oriented Programming. 관점 지향 프로그래밍. 로깅·트랜잭션 등 횡단 관심사를 핵심 로직과 분리해 모듈화한다.">AOP</abbr></h3>
 <p>Spring AOP는 <strong>프록시 패턴</strong>으로 동작한다. 실제 객체 대신 프록시 객체가 주입되고, 프록시가 Advice를 실행한 뒤 실제 메서드를 호출한다.</p>
 <h3 id="_4">단점 / 주의할 점</h3>
 <table>
@@ -4665,7 +4665,7 @@
 <tbody>
 <tr>
 <td>같은 클래스 내 메서드 호출</td>
-<td>프록시를 거치지 않아 AOP 미적용</td>
+<td>프록시를 거치지 않아 <abbr title="Aspect-Oriented Programming. 관점 지향 프로그래밍. 로깅·트랜잭션 등 횡단 관심사를 핵심 로직과 분리해 모듈화한다.">AOP</abbr> 미적용</td>
 <td>별도 클래스로 분리</td>
 </tr>
 <tr>
@@ -4715,11 +4715,11 @@
 <a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>       → MemberService 대신 프록시 객체 생성 후 반환
 <a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>  ④ 컨테이너에 저장되는 것은 프록시 객체
 </code></pre></div>
-<h3 id="jdk-vs-cglib">JDK 동적 프록시 vs CGLIB</h3>
+<h3 id="jdk-vs-cglib"><abbr title="Java Development Kit. Java 개발에 필요한 도구 모음. JRE + 컴파일러(javac) + 디버거 포함.">JDK</abbr> 동적 프록시 vs CGLIB</h3>
 <p>스프링 AOP가 사용하는 두 가지 프록시 방식.</p>
 <div class="compare-grid">
 <div class="before">
-<p><strong>JDK 동적 프록시</strong></p>
+<p><strong><abbr title="Java Development Kit. Java 개발에 필요한 도구 모음. JRE + 컴파일러(javac) + 디버거 포함.">JDK</abbr> 동적 프록시</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// 인터페이스가 있어야 함</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">MemberService</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="n">Member</span><span class="w"> </span><span class="n">member</span><span class="p">);</span>
@@ -4804,6 +4804,12 @@
 <a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>  - inner()를 별도 클래스로 분리
 <a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>  - 또는 ApplicationContext에서 자기 자신을 다시 주입받아 프록시를 통해 호출
 </code></pre></div>
+<!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
+
+<!-- ===== DB / SQL ===== -->
+<!-- ===== JVM / Java ===== -->
+<!-- ===== Spring ===== -->
+<!-- ===== 네트워크 / CS ===== -->
 
 
 

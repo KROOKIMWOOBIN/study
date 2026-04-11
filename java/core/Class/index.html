@@ -4381,7 +4381,7 @@
 <li><code>Class</code>는 <code>JVM</code>에서 로딩된 클래스의 메타데이터를 표현하는 객체다.</li>
 <li>자바에서 모든 클래스는 런타임에 Class 객체로 관리된다.</li>
 <li>.class 파일이 ClassLoader에 의해 JVM에 로딩</li>
-<li>JVM 내부에 해당 클래스의 메타정보 구조 생성</li>
+<li><abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr> 내부에 해당 클래스의 메타정보 구조 생성</li>
 <li>그 정보를 Class 객체로 접근 가능</li>
 </ul>
 <h3 id="class">Class 객체가 담고 있는 정보 (메타데이터)</h3>
@@ -4486,15 +4486,15 @@
 </thead>
 <tbody>
 <tr>
-<td>Spring DI</td>
+<td>Spring <abbr title="Dependency Injection. 의존성 주입. 객체가 직접 의존 객체를 생성하지 않고 외부에서 주입받는 방식.">DI</abbr></td>
 <td>Bean 생성</td>
 </tr>
 <tr>
-<td>Spring AOP</td>
+<td>Spring <abbr title="Aspect-Oriented Programming. 관점 지향 프로그래밍. 로깅·트랜잭션 등 횡단 관심사를 핵심 로직과 분리해 모듈화한다.">AOP</abbr></td>
 <td>프록시 메서드 호출</td>
 </tr>
 <tr>
-<td>JPA</td>
+<td><abbr title="Java Persistence API. Java ORM 표준 명세. 구현체로 Hibernate가 주로 사용된다.">JPA</abbr></td>
 <td>Entity 매핑</td>
 </tr>
 <tr>
@@ -4530,7 +4530,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="jvm">핵심 구조 (JVM 관점)</h4>
+<h4 id="jvm">핵심 구조 (<abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr> 관점)</h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>.class 파일
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>      ↓
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>ClassLoader
@@ -4541,6 +4541,12 @@
 <a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>      ↓
 <a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>Reflection으로 접근
 </code></pre></div>
+<!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
+
+<!-- ===== DB / SQL ===== -->
+<!-- ===== JVM / Java ===== -->
+<!-- ===== Spring ===== -->
+<!-- ===== 네트워크 / CS ===== -->
 
 
 

@@ -4693,7 +4693,7 @@
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>// JVM 옵션으로 변경 가능
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>// -Djava.util.concurrent.ForkJoinPool.common.parallelism=4
 </code></pre></div>
-<p><code>commonPool</code>은 JVM 전체에서 공유된다. 즉, 내 병렬 스트림과 다른 곳의 병렬 처리가 같은 풀을 경쟁해서 쓴다.</p>
+<p><code>commonPool</code>은 <abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr> 전체에서 공유된다. 즉, 내 병렬 스트림과 다른 곳의 병렬 처리가 같은 풀을 경쟁해서 쓴다.</p>
 <h4 id="_3">커스텀 풀로 격리하기</h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>// commonPool 대신 전용 풀 사용
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>ForkJoinPool customPool = new ForkJoinPool(4);
@@ -4951,6 +4951,12 @@
 </tr>
 </tbody>
 </table>
+<!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
+
+<!-- ===== DB / SQL ===== -->
+<!-- ===== JVM / Java ===== -->
+<!-- ===== Spring ===== -->
+<!-- ===== 네트워크 / CS ===== -->
 
 
 

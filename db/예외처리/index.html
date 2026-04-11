@@ -4803,7 +4803,7 @@
 <a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">}</span>
 </code></pre></div>
-<p>나중에 JPA로 교체하면 JPA 예외가 발생하는데, 서비스 코드의 <code>throws SQLException</code>을 전부 수정해야 한다.</p>
+<p>나중에 JPA로 교체하면 <abbr title="Java Persistence API. Java ORM 표준 명세. 구현체로 Hibernate가 주로 사용된다.">JPA</abbr> 예외가 발생하는데, 서비스 코드의 <code>throws SQLException</code>을 전부 수정해야 한다.</p>
 <h3 id="2-throws">문제 2: 체크 예외라서 throws 전파</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// 모든 계층에서 throws를 달아야 함</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Controller</span><span class="w"> </span><span class="p">{</span>
@@ -4995,7 +4995,7 @@
 <a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>    ↓
 <a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>[서비스 계층으로 전달]
 </code></pre></div>
-<p>JPA, Hibernate 예외도 이 방식으로 스프링 예외로 변환된다.</p>
+<p><abbr title="Java Persistence API. Java ORM 표준 명세. 구현체로 Hibernate가 주로 사용된다.">JPA</abbr>, Hibernate 예외도 이 방식으로 스프링 예외로 변환된다.</p>
 <hr />
 <h2 id="_11">체크 예외를 언체크로 변환해야 하는 이유</h2>
 <table>
@@ -5008,7 +5008,7 @@
 <tbody>
 <tr>
 <td>서비스 계층 순수성</td>
-<td>서비스가 JDBC/JPA 같은 구현 기술을 몰라야 함</td>
+<td>서비스가 <abbr title="Java DataBase Connectivity. Java에서 DB에 접근하기 위한 표준 API 인터페이스.">JDBC</abbr>/<abbr title="Java Persistence API. Java ORM 표준 명세. 구현체로 Hibernate가 주로 사용된다.">JPA</abbr> 같은 구현 기술을 몰라야 함</td>
 </tr>
 <tr>
 <td>유연한 기술 교체</td>
@@ -5028,6 +5028,12 @@
 <p>결론: DB 예외는 거의 대부분 복구가 불가능하다.
 따라서 체크 예외로 강제 처리시키기보다 언체크 예외로 변환해서 공통 처리하는 것이 좋다.</p>
 </blockquote>
+<!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
+
+<!-- ===== DB / SQL ===== -->
+<!-- ===== JVM / Java ===== -->
+<!-- ===== Spring ===== -->
+<!-- ===== 네트워크 / CS ===== -->
 
 
 

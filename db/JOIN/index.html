@@ -4412,7 +4412,7 @@
 
 <h1 id="join">JOIN</h1>
 <div class="concept-box">
-<p><strong>JOIN</strong>: 두 개 이상의 테이블을 공통 컬럼(주로 PK-FK 관계)을 기준으로 합쳐 하나의 결과 집합으로 만드는 연산.</p>
+<p><strong>JOIN</strong>: 두 개 이상의 테이블을 공통 컬럼(주로 <abbr title="Primary Key. 테이블에서 각 행을 유일하게 식별하는 기본 키. NOT NULL + UNIQUE.">PK</abbr>-<abbr title="Foreign Key. 다른 테이블의 PK를 참조하는 외래 키. 참조 무결성을 보장한다.">FK</abbr> 관계)을 기준으로 합쳐 하나의 결과 집합으로 만드는 연산.</p>
 </div>
 <h2 id="_1">왜 쓰는지</h2>
 <p>관계형 DB는 데이터를 여러 테이블로 분리해 중복을 줄인다 (정규화). 하지만 실제 조회할 때는 여러 테이블의 데이터가 함께 필요하다. JOIN이 그 연결 역할을 한다.</p>
@@ -4549,10 +4549,16 @@
 </div>
 <h2 id="_3">성능 팁</h2>
 <ul>
-<li>JOIN 조건이 되는 컬럼(FK)에 <strong>인덱스</strong>를 반드시 생성한다.</li>
+<li>JOIN 조건이 되는 컬럼(<abbr title="Foreign Key. 다른 테이블의 PK를 참조하는 외래 키. 참조 무결성을 보장한다.">FK</abbr>)에 <strong>인덱스</strong>를 반드시 생성한다.</li>
 <li>JOIN 대상 테이블을 줄이려면 <code>WHERE</code>로 먼저 필터링한 서브쿼리 / CTE를 활용한다.</li>
 <li>3개 이상 테이블을 JOIN할 때는 실행 계획(<code>EXPLAIN</code>)으로 순서를 확인한다.</li>
 </ul>
+<!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
+
+<!-- ===== DB / SQL ===== -->
+<!-- ===== JVM / Java ===== -->
+<!-- ===== Spring ===== -->
+<!-- ===== 네트워크 / CS ===== -->
 
 
 

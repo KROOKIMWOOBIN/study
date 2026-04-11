@@ -5013,7 +5013,7 @@ Spring Boot 포함 현재 대부분의 프로젝트에서 사용하는 방식이
 <div class="warning-box">
 <p><strong>주의</strong>: 빈 이름이 중복되면 예외가 발생하거나 기존 빈을 덮어쓴다. 반드시 다른 이름을 써야 한다.</p>
 </div>
-<h3 id="3-di">3단계: 의존관계 주입 (DI)</h3>
+<h3 id="3-di">3단계: 의존관계 주입 (<abbr title="Dependency Injection. 의존성 주입. 객체가 직접 의존 객체를 생성하지 않고 외부에서 주입받는 방식.">DI</abbr>)</h3>
 <p>설정 정보를 참고하여 빈들 사이의 의존관계를 연결한다.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>[빈 객체 연결 결과]
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>MemberServiceImpl@x01
@@ -5023,7 +5023,7 @@ Spring Boot 포함 현재 대부분의 프로젝트에서 사용하는 방식이
 <a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    ├── memberRepository ──→ MemoryMemberRepository@x02  (같은 인스턴스!)
 <a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>    └── discountPolicy   ──→ RateDiscountPolicy@x04
 </code></pre></div>
-<p>생성자 주입의 경우 2단계(빈 생성)와 3단계(DI)가 동시에 일어난다.
+<p>생성자 주입의 경우 2단계(빈 생성)와 3단계(<abbr title="Dependency Injection. 의존성 주입. 객체가 직접 의존 객체를 생성하지 않고 외부에서 주입받는 방식.">DI</abbr>)가 동시에 일어난다.
 빈을 생성할 때 생성자에 의존 객체를 바로 넘기기 때문이다.</p>
 <hr />
 <h2 id="3">빈 설정 방법 3가지</h2>
@@ -5140,7 +5140,7 @@ Spring Boot 포함 현재 대부분의 프로젝트에서 사용하는 방식이
 <tr>
 <td><code>@Bean</code> (Java Config)</td>
 <td>명시적 등록, 코드로 직접 제어</td>
-<td>외부 라이브러리 빈, 공통 기술 빈(DataSource, AOP 등)</td>
+<td>외부 라이브러리 빈, 공통 기술 빈(DataSource, <abbr title="Aspect-Oriented Programming. 관점 지향 프로그래밍. 로깅·트랜잭션 등 횡단 관심사를 핵심 로직과 분리해 모듈화한다.">AOP</abbr> 등)</td>
 </tr>
 <tr>
 <td><code>@Component</code> + <code>@ComponentScan</code></td>
@@ -5261,6 +5261,12 @@ Spring Boot 포함 현재 대부분의 프로젝트에서 사용하는 방식이
 스프링은 생성자 주입의 경우 순환 참조를 시작 시점에 감지하고 <code>BeanCreationException</code>을 발생시킨다.
 필드/Setter 주입은 3단계 캐시로 해결하려 하지만, 권장하지 않는다 (싱글톤.md 참고).</p>
 </div>
+<!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
+
+<!-- ===== DB / SQL ===== -->
+<!-- ===== JVM / Java ===== -->
+<!-- ===== Spring ===== -->
+<!-- ===== 네트워크 / CS ===== -->
 
 
 

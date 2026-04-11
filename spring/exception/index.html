@@ -4646,7 +4646,7 @@
 <h3 id="restcontrolleradvice">@RestControllerAdvice 내부 — 왜 모든 컨트롤러에 적용되나?</h3>
 <blockquote>
 <p><code>@RestControllerAdvice</code> = <code>@ControllerAdvice</code> + <code>@ResponseBody</code>
-<code>@ControllerAdvice</code>는 스프링 시작 시점에 <strong>모든 컨트롤러에 적용되는 AOP 형태의 글로벌 설정</strong>이다.</p>
+<code>@ControllerAdvice</code>는 스프링 시작 시점에 <strong>모든 컨트롤러에 적용되는 <abbr title="Aspect-Oriented Programming. 관점 지향 프로그래밍. 로깅·트랜잭션 등 횡단 관심사를 핵심 로직과 분리해 모듈화한다.">AOP</abbr> 형태의 글로벌 설정</strong>이다.</p>
 </blockquote>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>스프링 컨테이너 시작
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  → @ControllerAdvice 빈 스캔
@@ -4677,6 +4677,12 @@
 <a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>  &quot;message&quot;: &quot;이미 사용 중인 이메일입니다&quot;
 <a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>}
 </code></pre></div>
+<!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
+
+<!-- ===== DB / SQL ===== -->
+<!-- ===== JVM / Java ===== -->
+<!-- ===== Spring ===== -->
+<!-- ===== 네트워크 / CS ===== -->
 
 
 

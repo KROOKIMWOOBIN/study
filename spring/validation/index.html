@@ -4745,8 +4745,14 @@
 <a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="p">}</span>
 </code></pre></div>
 <div class="tip-box">
-<p><strong>@Validated는 AOP 기반</strong>: <code>@Validated</code>가 붙은 빈의 메서드 호출 시 스프링이 AOP 프록시를 통해 <code>MethodValidationInterceptor</code>를 실행한다. 따라서 같은 클래스 내 Self-Invocation에서는 검증이 실행되지 않는다.</p>
+<p><strong>@Validated는 <abbr title="Aspect-Oriented Programming. 관점 지향 프로그래밍. 로깅·트랜잭션 등 횡단 관심사를 핵심 로직과 분리해 모듈화한다.">AOP</abbr> 기반</strong>: <code>@Validated</code>가 붙은 빈의 메서드 호출 시 스프링이 <abbr title="Aspect-Oriented Programming. 관점 지향 프로그래밍. 로깅·트랜잭션 등 횡단 관심사를 핵심 로직과 분리해 모듈화한다.">AOP</abbr> 프록시를 통해 <code>MethodValidationInterceptor</code>를 실행한다. 따라서 같은 클래스 내 Self-Invocation에서는 검증이 실행되지 않는다.</p>
 </div>
+<!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
+
+<!-- ===== DB / SQL ===== -->
+<!-- ===== JVM / Java ===== -->
+<!-- ===== Spring ===== -->
+<!-- ===== 네트워크 / CS ===== -->
 
 
 

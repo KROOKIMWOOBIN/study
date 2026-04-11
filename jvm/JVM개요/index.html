@@ -4630,41 +4630,41 @@
 
   <h1>JVM 상세</h1>
 
-<h2 id="jvm">JVM 개요</h2>
+<h2 id="jvm"><abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr> 개요</h2>
 <h2 id="_1">목차</h2>
 <ul>
 <li><a href="#핵심">핵심</a></li>
 <li><a href="#역할과-목적">역할과 목적</a></li>
-<li><a href="#jdk--jre--jvm-차이">JDK/JRE/JVM 차이</a></li>
+<li><a href="#jdk--jre--jvm-차이"><abbr title="Java Development Kit. Java 개발에 필요한 도구 모음. JRE + 컴파일러(javac) + 디버거 포함.">JDK</abbr>/<abbr title="Java Runtime Environment. Java 프로그램 실행에 필요한 환경. JVM + 표준 라이브러리.">JRE</abbr>/<abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr> 차이</a></li>
 <li><a href="#java의-플랫폼-독립성-원리">Java의 플랫폼 독립성 원리</a></li>
-<li><a href="#jvm-기반-언어-개요-kotlin-scala-등">JVM 기반 언어 개요 (Kotlin, Scala 등)</a></li>
+<li><a href="#jvm-기반-언어-개요-kotlin-scala-등"><abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr> 기반 언어 개요 (Kotlin, Scala 등)</a></li>
 </ul>
 <h3 id="_2">핵심</h3>
 <div class="concept-box">
-<p><mark>JVM(Java Virtual Machine)</mark>: 자바 바이트코드를 실행하면서 OS와 하드웨어 차이를 추상화하여 플랫폼 독립성과 안정적인 실행 환경을 제공하기 위한 런타임이다.</p>
+<p><mark><abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr>(Java Virtual Machine)</mark>: 자바 바이트코드를 실행하면서 OS와 하드웨어 차이를 추상화하여 플랫폼 독립성과 안정적인 실행 환경을 제공하기 위한 런타임이다.</p>
 </div>
 <h4 id="_3">역할과 목적</h4>
 <ul>
 <li>JVM은 자바 바이트코드를 실행하면서 OS와 하드웨어 차이를 추상화하여 플랫폼 독립성과 안정적인 실행 환경을 제공하기 위한 런타임이다.</li>
 </ul>
-<h4 id="jdk-jre-jvm">JDK / JRE / JVM</h4>
+<h4 id="jdk-jre-jvm"><abbr title="Java Development Kit. Java 개발에 필요한 도구 모음. JRE + 컴파일러(javac) + 디버거 포함.">JDK</abbr> / <abbr title="Java Runtime Environment. Java 프로그램 실행에 필요한 환경. JVM + 표준 라이브러리.">JRE</abbr> / <abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr></h4>
 <ul>
-<li>JDK: 자바 프로그램을 개발하기 위한 도구 모음 (JDK안에 JRE포함)</li>
-<li>JRE: 자바 프로그램을 실행하기 위한 환경 (JRE안에 JVM포함)</li>
-<li>JVM: 자바 바이트코드를 실행하는 가상 머신</li>
+<li><abbr title="Java Development Kit. Java 개발에 필요한 도구 모음. JRE + 컴파일러(javac) + 디버거 포함.">JDK</abbr>: 자바 프로그램을 개발하기 위한 도구 모음 (JDK안에 JRE포함)</li>
+<li><abbr title="Java Runtime Environment. Java 프로그램 실행에 필요한 환경. JVM + 표준 라이브러리.">JRE</abbr>: 자바 프로그램을 실행하기 위한 환경 (JRE안에 JVM포함)</li>
+<li><abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr>: 자바 바이트코드를 실행하는 가상 머신</li>
 </ul>
 <h4 id="java">Java의 플랫폼 독립성 원리</h4>
 <ul>
 <li>Java의 플랫폼 독립성은 소스를 OS별로 컴파일하지 않고, 플랫폼 중립적인 바이트코드를 생성한 뒤 각 운영체제에 맞게 구현된 JVM이 이를 실행함으로써 달성된다. 이 과정에서 OS 의존성은 JVM과 표준 라이브러리가 흡수한다.</li>
 </ul>
-<h4 id="jvm-kotlin-scala">JVM 기반 언어 개요 (Kotlin, Scala 등)</h4>
+<h4 id="jvm-kotlin-scala"><abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr> 기반 언어 개요 (Kotlin, Scala 등)</h4>
 <ul>
-<li>JVM 기반 언어는 각기 다른 문법과 패러다임을 제공하지만, 최종적으로 JVM 바이트코드로 컴파일되어 동일한 JVM 위에서 실행되며 Java 생태계와 런타임을 공유한다.</li>
+<li><abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr> 기반 언어는 각기 다른 문법과 패러다임을 제공하지만, 최종적으로 <abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr> 바이트코드로 컴파일되어 동일한 <abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr> 위에서 실행되며 Java 생태계와 런타임을 공유한다.</li>
 </ul>
 <h3 id="_4">역할과 목적</h3>
 <h4 id="_5">역할</h4>
 <ul>
-<li>JVM(Java Virtual Machine)은 자바 프로그램을 실행하기 위한 가상 실행 환경이다.
+<li><abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr>(Java Virtual Machine)은 자바 프로그램을 실행하기 위한 가상 실행 환경이다.
   핵심 역할은 다음 세 가지로 정리할 수 있다.</li>
 <li>바이트코드 실행 (JVM은 자바 바이트코드를 해석하거나(JIT 포함) 실행하는 엔진이다.)<ul>
 <li>자바 소스는 직접 실행되지 않는다.</li>
@@ -4714,12 +4714,12 @@
 <li>대규모 서버 환경에 적합한 실행 모델 (웹 서버, WAS, 대규모 백엔드에서 표준 실행 환경이 됨)<ul>
 <li>멀티스레드 지원</li>
 <li>대용량 메모리 관리</li>
-<li>다양한 GC 전략 제공</li>
+<li>다양한 <abbr title="Garbage Collection. JVM이 더 이상 참조되지 않는 객체를 자동으로 메모리에서 해제하는 과정.">GC</abbr> 전략 제공</li>
 <li>장시간 실행 프로세스 안정성</li>
 </ul>
 </li>
 </ul>
-<h3 id="jdk-jre-jvm_1">JDK / JRE / JVM 차이</h3>
+<h3 id="jdk-jre-jvm_1"><abbr title="Java Development Kit. Java 개발에 필요한 도구 모음. JRE + 컴파일러(javac) + 디버거 포함.">JDK</abbr> / <abbr title="Java Runtime Environment. Java 프로그램 실행에 필요한 환경. JVM + 표준 라이브러리.">JRE</abbr> / <abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr> 차이</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>JVM은 JRE안에 들어있고, JRE는 JDK안에 들어있다.
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>   JVM
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    ↓
@@ -4727,23 +4727,23 @@
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    ↓
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>   JDK
 </code></pre></div>
-<h4 id="jvm-java-virtual-machine-">JVM (Java Virtual Machine) - 실행 엔진 + 메모리 관리자</h4>
+<h4 id="jvm-java-virtual-machine-"><abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr> (Java Virtual Machine) - 실행 엔진 + 메모리 관리자</h4>
 <ul>
 <li>.class 바이트코드 실행</li>
-<li>메모리 관리 (Heap, Stack, GC)</li>
+<li>메모리 관리 (Heap, Stack, <abbr title="Garbage Collection. JVM이 더 이상 참조되지 않는 객체를 자동으로 메모리에서 해제하는 과정.">GC</abbr>)</li>
 <li>스레드 관리</li>
 <li>JIT 컴파일</li>
 <li>OS/하드웨어 추상화</li>
 </ul>
-<h4 id="jre-java-runtime-environment-">JRE (Java Runtime Environment) - 실행만 가능한 환경 &lt;- 현재는 사용하지 않는 개념 왜? 기동으로만 서비스가 돌아가지 않아서</h4>
+<h4 id="jre-java-runtime-environment-"><abbr title="Java Runtime Environment. Java 프로그램 실행에 필요한 환경. JVM + 표준 라이브러리.">JRE</abbr> (Java Runtime Environment) - 실행만 가능한 환경 &lt;- 현재는 사용하지 않는 개념 왜? 기동으로만 서비스가 돌아가지 않아서</h4>
 <ul>
-<li>JVM</li>
+<li><abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr></li>
 <li>Java 표준 클래스 라이브러리 (java.lang, java.util 등)</li>
 <li>리소스 파일</li>
 </ul>
-<h4 id="jdk-java-development-kit-">JDK (Java Development Kit) - 개발 + 실행 + 분석까지 가능한 풀세트 &lt;- 배포 및 개발에는 이 레벨 사용</h4>
+<h4 id="jdk-java-development-kit-"><abbr title="Java Development Kit. Java 개발에 필요한 도구 모음. JRE + 컴파일러(javac) + 디버거 포함.">JDK</abbr> (Java Development Kit) - 개발 + 실행 + 분석까지 가능한 풀세트 &lt;- 배포 및 개발에는 이 레벨 사용</h4>
 <ul>
-<li>JRE 전부</li>
+<li><abbr title="Java Runtime Environment. Java 프로그램 실행에 필요한 환경. JVM + 표준 라이브러리.">JRE</abbr> 전부</li>
 <li>컴파일러 (javac)</li>
 <li>디버거 (jdb)</li>
 <li>문서 도구 (javadoc)</li>
@@ -4760,12 +4760,12 @@
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a> → OS / Hardware
 </code></pre></div></li>
 </ul>
-<h3 id="jvm-kotlin-scala_1">JVM 기반 언어 개요 (Kotlin, Scala 등)</h3>
-<h4 id="jvm_1">JVM 기반 언어란?</h4>
+<h3 id="jvm-kotlin-scala_1"><abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr> 기반 언어 개요 (Kotlin, Scala 등)</h3>
+<h4 id="jvm_1"><abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr> 기반 언어란?</h4>
 <ul>
-<li>JVM 기반 언어란, 소스 코드는 다르지만 최종 산출물이 JVM이 실행할 수 있는 바이트코드(.class)로 컴파일되는 언어를 말한다.</li>
+<li><abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr> 기반 언어란, 소스 코드는 다르지만 최종 산출물이 JVM이 실행할 수 있는 바이트코드(.class)로 컴파일되는 언어를 말한다.</li>
 </ul>
-<h4 id="jvm_2">왜 JVM 위에 여러 언어가 올라가는가?</h4>
+<h4 id="jvm_2">왜 <abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr> 위에 여러 언어가 올라가는가?</h4>
 <ol>
 <li>JVM이 이미 완성된 런타임이기 때문 =&gt; 새로운 언어가 이걸 다시 만들 필요 없음</li>
 <li>Java 생태계를 그대로 사용 가능 =&gt; 수십 년 누적된 라이브러리</li>
@@ -4784,6 +4784,12 @@
 </li>
 </ol>
 <h2 id="_7"><a href="../jvm/">홈으로</a></h2>
+<!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
+
+<!-- ===== DB / SQL ===== -->
+<!-- ===== JVM / Java ===== -->
+<!-- ===== Spring ===== -->
+<!-- ===== 네트워크 / CS ===== -->
 
 
 

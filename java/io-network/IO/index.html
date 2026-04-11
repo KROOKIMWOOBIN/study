@@ -4738,7 +4738,7 @@
 <h2 id="_1">직렬화</h2>
 <ul>
 <li>클래스를 직렬화 하기 위해서는 [Serializable]를 구현해줘야 한다.</li>
-<li>[JVM]에게 <code>이 객체는 직렬화해도 안전하다</code>는 명시적 표시(marker) 역할을 하기 때문입니다.
+<li>[<abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr>]에게 <code>이 객체는 직렬화해도 안전하다</code>는 명시적 표시(marker) 역할을 하기 때문입니다.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Member</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Serializable</span><span class="w"> </span><span class="p">{}</span>
 </code></pre></div></li>
 </ul>
@@ -4771,7 +4771,7 @@
 </code></pre></div>
 <h4 id="_6">특징</h4>
 <ul>
-<li>Java 1.0부터 존재 (구 IO API)</li>
+<li>Java 1.0부터 존재 (구 IO <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr>)</li>
 <li>파일 존재 여부 확인</li>
 <li>디렉토리 생성/삭제</li>
 <li>경로 문자열 기반 처리</li>
@@ -4797,7 +4797,7 @@
 <h4 id="_9">핵심</h4>
 <p>File = 옛날 파일 객체
 Path = 경로 표현 객체 (현대 표준)
-Files = 실제 파일 작업 API</p>
+Files = 실제 파일 작업 <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr></p>
 <h4 id="files">Files</h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>파일 실제 작업 수행하는 유틸리티 클래스
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>(static 메서드 기반)
@@ -4821,7 +4821,7 @@ Files = 실제 파일 작업 API</p>
 <ul>
 <li>예외 명확</li>
 <li>NIO 기반이라 성능/확장성 좋음</li>
-<li>실무 표준 API</li>
+<li>실무 표준 <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr></li>
 </ul>
 <h4 id="path">Path</h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>파일 경로 자체를 표현하는 객체.
@@ -4840,6 +4840,12 @@ Files = 실제 파일 작업 API</p>
 <a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>path.getParent();
 <a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>path.normalize();
 </code></pre></div>
+<!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
+
+<!-- ===== DB / SQL ===== -->
+<!-- ===== JVM / Java ===== -->
+<!-- ===== Spring ===== -->
+<!-- ===== 네트워크 / CS ===== -->
 
 
 

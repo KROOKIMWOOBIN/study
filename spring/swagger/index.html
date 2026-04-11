@@ -4362,10 +4362,10 @@
 
   <h1>API 문서화</h1>
 
-<h2 id="api-swagger-springdoc">API 문서화 (Swagger / Springdoc)</h2>
+<h2 id="api-swagger-springdoc"><abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 문서화 (Swagger / Springdoc)</h2>
 <h3 id="_1">왜 쓰는가?</h3>
 <div class="concept-box">
-<p>프론트엔드, 외부 팀, QA가 API를 사용하려면 문서가 필요하다. 수동으로 문서를 작성하면 코드와 문서가 불일치하는 문제가 생긴다. ==Swagger==는 <strong>코드에서 자동으로 API 문서를 생성</strong>한다.</p>
+<p>프론트엔드, 외부 팀, QA가 API를 사용하려면 문서가 필요하다. 수동으로 문서를 작성하면 코드와 문서가 불일치하는 문제가 생긴다. ==Swagger==는 <strong>코드에서 자동으로 <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 문서를 생성</strong>한다.</p>
 </div>
 <h3 id="springdoc-openapi">의존성 (Springdoc OpenAPI)</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>implementation &#39;org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0&#39;
@@ -4422,13 +4422,13 @@
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  swagger-ui:
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    enabled: false
 </code></pre></div>
-<h3 id="swagger-vs-spring-rest-docs">Swagger vs Spring REST Docs</h3>
+<h3 id="swagger-vs-spring-rest-docs">Swagger vs Spring <abbr title="Representational State Transfer. HTTP를 기반으로 자원을 URI로 표현하고 메서드로 행위를 나타내는 아키텍처 스타일.">REST</abbr> Docs</h3>
 <table>
 <thead>
 <tr>
 <th>구분</th>
 <th>Swagger (Springdoc)</th>
-<th>Spring REST Docs</th>
+<th>Spring <abbr title="Representational State Transfer. HTTP를 기반으로 자원을 URI로 표현하고 메서드로 행위를 나타내는 아키텍처 스타일.">REST</abbr> Docs</th>
 </tr>
 </thead>
 <tbody>
@@ -4455,7 +4455,7 @@
 <tr>
 <td>실무 선호</td>
 <td>빠른 개발, 스타트업</td>
-<td>정확성 중시, 공개 API</td>
+<td>정확성 중시, 공개 <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr></td>
 </tr>
 </tbody>
 </table>
@@ -4471,7 +4471,7 @@
 <tbody>
 <tr>
 <td>운영 환경 Swagger 노출</td>
-<td>내부 API 구조 공개</td>
+<td>내부 <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 구조 공개</td>
 <td>Profile로 운영 비활성화</td>
 </tr>
 <tr>
@@ -4482,10 +4482,16 @@
 <tr>
 <td>문서와 실제 동작 불일치</td>
 <td>어노테이션 미업데이트</td>
-<td>Spring REST Docs 고려</td>
+<td>Spring <abbr title="Representational State Transfer. HTTP를 기반으로 자원을 URI로 표현하고 메서드로 행위를 나타내는 아키텍처 스타일.">REST</abbr> Docs 고려</td>
 </tr>
 </tbody>
 </table>
+<!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
+
+<!-- ===== DB / SQL ===== -->
+<!-- ===== JVM / Java ===== -->
+<!-- ===== Spring ===== -->
+<!-- ===== 네트워크 / CS ===== -->
 
 
 

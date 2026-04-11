@@ -4286,23 +4286,23 @@
 </tr>
 <tr>
 <td><strong>동시성</strong></td>
-<td>여러 사용자가 동시에 읽고 쓸 때 충돌 방지 (Lock, MVCC)</td>
+<td>여러 사용자가 동시에 읽고 쓸 때 충돌 방지 (Lock, <abbr title="Multi-Version Concurrency Control. 데이터의 여러 버전을 유지해 Lock 없이 읽기 일관성을 보장하는 동시성 제어 방식.">MVCC</abbr>)</td>
 </tr>
 <tr>
 <td><strong>데이터 회복 &amp; 백업</strong></td>
 <td>장애 발생 시 트랜잭션 로그로 복구 가능</td>
 </tr>
 <tr>
-<td><strong>ACID 보장</strong></td>
+<td><strong><abbr title="Atomicity(원자성)·Consistency(일관성)·Isolation(격리성)·Durability(지속성). 트랜잭션이 안전하게 수행되기 위한 4가지 성질.">ACID</abbr> 보장</strong></td>
 <td>데이터 일관성과 무결성을 트랜잭션 수준에서 보장</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="dbms-database-management-system">DBMS (DataBase Management System)</h2>
+<h2 id="dbms-database-management-system"><abbr title="DataBase Management System. 데이터베이스를 관리하는 소프트웨어. MySQL, PostgreSQL, Oracle 등.">DBMS</abbr> (DataBase Management System)</h2>
 <div class="concept-box">
-<p><strong>DBMS</strong>: 데이터베이스를 관리하는 소프트웨어. 사용자가 SQL로 요청하면 DBMS가 실제 데이터를 읽고 쓴다.</p>
-<p>대표적인 DBMS: MySQL, PostgreSQL, Oracle, MariaDB, SQLite</p>
+<p><strong><abbr title="DataBase Management System. 데이터베이스를 관리하는 소프트웨어. MySQL, PostgreSQL, Oracle 등.">DBMS</abbr></strong>: 데이터베이스를 관리하는 소프트웨어. 사용자가 SQL로 요청하면 DBMS가 실제 데이터를 읽고 쓴다.</p>
+<p>대표적인 <abbr title="DataBase Management System. 데이터베이스를 관리하는 소프트웨어. MySQL, PostgreSQL, Oracle 등.">DBMS</abbr>: MySQL, PostgreSQL, Oracle, MariaDB, SQLite</p>
 </div>
 <table>
 <thead>
@@ -4315,25 +4315,25 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>DDL</strong></td>
+<td><strong><abbr title="Data Definition Language. 테이블·인덱스 등 DB 구조를 정의하는 SQL 분류. CREATE, ALTER, DROP.">DDL</abbr></strong></td>
 <td>Data Definition Language</td>
 <td>구조(스키마) 정의</td>
 <td><code>CREATE</code>, <code>ALTER</code>, <code>DROP</code>, <code>TRUNCATE</code></td>
 </tr>
 <tr>
-<td><strong>DML</strong></td>
+<td><strong><abbr title="Data Manipulation Language. 데이터를 조작하는 SQL 분류. SELECT, INSERT, UPDATE, DELETE.">DML</abbr></strong></td>
 <td>Data Manipulation Language</td>
 <td>데이터 조작</td>
 <td><code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code></td>
 </tr>
 <tr>
-<td><strong>DCL</strong></td>
+<td><strong><abbr title="Data Control Language. 사용자 접근 권한을 제어하는 SQL 분류. GRANT, REVOKE.">DCL</abbr></strong></td>
 <td>Data Control Language</td>
 <td>권한 제어</td>
 <td><code>GRANT</code>, <code>REVOKE</code></td>
 </tr>
 <tr>
-<td><strong>TCL</strong></td>
+<td><strong><abbr title="Transaction Control Language. 트랜잭션을 제어하는 SQL 분류. COMMIT, ROLLBACK, SAVEPOINT.">TCL</abbr></strong></td>
 <td>Transaction Control Language</td>
 <td>트랜잭션 제어</td>
 <td><code>COMMIT</code>, <code>ROLLBACK</code>, <code>SAVEPOINT</code></td>
@@ -4351,12 +4351,12 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ACID/">ACID</a></td>
+<td><a href="../ACID/"><abbr title="Atomicity(원자성)·Consistency(일관성)·Isolation(격리성)·Durability(지속성). 트랜잭션이 안전하게 수행되기 위한 4가지 성질.">ACID</abbr></a></td>
 <td>트랜잭션 4대 성질 — Atomicity, Consistency, Isolation, Durability</td>
 </tr>
 <tr>
 <td><a href="../SQL/">SQL</a></td>
-<td>SELECT 구조, DDL/DML/DCL/TCL 명령어 분류</td>
+<td>SELECT 구조, <abbr title="Data Definition Language. 테이블·인덱스 등 DB 구조를 정의하는 SQL 분류. CREATE, ALTER, DROP.">DDL</abbr>/<abbr title="Data Manipulation Language. 데이터를 조작하는 SQL 분류. SELECT, INSERT, UPDATE, DELETE.">DML</abbr>/<abbr title="Data Control Language. 사용자 접근 권한을 제어하는 SQL 분류. GRANT, REVOKE.">DCL</abbr>/<abbr title="Transaction Control Language. 트랜잭션을 제어하는 SQL 분류. COMMIT, ROLLBACK, SAVEPOINT.">TCL</abbr> 명령어 분류</td>
 </tr>
 <tr>
 <td><a href="../%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%83%80%EC%9E%85/">데이터 타입</a></td>
@@ -4364,27 +4364,27 @@
 </tr>
 <tr>
 <td><a href="../%EC%A0%9C%EC%95%BD%EC%A1%B0%EA%B1%B4/">제약 조건</a></td>
-<td>NOT NULL, UNIQUE, PK, FK, DEFAULT, CHECK</td>
+<td>NOT NULL, UNIQUE, <abbr title="Primary Key. 테이블에서 각 행을 유일하게 식별하는 기본 키. NOT NULL + UNIQUE.">PK</abbr>, <abbr title="Foreign Key. 다른 테이블의 PK를 참조하는 외래 키. 참조 무결성을 보장한다.">FK</abbr>, DEFAULT, CHECK</td>
 </tr>
 <tr>
 <td><a href="../%EC%9D%B8%EB%8D%B1%EC%8A%A4/">인덱스</a></td>
-<td>B-Tree 구조, 클러스터/논클러스터, 성능 트레이드오프</td>
+<td><abbr title="Balanced Tree. 모든 리프 노드까지 깊이가 동일한 자가 균형 탐색 트리. DB 인덱스의 기본 자료구조.">B-Tree</abbr> 구조, 클러스터/논클러스터, 성능 트레이드오프</td>
 </tr>
 <tr>
 <td><a href="../JOIN/">JOIN</a></td>
 <td>INNER / OUTER / CROSS JOIN, 실행 원리</td>
 </tr>
 <tr>
-<td><a href="../JDBC/">JDBC</a></td>
+<td><a href="../JDBC/"><abbr title="Java DataBase Connectivity. Java에서 DB에 접근하기 위한 표준 API 인터페이스.">JDBC</abbr></a></td>
 <td>Java DB 표준 인터페이스 — Connection, Statement, ResultSet</td>
 </tr>
 <tr>
 <td><a href="../%EC%BB%A4%EB%84%A5%EC%85%98%ED%92%80-DataSource/">커넥션 풀 &amp; DataSource</a></td>
-<td>HikariCP, 커넥션 재사용, DataSource 추상화</td>
+<td><abbr title="고성능 JDBC 커넥션 풀 라이브러리. Spring Boot 기본 커넥션 풀로 채택되어 있다.">HikariCP</abbr>, 커넥션 재사용, DataSource 추상화</td>
 </tr>
 <tr>
 <td><a href="../%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/">트랜잭션</a></td>
-<td>ACID, @Transactional, 전파(Propagation), 동기화 매니저</td>
+<td><abbr title="Atomicity(원자성)·Consistency(일관성)·Isolation(격리성)·Durability(지속성). 트랜잭션이 안전하게 수행되기 위한 4가지 성질.">ACID</abbr>, @Transactional, 전파(Propagation), 동기화 매니저</td>
 </tr>
 <tr>
 <td><a href="../%EA%B2%A9%EB%A6%AC%EC%88%98%EC%A4%80/">트랜잭션 격리 수준</a></td>
@@ -4396,6 +4396,12 @@
 </tr>
 </tbody>
 </table>
+<!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
+
+<!-- ===== DB / SQL ===== -->
+<!-- ===== JVM / Java ===== -->
+<!-- ===== Spring ===== -->
+<!-- ===== 네트워크 / CS ===== -->
 
 
 

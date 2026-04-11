@@ -4349,7 +4349,7 @@
 <p><strong>SQL(Structured Query Language)</strong>: 관계형 데이터베이스와 통신하기 위한 표준 언어. 데이터를 정의·조작·제어하는 명령어 집합이다.</p>
 </div>
 <h2 id="_1">왜 쓰는가?</h2>
-<p>DBMS마다 내부 구현이 다르지만, SQL이라는 표준 언어 덕분에 <strong>MySQL, PostgreSQL, Oracle 등 어떤 RDBMS든 같은 방식으로 데이터를 다룰 수 있다.</strong> 개발자가 DBMS 내부 파일 구조를 몰라도 선언적(무엇을 원하는지)으로 데이터를 요청할 수 있다.</p>
+<p>DBMS마다 내부 구현이 다르지만, SQL이라는 표준 언어 덕분에 <strong>MySQL, PostgreSQL, Oracle 등 어떤 RDBMS든 같은 방식으로 데이터를 다룰 수 있다.</strong> 개발자가 <abbr title="DataBase Management System. 데이터베이스를 관리하는 소프트웨어. MySQL, PostgreSQL, Oracle 등.">DBMS</abbr> 내부 파일 구조를 몰라도 선언적(무엇을 원하는지)으로 데이터를 요청할 수 있다.</p>
 <h2 id="_2">특징</h2>
 <ul>
 <li><strong>선언형 언어</strong>: "어떻게"가 아니라 "무엇을" 원하는지 기술한다. 실행 계획은 DBMS의 쿼리 옵티마이저가 결정한다.</li>
@@ -4370,9 +4370,9 @@
 <p>SQL 작성 순서와 실제 실행 순서는 다르다. 실행 순서: <code>FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT</code></p>
 </div>
 <hr />
-<h2 id="ddl-dml-dcl-tcl">DDL · DML · DCL · TCL</h2>
+<h2 id="ddl-dml-dcl-tcl"><abbr title="Data Definition Language. 테이블·인덱스 등 DB 구조를 정의하는 SQL 분류. CREATE, ALTER, DROP.">DDL</abbr> · <abbr title="Data Manipulation Language. 데이터를 조작하는 SQL 분류. SELECT, INSERT, UPDATE, DELETE.">DML</abbr> · <abbr title="Data Control Language. 사용자 접근 권한을 제어하는 SQL 분류. GRANT, REVOKE.">DCL</abbr> · <abbr title="Transaction Control Language. 트랜잭션을 제어하는 SQL 분류. COMMIT, ROLLBACK, SAVEPOINT.">TCL</abbr></h2>
 <p>SQL 명령어는 역할에 따라 4가지로 분류된다.</p>
-<h3 id="ddl-data-definition-language">DDL (Data Definition Language) — 구조 정의</h3>
+<h3 id="ddl-data-definition-language"><abbr title="Data Definition Language. 테이블·인덱스 등 DB 구조를 정의하는 SQL 분류. CREATE, ALTER, DROP.">DDL</abbr> (Data Definition Language) — 구조 정의</h3>
 <table>
 <thead>
 <tr>
@@ -4414,9 +4414,9 @@
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="k">TRUNCATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">member</span><span class="p">;</span><span class="w"> </span><span class="c1">-- DELETE보다 빠르지만 롤백 불가 (MySQL 기준)</span>
 </code></pre></div>
 <div class="danger-box">
-<p><strong>위험</strong>: DDL은 대부분 DBMS에서 <strong>자동 커밋(Auto-Commit)</strong> 된다. <code>DROP</code>, <code>TRUNCATE</code> 실행 후 ROLLBACK이 불가능한 경우가 많다. (PostgreSQL은 트랜잭션 내 DDL 롤백 가능)</p>
+<p><strong>위험</strong>: DDL은 대부분 DBMS에서 <strong>자동 커밋(Auto-Commit)</strong> 된다. <code>DROP</code>, <code>TRUNCATE</code> 실행 후 ROLLBACK이 불가능한 경우가 많다. (PostgreSQL은 트랜잭션 내 <abbr title="Data Definition Language. 테이블·인덱스 등 DB 구조를 정의하는 SQL 분류. CREATE, ALTER, DROP.">DDL</abbr> 롤백 가능)</p>
 </div>
-<h3 id="dml-data-manipulation-language">DML (Data Manipulation Language) — 데이터 조작</h3>
+<h3 id="dml-data-manipulation-language"><abbr title="Data Manipulation Language. 데이터를 조작하는 SQL 분류. SELECT, INSERT, UPDATE, DELETE.">DML</abbr> (Data Manipulation Language) — 데이터 조작</h3>
 <table>
 <thead>
 <tr>
@@ -4454,7 +4454,7 @@
 <div class="warning-box">
 <p><strong>주의</strong>: <code>UPDATE</code>와 <code>DELETE</code>에서 <code>WHERE</code> 절을 빠뜨리면 <strong>전체 행이 영향을 받는다.</strong> 실행 전 반드시 <code>SELECT</code>로 대상 확인을 권장한다.</p>
 </div>
-<h3 id="dcl-data-control-language">DCL (Data Control Language) — 권한 제어</h3>
+<h3 id="dcl-data-control-language"><abbr title="Data Control Language. 사용자 접근 권한을 제어하는 SQL 분류. GRANT, REVOKE.">DCL</abbr> (Data Control Language) — 권한 제어</h3>
 <table>
 <thead>
 <tr>
@@ -4476,7 +4476,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="p">,</span><span class="w"> </span><span class="k">INSERT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;app_user&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="p">;</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">REVOKE</span><span class="w"> </span><span class="k">INSERT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="s1">&#39;app_user&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="p">;</span>
 </code></pre></div>
-<h3 id="tcl-transaction-control-language">TCL (Transaction Control Language) — 트랜잭션 제어</h3>
+<h3 id="tcl-transaction-control-language"><abbr title="Transaction Control Language. 트랜잭션을 제어하는 SQL 분류. COMMIT, ROLLBACK, SAVEPOINT.">TCL</abbr> (Transaction Control Language) — 트랜잭션 제어</h3>
 <table>
 <thead>
 <tr>
@@ -4507,6 +4507,12 @@
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="k">ROLLBACK</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">before_transfer</span><span class="p">;</span>
 <a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="k">COMMIT</span><span class="p">;</span>
 </code></pre></div>
+<!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
+
+<!-- ===== DB / SQL ===== -->
+<!-- ===== JVM / Java ===== -->
+<!-- ===== Spring ===== -->
+<!-- ===== 네트워크 / CS ===== -->
 
 
 

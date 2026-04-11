@@ -5086,7 +5086,7 @@
 <li><strong>롤백(Rollback)</strong>: 작업 중 하나라도 실패했을 때 이전 상태로 되돌림</li>
 </ul>
 <hr />
-<h2 id="acid">ACID 원칙</h2>
+<h2 id="acid"><abbr title="Atomicity(원자성)·Consistency(일관성)·Isolation(격리성)·Durability(지속성). 트랜잭션이 안전하게 수행되기 위한 4가지 성질.">ACID</abbr> 원칙</h2>
 <table>
 <thead>
 <tr>
@@ -5167,7 +5167,7 @@
 <a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>   → 서로 다른 세션이므로 하나의 트랜잭션으로 묶을 수 없음!
 </code></pre></div>
 <p>따라서 하나의 트랜잭션으로 묶으려면 <strong>같은 커넥션</strong>을 Repository A와 B에서 공유해야 한다.</p>
-<h3 id="jdbc">순수 JDBC 방식의 문제점</h3>
+<h3 id="jdbc">순수 <abbr title="Java DataBase Connectivity. Java에서 DB에 접근하기 위한 표준 API 인터페이스.">JDBC</abbr> 방식의 문제점</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// 서비스 계층에서 커넥션을 직접 파라미터로 전달해야 하는 문제</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">accountTransfer</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">fromId</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">toId</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">money</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">SQLException</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="n">Connection</span><span class="w"> </span><span class="n">con</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dataSource</span><span class="p">.</span><span class="na">getConnection</span><span class="p">();</span>
@@ -5187,11 +5187,11 @@
 <a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="p">}</span>
 </code></pre></div>
-<p><strong>문제</strong>: 서비스 계층이 JDBC(기술)에 의존하게 됨. 나중에 JPA로 교체하면 서비스 코드도 변경해야 함.</p>
+<p><strong>문제</strong>: 서비스 계층이 <abbr title="Java DataBase Connectivity. Java에서 DB에 접근하기 위한 표준 API 인터페이스.">JDBC</abbr>(기술)에 의존하게 됨. 나중에 JPA로 교체하면 서비스 코드도 변경해야 함.</p>
 <hr />
 <h2 id="_5">스프링 트랜잭션 추상화</h2>
 <h3 id="platformtransactionmanager">PlatformTransactionManager</h3>
-<p>스프링은 트랜잭션 기술(JDBC, JPA, Hibernate 등)을 추상화한 인터페이스를 제공한다.</p>
+<p>스프링은 트랜잭션 기술(<abbr title="Java DataBase Connectivity. Java에서 DB에 접근하기 위한 표준 API 인터페이스.">JDBC</abbr>, <abbr title="Java Persistence API. Java ORM 표준 명세. 구현체로 Hibernate가 주로 사용된다.">JPA</abbr>, Hibernate 등)을 추상화한 인터페이스를 제공한다.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">PlatformTransactionManager</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">TransactionManager</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="n">TransactionStatus</span><span class="w"> </span><span class="nf">getTransaction</span><span class="p">(</span><span class="nd">@Nullable</span><span class="w"> </span><span class="n">TransactionDefinition</span><span class="w"> </span><span class="n">definition</span><span class="p">);</span>
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">commit</span><span class="p">(</span><span class="n">TransactionStatus</span><span class="w"> </span><span class="n">status</span><span class="p">);</span>
@@ -5213,7 +5213,7 @@
 <a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="nt">datasource</span><span class="p">:</span>
 <a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jdbc:mysql://localhost:3306/testdb</span>
 </code></pre></div>
-<p>JPA 사용 시에는 <code>JpaTransactionManager</code>가 자동 등록된다.</p>
+<p><abbr title="Java Persistence API. Java ORM 표준 명세. 구현체로 Hibernate가 주로 사용된다.">JPA</abbr> 사용 시에는 <code>JpaTransactionManager</code>가 자동 등록된다.</p>
 <hr />
 <h2 id="transactionsynchronizationmanager">트랜잭션 동기화 (TransactionSynchronizationManager)</h2>
 <h3 id="_7">역할</h3>
@@ -5270,7 +5270,7 @@
 <a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a><span class="p">}</span>
 </code></pre></div>
-<h3 id="aop">동작 원리 (AOP 프록시)</h3>
+<h3 id="aop">동작 원리 (<abbr title="Aspect-Oriented Programming. 관점 지향 프로그래밍. 로깅·트랜잭션 등 횡단 관심사를 핵심 로직과 분리해 모듈화한다.">AOP</abbr> 프록시)</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>[클라이언트]
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    ↓ 호출
 <a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>[MemberService$$EnhancerBySpringCGLIB] ← 스프링이 만든 프록시 객체
@@ -5333,7 +5333,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nd">@Transactional</span><span class="p">(</span><span class="n">readOnly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="c1">// 읽기 전용 트랜잭션</span>
 </code></pre></div>
 <ul>
-<li>JPA: Dirty Checking(변경 감지) 스킵 → 성능 향상</li>
+<li><abbr title="Java Persistence API. Java ORM 표준 명세. 구현체로 Hibernate가 주로 사용된다.">JPA</abbr>: Dirty Checking(변경 감지) 스킵 → 성능 향상</li>
 <li>DB 드라이버: 읽기 전용 최적화 가능</li>
 <li>명시적으로 쓰기 불가 표시 → 코드 의도 명확</li>
 </ul>
@@ -5422,7 +5422,7 @@
 <a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="p">}</span>
 </code></pre></div>
-<p><strong>이유</strong>: 스프링 트랜잭션은 AOP 프록시 기반. 같은 클래스 내 메서드 호출은 프록시를 거치지 않음.</p>
+<p><strong>이유</strong>: 스프링 트랜잭션은 <abbr title="Aspect-Oriented Programming. 관점 지향 프로그래밍. 로깅·트랜잭션 등 횡단 관심사를 핵심 로직과 분리해 모듈화한다.">AOP</abbr> 프록시 기반. 같은 클래스 내 메서드 호출은 프록시를 거치지 않음.</p>
 <p><strong>해결책</strong>:
 - 별도 클래스로 분리 (권장)
 - <code>@Transactional</code> 대상 메서드를 직접 외부에서 호출</p>
@@ -5484,6 +5484,12 @@
 <a id="__codelineno-26-18" name="__codelineno-26-18" href="#__codelineno-26-18"></a>    ↓ 성공: commit() / 실패: rollback()
 <a id="__codelineno-26-19" name="__codelineno-26-19" href="#__codelineno-26-19"></a>[응답 반환]
 </code></pre></div>
+<!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
+
+<!-- ===== DB / SQL ===== -->
+<!-- ===== JVM / Java ===== -->
+<!-- ===== Spring ===== -->
+<!-- ===== 네트워크 / CS ===== -->
 
 
 

@@ -4295,13 +4295,13 @@
 <td><code>INT</code> / <code>INTEGER</code></td>
 <td>4 byte</td>
 <td>약 ±21억</td>
-<td>일반 정수, PK</td>
+<td>일반 정수, <abbr title="Primary Key. 테이블에서 각 행을 유일하게 식별하는 기본 키. NOT NULL + UNIQUE.">PK</abbr></td>
 </tr>
 <tr>
 <td><code>BIGINT</code></td>
 <td>8 byte</td>
 <td>약 ±922경</td>
-<td>대용량 PK, 타임스탬프</td>
+<td>대용량 <abbr title="Primary Key. 테이블에서 각 행을 유일하게 식별하는 기본 키. NOT NULL + UNIQUE.">PK</abbr>, 타임스탬프</td>
 </tr>
 <tr>
 <td><code>DECIMAL(p, s)</code></td>
@@ -4425,6 +4425,12 @@
 <li><code>TIMESTAMP</code>의 2038년 문제를 인지하고, 신규 개발에서는 <code>DATETIME</code> + 애플리케이션 UTC 관리를 권장한다.</li>
 <li><code>TEXT</code>/<code>BLOB</code> 컬럼은 인덱스를 전체 컬럼에 걸 수 없다. 필요하면 접두사 인덱스(<code>INDEX (col(100))</code>)를 사용한다.</li>
 </ul>
+<!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
+
+<!-- ===== DB / SQL ===== -->
+<!-- ===== JVM / Java ===== -->
+<!-- ===== Spring ===== -->
+<!-- ===== 네트워크 / CS ===== -->
 
 
 

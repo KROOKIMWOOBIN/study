@@ -4813,7 +4813,7 @@
 <a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    ↓
 <a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>애플리케이션이 커넥션 사용
 </code></pre></div>
-<p>이 과정은 <strong>수십~수백 ms</strong>가 소요된다. HTTP 요청마다 이 과정을 반복하면:
+<p>이 과정은 <strong>수십~수백 ms</strong>가 소요된다. <abbr title="HyperText Transfer Protocol. 웹에서 클라이언트-서버 간 데이터를 주고받는 애플리케이션 계층 프로토콜.">HTTP</abbr> 요청마다 이 과정을 반복하면:
 - 응답 속도가 느려짐
 - DB 서버에 과부하 발생
 - 사용자 경험 저하</p>
@@ -4923,7 +4923,7 @@
 <p>커넥션 획득 방법은 여러 가지가 있다:</p>
 <ol>
 <li><strong>DriverManager</strong> - 매번 새 커넥션 생성</li>
-<li><strong>HikariCP</strong> - 커넥션 풀 (가장 많이 사용)</li>
+<li><strong><abbr title="고성능 JDBC 커넥션 풀 라이브러리. Spring Boot 기본 커넥션 풀로 채택되어 있다.">HikariCP</abbr></strong> - 커넥션 풀 (가장 많이 사용)</li>
 <li><strong>DBCP2</strong> - 아파치 커넥션 풀</li>
 <li><strong>c3p0</strong> - 오래된 커넥션 풀</li>
 </ol>
@@ -4951,7 +4951,7 @@
 </code></pre></div>
 <p>덕분에 커넥션 풀 구현체가 바뀌어도 <strong>애플리케이션 코드는 변경 없음</strong> (설정만 변경).</p>
 <hr />
-<h2 id="hikaricp">HikariCP</h2>
+<h2 id="hikaricp"><abbr title="고성능 JDBC 커넥션 풀 라이브러리. Spring Boot 기본 커넥션 풀로 채택되어 있다.">HikariCP</abbr></h2>
 <h3 id="_12">특징</h3>
 <ul>
 <li>Spring Boot 2.x 이상의 <strong>기본 커넥션 풀</strong></li>
@@ -5218,6 +5218,12 @@ DB도 CPU/메모리가 한정되어 있고, 컨텍스트 스위칭 비용이 오
 <a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="p">}</span>
 </code></pre></div>
+<!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
+
+<!-- ===== DB / SQL ===== -->
+<!-- ===== JVM / Java ===== -->
+<!-- ===== Spring ===== -->
+<!-- ===== 네트워크 / CS ===== -->
 
 
 

@@ -4484,7 +4484,7 @@
 
   <h1>REST API</h1>
 
-<h2 id="rest-api">REST API</h2>
+<h2 id="rest-api"><abbr title="Representational State Transfer. HTTP를 기반으로 자원을 URI로 표현하고 메서드로 행위를 나타내는 아키텍처 스타일.">REST</abbr> <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr></h2>
 <h3 id="controller-vs-restcontroller">@Controller vs @RestController</h3>
 <table>
 <thead>
@@ -4508,7 +4508,7 @@
 <tr>
 <td>사용</td>
 <td>SSR(서버사이드 렌더링)</td>
-<td>REST API</td>
+<td><abbr title="Representational State Transfer. HTTP를 기반으로 자원을 URI로 표현하고 메서드로 행위를 나타내는 아키텍처 스타일.">REST</abbr> <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr></td>
 </tr>
 </tbody>
 </table>
@@ -4516,7 +4516,7 @@
 <div class="concept-box">
 <p>프론트엔드(React, Vue 등)와 분리된 구조에서 서버는 JSON 데이터만 제공하면 된다. <code>@RestController</code>는 반환 객체를 자동으로 JSON으로 변환해 응답한다.</p>
 </div>
-<h3 id="crud-api">기본 CRUD API</h3>
+<h3 id="crud-api">기본 CRUD <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="ni">@RestController</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="ni">@RequestMapping</span>(&quot;/api/members&quot;)
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>public class MemberApiController {
@@ -4563,7 +4563,7 @@
 <a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>// 400 Bad Request
 <a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>ResponseEntity.badRequest().body(errorResponse);
 </code></pre></div>
-<h3 id="http">HTTP 메서드와 의미</h3>
+<h3 id="http"><abbr title="HyperText Transfer Protocol. 웹에서 클라이언트-서버 간 데이터를 주고받는 애플리케이션 계층 프로토콜.">HTTP</abbr> 메서드와 의미</h3>
 <table>
 <thead>
 <tr>
@@ -4606,7 +4606,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="api">API 설계 원칙</h3>
+<h3 id="api"><abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 설계 원칙</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>// Good: 명사, 계층 구조
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>GET    /api/orders
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>GET    /api/orders/{orderId}
@@ -4634,7 +4634,7 @@
 <a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>}
 </code></pre></div>
 <div class="success-box">
-<p>엔티티를 직접 노출하지 않고 DTO를 사용한다. 엔티티 변경이 API 스펙에 영향을 주지 않도록 격리한다.</p>
+<p>엔티티를 직접 노출하지 않고 DTO를 사용한다. 엔티티 변경이 <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 스펙에 영향을 주지 않도록 격리한다.</p>
 </div>
 <h3 id="_2">단점 / 주의할 점</h3>
 <div class="warning-box">
@@ -4649,7 +4649,7 @@
 <tbody>
 <tr>
 <td>엔티티 직접 반환</td>
-<td>순환 참조, 민감 정보 노출, API 스펙 결합</td>
+<td>순환 참조, 민감 정보 노출, <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 스펙 결합</td>
 <td>DTO로 변환 후 반환</td>
 </tr>
 <tr>
@@ -4660,7 +4660,7 @@
 <tr>
 <td>URL에 행위 표현</td>
 <td>RESTful하지 않음</td>
-<td>명사 + HTTP 메서드로 표현</td>
+<td>명사 + <abbr title="HyperText Transfer Protocol. 웹에서 클라이언트-서버 간 데이터를 주고받는 애플리케이션 계층 프로토콜.">HTTP</abbr> 메서드로 표현</td>
 </tr>
 </tbody>
 </table>
@@ -4670,7 +4670,7 @@
 <h3 id="httpmessageconverter-json">HttpMessageConverter — JSON 변환의 실체</h3>
 <blockquote>
 <p><code>@RestController</code>에서 객체를 반환하면 어떻게 JSON 문자열로 바뀌는 걸까?
-그 역할을 하는 것이 <strong>HttpMessageConverter</strong>다. "HTTP 메시지(요청/응답 바디)와 자바 객체 사이를 변환해주는 컨버터"라는 뜻이다.</p>
+그 역할을 하는 것이 <strong>HttpMessageConverter</strong>다. "<abbr title="HyperText Transfer Protocol. 웹에서 클라이언트-서버 간 데이터를 주고받는 애플리케이션 계층 프로토콜.">HTTP</abbr> 메시지(요청/응답 바디)와 자바 객체 사이를 변환해주는 컨버터"라는 뜻이다.</p>
 </blockquote>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>[요청 처리 — @RequestBody]
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>클라이언트 → JSON 문자열 전송
@@ -4769,7 +4769,7 @@
 <tbody>
 <tr>
 <td>데이터 위치</td>
-<td>HTTP 바디 (JSON)</td>
+<td><abbr title="HyperText Transfer Protocol. 웹에서 클라이언트-서버 간 데이터를 주고받는 애플리케이션 계층 프로토콜.">HTTP</abbr> 바디 (JSON)</td>
 <td>URL 파라미터 / 폼 데이터</td>
 </tr>
 <tr>
@@ -4784,11 +4784,17 @@
 </tr>
 <tr>
 <td>주 용도</td>
-<td>REST API</td>
+<td><abbr title="Representational State Transfer. HTTP를 기반으로 자원을 URI로 표현하고 메서드로 행위를 나타내는 아키텍처 스타일.">REST</abbr> <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr></td>
 <td>HTML 폼 제출</td>
 </tr>
 </tbody>
 </table>
+<!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
+
+<!-- ===== DB / SQL ===== -->
+<!-- ===== JVM / Java ===== -->
+<!-- ===== Spring ===== -->
+<!-- ===== 네트워크 / CS ===== -->
 
 
 

@@ -4484,10 +4484,10 @@
 
   <h1>Spring MVC</h1>
 
-<h2 id="spring-mvc">Spring MVC</h2>
+<h2 id="spring-mvc">Spring <abbr title="Model-View-Controller. UI와 비즈니스 로직을 분리하는 아키텍처 패턴. Spring Web MVC의 기반.">MVC</abbr></h2>
 <h3 id="_1">개념</h3>
 <div class="concept-box">
-<p>Spring MVC는 <mark>프론트 컨트롤러 패턴</mark> 기반의 웹 프레임워크다. 모든 HTTP 요청이 <code>DispatcherServlet</code> 하나를 거쳐 적절한 컨트롤러로 분배된다.</p>
+<p>Spring MVC는 <mark>프론트 컨트롤러 패턴</mark> 기반의 웹 프레임워크다. 모든 <abbr title="HyperText Transfer Protocol. 웹에서 클라이언트-서버 간 데이터를 주고받는 애플리케이션 계층 프로토콜.">HTTP</abbr> 요청이 <code>DispatcherServlet</code> 하나를 거쳐 적절한 컨트롤러로 분배된다.</p>
 </div>
 <h3 id="_2">요청 처리 흐름</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>HTTP 요청
@@ -4559,7 +4559,7 @@
 <tbody>
 <tr>
 <td><code>@Controller</code></td>
-<td>MVC 컨트롤러, 뷰 이름 반환</td>
+<td><abbr title="Model-View-Controller. UI와 비즈니스 로직을 분리하는 아키텍처 패턴. Spring Web MVC의 기반.">MVC</abbr> 컨트롤러, 뷰 이름 반환</td>
 </tr>
 <tr>
 <td><code>@RequestMapping</code></td>
@@ -4567,7 +4567,7 @@
 </tr>
 <tr>
 <td><code>@GetMapping</code>, <code>@PostMapping</code> 등</td>
-<td>HTTP 메서드별 단축 어노테이션</td>
+<td><abbr title="HyperText Transfer Protocol. 웹에서 클라이언트-서버 간 데이터를 주고받는 애플리케이션 계층 프로토콜.">HTTP</abbr> 메서드별 단축 어노테이션</td>
 </tr>
 <tr>
 <td><code>@PathVariable</code></td>
@@ -4586,7 +4586,7 @@
 <h3 id="_7">실무에서의 사용</h3>
 <div class="admonition tip">
 <p class="admonition-title">실무 팁</p>
-<p>REST API 위주인 실무에서는 <code>@Controller</code> + 뷰 반환보다 <code>@RestController</code>를 주로 쓴다. Spring MVC의 DispatcherServlet 흐름 자체는 REST API에서도 동일하게 작동한다. (→ <a href="../restapi/">REST API</a> 참고)</p>
+<p><abbr title="Representational State Transfer. HTTP를 기반으로 자원을 URI로 표현하고 메서드로 행위를 나타내는 아키텍처 스타일.">REST</abbr> <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 위주인 실무에서는 <code>@Controller</code> + 뷰 반환보다 <code>@RestController</code>를 주로 쓴다. Spring MVC의 DispatcherServlet 흐름 자체는 <abbr title="Representational State Transfer. HTTP를 기반으로 자원을 URI로 표현하고 메서드로 행위를 나타내는 아키텍처 스타일.">REST</abbr> API에서도 동일하게 작동한다. (→ <a href="../restapi/"><abbr title="Representational State Transfer. HTTP를 기반으로 자원을 URI로 표현하고 메서드로 행위를 나타내는 아키텍처 스타일.">REST</abbr> <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr></a> 참고)</p>
 </div>
 <h3 id="_8">단점 / 주의할 점</h3>
 <div class="warning-box">
@@ -4621,7 +4621,7 @@
 <h2 id="_9">내부 동작 원리</h2>
 <h3 id="dispatcherservlet">DispatcherServlet이 뭔가?</h3>
 <blockquote>
-<p>서블릿(Servlet)은 HTTP 요청을 처리하는 Java 클래스다. 예전에는 URL마다 서블릿 클래스를 따로 만들었다(<code>/login</code> → <code>LoginServlet</code>, <code>/members</code> → <code>MemberServlet</code>...). DispatcherServlet은 이 모든 요청을 <strong>혼자서 다 받아서</strong> 적절한 곳으로 넘겨주는 <strong>중앙 접수창구</strong>다.</p>
+<p>서블릿(Servlet)은 <abbr title="HyperText Transfer Protocol. 웹에서 클라이언트-서버 간 데이터를 주고받는 애플리케이션 계층 프로토콜.">HTTP</abbr> 요청을 처리하는 Java 클래스다. 예전에는 URL마다 서블릿 클래스를 따로 만들었다(<code>/login</code> → <code>LoginServlet</code>, <code>/members</code> → <code>MemberServlet</code>...). DispatcherServlet은 이 모든 요청을 <strong>혼자서 다 받아서</strong> 적절한 곳으로 넘겨주는 <strong>중앙 접수창구</strong>다.</p>
 </blockquote>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>클라이언트 HTTP 요청
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>      ↓
@@ -4724,8 +4724,14 @@
 </code></pre></div>
 <div class="tip-box">
 <p><strong>@RestController는 뭐가 다른가?</strong>
-<code>@RestController</code> = <code>@Controller</code> + <code>@ResponseBody</code>. <code>@ResponseBody</code>가 있으면 뷰 이름 반환 대신 반환 객체를 <strong>HTTP 응답 바디에 직접 직렬화</strong>(JSON 변환)한다. DispatcherServlet 흐름은 동일하지만 ⑤단계(ViewResolver)를 건너뛰고 <code>HttpMessageConverter</code>로 직렬화한다.</p>
+<code>@RestController</code> = <code>@Controller</code> + <code>@ResponseBody</code>. <code>@ResponseBody</code>가 있으면 뷰 이름 반환 대신 반환 객체를 <strong><abbr title="HyperText Transfer Protocol. 웹에서 클라이언트-서버 간 데이터를 주고받는 애플리케이션 계층 프로토콜.">HTTP</abbr> 응답 바디에 직접 직렬화</strong>(JSON 변환)한다. DispatcherServlet 흐름은 동일하지만 ⑤단계(ViewResolver)를 건너뛰고 <code>HttpMessageConverter</code>로 직렬화한다.</p>
 </div>
+<!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
+
+<!-- ===== DB / SQL ===== -->
+<!-- ===== JVM / Java ===== -->
+<!-- ===== Spring ===== -->
+<!-- ===== 네트워크 / CS ===== -->
 
 
 

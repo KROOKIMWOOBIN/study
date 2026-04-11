@@ -4465,7 +4465,7 @@
 <h2 id="transactional">@Transactional</h2>
 <h3 id="_1">왜 쓰는가?</h3>
 <div class="concept-box">
-<p>결제, 주문, 포인트 같은 여러 DB 작업은 <strong>모두 성공하거나 모두 실패</strong>해야 한다. ==@Transactional==은 AOP 기반으로 트랜잭션 시작/커밋/롤백을 자동 처리한다.</p>
+<p>결제, 주문, 포인트 같은 여러 DB 작업은 <strong>모두 성공하거나 모두 실패</strong>해야 한다. ==@Transactional==은 <abbr title="Aspect-Oriented Programming. 관점 지향 프로그래밍. 로깅·트랜잭션 등 횡단 관심사를 핵심 로직과 분리해 모듈화한다.">AOP</abbr> 기반으로 트랜잭션 시작/커밋/롤백을 자동 처리한다.</p>
 </div>
 <h3 id="_2">기본 사용</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="ni">@Service</span>
@@ -4655,7 +4655,7 @@
 <h2 id="_5">내부 동작 원리</h2>
 <h3 id="transactional-aop">@Transactional은 사실 AOP다</h3>
 <blockquote>
-<p><code>@Transactional</code>은 마법이 아니다. 내부적으로 <strong>AOP 프록시</strong>가 트랜잭션 시작/커밋/롤백을 자동으로 처리할 뿐이다.</p>
+<p><code>@Transactional</code>은 마법이 아니다. 내부적으로 <strong><abbr title="Aspect-Oriented Programming. 관점 지향 프로그래밍. 로깅·트랜잭션 등 횡단 관심사를 핵심 로직과 분리해 모듈화한다.">AOP</abbr> 프록시</strong>가 트랜잭션 시작/커밋/롤백을 자동으로 처리할 뿐이다.</p>
 </blockquote>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>@Transactional이 붙은 OrderService 빈을 요청
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  → 스프링 컨테이너가 실제 빈 대신 프록시 반환
@@ -4714,11 +4714,11 @@
 <tbody>
 <tr>
 <td><code>DataSourceTransactionManager</code></td>
-<td>JDBC, MyBatis</td>
+<td><abbr title="Java DataBase Connectivity. Java에서 DB에 접근하기 위한 표준 API 인터페이스.">JDBC</abbr>, MyBatis</td>
 </tr>
 <tr>
 <td><code>JpaTransactionManager</code></td>
-<td>JPA, Hibernate</td>
+<td><abbr title="Java Persistence API. Java ORM 표준 명세. 구현체로 Hibernate가 주로 사용된다.">JPA</abbr>, Hibernate</td>
 </tr>
 <tr>
 <td><code>JtaTransactionManager</code></td>
@@ -4751,6 +4751,12 @@
 <p><strong>REQUIRES_NEW 주의</strong>: 커넥션을 2개 동시에 점유한다. 커넥션 풀 크기가 작으면 데드락 위험.
 최대 커넥션 수보다 많은 중첩 REQUIRES_NEW가 발생하면 모든 스레드가 커넥션을 기다리다 교착 상태에 빠질 수 있다.</p>
 </div>
+<!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
+
+<!-- ===== DB / SQL ===== -->
+<!-- ===== JVM / Java ===== -->
+<!-- ===== Spring ===== -->
+<!-- ===== 네트워크 / CS ===== -->
 
 
 

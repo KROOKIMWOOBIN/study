@@ -4244,9 +4244,9 @@
   
 
 
-<h1 id="acid">ACID</h1>
+<h1 id="acid"><abbr title="Atomicity(원자성)·Consistency(일관성)·Isolation(격리성)·Durability(지속성). 트랜잭션이 안전하게 수행되기 위한 4가지 성질.">ACID</abbr></h1>
 <div class="concept-box">
-<p><strong>ACID</strong>: 트랜잭션이 안전하게 수행되기 위해 보장해야 하는 4가지 성질.</p>
+<p><strong><abbr title="Atomicity(원자성)·Consistency(일관성)·Isolation(격리성)·Durability(지속성). 트랜잭션이 안전하게 수행되기 위한 4가지 성질.">ACID</abbr></strong>: 트랜잭션이 안전하게 수행되기 위해 보장해야 하는 4가지 성질.</p>
 </div>
 <h2 id="_1">왜 필요한가?</h2>
 <p>여러 사용자가 동시에 DB를 읽고 쓰면 데이터가 깨질 수 있다. 예를 들어 계좌 이체 중 서버가 죽으면 돈이 빠져나갔는데 입금이 안 된 상태가 될 수 있다. ACID는 이런 상황에서 데이터 정합성을 보장하는 약속이다.</p>
@@ -4278,7 +4278,7 @@
 <tr>
 <td><strong>D</strong></td>
 <td>Durability (지속성)</td>
-<td>커밋된 데이터는 장애가 발생해도 사라지지 않는다. (WAL 로그로 복구 가능)</td>
+<td>커밋된 데이터는 장애가 발생해도 사라지지 않는다. (<abbr title="Write-Ahead Log. 데이터를 변경하기 전에 로그를 먼저 기록하는 방식. 장애 발생 시 이 로그로 데이터를 복구한다.">WAL</abbr> 로그로 복구 가능)</td>
 </tr>
 </tbody>
 </table>
@@ -4313,6 +4313,12 @@
 <div class="warning-box">
 <p><strong>주의</strong>: Atomicity는 "전부 or 전부 아님"이지만, 이것만으로는 동시 실행 문제가 해결되지 않는다. 동시성 문제는 <strong>Isolation Level</strong>로 별도 제어해야 한다.</p>
 </div>
+<!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
+
+<!-- ===== DB / SQL ===== -->
+<!-- ===== JVM / Java ===== -->
+<!-- ===== Spring ===== -->
+<!-- ===== 네트워크 / CS ===== -->
 
 
 

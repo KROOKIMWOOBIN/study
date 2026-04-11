@@ -4900,8 +4900,8 @@
   
 
 
-<h1 id="http-web">HTTP / Web</h1>
-<p>모든 개발자를 위한 HTTP 웹 기본 지식 정리.</p>
+<h1 id="http-web"><abbr title="HyperText Transfer Protocol. 웹에서 클라이언트-서버 간 데이터를 주고받는 애플리케이션 계층 프로토콜.">HTTP</abbr> / Web</h1>
+<p>모든 개발자를 위한 <abbr title="HyperText Transfer Protocol. 웹에서 클라이언트-서버 간 데이터를 주고받는 애플리케이션 계층 프로토콜.">HTTP</abbr> 웹 기본 지식 정리.</p>
 <hr />
 <table>
 <thead>
@@ -4916,7 +4916,7 @@
 <td>인터넷 프로토콜 — 패킷 기반 데이터 전달</td>
 </tr>
 <tr>
-<td><a href="#tcp---전송-제어-프로토콜transmission-control-protocol">TCP / UDP</a></td>
+<td><a href="#tcp---전송-제어-프로토콜transmission-control-protocol"><abbr title="Transmission Control Protocol. 연결 지향, 신뢰성 있는 데이터 전송을 보장하는 전송 계층 프로토콜.">TCP</abbr> / <abbr title="User Datagram Protocol. 비연결형, 빠르지만 신뢰성을 보장하지 않는 전송 계층 프로토콜.">UDP</abbr></a></td>
 <td>전송 계층 프로토콜 — 신뢰성 vs 속도</td>
 </tr>
 <tr>
@@ -4933,7 +4933,7 @@
 </tr>
 <tr>
 <td><a href="#비연결성">비연결성</a></td>
-<td>HTTP 연결 모델의 특성</td>
+<td><abbr title="HyperText Transfer Protocol. 웹에서 클라이언트-서버 간 데이터를 주고받는 애플리케이션 계층 프로토콜.">HTTP</abbr> 연결 모델의 특성</td>
 </tr>
 <tr>
 <td><a href="#쿠기">쿠키</a></td>
@@ -4945,7 +4945,7 @@
 </tr>
 <tr>
 <td><a href="../Session/">세션</a></td>
-<td>HTTP Session, 세션 탈취 방어</td>
+<td><abbr title="HyperText Transfer Protocol. 웹에서 클라이언트-서버 간 데이터를 주고받는 애플리케이션 계층 프로토콜.">HTTP</abbr> Session, 세션 탈취 방어</td>
 </tr>
 </tbody>
 </table>
@@ -4974,8 +4974,8 @@
 </ul>
 <h4 id="4">인터넷 프로토콜 스택의 4계층</h4>
 <ol>
-<li>애플리케이션 - HTTP, FTP</li>
-<li>전송 계층 - TCP, UDP</li>
+<li>애플리케이션 - <abbr title="HyperText Transfer Protocol. 웹에서 클라이언트-서버 간 데이터를 주고받는 애플리케이션 계층 프로토콜.">HTTP</abbr>, FTP</li>
+<li>전송 계층 - <abbr title="Transmission Control Protocol. 연결 지향, 신뢰성 있는 데이터 전송을 보장하는 전송 계층 프로토콜.">TCP</abbr>, <abbr title="User Datagram Protocol. 비연결형, 빠르지만 신뢰성을 보장하지 않는 전송 계층 프로토콜.">UDP</abbr></li>
 <li>인터넷 계층 - IP</li>
 <li>네트워크 인터페이스 계층</li>
 </ol>
@@ -4998,7 +4998,7 @@
 </tr>
 <tr>
 <td>OS</td>
-<td>TCP, UDP</td>
+<td><abbr title="Transmission Control Protocol. 연결 지향, 신뢰성 있는 데이터 전송을 보장하는 전송 계층 프로토콜.">TCP</abbr>, <abbr title="User Datagram Protocol. 비연결형, 빠르지만 신뢰성을 보장하지 않는 전송 계층 프로토콜.">UDP</abbr></td>
 </tr>
 <tr>
 <td>OS</td>
@@ -5013,28 +5013,28 @@
 <ol>
 <li>프로그램이 전송할 데이터 작성</li>
 <li>소켓 라이브러리를 통해 전달</li>
-<li>TCP 정보 생성, 메시지 데이터 포함</li>
-<li>IP 패킷 생성, TCP 데이터 포함</li>
+<li><abbr title="Transmission Control Protocol. 연결 지향, 신뢰성 있는 데이터 전송을 보장하는 전송 계층 프로토콜.">TCP</abbr> 정보 생성, 메시지 데이터 포함</li>
+<li>IP 패킷 생성, <abbr title="Transmission Control Protocol. 연결 지향, 신뢰성 있는 데이터 전송을 보장하는 전송 계층 프로토콜.">TCP</abbr> 데이터 포함</li>
 </ol>
 <hr />
-<h3 id="tcp-transmission-control-protocol">TCP - 전송 제어 프로토콜(Transmission Control Protocol)</h3>
-<h4 id="tcpip">TCP/IP 패킷 정보</h4>
+<h3 id="tcp-transmission-control-protocol"><abbr title="Transmission Control Protocol. 연결 지향, 신뢰성 있는 데이터 전송을 보장하는 전송 계층 프로토콜.">TCP</abbr> - 전송 제어 프로토콜(Transmission Control Protocol)</h3>
+<h4 id="tcpip"><abbr title="Transmission Control Protocol. 연결 지향, 신뢰성 있는 데이터 전송을 보장하는 전송 계층 프로토콜.">TCP</abbr>/IP 패킷 정보</h4>
 <ul>
 <li>출발지 IP, 목적지 IP, 기타...</li>
 <li>출발지 PORT, 목적지 PORT, 전송 제어, 순서, 검증 정보...</li>
 <li>전송 데이터</li>
 </ul>
-<h4 id="tcp">TCP 특징</h4>
+<h4 id="tcp"><abbr title="Transmission Control Protocol. 연결 지향, 신뢰성 있는 데이터 전송을 보장하는 전송 계층 프로토콜.">TCP</abbr> 특징</h4>
 <ul>
 <li>연결지향</li>
 <li>3 way handshake (가상 연결)</li>
 <li>데이터 전달 보증</li>
 <li>순서 보장</li>
 <li>신뢰할 수 있는 프로토콜</li>
-<li>현재는 대부분 TCP 사용</li>
+<li>현재는 대부분 <abbr title="Transmission Control Protocol. 연결 지향, 신뢰성 있는 데이터 전송을 보장하는 전송 계층 프로토콜.">TCP</abbr> 사용</li>
 </ul>
 <hr />
-<h3 id="udp-user-datagram-protocol">UDP - 사용자 데이터그램 프로토콜(User Datagram Protocol)</h3>
+<h3 id="udp-user-datagram-protocol"><abbr title="User Datagram Protocol. 비연결형, 빠르지만 신뢰성을 보장하지 않는 전송 계층 프로토콜.">UDP</abbr> - 사용자 데이터그램 프로토콜(User Datagram Protocol)</h3>
 <ul>
 <li>데이터 전달 및 순서가 보장되지 않지만, 단순하고 속도가 빠름</li>
 <li>IP + PORT + 체크섬 정도</li>
@@ -5043,8 +5043,8 @@
 <thead>
 <tr>
 <th>구분</th>
-<th>TCP</th>
-<th>UDP</th>
+<th><abbr title="Transmission Control Protocol. 연결 지향, 신뢰성 있는 데이터 전송을 보장하는 전송 계층 프로토콜.">TCP</abbr></th>
+<th><abbr title="User Datagram Protocol. 비연결형, 빠르지만 신뢰성을 보장하지 않는 전송 계층 프로토콜.">UDP</abbr></th>
 </tr>
 </thead>
 <tbody>
@@ -5094,7 +5094,7 @@
 </tr>
 <tr>
 <td>80</td>
-<td>HTTP</td>
+<td><abbr title="HyperText Transfer Protocol. 웹에서 클라이언트-서버 간 데이터를 주고받는 애플리케이션 계층 프로토콜.">HTTP</abbr></td>
 </tr>
 <tr>
 <td>443</td>
@@ -5152,8 +5152,8 @@
 </ul>
 <h4 id="_5">단점</h4>
 <ul>
-<li>TCP/IP 재연결 필요</li>
-<li>지금은 HTTP 지속 연결(Persistent Connection)로 문제 해결</li>
+<li><abbr title="Transmission Control Protocol. 연결 지향, 신뢰성 있는 데이터 전송을 보장하는 전송 계층 프로토콜.">TCP</abbr>/IP 재연결 필요</li>
+<li>지금은 <abbr title="HyperText Transfer Protocol. 웹에서 클라이언트-서버 간 데이터를 주고받는 애플리케이션 계층 프로토콜.">HTTP</abbr> 지속 연결(Persistent Connection)로 문제 해결</li>
 </ul>
 <hr />
 <h3 id="_6">쿠기</h3>
@@ -5243,6 +5243,12 @@
 </tr>
 </tbody>
 </table>
+<!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
+
+<!-- ===== DB / SQL ===== -->
+<!-- ===== JVM / Java ===== -->
+<!-- ===== Spring ===== -->
+<!-- ===== 네트워크 / CS ===== -->
 
 
 

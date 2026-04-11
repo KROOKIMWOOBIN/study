@@ -4438,7 +4438,7 @@
 </div>
 <h2 id="_1">왜 쓰는지</h2>
 <p>인덱스 없이 <code>WHERE id = 100</code> 같은 쿼리를 실행하면 DBMS는 테이블의 <strong>모든 행을 처음부터 끝까지 스캔(Full Table Scan)</strong> 한다. 행이 100만 건이면 100만 번 비교한다.</p>
-<p>인덱스를 만들면 B-Tree 구조에 정렬된 값이 저장되어 <strong>O(log n)</strong> 으로 찾을 수 있다.</p>
+<p>인덱스를 만들면 <abbr title="Balanced Tree. 모든 리프 노드까지 깊이가 동일한 자가 균형 탐색 트리. DB 인덱스의 기본 자료구조.">B-Tree</abbr> 구조에 정렬된 값이 저장되어 <strong>O(log n)</strong> 으로 찾을 수 있다.</p>
 <table>
 <thead>
 <tr>
@@ -4460,8 +4460,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="b-tree">내부 구조 — B-Tree</h2>
-<p>대부분의 RDBMS(MySQL InnoDB, PostgreSQL)는 <strong>B-Tree(Balanced Tree)</strong> 를 기본 인덱스 구조로 사용한다.</p>
+<h2 id="b-tree">내부 구조 — <abbr title="Balanced Tree. 모든 리프 노드까지 깊이가 동일한 자가 균형 탐색 트리. DB 인덱스의 기본 자료구조.">B-Tree</abbr></h2>
+<p>대부분의 RDBMS(MySQL InnoDB, PostgreSQL)는 <strong><abbr title="Balanced Tree. 모든 리프 노드까지 깊이가 동일한 자가 균형 탐색 트리. DB 인덱스의 기본 자료구조.">B-Tree</abbr>(Balanced Tree)</strong> 를 기본 인덱스 구조로 사용한다.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>        [50]
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>       /    \
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>   [25]      [75]
@@ -4508,12 +4508,12 @@
 </tr>
 </tbody>
 </table>
-<p>MySQL InnoDB에서는 <strong>PK가 클러스터형 인덱스</strong>이고, 나머지는 논클러스터형(Secondary Index)이다. Secondary Index의 리프에는 실제 데이터 주소 대신 <strong>PK 값</strong>이 저장되어, PK로 다시 클러스터 인덱스를 조회한다 (Double Lookup).</p>
+<p>MySQL InnoDB에서는 <strong>PK가 클러스터형 인덱스</strong>이고, 나머지는 논클러스터형(Secondary Index)이다. Secondary Index의 리프에는 실제 데이터 주소 대신 <strong><abbr title="Primary Key. 테이블에서 각 행을 유일하게 식별하는 기본 키. NOT NULL + UNIQUE.">PK</abbr> 값</strong>이 저장되어, PK로 다시 클러스터 인덱스를 조회한다 (Double Lookup).</p>
 <h2 id="_2">언제 쓰는지</h2>
 <p>인덱스를 걸면 좋은 컬럼:</p>
 <ul>
 <li><code>WHERE</code> 조건에 자주 등장하는 컬럼</li>
-<li><code>JOIN</code> 조건에 쓰이는 컬럼 (FK 컬럼)</li>
+<li><code>JOIN</code> 조건에 쓰이는 컬럼 (<abbr title="Foreign Key. 다른 테이블의 PK를 참조하는 외래 키. 참조 무결성을 보장한다.">FK</abbr> 컬럼)</li>
 <li><code>ORDER BY</code>, <code>GROUP BY</code> 에 쓰이는 컬럼</li>
 <li><strong>카디널리티(Cardinality)가 높은 컬럼</strong> — 값의 종류가 많을수록 효과적</li>
 </ul>
@@ -4582,6 +4582,12 @@
 <a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">member_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;100&#39;</span><span class="w">  </span><span class="c1">-- member_id가 INT인데 문자열 비교</span>
 </code></pre></div>
 </div>
+<!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
+
+<!-- ===== DB / SQL ===== -->
+<!-- ===== JVM / Java ===== -->
+<!-- ===== Spring ===== -->
+<!-- ===== 네트워크 / CS ===== -->
 
 
 
