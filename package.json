@@ -3,10 +3,12 @@
   "private": true,
   "scripts": {
     "lint": "markdownlint-cli2 \"docs/**/*.md\"",
-    "lint:links": "find docs -name '*.md' | xargs -I {} markdown-link-check {}"
+    "lint:links": "find docs -name '*.md' | xargs -I {} markdown-link-check {}",
+    "prepare": "husky"
   },
   "devDependencies": {
     "markdownlint-cli2": "^0.14.0",
-    "markdown-link-check": "^3.12.0"
+    "markdown-link-check": "^3.12.0",
+    "husky": "^9.0.0"
   }
 }
