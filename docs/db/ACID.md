@@ -46,6 +46,37 @@ COMMIT; -- 둘 다 성공해야 커밋, 아니면 ROLLBACK
 </div>
 </div>
 
+## 어떻게 쓰는지
+
+개발자는 트랜잭션 경계를 선언하는 것으로 ACID를 활용한다.
+
+```sql
+-- SQL 직접 사용
+BEGIN;
+UPDATE account SET balance = balance - 10000 WHERE id = 'A';
+UPDATE account SET balance = balance + 10000 WHERE id = 'B';
+COMMIT; -- 모두 성공 시 확정
+-- 중간에 오류 발생 시 ROLLBACK으로 전체 취소
+```
+
+```java
+// Spring @Transactional 사용
+@Service
+public class AccountService {
+
+    @Transactional  // 메서드 전체가 하나의 트랜잭션으로 묶임
+    public void transfer(String from, String to, int amount) {
+        accountRepository.decrease(from, amount);
+        accountRepository.increase(to, amount); // 여기서 예외 → 전체 ROLLBACK
+    }
+}
+```
+
+## 언제 쓰는지
+
+- 금융 거래, 주문/결제처럼 **여러 테이블에 걸친 데이터 변경이 원자적으로 처리되어야 할 때**
+- 단순 조회(`SELECT`)만 하는 경우에는 트랜잭션이 불필요하거나 읽기 전용으로 선언한다.
+
 ## 특징
 
 - ACID는 **DBMS가 내부적으로 보장**한다. 개발자가 직접 구현하는 게 아니다.

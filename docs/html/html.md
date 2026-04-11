@@ -86,6 +86,17 @@
 | 속도 | 상대적으로 느림 | 빠름 |
 | 용도 | 일반 웹, 파일 전송 | 스트리밍, 게임, DNS |
 
+#### TCP vs UDP 선택 기준
+
+- **TCP 선택**: 데이터 유실이 허용되지 않는 경우 (HTTP, 파일 전송, 이메일, 금융 거래)
+- **UDP 선택**: 실시간성이 중요하고 약간의 유실이 허용되는 경우 (화상통화, 온라인 게임, 라이브 스트리밍)
+
+<div class="tip-box" markdown="1">
+
+**팁**: HTTP/3(QUIC)은 UDP 기반이다. TCP의 Head-of-Line Blocking 문제를 해결하기 위해 UDP 위에 신뢰성을 직접 구현했다.
+
+</div>
+
 ---
 
 ### PORT
@@ -143,6 +154,15 @@ https://www.google.com:443/search?q=hello&hl=ko
 - 예) 로그인이 필요 없는 페이지
 
 ---
+
+### HTTP 버전
+
+| 버전 | 특징 |
+| --- | --- |
+| HTTP/1.0 | 요청마다 TCP 연결 수립·종료. 매우 비효율적 |
+| HTTP/1.1 | 지속 연결(Persistent Connection), 파이프라이닝 도입. 현재도 가장 널리 사용 |
+| HTTP/2 | 멀티플렉싱(한 연결에서 여러 요청 병렬 처리), 헤더 압축(HPACK), 서버 푸시 |
+| HTTP/3 | UDP 기반 QUIC 프로토콜. TCP Head-of-Line Blocking 해결, 연결 수립 속도 향상 |
 
 ### 비연결성
 #### 장점
