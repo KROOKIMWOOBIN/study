@@ -90,7 +90,7 @@ public class MemberController {
 
 > 서블릿(Servlet)은 HTTP 요청을 처리하는 Java 클래스다. 예전에는 URL마다 서블릿 클래스를 따로 만들었다(`/login` → `LoginServlet`, `/members` → `MemberServlet`...). DispatcherServlet은 이 모든 요청을 **혼자서 다 받아서** 적절한 곳으로 넘겨주는 **중앙 접수창구**다.
 
-```
+```text
 클라이언트 HTTP 요청
       ↓
   Servlet Container (Tomcat)
@@ -104,7 +104,7 @@ public class MemberController {
 
 실제로 `DispatcherServlet`은 `doDispatch()` 메서드 하나로 모든 요청을 처리한다.
 
-```
+```text
 ① HandlerMapping 탐색
    → 등록된 HandlerMapping 목록 순회
    → URL, HTTP 메서드, 헤더 조건과 일치하는 @RequestMapping 메서드를 찾음
@@ -144,7 +144,7 @@ public class MemberController {
 public String find(@PathVariable Long id, Model model) { ... }
 ```
 
-```
+```text
 RequestMappingHandlerAdapter
   → 파라미터 목록 검사
   → @PathVariable Long id
@@ -169,7 +169,7 @@ RequestMappingHandlerAdapter
 
 `RequestMappingHandlerMapping`은 애플리케이션 시작 시점에 모든 `@Controller` 클래스를 스캔해 `@RequestMapping` 정보를 **Map에 미리 캐싱**해 둔다.
 
-```
+```text
 애플리케이션 시작
   → @Controller 빈들 스캔
   → 각 메서드의 @RequestMapping, @GetMapping 등 정보 읽음

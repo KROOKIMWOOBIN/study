@@ -70,7 +70,7 @@ enum Grade {
 
 Grade grade = Grade.GOLD;
 int point = grade.getPoint();
-``` 
+```
 
 ### 장점
 - 타입 안정성 (Type Safety)

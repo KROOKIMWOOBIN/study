@@ -134,7 +134,7 @@ public ResponseEntity<ErrorResponse> handleValidation(MethodArgumentNotValidExce
 > Bean Validation은 Java 표준 명세(JSR-380)다. 스프링이 만든 것이 아니라 **자바 생태계 표준**이고, Hibernate Validator가 대표적인 구현체다.
 > `spring-boot-starter-validation`을 추가하면 Hibernate Validator가 자동으로 등록된다.
 
-```
+```text
 표준 (명세)              구현체
 Bean Validation API  →  Hibernate Validator
 (javax.validation.*)     (실제 검증 로직)
@@ -142,7 +142,7 @@ Bean Validation API  →  Hibernate Validator
 
 ### @Valid 처리 흐름 — 어디서 검증이 실행되나?
 
-```
+```text
 컨트롤러 메서드 호출 직전
   ↓
 RequestMappingHandlerAdapter

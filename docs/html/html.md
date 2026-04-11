@@ -18,8 +18,8 @@
 
 ---
 
-### IP - Internet Protocol
-#### 인터넷 프로토콜 역할
+## IP - Internet Protocol
+### 인터넷 프로토콜 역할
 - 지정한 IP(IP Address)에 데이터 전달
 - 패킷(Packet)이라는 통신 단위로 데이터 전달
   - 노드(중간다리)를 통해 패킷을 전달
@@ -113,7 +113,7 @@
 - Identifier : 다른 항목과 구분하는데 필요한 정보
 
 #### URL - Resource Locator (리소스가 있는 위치를 지정)
-```
+```text
 scheme://[userinfo@]host[:port][/path][?query][#fragment]
 https://www.google.com:443/search?q=hello&hl=ko
 ```
@@ -186,7 +186,7 @@ https://www.google.com:443/search?q=hello&hl=ko
 | `s-maxage` | 프록시 서버 전용 유효시간 |
 
 #### 캐시 무효화
-```
+```text
 Cache-Control: no-cache, no-store, must-revalidate
 Pragma: no-cache
 ```

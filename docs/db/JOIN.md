@@ -30,7 +30,7 @@ INNER JOIN orders o ON m.id = o.member_id;
 - 주문이 없는 회원은 결과에 포함되지 않는다.
 - `JOIN`만 쓰면 기본값이 `INNER JOIN`이다.
 
-```
+```text
 member:          orders:           결과:
 id | name        id | member_id    name  | amount
 1  | 김철수       1  | 1    ← 매칭  김철수 | 10000
@@ -50,7 +50,7 @@ LEFT JOIN orders o ON m.id = o.member_id;
 - 오른쪽 테이블(orders)에 매칭되는 행이 없으면 `NULL`로 채운다.
 - "주문이 없는 회원도 포함해서 보고 싶을 때" 사용한다.
 
-```
+```text
 결과:
 name  | amount
 김철수 | 10000

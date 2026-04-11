@@ -175,7 +175,7 @@ POST /api/auth/refresh
 > Spring Security는 서블릿 필터(Filter) 기반으로 동작한다.
 > HTTP 요청이 스프링 컨트롤러에 도달하기 **전에**, 필터 체인을 통과하면서 인증/인가를 처리한다.
 
-```
+```text
 클라이언트 HTTP 요청
   ↓
 [Servlet Filter Chain — Tomcat 레벨]
@@ -201,7 +201,7 @@ POST /api/auth/refresh
 > `SecurityContextHolder`는 현재 인증된 사용자 정보를 저장하는 **ThreadLocal 기반 저장소**다.
 > 요청을 처리하는 스레드에 "지금 누가 로그인해 있는가"를 기억해 두는 것이다.
 
-```
+```java
 JWT 필터에서 토큰 검증 성공 시:
   UsernamePasswordAuthenticationToken auth
       = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities())
@@ -222,7 +222,7 @@ JWT 필터에서 토큰 검증 성공 시:
 
 ### JWT 인증 필터 — 전체 흐름
 
-```
+```text
 모든 HTTP 요청
   → JwtAuthenticationFilter.doFilterInternal()
        ① Authorization 헤더에서 "Bearer {token}" 추출
@@ -242,7 +242,7 @@ AuthorizationFilter (마지막 필터):
 
 폼 로그인 방식일 때 `UsernamePasswordAuthenticationFilter`가 인증을 처리하는 구조.
 
-```
+```text
 UsernamePasswordAuthenticationFilter
   → AuthenticationManager.authenticate(token)
        → ProviderManager (AuthenticationManager 구현체)

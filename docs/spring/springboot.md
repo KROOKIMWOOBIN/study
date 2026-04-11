@@ -143,7 +143,7 @@ app:
 
 `@EnableAutoConfiguration`이 실제로 어떻게 클래스패스를 스캔해 Bean을 자동 등록하는지 단계별로 설명한다.
 
-```
+```java
 ① @SpringBootApplication
       ↓ 포함
    @EnableAutoConfiguration
@@ -194,7 +194,7 @@ public class DataSourceAutoConfiguration {
 
 ### SpringApplication.run() 부트스트랩 순서
 
-```
+```java
 SpringApplication.run(Application.class, args)
   ① 환경(Environment) 준비
      → application.yml 로딩

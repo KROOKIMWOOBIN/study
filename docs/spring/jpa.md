@@ -129,7 +129,7 @@ public class Member {
 > 영속성 컨텍스트(Persistence Context)는 엔티티를 **관리하는 메모리 공간**이다.
 > "영속(永續)"은 "계속 유지된다"는 뜻 — 트랜잭션이 끝날 때까지 엔티티를 메모리에 보관하고 변경을 추적한다.
 
-```
+```java
 EntityManager em;  // 영속성 컨텍스트를 감싸는 인터페이스
 
 트랜잭션 시작
@@ -156,7 +156,7 @@ em.find(Member.class, 1L)  // 두 번째 호출
 
 > "Dirty"는 "변경됨"을 의미한다. JPA가 엔티티의 변경을 감지해 자동으로 UPDATE 쿼리를 만드는 것이 Dirty Checking이다.
 
-```
+```java
 @Transactional
 public void updateName(Long id, String newName) {
     Member member = memberRepository.findById(id).orElseThrow();
@@ -180,7 +180,7 @@ public void updateName(Long id, String newName) {
 
 ### 엔티티 생명주기 4단계
 
-```
+```text
 비영속 (new/transient)
   → 영속성 컨텍스트와 무관, 그냥 자바 객체
   Member member = new Member("김철수");
@@ -202,7 +202,7 @@ public void updateName(Long id, String newName) {
 
 > OSIV(Open Session In View): HTTP 요청 시작부터 끝까지 영속성 컨텍스트를 열어두는 방식.
 
-```
+```text
 Spring Boot 기본값: spring.jpa.open-in-view=true (OSIV 활성화)
 
 장점: 컨트롤러, 뷰에서도 LAZY 로딩 가능

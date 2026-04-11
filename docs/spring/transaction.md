@@ -135,7 +135,7 @@ member.getOrders().size();  // LazyInitializationException!
 
 > `@Transactional`은 마법이 아니다. 내부적으로 **AOP 프록시**가 트랜잭션 시작/커밋/롤백을 자동으로 처리할 뿐이다.
 
-```
+```java
 @Transactional이 붙은 OrderService 빈을 요청
   → 스프링 컨테이너가 실제 빈 대신 프록시 반환
   → orderService.placeOrder() 호출
@@ -154,7 +154,7 @@ member.getOrders().size();  // LazyInitializationException!
 
 > 한 트랜잭션 안에서 여러 Repository가 같은 커넥션을 써야 한다. 어떻게 같은 커넥션을 공유할까?
 
-```
+```java
 @Transactional
 public void placeOrder(OrderRequest request) {
     orderRepository.save(order);         // DB 연산 1
@@ -163,7 +163,7 @@ public void placeOrder(OrderRequest request) {
 }
 ```
 
-```
+```text
 TransactionSynchronizationManager (내부: ThreadLocal<Map<DataSource, Connection>>)
 
 ① 트랜잭션 시작 시
@@ -199,7 +199,7 @@ TransactionSynchronizationManager (내부: ThreadLocal<Map<DataSource, Connectio
 | `JpaTransactionManager` | JPA, Hibernate |
 | `JtaTransactionManager` | 분산 트랜잭션 (XA) |
 
-```
+```java
 @Transactional
   → TransactionInterceptor
   → PlatformTransactionManager.getTransaction()
@@ -211,7 +211,7 @@ TransactionSynchronizationManager (내부: ThreadLocal<Map<DataSource, Connectio
 
 ### REQUIRES_NEW 동작 원리 — 왜 커넥션이 2개 필요한가?
 
-```
+```java
 @Transactional                          ← 외부 트랜잭션 (Connection A)
 public void placeOrder() {
     orderRepository.save(order);

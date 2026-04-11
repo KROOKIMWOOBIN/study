@@ -383,7 +383,7 @@ Map<Boolean, Long> passCount = students.stream()
 **왜 쓰는가:**
 `groupingBy` / `partitioningBy`는 그룹을 나누는 것까지만 한다. 나눠진 각 그룹에 **추가 집계(개수, 합계, 변환 등)** 를 적용하고 싶을 때 downstream collector를 두 번째 인자로 전달한다.
 
-```
+```text
 groupingBy(분류기준, downstream)
                       ↑
            각 그룹의 List<T>에 이 collector를 적용

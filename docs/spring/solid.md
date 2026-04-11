@@ -226,7 +226,7 @@ private MemberRepository memberRepository; // 타입만 있고
 
 ## Spring이 SOLID를 실현하는 방법
 
-```
+```text
 [개발자]
   OrderServiceImpl은 MemberRepository, DiscountPolicy 인터페이스에만 의존하여 작성
 

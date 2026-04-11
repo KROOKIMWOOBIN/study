@@ -146,7 +146,7 @@ public Member findById(Long id) {
 
 ### 예외가 터지면 어디서 잡히나?
 
-```
+```text
 컨트롤러 메서드에서 예외 발생
   ↓
 DispatcherServlet.processDispatchResult()
@@ -162,7 +162,7 @@ DispatcherServlet.processDispatchResult()
 
 ### ExceptionHandlerExceptionResolver — @ExceptionHandler 탐색 순서
 
-```
+```java
 예외 발생 (MemberNotFoundException)
   ↓
 ExceptionHandlerExceptionResolver.resolveException()
@@ -192,7 +192,7 @@ public ResponseEntity<?> handleAll(Exception e) { ... }
 > `@RestControllerAdvice` = `@ControllerAdvice` + `@ResponseBody`
 > `@ControllerAdvice`는 스프링 시작 시점에 **모든 컨트롤러에 적용되는 AOP 형태의 글로벌 설정**이다.
 
-```
+```text
 스프링 컨테이너 시작
   → @ControllerAdvice 빈 스캔
   → ExceptionHandlerExceptionResolver에 등록
@@ -201,7 +201,7 @@ public ResponseEntity<?> handleAll(Exception e) { ... }
 
 ### 예외 처리 전체 흐름 — 실제 요청부터 응답까지
 
-```
+```text
 POST /api/members  (이메일 중복)
   ↓
 MemberController.create()

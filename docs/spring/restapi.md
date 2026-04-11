@@ -140,7 +140,7 @@ public class MemberResponse {
 > `@RestController`에서 객체를 반환하면 어떻게 JSON 문자열로 바뀌는 걸까?
 > 그 역할을 하는 것이 **HttpMessageConverter**다. "HTTP 메시지(요청/응답 바디)와 자바 객체 사이를 변환해주는 컨버터"라는 뜻이다.
 
-```
+```java
 [요청 처리 — @RequestBody]
 클라이언트 → JSON 문자열 전송
   → RequestResponseBodyMethodProcessor
@@ -175,7 +175,7 @@ public class MemberResponse {
 
 `MappingJackson2HttpMessageConverter`는 내부적으로 Jackson의 **ObjectMapper**를 사용한다.
 
-```
+```java
 직렬화 (자바 → JSON):
   MemberResponse {id=1, name="김철수", email="kim@test.com"}
   ObjectMapper.writeValueAsString()

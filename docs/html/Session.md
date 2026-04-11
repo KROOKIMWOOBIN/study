@@ -28,7 +28,7 @@ HTTP는 ==무상태(Stateless) 프로토콜==이다. 이 문제를 해결하기 
   ```http
   Session ID: ABC123
   Session Data: { userId: 10, role: ADMIN }
-  ``` 
+  ```
     - 서버가 응답 헤더에 쿠기 설정
   ```http
   Set-Cookie: JSESSIONID=ABC123; HttpOnly; Path=/

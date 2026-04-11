@@ -96,7 +96,7 @@ public class OrderServiceImpl implements OrderService {
 이제 할인 정책을 바꾸고 싶으면 `AppConfig`만 수정하면 된다.
 `OrderServiceImpl`은 건드리지 않는다. OCP 준수, DIP 준수.
 
-```
+```text
 AppConfig.discountPolicy() → return new FixDiscountPolicy();  ← 이 한 줄만 바꾸면 됨
 OrderServiceImpl             → 코드 변경 없음 ✓
 ```
@@ -116,13 +116,13 @@ OrderServiceImpl             → 코드 변경 없음 ✓
 </div>
 
 원래 방식:
-```
+```text
 OrderServiceImpl이 직접 결정 → new MemoryMemberRepository()
 OrderServiceImpl이 직접 결정 → new FixDiscountPolicy()
 ```
 
 IoC 적용 후:
-```
+```text
 AppConfig가 결정 → OrderServiceImpl에게 어떤 구현체를 줄지 AppConfig가 정함
 OrderServiceImpl은 받기만 함 — 자신이 어떤 구현체를 사용하는지도 모름
 ```
@@ -172,7 +172,7 @@ public class OrderServiceImpl {
 
 **동적 의존관계**: 런타임에 실제 구현체가 결정된다. 앱이 실행되어야 알 수 있다.
 
-```
+```text
 컴파일 시점:  OrderServiceImpl → MemberRepository (인터페이스)
 런타임:       OrderServiceImpl → MemoryMemberRepository (실제 구현체가 주입됨)
 ```
@@ -212,7 +212,7 @@ OrderService orderService = ac.getBean("orderService", OrderService.class);
 
 스프링 컨테이너가 해주는 일:
 
-```
+```text
 1. 빈(Bean) 생성 — @Bean이 붙은 메서드를 호출하여 객체 생성
 2. 의존관계 연결 — 생성된 빈들 사이의 의존관계를 연결(DI)
 3. 싱글톤 보장  — 같은 빈을 여러 번 요청해도 같은 인스턴스 반환
@@ -374,7 +374,7 @@ public class B {
 }
 ```
 
-```
+```text
 생성자 주입: 애플리케이션 시작 시점에 즉시 BeanCreationException 발생 → 배포 전에 발견 ✓
 필드/Setter:  실제 메서드 호출 시점에 StackOverflowError → 운영 중에 발견 ✗
 ```
@@ -411,7 +411,7 @@ public class B {
 
 </div>
 
-```
+```text
 BeanFactory
   └─ ApplicationContext
        ├─ MessageSource          — 국제화(i18n): getMessage("hello", Locale.KOREAN)
@@ -440,7 +440,7 @@ BeanFactory
 
 `new AnnotationConfigApplicationContext(AppConfig.class)` 한 줄이 실행될 때 내부에서 일어나는 일:
 
-```
+```java
 ① @Configuration 클래스 로딩
    AppConfig.class를 읽어 BeanDefinition(메타데이터) 수집
    — 클래스명, 스코프, 의존관계, 초기화 메서드 등을 Map에 저장

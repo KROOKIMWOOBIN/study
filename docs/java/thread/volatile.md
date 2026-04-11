@@ -54,7 +54,7 @@ volatile boolean running = true;
   - 코드 작성 순서대로 실행되는 것처럼 보이는가?
     - 컴파일러 / JIT / CPU는 성능을 위해 재정렬 가능
     - 해결 수단: volatile, synchronized, happens-before 규칙
-    
+
 
 ## happens-before
 - A happens-before B
