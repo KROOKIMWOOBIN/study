@@ -61,6 +61,7 @@
 | [제약 조건](./제약조건.md) | NOT NULL, UNIQUE, PK, FK, DEFAULT, CHECK |
 | [인덱스](./인덱스.md) | B-Tree 구조, 클러스터/논클러스터, 성능 트레이드오프 |
 | [JOIN](./JOIN.md) | INNER / OUTER / CROSS JOIN, 실행 원리 |
+| [정규화](./정규화.md) | 1NF·2NF·3NF·BCNF, 이상(Anomaly), 역정규화 트레이드오프 |
 | [그룹과 집계](./집계.md) | GROUP BY, HAVING, COUNT·SUM·AVG·MAX·MIN |
 | [데이터 가공](./데이터가공.md) | CASE WHEN, COALESCE, 문자열·숫자·날짜 함수, CAST |
 | [JDBC](./JDBC.md) | Java DB 표준 인터페이스 — Connection, Statement, ResultSet |
