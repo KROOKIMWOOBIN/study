@@ -162,6 +162,9 @@ nav:
     - AOP: spring/aop.md
     - Transaction: spring/transaction.md
     - Logging: spring/logging.md
+    - JDBC: spring/JDBC.md
+    - 커넥션풀·DataSource: spring/커넥션풀-DataSource.md
+    - DB 예외처리: spring/db예외처리.md
     - JPA: spring/jpa.md
     - QueryDSL: spring/querydsl.md
     - JPA 성능 최적화: spring/jpa-performance.md
@@ -175,20 +178,17 @@ nav:
     - MSA: spring/msa.md
   - DB:
     - 개요: db/db.md
-    - ACID: db/ACID.md
     - SQL: db/SQL.md
     - 데이터 타입: db/데이터타입.md
     - 제약 조건: db/제약조건.md
-    - 인덱스: db/인덱스.md
-    - JOIN: db/JOIN.md
     - 정규화: db/정규화.md
+    - JOIN: db/JOIN.md
     - 그룹과 집계: db/집계.md
     - 데이터 가공: db/데이터가공.md
-    - JDBC: db/JDBC.md
-    - 커넥션풀·DataSource: db/커넥션풀-DataSource.md
+    - 인덱스: db/인덱스.md
     - 트랜잭션: db/트랜잭션.md
+    - ACID: db/ACID.md
     - 격리 수준: db/격리수준.md
-    - 예외처리: db/예외처리.md
   - JVM:
     - 개요: jvm/jvm.md
     - JVM 상세: jvm/JVM개요.md
