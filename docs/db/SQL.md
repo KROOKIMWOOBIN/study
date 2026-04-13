@@ -28,8 +28,43 @@ ORDER BY 정렬 기준 컬럼         -- 6. 정렬
 LIMIT    n;                     -- 7. 행 수 제한
 ```
 
-!!! note "실행 순서"
-    SQL 작성 순서와 실제 실행 순서는 다르다. 실행 순서: `FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT`
+---
+
+## SQL 실행 순서
+
+SQL은 **작성 순서**와 **실제 실행 순서**가 다르다. 옵티마이저가 아래 순서로 처리한다.
+
+| 실행 순서 | 절 | 역할 |
+|----------|----|------|
+| 1 | `FROM` | 대상 테이블 결정 (JOIN 포함) |
+| 2 | `WHERE` | 행 단위 필터링 (집계 전) |
+| 3 | `GROUP BY` | 지정 컬럼 기준으로 그룹화 |
+| 4 | `HAVING` | 그룹 단위 필터링 (집계 후) |
+| 5 | `SELECT` | 출력할 컬럼·별칭 확정 |
+| 6 | `ORDER BY` | 정렬 |
+| 7 | `LIMIT` | 행 수 제한 |
+
+<div class="warning-box" markdown="1">
+
+**SELECT 별칭(alias)은 WHERE·HAVING에서 쓸 수 없다** — `SELECT price * 0.9 AS 할인가`로 정의한 별칭은 `WHERE 할인가 > 1000` 에서 사용 불가. SELECT(5번)가 WHERE(2번)보다 늦게 실행되기 때문이다.
+
+```sql
+-- 잘못된 예 (MySQL에서 오류)
+SELECT price * 0.9 AS 할인가 FROM product WHERE 할인가 > 1000; -- ❌
+
+-- 올바른 예
+SELECT price * 0.9 AS 할인가 FROM product WHERE price * 0.9 > 1000; -- ✅
+```
+
+단, `ORDER BY`는 예외적으로 SELECT 별칭 사용 가능 (MySQL 기준).
+
+</div>
+
+<div class="tip-box" markdown="1">
+
+**성능 포인트**: `WHERE`이 `GROUP BY` 전에 실행되므로, 집계 전에 최대한 많은 행을 걸러낼수록 빠르다. `HAVING` 대신 `WHERE`로 필터링 가능한 조건은 `WHERE`에 두는 것이 좋다.
+
+</div>
 
 ---
 

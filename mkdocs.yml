@@ -181,6 +181,8 @@ nav:
     - 제약 조건: db/제약조건.md
     - 인덱스: db/인덱스.md
     - JOIN: db/JOIN.md
+    - 그룹과 집계: db/집계.md
+    - 데이터 가공: db/데이터가공.md
     - JDBC: db/JDBC.md
     - 커넥션풀·DataSource: db/커넥션풀-DataSource.md
     - 트랜잭션: db/트랜잭션.md
