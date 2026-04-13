@@ -178,6 +178,7 @@ nav:
     - MSA: spring/msa.md
   - DB:
     - 개요: db/db.md
+    - ACID: db/ACID.md
     - SQL: db/SQL.md
     - 데이터 타입: db/데이터타입.md
     - 제약 조건: db/제약조건.md
@@ -187,7 +188,6 @@ nav:
     - 데이터 가공: db/데이터가공.md
     - 인덱스: db/인덱스.md
     - 트랜잭션: db/트랜잭션.md
-    - ACID: db/ACID.md
     - 격리 수준: db/격리수준.md
   - JVM:
     - 개요: jvm/jvm.md

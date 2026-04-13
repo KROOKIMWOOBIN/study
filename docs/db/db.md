@@ -55,6 +55,7 @@
 
 | 주제 | 한 줄 설명 |
 |------|-----------|
+| [ACID](./ACID.md) | 트랜잭션 4대 성질 — Atomicity, Consistency, Isolation, Durability |
 | [SQL](./SQL.md) | SELECT 구조, DDL/DML/DCL/TCL 명령어 분류, 실행 순서 |
 | [데이터 타입](./데이터타입.md) | 숫자형, 문자형, 날짜형, JSON, BLOB 비교 |
 | [제약 조건](./제약조건.md) | NOT NULL, UNIQUE, PK, FK, DEFAULT, CHECK |
@@ -64,5 +65,4 @@
 | [데이터 가공](./데이터가공.md) | CASE WHEN, COALESCE, 문자열·숫자·날짜 함수, CAST |
 | [인덱스](./인덱스.md) | B-Tree 구조, 클러스터/논클러스터, 성능 트레이드오프 |
 | [트랜잭션](./트랜잭션.md) | BEGIN/COMMIT/ROLLBACK, 전파(Propagation), 동기화 매니저 |
-| [ACID](./ACID.md) | 트랜잭션 4대 성질 — Atomicity, Consistency, Isolation, Durability |
 | [격리 수준](./격리수준.md) | READ UNCOMMITTED ~ SERIALIZABLE, Dirty Read / Phantom Read |
