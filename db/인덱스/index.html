@@ -3800,44 +3800,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#vs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        클러스터형 vs 논클러스터형
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        언제 쓰는지
+        다른 인덱스 구조
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        사용 방법
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="사용 방법">
+    <nav class="md-nav" aria-label="다른 인덱스 구조">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#hash-index" class="md-nav__link">
     <span class="md-ellipsis">
       
-        인덱스 생성
+        Hash Index
       
     </span>
   </a>
@@ -3845,10 +3823,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#full-text-index" class="md-nav__link">
     <span class="md-ellipsis">
       
-        인덱스 조회·삭제
+        Full-Text Index
       
     </span>
   </a>
@@ -3856,10 +3834,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        실행 계획 확인
+        인덱스 구조 비교
       
     </span>
   </a>
@@ -3872,10 +3850,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#vs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        복합 인덱스 주의 — 선두 컬럼 규칙
+        클러스터형 vs 논클러스터형
       
     </span>
   </a>
@@ -3883,7 +3861,140 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#covering-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        커버링 인덱스 (Covering Index)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        카디널리티와 선택도
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        언제 쓰는지
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        사용 방법
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="사용 방법">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        인덱스 생성
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        인덱스 조회·삭제
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실행 계획 확인 (EXPLAIN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        복합 인덱스 설계
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="복합 인덱스 설계">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        선두 컬럼 규칙
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esr-equality-sort-range" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ESR 규칙 (Equality → Sort → Range)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#range" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Range 이후 인덱스 중단
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
         장점
@@ -3894,7 +4005,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       
         단점
@@ -3905,7 +4016,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       
         주의할 점
@@ -4381,44 +4492,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#vs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        클러스터형 vs 논클러스터형
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        언제 쓰는지
+        다른 인덱스 구조
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        사용 방법
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="사용 방법">
+    <nav class="md-nav" aria-label="다른 인덱스 구조">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#hash-index" class="md-nav__link">
     <span class="md-ellipsis">
       
-        인덱스 생성
+        Hash Index
       
     </span>
   </a>
@@ -4426,10 +4515,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#full-text-index" class="md-nav__link">
     <span class="md-ellipsis">
       
-        인덱스 조회·삭제
+        Full-Text Index
       
     </span>
   </a>
@@ -4437,10 +4526,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        실행 계획 확인
+        인덱스 구조 비교
       
     </span>
   </a>
@@ -4453,10 +4542,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#vs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        복합 인덱스 주의 — 선두 컬럼 규칙
+        클러스터형 vs 논클러스터형
       
     </span>
   </a>
@@ -4464,7 +4553,140 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#covering-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        커버링 인덱스 (Covering Index)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        카디널리티와 선택도
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        언제 쓰는지
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        사용 방법
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="사용 방법">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        인덱스 생성
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        인덱스 조회·삭제
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실행 계획 확인 (EXPLAIN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        복합 인덱스 설계
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="복합 인덱스 설계">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        선두 컬럼 규칙
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esr-equality-sort-range" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ESR 규칙 (Equality → Sort → Range)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#range" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Range 이후 인덱스 중단
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
         장점
@@ -4475,7 +4697,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       
         단점
@@ -4486,7 +4708,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       
         주의할 점
@@ -4560,6 +4782,78 @@
 <div class="tip-box">
 <p><strong>팁</strong>: MySQL InnoDB는 B-Tree가 아닌 <strong>B+Tree</strong>를 사용한다. 내부 노드에는 키만, 리프 노드에 키+데이터를 모두 저장하여 범위 스캔이 더 빠르다.</p>
 </div>
+<h2 id="_2">다른 인덱스 구조</h2>
+<p>B-Tree가 기본이지만, 용도에 따라 다른 구조의 인덱스도 사용할 수 있다.</p>
+<h3 id="hash-index">Hash Index</h3>
+<div class="concept-box">
+<p><strong>Hash Index</strong>: 키를 해시 함수로 변환하여 <strong>O(1)</strong> 에 접근하는 인덱스. 등호(<code>=</code>) 비교에 최적화되어 있다.</p>
+</div>
+<ul>
+<li><strong>범위 검색 불가</strong>: <code>BETWEEN</code>, <code>&gt;</code>, <code>&lt;</code> 사용 불가</li>
+<li><strong>정렬 불가</strong>: <code>ORDER BY</code>에 활용할 수 없음</li>
+<li><strong>부분 일치 불가</strong>: <code>LIKE 'abc%'</code> 사용 불가</li>
+<li>MySQL InnoDB는 Hash Index를 직접 생성할 수 없다. 내부적으로 <strong>Adaptive Hash Index</strong>를 자동 생성하여 자주 조회되는 <abbr title="Balanced Tree. 모든 리프 노드까지 깊이가 동일한 자가 균형 탐색 트리. DB 인덱스의 기본 자료구조.">B-Tree</abbr> 리프를 캐싱한다.</li>
+</ul>
+<h3 id="full-text-index">Full-Text Index</h3>
+<div class="concept-box">
+<p><strong>Full-Text Index</strong>: 텍스트 내용을 단어 단위로 분해하여 <strong>역인덱스(Inverted Index)</strong> 로 저장하는 인덱스. 자연어 검색에 사용한다.</p>
+</div>
+<p><code>LIKE '%keyword%'</code>는 앞쪽 와일드카드 때문에 항상 Full Scan이지만, Full-Text Index를 사용하면 대용량 텍스트에서도 빠르게 검색할 수 있다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">-- Full-Text 인덱스 생성</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="n">FULLTEXT</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">ft_article_content</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">article</span><span class="w"> </span><span class="p">(</span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">content</span><span class="p">);</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1">-- 검색</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">article</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">WHERE</span><span class="w"> </span><span class="k">MATCH</span><span class="p">(</span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">content</span><span class="p">)</span><span class="w"> </span><span class="n">AGAINST</span><span class="p">(</span><span class="s1">&#39;인덱스 최적화&#39;</span><span class="p">);</span>
+</code></pre></div>
+<div class="tip-box">
+<p><strong>팁</strong>: MySQL InnoDB는 5.6부터 Full-Text Index를 지원한다. 한국어·중국어·일본어(CJK)는 공백 기반 토큰화가 불가능하므로 <strong>ngram parser</strong>를 설정해야 한다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="n">FULLTEXT</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">ft_article_content</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">article</span><span class="w"> </span><span class="p">(</span><span class="n">content</span><span class="p">)</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">PARSER</span><span class="w"> </span><span class="n">ngram</span><span class="p">;</span>
+</code></pre></div>
+</div>
+<h3 id="_3">인덱스 구조 비교</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><abbr title="Balanced Tree. 모든 리프 노드까지 깊이가 동일한 자가 균형 탐색 트리. DB 인덱스의 기본 자료구조.">B-Tree</abbr></th>
+<th>Hash</th>
+<th>Full-Text</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>등호 검색</strong></td>
+<td>O(log n)</td>
+<td>O(1)</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>범위 검색</strong></td>
+<td>가능</td>
+<td>불가</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>정렬</strong></td>
+<td>가능</td>
+<td>불가</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>텍스트 검색</strong></td>
+<td>LIKE 'abc%'만</td>
+<td>불가</td>
+<td>자연어 검색</td>
+</tr>
+<tr>
+<td><strong>InnoDB 지원</strong></td>
+<td>기본</td>
+<td>자동 생성만</td>
+<td>5.6+</td>
+</tr>
+</tbody>
+</table>
 <h2 id="vs">클러스터형 vs 논클러스터형</h2>
 <table>
 <thead>
@@ -4592,8 +4886,89 @@
 </tr>
 </tbody>
 </table>
-<p>MySQL InnoDB에서는 <strong>PK가 클러스터형 인덱스</strong>이고, 나머지는 논클러스터형(Secondary Index)이다. Secondary Index의 리프에는 실제 데이터 주소 대신 <strong><abbr title="Primary Key. 테이블에서 각 행을 유일하게 식별하는 기본 키. NOT NULL + UNIQUE.">PK</abbr> 값</strong>이 저장되어, PK로 다시 클러스터 인덱스를 조회한다 (Double Lookup).</p>
-<h2 id="_2">언제 쓰는지</h2>
+<p>MySQL InnoDB에서는 <strong>PK가 클러스터형 인덱스</strong>이고, 나머지는 논클러스터형(Secondary Index)이다. Secondary Index의 리프에는 실제 데이터 주소 대신 <strong><abbr title="Primary Key. 테이블에서 각 행을 유일하게 식별하는 기본 키. NOT NULL + UNIQUE.">PK</abbr> 값</strong>이 저장되어, PK로 다시 클러스터 인덱스를 조회한다 (<mark>Double Lookup</mark>).</p>
+<h2 id="covering-index">커버링 인덱스 (Covering Index)</h2>
+<div class="concept-box">
+<p><strong>커버링 인덱스</strong>: 쿼리가 필요로 하는 모든 컬럼이 인덱스에 포함되어 있어, ==테이블 데이터에 접근하지 않고 인덱스만으로 결과를 반환==하는 것. Secondary Index의 Double Lookup을 제거하여 디스크 I/O를 대폭 줄인다.</p>
+</div>
+<div class="compare-grid">
+<div class="before">
+<p><strong>Bad — Double Lookup 발생</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">-- idx_order_member_date: (member_id, created_at)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">member_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</code></pre></div>
+<p>인덱스로 PK를 찾고 → PK로 다시 클러스터 인덱스를 조회한다.</p>
+</div>
+<div class="after">
+<p><strong>Good — 커버링 인덱스</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">-- idx_order_member_date: (member_id, created_at)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">member_id</span><span class="p">,</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">member_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</code></pre></div>
+<p>필요한 컬럼이 모두 인덱스에 있으므로 테이블 접근 없이 응답한다.</p>
+</div>
+</div>
+<p>EXPLAIN으로 확인할 때 <code>Extra</code> 컬럼에 ==<strong>Using index</strong>==가 표시되면 커버링 인덱스가 사용된 것이다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">member_id</span><span class="p">,</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">member_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1">-- Extra: Using index  ← 커버링 인덱스 사용 중</span>
+</code></pre></div>
+<div class="warning-box">
+<p><strong>주의</strong>: <code>SELECT *</code>를 남발하면 커버링 인덱스를 활용할 수 없다. 필요한 컬럼만 명시적으로 SELECT하는 습관이 중요하다.</p>
+</div>
+<h2 id="_4">카디널리티와 선택도</h2>
+<div class="concept-box">
+<p><strong>카디널리티(Cardinality)</strong>: 해당 컬럼의 고유 값 개수.
+<strong>선택도(Selectivity)</strong>: 카디널리티 / 전체 행 수. <mark>선택도가 1에 가까울수록 인덱스 효과가 크다.</mark></p>
+</div>
+<table>
+<thead>
+<tr>
+<th>컬럼</th>
+<th>전체 행 수</th>
+<th>카디널리티</th>
+<th>선택도</th>
+<th>인덱스 효과</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>email (UNIQUE)</td>
+<td>1,000,000</td>
+<td>1,000,000</td>
+<td>1.0</td>
+<td>매우 높음</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>1,000,000</td>
+<td>365,000</td>
+<td>0.365</td>
+<td>높음</td>
+</tr>
+<tr>
+<td>gender (M/F)</td>
+<td>1,000,000</td>
+<td>2</td>
+<td>0.000002</td>
+<td>거의 없음</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">-- 카디널리티 확인</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">SHOW</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">member</span><span class="p">;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1">-- Cardinality 컬럼에 추정값이 표시된다 (InnoDB는 통계 기반 추정)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1">-- 통계 갱신</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="k">ANALYZE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">member</span><span class="p">;</span>
+</code></pre></div>
+<div class="warning-box">
+<p><strong>주의</strong>: 인덱스로 조회 시 전체 행의 약 <strong>5~10% 이하</strong>만 읽을 때 인덱스가 효과적이다. 그 이상이면 옵티마이저가 오히려 Full Scan을 선택할 수 있다.</p>
+</div>
+<div class="tip-box">
+<p><strong>팁</strong>: 단일 컬럼의 카디널리티가 낮더라도 <mark>복합 인덱스로 조합하면 결합 카디널리티가 높아질 수 있다</mark>. 예를 들어 <code>gender</code>(2종류)와 <code>age</code>(100종류)를 조합하면 최대 200종류까지 올라간다.</p>
+</div>
+<h2 id="_5">언제 쓰는지</h2>
 <p>인덱스를 걸면 좋은 컬럼:</p>
 <ul>
 <li><code>WHERE</code> 조건에 자주 등장하는 컬럼</li>
@@ -4604,66 +4979,205 @@
 <div class="warning-box">
 <p><strong>주의</strong>: <code>성별(M/F)</code>, <code>상태(Y/N)</code> 같이 값의 종류가 2~3개뿐인 컬럼은 인덱스 효과가 거의 없다. 전체 행의 20~30% 이상을 읽어야 한다면 Full Scan이 더 빠를 수 있다.</p>
 </div>
-<h2 id="_3">사용 방법</h2>
-<h3 id="_4">인덱스 생성</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">-- 단일 컬럼 인덱스</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_member_email</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="p">(</span><span class="n">email</span><span class="p">);</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1">-- 복합 인덱스 (다중 컬럼)</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_order_member_date</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="p">(</span><span class="n">member_id</span><span class="p">,</span><span class="w"> </span><span class="n">created_at</span><span class="p">);</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1">-- UNIQUE 인덱스</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">uq_member_email</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="p">(</span><span class="n">email</span><span class="p">);</span>
+<h2 id="_6">사용 방법</h2>
+<h3 id="_7">인덱스 생성</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">-- 단일 컬럼 인덱스</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_member_email</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="p">(</span><span class="n">email</span><span class="p">);</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1">-- 복합 인덱스 (다중 컬럼)</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_order_member_date</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="p">(</span><span class="n">member_id</span><span class="p">,</span><span class="w"> </span><span class="n">created_at</span><span class="p">);</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1">-- UNIQUE 인덱스</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">uq_member_email</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="p">(</span><span class="n">email</span><span class="p">);</span>
 </code></pre></div>
-<h3 id="_5">인덱스 조회·삭제</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">-- MySQL</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">SHOW</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">member</span><span class="p">;</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">DROP</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_member_email</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">member</span><span class="p">;</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1">-- PostgreSQL</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="err">\</span><span class="n">d</span><span class="w"> </span><span class="n">member</span><span class="w">           </span><span class="c1">-- 인덱스 포함 테이블 정보</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="k">DROP</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_member_email</span><span class="p">;</span>
+<h3 id="_8">인덱스 조회·삭제</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">-- MySQL</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">SHOW</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">member</span><span class="p">;</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">DROP</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_member_email</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">member</span><span class="p">;</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1">-- PostgreSQL</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="err">\</span><span class="n">d</span><span class="w"> </span><span class="n">member</span><span class="w">           </span><span class="c1">-- 인덱스 포함 테이블 정보</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="k">DROP</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_member_email</span><span class="p">;</span>
 </code></pre></div>
-<h3 id="_6">실행 계획 확인</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;test@test.com&#39;</span><span class="p">;</span>
+<h3 id="explain">실행 계획 확인 (EXPLAIN)</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;test@test.com&#39;</span><span class="p">;</span>
 </code></pre></div>
-<p><code>type</code> 컬럼에서 <code>ref</code> / <code>range</code> → 인덱스 사용, <code>ALL</code> → Full Scan</p>
-<h2 id="_7">복합 인덱스 주의 — 선두 컬럼 규칙</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">-- idx_order_member_date: (member_id, created_at) 순서로 생성</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1">-- ✅ 사용됨</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">member_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">member_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="s1">&#39;2024-01-01&#39;</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1">-- ❌ 사용 안 됨 (선두 컬럼 없음)</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="s1">&#39;2024-01-01&#39;</span>
+<p>EXPLAIN 결과에서 <code>type</code> 컬럼은 인덱스 사용 방식을 나타낸다. <span class="text-green">위에 있을수록 좋다.</span></p>
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>설명</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>const</code></td>
+<td><abbr title="Primary Key. 테이블에서 각 행을 유일하게 식별하는 기본 키. NOT NULL + UNIQUE.">PK</abbr> 또는 UNIQUE로 <strong>1건</strong> 조회. 상수 취급</td>
+<td><code>WHERE id = 1</code></td>
+</tr>
+<tr>
+<td><code>eq_ref</code></td>
+<td>JOIN에서 <abbr title="Primary Key. 테이블에서 각 행을 유일하게 식별하는 기본 키. NOT NULL + UNIQUE.">PK</abbr>/UNIQUE로 정확히 1건 매칭</td>
+<td><code>JOIN member m ON m.id = o.member_id</code></td>
+</tr>
+<tr>
+<td><code>ref</code></td>
+<td>논유니크 인덱스로 여러 건 매칭</td>
+<td><code>WHERE member_id = 1</code> (<abbr title="Foreign Key. 다른 테이블의 PK를 참조하는 외래 키. 참조 무결성을 보장한다.">FK</abbr> 인덱스)</td>
+</tr>
+<tr>
+<td><code>range</code></td>
+<td>인덱스 범위 스캔</td>
+<td><code>WHERE created_at BETWEEN '2024-01-01' AND '2024-12-31'</code></td>
+</tr>
+<tr>
+<td><code>index</code></td>
+<td>인덱스 전체 스캔 (Full Index Scan)</td>
+<td><code>SELECT member_id FROM orders</code> (커버링이지만 전체 스캔)</td>
+</tr>
+<tr>
+<td><code>ALL</code></td>
+<td>테이블 전체 스캔 (Full Table Scan)</td>
+<td>인덱스 미사용</td>
+</tr>
+</tbody>
+</table>
+<div class="danger-box">
+<p><strong>위험</strong>: <code>type</code>이 <code>ALL</code>이면 Full Table Scan이다. 반드시 인덱스 추가 또는 쿼리 개선을 검토해야 한다. <code>index</code>도 인덱스 전체를 읽는 것이므로 대용량 테이블에서는 느릴 수 있다.</p>
+</div>
+<div class="tip-box">
+<p><strong>팁</strong>: <code>Extra</code> 컬럼도 함께 확인하자.</p>
+<table>
+<thead>
+<tr>
+<th>Extra 값</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Using index</code></td>
+<td>커버링 인덱스 사용 (테이블 접근 없음)</td>
+</tr>
+<tr>
+<td><code>Using where</code></td>
+<td>인덱스로 찾은 후 추가 필터링</td>
+</tr>
+<tr>
+<td><code>Using filesort</code></td>
+<td>정렬에 인덱스를 사용하지 못해 별도 정렬 수행</td>
+</tr>
+<tr>
+<td><code>Using temporary</code></td>
+<td>임시 테이블 생성 (GROUP BY, DISTINCT 등)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="_9">복합 인덱스 설계</h2>
+<h3 id="_10">선두 컬럼 규칙</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">-- idx_order_member_date: (member_id, created_at) 순서로 생성</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="c1">-- ✅ 사용됨</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">member_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">member_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="s1">&#39;2024-01-01&#39;</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="c1">-- ❌ 사용 안 됨 (선두 컬럼 없음)</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="s1">&#39;2024-01-01&#39;</span>
 </code></pre></div>
 <p>복합 인덱스는 <strong>왼쪽부터 순서대로</strong> 사용한다. 선두 컬럼(첫 번째 컬럼)이 <code>WHERE</code>에 없으면 인덱스를 타지 않는다.</p>
-<h2 id="_8">장점</h2>
+<h3 id="esr-equality-sort-range">ESR 규칙 (Equality → Sort → Range)</h3>
+<div class="concept-box">
+<p><strong>ESR 규칙</strong>: 복합 인덱스의 컬럼 순서를 정하는 실전 규칙.
+<mark><strong>E</strong>quality 조건 컬럼 → <strong>S</strong>ort(ORDER BY) 컬럼 → <strong>R</strong>ange 조건 컬럼</mark> 순서로 배치한다.</p>
+</div>
+<ul>
+<li><strong>Equality</strong>(등호 <code>=</code>): 인덱스 노드를 정확히 좁힌다</li>
+<li><strong>Sort</strong>(ORDER BY): 정렬된 순서로 읽으면 별도 정렬이 필요 없다</li>
+<li><strong>Range</strong>(범위 <code>&gt;</code>, <code>&lt;</code>, <code>BETWEEN</code>): ==범위 조건 이후 컬럼은 인덱스 탐색이 중단==된다</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">-- 쿼리: 특정 회원의 주문을 최근 3개월 이내, 날짜 내림차순</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">member_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">              </span><span class="c1">-- Equality</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="s1">&#39;2024-01-01&#39;</span><span class="w">  </span><span class="c1">-- Range</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span><span class="w">        </span><span class="c1">-- Sort</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="c1">-- 최적 인덱스: (member_id, created_at)</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="c1">-- member_id(E) → created_at이 Sort와 Range를 동시에 처리</span>
+</code></pre></div>
+<h3 id="range">Range 이후 인덱스 중단</h3>
+<p>B-Tree에서 범위 조건이 적용되면, 그 이후 컬럼은 정렬 순서가 보장되지 않아 인덱스 탐색이 불가능하다.</p>
+<div class="compare-grid">
+<div class="before">
+<p><strong>Bad — Range가 앞에 위치</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">-- INDEX(age, name, created_at)</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">member</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;김철수&#39;</span><span class="p">;</span>
+</code></pre></div>
+<p><code>age</code>에서 Range가 걸려 <code>name</code>은 인덱스를 사용하지 못한다.</p>
+</div>
+<div class="after">
+<p><strong>Good — Equality가 앞에 위치</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1">-- INDEX(name, age, created_at)</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">member</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;김철수&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+</code></pre></div>
+<p><code>name</code>(Equality)이 선두이므로 정확히 좁힌 후 <code>age</code>(Range)를 처리한다.</p>
+</div>
+</div>
+<div class="warning-box">
+<p><strong>주의</strong>: <code>IN</code> 연산자는 MySQL 옵티마이저가 등호 조건 목록으로 처리하므로 ==Range가 아닌 Equality처럼 동작==한다. <code>BETWEEN</code>, <code>&gt;</code>, <code>&lt;</code>와 다르다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1">-- IN은 Equality처럼 동작 → 이후 컬럼도 인덱스 사용 가능</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;ACTIVE&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;PENDING&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="s1">&#39;2024-01-01&#39;</span>
+</code></pre></div>
+</div>
+<h2 id="_11">장점</h2>
 <ul>
 <li><code>WHERE</code>, <code>JOIN</code>, <code>ORDER BY</code> 쿼리 속도 대폭 향상</li>
 <li>대용량 테이블에서 Full Scan 방지</li>
 </ul>
-<h2 id="_9">단점</h2>
+<h2 id="_12">단점</h2>
 <ul>
 <li><strong>쓰기 성능 저하</strong>: <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code> 시 인덱스도 함께 갱신해야 함</li>
 <li><strong>저장 공간 추가</strong>: 인덱스 자체가 별도 공간을 차지함</li>
 <li>인덱스가 너무 많으면 오히려 성능 역효과</li>
 </ul>
-<h2 id="_10">주의할 점</h2>
+<h2 id="_13">주의할 점</h2>
 <div class="danger-box">
 <p><strong>인덱스를 무력화하는 패턴</strong> — 인덱스가 있어도 사용되지 않는 경우:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">-- ❌ 컬럼에 함수 적용</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">WHERE</span><span class="w"> </span><span class="k">YEAR</span><span class="p">(</span><span class="n">created_at</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2024</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1">-- ✅ 대신</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="s1">&#39;2024-01-01&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="s1">&#39;2025-01-01&#39;</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1">-- ❌ 앞쪽 LIKE 와일드카드</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%철수&#39;</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c1">-- ✅ 뒤쪽 와일드카드는 OK</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;김%&#39;</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="c1">-- ❌ 묵시적 형변환</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">member_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;100&#39;</span><span class="w">  </span><span class="c1">-- member_id가 INT인데 문자열 비교</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1">-- ❌ 컬럼에 함수 적용</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">WHERE</span><span class="w"> </span><span class="k">YEAR</span><span class="p">(</span><span class="n">created_at</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2024</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="c1">-- ✅ 대신</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="s1">&#39;2024-01-01&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="s1">&#39;2025-01-01&#39;</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="c1">-- ❌ 앞쪽 LIKE 와일드카드</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%철수&#39;</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="c1">-- ✅ 뒤쪽 와일드카드는 OK</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;김%&#39;</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="c1">-- ❌ 묵시적 형변환</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">member_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;100&#39;</span><span class="w">  </span><span class="c1">-- member_id가 INT인데 문자열 비교</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="c1">-- ❌ NOT / 부정 조건</span>
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;DELETED&#39;</span>
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;DELETED&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;EXPIRED&#39;</span><span class="p">)</span>
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="c1">-- ✅ 긍정 조건으로 전환</span>
+<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;ACTIVE&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;PENDING&#39;</span><span class="p">)</span>
+<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a>
+<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="c1">-- ❌ OR 조건 (서로 다른 컬럼)</span>
+<a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;김철수&#39;</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">30</span>
+<a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="c1">-- 각 컬럼이 다른 인덱스를 사용해야 하므로 Full Scan 가능</span>
+<a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="c1">-- ✅ UNION ALL로 분리</span>
+<a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;김철수&#39;</span>
+<a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a><span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span>
+<a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;김철수&#39;</span><span class="p">;</span>
+</code></pre></div>
+</div>
+<div class="tip-box">
+<p><strong>팁</strong>: MySQL InnoDB에서 <code>IS NULL</code>은 인덱스를 사용할 수 있다(<code>ref_or_null</code>). 반면 <code>IS NOT NULL</code>은 대부분의 행을 조회하게 되어 옵티마이저가 Full Scan을 선택하는 경우가 많다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w">      </span><span class="c1">-- ✅ 인덱스 사용 가능</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w">  </span><span class="c1">-- ⚠️ 대부분 행 조회 → Full Scan 가능</span>
 </code></pre></div>
 </div>
 <!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
@@ -4694,7 +5208,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 11일 11:10:27 UTC">2026년 4월 11일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 14일 10:46:48 UTC">2026년 4월 14일</span>
   </span>
 
     
