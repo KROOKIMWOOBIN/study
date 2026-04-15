@@ -16,6 +16,116 @@
 -- member와 orders를 연결해야 "김철수가 주문한 내역" 조회 가능
 ```
 
+## 관계 유형과 JOIN
+
+JOIN을 올바르게 사용하려면 테이블 간 **카디널리티(Cardinality)**, 즉 관계의 방향과 수량을 먼저 파악해야 한다. 관계 유형에 따라 JOIN 결과 행 수가 달라진다.
+
+### 1:1 관계 (to-one)
+
+- 한 행이 상대 테이블의 **정확히 한 행**에 대응
+- JOIN 결과 행 수가 원본과 **동일**
+- 예: `user` ↔ `user_profile` (회원 1명당 프로필 1개)
+
+```sql
+SELECT u.name, p.bio
+FROM user u
+LEFT JOIN user_profile p ON u.id = p.user_id;
+```
+
+```text
+user:              user_profile:          결과:
+id | name          user_id | bio          name  | bio
+1  | 김철수    →   1       | "개발자"     김철수 | 개발자
+2  | 이영희    →   2       | "디자이너"   이영희 | 디자이너
+                                          ← 행 수 동일
+```
+
+### 1:N 관계 (to-many)
+
+- 한 행이 상대 테이블의 **여러 행**에 대응
+- JOIN 결과 행 수가 **N쪽 행 수만큼 증가**
+- 예: `member` ↔ `orders` (회원 1명이 주문 여러 개)
+
+```sql
+SELECT m.name, o.amount
+FROM member m
+LEFT JOIN orders o ON m.id = o.member_id;
+```
+
+```text
+member:         orders:                      결과:
+id | name       id | member_id | amount      name  | amount
+1  | 김철수  →  1  | 1         | 10000       김철수 | 10000   ← 행 증가!
+                2  | 1         | 5000        김철수 | 5000    ← 행 증가!
+2  | 이영희  →  3  | 2         | 20000       이영희 | 20000
+                                             ← member 2행 → 결과 3행
+```
+
+<div class="warning-box" markdown="1">
+
+**to-many JOIN 후 집계 시 주의** — 1쪽 테이블 기준 집계가 필요하면 반드시 `GROUP BY`를 사용한다.
+
+```sql
+-- ❌ 잘못된 예: 주문 건수가 아닌 전체 결과 행 수를 셈
+SELECT COUNT(*) FROM member m JOIN orders o ON m.id = o.member_id;
+-- member가 2명인데 주문이 3건이면 → 3 반환 (회원 수 아님)
+
+-- ✅ 올바른 예: 회원별 주문 건수
+SELECT m.name, COUNT(o.id) AS order_count
+FROM member m
+LEFT JOIN orders o ON m.id = o.member_id
+GROUP BY m.id, m.name;
+```
+
+</div>
+
+### N:M 관계
+
+- 양쪽 모두 상대 테이블의 **여러 행**에 대응
+- **중간 매핑 테이블**을 거쳐 두 번 JOIN
+- 예: `student` ↔ `student_course` ↔ `course`
+
+```sql
+SELECT s.name, c.title
+FROM student s
+INNER JOIN student_course sc ON s.id = sc.student_id
+INNER JOIN course c ON sc.course_id = c.id;
+```
+
+```text
+student:          student_course:          course:
+id | name         student_id | course_id   id | title
+1  | 김철수        1          | 10          10 | DB
+                  1          | 20          20 | Java
+2  | 이영희        2          | 10
+
+결과:
+name  | title
+김철수 | DB
+김철수 | Java
+이영희 | DB
+← student 2행 → 결과 3행
+```
+
+<div class="danger-box" markdown="1">
+
+**N:M을 두 개 이상 동시에 JOIN하면 행이 기하급수적으로 증가한다.**
+
+```sql
+-- ❌ 위험: student가 course도 N:M, tag도 N:M이면
+SELECT s.name, c.title, t.name
+FROM student s
+JOIN student_course sc ON s.id = sc.student_id
+JOIN course c ON sc.course_id = c.id
+JOIN student_tag st ON s.id = st.student_id   -- 두 번째 to-many
+JOIN tag t ON st.tag_id = t.id;
+-- 수강 3건 × 태그 4개 = 12행 (카테시안 곱에 가까워짐)
+```
+
+이 경우 서브쿼리 또는 별도 쿼리로 분리하는 것이 안전하다.
+
+</div>
+
 ## JOIN 종류
 
 ### INNER JOIN
@@ -118,6 +228,96 @@ LEFT JOIN employee m ON e.manager_id = m.id;
 | 모든 조합이 필요 | `CROSS JOIN` |
 | 계층 구조 표현 | `SELF JOIN` |
 
+## to-many JOIN 실무 주의사항
+
+### 행 폭발(Row Multiplication)
+
+1:N 또는 N:M JOIN 시 1쪽 행이 N개만큼 복제된다. 집계 없이 사용하면 중복 행이 결과에 포함된다.
+
+<div class="compare-grid" markdown="1">
+<div class="before" markdown="1">
+**Bad — 중복 행 인지 못함**
+
+```sql
+-- 회원별 총 주문 금액을 구하려 했지만
+SELECT m.name, SUM(o.amount) AS total
+FROM member m
+LEFT JOIN orders o ON m.id = o.member_id;
+-- GROUP BY 없음 → 전체를 하나로 합산
+-- 회원별 금액이 아닌 전체 합계가 나옴
+```
+</div>
+<div class="after" markdown="1">
+**Good — GROUP BY로 묶기**
+
+```sql
+SELECT m.name, SUM(o.amount) AS total
+FROM member m
+LEFT JOIN orders o ON m.id = o.member_id
+GROUP BY m.id, m.name;
+-- 회원별로 올바르게 집계됨
+```
+</div>
+</div>
+
+### COUNT 오류
+
+to-many JOIN 후 `COUNT(*)`는 원본 테이블 행 수가 아닌 **JOIN 결과 행 수**를 센다.
+
+```sql
+-- ❌ 회원 수를 세려 했지만 주문 건수가 반환됨
+SELECT COUNT(*) FROM member m JOIN orders o ON m.id = o.member_id;
+
+-- ✅ 회원 수 (중복 제거)
+SELECT COUNT(DISTINCT m.id) FROM member m JOIN orders o ON m.id = o.member_id;
+
+-- ✅ 또는 서브쿼리로 분리
+SELECT COUNT(*) FROM member WHERE id IN (SELECT DISTINCT member_id FROM orders);
+```
+
+### N+1 문제
+
+ORM(JPA, MyBatis 등)에서 to-many 연관 관계를 **루프 쿼리**로 처리할 때 발생한다.
+
+```text
+1번 쿼리: 회원 100명 조회
+N번 쿼리: 각 회원의 주문 목록 조회 (100번 추가 실행)
+→ 총 101번 = N+1 문제
+```
+
+<div class="compare-grid" markdown="1">
+<div class="before" markdown="1">
+**Bad — N+1 발생**
+
+```java
+// JPA: LAZY 로딩 시
+List<Member> members = memberRepo.findAll(); // 쿼리 1회
+for (Member m : members) {
+    m.getOrders().size(); // 회원마다 쿼리 1회 → N회
+}
+```
+</div>
+<div class="after" markdown="1">
+**Good — JOIN FETCH로 한 번에**
+
+```java
+// JPQL: JOIN FETCH
+List<Member> members = em.createQuery(
+  "SELECT DISTINCT m FROM Member m " +
+  "JOIN FETCH m.orders", Member.class)
+  .getResultList(); // 쿼리 1회로 해결
+```
+</div>
+</div>
+
+SQL 레벨에서도 서브쿼리로 해결 가능하다.
+
+```sql
+-- IN 서브쿼리로 한 번에 조회
+SELECT * FROM orders
+WHERE member_id IN (SELECT id FROM member WHERE grade = 'VIP');
+```
+
 ## 주의할 점
 
 <div class="warning-box" markdown="1">
@@ -153,5 +353,7 @@ SELECT * FROM member, orders;
 ## 성능 팁
 
 - JOIN 조건이 되는 컬럼(FK)에 **인덱스**를 반드시 생성한다.
+- to-many JOIN 시 **드라이빙 테이블을 1쪽(소량)** 으로 유지한다. N쪽이 드라이빙 테이블이 되면 루프 횟수가 폭증한다.
 - JOIN 대상 테이블을 줄이려면 `WHERE`로 먼저 필터링한 서브쿼리 / CTE를 활용한다.
 - 3개 이상 테이블을 JOIN할 때는 실행 계획(`EXPLAIN`)으로 순서를 확인한다.
+- N:M to-many를 여러 개 동시에 JOIN해야 한다면, 쿼리를 분리하거나 서브쿼리로 대체한다.
