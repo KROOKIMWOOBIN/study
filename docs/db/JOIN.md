@@ -198,25 +198,147 @@ FULL OUTER JOIN orders o ON m.id = o.member_id;
 
 ### CROSS JOIN
 
+<div class="concept-box" markdown="1">
+
+**CROSS JOIN**: ON 조건 없이 두 테이블의 **모든 행 조합(카테시안 곱)** 을 반환한다. 결과 행 수 = 왼쪽 행 수 × 오른쪽 행 수.
+
+</div>
+
+**왜 쓰는지** — "모든 경우의 수"가 필요한 상황에서 데이터를 직접 나열하지 않고 테이블 조합으로 자동 생성할 때 사용한다.
+
+**언제 쓰는지**
+
+- 날짜 × 상품 조합처럼 기준 데이터를 빠짐없이 만들어야 할 때
+- 테스트용 더미 데이터 대량 생성
+- 모든 경우의 수 테이블이 필요한 통계/분석 쿼리
+
 ```sql
+-- 회원 × 상품 모든 조합 생성
 SELECT m.name, p.name AS product
 FROM member m
 CROSS JOIN product p;
 ```
 
-- 두 테이블의 **모든 조합(카테시안 곱)** 을 반환한다.
-- member 3행 × product 5개 = 15행
-- 조건 없이 모든 경우의 수를 만들 때 사용한다. (경우의 수 테이블 생성 등)
+```text
+member:       product:         결과:
+id | name     id | name        name  | product
+1  | 김철수    1  | 노트북       김철수 | 노트북
+2  | 이영희    2  | 마우스       김철수 | 마우스
+3  | 박민준               이영희 | 노트북
+                          이영희 | 마우스
+                          박민준 | 노트북
+                          박민준 | 마우스
+                          ← 3 × 2 = 6행
+```
+
+**실무 활용 예시** — 날짜 시계열 × 지점 조합으로 "판매 없는 날도 0으로 채운" 리포트 생성
+
+```sql
+-- 달력 테이블 × 지점 테이블로 모든 날짜-지점 조합 생성
+-- 이후 LEFT JOIN으로 실제 판매 데이터를 붙여 0값 행 확보
+SELECT d.date, b.branch_name, IFNULL(s.amount, 0) AS sales
+FROM calendar d
+CROSS JOIN branch b
+LEFT JOIN sales s ON s.date = d.date AND s.branch_id = b.id;
+```
+
+<div class="danger-box" markdown="1">
+
+**행 수 폭발 주의** — 대형 테이블에 CROSS JOIN하면 결과 행 수가 기하급수적으로 증가한다.
+
+```sql
+-- ❌ 100만 행 × 100만 행 = 1조 행
+SELECT * FROM big_table_a CROSS JOIN big_table_b;
+```
+
+ON 조건을 빠뜨린 일반 JOIN도 CROSS JOIN과 동일하게 동작하므로 주의한다.
+
+```sql
+-- ❌ ON 누락 → 암묵적 CROSS JOIN
+SELECT * FROM member, orders;  -- 카테시안 곱 발생
+```
+
+</div>
 
 ### SELF JOIN
 
+<div class="concept-box" markdown="1">
+
+**SELF JOIN**: 같은 테이블을 서로 다른 별칭(alias)으로 두 번 참조해 JOIN하는 방식. 테이블 내부의 행과 행 사이의 관계를 표현한다.
+
+</div>
+
+**왜 쓰는지** — 하나의 테이블 안에 상하 관계(계층 구조)나 같은 엔티티 간 비교가 필요할 때, 별도 테이블 없이 자기 자신을 JOIN해 처리한다.
+
+**언제 쓰는지**
+
+- 조직도: 직원과 상사가 같은 `employee` 테이블에 있을 때
+- 카테고리 계층: 부모-자식 카테고리가 같은 테이블에 있을 때
+- 같은 테이블 내 행 간 비교 (예: 같은 부서 직원끼리 비교)
+
 ```sql
+-- 직원과 그 상사 이름을 함께 조회
 SELECT e.name AS 직원, m.name AS 상사
 FROM employee e
 LEFT JOIN employee m ON e.manager_id = m.id;
 ```
 
-- **같은 테이블을 두 번** 참조한다. 계층 구조(조직도, 카테고리) 표현에 사용한다.
+```text
+employee 테이블:
+id | name   | manager_id
+1  | 이사장  | NULL
+2  | 부장    | 1
+3  | 과장    | 2
+4  | 사원    | 3
+
+결과:
+직원   | 상사
+이사장 | NULL    ← 상사 없음
+부장   | 이사장
+과장   | 부장
+사원   | 과장
+```
+
+**LEFT JOIN을 쓰는 이유** — 최상위 계층(상사가 없는 행)도 결과에 포함시키기 위해. INNER JOIN이면 `manager_id = NULL`인 최상위 행이 제외된다.
+
+```sql
+-- 같은 부서 직원끼리 급여 비교
+SELECT a.name AS 직원, b.name AS 비교대상, a.salary, b.salary AS 비교급여
+FROM employee a
+JOIN employee b ON a.dept_id = b.dept_id AND a.id <> b.id;
+-- a.id <> b.id: 자기 자신과의 비교 제외
+```
+
+<div class="warning-box" markdown="1">
+
+**별칭(alias) 필수** — 같은 테이블을 두 번 쓰므로 반드시 서로 다른 alias를 붙여야 한다. 빠뜨리면 컬럼 참조가 모호해져 오류 발생.
+
+```sql
+-- ❌ alias 없음 → 오류
+SELECT name FROM employee JOIN employee ON manager_id = id;
+
+-- ✅ alias로 역할 구분
+SELECT e.name, m.name
+FROM employee e
+JOIN employee m ON e.manager_id = m.id;
+```
+
+**깊이 제한** — 계층이 수십 단계 이상이면 SELF JOIN을 반복해야 하므로 비효율적이다. 깊이가 가변적인 계층 구조는 재귀 CTE(`WITH RECURSIVE`)가 적합하다.
+
+```sql
+-- 깊이 제한 없는 계층 순회: 재귀 CTE
+WITH RECURSIVE org AS (
+    SELECT id, name, manager_id, 0 AS depth
+    FROM employee WHERE manager_id IS NULL   -- 최상위부터 시작
+    UNION ALL
+    SELECT e.id, e.name, e.manager_id, o.depth + 1
+    FROM employee e
+    JOIN org o ON e.manager_id = o.id
+)
+SELECT * FROM org;
+```
+
+</div>
 
 ## 언제 어떤 JOIN을 쓰는지
 
