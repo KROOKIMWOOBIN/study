@@ -145,37 +145,43 @@ nav:
     - Session: html/Session.md
   - Spring:
     - 개요 & 로드맵: spring/spring.md
-    - SOLID 원칙: spring/solid.md
-    - IoC·DI: spring/IoC-DI.md
-    - 스프링 컨테이너: spring/스프링컨테이너.md
-    - 싱글톤: spring/싱글톤.md
-    - 컴포넌트 스캔: spring/컴포넌트스캔.md
-    - 의존관계 주입: spring/의존관계주입.md
-    - 빈 생명주기: spring/빈생명주기.md
-    - 빈 스코프: spring/빈스코프.md
-    - Spring Boot: spring/springboot.md
-    - Spring MVC: spring/mvc.md
-    - REST API: spring/restapi.md
-    - Validation: spring/validation.md
-    - Exception Handler: spring/exception.md
-    - API 문서화: spring/swagger.md
-    - AOP: spring/aop.md
-    - Transaction: spring/transaction.md
-    - Logging: spring/logging.md
-    - JDBC: spring/JDBC.md
-    - 커넥션풀·DataSource: spring/커넥션풀-DataSource.md
-    - DB 예외처리: spring/db예외처리.md
-    - JPA: spring/jpa.md
-    - QueryDSL: spring/querydsl.md
-    - JPA 성능 최적화: spring/jpa-performance.md
-    - Redis: spring/redis.md
-    - Spring Security & JWT: spring/security.md
-    - 동시성 제어: spring/concurrency.md
-    - Kafka: spring/kafka.md
-    - Testing: spring/testing.md
-    - 모니터링: spring/monitoring.md
-    - 아키텍처 패턴: spring/architecture.md
-    - MSA: spring/msa.md
+    - 핵심 개념:
+      - SOLID 원칙: spring/solid.md
+      - IoC·DI: spring/IoC-DI.md
+      - 스프링 컨테이너: spring/스프링컨테이너.md
+      - 싱글톤: spring/싱글톤.md
+      - 컴포넌트 스캔: spring/컴포넌트스캔.md
+      - 의존관계 주입: spring/의존관계주입.md
+      - 빈 생명주기: spring/빈생명주기.md
+      - 빈 스코프: spring/빈스코프.md
+    - 웹 & MVC:
+      - Spring Boot: spring/springboot.md
+      - Spring MVC: spring/mvc.md
+      - REST API: spring/restapi.md
+      - Validation: spring/validation.md
+      - Exception Handler: spring/exception.md
+      - API 문서화: spring/swagger.md
+    - AOP & 트랜잭션:
+      - AOP: spring/aop.md
+      - Transaction: spring/transaction.md
+      - Logging: spring/logging.md
+    - 데이터 접근:
+      - JDBC: spring/JDBC.md
+      - 커넥션풀·DataSource: spring/커넥션풀-DataSource.md
+      - DB 예외처리: spring/db예외처리.md
+      - JPA: spring/jpa.md
+      - QueryDSL: spring/querydsl.md
+      - JPA 성능 최적화: spring/jpa-performance.md
+    - 인프라 & 보안:
+      - Redis: spring/redis.md
+      - Spring Security & JWT: spring/security.md
+      - 동시성 제어: spring/concurrency.md
+      - Kafka: spring/kafka.md
+    - 운영 & 설계:
+      - Testing: spring/testing.md
+      - 모니터링: spring/monitoring.md
+      - 아키텍처 패턴: spring/architecture.md
+      - MSA: spring/msa.md
   - DB:
     - 개요: db/db.md
     - ACID: db/ACID.md
