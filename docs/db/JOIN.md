@@ -126,60 +126,6 @@ JOIN tag t ON st.tag_id = t.id;
 
 </div>
 
-## 벤 다이어그램으로 보는 JOIN
-
-<div style="display:flex; flex-wrap:wrap; gap:28px; justify-content:center; margin:28px 0;">
-
-<div style="text-align:center;">
-<svg width="160" height="115" viewBox="0 0 160 115" xmlns="http://www.w3.org/2000/svg">
-  <defs><clipPath id="vj-ia"><circle cx="65" cy="55" r="44"/></clipPath></defs>
-  <circle cx="65" cy="55" r="44" fill="#e8e8e8" stroke="#aaa" stroke-width="1.5"/>
-  <circle cx="95" cy="55" r="44" fill="#e8e8e8" stroke="#aaa" stroke-width="1.5"/>
-  <circle cx="95" cy="55" r="44" fill="#4a9eff" fill-opacity="0.75" clip-path="url(#vj-ia)"/>
-  <text x="36" y="59" font-size="13" fill="#666" text-anchor="middle" font-family="sans-serif">A</text>
-  <text x="124" y="59" font-size="13" fill="#666" text-anchor="middle" font-family="sans-serif">B</text>
-  <text x="80" y="105" font-size="12" fill="#333" text-anchor="middle" font-family="sans-serif" font-weight="bold">INNER JOIN</text>
-</svg>
-<div style="font-size:12px; color:#666; margin-top:4px;">교집합만</div>
-</div>
-
-<div style="text-align:center;">
-<svg width="160" height="115" viewBox="0 0 160 115" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="95" cy="55" r="44" fill="#e8e8e8" stroke="#aaa" stroke-width="1.5"/>
-  <circle cx="65" cy="55" r="44" fill="#4a9eff" fill-opacity="0.75" stroke="#4a9eff" stroke-width="1.5"/>
-  <text x="36" y="59" font-size="13" fill="#fff" text-anchor="middle" font-family="sans-serif">A</text>
-  <text x="124" y="59" font-size="13" fill="#666" text-anchor="middle" font-family="sans-serif">B</text>
-  <text x="80" y="105" font-size="12" fill="#333" text-anchor="middle" font-family="sans-serif" font-weight="bold">LEFT JOIN</text>
-</svg>
-<div style="font-size:12px; color:#666; margin-top:4px;">A 전체 + 교집합</div>
-</div>
-
-<div style="text-align:center;">
-<svg width="160" height="115" viewBox="0 0 160 115" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="65" cy="55" r="44" fill="#e8e8e8" stroke="#aaa" stroke-width="1.5"/>
-  <circle cx="95" cy="55" r="44" fill="#4a9eff" fill-opacity="0.75" stroke="#4a9eff" stroke-width="1.5"/>
-  <text x="36" y="59" font-size="13" fill="#666" text-anchor="middle" font-family="sans-serif">A</text>
-  <text x="124" y="59" font-size="13" fill="#fff" text-anchor="middle" font-family="sans-serif">B</text>
-  <text x="80" y="105" font-size="12" fill="#333" text-anchor="middle" font-family="sans-serif" font-weight="bold">RIGHT JOIN</text>
-</svg>
-<div style="font-size:12px; color:#666; margin-top:4px;">B 전체 + 교집합</div>
-</div>
-
-<div style="text-align:center;">
-<svg width="160" height="115" viewBox="0 0 160 115" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="65" cy="55" r="44" fill="#4a9eff" fill-opacity="0.75" stroke="#4a9eff" stroke-width="1.5"/>
-  <circle cx="95" cy="55" r="44" fill="#4a9eff" fill-opacity="0.75" stroke="#4a9eff" stroke-width="1.5"/>
-  <text x="36" y="59" font-size="13" fill="#fff" text-anchor="middle" font-family="sans-serif">A</text>
-  <text x="124" y="59" font-size="13" fill="#fff" text-anchor="middle" font-family="sans-serif">B</text>
-  <text x="80" y="105" font-size="12" fill="#333" text-anchor="middle" font-family="sans-serif" font-weight="bold">FULL OUTER JOIN</text>
-</svg>
-<div style="font-size:12px; color:#666; margin-top:4px;">A + B 전체</div>
-</div>
-
-</div>
-
-> CROSS JOIN / SELF JOIN은 집합 포함 관계가 아닌 조합·계층 개념이므로 벤 다이어그램으로 표현하지 않는다.
-
 ## JOIN 종류
 
 ### INNER JOIN
