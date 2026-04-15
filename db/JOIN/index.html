@@ -3814,6 +3814,17 @@
   <a href="#join_2" class="md-nav__link">
     <span class="md-ellipsis">
       
+        벤 다이어그램으로 보는 JOIN
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#join_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         JOIN 종류
       
     </span>
@@ -3894,7 +3905,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#join_3" class="md-nav__link">
+  <a href="#join_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         언제 어떤 JOIN을 쓰는지
@@ -4512,6 +4523,17 @@
   <a href="#join_2" class="md-nav__link">
     <span class="md-ellipsis">
       
+        벤 다이어그램으로 보는 JOIN
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#join_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         JOIN 종류
       
     </span>
@@ -4592,7 +4614,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#join_3" class="md-nav__link">
+  <a href="#join_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         언제 어떤 JOIN을 쓰는지
@@ -4789,7 +4811,61 @@
 </code></pre></div>
 <p>이 경우 서브쿼리 또는 별도 쿼리로 분리하는 것이 안전하다.</p>
 </div>
-<h2 id="join_2">JOIN 종류</h2>
+<h2 id="join_2">벤 다이어그램으로 보는 JOIN</h2>
+<div style="display:flex; flex-wrap:wrap; gap:28px; justify-content:center; margin:28px 0;">
+
+<div style="text-align:center;">
+<svg width="160" height="115" viewBox="0 0 160 115" xmlns="http://www.w3.org/2000/svg">
+  <defs><clipPath id="vj-ia"><circle cx="65" cy="55" r="44"/></clipPath></defs>
+  <circle cx="65" cy="55" r="44" fill="#e8e8e8" stroke="#aaa" stroke-width="1.5"/>
+  <circle cx="95" cy="55" r="44" fill="#e8e8e8" stroke="#aaa" stroke-width="1.5"/>
+  <circle cx="95" cy="55" r="44" fill="#4a9eff" fill-opacity="0.75" clip-path="url(#vj-ia)"/>
+  <text x="36" y="59" font-size="13" fill="#666" text-anchor="middle" font-family="sans-serif">A</text>
+  <text x="124" y="59" font-size="13" fill="#666" text-anchor="middle" font-family="sans-serif">B</text>
+  <text x="80" y="105" font-size="12" fill="#333" text-anchor="middle" font-family="sans-serif" font-weight="bold">INNER JOIN</text>
+</svg>
+<div style="font-size:12px; color:#666; margin-top:4px;">교집합만</div>
+</div>
+
+<div style="text-align:center;">
+<svg width="160" height="115" viewBox="0 0 160 115" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="95" cy="55" r="44" fill="#e8e8e8" stroke="#aaa" stroke-width="1.5"/>
+  <circle cx="65" cy="55" r="44" fill="#4a9eff" fill-opacity="0.75" stroke="#4a9eff" stroke-width="1.5"/>
+  <text x="36" y="59" font-size="13" fill="#fff" text-anchor="middle" font-family="sans-serif">A</text>
+  <text x="124" y="59" font-size="13" fill="#666" text-anchor="middle" font-family="sans-serif">B</text>
+  <text x="80" y="105" font-size="12" fill="#333" text-anchor="middle" font-family="sans-serif" font-weight="bold">LEFT JOIN</text>
+</svg>
+<div style="font-size:12px; color:#666; margin-top:4px;">A 전체 + 교집합</div>
+</div>
+
+<div style="text-align:center;">
+<svg width="160" height="115" viewBox="0 0 160 115" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="65" cy="55" r="44" fill="#e8e8e8" stroke="#aaa" stroke-width="1.5"/>
+  <circle cx="95" cy="55" r="44" fill="#4a9eff" fill-opacity="0.75" stroke="#4a9eff" stroke-width="1.5"/>
+  <text x="36" y="59" font-size="13" fill="#666" text-anchor="middle" font-family="sans-serif">A</text>
+  <text x="124" y="59" font-size="13" fill="#fff" text-anchor="middle" font-family="sans-serif">B</text>
+  <text x="80" y="105" font-size="12" fill="#333" text-anchor="middle" font-family="sans-serif" font-weight="bold">RIGHT JOIN</text>
+</svg>
+<div style="font-size:12px; color:#666; margin-top:4px;">B 전체 + 교집합</div>
+</div>
+
+<div style="text-align:center;">
+<svg width="160" height="115" viewBox="0 0 160 115" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="65" cy="55" r="44" fill="#4a9eff" fill-opacity="0.75" stroke="#4a9eff" stroke-width="1.5"/>
+  <circle cx="95" cy="55" r="44" fill="#4a9eff" fill-opacity="0.75" stroke="#4a9eff" stroke-width="1.5"/>
+  <text x="36" y="59" font-size="13" fill="#fff" text-anchor="middle" font-family="sans-serif">A</text>
+  <text x="124" y="59" font-size="13" fill="#fff" text-anchor="middle" font-family="sans-serif">B</text>
+  <text x="80" y="105" font-size="12" fill="#333" text-anchor="middle" font-family="sans-serif" font-weight="bold">FULL OUTER JOIN</text>
+</svg>
+<div style="font-size:12px; color:#666; margin-top:4px;">A + B 전체</div>
+</div>
+
+</div>
+
+<blockquote>
+<p>CROSS JOIN / SELF JOIN은 집합 포함 관계가 아닌 조합·계층 개념이므로 벤 다이어그램으로 표현하지 않는다.</p>
+</blockquote>
+<h2 id="join_3">JOIN 종류</h2>
 <h3 id="inner-join">INNER JOIN</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">amount</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="n">m</span>
@@ -4950,7 +5026,7 @@
 <a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">org</span><span class="p">;</span>
 </code></pre></div>
 </div>
-<h2 id="join_3">언제 어떤 JOIN을 쓰는지</h2>
+<h2 id="join_4">언제 어떤 JOIN을 쓰는지</h2>
 <table>
 <thead>
 <tr>
@@ -5104,7 +5180,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 15일 11:55:46 UTC">2026년 4월 15일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 15일 12:24:16 UTC">2026년 4월 15일</span>
   </span>
 
     
