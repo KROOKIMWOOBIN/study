@@ -32,13 +32,21 @@ FROM user u
 LEFT JOIN user_profile p ON u.id = p.user_id;
 ```
 
-```text
-user:              user_profile:          결과:
-id | name          user_id | bio          name  | bio
-1  | 김철수    →   1       | "개발자"     김철수 | 개발자
-2  | 이영희    →   2       | "디자이너"   이영희 | 디자이너
-                                          ← 행 수 동일
-```
+**[user]**
+
+| id | name |
+|----|------|
+| 1 | 김철수 |
+| 2 | 이영희 |
+
+**→ JOIN 결과** (user_profile과 1:1 매핑)
+
+| name | bio |
+|------|-----|
+| 김철수 | 개발자 |
+| 이영희 | 디자이너 |
+
+> user 2행 → 결과 2행 (**행 수 동일**)
 
 ### 1:N 관계 (to-many)
 
@@ -52,14 +60,30 @@ FROM member m
 LEFT JOIN orders o ON m.id = o.member_id;
 ```
 
-```text
-member:         orders:                      결과:
-id | name       id | member_id | amount      name  | amount
-1  | 김철수  →  1  | 1         | 10000       김철수 | 10000   ← 행 증가!
-                2  | 1         | 5000        김철수 | 5000    ← 행 증가!
-2  | 이영희  →  3  | 2         | 20000       이영희 | 20000
-                                             ← member 2행 → 결과 3행
-```
+**[member]**
+
+| id | name |
+|----|------|
+| 1 | 김철수 |
+| 2 | 이영희 |
+
+**[orders]**
+
+| id | member_id | amount |
+|----|-----------|--------|
+| 1 | 1 | 10000 |
+| 2 | 1 | 5000 |
+| 3 | 2 | 20000 |
+
+**→ JOIN 결과** (member 기준 LEFT JOIN)
+
+| name | amount |
+|------|--------|
+| 김철수 | 10000 |
+| 김철수 | 5000 |
+| 이영희 | 20000 |
+
+> member 2행 → 결과 3행 (**행 수 증가** — 김철수 주문이 2건이므로)
 
 <div class="warning-box" markdown="1">
 
@@ -92,20 +116,37 @@ INNER JOIN student_course sc ON s.id = sc.student_id
 INNER JOIN course c ON sc.course_id = c.id;
 ```
 
-```text
-student:          student_course:          course:
-id | name         student_id | course_id   id | title
-1  | 김철수        1          | 10          10 | DB
-                  1          | 20          20 | Java
-2  | 이영희        2          | 10
+**[student]**
 
-결과:
-name  | title
-김철수 | DB
-김철수 | Java
-이영희 | DB
-← student 2행 → 결과 3행
-```
+| id | name |
+|----|------|
+| 1 | 김철수 |
+| 2 | 이영희 |
+
+**[student_course]** (매핑 테이블)
+
+| student_id | course_id |
+|------------|-----------|
+| 1 | 10 |
+| 1 | 20 |
+| 2 | 10 |
+
+**[course]**
+
+| id | title |
+|----|-------|
+| 10 | DB |
+| 20 | Java |
+
+**→ JOIN 결과**
+
+| name | title |
+|------|-------|
+| 김철수 | DB |
+| 김철수 | Java |
+| 이영희 | DB |
+
+> student 2행 → 결과 3행 (**행 수 증가** — 김철수가 수강 2건)
 
 <div class="danger-box" markdown="1">
 
@@ -194,13 +235,27 @@ INNER JOIN orders o ON m.id = o.member_id;
 - 주문이 없는 회원은 결과에 포함되지 않는다.
 - `JOIN`만 쓰면 기본값이 `INNER JOIN`이다.
 
-```text
-member:          orders:           결과:
-id | name        id | member_id    name  | amount
-1  | 김철수       1  | 1    ← 매칭  김철수 | 10000
-2  | 이영희       2  | 1    ← 매칭  김철수 | 5000
-3  | 박민준       (이영희·박민준 주문 없음 → 제외)
-```
+**[member]**
+
+| id | name |
+|----|------|
+| 1 | 김철수 |
+| 2 | 이영희 |
+| 3 | 박민준 |
+
+**[orders]**
+
+| id | member_id |
+|----|-----------|
+| 1 | 1 (김철수) |
+| 2 | 1 (김철수) |
+
+**→ INNER JOIN 결과** (이영희·박민준 — 주문 없으므로 제외)
+
+| name | amount |
+|------|--------|
+| 김철수 | 10000 |
+| 김철수 | 5000 |
 
 ### LEFT (OUTER) JOIN
 
@@ -214,14 +269,14 @@ LEFT JOIN orders o ON m.id = o.member_id;
 - 오른쪽 테이블(orders)에 매칭되는 행이 없으면 `NULL`로 채운다.
 - "주문이 없는 회원도 포함해서 보고 싶을 때" 사용한다.
 
-```text
-결과:
-name  | amount
-김철수 | 10000
-김철수 | 5000
-이영희 | NULL    ← 주문 없음
-박민준 | NULL    ← 주문 없음
-```
+**→ LEFT JOIN 결과** (주문 없는 회원도 포함)
+
+| name | amount |
+|------|--------|
+| 김철수 | 10000 |
+| 김철수 | 5000 |
+| 이영희 | NULL (주문 없음) |
+| 박민준 | NULL (주문 없음) |
 
 ### RIGHT (OUTER) JOIN
 
@@ -273,17 +328,18 @@ FROM member m
 CROSS JOIN product p;
 ```
 
-```text
-member:       product:         결과:
-id | name     id | name        name  | product
-1  | 김철수    1  | 노트북       김철수 | 노트북
-2  | 이영희    2  | 마우스       김철수 | 마우스
-3  | 박민준               이영희 | 노트북
-                          이영희 | 마우스
-                          박민준 | 노트북
-                          박민준 | 마우스
-                          ← 3 × 2 = 6행
-```
+**[member]** 3행 × **[product]** 2행
+
+| member.name | product.name |
+|-------------|--------------|
+| 김철수 | 노트북 |
+| 김철수 | 마우스 |
+| 이영희 | 노트북 |
+| 이영희 | 마우스 |
+| 박민준 | 노트북 |
+| 박민준 | 마우스 |
+
+> 3 × 2 = **6행**
 
 **실무 활용 예시** — 날짜 시계열 × 지점 조합으로 "판매 없는 날도 0으로 채운" 리포트 생성
 
@@ -337,21 +393,23 @@ FROM employee e
 LEFT JOIN employee m ON e.manager_id = m.id;
 ```
 
-```text
-employee 테이블:
-id | name   | manager_id
-1  | 이사장  | NULL
-2  | 부장    | 1
-3  | 과장    | 2
-4  | 사원    | 3
+**[employee]**
 
-결과:
-직원   | 상사
-이사장 | NULL    ← 상사 없음
-부장   | 이사장
-과장   | 부장
-사원   | 과장
-```
+| id | name | manager_id |
+|----|------|------------|
+| 1 | 이사장 | NULL |
+| 2 | 부장 | 1 |
+| 3 | 과장 | 2 |
+| 4 | 사원 | 3 |
+
+**→ SELF JOIN 결과**
+
+| 직원 | 상사 |
+|------|------|
+| 이사장 | NULL (상사 없음) |
+| 부장 | 이사장 |
+| 과장 | 부장 |
+| 사원 | 과장 |
 
 **LEFT JOIN을 쓰는 이유** — 최상위 계층(상사가 없는 행)도 결과에 포함시키기 위해. INNER JOIN이면 `manager_id = NULL`인 최상위 행이 제외된다.
 
