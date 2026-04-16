@@ -8,31 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://krookimwoobin.github.io/study/db/SQL/">
+        <link rel="canonical" href="https://krookimwoobin.github.io/study/db/%EA%B8%B0%EC%B4%88/%EC%A0%9C%EC%95%BD%EC%A1%B0%EA%B1%B4/">
       
       
-        <link rel="prev" href="../ACID/">
+        <link rel="prev" href="../%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%83%80%EC%9E%85/">
       
       
-        <link rel="next" href="../%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%83%80%EC%9E%85/">
+        <link rel="next" href="../%EC%A0%95%EA%B7%9C%ED%99%94/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>SQL - 학습 노트</title>
+        <title>제약 조건 - 학습 노트</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,9 +51,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sql" class="md-skip">
+        <a href="#constraint" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -94,7 +94,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="상단/헤더">
-    <a href="../.." title="학습 노트" class="md-header__button md-logo" aria-label="학습 노트" data-md-component="logo">
+    <a href="../../.." title="학습 노트" class="md-header__button md-logo" aria-label="학습 노트" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SQL
+              제약 조건
             
           </span>
         </div>
@@ -232,7 +232,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="네비게이션" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="학습 노트" class="md-nav__button md-logo" aria-label="학습 노트" data-md-component="logo">
+    <a href="../../.." title="학습 노트" class="md-nav__button md-logo" aria-label="학습 노트" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -262,7 +262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -341,7 +341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/java/" class="md-nav__link">
+      <a href="../../../java/java/" class="md-nav__link">
         
   
   
@@ -418,7 +418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/oop/%EB%8B%A4%ED%98%95%EC%84%B1/" class="md-nav__link">
+      <a href="../../../java/oop/%EB%8B%A4%ED%98%95%EC%84%B1/" class="md-nav__link">
         
   
   
@@ -446,7 +446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/oop/%EC%83%81%EC%86%8D/" class="md-nav__link">
+      <a href="../../../java/oop/%EC%83%81%EC%86%8D/" class="md-nav__link">
         
   
   
@@ -474,7 +474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/oop/%EC%B6%94%EC%83%81%ED%99%94/" class="md-nav__link">
+      <a href="../../../java/oop/%EC%B6%94%EC%83%81%ED%99%94/" class="md-nav__link">
         
   
   
@@ -502,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/oop/%EC%BA%A1%EC%8A%90%ED%99%94/" class="md-nav__link">
+      <a href="../../../java/oop/%EC%BA%A1%EC%8A%90%ED%99%94/" class="md-nav__link">
         
   
   
@@ -587,7 +587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/core/" class="md-nav__link">
+      <a href="../../../java/core/core/" class="md-nav__link">
         
   
   
@@ -615,7 +615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/Object/" class="md-nav__link">
+      <a href="../../../java/core/Object/" class="md-nav__link">
         
   
   
@@ -643,7 +643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/%EB%B6%88%EB%B3%80%EA%B0%9D%EC%B2%B4VS%EA%B0%80%EB%B3%80%EA%B0%9D%EC%B2%B4/" class="md-nav__link">
+      <a href="../../../java/core/%EB%B6%88%EB%B3%80%EA%B0%9D%EC%B2%B4VS%EA%B0%80%EB%B3%80%EA%B0%9D%EC%B2%B4/" class="md-nav__link">
         
   
   
@@ -671,7 +671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/%EB%9E%98%ED%8D%BC%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
+      <a href="../../../java/core/%EB%9E%98%ED%8D%BC%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -699,7 +699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/Enum/" class="md-nav__link">
+      <a href="../../../java/core/Enum/" class="md-nav__link">
         
   
   
@@ -727,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
+      <a href="../../../java/core/%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
         
   
   
@@ -755,7 +755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/%EC%A4%91%EC%B2%A9%EB%82%B4%EB%B6%80%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
+      <a href="../../../java/core/%EC%A4%91%EC%B2%A9%EB%82%B4%EB%B6%80%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -783,7 +783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/Class/" class="md-nav__link">
+      <a href="../../../java/core/Class/" class="md-nav__link">
         
   
   
@@ -811,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/Math/" class="md-nav__link">
+      <a href="../../../java/core/Math/" class="md-nav__link">
         
   
   
@@ -839,7 +839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/SystemClass/" class="md-nav__link">
+      <a href="../../../java/core/SystemClass/" class="md-nav__link">
         
   
   
@@ -924,7 +924,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/collections/" class="md-nav__link">
+      <a href="../../../java/collections/collections/" class="md-nav__link">
         
   
   
@@ -952,7 +952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Collection/" class="md-nav__link">
+      <a href="../../../java/collections/Collection/" class="md-nav__link">
         
   
   
@@ -980,7 +980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Generic/" class="md-nav__link">
+      <a href="../../../java/collections/Generic/" class="md-nav__link">
         
   
   
@@ -1008,7 +1008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Array/" class="md-nav__link">
+      <a href="../../../java/collections/Array/" class="md-nav__link">
         
   
   
@@ -1036,7 +1036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/List/" class="md-nav__link">
+      <a href="../../../java/collections/List/" class="md-nav__link">
         
   
   
@@ -1064,7 +1064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/ArrayList/" class="md-nav__link">
+      <a href="../../../java/collections/ArrayList/" class="md-nav__link">
         
   
   
@@ -1092,7 +1092,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/LinkedList/" class="md-nav__link">
+      <a href="../../../java/collections/LinkedList/" class="md-nav__link">
         
   
   
@@ -1120,7 +1120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Set/" class="md-nav__link">
+      <a href="../../../java/collections/Set/" class="md-nav__link">
         
   
   
@@ -1148,7 +1148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/HashSet/" class="md-nav__link">
+      <a href="../../../java/collections/HashSet/" class="md-nav__link">
         
   
   
@@ -1176,7 +1176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Map/" class="md-nav__link">
+      <a href="../../../java/collections/Map/" class="md-nav__link">
         
   
   
@@ -1204,7 +1204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Stack/" class="md-nav__link">
+      <a href="../../../java/collections/Stack/" class="md-nav__link">
         
   
   
@@ -1232,7 +1232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Queue/" class="md-nav__link">
+      <a href="../../../java/collections/Queue/" class="md-nav__link">
         
   
   
@@ -1260,7 +1260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/%EC%88%9C%ED%9A%8C/" class="md-nav__link">
+      <a href="../../../java/collections/%EC%88%9C%ED%9A%8C/" class="md-nav__link">
         
   
   
@@ -1288,7 +1288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/%EB%B9%84%EA%B5%90/" class="md-nav__link">
+      <a href="../../../java/collections/%EB%B9%84%EA%B5%90/" class="md-nav__link">
         
   
   
@@ -1316,7 +1316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/BigO/" class="md-nav__link">
+      <a href="../../../java/collections/BigO/" class="md-nav__link">
         
   
   
@@ -1401,7 +1401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/start/" class="md-nav__link">
+      <a href="../../../java/lambda/start/" class="md-nav__link">
         
   
   
@@ -1429,7 +1429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/function/" class="md-nav__link">
+      <a href="../../../java/lambda/function/" class="md-nav__link">
         
   
   
@@ -1457,7 +1457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/method/" class="md-nav__link">
+      <a href="../../../java/lambda/method/" class="md-nav__link">
         
   
   
@@ -1485,7 +1485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/programming/" class="md-nav__link">
+      <a href="../../../java/lambda/programming/" class="md-nav__link">
         
   
   
@@ -1513,7 +1513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/stream/" class="md-nav__link">
+      <a href="../../../java/lambda/stream/" class="md-nav__link">
         
   
   
@@ -1541,7 +1541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/streamApi/" class="md-nav__link">
+      <a href="../../../java/lambda/streamApi/" class="md-nav__link">
         
   
   
@@ -1569,7 +1569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/%EC%A6%89%EC%8B%9CVS%EC%A7%80%EC%97%B0/" class="md-nav__link">
+      <a href="../../../java/lambda/%EC%A6%89%EC%8B%9CVS%EC%A7%80%EC%97%B0/" class="md-nav__link">
         
   
   
@@ -1597,7 +1597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/optional/" class="md-nav__link">
+      <a href="../../../java/lambda/optional/" class="md-nav__link">
         
   
   
@@ -1625,7 +1625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/orElseVSorElseGet/" class="md-nav__link">
+      <a href="../../../java/lambda/orElseVSorElseGet/" class="md-nav__link">
         
   
   
@@ -1653,7 +1653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/defaultMethod/" class="md-nav__link">
+      <a href="../../../java/lambda/defaultMethod/" class="md-nav__link">
         
   
   
@@ -1681,7 +1681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/%EB%B3%91%EB%A0%AC%EC%8A%A4%ED%8A%B8%EB%A6%BC/" class="md-nav__link">
+      <a href="../../../java/lambda/%EB%B3%91%EB%A0%AC%EC%8A%A4%ED%8A%B8%EB%A6%BC/" class="md-nav__link">
         
   
   
@@ -1709,7 +1709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/%ED%95%A8%EC%88%98%ED%98%95%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" class="md-nav__link">
+      <a href="../../../java/lambda/%ED%95%A8%EC%88%98%ED%98%95%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" class="md-nav__link">
         
   
   
@@ -1794,7 +1794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/thread/" class="md-nav__link">
+      <a href="../../../java/thread/thread/" class="md-nav__link">
         
   
   
@@ -1822,7 +1822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/" class="md-nav__link">
+      <a href="../../../java/thread/%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/" class="md-nav__link">
         
   
   
@@ -1850,7 +1850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/Thread1/" class="md-nav__link">
+      <a href="../../../java/thread/Thread1/" class="md-nav__link">
         
   
   
@@ -1878,7 +1878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/Thread2/" class="md-nav__link">
+      <a href="../../../java/thread/Thread2/" class="md-nav__link">
         
   
   
@@ -1906,7 +1906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/Thread3/" class="md-nav__link">
+      <a href="../../../java/thread/Thread3/" class="md-nav__link">
         
   
   
@@ -1934,7 +1934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/synchronized/" class="md-nav__link">
+      <a href="../../../java/thread/synchronized/" class="md-nav__link">
         
   
   
@@ -1962,7 +1962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/volatile/" class="md-nav__link">
+      <a href="../../../java/thread/volatile/" class="md-nav__link">
         
   
   
@@ -1990,7 +1990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/%EB%8F%99%EA%B8%B0%ED%99%94%EC%99%80%EC%9B%90%EC%9E%90%EC%A0%81%EC%97%B0%EC%82%B0/" class="md-nav__link">
+      <a href="../../../java/thread/%EB%8F%99%EA%B8%B0%ED%99%94%EC%99%80%EC%9B%90%EC%9E%90%EC%A0%81%EC%97%B0%EC%82%B0/" class="md-nav__link">
         
   
   
@@ -2018,7 +2018,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/Lock/" class="md-nav__link">
+      <a href="../../../java/thread/Lock/" class="md-nav__link">
         
   
   
@@ -2046,7 +2046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/%EB%8F%99%EC%8B%9C%EC%84%B1%EC%BB%AC%EB%A0%89%EC%85%98/" class="md-nav__link">
+      <a href="../../../java/thread/%EB%8F%99%EC%8B%9C%EC%84%B1%EC%BB%AC%EB%A0%89%EC%85%98/" class="md-nav__link">
         
   
   
@@ -2074,7 +2074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/%EC%83%9D%EC%82%B0%EC%9E%90%EC%86%8C%EB%B9%84%EC%9E%90%EB%AC%B8%EC%A0%9C/" class="md-nav__link">
+      <a href="../../../java/thread/%EC%83%9D%EC%82%B0%EC%9E%90%EC%86%8C%EB%B9%84%EC%9E%90%EB%AC%B8%EC%A0%9C/" class="md-nav__link">
         
   
   
@@ -2102,7 +2102,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/ThreadPool_Executor_Overview1/" class="md-nav__link">
+      <a href="../../../java/thread/ThreadPool_Executor_Overview1/" class="md-nav__link">
         
   
   
@@ -2130,7 +2130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/ThreadPool_Executor_Overview2/" class="md-nav__link">
+      <a href="../../../java/thread/ThreadPool_Executor_Overview2/" class="md-nav__link">
         
   
   
@@ -2215,7 +2215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/io-network/IO/" class="md-nav__link">
+      <a href="../../../java/io-network/IO/" class="md-nav__link">
         
   
   
@@ -2243,7 +2243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/io-network/network/" class="md-nav__link">
+      <a href="../../../java/io-network/network/" class="md-nav__link">
         
   
   
@@ -2271,7 +2271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/io-network/Charset_Encoding/" class="md-nav__link">
+      <a href="../../../java/io-network/Charset_Encoding/" class="md-nav__link">
         
   
   
@@ -2299,7 +2299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/io-network/annotation/" class="md-nav__link">
+      <a href="../../../java/io-network/annotation/" class="md-nav__link">
         
   
   
@@ -2327,7 +2327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/io-network/reflection/" class="md-nav__link">
+      <a href="../../../java/io-network/reflection/" class="md-nav__link">
         
   
   
@@ -2422,7 +2422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../html/html/" class="md-nav__link">
+      <a href="../../../html/html/" class="md-nav__link">
         
   
   
@@ -2450,7 +2450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../html/Session/" class="md-nav__link">
+      <a href="../../../html/Session/" class="md-nav__link">
         
   
   
@@ -2537,7 +2537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/spring/" class="md-nav__link">
+      <a href="../../../spring/spring/" class="md-nav__link">
         
   
   
@@ -2614,7 +2614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/solid/" class="md-nav__link">
+      <a href="../../../spring/solid/" class="md-nav__link">
         
   
   
@@ -2642,7 +2642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/IoC-DI/" class="md-nav__link">
+      <a href="../../../spring/IoC-DI/" class="md-nav__link">
         
   
   
@@ -2670,7 +2670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/%EC%8A%A4%ED%94%84%EB%A7%81%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88/" class="md-nav__link">
+      <a href="../../../spring/%EC%8A%A4%ED%94%84%EB%A7%81%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88/" class="md-nav__link">
         
   
   
@@ -2698,7 +2698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/%EC%8B%B1%EA%B8%80%ED%86%A4/" class="md-nav__link">
+      <a href="../../../spring/%EC%8B%B1%EA%B8%80%ED%86%A4/" class="md-nav__link">
         
   
   
@@ -2726,7 +2726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%8A%A4%EC%BA%94/" class="md-nav__link">
+      <a href="../../../spring/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%8A%A4%EC%BA%94/" class="md-nav__link">
         
   
   
@@ -2754,7 +2754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84%EC%A3%BC%EC%9E%85/" class="md-nav__link">
+      <a href="../../../spring/%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84%EC%A3%BC%EC%9E%85/" class="md-nav__link">
         
   
   
@@ -2782,7 +2782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/%EB%B9%88%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0/" class="md-nav__link">
+      <a href="../../../spring/%EB%B9%88%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0/" class="md-nav__link">
         
   
   
@@ -2810,7 +2810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/%EB%B9%88%EC%8A%A4%EC%BD%94%ED%94%84/" class="md-nav__link">
+      <a href="../../../spring/%EB%B9%88%EC%8A%A4%EC%BD%94%ED%94%84/" class="md-nav__link">
         
   
   
@@ -2895,7 +2895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/springboot/" class="md-nav__link">
+      <a href="../../../spring/springboot/" class="md-nav__link">
         
   
   
@@ -2923,7 +2923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/mvc/" class="md-nav__link">
+      <a href="../../../spring/mvc/" class="md-nav__link">
         
   
   
@@ -2951,7 +2951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/restapi/" class="md-nav__link">
+      <a href="../../../spring/restapi/" class="md-nav__link">
         
   
   
@@ -2979,7 +2979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/validation/" class="md-nav__link">
+      <a href="../../../spring/validation/" class="md-nav__link">
         
   
   
@@ -3007,7 +3007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/exception/" class="md-nav__link">
+      <a href="../../../spring/exception/" class="md-nav__link">
         
   
   
@@ -3035,7 +3035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/swagger/" class="md-nav__link">
+      <a href="../../../spring/swagger/" class="md-nav__link">
         
   
   
@@ -3120,7 +3120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/aop/" class="md-nav__link">
+      <a href="../../../spring/aop/" class="md-nav__link">
         
   
   
@@ -3148,7 +3148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/transaction/" class="md-nav__link">
+      <a href="../../../spring/transaction/" class="md-nav__link">
         
   
   
@@ -3176,7 +3176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/logging/" class="md-nav__link">
+      <a href="../../../spring/logging/" class="md-nav__link">
         
   
   
@@ -3261,7 +3261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/JDBC/" class="md-nav__link">
+      <a href="../../../spring/JDBC/" class="md-nav__link">
         
   
   
@@ -3289,7 +3289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/%EC%BB%A4%EB%84%A5%EC%85%98%ED%92%80-DataSource/" class="md-nav__link">
+      <a href="../../../spring/%EC%BB%A4%EB%84%A5%EC%85%98%ED%92%80-DataSource/" class="md-nav__link">
         
   
   
@@ -3317,7 +3317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/db%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
+      <a href="../../../spring/db%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
         
   
   
@@ -3345,7 +3345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/jpa/" class="md-nav__link">
+      <a href="../../../spring/jpa/" class="md-nav__link">
         
   
   
@@ -3373,7 +3373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/querydsl/" class="md-nav__link">
+      <a href="../../../spring/querydsl/" class="md-nav__link">
         
   
   
@@ -3401,7 +3401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/jpa-performance/" class="md-nav__link">
+      <a href="../../../spring/jpa-performance/" class="md-nav__link">
         
   
   
@@ -3486,7 +3486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/redis/" class="md-nav__link">
+      <a href="../../../spring/redis/" class="md-nav__link">
         
   
   
@@ -3514,7 +3514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/security/" class="md-nav__link">
+      <a href="../../../spring/security/" class="md-nav__link">
         
   
   
@@ -3542,7 +3542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/concurrency/" class="md-nav__link">
+      <a href="../../../spring/concurrency/" class="md-nav__link">
         
   
   
@@ -3570,7 +3570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/kafka/" class="md-nav__link">
+      <a href="../../../spring/kafka/" class="md-nav__link">
         
   
   
@@ -3655,7 +3655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/testing/" class="md-nav__link">
+      <a href="../../../spring/testing/" class="md-nav__link">
         
   
   
@@ -3683,7 +3683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/monitoring/" class="md-nav__link">
+      <a href="../../../spring/monitoring/" class="md-nav__link">
         
   
   
@@ -3711,7 +3711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/architecture/" class="md-nav__link">
+      <a href="../../../spring/architecture/" class="md-nav__link">
         
   
   
@@ -3739,7 +3739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/msa/" class="md-nav__link">
+      <a href="../../../spring/msa/" class="md-nav__link">
         
   
   
@@ -3836,7 +3836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../db/" class="md-nav__link">
+      <a href="../../db/" class="md-nav__link">
         
   
   
@@ -3856,6 +3856,57 @@
   
 
               
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기초
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기초
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -3889,37 +3940,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    SQL
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../SQL/" class="md-nav__link">
         
   
   
@@ -3935,164 +3959,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="목차">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      목차
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        왜 쓰는가?
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        특징
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#select" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SELECT 기본 구조
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        언제 쓰는지
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        장점
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        단점
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sql_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SQL 실행 순서
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ddl-dml-dcl-tcl" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DDL · DML · DCL · TCL
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="DDL · DML · DCL · TCL">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ddl-data-definition-language" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DDL (Data Definition Language) — 구조 정의
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dml-data-manipulation-language" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DML (Data Manipulation Language) — 데이터 조작
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dcl-data-control-language" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DCL (Data Control Language) — 권한 제어
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tcl-transaction-control-language" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TCL (Transaction Control Language) — 트랜잭션 제어
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4130,10 +3996,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../%EC%A0%9C%EC%95%BD%EC%A1%B0%EA%B1%B4/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    제약 조건
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -4149,202 +4042,214 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%80%EA%B3%B5/" class="md-nav__link">
+      
         
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
   
   
-  <span class="md-ellipsis">
+  
     
   
-    데이터 가공
   
-
-    
-  </span>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        왜 쓰는지
+      
+    </span>
+  </a>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        어떻게 쓰는지
+      
+    </span>
+  </a>
   
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%EC%A7%91%EA%B3%84/" class="md-nav__link">
+    <nav class="md-nav" aria-label="어떻게 쓰는지">
+      <ul class="md-nav__list">
         
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        테이블 생성 시 제약 조건
+      
+    </span>
+  </a>
   
-  
-  <span class="md-ellipsis">
-    
-  
-    그룹과 집계
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../JOIN/" class="md-nav__link">
+</li>
         
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기존 테이블에 제약 조건 추가
+      
+    </span>
+  </a>
   
-  
-  <span class="md-ellipsis">
-    
-  
-    JOIN
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%EC%84%9C%EB%B8%8C%EC%BF%BC%EB%A6%AC/" class="md-nav__link">
+</li>
         
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        제약 조건 삭제
+      
+    </span>
+  </a>
   
-  
-  <span class="md-ellipsis">
-    
-  
-    서브쿼리
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../UNION/" class="md-nav__link">
+</li>
         
+      </ul>
+    </nav>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        언제 쓰는지
+      
+    </span>
+  </a>
   
-  <span class="md-ellipsis">
-    
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장점
+      
+    </span>
+  </a>
   
-    UNION
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점
+      
+    </span>
+  </a>
   
-
-    
-  </span>
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        종류
+      
+    </span>
+  </a>
   
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../CASE/" class="md-nav__link">
+    <nav class="md-nav" aria-label="종류">
+      <ul class="md-nav__list">
         
+          <li class="md-nav__item">
+  <a href="#not-null" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NOT NULL
+      
+    </span>
+  </a>
   
-  
-  <span class="md-ellipsis">
-    
-  
-    CASE
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%EC%9D%B8%EB%8D%B1%EC%8A%A4/" class="md-nav__link">
+</li>
         
+          <li class="md-nav__item">
+  <a href="#unique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UNIQUE
+      
+    </span>
+  </a>
   
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#primary-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PRIMARY KEY (기본 키)
+      
+    </span>
+  </a>
   
-  <span class="md-ellipsis">
-    
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#foreign-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FOREIGN KEY (외래 키)
+      
+    </span>
+  </a>
   
-    인덱스
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DEFAULT
+      
+    </span>
+  </a>
   
-
-    
-  </span>
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CHECK
+      
+    </span>
+  </a>
   
+</li>
+        
+      </ul>
+    </nav>
   
-
-      </a>
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        제약 조건 이름 지정
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4378,6 +4283,63 @@
 
               
             
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    쿼리
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    쿼리
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
               
                 
   
@@ -4385,7 +4347,260 @@
   
   
     <li class="md-nav__item">
-      <a href="../%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/" class="md-nav__link">
+      <a href="../../%EC%BF%BC%EB%A6%AC/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%80%EA%B3%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    데이터 가공
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%EC%BF%BC%EB%A6%AC/%EC%A7%91%EA%B3%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    그룹과 집계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%EC%BF%BC%EB%A6%AC/JOIN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JOIN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%EC%BF%BC%EB%A6%AC/%EC%84%9C%EB%B8%8C%EC%BF%BC%EB%A6%AC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    서브쿼리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%EC%BF%BC%EB%A6%AC/UNION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UNION
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%EC%BF%BC%EB%A6%AC/CASE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CASE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    성능 & 운영
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    성능 & 운영
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    인덱스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/" class="md-nav__link">
         
   
   
@@ -4413,7 +4628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%EA%B2%A9%EB%A6%AC%EC%88%98%EC%A4%80/" class="md-nav__link">
+      <a href="../../%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EA%B2%A9%EB%A6%AC%EC%88%98%EC%A4%80/" class="md-nav__link">
         
   
   
@@ -4429,6 +4644,14 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -4500,7 +4723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../jvm/jvm/" class="md-nav__link">
+      <a href="../../../jvm/jvm/" class="md-nav__link">
         
   
   
@@ -4528,7 +4751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../jvm/JVM%EA%B0%9C%EC%9A%94/" class="md-nav__link">
+      <a href="../../../jvm/JVM%EA%B0%9C%EC%9A%94/" class="md-nav__link">
         
   
   
@@ -4615,7 +4838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/cs/" class="md-nav__link">
+      <a href="../../../cs/cs/" class="md-nav__link">
         
   
   
@@ -4643,7 +4866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/%EB%8F%99%EA%B8%B0VS%EB%B9%84%EB%8F%99%EA%B8%B0/" class="md-nav__link">
+      <a href="../../../cs/%EB%8F%99%EA%B8%B0VS%EB%B9%84%EB%8F%99%EA%B8%B0/" class="md-nav__link">
         
   
   
@@ -4730,7 +4953,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../troubleshooting/smtp/" class="md-nav__link">
+      <a href="../../../troubleshooting/smtp/" class="md-nav__link">
         
   
   
@@ -4788,7 +5011,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        왜 쓰는가?
+        왜 쓰는지
       
     </span>
   </a>
@@ -4799,26 +5022,54 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        특징
+        어떻게 쓰는지
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#select" class="md-nav__link">
+    <nav class="md-nav" aria-label="어떻게 쓰는지">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SELECT 기본 구조
+        테이블 생성 시 제약 조건
       
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기존 테이블에 제약 조건 추가
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        제약 조건 삭제
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         언제 쓰는지
@@ -4829,7 +5080,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         장점
@@ -4840,7 +5091,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         단점
@@ -4851,33 +5102,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sql_1" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SQL 실행 순서
+        종류
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ddl-dml-dcl-tcl" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DDL · DML · DCL · TCL
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="DDL · DML · DCL · TCL">
+    <nav class="md-nav" aria-label="종류">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ddl-data-definition-language" class="md-nav__link">
+  <a href="#not-null" class="md-nav__link">
     <span class="md-ellipsis">
       
-        DDL (Data Definition Language) — 구조 정의
+        NOT NULL
       
     </span>
   </a>
@@ -4885,10 +5125,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dml-data-manipulation-language" class="md-nav__link">
+  <a href="#unique" class="md-nav__link">
     <span class="md-ellipsis">
       
-        DML (Data Manipulation Language) — 데이터 조작
+        UNIQUE
       
     </span>
   </a>
@@ -4896,10 +5136,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dcl-data-control-language" class="md-nav__link">
+  <a href="#primary-key" class="md-nav__link">
     <span class="md-ellipsis">
       
-        DCL (Data Control Language) — 권한 제어
+        PRIMARY KEY (기본 키)
       
     </span>
   </a>
@@ -4907,10 +5147,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#tcl-transaction-control-language" class="md-nav__link">
+  <a href="#foreign-key" class="md-nav__link">
     <span class="md-ellipsis">
       
-        TCL (Transaction Control Language) — 트랜잭션 제어
+        FOREIGN KEY (외래 키)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DEFAULT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CHECK
       
     </span>
   </a>
@@ -4919,6 +5181,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        제약 조건 이름 지정
+      
+    </span>
+  </a>
   
 </li>
       
@@ -4942,82 +5215,91 @@
   
 
 
-<h1 id="sql">SQL</h1>
+<h1 id="constraint">제약 조건 (Constraint)</h1>
 <div class="concept-box">
-<p><strong>SQL(Structured Query Language)</strong>: 관계형 데이터베이스와 통신하기 위한 표준 언어. 데이터를 정의·조작·제어하는 명령어 집합이다.</p>
+<p><strong>제약 조건</strong>: 테이블에 저장되는 데이터의 <strong>무결성(Integrity)</strong> 을 보장하기 위해 컬럼이나 테이블에 걸어두는 규칙. 규칙을 어기는 데이터는 DBMS가 거부한다.</p>
 </div>
-<h2 id="_1">왜 쓰는가?</h2>
-<p>DBMS마다 내부 구현이 다르지만, SQL이라는 표준 언어 덕분에 <strong>MySQL, PostgreSQL, Oracle 등 어떤 RDBMS든 같은 방식으로 데이터를 다룰 수 있다.</strong> 개발자가 <abbr title="DataBase Management System. 데이터베이스를 관리하는 소프트웨어. MySQL, PostgreSQL, Oracle 등.">DBMS</abbr> 내부 파일 구조를 몰라도 선언적(무엇을 원하는지)으로 데이터를 요청할 수 있다.</p>
-<h2 id="_2">특징</h2>
-<ul>
-<li><strong>선언형 언어</strong>: "어떻게"가 아니라 "무엇을" 원하는지 기술한다. 실행 계획은 DBMS의 쿼리 옵티마이저가 결정한다.</li>
-<li><strong>집합 기반</strong>: 행 하나가 아니라 결과 집합(테이블) 단위로 동작한다.</li>
-<li><strong>ANSI/ISO 표준</strong>: 표준이 있지만 DBMS마다 방언(Dialect)이 존재한다. (예: MySQL의 <code>LIMIT</code> vs Oracle의 <code>ROWNUM</code>)</li>
-</ul>
-<h2 id="select">SELECT 기본 구조</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">SELECT</span><span class="w">   </span><span class="err">컬럼</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">컬럼</span><span class="mi">2</span><span class="w">          </span><span class="c1">-- 3. 조회할 컬럼 선택</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">FROM</span><span class="w">     </span><span class="err">테이블명</span><span class="w">               </span><span class="c1">-- 1. 대상 테이블</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">WHERE</span><span class="w">    </span><span class="err">조건</span><span class="w">                   </span><span class="c1">-- 2. 행 필터링</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="err">그룹</span><span class="w"> </span><span class="err">기준</span><span class="w"> </span><span class="err">컬럼</span><span class="w">         </span><span class="c1">-- 4. 그룹화</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">HAVING</span><span class="w">   </span><span class="err">그룹</span><span class="w"> </span><span class="err">조건</span><span class="w">              </span><span class="c1">-- 5. 그룹 필터링</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="err">정렬</span><span class="w"> </span><span class="err">기준</span><span class="w"> </span><span class="err">컬럼</span><span class="w">         </span><span class="c1">-- 6. 정렬</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">LIMIT</span><span class="w">    </span><span class="n">n</span><span class="p">;</span><span class="w">                     </span><span class="c1">-- 7. 행 수 제한</span>
+<h2 id="_1">왜 쓰는지</h2>
+<p>애플리케이션 코드로 유효성 검사를 하더라도 여러 서비스가 하나의 DB를 공유하거나 직접 SQL로 데이터를 수정하는 경우에는 코드가 우회될 수 있다. 제약 조건을 DB 레벨에서 걸면 어떤 경로로 데이터가 들어오든 <strong>무결성이 보장</strong>된다.</p>
+<h2 id="_2">어떻게 쓰는지</h2>
+<h3 id="_3">테이블 생성 시 제약 조건</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="n">id</span><span class="w">       </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">email</span><span class="w">    </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">UNIQUE</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">age</span><span class="w">      </span><span class="nb">INT</span><span class="w"> </span><span class="k">CHECK</span><span class="w"> </span><span class="p">(</span><span class="n">age</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">150</span><span class="p">),</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="n">is_active</span><span class="w"> </span><span class="nb">BOOLEAN</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">TRUE</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="n">created_at</span><span class="w"> </span><span class="n">DATETIME</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">);</span>
 </code></pre></div>
-<hr />
-<h2 id="_3">언제 쓰는지</h2>
+<h3 id="_4">기존 테이블에 제약 조건 추가</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">-- NOT NULL은 ADD로 불가능, MODIFY 사용</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">MODIFY</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1">-- UNIQUE 추가</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">uq_member_phone</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="p">(</span><span class="n">phone</span><span class="p">);</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1">-- FOREIGN KEY 추가</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">fk_orders_member</span><span class="w"> </span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">member_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">member</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">CASCADE</span><span class="p">;</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="c1">-- CHECK 제약 추가</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">ck_age</span><span class="w"> </span><span class="k">CHECK</span><span class="w"> </span><span class="p">(</span><span class="n">age</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">150</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="_5">제약 조건 삭제</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">-- UNIQUE, FOREIGN KEY, CHECK 삭제</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">uq_member_email</span><span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1">-- PRIMARY KEY 삭제 (MySQL)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">;</span>
+</code></pre></div>
+<h2 id="_6">언제 쓰는지</h2>
 <table>
 <thead>
 <tr>
-<th>명령어</th>
-<th>사용 시기</th>
-<th>선택 기준</th>
+<th>상황</th>
+<th>제약 조건</th>
+<th>이유</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>SELECT</strong></td>
-<td>데이터 조회 필요</td>
-<td>모든 조회 작업</td>
+<td><strong>NULL 불가 필드</strong></td>
+<td>✅ NOT NULL</td>
+<td>필수 정보 보장</td>
 </tr>
 <tr>
-<td><strong>INSERT</strong></td>
-<td>새 데이터 추가</td>
-<td>단일 또는 대량 INSERT</td>
+<td><strong>값의 유일성 필요</strong></td>
+<td>✅ UNIQUE</td>
+<td>이메일, 사용자명 등 중복 방지</td>
 </tr>
 <tr>
-<td><strong>UPDATE</strong></td>
-<td>기존 데이터 수정</td>
-<td>WHERE로 대상 명확히</td>
+<td><strong>행 식별</strong></td>
+<td>✅ PRIMARY KEY</td>
+<td>테이블 내 행 유일성 필수</td>
 </tr>
 <tr>
-<td><strong>DELETE</strong></td>
-<td>데이터 삭제</td>
-<td>주의: WHERE 필수</td>
+<td><strong>테이블 간 관계</strong></td>
+<td>✅ FOREIGN KEY</td>
+<td>참조 무결성 유지</td>
 </tr>
 <tr>
-<td><strong>CREATE</strong></td>
-<td>테이블·뷰 생성</td>
-<td>스키마 설계 후</td>
+<td><strong>값의 범위/조건</strong></td>
+<td>✅ CHECK</td>
+<td>나이, 상태값 범위 제한</td>
 </tr>
 <tr>
-<td><strong>ALTER</strong></td>
-<td>스키마 변경</td>
-<td>컬럼 추가/변경/삭제</td>
+<td><strong>자동 기본값</strong></td>
+<td>✅ DEFAULT</td>
+<td>timestamp, boolean 기본값</td>
 </tr>
 <tr>
-<td><strong>DROP</strong></td>
-<td>객체 삭제</td>
-<td>영구 삭제, 주의 필요</td>
-</tr>
-<tr>
-<td><strong>TRUNCATE</strong></td>
-<td>데이터 전체 삭제</td>
-<td>DELETE보다 빠름, 롤백 불가</td>
+<td><strong>애플리케이션 검증</strong></td>
+<td>❌ DB 제약</td>
+<td>단순 유효성 검사는 코드로</td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="_4">장점</h2>
+<h2 id="_7">장점</h2>
 <table>
 <thead>
 <tr>
@@ -5027,28 +5309,28 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>표준 언어</strong></td>
-<td><abbr title="DataBase Management System. 데이터베이스를 관리하는 소프트웨어. MySQL, PostgreSQL, Oracle 등.">DBMS</abbr> 상관없이 동일 문법 (방언 제외)</td>
+<td><strong>데이터 무결성</strong></td>
+<td>DB 진입점 상관없이 규칙 강제</td>
 </tr>
 <tr>
-<td><strong>가독성</strong></td>
-<td>선언형으로 직관적</td>
-</tr>
-<tr>
-<td><strong>강력함</strong></td>
-<td>복잡한 쿼리도 한 번에 표현</td>
+<td><strong>비즈니스 규칙 중앙화</strong></td>
+<td>DB 레벨에서 한 번에 관리</td>
 </tr>
 <tr>
 <td><strong>성능</strong></td>
-<td>옵티마이저가 최적 실행 계획 선택</td>
+<td>애플리케이션 검증 우회로 안전</td>
 </tr>
 <tr>
 <td><strong>유지보수</strong></td>
-<td>SQL은 데이터베이스 진입점으로 명확</td>
+<td>규칙 변경이 한 곳(DB)에서만 필요</td>
+</tr>
+<tr>
+<td><strong>오류 방지</strong></td>
+<td>잘못된 데이터 입력 자체를 차단</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_5">단점</h2>
+<h2 id="_8">단점</h2>
 <table>
 <thead>
 <tr>
@@ -5058,223 +5340,127 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>방언(Dialect)</strong></td>
-<td>DBMS마다 SQL 확장 문법 다름 (LIMIT vs ROWNUM)</td>
+<td><strong>성능 오버헤드</strong></td>
+<td>FOREIGN KEY 검증, CHECK 계산 비용</td>
 </tr>
 <tr>
-<td><strong>성능 예측 어려움</strong></td>
-<td>옵티마이저 동작이 쿼리에 따라 달라짐</td>
+<td><strong>유연성 부족</strong></td>
+<td>규칙 변경 시 ALTER TABLE로 스키마 변경 필요</td>
 </tr>
 <tr>
-<td><strong>복잡한 쿼리</strong></td>
-<td>매우 복잡한 로직은 쓰기 어려움 (프로시저 필요)</td>
+<td><strong>개발 속도</strong></td>
+<td>제약 조건 설계에 시간 소요</td>
 </tr>
 <tr>
-<td><strong>실행 계획 이해</strong></td>
-<td>성능 튜닝 위해 쿼리 계획 분석 필요</td>
+<td><strong>복잡한 규칙</strong></td>
+<td>복합 조건은 DB에서 표현하기 어려움 (애플리케이션으로)</td>
+</tr>
+<tr>
+<td><strong>마이그레이션 어려움</strong></td>
+<td>FOREIGN KEY로 인한 데이터 마이그레이션 복잡성</td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="sql_1">SQL 실행 순서</h2>
-<p>SQL은 <strong>작성 순서</strong>와 <strong>실제 실행 순서</strong>가 다르다. 옵티마이저가 아래 순서로 처리한다.</p>
+<h2 id="_9">종류</h2>
+<h3 id="not-null">NOT NULL</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w">  </span><span class="c1">-- NULL 저장 불가</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">);</span>
+</code></pre></div>
+<ul>
+<li><code>NULL</code>을 허용하지 않는다.</li>
+<li><span class="text-orange">주의</span>: <code>NULL</code>과 빈 문자열(<code>''</code>)은 다르다. <code>NOT NULL</code>은 빈 문자열을 허용한다.</li>
+</ul>
+<h3 id="unique">UNIQUE</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="n">email</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w">  </span><span class="c1">-- 중복 불가, NULL은 허용</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">);</span>
+</code></pre></div>
+<ul>
+<li>컬럼 내 값이 유일해야 한다.</li>
+<li><code>NULL</code>은 중복 체크에서 제외된다. (NULL은 비교 불가)</li>
+</ul>
+<h3 id="primary-key">PRIMARY KEY (기본 키)</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">);</span>
+</code></pre></div>
+<ul>
+<li><code>NOT NULL + UNIQUE</code>를 합친 것. 행을 유일하게 식별한다.</li>
+<li>테이블당 하나만 존재한다.</li>
+<li>복합 기본 키: <code>PRIMARY KEY (order_id, product_id)</code></li>
+</ul>
+<h3 id="foreign-key">FOREIGN KEY (외래 키)</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="n">id</span><span class="w">        </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="n">member_id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="p">,</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">member_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">member</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">        </span><span class="k">ON</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">CASCADE</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">        </span><span class="k">ON</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">CASCADE</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">);</span>
+</code></pre></div>
+<ul>
+<li>다른 테이블의 기본 키를 참조한다. <strong>참조 무결성</strong> 보장.</li>
+<li><code>ON DELETE</code> / <code>ON UPDATE</code> 옵션:</li>
+</ul>
 <table>
 <thead>
 <tr>
-<th>실행 순서</th>
-<th>절</th>
-<th>역할</th>
+<th>옵션</th>
+<th>동작</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1</td>
-<td><code>FROM</code></td>
-<td>대상 테이블 결정 (JOIN 포함)</td>
+<td><code>CASCADE</code></td>
+<td>부모 행 삭제/수정 시 자식 행도 함께 처리</td>
 </tr>
 <tr>
-<td>2</td>
-<td><code>WHERE</code></td>
-<td>행 단위 필터링 (집계 전)</td>
+<td><code>SET NULL</code></td>
+<td>부모 행 삭제 시 자식 컬럼을 NULL로</td>
 </tr>
 <tr>
-<td>3</td>
-<td><code>GROUP BY</code></td>
-<td>지정 컬럼 기준으로 그룹화</td>
+<td><code>RESTRICT</code></td>
+<td>자식 행이 있으면 부모 행 삭제 거부 (기본값)</td>
 </tr>
 <tr>
-<td>4</td>
-<td><code>HAVING</code></td>
-<td>그룹 단위 필터링 (집계 후)</td>
-</tr>
-<tr>
-<td>5</td>
-<td><code>SELECT</code></td>
-<td>출력할 컬럼·별칭 확정</td>
-</tr>
-<tr>
-<td>6</td>
-<td><code>ORDER BY</code></td>
-<td>정렬</td>
-</tr>
-<tr>
-<td>7</td>
-<td><code>LIMIT</code></td>
-<td>행 수 제한</td>
+<td><code>NO ACTION</code></td>
+<td><code>RESTRICT</code>와 유사</td>
 </tr>
 </tbody>
 </table>
 <div class="warning-box">
-<p><strong>SELECT 별칭(alias)은 WHERE·HAVING에서 쓸 수 없다</strong> — <code>SELECT price * 0.9 AS 할인가</code>로 정의한 별칭은 <code>WHERE 할인가 &gt; 1000</code> 에서 사용 불가. SELECT(5번)가 WHERE(2번)보다 늦게 실행되기 때문이다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">-- 잘못된 예 (MySQL에서 오류)</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">9</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">할인가</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">product</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="err">할인가</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w"> </span><span class="c1">-- ❌</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1">-- 올바른 예</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">9</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">할인가</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">product</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">9</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w"> </span><span class="c1">-- ✅</span>
-</code></pre></div>
-<p>단, <code>ORDER BY</code>는 예외적으로 SELECT 별칭 사용 가능 (MySQL 기준).</p>
+<p><strong>주의</strong>: 외래 키 제약은 강력하지만 <strong>대규모 서비스에서는 성능·운영 부담</strong>으로 인해 DB 외래 키를 사용하지 않고 애플리케이션 레벨에서 참조 무결성을 관리하는 경우도 많다. (트레이드오프 판단 필요)</p>
 </div>
+<h3 id="default">DEFAULT</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="n">created_at</span><span class="w"> </span><span class="n">DATETIME</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="n">is_active</span><span class="w">  </span><span class="nb">BOOLEAN</span><span class="w">  </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">TRUE</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="p">);</span>
+</code></pre></div>
+<ul>
+<li>값을 지정하지 않으면 기본값이 자동으로 들어간다.</li>
+</ul>
+<h3 id="check">CHECK</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="n">age</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">CHECK</span><span class="w"> </span><span class="p">(</span><span class="n">age</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">150</span><span class="p">)</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="p">);</span>
+</code></pre></div>
+<ul>
+<li>컬럼에 저장되는 값의 범위나 조건을 검사한다.</li>
+<li>MySQL 8.0.16 이상에서 실제 강제 적용 (이전 버전은 문법은 허용되나 무시됨).</li>
+</ul>
+<h2 id="_10">제약 조건 이름 지정</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">-- 이름 없는 제약 조건 (DBMS가 자동 생성)</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">email</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">UNIQUE</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1">-- 이름 있는 제약 조건 (에러 메시지 명확, 나중에 삭제 용이)</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">uq_member_email</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="p">(</span><span class="n">email</span><span class="p">),</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">fk_orders_member</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">member_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">member</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+</code></pre></div>
 <div class="tip-box">
-<p><strong>성능 포인트</strong>: <code>WHERE</code>이 <code>GROUP BY</code> 전에 실행되므로, 집계 전에 최대한 많은 행을 걸러낼수록 빠르다. <code>HAVING</code> 대신 <code>WHERE</code>로 필터링 가능한 조건은 <code>WHERE</code>에 두는 것이 좋다.</p>
+<p><strong>팁</strong>: 제약 조건에 이름을 붙이면 위반 시 에러 메시지에 이름이 표시되어 디버깅이 쉽고, <code>ALTER TABLE ... DROP CONSTRAINT</code> 로 명시적으로 제거할 수 있다.</p>
 </div>
-<hr />
-<h2 id="ddl-dml-dcl-tcl"><abbr title="Data Definition Language. 테이블·인덱스 등 DB 구조를 정의하는 SQL 분류. CREATE, ALTER, DROP.">DDL</abbr> · <abbr title="Data Manipulation Language. 데이터를 조작하는 SQL 분류. SELECT, INSERT, UPDATE, DELETE.">DML</abbr> · <abbr title="Data Control Language. 사용자 접근 권한을 제어하는 SQL 분류. GRANT, REVOKE.">DCL</abbr> · <abbr title="Transaction Control Language. 트랜잭션을 제어하는 SQL 분류. COMMIT, ROLLBACK, SAVEPOINT.">TCL</abbr></h2>
-<p>SQL 명령어는 역할에 따라 4가지로 분류된다.</p>
-<h3 id="ddl-data-definition-language"><abbr title="Data Definition Language. 테이블·인덱스 등 DB 구조를 정의하는 SQL 분류. CREATE, ALTER, DROP.">DDL</abbr> (Data Definition Language) — 구조 정의</h3>
-<table>
-<thead>
-<tr>
-<th>명령어</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>CREATE</code></td>
-<td>테이블·뷰·인덱스 등 객체 생성</td>
-</tr>
-<tr>
-<td><code>ALTER</code></td>
-<td>객체 구조 변경 (컬럼 추가·삭제·타입 변경)</td>
-</tr>
-<tr>
-<td><code>DROP</code></td>
-<td>객체 완전 삭제</td>
-</tr>
-<tr>
-<td><code>TRUNCATE</code></td>
-<td>테이블의 모든 데이터 삭제 (구조는 유지)</td>
-</tr>
-<tr>
-<td><code>RENAME</code></td>
-<td>객체 이름 변경</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="p">(</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">id</span><span class="w">   </span><span class="nb">BIGINT</span><span class="w">      </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">age</span><span class="w">  </span><span class="nb">INT</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">);</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">member</span><span class="p">;</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="k">TRUNCATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">member</span><span class="p">;</span><span class="w"> </span><span class="c1">-- DELETE보다 빠르지만 롤백 불가 (MySQL 기준)</span>
-</code></pre></div>
-<div class="danger-box">
-<p><strong>위험</strong>: DDL은 대부분 DBMS에서 <strong>자동 커밋(Auto-Commit)</strong> 된다. <code>DROP</code>, <code>TRUNCATE</code> 실행 후 ROLLBACK이 불가능한 경우가 많다. (PostgreSQL은 트랜잭션 내 <abbr title="Data Definition Language. 테이블·인덱스 등 DB 구조를 정의하는 SQL 분류. CREATE, ALTER, DROP.">DDL</abbr> 롤백 가능)</p>
-</div>
-<h3 id="dml-data-manipulation-language"><abbr title="Data Manipulation Language. 데이터를 조작하는 SQL 분류. SELECT, INSERT, UPDATE, DELETE.">DML</abbr> (Data Manipulation Language) — 데이터 조작</h3>
-<table>
-<thead>
-<tr>
-<th>명령어</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>SELECT</code></td>
-<td>데이터 조회</td>
-</tr>
-<tr>
-<td><code>INSERT</code></td>
-<td>데이터 삽입</td>
-</tr>
-<tr>
-<td><code>UPDATE</code></td>
-<td>데이터 수정</td>
-</tr>
-<tr>
-<td><code>DELETE</code></td>
-<td>데이터 삭제</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;김철수&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">27</span><span class="p">);</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">28</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-</code></pre></div>
-<div class="warning-box">
-<p><strong>주의</strong>: <code>UPDATE</code>와 <code>DELETE</code>에서 <code>WHERE</code> 절을 빠뜨리면 <strong>전체 행이 영향을 받는다.</strong> 실행 전 반드시 <code>SELECT</code>로 대상 확인을 권장한다.</p>
-</div>
-<h3 id="dcl-data-control-language"><abbr title="Data Control Language. 사용자 접근 권한을 제어하는 SQL 분류. GRANT, REVOKE.">DCL</abbr> (Data Control Language) — 권한 제어</h3>
-<table>
-<thead>
-<tr>
-<th>명령어</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>GRANT</code></td>
-<td>사용자에게 권한 부여</td>
-</tr>
-<tr>
-<td><code>REVOKE</code></td>
-<td>사용자의 권한 회수</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="p">,</span><span class="w"> </span><span class="k">INSERT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;app_user&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="p">;</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">REVOKE</span><span class="w"> </span><span class="k">INSERT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="s1">&#39;app_user&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="p">;</span>
-</code></pre></div>
-<h3 id="tcl-transaction-control-language"><abbr title="Transaction Control Language. 트랜잭션을 제어하는 SQL 분류. COMMIT, ROLLBACK, SAVEPOINT.">TCL</abbr> (Transaction Control Language) — 트랜잭션 제어</h3>
-<table>
-<thead>
-<tr>
-<th>명령어</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>COMMIT</code></td>
-<td>트랜잭션 내 변경사항 영구 저장</td>
-</tr>
-<tr>
-<td><code>ROLLBACK</code></td>
-<td>트랜잭션 내 변경사항 취소</td>
-</tr>
-<tr>
-<td><code>SAVEPOINT</code></td>
-<td>트랜잭션 내 중간 저장 지점 설정</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">BEGIN</span><span class="p">;</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">10000</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;A&#39;</span><span class="p">;</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">SAVEPOINT</span><span class="w"> </span><span class="n">before_transfer</span><span class="p">;</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">10000</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;B&#39;</span><span class="p">;</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1">-- 문제 발생 시</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="k">ROLLBACK</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">before_transfer</span><span class="p">;</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="k">COMMIT</span><span class="p">;</span>
-</code></pre></div>
 <!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
 
 <!-- ===== DB / SQL ===== -->
@@ -5368,10 +5554,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.instant", "search.highlight", "search.suggest", "content.code.copy", "content.tooltips", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections", "navigation.top", "navigation.instant", "search.highlight", "search.suggest", "content.code.copy", "content.tooltips", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
       

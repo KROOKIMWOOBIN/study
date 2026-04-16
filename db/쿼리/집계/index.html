@@ -8,31 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://krookimwoobin.github.io/study/db/UNION/">
+        <link rel="canonical" href="https://krookimwoobin.github.io/study/db/%EC%BF%BC%EB%A6%AC/%EC%A7%91%EA%B3%84/">
       
       
-        <link rel="prev" href="../%EC%84%9C%EB%B8%8C%EC%BF%BC%EB%A6%AC/">
+        <link rel="prev" href="../%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%80%EA%B3%B5/">
       
       
-        <link rel="next" href="../CASE/">
+        <link rel="next" href="../JOIN/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>UNION - 학습 노트</title>
+        <title>그룹과 집계 - 학습 노트</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,9 +51,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#union" class="md-skip">
+        <a href="#group-by-aggregate-functions" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -94,7 +94,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="상단/헤더">
-    <a href="../.." title="학습 노트" class="md-header__button md-logo" aria-label="학습 노트" data-md-component="logo">
+    <a href="../../.." title="학습 노트" class="md-header__button md-logo" aria-label="학습 노트" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              UNION
+              그룹과 집계
             
           </span>
         </div>
@@ -232,7 +232,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="네비게이션" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="학습 노트" class="md-nav__button md-logo" aria-label="학습 노트" data-md-component="logo">
+    <a href="../../.." title="학습 노트" class="md-nav__button md-logo" aria-label="학습 노트" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -262,7 +262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -341,7 +341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/java/" class="md-nav__link">
+      <a href="../../../java/java/" class="md-nav__link">
         
   
   
@@ -418,7 +418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/oop/%EB%8B%A4%ED%98%95%EC%84%B1/" class="md-nav__link">
+      <a href="../../../java/oop/%EB%8B%A4%ED%98%95%EC%84%B1/" class="md-nav__link">
         
   
   
@@ -446,7 +446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/oop/%EC%83%81%EC%86%8D/" class="md-nav__link">
+      <a href="../../../java/oop/%EC%83%81%EC%86%8D/" class="md-nav__link">
         
   
   
@@ -474,7 +474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/oop/%EC%B6%94%EC%83%81%ED%99%94/" class="md-nav__link">
+      <a href="../../../java/oop/%EC%B6%94%EC%83%81%ED%99%94/" class="md-nav__link">
         
   
   
@@ -502,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/oop/%EC%BA%A1%EC%8A%90%ED%99%94/" class="md-nav__link">
+      <a href="../../../java/oop/%EC%BA%A1%EC%8A%90%ED%99%94/" class="md-nav__link">
         
   
   
@@ -587,7 +587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/core/" class="md-nav__link">
+      <a href="../../../java/core/core/" class="md-nav__link">
         
   
   
@@ -615,7 +615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/Object/" class="md-nav__link">
+      <a href="../../../java/core/Object/" class="md-nav__link">
         
   
   
@@ -643,7 +643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/%EB%B6%88%EB%B3%80%EA%B0%9D%EC%B2%B4VS%EA%B0%80%EB%B3%80%EA%B0%9D%EC%B2%B4/" class="md-nav__link">
+      <a href="../../../java/core/%EB%B6%88%EB%B3%80%EA%B0%9D%EC%B2%B4VS%EA%B0%80%EB%B3%80%EA%B0%9D%EC%B2%B4/" class="md-nav__link">
         
   
   
@@ -671,7 +671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/%EB%9E%98%ED%8D%BC%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
+      <a href="../../../java/core/%EB%9E%98%ED%8D%BC%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -699,7 +699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/Enum/" class="md-nav__link">
+      <a href="../../../java/core/Enum/" class="md-nav__link">
         
   
   
@@ -727,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
+      <a href="../../../java/core/%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
         
   
   
@@ -755,7 +755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/%EC%A4%91%EC%B2%A9%EB%82%B4%EB%B6%80%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
+      <a href="../../../java/core/%EC%A4%91%EC%B2%A9%EB%82%B4%EB%B6%80%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -783,7 +783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/Class/" class="md-nav__link">
+      <a href="../../../java/core/Class/" class="md-nav__link">
         
   
   
@@ -811,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/Math/" class="md-nav__link">
+      <a href="../../../java/core/Math/" class="md-nav__link">
         
   
   
@@ -839,7 +839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/SystemClass/" class="md-nav__link">
+      <a href="../../../java/core/SystemClass/" class="md-nav__link">
         
   
   
@@ -924,7 +924,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/collections/" class="md-nav__link">
+      <a href="../../../java/collections/collections/" class="md-nav__link">
         
   
   
@@ -952,7 +952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Collection/" class="md-nav__link">
+      <a href="../../../java/collections/Collection/" class="md-nav__link">
         
   
   
@@ -980,7 +980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Generic/" class="md-nav__link">
+      <a href="../../../java/collections/Generic/" class="md-nav__link">
         
   
   
@@ -1008,7 +1008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Array/" class="md-nav__link">
+      <a href="../../../java/collections/Array/" class="md-nav__link">
         
   
   
@@ -1036,7 +1036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/List/" class="md-nav__link">
+      <a href="../../../java/collections/List/" class="md-nav__link">
         
   
   
@@ -1064,7 +1064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/ArrayList/" class="md-nav__link">
+      <a href="../../../java/collections/ArrayList/" class="md-nav__link">
         
   
   
@@ -1092,7 +1092,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/LinkedList/" class="md-nav__link">
+      <a href="../../../java/collections/LinkedList/" class="md-nav__link">
         
   
   
@@ -1120,7 +1120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Set/" class="md-nav__link">
+      <a href="../../../java/collections/Set/" class="md-nav__link">
         
   
   
@@ -1148,7 +1148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/HashSet/" class="md-nav__link">
+      <a href="../../../java/collections/HashSet/" class="md-nav__link">
         
   
   
@@ -1176,7 +1176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Map/" class="md-nav__link">
+      <a href="../../../java/collections/Map/" class="md-nav__link">
         
   
   
@@ -1204,7 +1204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Stack/" class="md-nav__link">
+      <a href="../../../java/collections/Stack/" class="md-nav__link">
         
   
   
@@ -1232,7 +1232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Queue/" class="md-nav__link">
+      <a href="../../../java/collections/Queue/" class="md-nav__link">
         
   
   
@@ -1260,7 +1260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/%EC%88%9C%ED%9A%8C/" class="md-nav__link">
+      <a href="../../../java/collections/%EC%88%9C%ED%9A%8C/" class="md-nav__link">
         
   
   
@@ -1288,7 +1288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/%EB%B9%84%EA%B5%90/" class="md-nav__link">
+      <a href="../../../java/collections/%EB%B9%84%EA%B5%90/" class="md-nav__link">
         
   
   
@@ -1316,7 +1316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/BigO/" class="md-nav__link">
+      <a href="../../../java/collections/BigO/" class="md-nav__link">
         
   
   
@@ -1401,7 +1401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/start/" class="md-nav__link">
+      <a href="../../../java/lambda/start/" class="md-nav__link">
         
   
   
@@ -1429,7 +1429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/function/" class="md-nav__link">
+      <a href="../../../java/lambda/function/" class="md-nav__link">
         
   
   
@@ -1457,7 +1457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/method/" class="md-nav__link">
+      <a href="../../../java/lambda/method/" class="md-nav__link">
         
   
   
@@ -1485,7 +1485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/programming/" class="md-nav__link">
+      <a href="../../../java/lambda/programming/" class="md-nav__link">
         
   
   
@@ -1513,7 +1513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/stream/" class="md-nav__link">
+      <a href="../../../java/lambda/stream/" class="md-nav__link">
         
   
   
@@ -1541,7 +1541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/streamApi/" class="md-nav__link">
+      <a href="../../../java/lambda/streamApi/" class="md-nav__link">
         
   
   
@@ -1569,7 +1569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/%EC%A6%89%EC%8B%9CVS%EC%A7%80%EC%97%B0/" class="md-nav__link">
+      <a href="../../../java/lambda/%EC%A6%89%EC%8B%9CVS%EC%A7%80%EC%97%B0/" class="md-nav__link">
         
   
   
@@ -1597,7 +1597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/optional/" class="md-nav__link">
+      <a href="../../../java/lambda/optional/" class="md-nav__link">
         
   
   
@@ -1625,7 +1625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/orElseVSorElseGet/" class="md-nav__link">
+      <a href="../../../java/lambda/orElseVSorElseGet/" class="md-nav__link">
         
   
   
@@ -1653,7 +1653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/defaultMethod/" class="md-nav__link">
+      <a href="../../../java/lambda/defaultMethod/" class="md-nav__link">
         
   
   
@@ -1681,7 +1681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/%EB%B3%91%EB%A0%AC%EC%8A%A4%ED%8A%B8%EB%A6%BC/" class="md-nav__link">
+      <a href="../../../java/lambda/%EB%B3%91%EB%A0%AC%EC%8A%A4%ED%8A%B8%EB%A6%BC/" class="md-nav__link">
         
   
   
@@ -1709,7 +1709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/%ED%95%A8%EC%88%98%ED%98%95%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" class="md-nav__link">
+      <a href="../../../java/lambda/%ED%95%A8%EC%88%98%ED%98%95%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" class="md-nav__link">
         
   
   
@@ -1794,7 +1794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/thread/" class="md-nav__link">
+      <a href="../../../java/thread/thread/" class="md-nav__link">
         
   
   
@@ -1822,7 +1822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/" class="md-nav__link">
+      <a href="../../../java/thread/%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/" class="md-nav__link">
         
   
   
@@ -1850,7 +1850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/Thread1/" class="md-nav__link">
+      <a href="../../../java/thread/Thread1/" class="md-nav__link">
         
   
   
@@ -1878,7 +1878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/Thread2/" class="md-nav__link">
+      <a href="../../../java/thread/Thread2/" class="md-nav__link">
         
   
   
@@ -1906,7 +1906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/Thread3/" class="md-nav__link">
+      <a href="../../../java/thread/Thread3/" class="md-nav__link">
         
   
   
@@ -1934,7 +1934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/synchronized/" class="md-nav__link">
+      <a href="../../../java/thread/synchronized/" class="md-nav__link">
         
   
   
@@ -1962,7 +1962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/volatile/" class="md-nav__link">
+      <a href="../../../java/thread/volatile/" class="md-nav__link">
         
   
   
@@ -1990,7 +1990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/%EB%8F%99%EA%B8%B0%ED%99%94%EC%99%80%EC%9B%90%EC%9E%90%EC%A0%81%EC%97%B0%EC%82%B0/" class="md-nav__link">
+      <a href="../../../java/thread/%EB%8F%99%EA%B8%B0%ED%99%94%EC%99%80%EC%9B%90%EC%9E%90%EC%A0%81%EC%97%B0%EC%82%B0/" class="md-nav__link">
         
   
   
@@ -2018,7 +2018,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/Lock/" class="md-nav__link">
+      <a href="../../../java/thread/Lock/" class="md-nav__link">
         
   
   
@@ -2046,7 +2046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/%EB%8F%99%EC%8B%9C%EC%84%B1%EC%BB%AC%EB%A0%89%EC%85%98/" class="md-nav__link">
+      <a href="../../../java/thread/%EB%8F%99%EC%8B%9C%EC%84%B1%EC%BB%AC%EB%A0%89%EC%85%98/" class="md-nav__link">
         
   
   
@@ -2074,7 +2074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/%EC%83%9D%EC%82%B0%EC%9E%90%EC%86%8C%EB%B9%84%EC%9E%90%EB%AC%B8%EC%A0%9C/" class="md-nav__link">
+      <a href="../../../java/thread/%EC%83%9D%EC%82%B0%EC%9E%90%EC%86%8C%EB%B9%84%EC%9E%90%EB%AC%B8%EC%A0%9C/" class="md-nav__link">
         
   
   
@@ -2102,7 +2102,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/ThreadPool_Executor_Overview1/" class="md-nav__link">
+      <a href="../../../java/thread/ThreadPool_Executor_Overview1/" class="md-nav__link">
         
   
   
@@ -2130,7 +2130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/ThreadPool_Executor_Overview2/" class="md-nav__link">
+      <a href="../../../java/thread/ThreadPool_Executor_Overview2/" class="md-nav__link">
         
   
   
@@ -2215,7 +2215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/io-network/IO/" class="md-nav__link">
+      <a href="../../../java/io-network/IO/" class="md-nav__link">
         
   
   
@@ -2243,7 +2243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/io-network/network/" class="md-nav__link">
+      <a href="../../../java/io-network/network/" class="md-nav__link">
         
   
   
@@ -2271,7 +2271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/io-network/Charset_Encoding/" class="md-nav__link">
+      <a href="../../../java/io-network/Charset_Encoding/" class="md-nav__link">
         
   
   
@@ -2299,7 +2299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/io-network/annotation/" class="md-nav__link">
+      <a href="../../../java/io-network/annotation/" class="md-nav__link">
         
   
   
@@ -2327,7 +2327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/io-network/reflection/" class="md-nav__link">
+      <a href="../../../java/io-network/reflection/" class="md-nav__link">
         
   
   
@@ -2422,7 +2422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../html/html/" class="md-nav__link">
+      <a href="../../../html/html/" class="md-nav__link">
         
   
   
@@ -2450,7 +2450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../html/Session/" class="md-nav__link">
+      <a href="../../../html/Session/" class="md-nav__link">
         
   
   
@@ -2537,7 +2537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/spring/" class="md-nav__link">
+      <a href="../../../spring/spring/" class="md-nav__link">
         
   
   
@@ -2614,7 +2614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/solid/" class="md-nav__link">
+      <a href="../../../spring/solid/" class="md-nav__link">
         
   
   
@@ -2642,7 +2642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/IoC-DI/" class="md-nav__link">
+      <a href="../../../spring/IoC-DI/" class="md-nav__link">
         
   
   
@@ -2670,7 +2670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/%EC%8A%A4%ED%94%84%EB%A7%81%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88/" class="md-nav__link">
+      <a href="../../../spring/%EC%8A%A4%ED%94%84%EB%A7%81%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88/" class="md-nav__link">
         
   
   
@@ -2698,7 +2698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/%EC%8B%B1%EA%B8%80%ED%86%A4/" class="md-nav__link">
+      <a href="../../../spring/%EC%8B%B1%EA%B8%80%ED%86%A4/" class="md-nav__link">
         
   
   
@@ -2726,7 +2726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%8A%A4%EC%BA%94/" class="md-nav__link">
+      <a href="../../../spring/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%8A%A4%EC%BA%94/" class="md-nav__link">
         
   
   
@@ -2754,7 +2754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84%EC%A3%BC%EC%9E%85/" class="md-nav__link">
+      <a href="../../../spring/%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84%EC%A3%BC%EC%9E%85/" class="md-nav__link">
         
   
   
@@ -2782,7 +2782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/%EB%B9%88%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0/" class="md-nav__link">
+      <a href="../../../spring/%EB%B9%88%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0/" class="md-nav__link">
         
   
   
@@ -2810,7 +2810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/%EB%B9%88%EC%8A%A4%EC%BD%94%ED%94%84/" class="md-nav__link">
+      <a href="../../../spring/%EB%B9%88%EC%8A%A4%EC%BD%94%ED%94%84/" class="md-nav__link">
         
   
   
@@ -2895,7 +2895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/springboot/" class="md-nav__link">
+      <a href="../../../spring/springboot/" class="md-nav__link">
         
   
   
@@ -2923,7 +2923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/mvc/" class="md-nav__link">
+      <a href="../../../spring/mvc/" class="md-nav__link">
         
   
   
@@ -2951,7 +2951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/restapi/" class="md-nav__link">
+      <a href="../../../spring/restapi/" class="md-nav__link">
         
   
   
@@ -2979,7 +2979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/validation/" class="md-nav__link">
+      <a href="../../../spring/validation/" class="md-nav__link">
         
   
   
@@ -3007,7 +3007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/exception/" class="md-nav__link">
+      <a href="../../../spring/exception/" class="md-nav__link">
         
   
   
@@ -3035,7 +3035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/swagger/" class="md-nav__link">
+      <a href="../../../spring/swagger/" class="md-nav__link">
         
   
   
@@ -3120,7 +3120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/aop/" class="md-nav__link">
+      <a href="../../../spring/aop/" class="md-nav__link">
         
   
   
@@ -3148,7 +3148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/transaction/" class="md-nav__link">
+      <a href="../../../spring/transaction/" class="md-nav__link">
         
   
   
@@ -3176,7 +3176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/logging/" class="md-nav__link">
+      <a href="../../../spring/logging/" class="md-nav__link">
         
   
   
@@ -3261,7 +3261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/JDBC/" class="md-nav__link">
+      <a href="../../../spring/JDBC/" class="md-nav__link">
         
   
   
@@ -3289,7 +3289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/%EC%BB%A4%EB%84%A5%EC%85%98%ED%92%80-DataSource/" class="md-nav__link">
+      <a href="../../../spring/%EC%BB%A4%EB%84%A5%EC%85%98%ED%92%80-DataSource/" class="md-nav__link">
         
   
   
@@ -3317,7 +3317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/db%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
+      <a href="../../../spring/db%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
         
   
   
@@ -3345,7 +3345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/jpa/" class="md-nav__link">
+      <a href="../../../spring/jpa/" class="md-nav__link">
         
   
   
@@ -3373,7 +3373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/querydsl/" class="md-nav__link">
+      <a href="../../../spring/querydsl/" class="md-nav__link">
         
   
   
@@ -3401,7 +3401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/jpa-performance/" class="md-nav__link">
+      <a href="../../../spring/jpa-performance/" class="md-nav__link">
         
   
   
@@ -3486,7 +3486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/redis/" class="md-nav__link">
+      <a href="../../../spring/redis/" class="md-nav__link">
         
   
   
@@ -3514,7 +3514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/security/" class="md-nav__link">
+      <a href="../../../spring/security/" class="md-nav__link">
         
   
   
@@ -3542,7 +3542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/concurrency/" class="md-nav__link">
+      <a href="../../../spring/concurrency/" class="md-nav__link">
         
   
   
@@ -3570,7 +3570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/kafka/" class="md-nav__link">
+      <a href="../../../spring/kafka/" class="md-nav__link">
         
   
   
@@ -3655,7 +3655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/testing/" class="md-nav__link">
+      <a href="../../../spring/testing/" class="md-nav__link">
         
   
   
@@ -3683,7 +3683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/monitoring/" class="md-nav__link">
+      <a href="../../../spring/monitoring/" class="md-nav__link">
         
   
   
@@ -3711,7 +3711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/architecture/" class="md-nav__link">
+      <a href="../../../spring/architecture/" class="md-nav__link">
         
   
   
@@ -3739,7 +3739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/msa/" class="md-nav__link">
+      <a href="../../../spring/msa/" class="md-nav__link">
         
   
   
@@ -3836,7 +3836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../db/" class="md-nav__link">
+      <a href="../../db/" class="md-nav__link">
         
   
   
@@ -3863,8 +3863,57 @@
   
   
   
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기초
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기초
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../ACID/" class="md-nav__link">
+      <a href="../../%EA%B8%B0%EC%B4%88/ACID/" class="md-nav__link">
         
   
   
@@ -3892,7 +3941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SQL/" class="md-nav__link">
+      <a href="../../%EA%B8%B0%EC%B4%88/SQL/" class="md-nav__link">
         
   
   
@@ -3920,7 +3969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%83%80%EC%9E%85/" class="md-nav__link">
+      <a href="../../%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%83%80%EC%9E%85/" class="md-nav__link">
         
   
   
@@ -3948,7 +3997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%EC%A0%9C%EC%95%BD%EC%A1%B0%EA%B1%B4/" class="md-nav__link">
+      <a href="../../%EA%B8%B0%EC%B4%88/%EC%A0%9C%EC%95%BD%EC%A1%B0%EA%B1%B4/" class="md-nav__link">
         
   
   
@@ -3968,6 +4017,93 @@
   
 
               
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%EA%B8%B0%EC%B4%88/%EC%A0%95%EA%B7%9C%ED%99%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    정규화
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    쿼리
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    쿼리
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -4001,10 +4137,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../%EC%A7%91%EA%B3%84/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    그룹과 집계
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -4020,6 +4183,225 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        왜 쓰는가?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        집계 함수
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#group-by" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GROUP BY
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#having" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HAVING — 그룹 필터링
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실행 순서
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        언제 쓰는지
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        특징
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="특징">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        집계 함수의 특징
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="집계 함수의 특징">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-count-vs-countcol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. COUNT(*) vs COUNT(col) 차이
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-null" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. NULL 무시 원칙
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-group-by" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. GROUP BY 없는 집계
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 실행 순서와 성능
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-distinct" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. DISTINCT와 집계
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distinct" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DISTINCT와 집계
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4085,35 +4467,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    UNION
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../UNION/" class="md-nav__link">
         
   
   
@@ -4129,240 +4486,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="목차">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      목차
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#union" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        UNION (합집합)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="UNION (합집합)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        왜 쓰는지
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        어떻게 쓰는지
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="어떻게 쓰는지">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#union_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        UNION 기본 문법
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#union-vs-union-all" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        UNION vs UNION ALL
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        실제 사용 사례
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        여러 테이블 합치기
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#limit" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        정렬과 LIMIT
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        언제 쓰는지
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        장점
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        단점
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        특징
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="특징">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. 컬럼 일치 규칙
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-select" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. 컬럼 이름은 첫 번째 SELECT에서 정해짐
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-union" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. UNION의 성능 원리
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. 타입 호환성
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        주의할 점
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        정리
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4396,6 +4519,63 @@
 
               
             
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    성능 & 운영
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    성능 & 운영
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
               
                 
   
@@ -4403,7 +4583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%EC%9D%B8%EB%8D%B1%EC%8A%A4/" class="md-nav__link">
+      <a href="../../%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -4431,35 +4611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%EC%A0%95%EA%B7%9C%ED%99%94/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    정규화
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/" class="md-nav__link">
+      <a href="../../%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/" class="md-nav__link">
         
   
   
@@ -4487,7 +4639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%EA%B2%A9%EB%A6%AC%EC%88%98%EC%A4%80/" class="md-nav__link">
+      <a href="../../%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EA%B2%A9%EB%A6%AC%EC%88%98%EC%A4%80/" class="md-nav__link">
         
   
   
@@ -4503,6 +4655,14 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -4574,7 +4734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../jvm/jvm/" class="md-nav__link">
+      <a href="../../../jvm/jvm/" class="md-nav__link">
         
   
   
@@ -4602,7 +4762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../jvm/JVM%EA%B0%9C%EC%9A%94/" class="md-nav__link">
+      <a href="../../../jvm/JVM%EA%B0%9C%EC%9A%94/" class="md-nav__link">
         
   
   
@@ -4689,7 +4849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/cs/" class="md-nav__link">
+      <a href="../../../cs/cs/" class="md-nav__link">
         
   
   
@@ -4717,7 +4877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/%EB%8F%99%EA%B8%B0VS%EB%B9%84%EB%8F%99%EA%B8%B0/" class="md-nav__link">
+      <a href="../../../cs/%EB%8F%99%EA%B8%B0VS%EB%B9%84%EB%8F%99%EA%B8%B0/" class="md-nav__link">
         
   
   
@@ -4804,7 +4964,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../troubleshooting/smtp/" class="md-nav__link">
+      <a href="../../../troubleshooting/smtp/" class="md-nav__link">
         
   
   
@@ -4849,6 +5009,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -4857,102 +5019,62 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#union" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        UNION (합집합)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="UNION (합집합)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        왜 쓰는지
+        왜 쓰는가?
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        어떻게 쓰는지
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="어떻게 쓰는지">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#union_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        UNION 기본 문법
+        집계 함수
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#union-vs-union-all" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#group-by" class="md-nav__link">
     <span class="md-ellipsis">
       
-        UNION vs UNION ALL
+        GROUP BY
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
+  <a href="#having" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HAVING — 그룹 필터링
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        실제 사용 사례
+        실행 순서
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        여러 테이블 합치기
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#limit" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        정렬과 LIMIT
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         언제 쓰는지
@@ -4961,31 +5083,9 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
       
-        장점
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        단점
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         특징
@@ -4997,10 +5097,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. 컬럼 일치 규칙
+        집계 함수의 특징
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="집계 함수의 특징">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-count-vs-countcol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. COUNT(*) vs COUNT(col) 차이
       
     </span>
   </a>
@@ -5008,10 +5120,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-select" class="md-nav__link">
+  <a href="#2-null" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. 컬럼 이름은 첫 번째 SELECT에서 정해짐
+        2. NULL 무시 원칙
       
     </span>
   </a>
@@ -5019,10 +5131,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-union" class="md-nav__link">
+  <a href="#3-group-by" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. UNION의 성능 원리
+        3. GROUP BY 없는 집계
       
     </span>
   </a>
@@ -5033,7 +5145,18 @@
   <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. 타입 호환성
+        4. 실행 순서와 성능
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-distinct" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. DISTINCT와 집계
       
     </span>
   </a>
@@ -5045,7 +5168,45 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distinct" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DISTINCT와 집계
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5053,22 +5214,6 @@
       
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        정리
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -5092,324 +5237,271 @@
   
 
 
-  <h1>UNION</h1>
-
-<h2 id="union">UNION (합집합)</h2>
-<h3 id="_1">왜 쓰는지</h3>
-<p>SQL 쿼리는 <strong>한 번에 한 테이블에서만 조회</strong>하는 것이 기본입니다. 하지만 상황에 따라:
-- 서로 다른 테이블의 데이터를 합쳐서 보여줘야 함
-- 같은 테이블에서 조건에 따라 다르게 조회한 결과를 합쳐야 함
-- 여러 조회 결과를 하나의 결과셋으로 표현해야 함</p>
-<p>이때 <strong>여러 SELECT의 결과를 세로로 합치는</strong> UNION이 필요합니다.</p>
+<h1 id="group-by-aggregate-functions">그룹과 집계 (GROUP BY &amp; Aggregate Functions)</h1>
 <div class="concept-box">
-<p><strong>핵심</strong>: UNION은 <strong>두 개 이상의 SELECT 결과 행들을 합쳐서 하나의 결과셋으로 반환</strong>합니다. 중복을 제거하거나 유지할 수 있습니다.</p>
+<p><strong>집계(Aggregation)</strong>: 여러 행을 하나의 요약 값으로 줄이는 연산. <code>GROUP BY</code>로 그룹을 나누고 집계 함수로 각 그룹을 요약한다.</p>
 </div>
-<h3 id="_2">어떻게 쓰는지</h3>
-<h4 id="union_1">UNION 기본 문법</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">col1</span><span class="p">,</span><span class="w"> </span><span class="n">col2</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">table1</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">UNION</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">col1</span><span class="p">,</span><span class="w"> </span><span class="n">col2</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">table2</span><span class="p">;</span>
+<h2 id="_1">왜 쓰는가?</h2>
+<p>개별 행이 아닌 <strong>"부서별 평균 급여", "날짜별 주문 수"</strong> 같은 요약 정보가 필요할 때 사용한다. 집계 없이는 애플리케이션에서 모든 행을 가져와 직접 계산해야 하므로 성능·코드 복잡도가 증가한다.</p>
+<hr />
+<h2 id="_2">집계 함수</h2>
+<table>
+<thead>
+<tr>
+<th>함수</th>
+<th>설명</th>
+<th>NULL 처리</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>COUNT(*)</code></td>
+<td>전체 행 수</td>
+<td>NULL 포함</td>
+</tr>
+<tr>
+<td><code>COUNT(컬럼)</code></td>
+<td>NULL 제외한 행 수</td>
+<td>NULL 제외</td>
+</tr>
+<tr>
+<td><code>SUM(컬럼)</code></td>
+<td>합계</td>
+<td>NULL 무시</td>
+</tr>
+<tr>
+<td><code>AVG(컬럼)</code></td>
+<td>평균</td>
+<td>NULL 무시</td>
+</tr>
+<tr>
+<td><code>MAX(컬럼)</code></td>
+<td>최댓값</td>
+<td>NULL 무시</td>
+</tr>
+<tr>
+<td><code>MIN(컬럼)</code></td>
+<td>최솟값</td>
+<td>NULL 무시</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">SELECT</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w">        </span><span class="k">AS</span><span class="w"> </span><span class="err">전체</span><span class="n">_회원수</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="n">email</span><span class="p">)</span><span class="w">    </span><span class="k">AS</span><span class="w"> </span><span class="err">이메일</span><span class="n">_등록수</span><span class="p">,</span><span class="w">   </span><span class="c1">-- NULL 제외</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="k">AVG</span><span class="p">(</span><span class="n">age</span><span class="p">)</span><span class="w">        </span><span class="k">AS</span><span class="w"> </span><span class="err">평균</span><span class="n">_나이</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="k">MAX</span><span class="p">(</span><span class="n">age</span><span class="p">)</span><span class="w">        </span><span class="k">AS</span><span class="w"> </span><span class="err">최고</span><span class="n">_나이</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="k">MIN</span><span class="p">(</span><span class="n">age</span><span class="p">)</span><span class="w">        </span><span class="k">AS</span><span class="w"> </span><span class="err">최저</span><span class="n">_나이</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">FROM</span><span class="w"> </span><span class="n">member</span><span class="p">;</span>
 </code></pre></div>
-<h4 id="union-vs-union-all">UNION vs UNION ALL</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">-- 1️⃣ UNION: 중복 제거</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">dept_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">UNION</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">dept_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1">-- 결과: 중복된 행이 있으면 1개만 유지 (정렬 후 비교)</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1">-- 2️⃣ UNION ALL: 중복 유지 (더 빠름)</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">dept_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">dept_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="c1">-- 결과: 모든 행을 그대로 반환 (정렬 없음)</span>
+<hr />
+<h2 id="group-by">GROUP BY</h2>
+<p>특정 컬럼 기준으로 행을 묶어 그룹별 집계를 수행한다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">-- 부서별 인원 수, 평균 급여</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">SELECT</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">department</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w">    </span><span class="k">AS</span><span class="w"> </span><span class="err">인원수</span><span class="p">,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="k">AVG</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">평균급여</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">FROM</span><span class="w"> </span><span class="n">employee</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">department</span><span class="p">;</span>
 </code></pre></div>
-<h4 id="_3">실제 사용 사례</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">-- 직원과 고객을 합쳐서 모든 사람 이름 조회</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">emp_name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Employee&#39;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">UNION</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">cust_name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Customer&#39;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="p">;</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1">-- 결과:</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1">-- name      | type</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1">-- ---------------------</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1">-- Alice     | Employee</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1">-- Bob       | Customer</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c1">-- Carol     | Employee</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1">-- Dave      | Customer</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">-- 날짜별·상품별 주문 합계 (다중 컬럼 그룹화)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">SELECT</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">order_date</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">product_id</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">quantity</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">총</span><span class="n">_수량</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">order_date</span><span class="p">,</span><span class="w"> </span><span class="n">product_id</span><span class="p">;</span>
 </code></pre></div>
-<h4 id="_4">여러 테이블 합치기</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">-- 3개 이상도 가능</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Sales&#39;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">dept</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">sales_staff</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">UNION</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Marketing&#39;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">dept</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">marketing_staff</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">UNION</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Engineering&#39;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">dept</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">engineering_staff</span><span class="p">;</span>
+<div class="warning-box">
+<p><strong>주의</strong>: <code>SELECT</code> 절에 집계 함수가 아닌 컬럼은 반드시 <code>GROUP BY</code>에 포함되어야 한다. 그렇지 않으면 오류(MySQL strict mode) 또는 임의의 값이 반환된다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">-- 잘못된 예: name이 GROUP BY에 없음</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">department</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employee</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">department</span><span class="p">;</span><span class="w"> </span><span class="c1">-- ❌</span>
 </code></pre></div>
-<h4 id="limit">정렬과 LIMIT</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">-- UNION 전체 결과를 정렬하려면 마지막에 ORDER BY</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">dept_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">UNION</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">dept_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1">-- LIMIT도 마지막에 적용</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">dept_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">dept_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</div>
+<hr />
+<h2 id="having">HAVING — 그룹 필터링</h2>
+<p><code>WHERE</code>은 행을 필터링하고, <code>HAVING</code>은 <strong>그룹화 후 집계 결과</strong>를 필터링한다.</p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>실행 시점</th>
+<th>집계 함수 사용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>WHERE</code></td>
+<td>GROUP BY 이전</td>
+<td>불가</td>
+</tr>
+<tr>
+<td><code>HAVING</code></td>
+<td>GROUP BY 이후</td>
+<td>가능</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">-- 평균 급여가 300만 원 이상인 부서만 조회</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">SELECT</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="n">department</span><span class="p">,</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="k">AVG</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">평균급여</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="k">FROM</span><span class="w"> </span><span class="n">employee</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">department</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="k">HAVING</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">3000000</span><span class="p">;</span>
 </code></pre></div>
-<h3 id="_5">언제 쓰는지</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">-- 주문 3건 이상인 회원</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">SELECT</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="n">member_id</span><span class="p">,</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">주문수</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">member_id</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="k">HAVING</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+</code></pre></div>
+<hr />
+<h2 id="_3">실행 순서</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT
+</code></pre></div>
+<p><code>WHERE</code>이 먼저 실행되므로 GROUP BY 이전에 행을 줄여 <strong>성능 최적화</strong>에 활용한다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">-- 2024년 주문만 대상으로 상품별 집계 (WHERE로 먼저 필터)</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">SELECT</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="n">product_id</span><span class="p">,</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">연간매출</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="k">WHERE</span><span class="w"> </span><span class="k">YEAR</span><span class="p">(</span><span class="n">order_date</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2024</span><span class="w">    </span><span class="c1">-- 먼저 행을 줄임</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">product_id</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="k">HAVING</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1000000</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="err">연간매출</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+</code></pre></div>
+<hr />
+<h2 id="_4">언제 쓰는지</h2>
 <table>
 <thead>
 <tr>
 <th>상황</th>
-<th>선택</th>
-<th>이유</th>
+<th>집계 함수</th>
+<th>선택 기준</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>여러 테이블 데이터 합치기</strong></td>
-<td>✅ UNION</td>
-<td>테이블 구조 유사할 때</td>
+<td><strong>전체 행 수</strong></td>
+<td>✅ COUNT(*)</td>
+<td>NULL 포함 카운트</td>
 </tr>
 <tr>
-<td><strong>조건부 조회 결과 합치기</strong></td>
-<td>✅ UNION</td>
-<td>OR로 처리 곤란할 때</td>
+<td><strong>특정 컬럼 카운트</strong></td>
+<td>✅ COUNT(col)</td>
+<td>NULL 제외 카운트</td>
 </tr>
 <tr>
-<td><strong>중복 제거 필요</strong></td>
-<td>✅ UNION</td>
-<td>정확한 결과 필요</td>
+<td><strong>중복 제거 후 카운트</strong></td>
+<td>✅ COUNT(DISTINCT col)</td>
+<td>실제 개수 파악</td>
 </tr>
 <tr>
-<td><strong>중복 상관없음</strong></td>
-<td>✅ UNION ALL</td>
-<td>성능 중시</td>
+<td><strong>합계 계산</strong></td>
+<td>✅ SUM(col)</td>
+<td>매출, 수량 합산</td>
 </tr>
 <tr>
-<td><strong>단순 합치기</strong></td>
-<td>✅ UNION ALL</td>
-<td>데이터 특성상 중복 없을 때</td>
+<td><strong>평균 계산</strong></td>
+<td>✅ AVG(col)</td>
+<td>평균값, 중간 기준</td>
 </tr>
 <tr>
-<td><strong>좌우 합치기</strong></td>
-<td>❌ JOIN</td>
-<td>행을 가로로 합칠 때</td>
+<td><strong>최대/최소</strong></td>
+<td>✅ MAX/MIN(col)</td>
+<td>범위 파악</td>
+</tr>
+<tr>
+<td><strong>부서별/일자별</strong></td>
+<td>✅ GROUP BY</td>
+<td>그룹 단위 집계</td>
+</tr>
+<tr>
+<td><strong>집계 결과 필터</strong></td>
+<td>✅ HAVING</td>
+<td>조건 충족 그룹만</td>
 </tr>
 </tbody>
 </table>
-<h3 id="_6">장점</h3>
-<table>
-<thead>
-<tr>
-<th>장점</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>간결성</strong></td>
-<td>OR로 복잡한 WHERE를 피할 수 있음</td>
-</tr>
-<tr>
-<td><strong>가독성</strong></td>
-<td>각 조회가 의도가 명확</td>
-</tr>
-<tr>
-<td><strong>유연성</strong></td>
-<td>서로 다른 테이블 합치기 가능</td>
-</tr>
-<tr>
-<td><strong>데이터 정제</strong></td>
-<td>UNION으로 중복 자동 제거</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_7">단점</h3>
-<table>
-<thead>
-<tr>
-<th>단점</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>성능 비용</strong></td>
-<td>UNION은 정렬 작업으로 느림 (UNION ALL은 빠름)</td>
-</tr>
-<tr>
-<td><strong>메모리 사용</strong></td>
-<td>결과를 메모리에 모아야 함</td>
-</tr>
-<tr>
-<td><strong>컬럼 개수 일치</strong></td>
-<td>SELECT 컬럼 수가 같아야 함</td>
-</tr>
-<tr>
-<td><strong>타입 일치 필요</strong></td>
-<td>같은 위치의 컬럼 타입이 호환되어야 함</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_8">특징</h3>
-<h4 id="1">1. 컬럼 일치 규칙</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">-- ❌ 잘못된 예: 컬럼 개수 다름</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">UNION</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="p">;</span><span class="w">  </span><span class="c1">-- 컬럼 2개 vs 1개 → 오류</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1">-- ✅ 올바른 예: 같은 개수</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="k">UNION</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">cust_id</span><span class="p">,</span><span class="w"> </span><span class="n">cust_name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="p">;</span><span class="w">  </span><span class="c1">-- 모두 2개</span>
+<h2 id="_5">특징</h2>
+<h3 id="_6">집계 함수의 특징</h3>
+<h4 id="1-count-vs-countcol">1. COUNT(*) vs COUNT(col) 차이</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">-- employees: id, name, age (100행, age 중 10개가 NULL)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w">        </span><span class="c1">-- 100 (모든 행)</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="k">COUNT</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w">       </span><span class="c1">-- 100 (id는 NOT NULL)</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="k">COUNT</span><span class="p">(</span><span class="n">age</span><span class="p">)</span><span class="w">      </span><span class="c1">-- 90 (NULL 제외)</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">department</span><span class="p">)</span><span class="w"> </span><span class="c1">-- 10 (중복 제거)</span>
 </code></pre></div>
-<h4 id="2-select">2. 컬럼 이름은 첫 번째 SELECT에서 정해짐</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">emp_id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">emp_name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">UNION</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">cust_id</span><span class="p">,</span><span class="w"> </span><span class="n">cust_name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="p">;</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1">-- 결과 컬럼명: id, name (첫 SELECT 기준)</span>
+<h4 id="2-null">2. NULL 무시 원칙</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">-- SUM, AVG, MAX, MIN은 NULL을 무시함</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">SUM</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">])</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="p">(</span><span class="k">NULL</span><span class="w"> </span><span class="err">스킵</span><span class="p">)</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">AVG</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">])</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="p">(</span><span class="mi">10</span><span class="o">+</span><span class="mi">20</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="err">무시</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1">-- COUNT(col)과 AVG는 행 수가 다를 수 있음</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="mi">5</span><span class="err">개</span><span class="w"> </span><span class="err">행</span><span class="w"> </span><span class="err">중</span><span class="w"> </span><span class="mi">2</span><span class="err">개</span><span class="w"> </span><span class="k">NULL</span><span class="p">:</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="k">COUNT</span><span class="p">(</span><span class="n">col</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="k">AVG</span><span class="p">(</span><span class="n">col</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">c</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="w">  </span><span class="c1">-- 3으로 나눔, NULL 무시</span>
 </code></pre></div>
-<h4 id="3-union">3. UNION의 성능 원리</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>UNION 실행 과정:
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>1️⃣ 첫 번째 SELECT 실행 → 결과 로드
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>   id | name
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>   ---------
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    1 | Alice
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    2 | Bob
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>2️⃣ 두 번째 SELECT 실행 → 결과 로드
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>   id | name
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>   ---------
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    2 | Bob     (중복)
-<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>    3 | Carol
-<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>
-<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>3️⃣ 정렬 후 중복 제거
-<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>   정렬: Alice(1), Bob(2), Bob(2), Carol(3)
-<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>   중복제거: Alice(1), Bob(2), Carol(3)
-<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>
-<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>4️⃣ 최종 반환 → 3행
+<h4 id="3-group-by">3. GROUP BY 없는 집계</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">-- GROUP BY 없으면 전체 테이블이 하나의 그룹</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employee</span><span class="p">;</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1">-- 결과: 1행 (전체 요약)</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1">-- GROUP BY 있으면 그룹별</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">department</span><span class="p">,</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employee</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">department</span><span class="p">;</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1">-- 결과: N행 (부서별)</span>
 </code></pre></div>
-<p>UNION ALL은 3️⃣ 단계 스킵 → 더 빠름</p>
-<h4 id="4">4. 타입 호환성</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">-- ✅ 정수 ↔ 정수: OK</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">emp_id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">UNION</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">cust_id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="p">;</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="c1">-- ✅ VARCHAR ↔ VARCHAR: OK</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">emp_name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="k">UNION</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">cust_name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="p">;</span>
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="c1">-- ⚠️ 정수 ↔ VARCHAR: 암묵적 형변환 (위험)</span>
-<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">emp_id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w">        </span><span class="c1">-- INT</span>
-<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="k">UNION</span>
-<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">emp_name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w">     </span><span class="c1">-- VARCHAR → 문자로 변환됨</span>
-<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>
-<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="c1">-- ✅ 명시적 형변환: 안전</span>
-<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">CAST</span><span class="p">(</span><span class="n">emp_id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span>
-<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="k">UNION</span>
-<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">emp_name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span>
+<h4 id="4">4. 실행 순서와 성능</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>중요: WHERE가 먼저 실행되므로 행을 미리 줄이면 GROUP BY 성능 향상
 </code></pre></div>
-<h3 id="_9">주의할 점</h3>
-<div class="danger-box">
-<p><strong>❌ UNION 남용으로 성능 저하</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">-- ❌ 나쁜 예: 10개 테이블을 모두 UNION</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">table1</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">UNION</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">table2</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="k">UNION</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">table3</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="k">UNION</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="p">...</span><span class="w"> </span><span class="p">(</span><span class="mi">10</span><span class="err">개</span><span class="p">)</span>
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="c1">-- 각 테이블 조회 + 정렬 + 중복 제거 반복 → 매우 느림</span>
-<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>
-<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="c1">-- ✅ 올바른 방식: OR 조건 또는 UNION ALL 사용</span>
-<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">table1</span>
-<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">dept_id</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">)</span><span class="w">  </span><span class="c1">-- 필요하면 OR 사용</span>
-<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span>
-<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">table2</span>
-<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;active&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">-- 나쁜 예: 전체 데이터를 GROUP BY</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">dept</span><span class="p">,</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employee</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">dept</span><span class="p">;</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1">-- 좋은 예: WHERE로 먼저 필터</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">dept</span><span class="p">,</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employee</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">3000000</span><span class="w">  </span><span class="c1">-- 먼저 행을 줄임</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">dept</span><span class="p">;</span>
 </code></pre></div>
-</div>
-<div class="warning-box">
-<p><strong>⚠️ UNION vs UNION ALL 선택 실수</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">-- ❌ 불필요하게 UNION 사용 (중복 없는데 정렬 비용 발생)</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">dept_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">UNION</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">dept_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1">-- 각 부서가 겹치지 않으므로 중복 불가능하지만 UNION 사용 → 비효율</span>
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1">-- ✅ 정렬 불필요하면 UNION ALL 사용</span>
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">dept_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span>
-<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span>
-<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">dept_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
-<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="c1">-- 중복이 없으므로 정렬 비용 절약</span>
+<h4 id="5-distinct">5. DISTINCT와 집계</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1">-- 중복 제거 후 집계</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">member_id</span><span class="p">)</span><span class="w">      </span><span class="c1">-- 실제 주문한 고객 수</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="k">SUM</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w">           </span><span class="c1">-- 중복된 금액은 1번만 합산</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="k">AVG</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">category_count</span><span class="p">)</span><span class="w">   </span><span class="c1">-- 카테고리 중복 제거 후 평균</span>
 </code></pre></div>
-</div>
-<div class="warning-box">
-<p><strong>⚠️ NULL 처리 주의</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">-- UNION은 NULL을 같은 값으로 취급</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">phone</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">UNION</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">phone</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="p">;</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="c1">-- 만약 phone이 NULL인 행이 여러 개면 1개로 통합됨</span>
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="c1">-- (NULL == NULL 취급)</span>
-</code></pre></div>
-</div>
-<div class="warning-box">
-<p><strong>⚠️ 대소문자 민감도</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">-- UNION은 중복 비교 시 대소문자 구분</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;alice&#39;</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="k">UNION</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Alice&#39;</span><span class="p">;</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="c1">-- 결과: 2행 (alice, Alice 둘 다)</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="c1">-- MySQL의 기본 Collation(utf8mb4_unicode_ci)에서는 같음으로 판단</span>
-</code></pre></div>
-</div>
-<h3 id="_10">정리</h3>
-<table>
-<thead>
-<tr>
-<th>항목</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>UNION</strong></td>
-<td>중복 제거, 정렬 비용 발생</td>
-</tr>
-<tr>
-<td><strong>UNION ALL</strong></td>
-<td>중복 유지, 더 빠름</td>
-</tr>
-<tr>
-<td><strong>사용처</strong></td>
-<td>여러 SELECT 결과를 세로로 합치기</td>
-</tr>
-<tr>
-<td><strong>성능</strong></td>
-<td>가능하면 UNION ALL 사용</td>
-</tr>
-<tr>
-<td><strong>주의</strong></td>
-<td>컬럼 개수·타입 일치 필수</td>
-</tr>
-</tbody>
-</table>
 <hr />
-<p><strong>관련 파일:</strong>
-- <a href="../JOIN/">JOIN</a> — 가로로 데이터 합치기
-- <a href="../%EC%84%9C%EB%B8%8C%EC%BF%BC%EB%A6%AC/">서브쿼리</a> — 중첩된 SELECT 쿼리
-- <a href="../%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%80%EA%B3%B5/">데이터 가공</a> — CASE, COALESCE 등 데이터 변환</p>
+<h2 id="distinct">DISTINCT와 집계</h2>
+<p><code>COUNT(DISTINCT 컬럼)</code>으로 중복 제거 후 집계할 수 있다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1">-- 실제 주문한 회원 수 (중복 제거)</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">member_id</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">주문회원수</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span><span class="p">;</span>
+</code></pre></div>
+<hr />
+<h2 id="_7">장점</h2>
+<ul>
+<li>DB 레벨에서 집계하므로 애플리케이션 메모리·네트워크 비용 절감</li>
+<li>인덱스와 결합 시 대용량 데이터에서도 빠른 처리 가능</li>
+</ul>
+<h2 id="_8">단점</h2>
+<ul>
+<li>복잡한 다중 그룹화는 쿼리 가독성 저하</li>
+<li>집계 결과를 또 집계하려면 서브쿼리나 <abbr title="Common Table Expression. WITH 절로 정의하는 임시 결과 집합. 복잡한 쿼리를 단계적으로 분리할 때 사용.">CTE</abbr> 필요</li>
+</ul>
+<h2 id="_9">주의할 점</h2>
+<div class="warning-box">
+<p><strong>WHERE vs HAVING 혼동</strong>: 집계 함수 조건은 반드시 <code>HAVING</code> 사용. <code>WHERE COUNT(*) &gt; 3</code>은 문법 오류.</p>
+</div>
+<div class="tip-box">
+<p><strong>팁</strong>: <code>GROUP BY</code> 없이 집계 함수만 쓰면 전체 테이블을 하나의 그룹으로 취급한다.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employee</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 전체 집계</span>
+</code></pre></div></p>
+</div>
 <!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
 
 <!-- ===== DB / SQL ===== -->
@@ -5438,7 +5530,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 16일 13:18:34 UTC">2026년 4월 16일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 16일 13:29:26 UTC">2026년 4월 16일</span>
   </span>
 
     
@@ -5448,7 +5540,7 @@
     <span class="md-icon" title="작성일">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 16일 13:18:34 UTC">2026년 4월 16일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 13일 11:58:20 UTC">2026년 4월 13일</span>
   </span>
 
     
@@ -5503,10 +5595,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.instant", "search.highlight", "search.suggest", "content.code.copy", "content.tooltips", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections", "navigation.top", "navigation.instant", "search.highlight", "search.suggest", "content.code.copy", "content.tooltips", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
       
