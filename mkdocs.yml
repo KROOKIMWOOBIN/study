@@ -184,20 +184,23 @@ nav:
       - MSA: spring/msa.md
   - DB:
     - 개요: db/db.md
-    - ACID: db/ACID.md
-    - SQL: db/SQL.md
-    - 데이터 타입: db/데이터타입.md
-    - 제약 조건: db/제약조건.md
-    - 데이터 가공: db/데이터가공.md
-    - 그룹과 집계: db/집계.md
-    - JOIN: db/JOIN.md
-    - 서브쿼리: db/서브쿼리.md
-    - UNION: db/UNION.md
-    - CASE: db/CASE.md
-    - 인덱스: db/인덱스.md
-    - 정규화: db/정규화.md
-    - 트랜잭션: db/트랜잭션.md
-    - 격리 수준: db/격리수준.md
+    - 기초:
+      - ACID: db/기초/ACID.md
+      - SQL: db/기초/SQL.md
+      - 데이터 타입: db/기초/데이터타입.md
+      - 제약 조건: db/기초/제약조건.md
+      - 정규화: db/기초/정규화.md
+    - 쿼리:
+      - 데이터 가공: db/쿼리/데이터가공.md
+      - 그룹과 집계: db/쿼리/집계.md
+      - JOIN: db/쿼리/JOIN.md
+      - 서브쿼리: db/쿼리/서브쿼리.md
+      - UNION: db/쿼리/UNION.md
+      - CASE: db/쿼리/CASE.md
+    - 성능 & 운영:
+      - 인덱스: db/성능운영/인덱스.md
+      - 트랜잭션: db/성능운영/트랜잭션.md
+      - 격리 수준: db/성능운영/격리수준.md
   - JVM:
     - 개요: jvm/jvm.md
     - JVM 상세: jvm/JVM개요.md
