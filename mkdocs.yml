@@ -192,6 +192,8 @@ nav:
     - 그룹과 집계: db/집계.md
     - JOIN: db/JOIN.md
     - 서브쿼리: db/서브쿼리.md
+    - UNION: db/UNION.md
+    - CASE: db/CASE.md
     - 인덱스: db/인덱스.md
     - 정규화: db/정규화.md
     - 트랜잭션: db/트랜잭션.md
