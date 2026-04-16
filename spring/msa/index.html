@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#msa-spring-cloud" class="md-skip">
+        <a href="#msa-microservices-architecture" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -3799,27 +3799,39 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#msa-spring-cloud" class="md-nav__link">
+  <a href="#msa-microservices-architecture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        MSA (Spring Cloud)
+        MSA (Microservices Architecture)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="MSA (Spring Cloud)">
+    <nav class="md-nav" aria-label="MSA (Microservices Architecture)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        왜 쓰는가?
+        왜 쓰는지
       
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        어떻게 쓰는지
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="어떻게 쓰는지">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#spring-cloud" class="md-nav__link">
@@ -3833,10 +3845,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#api-gateway" class="md-nav__link">
+  <a href="#1-api-gateway" class="md-nav__link">
     <span class="md-ellipsis">
       
-        API Gateway
+        1) API Gateway (단일 진입점)
       
     </span>
   </a>
@@ -3844,10 +3856,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#service-discovery-eureka" class="md-nav__link">
+  <a href="#2-service-discovery-eureka" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Service Discovery (Eureka)
+        2) Service Discovery (Eureka)
       
     </span>
   </a>
@@ -3855,10 +3867,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#feignclient" class="md-nav__link">
+  <a href="#3-feignclient" class="md-nav__link">
     <span class="md-ellipsis">
       
-        서비스 간 통신 — FeignClient
+        3) 서비스 간 통신 (FeignClient)
       
     </span>
   </a>
@@ -3866,10 +3878,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#circuit-breaker-resilience4j" class="md-nav__link">
+  <a href="#4-circuit-breaker" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Circuit Breaker (Resilience4j)
+        4) Circuit Breaker (장애 전파 차단)
       
     </span>
   </a>
@@ -3877,10 +3889,26 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#saga" class="md-nav__link">
+  <a href="#5-saga" class="md-nav__link">
     <span class="md-ellipsis">
       
-        분산 트랜잭션 — SAGA 패턴
+        5) 분산 트랜잭션 (SAGA 패턴)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        언제 쓰는지
       
     </span>
   </a>
@@ -3888,10 +3916,93 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        단점 / 주의할 점
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        특징
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="특징">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 분산 시스템의 도전
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 동기 vs 비동기 통신
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-api-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. API Gateway의 역할
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        정리
       
     </span>
   </a>
@@ -4919,27 +5030,39 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#msa-spring-cloud" class="md-nav__link">
+  <a href="#msa-microservices-architecture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        MSA (Spring Cloud)
+        MSA (Microservices Architecture)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="MSA (Spring Cloud)">
+    <nav class="md-nav" aria-label="MSA (Microservices Architecture)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        왜 쓰는가?
+        왜 쓰는지
       
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        어떻게 쓰는지
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="어떻게 쓰는지">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#spring-cloud" class="md-nav__link">
@@ -4953,10 +5076,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#api-gateway" class="md-nav__link">
+  <a href="#1-api-gateway" class="md-nav__link">
     <span class="md-ellipsis">
       
-        API Gateway
+        1) API Gateway (단일 진입점)
       
     </span>
   </a>
@@ -4964,10 +5087,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#service-discovery-eureka" class="md-nav__link">
+  <a href="#2-service-discovery-eureka" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Service Discovery (Eureka)
+        2) Service Discovery (Eureka)
       
     </span>
   </a>
@@ -4975,10 +5098,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#feignclient" class="md-nav__link">
+  <a href="#3-feignclient" class="md-nav__link">
     <span class="md-ellipsis">
       
-        서비스 간 통신 — FeignClient
+        3) 서비스 간 통신 (FeignClient)
       
     </span>
   </a>
@@ -4986,10 +5109,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#circuit-breaker-resilience4j" class="md-nav__link">
+  <a href="#4-circuit-breaker" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Circuit Breaker (Resilience4j)
+        4) Circuit Breaker (장애 전파 차단)
       
     </span>
   </a>
@@ -4997,10 +5120,26 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#saga" class="md-nav__link">
+  <a href="#5-saga" class="md-nav__link">
     <span class="md-ellipsis">
       
-        분산 트랜잭션 — SAGA 패턴
+        5) 분산 트랜잭션 (SAGA 패턴)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        언제 쓰는지
       
     </span>
   </a>
@@ -5008,10 +5147,93 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        단점 / 주의할 점
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        특징
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="특징">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 분산 시스템의 도전
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 동기 vs 비동기 통신
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-api-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. API Gateway의 역할
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        정리
       
     </span>
   </a>
@@ -5045,11 +5267,17 @@
 
   <h1>MSA</h1>
 
-<h2 id="msa-spring-cloud"><abbr title="MicroService Architecture. 애플리케이션을 독립적으로 배포 가능한 작은 서비스 단위로 분리하는 아키텍처 방식.">MSA</abbr> (Spring Cloud)</h2>
-<h3 id="_1">왜 쓰는가?</h3>
+<h2 id="msa-microservices-architecture"><abbr title="MicroService Architecture. 애플리케이션을 독립적으로 배포 가능한 작은 서비스 단위로 분리하는 아키텍처 방식.">MSA</abbr> (Microservices Architecture)</h2>
+<h3 id="_1">왜 쓰는지</h3>
 <div class="concept-box">
-<p>모놀리식 서비스는 규모가 커질수록 배포가 어렵고, 한 모듈의 장애가 전체에 영향을 준다. ==<abbr title="MicroService Architecture. 애플리케이션을 독립적으로 배포 가능한 작은 서비스 단위로 분리하는 아키텍처 방식.">MSA</abbr>==는 서비스를 독립적으로 배포·확장할 수 있게 분리한다.</p>
+<p><strong>핵심</strong>: MSA는 <strong>하나의 애플리케이션을 여러 개의 작은 독립 서비스로 분리</strong>하여, 각 서비스를 독립적으로 개발·배포·확장할 수 있게 하는 아키텍처입니다.</p>
 </div>
+<p>모놀리식 서비스는 규모가 커질수록:
+- <strong>배포 위험도</strong>: 전체 재배포로 한 기능 변경이 전체 영향
+- <strong>확장 비효율</strong>: 특정 모듈만 병목이어도 전체 스케일 아웃
+- <strong>장애 파급</strong>: 하나의 모듈 장애가 전체 서비스 다운
+- <strong>기술 선택 제약</strong>: 단일 기술 스택 강제</p>
+<p>MSA는 이러한 문제를 해결합니다:</p>
 <table>
 <thead>
 <tr>
@@ -5060,34 +5288,35 @@
 </thead>
 <tbody>
 <tr>
-<td>배포</td>
+<td><strong>배포</strong></td>
 <td>전체 재배포</td>
 <td>서비스 단위 독립 배포</td>
 </tr>
 <tr>
-<td>확장</td>
+<td><strong>확장</strong></td>
 <td>전체 스케일 아웃</td>
 <td>병목 서비스만 확장</td>
 </tr>
 <tr>
-<td>장애 격리</td>
+<td><strong>장애 격리</strong></td>
 <td>하나 죽으면 전체 영향</td>
 <td>일부 서비스만 영향</td>
 </tr>
 <tr>
-<td>기술 선택</td>
+<td><strong>기술 선택</strong></td>
 <td>단일 스택</td>
 <td>서비스별 최적 기술</td>
 </tr>
 <tr>
-<td>복잡도</td>
+<td><strong>복잡도</strong></td>
 <td>낮음</td>
 <td>높음 (네트워크, 분산 트랜잭션)</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h3 id="spring-cloud">Spring Cloud 구성요소</h3>
+<h3 id="_2">어떻게 쓰는지</h3>
+<h4 id="spring-cloud">Spring Cloud 구성요소</h4>
 <table>
 <thead>
 <tr>
@@ -5098,156 +5327,384 @@
 </thead>
 <tbody>
 <tr>
-<td><abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> Gateway</td>
-<td>단일 진입점, 라우팅, 인증</td>
+<td><strong><abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> Gateway</strong></td>
+<td>단일 진입점, 라우팅, 인증, 로깅</td>
 <td>Spring Cloud Gateway</td>
 </tr>
 <tr>
-<td>Service Discovery</td>
+<td><strong>Service Discovery</strong></td>
 <td>서비스 위치 동적 등록/조회</td>
-<td>Eureka</td>
+<td>Eureka, Consul</td>
 </tr>
 <tr>
-<td>Config Server</td>
-<td>중앙 설정 관리</td>
+<td><strong>Config Server</strong></td>
+<td>중앙 설정 관리 (환경별 분리)</td>
 <td>Spring Cloud Config</td>
 </tr>
 <tr>
-<td>Circuit Breaker</td>
-<td>장애 전파 차단</td>
-<td>Resilience4j</td>
+<td><strong>Circuit Breaker</strong></td>
+<td>장애 전파 차단, Fallback</td>
+<td>Resilience4j, Hystrix</td>
 </tr>
 <tr>
-<td>Load Balancer</td>
+<td><strong>Load Balancer</strong></td>
 <td>서비스 인스턴스 부하 분산</td>
 <td>Spring Cloud LoadBalancer</td>
 </tr>
+<tr>
+<td><strong>분산 트래킹</strong></td>
+<td>마이크로서비스 간 요청 추적</td>
+<td>Sleuth, Zipkin</td>
+</tr>
+<tr>
+<td><strong>메시지 브로커</strong></td>
+<td>비동기 통신, 이벤트 기반</td>
+<td>Kafka, RabbitMQ</td>
+</tr>
 </tbody>
 </table>
-<hr />
-<h3 id="api-gateway"><abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> Gateway</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gh"># application.yml (Gateway)</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>spring:
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  cloud:
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    gateway:
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>      routes:
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="k">-</span><span class="w"> </span>id: member-service
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>          uri: lb://MEMBER-SERVICE  # Eureka로 동적 조회
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>          predicates:
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">            </span><span class="k">-</span><span class="w"> </span>Path=/api/members/**
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>          filters:
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">            </span><span class="k">-</span><span class="w"> </span>AuthorizationFilter  # JWT 검증
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">            </span><span class="k">-</span><span class="w"> </span>name: CircuitBreaker
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>              args:
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>                name: memberServiceCB
+<h4 id="1-api-gateway">1) <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> Gateway (단일 진입점)</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># application.yml (Gateway)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">spring</span><span class="p">:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">cloud</span><span class="p">:</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">gateway</span><span class="p">:</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">routes</span><span class="p">:</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">member-service</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">          </span><span class="nt">uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lb://MEMBER-SERVICE</span><span class="w">  </span><span class="c1"># Eureka로 동적 조회</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">          </span><span class="nt">predicates</span><span class="p">:</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Path=/api/members/**</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">          </span><span class="nt">filters</span><span class="p">:</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AuthorizationFilter</span><span class="w">  </span><span class="c1"># JWT 검증</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CircuitBreaker</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">              </span><span class="nt">args</span><span class="p">:</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">                </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">memberServiceCB</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">        </span><span class="k">-</span><span class="w"> </span>id: order-service
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>          uri: lb://ORDER-SERVICE
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>          predicates:
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">            </span><span class="k">-</span><span class="w"> </span>Path=/api/orders/**
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">order-service</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">          </span><span class="nt">uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lb://ORDER-SERVICE</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">          </span><span class="nt">predicates</span><span class="p">:</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Path=/api/orders/**</span>
 </code></pre></div>
-<hr />
-<h3 id="service-discovery-eureka">Service Discovery (Eureka)</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>// Eureka Server
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="ni">@SpringBootApplication</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="ni">@EnableEurekaServer</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>public class DiscoveryServer { ... }
+<h4 id="2-service-discovery-eureka">2) Service Discovery (Eureka)</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// Eureka Server</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nd">@SpringBootApplication</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nd">@EnableEurekaServer</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DiscoveryServer</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>// Eureka Client (각 서비스)
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="ni">@SpringBootApplication</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="ni">@EnableEurekaClient</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>public class MemberServiceApplication { ... }
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1">// Eureka Client (각 서비스)</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nd">@SpringBootApplication</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="nd">@EnableEurekaClient</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MemberServiceApplication</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gh"># application.yml (각 서비스)</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>spring:
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  application:
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    name: MEMBER-SERVICE
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>eureka:
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  client:
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    service-url:
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>      defaultZone: http://discovery-server:8761/eureka
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># application.yml (각 서비스)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">spring</span><span class="p">:</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">application</span><span class="p">:</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MEMBER-SERVICE</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nt">eureka</span><span class="p">:</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="nt">client</span><span class="p">:</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nt">service-url</span><span class="p">:</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">      </span><span class="nt">defaultZone</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://discovery-server:8761/eureka</span>
 </code></pre></div>
-<hr />
-<h3 id="feignclient">서비스 간 통신 — FeignClient</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="ni">@FeignClient</span>(name = &quot;ORDER-SERVICE&quot;)
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>public interface OrderFeignClient {
+<h4 id="3-feignclient">3) 서비스 간 통신 (FeignClient)</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@FeignClient</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ORDER-SERVICE&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">OrderFeignClient</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="ni">@GetMapping</span>(&quot;/api/orders/member/{memberId}&quot;)
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    List&lt;OrderResponse&gt; getOrdersByMember(@PathVariable Long memberId);
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>}
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/api/orders/member/{memberId}&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">OrderResponse</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getOrdersByMember</span><span class="p">(</span><span class="nd">@PathVariable</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">memberId</span><span class="p">);</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">}</span>
 <a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>// 사용
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="ni">@Service</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="ni">@RequiredArgsConstructor</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>public class MemberService {
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1">// 사용</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="nd">@Service</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="nd">@RequiredArgsConstructor</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MemberService</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    private final OrderFeignClient orderFeignClient;
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">OrderFeignClient</span><span class="w"> </span><span class="n">orderFeignClient</span><span class="p">;</span>
 <a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    public MemberDetailResponse getMemberDetail(Long memberId) {
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>        Member member = memberRepository.findById(memberId).orElseThrow();
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>        List&lt;OrderResponse&gt; orders = orderFeignClient.getOrdersByMember(memberId);
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>        return new MemberDetailResponse(member, orders);
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>    }
-<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>}
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">MemberDetailResponse</span><span class="w"> </span><span class="nf">getMemberDetail</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">memberId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">        </span><span class="n">Member</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">memberRepository</span><span class="p">.</span><span class="na">findById</span><span class="p">(</span><span class="n">memberId</span><span class="p">).</span><span class="na">orElseThrow</span><span class="p">();</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">OrderResponse</span><span class="o">&gt;</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orderFeignClient</span><span class="p">.</span><span class="na">getOrdersByMember</span><span class="p">(</span><span class="n">memberId</span><span class="p">);</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MemberDetailResponse</span><span class="p">(</span><span class="n">member</span><span class="p">,</span><span class="w"> </span><span class="n">orders</span><span class="p">);</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="p">}</span>
 </code></pre></div>
-<hr />
-<h3 id="circuit-breaker-resilience4j">Circuit Breaker (Resilience4j)</h3>
-<p>호출 대상 서비스가 장애일 때 연속 호출을 차단하고 fallback을 반환한다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="ni">@CircuitBreaker</span>(name = &quot;orderService&quot;, fallbackMethod = &quot;getOrdersFallback&quot;)
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>public List&lt;OrderResponse&gt; getOrders(Long memberId) {
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    return orderFeignClient.getOrdersByMember(memberId);
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>}
+<h4 id="4-circuit-breaker">4) Circuit Breaker (장애 전파 차단)</h4>
+<p>호출 대상 서비스가 장애일 때 연속 호출을 차단하고 fallback을 반환합니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nd">@CircuitBreaker</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;orderService&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">fallbackMethod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;getOrdersFallback&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">OrderResponse</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getOrders</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">memberId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">orderFeignClient</span><span class="p">.</span><span class="na">getOrdersByMember</span><span class="p">(</span><span class="n">memberId</span><span class="p">);</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">}</span>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>public List&lt;OrderResponse&gt; getOrdersFallback(Long memberId, Exception e) {
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    log.warn(&quot;주문 서비스 장애, fallback 반환: {}&quot;, e.getMessage());
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    return Collections.emptyList();  // 빈 목록으로 graceful degradation
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>}
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">OrderResponse</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getOrdersFallback</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">memberId</span><span class="p">,</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="n">log</span><span class="p">.</span><span class="na">warn</span><span class="p">(</span><span class="s">&quot;주문 서비스 장애, fallback 반환: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Collections</span><span class="p">.</span><span class="na">emptyList</span><span class="p">();</span><span class="w">  </span><span class="c1">// 빈 목록으로 graceful degradation</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="p">}</span>
 </code></pre></div>
-<hr />
-<h3 id="saga">분산 트랜잭션 — SAGA 패턴</h3>
-<p>MSA에서 <code>@Transactional</code>은 서비스 간 원자성을 보장하지 못한다. SAGA 패턴으로 보상 트랜잭션을 구현한다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>// Choreography 방식 (이벤트 기반)
+<h4 id="5-saga">5) 분산 트랜잭션 (SAGA 패턴)</h4>
+<p>MSA에서 <code>@Transactional</code>은 서비스 간 원자성을 보장하지 못합니다. <strong>SAGA 패턴</strong>으로 보상 트랜잭션을 구현합니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Choreography 방식 (이벤트 기반)
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>주문 서비스: 주문 생성 → &quot;ORDER_CREATED&quot; 이벤트 발행
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>결제 서비스: 이벤트 수신 → 결제 처리 → &quot;PAYMENT_COMPLETED&quot; 발행
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>재고 서비스: 이벤트 수신 → 재고 차감
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>// 결제 실패 시
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>결제 실패 시 (보상 트랜잭션)
 <a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>결제 서비스: &quot;PAYMENT_FAILED&quot; 이벤트 발행
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>주문 서비스: 이벤트 수신 → 주문 취소 (보상 트랜잭션)
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>주문 서비스: 이벤트 수신 → 주문 취소
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>재고 서비스: 이벤트 수신 → 재고 복구
 </code></pre></div>
 <hr />
-<h3 id="_2">단점 / 주의할 점</h3>
+<h3 id="_3">언제 쓰는지</h3>
 <table>
 <thead>
 <tr>
 <th>상황</th>
-<th>문제</th>
-<th>해결</th>
+<th>선택</th>
+<th>이유</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>네트워크 지연</td>
-<td>서비스 간 호출 오버헤드</td>
-<td>필요한 경우만 동기 호출, 나머지 비동기</td>
+<td><strong>높은 확장성 필요</strong></td>
+<td>✅ <abbr title="MicroService Architecture. 애플리케이션을 독립적으로 배포 가능한 작은 서비스 단위로 분리하는 아키텍처 방식.">MSA</abbr></td>
+<td>병목 서비스만 독립 확장</td>
 </tr>
 <tr>
-<td>분산 트랜잭션</td>
-<td>@Transactional 적용 불가</td>
-<td>SAGA 패턴</td>
+<td><strong>팀 규모 크고 다양</strong></td>
+<td>✅ <abbr title="MicroService Architecture. 애플리케이션을 독립적으로 배포 가능한 작은 서비스 단위로 분리하는 아키텍처 방식.">MSA</abbr></td>
+<td>팀별 독립 개발/배포</td>
 </tr>
 <tr>
-<td>운영 복잡도</td>
-<td>서비스 수만큼 모니터링 포인트</td>
-<td>중앙 로그 수집 (ELK), 분산 추적 (Zipkin)</td>
+<td><strong>기술 스택 다양화</strong></td>
+<td>✅ <abbr title="MicroService Architecture. 애플리케이션을 독립적으로 배포 가능한 작은 서비스 단위로 분리하는 아키텍처 방식.">MSA</abbr></td>
+<td>서비스별 최적 기술 선택</td>
 </tr>
 <tr>
-<td>초기 도입</td>
-<td>작은 서비스에 MSA는 과도한 복잡성</td>
-<td>모놀리식으로 시작 후 필요 시 분리</td>
+<td><strong>빈번한 배포 필요</strong></td>
+<td>✅ <abbr title="MicroService Architecture. 애플리케이션을 독립적으로 배포 가능한 작은 서비스 단위로 분리하는 아키텍처 방식.">MSA</abbr></td>
+<td>단일 서비스만 배포</td>
+</tr>
+<tr>
+<td><strong>작은 팀, 단순 서비스</strong></td>
+<td>❌ 모놀리식</td>
+<td>복잡도 대비 이득 부족</td>
+</tr>
+<tr>
+<td><strong>강한 <abbr title="Atomicity(원자성)·Consistency(일관성)·Isolation(격리성)·Durability(지속성). 트랜잭션이 안전하게 수행되기 위한 4가지 성질.">ACID</abbr> 보장 필요</strong></td>
+<td>⚠️ 신중</td>
+<td>분산 트랜잭션 복잡도 증가</td>
 </tr>
 </tbody>
 </table>
+<hr />
+<h3 id="_4">장점</h3>
+<table>
+<thead>
+<tr>
+<th>장점</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>독립 배포</strong></td>
+<td>각 서비스 독립 배포로 배포 위험 감소</td>
+</tr>
+<tr>
+<td><strong>병목 확장</strong></td>
+<td>병목 서비스만 선택적으로 스케일 아웃</td>
+</tr>
+<tr>
+<td><strong>장애 격리</strong></td>
+<td>한 서비스 장애가 다른 서비스에 영향 최소화</td>
+</tr>
+<tr>
+<td><strong>기술 자유도</strong></td>
+<td>서비스별로 최적의 기술 스택 선택 가능</td>
+</tr>
+<tr>
+<td><strong>팀 독립성</strong></td>
+<td>팀별로 독립적 개발/배포/운영 가능</td>
+</tr>
+<tr>
+<td><strong>높은 가용성</strong></td>
+<td>일부 서비스 장애 시에도 부분 서비스 제공</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_5">단점</h3>
+<table>
+<thead>
+<tr>
+<th>단점</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>네트워크 오버헤드</strong></td>
+<td>서비스 간 호출로 인한 지연 증가</td>
+</tr>
+<tr>
+<td><strong>분산 트랜잭션 복잡성</strong></td>
+<td><abbr title="Atomicity(원자성)·Consistency(일관성)·Isolation(격리성)·Durability(지속성). 트랜잭션이 안전하게 수행되기 위한 4가지 성질.">ACID</abbr> 보장 불가능, SAGA 패턴 필수</td>
+</tr>
+<tr>
+<td><strong>데이터 일관성</strong></td>
+<td>최종 일관성(Eventual Consistency) 모델</td>
+</tr>
+<tr>
+<td><strong>운영 복잡도</strong></td>
+<td>서비스 수만큼 모니터링·로깅·추적 포인트 증가</td>
+</tr>
+<tr>
+<td><strong>테스트 어려움</strong></td>
+<td>통합 테스트, E2E 테스트 복잡도 증가</td>
+</tr>
+<tr>
+<td><strong>초기 비용</strong></td>
+<td>CI/CD, 모니터링, 인프라 구축 필요</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_6">특징</h3>
+<h4 id="1">1. 분산 시스템의 도전</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>1️⃣ 네트워크 지연
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>   - 서비스 간 호출마다 네트워크 왕복
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>   - 최대 지연 시간 예측 어려움
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>2️⃣ 부분 장애 (Partial Failure)
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>   - 일부 서비스만 장애 가능
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>   - 전체 요청 실패로 처리할지 부분 성공 반환할지 판단 어려움
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>3️⃣ 데이터 일관성
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>   - 서비스별 독립 DB로 인한 데이터 동기화 문제
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>   - ACID 보장 불가능 → 최종 일관성(Eventual Consistency)
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>4️⃣ 네트워크 분할 (Network Partition)
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>   - 데이터센터 간 네트워크 단절 시 합의 불가능
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>   - CAP 정리에 따라 일관성과 가용성 선택
+</code></pre></div>
+<h4 id="2-vs">2. 동기 vs 비동기 통신</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>동기 호출 (FeignClient)
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>- 장점: 응답 대기, 즉시 처리 가능, 구현 단순
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>- 단점: 연쇄 지연, 타임아웃 처리 필수, 신뢰성 낮음
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>비동기 호출 (메시지 브로커)
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>- 장점: 느슨한 결합, 높은 처리량, 부분 장애 격리
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>- 단점: 복잡한 디버깅, 순서 보장 어려움, 메시지 손실 처리
+</code></pre></div>
+<h4 id="3-api-gateway">3. <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> Gateway의 역할</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>API Gateway 없이
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>- 클라이언트가 각 서비스 URL 알아야 함
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>- 서비스 변경 시 클라이언트 수정 필요
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>- 인증/로깅 중복 구현
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>API Gateway 적용
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>- 단일 진입점으로 서비스 발견 자동화
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>- 라우팅, 인증, 로깅 중앙 처리
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>- 서비스 변경 시 클라이언트 영향 없음
+</code></pre></div>
+<hr />
+<h3 id="_7">주의할 점</h3>
+<div class="danger-box">
+<p><strong>❌ 초기 도입 오류</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>작은 조직, 단순 서비스에 MSA 도입
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>→ 구축 비용: 높음
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>→ 운영 복잡도: 높음
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>→ 실제 이득: 미미
+</code></pre></div>
+<p><strong>✅ 올바른 접근:</strong>
+- 모놀리식으로 시작
+- 서비스 수가 많아지고 확장 필요 시 분리
+- "느린 소프트웨어 사망" (Slow software death) 문제 발생 후 마이그레이션</p>
+</div>
+<div class="danger-box">
+<p><strong>❌ 동기 호출 과다</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>서비스 A → B → C → D 의존 체인
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>- 한 서비스 장애 시 전체 요청 실패
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>- 네트워크 지연 누적: 4 배의 지연 발생
+</code></pre></div>
+<p><strong>✅ 올바른 방식:</strong>
+- 필수 기능만 동기 호출
+- 나머지는 비동기 (메시지 브로커)
+- Circuit Breaker로 장애 전파 차단</p>
+</div>
+<div class="warning-box">
+<p><strong>⚠️ 분산 트랜잭션 오류</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">// ❌ MSA에서 작동하지 않음</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nd">@Transactional</span><span class="w">  </span><span class="c1">// 서비스 경계를 넘을 수 없음</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">placeOrder</span><span class="p">(</span><span class="n">Order</span><span class="w"> </span><span class="n">order</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="n">orderService</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">order</span><span class="p">);</span><span class="w">      </span><span class="c1">// Service A</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="n">paymentService</span><span class="p">.</span><span class="na">pay</span><span class="p">(</span><span class="n">order</span><span class="p">);</span><span class="w">     </span><span class="c1">// Service B (다른 서버)</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>✅ SAGA 패턴 사용:</strong>
+- Choreography: 이벤트 기반 (느슨한 결합)
+- Orchestration: 중앙 조정자 (명확한 흐름)</p>
+</div>
+<div class="warning-box">
+<p><strong>⚠️ 모니터링 부재</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>MSA 환경에서 문제 추적 어려움
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>- 요청이 여러 서비스를 거침
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>- 어느 서비스에서 느린지 파악 어려움
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>- 한 서비스의 오류가 전체 영향
+</code></pre></div>
+<p><strong>✅ 필수 구성:</strong>
+- 분산 추적 (Sleuth, Zipkin)
+- 중앙 로그 수집 (ELK Stack)
+- 메트릭 수집 (Prometheus, Grafana)</p>
+</div>
+<div class="warning-box">
+<p><strong>⚠️ 데이터 일관성 기대 오류</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>// ❌ 즉시 일관성 기대
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>주문 생성 → 결제 처리 → 재고 차감
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>// 결제 중 장애 시 롤백 불가능 (서로 다른 DB)
+</code></pre></div>
+<p><strong>✅ 최종 일관성 설계:</strong>
+- 보상 트랜잭션으로 일관성 복구
+- 임시적 불일치 허용
+- 일관성 감시 도구 (Saga 보상 로직)</p>
+</div>
+<hr />
+<h3 id="_8">정리</h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>구성요소</strong></td>
+<td><abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> Gateway, Service Discovery, Config Server, Circuit Breaker, 분산 추적</td>
+</tr>
+<tr>
+<td><strong>통신 방식</strong></td>
+<td>동기 (FeignClient), 비동기 (Kafka, RabbitMQ)</td>
+</tr>
+<tr>
+<td><strong>트랜잭션</strong></td>
+<td>SAGA 패턴 (Choreography / Orchestration)</td>
+</tr>
+<tr>
+<td><strong>장점</strong></td>
+<td>확장성, 독립 배포, 기술 자유도, 높은 가용성</td>
+</tr>
+<tr>
+<td><strong>단점</strong></td>
+<td>복잡도, 분산 트랜잭션, 네트워크 오버헤드, 운영 복잡도</td>
+</tr>
+<tr>
+<td><strong>주의점</strong></td>
+<td>조직 규모에 맞는 도입, 적절한 통신 방식 선택, 모니터링 필수</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>관련 파일:</strong>
+- <a href="../architecture/">architecture.md</a> — 다양한 아키텍처 패턴
+- <a href="../kafka/">kafka.md</a> — 메시지 브로커 기반 비동기 통신</p>
 <!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
 
 <!-- ===== DB / SQL ===== -->
@@ -5276,7 +5733,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 8일 11:08:33 UTC">2026년 4월 8일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 16일 13:39:39 UTC">2026년 4월 16일</span>
   </span>
 
     
