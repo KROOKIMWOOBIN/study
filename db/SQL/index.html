@@ -3985,6 +3985,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        언제 쓰는지
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sql_1" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4785,6 +4818,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        언제 쓰는지
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sql_1" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4897,6 +4963,118 @@
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="err">정렬</span><span class="w"> </span><span class="err">기준</span><span class="w"> </span><span class="err">컬럼</span><span class="w">         </span><span class="c1">-- 6. 정렬</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">LIMIT</span><span class="w">    </span><span class="n">n</span><span class="p">;</span><span class="w">                     </span><span class="c1">-- 7. 행 수 제한</span>
 </code></pre></div>
+<hr />
+<h2 id="_3">언제 쓰는지</h2>
+<table>
+<thead>
+<tr>
+<th>명령어</th>
+<th>사용 시기</th>
+<th>선택 기준</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SELECT</strong></td>
+<td>데이터 조회 필요</td>
+<td>모든 조회 작업</td>
+</tr>
+<tr>
+<td><strong>INSERT</strong></td>
+<td>새 데이터 추가</td>
+<td>단일 또는 대량 INSERT</td>
+</tr>
+<tr>
+<td><strong>UPDATE</strong></td>
+<td>기존 데이터 수정</td>
+<td>WHERE로 대상 명확히</td>
+</tr>
+<tr>
+<td><strong>DELETE</strong></td>
+<td>데이터 삭제</td>
+<td>주의: WHERE 필수</td>
+</tr>
+<tr>
+<td><strong>CREATE</strong></td>
+<td>테이블·뷰 생성</td>
+<td>스키마 설계 후</td>
+</tr>
+<tr>
+<td><strong>ALTER</strong></td>
+<td>스키마 변경</td>
+<td>컬럼 추가/변경/삭제</td>
+</tr>
+<tr>
+<td><strong>DROP</strong></td>
+<td>객체 삭제</td>
+<td>영구 삭제, 주의 필요</td>
+</tr>
+<tr>
+<td><strong>TRUNCATE</strong></td>
+<td>데이터 전체 삭제</td>
+<td>DELETE보다 빠름, 롤백 불가</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_4">장점</h2>
+<table>
+<thead>
+<tr>
+<th>장점</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>표준 언어</strong></td>
+<td><abbr title="DataBase Management System. 데이터베이스를 관리하는 소프트웨어. MySQL, PostgreSQL, Oracle 등.">DBMS</abbr> 상관없이 동일 문법 (방언 제외)</td>
+</tr>
+<tr>
+<td><strong>가독성</strong></td>
+<td>선언형으로 직관적</td>
+</tr>
+<tr>
+<td><strong>강력함</strong></td>
+<td>복잡한 쿼리도 한 번에 표현</td>
+</tr>
+<tr>
+<td><strong>성능</strong></td>
+<td>옵티마이저가 최적 실행 계획 선택</td>
+</tr>
+<tr>
+<td><strong>유지보수</strong></td>
+<td>SQL은 데이터베이스 진입점으로 명확</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_5">단점</h2>
+<table>
+<thead>
+<tr>
+<th>단점</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>방언(Dialect)</strong></td>
+<td>DBMS마다 SQL 확장 문법 다름 (LIMIT vs ROWNUM)</td>
+</tr>
+<tr>
+<td><strong>성능 예측 어려움</strong></td>
+<td>옵티마이저 동작이 쿼리에 따라 달라짐</td>
+</tr>
+<tr>
+<td><strong>복잡한 쿼리</strong></td>
+<td>매우 복잡한 로직은 쓰기 어려움 (프로시저 필요)</td>
+</tr>
+<tr>
+<td><strong>실행 계획 이해</strong></td>
+<td>성능 튜닝 위해 쿼리 계획 분석 필요</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="sql_1">SQL 실행 순서</h2>
 <p>SQL은 <strong>작성 순서</strong>와 <strong>실제 실행 순서</strong>가 다르다. 옵티마이저가 아래 순서로 처리한다.</p>
@@ -5125,7 +5303,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 13일 11:58:20 UTC">2026년 4월 13일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 16일 13:27:40 UTC">2026년 4월 16일</span>
   </span>
 
     
