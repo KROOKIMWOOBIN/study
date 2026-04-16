@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#wrapper-class" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -731,22 +731,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#wrapper-class" class="md-nav__link">
     <span class="md-ellipsis">
       
-        래퍼 클래스
+        래퍼 클래스 (Wrapper Class)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="래퍼 클래스">
+    <nav class="md-nav" aria-label="래퍼 클래스 (Wrapper Class)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        기본형 ↔ 래퍼 클래스 매핑
+        왜 쓰는지
       
     </span>
   </a>
@@ -754,10 +754,44 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        어떻게 쓰는지
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="어떻게 쓰는지">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        왜 필요한가?
+        기본형과 래퍼 클래스 매핑
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boxing-unboxing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        명시적 변환 (Boxing / Unboxing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#java-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        오토박싱/언박싱 (Java 5+)
       
     </span>
   </a>
@@ -768,7 +802,139 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        오토박싱 / 언박싱 지원
+        유틸리티 메서드
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        언제 쓰는지
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        특징
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="특징">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 오토박싱/언박싱의 동작
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 래퍼 클래스 캐싱
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 주요 래퍼 클래스 상속 구조
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 래퍼 클래스 비교
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 기본형 특화 메서드
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        정리
       
     </span>
   </a>
@@ -4637,22 +4803,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#wrapper-class" class="md-nav__link">
     <span class="md-ellipsis">
       
-        래퍼 클래스
+        래퍼 클래스 (Wrapper Class)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="래퍼 클래스">
+    <nav class="md-nav" aria-label="래퍼 클래스 (Wrapper Class)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        기본형 ↔ 래퍼 클래스 매핑
+        왜 쓰는지
       
     </span>
   </a>
@@ -4660,10 +4826,44 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        어떻게 쓰는지
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="어떻게 쓰는지">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        왜 필요한가?
+        기본형과 래퍼 클래스 매핑
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boxing-unboxing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        명시적 변환 (Boxing / Unboxing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#java-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        오토박싱/언박싱 (Java 5+)
       
     </span>
   </a>
@@ -4674,7 +4874,139 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        오토박싱 / 언박싱 지원
+        유틸리티 메서드
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        언제 쓰는지
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        특징
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="특징">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 오토박싱/언박싱의 동작
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 래퍼 클래스 캐싱
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 주요 래퍼 클래스 상속 구조
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 래퍼 클래스 비교
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 기본형 특화 메서드
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        정리
       
     </span>
   </a>
@@ -4708,82 +5040,385 @@
 
   <h1>래퍼 클래스</h1>
 
-<h2 id="_1">래퍼 클래스</h2>
+<h2 id="wrapper-class">래퍼 클래스 (Wrapper Class)</h2>
+<h3 id="_1">왜 쓰는지</h3>
+<p>Java는 <strong>기본형(Primitive Type)과 참조형(Reference Type)을 엄격히 구분</strong>합니다. 하지만:
+- 컬렉션(List, Set, Map)은 <strong>객체만</strong> 저장 가능 (<code>List&lt;Integer&gt;</code>)
+- 제네릭은 <strong>참조 타입만</strong> 허용 (<code>&lt;T extends Object&gt;</code>)
+- null 값이 필요한 경우 기본형은 불가능 (Integer는 가능)</p>
+<p>이를 해결하기 위해 기본형을 객체로 감싼 <strong>래퍼 클래스</strong>가 필요합니다.</p>
 <div class="concept-box">
-<p><mark>래퍼 클래스(Wrapper Class)</mark>: 기본형(Primitive Type)을 객체(Object)로 감싸는 클래스.</p>
+<p><strong>핵심</strong>: 래퍼 클래스는 기본형(Primitive)을 객체(Reference)로 감싸서, 기본형을 객체처럼 다룰 수 있게 합니다.</p>
 </div>
-<h3 id="_2">기본형 ↔ 래퍼 클래스 매핑</h3>
+<h3 id="_2">어떻게 쓰는지</h3>
+<h4 id="_3">기본형과 래퍼 클래스 매핑</h4>
 <table>
 <thead>
 <tr>
-<th>기본형 (Primitive)</th>
+<th>기본형</th>
 <th>래퍼 클래스</th>
+<th>상속</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>byte</code></td>
 <td><code>Byte</code></td>
+<td>Number</td>
 </tr>
 <tr>
 <td><code>short</code></td>
 <td><code>Short</code></td>
+<td>Number</td>
 </tr>
 <tr>
 <td><code>int</code></td>
 <td><code>Integer</code></td>
+<td>Number</td>
 </tr>
 <tr>
 <td><code>long</code></td>
 <td><code>Long</code></td>
+<td>Number</td>
 </tr>
 <tr>
 <td><code>float</code></td>
 <td><code>Float</code></td>
+<td>Number</td>
 </tr>
 <tr>
 <td><code>double</code></td>
 <td><code>Double</code></td>
+<td>Number</td>
 </tr>
 <tr>
 <td><code>char</code></td>
 <td><code>Character</code></td>
+<td>-</td>
 </tr>
 <tr>
 <td><code>boolean</code></td>
 <td><code>Boolean</code></td>
+<td>-</td>
 </tr>
 </tbody>
 </table>
-<h3 id="_3">왜 필요한가?</h3>
-<ul>
-<li>자바 컬렉션은 객체만 저장 가능하다.
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-</code></pre></div></li>
-<li>제네릭 타입도 참조 타입만 허용한다.
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">class</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">}</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">Box</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">box</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Box</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-</code></pre></div></li>
-<li>유틸리티 메서드 제공
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="s">&quot;10&quot;</span><span class="p">);</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">Integer</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span>
-</code></pre></div></li>
-</ul>
-<h3 id="_4">오토박싱 / 언박싱 지원</h3>
-<ul>
-<li>Java 5부터 자동 변환 기능이 추가되었다.</li>
-<li>오토박싱 (Primitive → Wrapper)
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">Integer</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="c1">// 코드</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="o">-&gt;</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-</code></pre></div></li>
-<li>언박싱 (Wrapper → Primitive)
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">Integer</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
-</code></pre></div></li>
-</ul>
+<h4 id="boxing-unboxing">명시적 변환 (Boxing / Unboxing)</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// Boxing: 기본형 → 래퍼 클래스</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">primitive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">Integer</span><span class="w"> </span><span class="n">boxed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w">     </span><span class="c1">// 명시적</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">Integer</span><span class="w"> </span><span class="n">boxed2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Integer</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w">        </span><span class="c1">// 구식 (사용 금지)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1">// Unboxing: 래퍼 클래스 → 기본형</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">Integer</span><span class="w"> </span><span class="n">boxed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="kt">int</span><span class="w"> </span><span class="n">primitive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">boxed</span><span class="p">.</span><span class="na">intValue</span><span class="p">();</span><span class="w">        </span><span class="c1">// 명시적</span>
+</code></pre></div>
+<h4 id="java-5">오토박싱/언박싱 (Java 5+)</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// 오토박싱: 자동으로 Integer.valueOf() 호출</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">Integer</span><span class="w"> </span><span class="n">boxed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">                      </span><span class="c1">// int → Integer 자동 변환</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1">// 언박싱: 자동으로 intValue() 호출</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kt">int</span><span class="w"> </span><span class="n">primitive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">boxed</span><span class="p">;</span><span class="w">                   </span><span class="c1">// Integer → int 자동 변환</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1">// 컬렉션과 제네릭</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w">                            </span><span class="c1">// 오토박싱: add(Integer.valueOf(10))</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w">                 </span><span class="c1">// 언박싱: value = list.get(0).intValue()</span>
+</code></pre></div>
+<h4 id="_4">유틸리티 메서드</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// 문자열 → 기본형</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="s">&quot;123&quot;</span><span class="p">);</span><span class="w">       </span><span class="c1">// &quot;123&quot; → 123</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kt">double</span><span class="w"> </span><span class="n">dNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Double</span><span class="p">.</span><span class="na">parseDouble</span><span class="p">(</span><span class="s">&quot;3.14&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// &quot;3.14&quot; → 3.14</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1">// 기본형 비교</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="kt">int</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span><span class="w">           </span><span class="c1">// 20</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="kt">int</span><span class="w"> </span><span class="n">min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">min</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span><span class="w">           </span><span class="c1">// 10</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1">// 진법 변환</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">String</span><span class="w"> </span><span class="n">binary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">toBinaryString</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w">    </span><span class="c1">// &quot;1010&quot;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">String</span><span class="w"> </span><span class="n">hex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">toHexString</span><span class="p">(</span><span class="mi">255</span><span class="p">);</span><span class="w">         </span><span class="c1">// &quot;ff&quot;</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="s">&quot;1010&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w">       </span><span class="c1">// 2진수 → 10</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="c1">// 범위 확인</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="kt">boolean</span><span class="w"> </span><span class="n">inRange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">compare</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// -1 (10 &lt; 20)</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="c1">// 비트 연산</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="kt">int</span><span class="w"> </span><span class="n">highestBit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">highestOneBit</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span><span class="w">    </span><span class="c1">// 8</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="kt">int</span><span class="w"> </span><span class="n">leadingZeros</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">numberOfLeadingZeros</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span><span class="w">  </span><span class="c1">// 28</span>
+</code></pre></div>
+<h3 id="_5">언제 쓰는지</h3>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>선택</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>컬렉션 사용</strong></td>
+<td>✅ Integer, String 등</td>
+<td><code>List&lt;Integer&gt;</code>만 가능</td>
+</tr>
+<tr>
+<td><strong>제네릭</strong></td>
+<td>✅ Integer, Double 등</td>
+<td><code>&lt;T extends Object&gt;</code> 필수</td>
+</tr>
+<tr>
+<td><strong>null 값 필요</strong></td>
+<td>✅ Integer</td>
+<td>기본형은 null 불가</td>
+</tr>
+<tr>
+<td><strong>문자열 변환</strong></td>
+<td>✅ Integer.parseInt()</td>
+<td>형 변환 편의</td>
+</tr>
+<tr>
+<td><strong>단순 계산</strong></td>
+<td>❌ int, double</td>
+<td>성능상 기본형 사용</td>
+</tr>
+<tr>
+<td><strong>루프 변수</strong></td>
+<td>❌ int</td>
+<td>기본형이 빠름</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_6">장점</h3>
+<table>
+<thead>
+<tr>
+<th>장점</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>컬렉션 호환</strong></td>
+<td>List, Set, Map에 저장 가능</td>
+</tr>
+<tr>
+<td><strong>제네릭 호환</strong></td>
+<td><code>List&lt;Integer&gt;</code>, <code>Map&lt;String, Double&gt;</code> 가능</td>
+</tr>
+<tr>
+<td><strong>null 지원</strong></td>
+<td>null 값 할당 가능 (기본형은 불가)</td>
+</tr>
+<tr>
+<td><strong>유틸리티 메서드</strong></td>
+<td>parseInt, toString, compare 등 편의 메서드 제공</td>
+</tr>
+<tr>
+<td><strong>타입 일관성</strong></td>
+<td>모든 데이터를 객체로 취급 가능</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_7">단점</h3>
+<table>
+<thead>
+<tr>
+<th>단점</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>성능 오버헤드</strong></td>
+<td>메모리 할당, 언박싱 비용 발생</td>
+</tr>
+<tr>
+<td><strong>메모리 사용</strong></td>
+<td>int(4byte) vs Integer(16byte+)</td>
+</tr>
+<tr>
+<td><strong>NullPointerException</strong></td>
+<td>null에서 언박싱하면 예외 발생</td>
+</tr>
+<tr>
+<td><strong>불변성</strong></td>
+<td>한 번 생성되면 수정 불가</td>
+</tr>
+<tr>
+<td><strong>비교 주의</strong></td>
+<td><code>==</code>와 <code>.equals()</code> 구분 필요</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_8">특징</h3>
+<h4 id="1">1. 오토박싱/언박싱의 동작</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// 컴파일 전</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">Integer</span><span class="w"> </span><span class="n">boxed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">primitive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">boxed</span><span class="p">;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1">// 컴파일 후 (실제 바이트코드)</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">Integer</span><span class="w"> </span><span class="n">boxed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w">     </span><span class="c1">// 오토박싱</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="kt">int</span><span class="w"> </span><span class="n">primitive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">boxed</span><span class="p">.</span><span class="na">intValue</span><span class="p">();</span><span class="w">        </span><span class="c1">// 언박싱</span>
+</code></pre></div>
+<h4 id="2">2. 래퍼 클래스 캐싱</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// Integer는 -128 ~ 127 범위를 캐싱 (성능 최적화)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">Integer</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mi">127</span><span class="p">);</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">Integer</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mi">127</span><span class="p">);</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w">              </span><span class="c1">// true (같은 객체 참조)</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">Integer</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mi">128</span><span class="p">);</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">Integer</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mi">128</span><span class="p">);</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">d</span><span class="p">);</span><span class="w">              </span><span class="c1">// false (다른 객체)</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1">// 오토박싱도 마찬가지</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="n">Integer</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">127</span><span class="p">;</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="n">Integer</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">127</span><span class="p">;</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w">              </span><span class="c1">// true</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="n">Integer</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">128</span><span class="p">;</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="n">Integer</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">128</span><span class="p">;</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w">              </span><span class="c1">// false</span>
+</code></pre></div>
+<h4 id="3">3. 주요 래퍼 클래스 상속 구조</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">Number</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="err">├──</span><span class="w"> </span><span class="n">Byte</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="err">├──</span><span class="w"> </span><span class="n">Short</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="err">├──</span><span class="w"> </span><span class="n">Integer</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="err">├──</span><span class="w"> </span><span class="n">Long</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="err">├──</span><span class="w"> </span><span class="n">Float</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="err">└──</span><span class="w"> </span><span class="n">Double</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="c1">// Character와 Boolean은 Number를 상속하지 않음</span>
+</code></pre></div>
+<h4 id="4">4. 래퍼 클래스 비교</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">Integer</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Integer</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">Integer</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Integer</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">Integer</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">Integer</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w">              </span><span class="c1">// false (다른 객체)</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">b</span><span class="p">));</span><span class="w">         </span><span class="c1">// true (값 비교)</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">d</span><span class="p">);</span><span class="w">              </span><span class="c1">// true (캐싱된 객체)</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">d</span><span class="p">));</span><span class="w">         </span><span class="c1">// true</span>
+</code></pre></div>
+<h4 id="5">5. 기본형 특화 메서드</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// 각 래퍼 클래스별 유용한 메서드</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1">// Integer</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">Integer</span><span class="p">.</span><span class="na">compare</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w">                   </span><span class="c1">// -1, 0, 1</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">Integer</span><span class="p">.</span><span class="na">Integer</span><span class="p">.</span><span class="na">min</span><span class="o">/</span><span class="n">max</span><span class="p">();</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">Integer</span><span class="p">.</span><span class="na">sum</span><span class="p">();</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="n">Integer</span><span class="p">.</span><span class="na">highestOneBit</span><span class="p">();</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="n">Integer</span><span class="p">.</span><span class="na">numberOfLeadingZeros</span><span class="p">();</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="c1">// Long</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="n">Long</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">Long</span><span class="p">.</span><span class="na">MIN_VALUE</span><span class="p">;</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="c1">// Double/Float</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="n">Double</span><span class="p">.</span><span class="na">isNaN</span><span class="p">();</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="n">Double</span><span class="p">.</span><span class="na">isInfinite</span><span class="p">();</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="n">Float</span><span class="p">.</span><span class="na">POSITIVE_INFINITY</span><span class="p">;</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="c1">// Boolean</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="n">Boolean</span><span class="p">.</span><span class="na">parseBoolean</span><span class="p">(</span><span class="s">&quot;true&quot;</span><span class="p">);</span><span class="w">            </span><span class="c1">// true</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="n">Boolean</span><span class="p">.</span><span class="na">TRUE</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">Boolean</span><span class="p">.</span><span class="na">FALSE</span><span class="p">;</span><span class="w">            </span><span class="c1">// 싱글톤</span>
+</code></pre></div>
+<h3 id="_9">주의할 점</h3>
+<div class="danger-box">
+<p><strong>❌ null 래퍼 클래스 언박싱</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">Integer</span><span class="w"> </span><span class="n">boxed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">primitive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">boxed</span><span class="p">;</span><span class="w">  </span><span class="c1">// ❌ NullPointerException!</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1">// int는 null이 될 수 없으므로 언박싱 불가</span>
+</code></pre></div>
+<p><strong>✅ 올바른 방식:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">Integer</span><span class="w"> </span><span class="n">boxed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">primitive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">boxed</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">boxed</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// 기본값으로 처리</span>
+</code></pre></div></p>
+</div>
+<div class="danger-box">
+<p><strong>❌ == 비교 대신 .equals() 사용 필수</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">Integer</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">128</span><span class="p">;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">Integer</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">128</span><span class="p">;</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w">              </span><span class="c1">// false (캐싱 범위 벗어남)</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">b</span><span class="p">));</span><span class="w">         </span><span class="c1">// true (값 비교)</span>
+</code></pre></div>
+<p><strong>✅ 권장:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">Integer</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="s">&quot;128&quot;</span><span class="p">);</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">Integer</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="s">&quot;128&quot;</span><span class="p">);</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">b</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// == 대신 .equals() 사용</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;같음&quot;</span><span class="p">);</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="p">}</span>
+</code></pre></div></p>
+</div>
+<div class="warning-box">
+<p><strong>⚠️ 반복문에서의 성능</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">// ❌ 나쁜 예: 반복문에서 언박싱 오버헤드</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="mi">1_000_000</span><span class="p">);</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Integer</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">numbers</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="p">;</span><span class="w">  </span><span class="c1">// 언박싱 (반복마다 비용)</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="p">}</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="c1">// ✅ 좋은 예: 기본형 배열이나 스트림 사용</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="mi">1_000_000</span><span class="p">};</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">numbers</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">    </span><span class="c1">// 기본형이므로 오버헤드 없음</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="p">}</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="c1">// 또는 IntStream 사용</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="n">IntStream</span><span class="p">.</span><span class="na">rangeClosed</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1_000_000</span><span class="p">)</span>
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">    </span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span>
+</code></pre></div>
+</div>
+<div class="warning-box">
+<p><strong>⚠️ 메모리 누수 주의</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1">// ❌ 매우 큰 List&lt;Integer&gt; 생성</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bigList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10_000_000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="n">bigList</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w">  </span><span class="c1">// 각 Integer는 기본형의 4배 이상 메모리 사용</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="p">}</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="c1">// 약 160MB+ 메모리 사용 (int[]는 40MB)</span>
+</code></pre></div>
+</div>
+<h3 id="_10">정리</h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>기본형</strong></td>
+<td>int, double, boolean 등</td>
+</tr>
+<tr>
+<td><strong>래퍼 클래스</strong></td>
+<td>Integer, Double, Boolean 등</td>
+</tr>
+<tr>
+<td><strong>목적</strong></td>
+<td>기본형을 객체로 취급하기 위함</td>
+</tr>
+<tr>
+<td><strong>캐싱</strong></td>
+<td>-128 ~ 127 범위는 객체 재사용</td>
+</tr>
+<tr>
+<td><strong>비교</strong></td>
+<td>== 대신 .equals() 사용</td>
+</tr>
+<tr>
+<td><strong>성능</strong></td>
+<td>반복문·단순 계산은 기본형 사용</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>관련 파일:</strong>
+- <a href="../core/기본형과참조형.md">기본형 vs 참조형</a> — 타입 체계 이해
+- <a href="../../collections/collections/">Collections</a> — 제네릭 사용 사례</p>
 <!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
 
 <!-- ===== DB / SQL ===== -->
@@ -4812,7 +5447,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 11일 11:10:27 UTC">2026년 4월 11일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 16일 12:07:50 UTC">2026년 4월 16일</span>
   </span>
 
     

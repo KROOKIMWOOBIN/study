@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#abstract-interface" class="md-skip">
+        <a href="#abstraction" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -534,22 +534,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#abstract-interface" class="md-nav__link">
+  <a href="#abstraction" class="md-nav__link">
     <span class="md-ellipsis">
       
-        추상화(Abstract, Interface)
+        추상화 (Abstraction)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="추상화(Abstract, Interface)">
+    <nav class="md-nav" aria-label="추상화 (Abstraction)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        목적
+        왜 쓰는지
       
     </span>
   </a>
@@ -560,7 +560,41 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        기능
+        어떻게 쓰는지
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="어떻게 쓰는지">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abstract-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        추상 클래스 (Abstract Class)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        인터페이스 (Interface)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ocp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        추상화의 활용 (OCP 준수)
       
     </span>
   </a>
@@ -571,24 +605,12 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#vs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        인터페이스 VS 추상 클래스
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="인터페이스 VS 추상 클래스">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        인터페이스
+        언제 쓰는지
       
     </span>
   </a>
@@ -599,7 +621,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        추상 클래스
+        장점
       
     </span>
   </a>
@@ -610,7 +632,7 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        선택 기준 (실무 기준)
+        단점
       
     </span>
   </a>
@@ -621,35 +643,19 @@
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        추상 클래스는 언제 사용하는가?
+        특징
       
     </span>
   </a>
   
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#is-a-has-a" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        is-a / has-a
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="is-a / has-a">
+    <nav class="md-nav" aria-label="특징">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#is-a" class="md-nav__link">
+  <a href="#1-vs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        is-a 관계 (상속)
+        1. 인터페이스 vs 추상클래스
       
     </span>
   </a>
@@ -657,10 +663,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#has-a" class="md-nav__link">
+  <a href="#2-vs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        has-a 관계 (합성)
+        2. 추상 메서드 vs 구체 메서드
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 템플릿 메서드 패턴
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-java-8-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Java 8+ 인터페이스 default 메서드
       
     </span>
   </a>
@@ -671,35 +699,23 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        주의사항
+        주의할 점
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="주의사항">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        다중 상속 문제
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#java-8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Java 8 이후 인터페이스 변화
+        정리
       
     </span>
   </a>
@@ -4765,22 +4781,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#abstract-interface" class="md-nav__link">
+  <a href="#abstraction" class="md-nav__link">
     <span class="md-ellipsis">
       
-        추상화(Abstract, Interface)
+        추상화 (Abstraction)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="추상화(Abstract, Interface)">
+    <nav class="md-nav" aria-label="추상화 (Abstraction)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        목적
+        왜 쓰는지
       
     </span>
   </a>
@@ -4791,7 +4807,41 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        기능
+        어떻게 쓰는지
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="어떻게 쓰는지">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abstract-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        추상 클래스 (Abstract Class)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        인터페이스 (Interface)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ocp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        추상화의 활용 (OCP 준수)
       
     </span>
   </a>
@@ -4802,24 +4852,12 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#vs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        인터페이스 VS 추상 클래스
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="인터페이스 VS 추상 클래스">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        인터페이스
+        언제 쓰는지
       
     </span>
   </a>
@@ -4830,7 +4868,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        추상 클래스
+        장점
       
     </span>
   </a>
@@ -4841,7 +4879,7 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        선택 기준 (실무 기준)
+        단점
       
     </span>
   </a>
@@ -4852,35 +4890,19 @@
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        추상 클래스는 언제 사용하는가?
+        특징
       
     </span>
   </a>
   
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#is-a-has-a" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        is-a / has-a
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="is-a / has-a">
+    <nav class="md-nav" aria-label="특징">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#is-a" class="md-nav__link">
+  <a href="#1-vs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        is-a 관계 (상속)
+        1. 인터페이스 vs 추상클래스
       
     </span>
   </a>
@@ -4888,10 +4910,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#has-a" class="md-nav__link">
+  <a href="#2-vs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        has-a 관계 (합성)
+        2. 추상 메서드 vs 구체 메서드
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 템플릿 메서드 패턴
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-java-8-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Java 8+ 인터페이스 default 메서드
       
     </span>
   </a>
@@ -4902,35 +4946,23 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        주의사항
+        주의할 점
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="주의사항">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        다중 상속 문제
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#java-8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Java 8 이후 인터페이스 변화
+        정리
       
     </span>
   </a>
@@ -4964,85 +4996,420 @@
 
   <h1>추상화</h1>
 
-<h2 id="abstract-interface">추상화(Abstract, Interface)</h2>
+<h2 id="abstraction">추상화 (Abstraction)</h2>
+<h3 id="_1">왜 쓰는지</h3>
+<p>구현의 세부사항은 자주 변경되지만, <strong>역할(행동)은 상대적으로 안정적</strong>입니다:
+- "결제 수단"이 필요 (신용카드, 휴대폰, 계좌이체)
+- 각 결제 수단의 <strong>구현은 다르지만, "결제한다"는 행동은 같음</strong>
+- 새로운 결제 수단이 추가되어도 기존 코드는 변경 없음</p>
 <div class="concept-box">
-<p>구현이 아닌, <strong>역할 중심으로 설계</strong>를 하여 변경에 강하고, 확장에 유연한 구조를 만들기 위해 사용. <mark>OCP(Open–Closed Principle)</mark> 원칙의 핵심이다.</p>
+<p><strong>핵심</strong>: 추상화는 <strong>구현이 아닌 역할(행동)을 중심으로 설계</strong>하여, 변경에 강하고 확장에 유연한 구조를 만들기 위함입니다. OCP(Open–Closed Principle)의 핵심입니다.</p>
 </div>
-<h3 id="_1">목적</h3>
-<ul>
-<li>변경 가능성이 높은 구현을 분리</li>
-<li>호출자는 역할만 의존하도록 설계</li>
-<li>기능 확장은 기존 코드 수정 없이 가능</li>
-</ul>
-<h3 id="_2">기능</h3>
-<ul>
-<li>코드 확장성 향상</li>
-<li>구현 은닉</li>
-<li>다형성 기반 단순화</li>
-<li>중복 코드 제거</li>
-</ul>
-<h2 id="vs">인터페이스 VS 추상 클래스</h2>
-<h3 id="_3">인터페이스</h3>
-<ul>
-<li>역할(행위의 계약) 정의</li>
-<li>다중 구현 가능</li>
-<li>상태(필드) 없음</li>
-<li>현대 객체지향 설계의 기본 선택지</li>
-</ul>
-<h3 id="_4">추상 클래스</h3>
-<ul>
-<li>역할 + 일부 구현 제공</li>
-<li>단일 상속만 가능</li>
-<li>상태(필드) 보유 가능</li>
-</ul>
-<h3 id="_5">선택 기준 (실무 기준)</h3>
-<p><strong>인터페이스를 더 많이 사용하는 이유</strong>
-1. 상속은 결합도가 매우 강함
-2. 인터페이스는 역할만 강제
-3. SOLID 원칙은 인터페이스 중심 설계
-4. 구현 교체 및 테스트 용이</p>
-<h3 id="_6">추상 클래스는 언제 사용하는가?</h3>
-<ul>
-<li>명확한 is-a 관계가 존재</li>
-<li>공통 상태(필드)가 필요</li>
-<li>공통 로직의 비중이 큼</li>
-<li>계층 구조가 비교적 안정적일 때</li>
-</ul>
-<h2 id="is-a-has-a">is-a / has-a</h2>
-<h3 id="is-a">is-a 관계 (상속)</h3>
-<ul>
-<li>A is a B</li>
-<li>A는 B의 한 종류</li>
-<li>상속 관계
-<em>모닝은 자동차이다.</em></li>
-</ul>
-<h3 id="has-a">has-a 관계 (합성)</h3>
-<ul>
-<li>A has a B</li>
-<li>A는 B를 포함</li>
-<li>합성(Composition) 관계
-<em>자동차는 엔진이 있다.</em></li>
-</ul>
-<h2 id="_7">주의사항</h2>
-<h3 id="_8">다중 상속 문제</h3>
-<ul>
-<li>클래스는 다중 상속 불가</li>
-<li>다이아몬드 문제 발생 가능<ul>
-<li>어느 부모 메서드를 호출해야 하는지 알 수 없다.</li>
-</ul>
-</li>
-<li>인터페이스는 다중 구현 가능</li>
-<li>구현 책임은 자식 클래스에 있음</li>
-</ul>
-<h3 id="java-8">Java 8 이후 인터페이스 변화</h3>
-<ul>
-<li><code>default method</code> 도입</li>
-<li>구현 제공 가능</li>
-<li>오버라이드 가능</li>
-<li><code>default method</code>로 문제</li>
-<li>인터페이스에서도 다이아몬드 문제가 발생 가능</li>
-<li>충돌 시 구현 클래스에서 반드시 명시적 해결 필요</li>
-</ul>
+<h3 id="_2">어떻게 쓰는지</h3>
+<h4 id="abstract-class">추상 클래스 (Abstract Class)</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// 부모: 공통 인터페이스 + 일부 구현 제공</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PaymentMethod</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">accountNumber</span><span class="p">;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="c1">// 역할만 정의 (구현 강제)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">pay</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">amount</span><span class="p">);</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">validate</span><span class="p">();</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="c1">// 공통 구현 제공</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">logTransaction</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;거래 기록: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;원&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">}</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="c1">// 자식 1: CreditCard</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CreditCard</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">PaymentMethod</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">pay</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">amount</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1000000</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;한도 초과&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;신용카드 결제: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;원&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">validate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">  </span><span class="c1">// 신용카드 유효성 검사</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="p">}</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="c1">// 자식 2: PhonePay</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PhonePay</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">PaymentMethod</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">pay</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;휴대폰 결제: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;원&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">validate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">  </span><span class="c1">// 휴대폰 유효성 검사</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="p">}</span>
+</code></pre></div>
+<h4 id="interface">인터페이스 (Interface)</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// 순수 역할 정의 (구현 없음)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">PaymentMethod</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">pay</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">amount</span><span class="p">);</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">validate</span><span class="p">();</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">}</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1">// 구현 1</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CreditCard</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">PaymentMethod</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">pay</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;신용카드 결제: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;원&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">validate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="p">}</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="c1">// 구현 2</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PhonePay</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">PaymentMethod</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">pay</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;휴대폰 결제: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;원&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">validate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="p">}</span>
+</code></pre></div>
+<h4 id="ocp">추상화의 활용 (OCP 준수)</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// 추상화에 의존하므로 구현 변경에 영향 없음</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ShoppingCart</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">PaymentMethod</span><span class="w"> </span><span class="n">paymentMethod</span><span class="p">;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">ShoppingCart</span><span class="p">(</span><span class="n">PaymentMethod</span><span class="w"> </span><span class="n">paymentMethod</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">paymentMethod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">paymentMethod</span><span class="p">;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">checkout</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">totalAmount</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">paymentMethod</span><span class="p">.</span><span class="na">validate</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;결제 수단 검증 실패&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">        </span><span class="n">paymentMethod</span><span class="p">.</span><span class="na">pay</span><span class="p">(</span><span class="n">totalAmount</span><span class="p">);</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="p">}</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="c1">// 사용: ShoppingCart는 어떤 결제 수단도 수용</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="n">ShoppingCart</span><span class="w"> </span><span class="n">cart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ShoppingCart</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">CreditCard</span><span class="p">());</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="n">cart</span><span class="p">.</span><span class="na">checkout</span><span class="p">(</span><span class="mi">50000</span><span class="p">);</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="c1">// 나중에 새로운 결제 수단 추가 (ShoppingCart는 수정 없음)</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="n">ShoppingCart</span><span class="w"> </span><span class="n">cart2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ShoppingCart</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Bitcoin</span><span class="p">());</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="n">cart2</span><span class="p">.</span><span class="na">checkout</span><span class="p">(</span><span class="mi">50000</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="_3">언제 쓰는지</h3>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>선택</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>역할이 명확함</strong></td>
+<td>✅ 추상화</td>
+<td>인터페이스/추상클래스로 정의</td>
+</tr>
+<tr>
+<td><strong>구현이 자주 변함</strong></td>
+<td>✅ 추상화</td>
+<td>기존 코드 수정 최소화</td>
+</tr>
+<tr>
+<td><strong>다양한 구현 필요</strong></td>
+<td>✅ 인터페이스</td>
+<td>다중 구현 가능</td>
+</tr>
+<tr>
+<td><strong>공통 구현 많음</strong></td>
+<td>✅ 추상클래스</td>
+<td>코드 중복 제거</td>
+</tr>
+<tr>
+<td><strong>단순한 경우</strong></td>
+<td>❌ 구체 클래스</td>
+<td>과설계 방지</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_4">장점</h3>
+<table>
+<thead>
+<tr>
+<th>장점</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>OCP 준수</strong></td>
+<td>확장에 열려있고, 변경에 닫혀있음</td>
+</tr>
+<tr>
+<td><strong>결합도 감소</strong></td>
+<td>구체 구현이 아닌 추상화에 의존</td>
+</tr>
+<tr>
+<td><strong>테스트 용이</strong></td>
+<td>Mock 객체 주입으로 단위 테스트 가능</td>
+</tr>
+<tr>
+<td><strong>확장성</strong></td>
+<td>새로운 구현 추가 시 기존 코드 변경 불필요</td>
+</tr>
+<tr>
+<td><strong>유지보수 개선</strong></td>
+<td>변경 포인트 명확화</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_5">단점</h3>
+<table>
+<thead>
+<tr>
+<th>단점</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>과설계</strong></td>
+<td>단순한 경우까지 인터페이스 강제</td>
+</tr>
+<tr>
+<td><strong>복잡도 증가</strong></td>
+<td>계층이 많아지면 코드 추적 어려움</td>
+</tr>
+<tr>
+<td><strong>성능 오버헤드</strong></td>
+<td>다형성으로 인한 메서드 호출 비용</td>
+</tr>
+<tr>
+<td><strong>학습곡선</strong></td>
+<td>SOLID 원칙 이해 필요</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_6">특징</h3>
+<h4 id="1-vs">1. 인터페이스 vs 추상클래스</h4>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>인터페이스</th>
+<th>추상클래스</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>구현</td>
+<td>제공 안 함</td>
+<td>부분 제공 가능</td>
+</tr>
+<tr>
+<td>상태</td>
+<td>필드 불가</td>
+<td>필드 가능</td>
+</tr>
+<tr>
+<td>상속</td>
+<td>다중 구현 가능</td>
+<td>단일 상속</td>
+</tr>
+<tr>
+<td>용도</td>
+<td>역할 계약</td>
+<td>공통 개념 + 구현</td>
+</tr>
+<tr>
+<td>접근제어</td>
+<td>public만</td>
+<td>다양함</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2-vs">2. 추상 메서드 vs 구체 메서드</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Shape</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="c1">// 추상 메서드: 자식이 반드시 구현해야 함</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getArea</span><span class="p">();</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="c1">// 구체 메서드: 공통 구현</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">display</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;넓이: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">getArea</span><span class="p">());</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">}</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Circle</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getArea</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">3.14</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">radius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="c1">// display()는 자동으로 상속됨</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="p">}</span>
+</code></pre></div>
+<h4 id="3">3. 템플릿 메서드 패턴</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DataProcessor</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="c1">// 템플릿: 알고리즘의 구조는 정의하고, 세부는 자식이 구현</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">validated</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">validate</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">transformed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">transform</span><span class="p">(</span><span class="n">validated</span><span class="p">);</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">        </span><span class="n">save</span><span class="p">(</span><span class="n">transformed</span><span class="p">);</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">data</span><span class="p">);</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">transform</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">data</span><span class="p">);</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">data</span><span class="p">);</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="p">}</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">JsonProcessor</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">DataProcessor</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">        </span><span class="c1">// JSON 검증</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">transform</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">        </span><span class="c1">// JSON 파싱</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="w">        </span><span class="c1">// DB에 저장</span>
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a><span class="p">}</span>
+</code></pre></div>
+<h4 id="4-java-8-default">4. Java 8+ 인터페이스 default 메서드</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">PaymentMethod</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="c1">// 추상 메서드</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">pay</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">amount</span><span class="p">);</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="c1">// default 메서드 (구현 제공, 오버라이드 가능)</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">validate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">  </span><span class="c1">// 기본 구현</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="c1">// static 메서드</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="n">PaymentMethod</span><span class="w"> </span><span class="nf">createCreditCard</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CreditCard</span><span class="p">();</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="_7">주의할 점</h3>
+<div class="danger-box">
+<p><strong>❌ 추상 메서드 구현 안 함</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PaymentMethod</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">pay</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">amount</span><span class="p">);</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">}</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1">// ❌ 컴파일 에러: 추상 메서드 미구현</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CreditCard</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">PaymentMethod</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="c1">// pay() 구현 안 함</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="p">}</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="c1">// 또는 CreditCard도 abstract 클래스여야 함</span>
+</code></pre></div>
+<p><strong>✅ 올바른 방식:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CreditCard</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">PaymentMethod</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">pay</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;신용카드 결제&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">}</span>
+</code></pre></div></p>
+</div>
+<div class="warning-box">
+<p><strong>⚠️ Java 8+ default 메서드의 다이아몬드 문제</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">interface</span> <span class="nc">A</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">method</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="p">}</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="kd">interface</span> <span class="nc">B</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">method</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="p">}</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="kd">interface</span> <span class="nc">C</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">method</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="p">}</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="c1">// ❌ 어느 default 메서드를 사용할지 모호</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="kd">class</span> <span class="nc">D</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">    </span><span class="c1">// 컴파일 에러: 명시적 해결 필요</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="p">}</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="c1">// ✅ 명시적 해결</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="kd">class</span> <span class="nc">D</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">method</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">        </span><span class="n">B</span><span class="p">.</span><span class="na">super</span><span class="p">.</span><span class="na">method</span><span class="p">();</span><span class="w">  </span><span class="c1">// B의 메서드 사용</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="warning-box">
+<p><strong>⚠️ 추상 클래스는 인스턴스 생성 불가</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// ❌ 불가능</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">PaymentMethod</span><span class="w"> </span><span class="n">pm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PaymentMethod</span><span class="p">();</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1">// ✅ 자식 클래스로만 인스턴스 생성</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="n">PaymentMethod</span><span class="w"> </span><span class="n">pm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CreditCard</span><span class="p">();</span>
+</code></pre></div>
+</div>
+<h3 id="_8">정리</h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>추상화</strong></td>
+<td>구현 아닌 역할 중심 설계</td>
+</tr>
+<tr>
+<td><strong>인터페이스</strong></td>
+<td>순수 역할 정의</td>
+</tr>
+<tr>
+<td><strong>추상클래스</strong></td>
+<td>역할 + 공통 구현</td>
+</tr>
+<tr>
+<td><strong>OCP</strong></td>
+<td>확장에 열려있고 변경에 닫혀있음</td>
+</tr>
+<tr>
+<td><strong>주의</strong></td>
+<td>과설계 방지, 복잡도 관리</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>관련 파일:</strong>
+- <a href="../%EC%83%81%EC%86%8D/">상속</a> — 추상화의 기반
+- <a href="../%EB%8B%A4%ED%98%95%EC%84%B1/">다형성</a> — 추상화의 활용
+- <a href="../%EC%BA%A1%EC%8A%90%ED%99%94/">캡슐화</a> — 정보 은닉</p>
 <!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
 
 <!-- ===== DB / SQL ===== -->
@@ -5071,7 +5438,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 11일 11:10:27 UTC">2026년 4월 11일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 16일 12:07:50 UTC">2026년 4월 16일</span>
   </span>
 
     

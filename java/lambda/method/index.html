@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#method-reference" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -1517,34 +1517,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#method-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        메서드 참조 (Method Reference)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="메서드 참조 (Method Reference)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        메서드 참조
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="메서드 참조">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#static-method-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        정적 메서드 참조 (Static Method Reference)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="정적 메서드 참조 (Static Method Reference)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        개념
+        왜 쓰는지
       
     </span>
   </a>
@@ -1552,10 +1540,82 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        어떻게 쓰는지
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="어떻게 쓰는지">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-static-method-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 정적 메서드 참조 (Static Method Reference)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 특정 객체의 인스턴스 메서드 참조
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 임의의 객체의 인스턴스 메서드 참조
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-constructor-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 생성자 참조 (Constructor Reference)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 배열 생성자 참조
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        문법
+        언제 쓰는지
       
     </span>
   </a>
@@ -1566,7 +1626,85 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        예제
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        특징
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="특징">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 네 가지 형태 정리
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 람다 vs 메서드 참조
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 메서드 참조의 타입 추론
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 생성자 참조의 활용
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 메서드 참조 체이닝
       
     </span>
   </a>
@@ -1579,33 +1717,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        인스턴스 메서드 참조 (특정 객체)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="인스턴스 메서드 참조 (특정 객체)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        개념
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        문법
+        주의할 점
       
     </span>
   </a>
@@ -1616,123 +1731,7 @@
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        예제
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        인스턴스 메서드 참조 (임의 객체)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="인스턴스 메서드 참조 (임의 객체)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        개념
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        문법
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        예시
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#constructor-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        생성자 참조 (Constructor Reference)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="생성자 참조 (Constructor Reference)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        개념
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        문법
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        예시
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        특징
+        정리
       
     </span>
   </a>
@@ -4815,34 +4814,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#method-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        메서드 참조 (Method Reference)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="메서드 참조 (Method Reference)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        메서드 참조
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="메서드 참조">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#static-method-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        정적 메서드 참조 (Static Method Reference)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="정적 메서드 참조 (Static Method Reference)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        개념
+        왜 쓰는지
       
     </span>
   </a>
@@ -4850,10 +4837,82 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        어떻게 쓰는지
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="어떻게 쓰는지">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-static-method-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 정적 메서드 참조 (Static Method Reference)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 특정 객체의 인스턴스 메서드 참조
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 임의의 객체의 인스턴스 메서드 참조
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-constructor-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 생성자 참조 (Constructor Reference)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 배열 생성자 참조
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        문법
+        언제 쓰는지
       
     </span>
   </a>
@@ -4864,7 +4923,85 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        예제
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        특징
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="특징">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 네 가지 형태 정리
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 람다 vs 메서드 참조
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 메서드 참조의 타입 추론
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 생성자 참조의 활용
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 메서드 참조 체이닝
       
     </span>
   </a>
@@ -4877,33 +5014,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        인스턴스 메서드 참조 (특정 객체)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="인스턴스 메서드 참조 (특정 객체)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        개념
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        문법
+        주의할 점
       
     </span>
   </a>
@@ -4914,123 +5028,7 @@
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        예제
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        인스턴스 메서드 참조 (임의 객체)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="인스턴스 메서드 참조 (임의 객체)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        개념
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        문법
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        예시
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#constructor-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        생성자 참조 (Constructor Reference)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="생성자 참조 (Constructor Reference)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        개념
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        문법
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        예시
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        특징
+        정리
       
     </span>
   </a>
@@ -5064,116 +5062,385 @@
 
   <h1>메서드 레퍼런스</h1>
 
-<h2 id="_1">메서드 참조</h2>
+<h2 id="method-reference">메서드 참조 (Method Reference)</h2>
+<h3 id="_1">왜 쓰는지</h3>
+<p>람다식으로 <strong>이미 존재하는 메서드를 다시 작성</strong>하는 것은 중복입니다:
+- 같은 메서드를 여러 곳에서 재사용
+- 람다로 표현하면 의도가 불명확
+- 메서드 이름이 명시되면 가독성 향상</p>
+<p><strong>메서드 참조</strong>는 기존 메서드를 <strong>이름으로 직접 전달</strong>하므로, 람다보다 간결하고 명확합니다.</p>
+<div class="concept-box">
+<p><strong>핵심</strong>: 메서드 참조는 <strong>람다식을 더 간결하게 표현한 문법</strong>입니다. <code>::</code> 연산자로 메서드를 함수형 인터페이스에 할당할 수 있습니다.</p>
+</div>
+<h3 id="_2">어떻게 쓰는지</h3>
+<h4 id="1-static-method-reference">1. 정적 메서드 참조 (Static Method Reference)</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// ClassName::staticMethodName</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1">// 예시 1: Math의 정적 메서드</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">BinaryOperator</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">maxFunc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">::</span><span class="n">max</span><span class="p">;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">maxFunc</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span><span class="w">  </span><span class="c1">// 20</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1">// 람다 대비</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">BinaryOperator</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">maxLambda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1">// 예시 2: 커스텀 정적 메서드</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Calculator</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">}</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="n">BinaryOperator</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">adder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Calculator</span><span class="p">::</span><span class="n">add</span><span class="p">;</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">adder</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">));</span><span class="w">  </span><span class="c1">// 8</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="c1">// 예시 3: Integer.parseInt() 활용</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="n">Function</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">parser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">::</span><span class="n">parseInt</span><span class="p">;</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parser</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="s">&quot;123&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// 123</span>
+</code></pre></div>
+<h4 id="2">2. 특정 객체의 인스턴스 메서드 참조</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// instance::instanceMethodName</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Printer</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">}</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">Printer</span><span class="w"> </span><span class="n">printer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Printer</span><span class="p">();</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">Consumer</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">printFunc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">printer</span><span class="p">::</span><span class="n">print</span><span class="p">;</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">printFunc</span><span class="p">.</span><span class="na">accept</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// &quot;Hello&quot; 출력</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1">// 람다 대비</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="n">Consumer</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">printLambda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">printer</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="c1">// 실제 사용 예: list.forEach()</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="s">&quot;Alice&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Bob&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Charlie&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="n">names</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">printer</span><span class="p">::</span><span class="n">print</span><span class="p">);</span><span class="w">  </span><span class="c1">// 각 이름 출력</span>
+</code></pre></div>
+<h4 id="3">3. 임의의 객체의 인스턴스 메서드 참조</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// ClassName::instanceMethodName</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1">// 첫 번째 파라미터가 &quot;this&quot; 역할</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">Function</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lengthFunc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">String</span><span class="p">::</span><span class="n">length</span><span class="p">;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lengthFunc</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// 5</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1">// 람다 대비</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">Function</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lengthLambda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">();</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1">// BiFunction 예: 두 String의 비교</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">Comparator</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">comparator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">String</span><span class="p">::</span><span class="n">compareTo</span><span class="p">;</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">comparator</span><span class="p">.</span><span class="na">compare</span><span class="p">(</span><span class="s">&quot;apple&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;banana&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// -1 (음수)</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="c1">// 실제 사용 예: 정렬</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="s">&quot;Charlie&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Alice&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Bob&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="n">names</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">String</span><span class="p">::</span><span class="n">compareTo</span><span class="p">);</span><span class="w">  </span><span class="c1">// 정렬</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">names</span><span class="p">);</span><span class="w">  </span><span class="c1">// [Alice, Bob, Charlie]</span>
+</code></pre></div>
+<h4 id="4-constructor-reference">4. 생성자 참조 (Constructor Reference)</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// ClassName::new</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1">// 예시 1: ArrayList 생성</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">Supplier</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">listSupplier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ArrayList</span><span class="p">::</span><span class="k">new</span><span class="p">;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listSupplier</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;item&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1">// 람다 대비</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="n">Supplier</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">listLambda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="c1">// 예시 2: User 객체 생성</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">User</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">User</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="p">}</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="n">Function</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">userFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">User</span><span class="p">::</span><span class="k">new</span><span class="p">;</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userFactory</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="s">&quot;Alice&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="c1">// 예시 3: Stream에서 객체 생성</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="s">&quot;Alice&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Bob&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Charlie&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">names</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">    </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">User</span><span class="p">::</span><span class="k">new</span><span class="p">)</span><span class="w">  </span><span class="c1">// User 생성자 참조</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">    </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span>
+</code></pre></div>
+<h4 id="5">5. 배열 생성자 참조</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// int[]::new</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">[]&gt;</span><span class="w"> </span><span class="n">arrayCreator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="p">::</span><span class="k">new</span><span class="p">;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arrayCreator</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w">  </span><span class="c1">// 크기 5인 int 배열 생성</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1">// Stream에서 배열로 변환</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">Integer</span><span class="o">[]</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numbers</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="p">.</span><span class="na">toArray</span><span class="p">(</span><span class="n">Integer</span><span class="o">[]</span><span class="p">::</span><span class="k">new</span><span class="p">);</span><span class="w">  </span><span class="c1">// 배열 생성자 참조</span>
+</code></pre></div>
+<h3 id="_3">언제 쓰는지</h3>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>선택</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>기존 메서드 재사용</strong></td>
+<td>✅ 메서드 참조</td>
+<td>의도가 명확, 간결함</td>
+</tr>
+<tr>
+<td><strong>System.out::println</strong></td>
+<td>✅ 메서드 참조</td>
+<td>람다보다 읽기 쉬움</td>
+</tr>
+<tr>
+<td><strong>로직 변환 필요</strong></td>
+<td>❌ 람다식</td>
+<td>복잡한 표현은 람다가 나음</td>
+</tr>
+<tr>
+<td><strong>새로운 메서드 필요</strong></td>
+<td>❌ 메서드 정의</td>
+<td>한 번만 쓰면 람다로 충분</td>
+</tr>
+<tr>
+<td><strong>여러 곳에서 재사용</strong></td>
+<td>✅ 메서드 참조</td>
+<td>이름 있는 메서드로 명확</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_4">장점</h3>
+<table>
+<thead>
+<tr>
+<th>장점</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>가독성</strong></td>
+<td>메서드 이름이 명시되어 의도가 명확</td>
+</tr>
+<tr>
+<td><strong>간결성</strong></td>
+<td>람다보다 짧은 표현</td>
+</tr>
+<tr>
+<td><strong>재사용성</strong></td>
+<td>기존 메서드를 활용하므로 DRY 원칙 준수</td>
+</tr>
+<tr>
+<td><strong>보안</strong></td>
+<td>메서드 이름으로 의도를 드러내기</td>
+</tr>
+<tr>
+<td><strong>성능</strong></td>
+<td>람다보다 약간 빠를 수 있음 (컴파일 최적화)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_5">단점</h3>
+<table>
+<thead>
+<tr>
+<th>단점</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>문법 낯섦</strong></td>
+<td>:: 연산자와 4가지 형태 이해 필요</td>
+</tr>
+<tr>
+<td><strong>제한적</strong></td>
+<td>파라미터 변환 불가능 (람다는 가능)</td>
+</tr>
+<tr>
+<td><strong>타입 추론 실패</strong></td>
+<td>컨텍스트가 명확하지 않으면 컴파일 에러</td>
+</tr>
+<tr>
+<td><strong>디버깅 어려움</strong></td>
+<td>스택 트레이스에서 메서드 찾기 어려움</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_6">특징</h3>
+<h4 id="1">1. 네 가지 형태 정리</h4>
+<table>
+<thead>
+<tr>
+<th>형태</th>
+<th>문법</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>정적 메서드</td>
+<td><code>Class::staticMethod</code></td>
+<td><code>Math::max</code></td>
+</tr>
+<tr>
+<td>특정 객체의 메서드</td>
+<td><code>instance::method</code></td>
+<td><code>printer::print</code></td>
+</tr>
+<tr>
+<td>임의 객체의 메서드</td>
+<td><code>Class::method</code></td>
+<td><code>String::length</code></td>
+</tr>
+<tr>
+<td>생성자</td>
+<td><code>Class::new</code></td>
+<td><code>ArrayList::new</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="2-vs">2. 람다 vs 메서드 참조</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// 1️⃣ System.out.println</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1">// 람다</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">Consumer</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">printLambda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1">// 메서드 참조</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="n">Consumer</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">printRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">;</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c1">// 2️⃣ 정렬</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="c1">// 람다</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="n">names</span><span class="p">.</span><span class="na">sort</span><span class="p">((</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="n">b</span><span class="p">));</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="c1">// 메서드 참조</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="n">names</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">String</span><span class="p">::</span><span class="n">compareTo</span><span class="p">);</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="c1">// 3️⃣ 필터링</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="c1">// 람다</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="n">list</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">filter</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">startsWith</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">));</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="c1">// 메서드 참조</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="n">list</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">filter</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">StartsWithAPredicate</span><span class="p">()::</span><span class="n">test</span><span class="p">);</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="c1">// 또는 람다만 가능</span>
+</code></pre></div>
+<h4 id="3_1">3. 메서드 참조의 타입 추론</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// 컨텍스트로 타입 결정</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">Function</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">String</span><span class="p">::</span><span class="n">length</span><span class="p">;</span><span class="w">      </span><span class="c1">// String → Integer</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">BiFunction</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">String</span><span class="p">::</span><span class="n">compareTo</span><span class="p">;</span><span class="w">  </span><span class="c1">// String, String → Integer</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1">// 같은 메서드도 문맥에 따라 다른 타입으로 해석</span>
+</code></pre></div>
+<h4 id="4">4. 생성자 참조의 활용</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// 다양한 형태의 생성자 참조</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">Supplier</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">noArgs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">User</span><span class="p">::</span><span class="k">new</span><span class="p">;</span><span class="w">         </span><span class="c1">// () → User</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">Function</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">oneArg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">User</span><span class="p">::</span><span class="k">new</span><span class="p">;</span><span class="w">  </span><span class="c1">// String → User</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">BiFunction</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">twoArgs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">User</span><span class="p">::</span><span class="k">new</span><span class="p">;</span><span class="w">  </span><span class="c1">// String, Integer → User</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="c1">// Stream에서 자주 사용</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="s">&quot;Alice&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Bob&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">names</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">User</span><span class="p">::</span><span class="k">new</span><span class="p">)</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span>
+</code></pre></div>
+<h4 id="5_1">5. 메서드 참조 체이닝</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// 여러 메서드 참조 결합</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="s">&quot;alice&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bob&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;charlie&quot;</span><span class="p">);</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">names</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">String</span><span class="p">::</span><span class="n">toUpperCase</span><span class="p">)</span><span class="w">       </span><span class="c1">// String::toUpperCase</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w">    </span><span class="c1">// 필터</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span><span class="w">  </span><span class="c1">// System.out::println</span>
+</code></pre></div>
+<h3 id="_7">주의할 점</h3>
+<div class="danger-box">
+<p><strong>❌ 존재하지 않는 메서드 참조</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// ❌ 컴파일 에러: notExists 메서드가 없음</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">Runnable</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">notExists</span><span class="p">;</span>
+</code></pre></div>
+<p><strong>✅ 올바른 방식:</strong>
+- 존재하는 public 메서드만 참조
+- IDE의 자동완성 활용</p>
+</div>
+<div class="warning-box">
+<p><strong>⚠️ 메서드 참조로 표현 불가능한 경우</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">// ❌ 메서드 참조로 불가능: 파라미터 변환 필요</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">Function</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">parser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">::</span><span class="n">parseInt</span><span class="p">;</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parser</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="s">&quot;123&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1">// 하지만 Radix(진법)를 지정하려면?</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="c1">// Integer.parseInt(String, int) 형태</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1">// 람다로만 가능</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="n">Function</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">hexParser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="c1">// 메서드 참조로는 불가능 (파라미터가 고정될 수 없음)</span>
+</code></pre></div>
+<p><strong>✅ 복잡한 경우 람다 사용:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">Function</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">hexParser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span>
+</code></pre></div></p>
+</div>
+<div class="warning-box">
+<p><strong>⚠️ 람다가 더 명확할 수 있음</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">// 메서드 참조 (짧지만 의도 불명확)</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">list</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">String</span><span class="p">::</span><span class="n">isEmpty</span><span class="p">)</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="c1">// 람다 (더 의도가 명확)</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="n">list</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">    </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="p">));</span>
+</code></pre></div>
+</div>
+<div class="tip-box">
+<p><strong>💡 메서드 참조 활용 팁</strong></p>
 <ul>
-<li>람다식에서 이미 존재하는 메서드를 그대로 전달</li>
-<li>:: 연산자를 사용</li>
-<li>함수형 인터페이스와 결합됨
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>list.forEach(System.out::println);
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>// (x) -&gt; System.out.println(x)
-</code></pre></div></li>
+<li><code>System.out::println</code> — 간단한 출력</li>
+<li><code>String::toUpperCase</code> — 변환</li>
+<li><code>String::compareTo</code> — 비교/정렬</li>
+<li><code>ArrayList::new</code> — 컬렉션 생성</li>
+<li><code>Integer::parseInt</code> — 파싱</li>
+<li><code>Collections::sort</code> — 유틸리티 메서드</li>
 </ul>
-<h3 id="static-method-reference">정적 메서드 참조 (Static Method Reference)</h3>
-<h4 id="_2">개념</h4>
-<ul>
-<li>클래스에 정의된 static 메서드를 직접 참조</li>
-<li>인스턴스 생성 없이 호출</li>
-</ul>
-<h4 id="_3">문법</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ClassName::staticMethod
-</code></pre></div>
-<h4 id="_4">예제</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>public class Main {
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    public static void main(String[] args) {
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>        BinaryOperator&lt;Integer&gt; max = Math::max;
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        int result = max.apply(10, 20);
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        System.out.println(result); // 20
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    }
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>}
-</code></pre></div>
-<h3 id="_5">인스턴스 메서드 참조 (특정 객체)</h3>
-<h4 id="_6">개념</h4>
-<ul>
-<li>이미 생성된 객체의 메서드를 참조</li>
-<li>고정된 객체 기준으로 동작</li>
-</ul>
-<h4 id="_7">문법</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>instance::method
-</code></pre></div>
-<h4 id="_8">예제</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>public class Main {
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    public static void main(String[] args) {
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>        Printer printer = new Printer();
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        Consumer&lt;String&gt; consumer = printer::print;
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        consumer.accept(&quot;Hello&quot;);
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    }
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>}
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>class Printer {
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    public void print(String message) {
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>        System.out.println(message);
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    }
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>}
-</code></pre></div>
-<h3 id="_9">인스턴스 메서드 참조 (임의 객체)</h3>
-<h4 id="_10">개념</h4>
-<ul>
-<li>특정 객체가 아니라 파라미터로 전달된 객체를 기준으로 호출</li>
-<li>첫 번째 인자가 "this" 역할을 함</li>
-</ul>
-<h4 id="_11">문법</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ClassName::method
-</code></pre></div>
-<h4 id="_12">예시</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>public class Main {
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    public static void main(String[] args) {
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>        Function&lt;String, Integer&gt; lengthFunc = String::length;
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>        int len = lengthFunc.apply(&quot;hello&quot;);
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>        System.out.println(len); // 5
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    }
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>}
-</code></pre></div>
-<h3 id="constructor-reference">생성자 참조 (Constructor Reference)</h3>
-<h4 id="_13">개념</h4>
-<ul>
-<li>생성자를 함수처럼 참조</li>
-<li>객체 생성 로직을 람다로 대체</li>
-</ul>
-<h4 id="_14">문법</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ClassName::new
-</code></pre></div>
-<h4 id="_15">예시</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>public class Main {
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    public static void main(String[] args) {
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>        Supplier&lt;ArrayList&lt;String&gt;&gt; supplier = ArrayList::new;
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>        ArrayList&lt;String&gt; list = supplier.get();
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>        list.add(&quot;A&quot;);
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>        System.out.println(list);
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    }
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>}
-</code></pre></div>
-<h3 id="_16">특징</h3>
-<ul>
-<li>람다의 축약형
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>(x) -&gt; x.toLowerCase()
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>String::toLowerCase
-</code></pre></div></li>
-<li>함수형 인터페이스 필수
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Function&lt;String, Integer&gt; f = String::length;
-</code></pre></div></li>
-<li>타입 추론 의존<ul>
-<li>컴파일러가 문맥으로 매칭
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Function&lt;String, Integer&gt; f = String::length;
-</code></pre></div></li>
-</ul>
-</li>
-<li>가독성 중심 기능<ul>
-<li>로직이 아닌 “전달”에 초점</li>
-</ul>
-</li>
-</ul>
+</div>
+<h3 id="_8">정리</h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>목적</strong></td>
+<td>기존 메서드를 람다로 표현</td>
+</tr>
+<tr>
+<td><strong>문법</strong></td>
+<td><code>Class/instance::methodName</code></td>
+</tr>
+<tr>
+<td><strong>형태</strong></td>
+<td>정적, 특정 객체, 임의 객체, 생성자</td>
+</tr>
+<tr>
+<td><strong>장점</strong></td>
+<td>간결, 명확, 가독성</td>
+</tr>
+<tr>
+<td><strong>주의</strong></td>
+<td>존재하는 메서드만 가능, 복잡한 변환은 람다</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>관련 파일:</strong>
+- <a href="../start/">람다 기초</a> — 함수형 인터페이스 이해
+- <a href="../function/">함수형 인터페이스</a> — 메서드 참조 대상
+- <a href="../streamApi/">Stream <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr></a> — 메서드 참조 활용 사례</p>
 <!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
 
 <!-- ===== DB / SQL ===== -->
@@ -5202,7 +5469,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 11일 11:10:27 UTC">2026년 4월 11일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 16일 12:07:50 UTC">2026년 4월 16일</span>
   </span>
 
     
