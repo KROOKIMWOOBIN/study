@@ -51,6 +51,120 @@
 
 ---
 
+## 어떻게 쓰는지
+
+### 간단한 예시
+
+```sql
+-- 1. 테이블 생성 (DDL)
+CREATE TABLE member (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 2. 데이터 삽입 (DML)
+INSERT INTO member (name, email) VALUES ('김철수', 'kim@example.com');
+
+-- 3. 데이터 조회
+SELECT * FROM member WHERE name = '김철수';
+
+-- 4. 데이터 수정
+UPDATE member SET email = 'kim2@example.com' WHERE id = 1;
+
+-- 5. 트랜잭션 처리 (TCL)
+BEGIN;
+DELETE FROM member WHERE id = 1;
+COMMIT;
+```
+
+---
+
+## 언제 쓰는지
+
+| 상황 | RDBMS | NoSQL |
+|------|-------|--------|
+| **구조화된 데이터** | ✅ RDBMS | ❌ |
+| **관계형 조인** | ✅ RDBMS | ❌ |
+| **ACID 보장 필요** | ✅ RDBMS | ❌ |
+| **트랜잭션** | ✅ RDBMS | ⚠️ 제한적 |
+| **스키마 변경 빈번** | ❌ | ✅ NoSQL |
+| **대규모 비정형 데이터** | ❌ | ✅ NoSQL |
+| **높은 쓰기 성능** | ⚠️ | ✅ NoSQL |
+| **복잡한 쿼리** | ✅ RDBMS | ❌ |
+
+---
+
+## 장점
+
+| 장점 | 설명 |
+|------|------|
+| **데이터 무결성** | 제약 조건과 트랜잭션으로 일관성 보장 |
+| **ACID 보장** | Atomicity, Consistency, Isolation, Durability |
+| **복잡한 쿼리** | JOIN, 서브쿼리로 강력한 데이터 검색 |
+| **표준 언어** | SQL은 DBMS 간 호환 가능 |
+| **정규화** | 데이터 중복 제거로 저장 효율성 |
+| **보안** | 권한 관리(DCL)로 접근 제어 |
+| **확장성** | 대규모 데이터 처리 최적화 |
+
+---
+
+## 단점
+
+| 단점 | 설명 |
+|------|------|
+| **스키마 고정** | 구조 변경 시 마이그레이션 비용 |
+| **수평 확장 어려움** | 샤딩 없이는 단일 서버 확장성 제한 |
+| **높은 쓰기 비용** | 트랜잭션, 정규화로 인한 오버헤드 |
+| **복잡한 쿼리** | 성능 튜닝 필요 |
+| **유연성 부족** | 형식이 정해진 데이터만 저장 가능 |
+
+---
+
+## 주의할 점
+
+<div class="danger-box" markdown="1">
+
+**❌ 과도한 정규화**
+
+```sql
+-- 과도하게 정규화되어 JOIN이 많아지면 오히려 성능 악화 가능
+-- 필요하면 역정규화(Denormalization) 고려
+```
+
+</div>
+
+<div class="warning-box" markdown="1">
+
+**⚠️ DDL 자동 커밋**
+
+```sql
+-- DROP, TRUNCATE, ALTER는 자동 COMMIT됨
+-- ROLLBACK 불가능 (MySQL 기준)
+-- 실행 전 반드시 백업 후 신중하게 처리
+```
+
+</div>
+
+<div class="warning-box" markdown="1">
+
+**⚠️ N+1 쿼리 문제**
+
+```sql
+-- ❌ 나쁜 예: 부모 1개 + 자식 N개 쿼리
+-- 부모 SELECT (1) → 각 부모 행마다 자식 SELECT (N)
+-- 결과: 1 + N번의 쿼리
+
+-- ✅ 좋은 방식: JOIN으로 한 번에 조회
+SELECT parent.*, child.* FROM parent
+JOIN child ON parent.id = child.parent_id;
+```
+
+</div>
+
+---
+
 ## 학습 목록
 
 | 주제 | 한 줄 설명 |
