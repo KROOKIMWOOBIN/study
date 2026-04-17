@@ -97,6 +97,8 @@ public class InventoryConsumer {
 
 DB와 Kafka 발행을 하나의 트랜잭션으로 묶는 패턴. Kafka 발행 실패 시 이벤트 유실을 방지한다.
 
+> 심화 내용: [아웃박스 패턴](outbox.md) — 폴링/CDC 방식, 멱등성 처리, 운영 전략
+
 ```markdown
 @Transactional
 public void placeOrder(OrderRequest request) {

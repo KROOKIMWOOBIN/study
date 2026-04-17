@@ -177,6 +177,7 @@ nav:
       - Spring Security & JWT: spring/security.md
       - 동시성 제어: spring/concurrency.md
       - Kafka: spring/kafka.md
+      - 아웃박스 패턴: spring/outbox.md
     - 운영 & 설계:
       - Testing: spring/testing.md
       - 모니터링: spring/monitoring.md
