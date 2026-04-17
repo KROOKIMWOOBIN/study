@@ -186,6 +186,7 @@ nav:
   - DB:
     - 개요: db/db.md
     - 기초:
+      - 데이터베이스: db/기초/데이터베이스.md
       - ACID: db/기초/ACID.md
       - SQL: db/기초/SQL.md
       - 데이터 타입: db/기초/데이터타입.md
