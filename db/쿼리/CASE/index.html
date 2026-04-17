@@ -5341,12 +5341,35 @@
 
 <h2 id="case">CASE (조건부 데이터 변환)</h2>
 <h3 id="_1">왜 쓰는지</h3>
-<p>데이터를 조회할 때 <strong>조건에 따라 다른 값으로 표현</strong>해야 합니다:
-- 숫자 코드를 텍스트로 변환 (1 → "활성", 0 → "비활성")
-- 나이대별 분류 (0~20 → "청소년", 20~65 → "성인", 65~ → "노년")
-- 급여등급 (50000 이상 → "고급", 30000~50000 → "중급", 이하 → "초급")
-- NULL을 다른 값으로 변환</p>
-<p>WHERE 조건처럼 <strong>SELECT 결과를 조건부로 변환</strong>할 때 CASE를 사용합니다.</p>
+<p>데이터를 조회할 때 조건에 따라 <strong>다른 값으로 표현</strong>해야 하는 경우가 많습니다.</p>
+<p><strong>주요 활용 사례:</strong></p>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>상태 코드 변환</strong></td>
+<td>1 → "활성", 0 → "비활성"</td>
+</tr>
+<tr>
+<td><strong>나이대 분류</strong></td>
+<td>0~20 → "청소년", 21~65 → "성인", 66~ → "노년"</td>
+</tr>
+<tr>
+<td><strong>급여 등급</strong></td>
+<td>60000~ → "고급", 40000~59999 → "중급", ~39999 → "초급"</td>
+</tr>
+<tr>
+<td><strong>NULL 처리</strong></td>
+<td>NULL → "정보 없음"</td>
+</tr>
+</tbody>
+</table>
+<p>WHERE 절처럼 <strong>SELECT 결과를 조건부로 변환</strong>할 때 CASE를 사용합니다.</p>
 <div class="concept-box">
 <p><strong>핵심</strong>: CASE는 <strong>SQL에서 if-else 문법처럼 동작</strong>하여, 조건에 따라 다른 값을 반환하는 표현식입니다.</p>
 </div>
@@ -5793,7 +5816,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 16일 13:18:34 UTC">2026년 4월 16일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 17일 11:36:08 UTC">2026년 4월 17일</span>
   </span>
 
     
