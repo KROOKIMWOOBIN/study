@@ -8,31 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://krookimwoobin.github.io/study/cs/%EB%8F%99%EA%B8%B0VS%EB%B9%84%EB%8F%99%EA%B8%B0/">
+        <link rel="canonical" href="https://krookimwoobin.github.io/study/db/%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/">
       
       
-        <link rel="prev" href="../cs/">
+        <link rel="prev" href="../../db/">
       
       
-        <link rel="next" href="../../troubleshooting/smtp/">
+        <link rel="next" href="../ACID/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>동기 VS 비동기 - 학습 노트</title>
+        <title>데이터베이스 - 학습 노트</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,9 +51,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#vs" class="md-skip">
+        <a href="#database" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -94,7 +94,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="상단/헤더">
-    <a href="../.." title="학습 노트" class="md-header__button md-logo" aria-label="학습 노트" data-md-component="logo">
+    <a href="../../.." title="학습 노트" class="md-header__button md-logo" aria-label="학습 노트" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              동기 VS 비동기
+              데이터베이스
             
           </span>
         </div>
@@ -232,7 +232,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="네비게이션" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="학습 노트" class="md-nav__button md-logo" aria-label="학습 노트" data-md-component="logo">
+    <a href="../../.." title="학습 노트" class="md-nav__button md-logo" aria-label="학습 노트" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -262,7 +262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -341,7 +341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/java/" class="md-nav__link">
+      <a href="../../../java/java/" class="md-nav__link">
         
   
   
@@ -418,7 +418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/oop/%EB%8B%A4%ED%98%95%EC%84%B1/" class="md-nav__link">
+      <a href="../../../java/oop/%EB%8B%A4%ED%98%95%EC%84%B1/" class="md-nav__link">
         
   
   
@@ -446,7 +446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/oop/%EC%83%81%EC%86%8D/" class="md-nav__link">
+      <a href="../../../java/oop/%EC%83%81%EC%86%8D/" class="md-nav__link">
         
   
   
@@ -474,7 +474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/oop/%EC%B6%94%EC%83%81%ED%99%94/" class="md-nav__link">
+      <a href="../../../java/oop/%EC%B6%94%EC%83%81%ED%99%94/" class="md-nav__link">
         
   
   
@@ -502,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/oop/%EC%BA%A1%EC%8A%90%ED%99%94/" class="md-nav__link">
+      <a href="../../../java/oop/%EC%BA%A1%EC%8A%90%ED%99%94/" class="md-nav__link">
         
   
   
@@ -587,7 +587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/core/" class="md-nav__link">
+      <a href="../../../java/core/core/" class="md-nav__link">
         
   
   
@@ -615,7 +615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/Object/" class="md-nav__link">
+      <a href="../../../java/core/Object/" class="md-nav__link">
         
   
   
@@ -643,7 +643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/%EB%B6%88%EB%B3%80%EA%B0%9D%EC%B2%B4VS%EA%B0%80%EB%B3%80%EA%B0%9D%EC%B2%B4/" class="md-nav__link">
+      <a href="../../../java/core/%EB%B6%88%EB%B3%80%EA%B0%9D%EC%B2%B4VS%EA%B0%80%EB%B3%80%EA%B0%9D%EC%B2%B4/" class="md-nav__link">
         
   
   
@@ -671,7 +671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/%EB%9E%98%ED%8D%BC%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
+      <a href="../../../java/core/%EB%9E%98%ED%8D%BC%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -699,7 +699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/Enum/" class="md-nav__link">
+      <a href="../../../java/core/Enum/" class="md-nav__link">
         
   
   
@@ -727,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
+      <a href="../../../java/core/%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
         
   
   
@@ -755,7 +755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/%EC%A4%91%EC%B2%A9%EB%82%B4%EB%B6%80%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
+      <a href="../../../java/core/%EC%A4%91%EC%B2%A9%EB%82%B4%EB%B6%80%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -783,7 +783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/Class/" class="md-nav__link">
+      <a href="../../../java/core/Class/" class="md-nav__link">
         
   
   
@@ -811,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/Math/" class="md-nav__link">
+      <a href="../../../java/core/Math/" class="md-nav__link">
         
   
   
@@ -839,7 +839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/SystemClass/" class="md-nav__link">
+      <a href="../../../java/core/SystemClass/" class="md-nav__link">
         
   
   
@@ -924,7 +924,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/collections/" class="md-nav__link">
+      <a href="../../../java/collections/collections/" class="md-nav__link">
         
   
   
@@ -952,7 +952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Collection/" class="md-nav__link">
+      <a href="../../../java/collections/Collection/" class="md-nav__link">
         
   
   
@@ -980,7 +980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Generic/" class="md-nav__link">
+      <a href="../../../java/collections/Generic/" class="md-nav__link">
         
   
   
@@ -1008,7 +1008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Array/" class="md-nav__link">
+      <a href="../../../java/collections/Array/" class="md-nav__link">
         
   
   
@@ -1036,7 +1036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/List/" class="md-nav__link">
+      <a href="../../../java/collections/List/" class="md-nav__link">
         
   
   
@@ -1064,7 +1064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/ArrayList/" class="md-nav__link">
+      <a href="../../../java/collections/ArrayList/" class="md-nav__link">
         
   
   
@@ -1092,7 +1092,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/LinkedList/" class="md-nav__link">
+      <a href="../../../java/collections/LinkedList/" class="md-nav__link">
         
   
   
@@ -1120,7 +1120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Set/" class="md-nav__link">
+      <a href="../../../java/collections/Set/" class="md-nav__link">
         
   
   
@@ -1148,7 +1148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/HashSet/" class="md-nav__link">
+      <a href="../../../java/collections/HashSet/" class="md-nav__link">
         
   
   
@@ -1176,7 +1176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Map/" class="md-nav__link">
+      <a href="../../../java/collections/Map/" class="md-nav__link">
         
   
   
@@ -1204,7 +1204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Stack/" class="md-nav__link">
+      <a href="../../../java/collections/Stack/" class="md-nav__link">
         
   
   
@@ -1232,7 +1232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Queue/" class="md-nav__link">
+      <a href="../../../java/collections/Queue/" class="md-nav__link">
         
   
   
@@ -1260,7 +1260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/%EC%88%9C%ED%9A%8C/" class="md-nav__link">
+      <a href="../../../java/collections/%EC%88%9C%ED%9A%8C/" class="md-nav__link">
         
   
   
@@ -1288,7 +1288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/%EB%B9%84%EA%B5%90/" class="md-nav__link">
+      <a href="../../../java/collections/%EB%B9%84%EA%B5%90/" class="md-nav__link">
         
   
   
@@ -1316,7 +1316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/BigO/" class="md-nav__link">
+      <a href="../../../java/collections/BigO/" class="md-nav__link">
         
   
   
@@ -1401,7 +1401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/start/" class="md-nav__link">
+      <a href="../../../java/lambda/start/" class="md-nav__link">
         
   
   
@@ -1429,7 +1429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/function/" class="md-nav__link">
+      <a href="../../../java/lambda/function/" class="md-nav__link">
         
   
   
@@ -1457,7 +1457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/method/" class="md-nav__link">
+      <a href="../../../java/lambda/method/" class="md-nav__link">
         
   
   
@@ -1485,7 +1485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/programming/" class="md-nav__link">
+      <a href="../../../java/lambda/programming/" class="md-nav__link">
         
   
   
@@ -1513,7 +1513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/stream/" class="md-nav__link">
+      <a href="../../../java/lambda/stream/" class="md-nav__link">
         
   
   
@@ -1541,7 +1541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/streamApi/" class="md-nav__link">
+      <a href="../../../java/lambda/streamApi/" class="md-nav__link">
         
   
   
@@ -1569,7 +1569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/%EC%A6%89%EC%8B%9CVS%EC%A7%80%EC%97%B0/" class="md-nav__link">
+      <a href="../../../java/lambda/%EC%A6%89%EC%8B%9CVS%EC%A7%80%EC%97%B0/" class="md-nav__link">
         
   
   
@@ -1597,7 +1597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/optional/" class="md-nav__link">
+      <a href="../../../java/lambda/optional/" class="md-nav__link">
         
   
   
@@ -1625,7 +1625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/orElseVSorElseGet/" class="md-nav__link">
+      <a href="../../../java/lambda/orElseVSorElseGet/" class="md-nav__link">
         
   
   
@@ -1653,7 +1653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/defaultMethod/" class="md-nav__link">
+      <a href="../../../java/lambda/defaultMethod/" class="md-nav__link">
         
   
   
@@ -1681,7 +1681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/%EB%B3%91%EB%A0%AC%EC%8A%A4%ED%8A%B8%EB%A6%BC/" class="md-nav__link">
+      <a href="../../../java/lambda/%EB%B3%91%EB%A0%AC%EC%8A%A4%ED%8A%B8%EB%A6%BC/" class="md-nav__link">
         
   
   
@@ -1709,7 +1709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/%ED%95%A8%EC%88%98%ED%98%95%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" class="md-nav__link">
+      <a href="../../../java/lambda/%ED%95%A8%EC%88%98%ED%98%95%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" class="md-nav__link">
         
   
   
@@ -1794,7 +1794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/thread/" class="md-nav__link">
+      <a href="../../../java/thread/thread/" class="md-nav__link">
         
   
   
@@ -1822,7 +1822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/" class="md-nav__link">
+      <a href="../../../java/thread/%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/" class="md-nav__link">
         
   
   
@@ -1850,7 +1850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/Thread1/" class="md-nav__link">
+      <a href="../../../java/thread/Thread1/" class="md-nav__link">
         
   
   
@@ -1878,7 +1878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/Thread2/" class="md-nav__link">
+      <a href="../../../java/thread/Thread2/" class="md-nav__link">
         
   
   
@@ -1906,7 +1906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/Thread3/" class="md-nav__link">
+      <a href="../../../java/thread/Thread3/" class="md-nav__link">
         
   
   
@@ -1934,7 +1934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/synchronized/" class="md-nav__link">
+      <a href="../../../java/thread/synchronized/" class="md-nav__link">
         
   
   
@@ -1962,7 +1962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/volatile/" class="md-nav__link">
+      <a href="../../../java/thread/volatile/" class="md-nav__link">
         
   
   
@@ -1990,7 +1990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/%EB%8F%99%EA%B8%B0%ED%99%94%EC%99%80%EC%9B%90%EC%9E%90%EC%A0%81%EC%97%B0%EC%82%B0/" class="md-nav__link">
+      <a href="../../../java/thread/%EB%8F%99%EA%B8%B0%ED%99%94%EC%99%80%EC%9B%90%EC%9E%90%EC%A0%81%EC%97%B0%EC%82%B0/" class="md-nav__link">
         
   
   
@@ -2018,7 +2018,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/Lock/" class="md-nav__link">
+      <a href="../../../java/thread/Lock/" class="md-nav__link">
         
   
   
@@ -2046,7 +2046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/%EB%8F%99%EC%8B%9C%EC%84%B1%EC%BB%AC%EB%A0%89%EC%85%98/" class="md-nav__link">
+      <a href="../../../java/thread/%EB%8F%99%EC%8B%9C%EC%84%B1%EC%BB%AC%EB%A0%89%EC%85%98/" class="md-nav__link">
         
   
   
@@ -2074,7 +2074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/%EC%83%9D%EC%82%B0%EC%9E%90%EC%86%8C%EB%B9%84%EC%9E%90%EB%AC%B8%EC%A0%9C/" class="md-nav__link">
+      <a href="../../../java/thread/%EC%83%9D%EC%82%B0%EC%9E%90%EC%86%8C%EB%B9%84%EC%9E%90%EB%AC%B8%EC%A0%9C/" class="md-nav__link">
         
   
   
@@ -2102,7 +2102,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/ThreadPool_Executor_Overview1/" class="md-nav__link">
+      <a href="../../../java/thread/ThreadPool_Executor_Overview1/" class="md-nav__link">
         
   
   
@@ -2130,7 +2130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/ThreadPool_Executor_Overview2/" class="md-nav__link">
+      <a href="../../../java/thread/ThreadPool_Executor_Overview2/" class="md-nav__link">
         
   
   
@@ -2215,7 +2215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/io-network/IO/" class="md-nav__link">
+      <a href="../../../java/io-network/IO/" class="md-nav__link">
         
   
   
@@ -2243,7 +2243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/io-network/network/" class="md-nav__link">
+      <a href="../../../java/io-network/network/" class="md-nav__link">
         
   
   
@@ -2271,7 +2271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/io-network/Charset_Encoding/" class="md-nav__link">
+      <a href="../../../java/io-network/Charset_Encoding/" class="md-nav__link">
         
   
   
@@ -2299,7 +2299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/io-network/annotation/" class="md-nav__link">
+      <a href="../../../java/io-network/annotation/" class="md-nav__link">
         
   
   
@@ -2327,7 +2327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/io-network/reflection/" class="md-nav__link">
+      <a href="../../../java/io-network/reflection/" class="md-nav__link">
         
   
   
@@ -2422,7 +2422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../html/html/" class="md-nav__link">
+      <a href="../../../html/html/" class="md-nav__link">
         
   
   
@@ -2450,7 +2450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../html/Session/" class="md-nav__link">
+      <a href="../../../html/Session/" class="md-nav__link">
         
   
   
@@ -2537,7 +2537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/spring/" class="md-nav__link">
+      <a href="../../../spring/spring/" class="md-nav__link">
         
   
   
@@ -2614,7 +2614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/solid/" class="md-nav__link">
+      <a href="../../../spring/solid/" class="md-nav__link">
         
   
   
@@ -2642,7 +2642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/IoC-DI/" class="md-nav__link">
+      <a href="../../../spring/IoC-DI/" class="md-nav__link">
         
   
   
@@ -2670,7 +2670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/%EC%8A%A4%ED%94%84%EB%A7%81%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88/" class="md-nav__link">
+      <a href="../../../spring/%EC%8A%A4%ED%94%84%EB%A7%81%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88/" class="md-nav__link">
         
   
   
@@ -2698,7 +2698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/%EC%8B%B1%EA%B8%80%ED%86%A4/" class="md-nav__link">
+      <a href="../../../spring/%EC%8B%B1%EA%B8%80%ED%86%A4/" class="md-nav__link">
         
   
   
@@ -2726,7 +2726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%8A%A4%EC%BA%94/" class="md-nav__link">
+      <a href="../../../spring/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%8A%A4%EC%BA%94/" class="md-nav__link">
         
   
   
@@ -2754,7 +2754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84%EC%A3%BC%EC%9E%85/" class="md-nav__link">
+      <a href="../../../spring/%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84%EC%A3%BC%EC%9E%85/" class="md-nav__link">
         
   
   
@@ -2782,7 +2782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/%EB%B9%88%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0/" class="md-nav__link">
+      <a href="../../../spring/%EB%B9%88%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0/" class="md-nav__link">
         
   
   
@@ -2810,7 +2810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/%EB%B9%88%EC%8A%A4%EC%BD%94%ED%94%84/" class="md-nav__link">
+      <a href="../../../spring/%EB%B9%88%EC%8A%A4%EC%BD%94%ED%94%84/" class="md-nav__link">
         
   
   
@@ -2895,7 +2895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/springboot/" class="md-nav__link">
+      <a href="../../../spring/springboot/" class="md-nav__link">
         
   
   
@@ -2923,7 +2923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/mvc/" class="md-nav__link">
+      <a href="../../../spring/mvc/" class="md-nav__link">
         
   
   
@@ -2951,7 +2951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/restapi/" class="md-nav__link">
+      <a href="../../../spring/restapi/" class="md-nav__link">
         
   
   
@@ -2979,7 +2979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/validation/" class="md-nav__link">
+      <a href="../../../spring/validation/" class="md-nav__link">
         
   
   
@@ -3007,7 +3007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/exception/" class="md-nav__link">
+      <a href="../../../spring/exception/" class="md-nav__link">
         
   
   
@@ -3035,7 +3035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/swagger/" class="md-nav__link">
+      <a href="../../../spring/swagger/" class="md-nav__link">
         
   
   
@@ -3120,7 +3120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/aop/" class="md-nav__link">
+      <a href="../../../spring/aop/" class="md-nav__link">
         
   
   
@@ -3148,7 +3148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/transaction/" class="md-nav__link">
+      <a href="../../../spring/transaction/" class="md-nav__link">
         
   
   
@@ -3176,7 +3176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/logging/" class="md-nav__link">
+      <a href="../../../spring/logging/" class="md-nav__link">
         
   
   
@@ -3261,7 +3261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/JDBC/" class="md-nav__link">
+      <a href="../../../spring/JDBC/" class="md-nav__link">
         
   
   
@@ -3289,7 +3289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/%EC%BB%A4%EB%84%A5%EC%85%98%ED%92%80-DataSource/" class="md-nav__link">
+      <a href="../../../spring/%EC%BB%A4%EB%84%A5%EC%85%98%ED%92%80-DataSource/" class="md-nav__link">
         
   
   
@@ -3317,7 +3317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/db%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
+      <a href="../../../spring/db%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
         
   
   
@@ -3345,7 +3345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/jpa/" class="md-nav__link">
+      <a href="../../../spring/jpa/" class="md-nav__link">
         
   
   
@@ -3373,7 +3373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/querydsl/" class="md-nav__link">
+      <a href="../../../spring/querydsl/" class="md-nav__link">
         
   
   
@@ -3401,7 +3401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/jpa-performance/" class="md-nav__link">
+      <a href="../../../spring/jpa-performance/" class="md-nav__link">
         
   
   
@@ -3486,7 +3486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/redis/" class="md-nav__link">
+      <a href="../../../spring/redis/" class="md-nav__link">
         
   
   
@@ -3514,7 +3514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/security/" class="md-nav__link">
+      <a href="../../../spring/security/" class="md-nav__link">
         
   
   
@@ -3542,7 +3542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/concurrency/" class="md-nav__link">
+      <a href="../../../spring/concurrency/" class="md-nav__link">
         
   
   
@@ -3570,7 +3570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/kafka/" class="md-nav__link">
+      <a href="../../../spring/kafka/" class="md-nav__link">
         
   
   
@@ -3598,7 +3598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/outbox/" class="md-nav__link">
+      <a href="../../../spring/outbox/" class="md-nav__link">
         
   
   
@@ -3683,7 +3683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/testing/" class="md-nav__link">
+      <a href="../../../spring/testing/" class="md-nav__link">
         
   
   
@@ -3711,7 +3711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/monitoring/" class="md-nav__link">
+      <a href="../../../spring/monitoring/" class="md-nav__link">
         
   
   
@@ -3739,7 +3739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/architecture/" class="md-nav__link">
+      <a href="../../../spring/architecture/" class="md-nav__link">
         
   
   
@@ -3767,7 +3767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/msa/" class="md-nav__link">
+      <a href="../../../spring/msa/" class="md-nav__link">
         
   
   
@@ -3807,8 +3807,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -3819,11 +3821,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
@@ -3844,7 +3846,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3862,7 +3864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/db/" class="md-nav__link">
+      <a href="../../db/" class="md-nav__link">
         
   
   
@@ -3887,6 +3889,8 @@
                 
   
   
+    
+  
   
   
     
@@ -3896,11 +3900,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
         
           
           <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
@@ -3921,7 +3925,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3936,10 +3940,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../db/%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    데이터베이스
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -3955,6 +3984,118 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        데이터베이스 (Database)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="데이터베이스 (Database)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        왜 쓰는지
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        어떻게 쓰는지
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        언제 쓰는지
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        특징
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3967,7 +4108,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EA%B8%B0%EC%B4%88/ACID/" class="md-nav__link">
+      <a href="../ACID/" class="md-nav__link">
         
   
   
@@ -3995,7 +4136,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EA%B8%B0%EC%B4%88/SQL/" class="md-nav__link">
+      <a href="../SQL/" class="md-nav__link">
         
   
   
@@ -4023,7 +4164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%83%80%EC%9E%85/" class="md-nav__link">
+      <a href="../%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%83%80%EC%9E%85/" class="md-nav__link">
         
   
   
@@ -4051,7 +4192,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EA%B8%B0%EC%B4%88/%EC%A0%9C%EC%95%BD%EC%A1%B0%EA%B1%B4/" class="md-nav__link">
+      <a href="../%EC%A0%9C%EC%95%BD%EC%A1%B0%EA%B1%B4/" class="md-nav__link">
         
   
   
@@ -4079,7 +4220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EA%B8%B0%EC%B4%88/%EC%A0%95%EA%B7%9C%ED%99%94/" class="md-nav__link">
+      <a href="../%EC%A0%95%EA%B7%9C%ED%99%94/" class="md-nav__link">
         
   
   
@@ -4164,7 +4305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%BF%BC%EB%A6%AC/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%80%EA%B3%B5/" class="md-nav__link">
+      <a href="../../%EC%BF%BC%EB%A6%AC/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%80%EA%B3%B5/" class="md-nav__link">
         
   
   
@@ -4192,7 +4333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%BF%BC%EB%A6%AC/%EC%A7%91%EA%B3%84/" class="md-nav__link">
+      <a href="../../%EC%BF%BC%EB%A6%AC/%EC%A7%91%EA%B3%84/" class="md-nav__link">
         
   
   
@@ -4220,7 +4361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%BF%BC%EB%A6%AC/JOIN/" class="md-nav__link">
+      <a href="../../%EC%BF%BC%EB%A6%AC/JOIN/" class="md-nav__link">
         
   
   
@@ -4248,7 +4389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%BF%BC%EB%A6%AC/%EC%84%9C%EB%B8%8C%EC%BF%BC%EB%A6%AC/" class="md-nav__link">
+      <a href="../../%EC%BF%BC%EB%A6%AC/%EC%84%9C%EB%B8%8C%EC%BF%BC%EB%A6%AC/" class="md-nav__link">
         
   
   
@@ -4276,7 +4417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%BF%BC%EB%A6%AC/UNION/" class="md-nav__link">
+      <a href="../../%EC%BF%BC%EB%A6%AC/UNION/" class="md-nav__link">
         
   
   
@@ -4304,7 +4445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%BF%BC%EB%A6%AC/CASE/" class="md-nav__link">
+      <a href="../../%EC%BF%BC%EB%A6%AC/CASE/" class="md-nav__link">
         
   
   
@@ -4389,7 +4530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/" class="md-nav__link">
+      <a href="../../%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -4417,7 +4558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/" class="md-nav__link">
+      <a href="../../%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/" class="md-nav__link">
         
   
   
@@ -4445,7 +4586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EA%B2%A9%EB%A6%AC%EC%88%98%EC%A4%80/" class="md-nav__link">
+      <a href="../../%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EA%B2%A9%EB%A6%AC%EC%88%98%EC%A4%80/" class="md-nav__link">
         
   
   
@@ -4540,7 +4681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../jvm/jvm/" class="md-nav__link">
+      <a href="../../../jvm/jvm/" class="md-nav__link">
         
   
   
@@ -4568,7 +4709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../jvm/JVM%EA%B0%9C%EC%9A%94/" class="md-nav__link">
+      <a href="../../../jvm/JVM%EA%B0%9C%EC%9A%94/" class="md-nav__link">
         
   
   
@@ -4600,8 +4741,6 @@
       
   
   
-    
-  
   
   
     
@@ -4614,11 +4753,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
           <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
@@ -4639,7 +4778,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
@@ -4657,7 +4796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cs/" class="md-nav__link">
+      <a href="../../../cs/cs/" class="md-nav__link">
         
   
   
@@ -4682,37 +4821,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    동기 VS 비동기
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../cs/%EB%8F%99%EA%B8%B0VS%EB%B9%84%EB%8F%99%EA%B8%B0/" class="md-nav__link">
         
   
   
@@ -4728,81 +4840,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="목차">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      목차
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        코드 예시
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4가지 조합
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        장점 / 단점
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        언제 쓰는지
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        주의할 점
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4874,7 +4911,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../troubleshooting/smtp/" class="md-nav__link">
+      <a href="../../../troubleshooting/smtp/" class="md-nav__link">
         
   
   
@@ -4919,8 +4956,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -4929,39 +4964,40 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        데이터베이스 (Database)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="데이터베이스 (Database)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        코드 예시
+        왜 쓰는지
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4가지 조합
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        장점 / 단점
+        어떻게 쓰는지
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4971,15 +5007,53 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        특징
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         주의할 점
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -5003,113 +5077,235 @@
   
 
 
-<h1 id="vs">동기 VS 비동기</h1>
+  <h1>데이터베이스</h1>
+
+<h2 id="database">데이터베이스 (Database)</h2>
+<h3 id="_1">왜 쓰는지</h3>
+<p>파일 시스템(텍스트 파일, 엑셀 등)에 데이터를 저장하면 생기는 문제를 DB가 해결한다.</p>
+<table>
+<thead>
+<tr>
+<th>문제</th>
+<th>DB가 해결하는 방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>보안</strong></td>
+<td>접근 권한(Role) 관리, 인증 없이는 데이터 접근 불가</td>
+</tr>
+<tr>
+<td><strong>동시성</strong></td>
+<td>여러 사용자가 동시에 읽고 쓸 때 충돌 방지 (Lock, <abbr title="Multi-Version Concurrency Control. 데이터의 여러 버전을 유지해 Lock 없이 읽기 일관성을 보장하는 동시성 제어 방식.">MVCC</abbr>)</td>
+</tr>
+<tr>
+<td><strong>데이터 회복 &amp; 백업</strong></td>
+<td>장애 발생 시 트랜잭션 로그로 복구 가능</td>
+</tr>
+<tr>
+<td><strong><abbr title="Atomicity(원자성)·Consistency(일관성)·Isolation(격리성)·Durability(지속성). 트랜잭션이 안전하게 수행되기 위한 4가지 성질.">ACID</abbr> 보장</strong></td>
+<td>데이터 일관성과 무결성을 트랜잭션 수준에서 보장</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_2">어떻게 쓰는지</h3>
 <div class="concept-box">
-<ul>
-<li><strong>동기(Synchronous)</strong>: 요청한 쪽이 결과를 직접 받아야 다음 흐름으로 진행한다.</li>
-<li><strong>비동기(Asynchronous)</strong>: 요청만 하고, 작업 완료 통지는 콜백/이벤트 등으로 전달된다.</li>
-<li><strong>블로킹(Blocking)</strong>: 작업이 끝날 때까지 현재 스레드가 멈춰 있다.</li>
-<li><strong>논블로킹(Non-Blocking)</strong>: 작업이 끝나지 않았더라도 즉시 제어권을 돌려받는다.</li>
-</ul>
+<p><strong><abbr title="DataBase Management System. 데이터베이스를 관리하는 소프트웨어. MySQL, PostgreSQL, Oracle 등.">DBMS</abbr>(DataBase Management System)</strong>: 데이터베이스를 관리하는 소프트웨어. 사용자가 SQL로 요청하면 DBMS가 실제 데이터를 읽고 쓴다.</p>
+<p>대표적인 <abbr title="DataBase Management System. 데이터베이스를 관리하는 소프트웨어. MySQL, PostgreSQL, Oracle 등.">DBMS</abbr>: MySQL, PostgreSQL, Oracle, MariaDB, SQLite</p>
 </div>
-<p>동기/비동기는 <strong>결과를 누가 확인하는가</strong>, 블로킹/논블로킹은 <strong>제어권이 어디에 있는가</strong>의 문제다. 두 개념은 독립적이므로 4가지 조합이 가능하다.</p>
-<h2 id="_1">코드 예시</h2>
-<div class="compare-grid">
-<div class="before">
-<p><strong>동기 + 블로킹</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// 결과가 올 때까지 현재 스레드가 대기</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">String</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">httpClient</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;https://api.example.com/data&quot;</span><span class="p">);</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">result</span><span class="p">);</span><span class="w"> </span><span class="c1">// result가 와야 실행됨</span>
-</code></pre></div>
-</div>
-<div class="after">
-<p><strong>비동기 + 논블로킹</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// 요청만 하고 즉시 다음 라인 실행</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">CompletableFuture</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">future</span><span class="w"> </span><span class="o">=</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">httpClient</span><span class="p">.</span><span class="na">getAsync</span><span class="p">(</span><span class="s">&quot;https://api.example.com/data&quot;</span><span class="p">);</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">future</span><span class="p">.</span><span class="na">thenAccept</span><span class="p">(</span><span class="n">result</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">result</span><span class="p">));</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;요청 후 바로 실행됨&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 먼저 출력됨</span>
-</code></pre></div>
-</div>
-</div>
-<h2 id="4">4가지 조합</h2>
+<p>SQL 명령어는 역할에 따라 4가지로 분류된다.</p>
 <table>
 <thead>
 <tr>
-<th>상태</th>
+<th>분류</th>
+<th>이름</th>
+<th>역할</th>
+<th>주요 명령어</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><abbr title="Data Definition Language. 테이블·인덱스 등 DB 구조를 정의하는 SQL 분류. CREATE, ALTER, DROP.">DDL</abbr></strong></td>
+<td>Data Definition Language</td>
+<td>구조(스키마) 정의</td>
+<td><code>CREATE</code>, <code>ALTER</code>, <code>DROP</code>, <code>TRUNCATE</code></td>
+</tr>
+<tr>
+<td><strong><abbr title="Data Manipulation Language. 데이터를 조작하는 SQL 분류. SELECT, INSERT, UPDATE, DELETE.">DML</abbr></strong></td>
+<td>Data Manipulation Language</td>
+<td>데이터 조작</td>
+<td><code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code></td>
+</tr>
+<tr>
+<td><strong><abbr title="Data Control Language. 사용자 접근 권한을 제어하는 SQL 분류. GRANT, REVOKE.">DCL</abbr></strong></td>
+<td>Data Control Language</td>
+<td>권한 제어</td>
+<td><code>GRANT</code>, <code>REVOKE</code></td>
+</tr>
+<tr>
+<td><strong><abbr title="Transaction Control Language. 트랜잭션을 제어하는 SQL 분류. COMMIT, ROLLBACK, SAVEPOINT.">TCL</abbr></strong></td>
+<td>Transaction Control Language</td>
+<td>트랜잭션 제어</td>
+<td><code>COMMIT</code>, <code>ROLLBACK</code>, <code>SAVEPOINT</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_3">언제 쓰는지</h3>
+<table>
+<thead>
+<tr>
 <th>상황</th>
-<th>특징</th>
+<th>RDBMS</th>
+<th>NoSQL</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>동기 + 블로킹</td>
-<td>카운터 앞에서 주문 후 음식 나올 때까지 그 자리에서 대기</td>
-<td>결과를 직접 기다림, 대기 중 아무것도 못 함</td>
+<td><strong>구조화된 데이터</strong></td>
+<td>RDBMS</td>
+<td>-</td>
 </tr>
 <tr>
-<td>동기 + 논블로킹</td>
-<td>주문 후 창구를 반복해서 힐끔힐끔 확인</td>
-<td>결과는 내가 직접 확인, 대기 중 움직일 수는 있음</td>
+<td><strong>관계형 조인</strong></td>
+<td>RDBMS</td>
+<td>-</td>
 </tr>
 <tr>
-<td>비동기 + 블로킹</td>
-<td>진동벨을 받았지만 테이블에서 아무것도 안 하고 대기</td>
-<td>결과는 알림으로 받음, 스스로 행동은 멈춤</td>
+<td><strong><abbr title="Atomicity(원자성)·Consistency(일관성)·Isolation(격리성)·Durability(지속성). 트랜잭션이 안전하게 수행되기 위한 4가지 성질.">ACID</abbr> 보장 필요</strong></td>
+<td>RDBMS</td>
+<td>-</td>
 </tr>
 <tr>
-<td>비동기 + 논블로킹</td>
-<td>진동벨 받고 자리에서 다른 일 하다가 벨 울리면 수령</td>
-<td>결과는 알림, 대기 중 자유</td>
+<td><strong>트랜잭션</strong></td>
+<td>RDBMS</td>
+<td>제한적</td>
+</tr>
+<tr>
+<td><strong>스키마 변경 빈번</strong></td>
+<td>-</td>
+<td>NoSQL</td>
+</tr>
+<tr>
+<td><strong>대규모 비정형 데이터</strong></td>
+<td>-</td>
+<td>NoSQL</td>
+</tr>
+<tr>
+<td><strong>높은 쓰기 성능</strong></td>
+<td>-</td>
+<td>NoSQL</td>
+</tr>
+<tr>
+<td><strong>복잡한 쿼리</strong></td>
+<td>RDBMS</td>
+<td>-</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_2">장점 / 단점</h2>
+<h3 id="_4">장점</h3>
 <table>
 <thead>
 <tr>
-<th>구분</th>
 <th>장점</th>
-<th>단점</th>
+<th>설명</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>동기</td>
-<td>흐름이 직관적, 디버깅 쉬움, 에러 처리 간단</td>
-<td>I/O 대기 중 스레드 낭비</td>
+<td><strong>데이터 무결성</strong></td>
+<td>제약 조건과 트랜잭션으로 일관성 보장</td>
 </tr>
 <tr>
-<td>비동기</td>
-<td>I/O 대기 중 다른 작업 처리 가능, 처리량 향상</td>
-<td>코드 복잡도 증가, 에러 처리 어려움</td>
+<td><strong><abbr title="Atomicity(원자성)·Consistency(일관성)·Isolation(격리성)·Durability(지속성). 트랜잭션이 안전하게 수행되기 위한 4가지 성질.">ACID</abbr> 보장</strong></td>
+<td>Atomicity, Consistency, Isolation, Durability</td>
+</tr>
+<tr>
+<td><strong>복잡한 쿼리</strong></td>
+<td>JOIN, 서브쿼리로 강력한 데이터 검색</td>
+</tr>
+<tr>
+<td><strong>표준 언어</strong></td>
+<td>SQL은 <abbr title="DataBase Management System. 데이터베이스를 관리하는 소프트웨어. MySQL, PostgreSQL, Oracle 등.">DBMS</abbr> 간 호환 가능</td>
+</tr>
+<tr>
+<td><strong>정규화</strong></td>
+<td>데이터 중복 제거로 저장 효율성</td>
+</tr>
+<tr>
+<td><strong>보안</strong></td>
+<td>권한 관리(<abbr title="Data Control Language. 사용자 접근 권한을 제어하는 SQL 분류. GRANT, REVOKE.">DCL</abbr>)로 접근 제어</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_3">언제 쓰는지</h2>
+<h3 id="_5">단점</h3>
 <table>
 <thead>
 <tr>
-<th>방식</th>
-<th>적합한 상황</th>
+<th>단점</th>
+<th>설명</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>동기</td>
-<td>순서가 중요한 비즈니스 로직, 트랜잭션 처리, 응답을 즉시 사용해야 하는 경우</td>
+<td><strong>스키마 고정</strong></td>
+<td>구조 변경 시 마이그레이션 비용</td>
 </tr>
 <tr>
-<td>비동기</td>
-<td>이메일 발송, 파일 업로드, 외부 <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 호출 등 응답 대기가 긴 작업</td>
+<td><strong>수평 확장 어려움</strong></td>
+<td>샤딩 없이는 단일 서버 확장성 제한</td>
+</tr>
+<tr>
+<td><strong>높은 쓰기 비용</strong></td>
+<td>트랜잭션, 정규화로 인한 오버헤드</td>
+</tr>
+<tr>
+<td><strong>유연성 부족</strong></td>
+<td>형식이 정해진 데이터만 저장 가능</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_4">주의할 점</h2>
+<h3 id="_6">특징</h3>
+<table>
+<thead>
+<tr>
+<th>용어</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>데이터(Data)</strong></td>
+<td>개별적인 사실 (예: 27, "김철수", true)</td>
+</tr>
+<tr>
+<td><strong>정보(Information)</strong></td>
+<td>가공·처리된 데이터 — 의미가 부여된 것 (예: "나이 27살인 회원 김철수")</td>
+</tr>
+<tr>
+<td><strong>스키마(Schema)</strong></td>
+<td>테이블의 구조 정의 — 컬럼명, 타입, 제약 조건</td>
+</tr>
+<tr>
+<td><strong>인스턴스(Instance)</strong></td>
+<td>실제 저장된 데이터 행들</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_7">주의할 점</h3>
+<div class="danger-box">
+<p><strong>❌ 과도한 정규화</strong></p>
+<p>JOIN이 많아지면 오히려 성능 악화 가능. 필요하면 역정규화(Denormalization) 고려.</p>
+</div>
+<div class="warning-box">
+<p><strong>⚠️ <abbr title="Data Definition Language. 테이블·인덱스 등 DB 구조를 정의하는 SQL 분류. CREATE, ALTER, DROP.">DDL</abbr> 자동 커밋</strong></p>
+<p><code>DROP</code>, <code>TRUNCATE</code>, <code>ALTER</code>는 자동 COMMIT됨. ROLLBACK 불가능 (MySQL 기준). 실행 전 반드시 백업 후 신중하게 처리.</p>
+</div>
+<hr />
+<p><strong>관련 파일:</strong></p>
 <ul>
-<li>비동기 코드는 예외 처리를 별도로 해야 한다. <code>CompletableFuture</code>는 예외가 콜백 체인을 타고 흘러 놓치기 쉽다.</li>
-<li>비동기 논블로킹이 항상 빠른 것은 아니다. 단순 계산 작업은 오히려 동기가 더 빠를 수 있다.</li>
-<li>Spring에서 <code>@Async</code>를 사용할 때 <span class="text-orange">같은 클래스 내부 호출은 프록시를 통하지 않아</span> 비동기로 동작하지 않는다.</li>
+<li><a href="../ACID/"><abbr title="Atomicity(원자성)·Consistency(일관성)·Isolation(격리성)·Durability(지속성). 트랜잭션이 안전하게 수행되기 위한 4가지 성질.">ACID</abbr></a> — 트랜잭션 4대 성질</li>
+<li><a href="../SQL/">SQL</a> — SQL 명령어 구조와 실행 순서</li>
+<li><a href="../../%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/">트랜잭션</a> — BEGIN/COMMIT/ROLLBACK</li>
 </ul>
 <!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
 
@@ -5139,7 +5335,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 11일 14:01:17 UTC">2026년 4월 11일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 17일 12:32:22 UTC">2026년 4월 17일</span>
   </span>
 
     
@@ -5149,7 +5345,7 @@
     <span class="md-icon" title="작성일">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 1월 2일 11:05:20 UTC">2026년 1월 2일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 17일 12:32:22 UTC">2026년 4월 17일</span>
   </span>
 
     
@@ -5204,10 +5400,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.instant", "search.highlight", "search.suggest", "content.code.copy", "content.tooltips", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections", "navigation.top", "navigation.instant", "search.highlight", "search.suggest", "content.code.copy", "content.tooltips", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
       

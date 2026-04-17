@@ -14,7 +14,7 @@
         <link rel="prev" href="../../spring/msa/">
       
       
-        <link rel="next" href="../%EA%B8%B0%EC%B4%88/ACID/">
+        <link rel="next" href="../%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/">
       
       
         
@@ -3927,39 +3927,6 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        데이터베이스란?
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        데이터베이스를 쓰는 이유
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dbms-database-management-system" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DBMS (DataBase Management System)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
         학습 목록
       
     </span>
@@ -4024,6 +3991,34 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    데이터베이스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -4893,39 +4888,6 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        데이터베이스란?
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        데이터베이스를 쓰는 이유
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dbms-database-management-system" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DBMS (DataBase Management System)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
         학습 목록
       
     </span>
@@ -4956,101 +4918,7 @@
 <h1 id="db-database">DB (Database)</h1>
 <p>데이터베이스 핵심 개념 정리.</p>
 <hr />
-<h2 id="_1">데이터베이스란?</h2>
-<div class="concept-box">
-<p><strong>데이터베이스(Database)</strong>: 데이터의 집합소. 여러 사람이 공유하고 사용할 목적으로 체계적으로 저장·관리하는 데이터 모음.</p>
-</div>
-<table>
-<thead>
-<tr>
-<th>용어</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>데이터(Data)</strong></td>
-<td>개별적인 사실 (예: 27, "김철수", true)</td>
-</tr>
-<tr>
-<td><strong>정보(Information)</strong></td>
-<td>가공·처리된 데이터 — 의미가 부여된 것 (예: "나이 27살인 회원 김철수")</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="_2">데이터베이스를 쓰는 이유</h2>
-<p>파일 시스템(텍스트 파일, 엑셀 등)에 데이터를 저장하면 생기는 문제를 DB가 해결한다.</p>
-<table>
-<thead>
-<tr>
-<th>문제</th>
-<th>DB가 해결하는 방법</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>보안</strong></td>
-<td>접근 권한(Role) 관리, 인증 없이는 데이터 접근 불가</td>
-</tr>
-<tr>
-<td><strong>동시성</strong></td>
-<td>여러 사용자가 동시에 읽고 쓸 때 충돌 방지 (Lock, <abbr title="Multi-Version Concurrency Control. 데이터의 여러 버전을 유지해 Lock 없이 읽기 일관성을 보장하는 동시성 제어 방식.">MVCC</abbr>)</td>
-</tr>
-<tr>
-<td><strong>데이터 회복 &amp; 백업</strong></td>
-<td>장애 발생 시 트랜잭션 로그로 복구 가능</td>
-</tr>
-<tr>
-<td><strong><abbr title="Atomicity(원자성)·Consistency(일관성)·Isolation(격리성)·Durability(지속성). 트랜잭션이 안전하게 수행되기 위한 4가지 성질.">ACID</abbr> 보장</strong></td>
-<td>데이터 일관성과 무결성을 트랜잭션 수준에서 보장</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="dbms-database-management-system"><abbr title="DataBase Management System. 데이터베이스를 관리하는 소프트웨어. MySQL, PostgreSQL, Oracle 등.">DBMS</abbr> (DataBase Management System)</h2>
-<div class="concept-box">
-<p><strong><abbr title="DataBase Management System. 데이터베이스를 관리하는 소프트웨어. MySQL, PostgreSQL, Oracle 등.">DBMS</abbr></strong>: 데이터베이스를 관리하는 소프트웨어. 사용자가 SQL로 요청하면 DBMS가 실제 데이터를 읽고 쓴다.</p>
-<p>대표적인 <abbr title="DataBase Management System. 데이터베이스를 관리하는 소프트웨어. MySQL, PostgreSQL, Oracle 등.">DBMS</abbr>: MySQL, PostgreSQL, Oracle, MariaDB, SQLite</p>
-</div>
-<table>
-<thead>
-<tr>
-<th>분류</th>
-<th>이름</th>
-<th>역할</th>
-<th>주요 명령어</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong><abbr title="Data Definition Language. 테이블·인덱스 등 DB 구조를 정의하는 SQL 분류. CREATE, ALTER, DROP.">DDL</abbr></strong></td>
-<td>Data Definition Language</td>
-<td>구조(스키마) 정의</td>
-<td><code>CREATE</code>, <code>ALTER</code>, <code>DROP</code>, <code>TRUNCATE</code></td>
-</tr>
-<tr>
-<td><strong><abbr title="Data Manipulation Language. 데이터를 조작하는 SQL 분류. SELECT, INSERT, UPDATE, DELETE.">DML</abbr></strong></td>
-<td>Data Manipulation Language</td>
-<td>데이터 조작</td>
-<td><code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code></td>
-</tr>
-<tr>
-<td><strong><abbr title="Data Control Language. 사용자 접근 권한을 제어하는 SQL 분류. GRANT, REVOKE.">DCL</abbr></strong></td>
-<td>Data Control Language</td>
-<td>권한 제어</td>
-<td><code>GRANT</code>, <code>REVOKE</code></td>
-</tr>
-<tr>
-<td><strong><abbr title="Transaction Control Language. 트랜잭션을 제어하는 SQL 분류. COMMIT, ROLLBACK, SAVEPOINT.">TCL</abbr></strong></td>
-<td>Transaction Control Language</td>
-<td>트랜잭션 제어</td>
-<td><code>COMMIT</code>, <code>ROLLBACK</code>, <code>SAVEPOINT</code></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="_3">학습 목록</h2>
+<h2 id="_1">학습 목록</h2>
 <table>
 <thead>
 <tr>
@@ -5059,6 +4927,10 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/">데이터베이스</a></td>
+<td>데이터베이스 개념, <abbr title="DataBase Management System. 데이터베이스를 관리하는 소프트웨어. MySQL, PostgreSQL, Oracle 등.">DBMS</abbr>, <abbr title="Data Definition Language. 테이블·인덱스 등 DB 구조를 정의하는 SQL 분류. CREATE, ALTER, DROP.">DDL</abbr>/<abbr title="Data Manipulation Language. 데이터를 조작하는 SQL 분류. SELECT, INSERT, UPDATE, DELETE.">DML</abbr>/<abbr title="Data Control Language. 사용자 접근 권한을 제어하는 SQL 분류. GRANT, REVOKE.">DCL</abbr>/<abbr title="Transaction Control Language. 트랜잭션을 제어하는 SQL 분류. COMMIT, ROLLBACK, SAVEPOINT.">TCL</abbr> 분류</td>
+</tr>
 <tr>
 <td><a href="../%EA%B8%B0%EC%B4%88/ACID/"><abbr title="Atomicity(원자성)·Consistency(일관성)·Isolation(격리성)·Durability(지속성). 트랜잭션이 안전하게 수행되기 위한 4가지 성질.">ACID</abbr></a></td>
 <td>트랜잭션 4대 성질 — Atomicity, Consistency, Isolation, Durability</td>
@@ -5145,7 +5017,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 17일 12:26:59 UTC">2026년 4월 17일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 17일 12:32:22 UTC">2026년 4월 17일</span>
   </span>
 
     
