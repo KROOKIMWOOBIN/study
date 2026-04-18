@@ -199,6 +199,7 @@ nav:
       - 서브쿼리: db/쿼리/서브쿼리.md
       - UNION: db/쿼리/UNION.md
       - CASE: db/쿼리/CASE.md
+      - VIEW: db/쿼리/VIEW.md
     - 성능 & 운영:
       - 인덱스: db/성능운영/인덱스.md
       - 트랜잭션: db/성능운영/트랜잭션.md

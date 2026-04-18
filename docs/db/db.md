@@ -19,6 +19,7 @@
 | [서브쿼리](./쿼리/서브쿼리.md) | 스칼라·인라인 뷰·상관 서브쿼리, IN vs EXISTS |
 | [UNION](./쿼리/UNION.md) | 여러 SELECT 결과 합치기, UNION vs UNION ALL, 중복 제거 |
 | [CASE](./쿼리/CASE.md) | 조건부 데이터 변환, Searched/Simple CASE, 집계 조합 |
+| [VIEW](./쿼리/VIEW.md) | 가상 테이블 — 쿼리 재사용, 보안, ALGORITHM 옵션 |
 | [인덱스](./성능운영/인덱스.md) | B-Tree 구조, 클러스터/논클러스터, 성능 트레이드오프 |
 | [정규화](./기초/정규화.md) | 1NF·2NF·3NF·BCNF, 이상(Anomaly), 역정규화 트레이드오프 |
 | [트랜잭션](./성능운영/트랜잭션.md) | BEGIN/COMMIT/ROLLBACK, 전파(Propagation), 동기화 매니저 |
