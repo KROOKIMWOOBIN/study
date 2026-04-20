@@ -52,9 +52,7 @@ Connection (연결)
 
 ---
 
-## 장점 / 단점 / 특이점
-
-### 장점
+## 장점
 
 | 장점 | 설명 |
 |---|---|
@@ -63,7 +61,7 @@ Connection (연결)
 | 검증된 안정성 | 수십 년간 사용된 검증된 기술 |
 | 저수준 제어 | SQL을 직접 다루므로 세밀한 최적화 가능 |
 
-### 단점
+## 단점
 
 | 단점 | 설명 |
 |---|---|
@@ -73,7 +71,7 @@ Connection (연결)
 | 예외 처리 복잡 | `SQLException`이 체크 예외라서 throws 처리 필수 |
 | 자원 누수 위험 | Connection, Statement, ResultSet을 모두 직접 닫아야 함 |
 
-### 특이점
+## 특징
 
 - JDBC는 기술 그 자체보다는 **JPA, MyBatis, Spring JdbcTemplate의 기반 기술**로 동작
 - 최신 기술들도 내부적으로는 JDBC를 사용함 (추상화 계층이 다를 뿐)
@@ -303,7 +301,7 @@ pstmt.setString(1, memberId); // 값을 파라미터로 바인딩
 
 ---
 
-## 어떨 때 많이 쓰는가
+## 언제 쓰는지
 
 | 상황 | 이유 |
 |---|---|
@@ -315,3 +313,61 @@ pstmt.setString(1, memberId); // 값을 파라미터로 바인딩
 
 > 실무에서는 순수 JDBC보다는 **Spring JdbcTemplate** 또는 **JPA + Spring Data JPA**를 주로 사용한다.
 > 그러나 JDBC의 동작 원리를 알아야 커넥션 풀, 트랜잭션 등 상위 기술을 제대로 이해할 수 있다.
+
+---
+
+## 주의할 점
+
+<div class="danger-box" markdown="1">
+
+**Statement 대신 PreparedStatement 항상 사용**
+
+```java
+// ❌ SQL Injection 취약
+String sql = "SELECT * FROM member WHERE member_id = '" + memberId + "'";
+
+// ✅ PreparedStatement로 파라미터 바인딩
+String sql = "SELECT * FROM member WHERE member_id = ?";
+pstmt.setString(1, memberId);
+```
+
+</div>
+
+<div class="warning-box" markdown="1">
+
+**자원 정리 필수 — 역순으로 close**
+
+`ResultSet → Statement → Connection` 순서로 닫아야 한다. 빠뜨리면 커넥션이 반납되지 않아 풀 고갈 발생.
+
+```java
+// ✅ try-with-resources 사용 권장 (자동으로 역순 close)
+try (Connection con = getConnection();
+     PreparedStatement pstmt = con.prepareStatement(sql);
+     ResultSet rs = pstmt.executeQuery()) {
+    // 작업
+}
+```
+
+</div>
+
+## 베스트 프랙티스
+
+<div class="success-box" markdown="1">
+
+- **PreparedStatement 항상 사용** — SQL Injection 방지 + DB 실행 계획 재사용
+- **try-with-resources 사용** — 자원 해제 코드를 명시적으로 작성하지 않아도 됨
+- **DataSource 인터페이스에 의존** — 구현체(HikariCP, DriverManager)를 나중에 교체 가능
+- **순수 JDBC보다 Spring JdbcTemplate 사용** — 반복 코드 제거, 예외 처리 자동화
+
+</div>
+
+## 실무에서는?
+
+| 실무 기술 | 설명 | 선택 기준 |
+|---------|------|---------|
+| **Spring JdbcTemplate** | 순수 JDBC 반복 코드 제거, SQL 직접 작성 | 레거시 프로젝트, 단순 쿼리 |
+| **MyBatis** | SQL을 XML·어노테이션으로 관리 | 동적 SQL이 많고 복잡한 쿼리 |
+| **JPA + Spring Data JPA** | 객체 중심 개발, CRUD 자동화 | 신규 프로젝트, 표준 CRUD |
+| **순수 JDBC** | 가장 저수준, 세밀한 제어 | 레거시 유지보수, 기반 기술 이해 |
+
+> JDBC는 JPA·MyBatis·JdbcTemplate 모두의 기반이다. 내부 동작을 이해해야 커넥션 풀, 트랜잭션, 예외 처리를 제대로 파악할 수 있다.

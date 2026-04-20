@@ -368,3 +368,47 @@ public void goodExample() throws SQLException {
     }
 }
 ```
+
+---
+
+## 언제 쓰는지
+
+- **실무에서는 항상**: 모든 프로덕션 환경은 커넥션 풀을 사용한다. 매 요청마다 새 커넥션을 생성하면 응답 속도 저하와 DB 부하가 발생한다.
+- **`DriverManagerDataSource`는 테스트/학습용**: 커넥션 풀 없이 JDBC 기본 동작을 확인할 때만 사용
+
+## 특징
+
+- **Spring Boot 기본 커넥션 풀**: Spring Boot 2.x 이상에서 HikariCP가 기본 내장 — 별도 의존성 불필요
+- **DataSource 추상화**: `javax.sql.DataSource` 인터페이스 덕분에 HikariCP → DBCP2 등 구현체 교체 시 코드 변경 없음
+- **풀 크기 = 동시 처리량**: 커넥션 풀 크기가 동시에 처리 가능한 DB 작업 수를 결정. WAS 스레드 수 이상으로 늘려도 성능 이점 없음
+
+## 베스트 프랙티스
+
+<div class="success-box" markdown="1">
+
+- **`maxLifetime`을 DB `wait_timeout`보다 짧게 설정** — DB가 먼저 커넥션을 끊으면 `Connection reset` 에러 발생
+- **`connectionTimeout` 모니터링** — 풀 고갈 시 대기 시간 측정으로 적정 풀 크기 파악
+- **커넥션 누수 방지** — `try-finally` 또는 `try-with-resources`로 항상 `close()` 호출
+- **`poolName` 설정** — 여러 DataSource 사용 시 로그에서 구분 가능
+
+</div>
+
+## 실무에서는?
+
+| 상황 | 설정 |
+|------|------|
+| **일반 웹 서비스** | `maximumPoolSize: 10` (HikariCP 기본값) |
+| **고트래픽** | CPU 코어 수 × 2 기준 + DB 서버 최대 커넥션 수 확인 |
+| **읽기/쓰기 분리** | 마스터·슬레이브 각각 별도 DataSource 빈 분리 |
+
+```yaml
+# application.yml 실무 설정 예시
+spring:
+  datasource:
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 30000    # 30초
+      max-lifetime: 1800000        # 30분 (DB wait_timeout보다 짧게)
+      pool-name: MainPool
+```

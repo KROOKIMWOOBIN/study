@@ -65,10 +65,24 @@ public class MemberController {
 | `@RequestParam` | 쿼리 파라미터 |
 | `@ModelAttribute` | 폼 데이터 → 객체 바인딩 |
 
-### 실무에서의 사용
+### 언제 쓰는지
 
-!!! tip "실무 팁"
-    REST API 위주인 실무에서는 `@Controller` + 뷰 반환보다 `@RestController`를 주로 쓴다. Spring MVC의 DispatcherServlet 흐름 자체는 REST API에서도 동일하게 작동한다. (→ [REST API](./restapi.md) 참고)
+| 상황 | 설명 |
+|------|------|
+| **서버사이드 렌더링** | Thymeleaf·JSP로 HTML을 서버에서 생성·반환할 때 |
+| **폼 기반 웹 페이지** | `@ModelAttribute`로 폼 데이터를 바인딩·검증할 때 |
+| **관리자 화면** | SPA 없이 서버 렌더링 방식의 백오피스 |
+
+REST API 중심 서비스라면 `@RestController`를 사용한다. DispatcherServlet 흐름은 동일하다.
+
+### 장점
+
+| 장점 | 설명 |
+|------|------|
+| **공통 처리 중앙화** | 인코딩, 보안, 로깅을 DispatcherServlet에서 일괄 처리 |
+| **어노테이션 기반 간결함** | `@Controller`, `@GetMapping` 등으로 URL 매핑이 명확 |
+| **유연한 확장** | `HandlerInterceptor`, `ArgumentResolver` 등 확장 포인트 다수 |
+| **다양한 뷰 지원** | Thymeleaf, JSP, Mustache, JSON 등 뷰 전략 교체 가능 |
 
 ### 단점 / 주의할 점
 
@@ -82,23 +96,33 @@ public class MemberController {
 
 </div>
 
+### 특징
+
+- **프론트 컨트롤러 패턴**: 모든 요청이 `DispatcherServlet` 하나를 경유 — 공통 로직 중앙화
+- **ArgumentResolver**: 컨트롤러 파라미터(`@PathVariable`, `@RequestBody`, `Model` 등)를 자동으로 준비해줌
+- **`@Controller` vs `@RestController`**: `@RestController` = `@Controller` + `@ResponseBody` — 뷰 반환 대신 객체를 JSON으로 직렬화
+
+### 베스트 프랙티스
+
+<div class="success-box" markdown="1">
+
+- **컨트롤러는 얇게** — 요청 수신·응답 반환만 담당, 비즈니스 로직은 Service 계층으로 분리
+- **DTO 사용** — 엔티티를 뷰에 직접 넘기지 말고 필요한 데이터만 담은 DTO 사용
+- **PRG 패턴** — 폼 제출 후 `redirect:`로 중복 제출 방지
+- **`@Valid` 활용** — 입력 검증은 `@ModelAttribute` + Bean Validation 어노테이션으로 처리
+
+</div>
+
+### 실무에서는?
+
+- **REST API 중심**: `@RestController`를 주로 사용. DispatcherServlet 흐름은 REST에서도 동일
+- **뷰 렌더링**: 관리자 화면 등 서버사이드 HTML이 필요한 경우에만 `@Controller` + Thymeleaf 사용
+- **전역 예외 처리**: `@ControllerAdvice` + `@ExceptionHandler`로 예외 일괄 처리 → [Exception Handler](./exception.md) 참고
+- **공통 로직**: 인증·인가·로깅은 `HandlerInterceptor`로 분리
+
 ---
 
 ## 내부 동작 원리
-
-### DispatcherServlet이 뭔가?
-
-> 서블릿(Servlet)은 HTTP 요청을 처리하는 Java 클래스다. 예전에는 URL마다 서블릿 클래스를 따로 만들었다(`/login` → `LoginServlet`, `/members` → `MemberServlet`...). DispatcherServlet은 이 모든 요청을 **혼자서 다 받아서** 적절한 곳으로 넘겨주는 **중앙 접수창구**다.
-
-```text
-클라이언트 HTTP 요청
-      ↓
-  Servlet Container (Tomcat)
-      ↓ "모든 경로(/*) 담당"
-  DispatcherServlet        ← 딱 1개, 모든 요청의 입구
-      ↓
-  각 컨트롤러 메서드로 위임
-```
 
 ### DispatcherServlet.doDispatch() 상세 흐름
 

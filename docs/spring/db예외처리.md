@@ -325,3 +325,111 @@ JPA, Hibernate 예외도 이 방식으로 스프링 예외로 변환된다.
 
 > 결론: DB 예외는 거의 대부분 복구가 불가능하다.
 > 따라서 체크 예외로 강제 처리시키기보다 언체크 예외로 변환해서 공통 처리하는 것이 좋다.
+
+---
+
+## 언제 쓰는지
+
+| 상황 | 적용 방법 |
+|------|---------|
+| **중복 키 감지** | `DuplicateKeyException` 캐치 → 비즈니스 예외로 변환 |
+| **DB 기술 교체 가능성** | `DataAccessException`으로 추상화하여 JPA·JDBC 모두 동일하게 처리 |
+| **체크 예외를 언체크로 변환** | Repository에서 `SQLException` → `RuntimeException` 래핑 후 전파 |
+| **JdbcTemplate 사용 시** | 자동으로 `DataAccessException`으로 변환됨 — 별도 변환 불필요 |
+
+## 장점
+
+| 장점 | 설명 |
+|------|------|
+| **서비스 계층 순수성 유지** | `throws SQLException` 없이 비즈니스 로직만 작성 |
+| **DB 기술 독립** | MySQL이든 Oracle이든 동일한 예외 계층(`DuplicateKeyException` 등) |
+| **throws 전파 제거** | 체크 예외가 모든 계층을 오염시키는 문제 해결 |
+| **공통 예외 처리** | `@ControllerAdvice`에서 `DataAccessException` 계층으로 일괄 처리 가능 |
+
+## 단점
+
+| 단점 | 설명 |
+|------|------|
+| **놓치기 쉬운 예외** | 언체크 예외라서 컴파일러가 강제하지 않음 → 누락 가능 |
+| **추상화 레이어 복잡도** | `DataAccessException` 하위 계층을 알아야 세밀한 처리 가능 |
+| **스택 트레이스 중첩** | 원인 예외가 래핑되어 디버깅이 다소 복잡 |
+
+## 특징
+
+- **`DataAccessException`은 언체크 예외**: 서비스·컨트롤러 계층에서 `throws` 없이 사용 가능
+- **DB 벤더 에러 코드 매핑**: `sql-error-codes.xml`이 MySQL·Oracle·H2 등의 에러 코드를 `DataAccessException` 하위 클래스로 자동 변환
+- **`@Repository` AOP**: `@Repository`가 붙은 클래스는 JPA·Hibernate 예외도 자동으로 `DataAccessException`으로 변환
+
+## 주의할 점
+
+<div class="warning-box" markdown="1">
+
+**`@Transactional`의 롤백 기본 동작**
+
+`@Transactional`은 기본적으로 **런타임 예외만 롤백**한다. 체크 예외(`Exception` 하위)는 롤백하지 않는다.
+
+```java
+// ❌ 체크 예외는 기본적으로 롤백 안 됨
+@Transactional
+public void method() throws Exception {
+    throw new Exception("체크 예외");  // 롤백 X
+}
+
+// ✅ rollbackFor 명시
+@Transactional(rollbackFor = Exception.class)
+public void method() throws Exception {
+    throw new Exception("이제 롤백됨");
+}
+```
+
+</div>
+
+<div class="warning-box" markdown="1">
+
+**`DuplicateKeyException` 발생 전 검증으로 대체하지 말 것**
+
+중복 키를 SELECT로 먼저 확인한 후 INSERT하는 방식은 동시성 문제(race condition)에 취약하다. DB 제약 조건(`UNIQUE`)을 신뢰하고 `DuplicateKeyException`을 처리하는 것이 더 안전하다.
+
+```java
+// ❌ SELECT 후 INSERT — 동시성 문제
+if (!memberRepository.existsByEmail(email)) {
+    memberRepository.save(member); // 동시에 같은 email이 INSERT될 수 있음
+}
+
+// ✅ UNIQUE 제약 + 예외 처리
+try {
+    memberRepository.save(member);
+} catch (DuplicateKeyException e) {
+    throw new EmailAlreadyExistsException();
+}
+```
+
+</div>
+
+## 베스트 프랙티스
+
+<div class="success-box" markdown="1">
+
+- **JdbcTemplate 사용** — 예외 변환이 자동으로 처리되어 `SQLExceptionTranslator` 직접 구현 불필요
+- **`@Repository` 어노테이션** — JPA 사용 시 `@Repository`를 붙이면 JPA 예외도 `DataAccessException`으로 자동 변환
+- **커스텀 비즈니스 예외로 래핑** — `DuplicateKeyException` 등을 그대로 서비스에 노출하지 말고 의미 있는 비즈니스 예외로 변환
+
+```java
+// ✅ 비즈니스 예외로 래핑
+try {
+    memberRepository.save(member);
+} catch (DuplicateKeyException e) {
+    throw new MemberEmailDuplicatedException(member.getEmail());
+}
+```
+
+</div>
+
+## 실무에서는?
+
+| 실무 패턴 | 설명 |
+|---------|------|
+| **JdbcTemplate** | 예외 자동 변환, 별도 `SQLExceptionTranslator` 불필요 |
+| **JPA + `@Repository`** | `@Repository` AOP가 JPA 예외 → `DataAccessException` 자동 변환 |
+| **`@ControllerAdvice`** | `DataAccessException` 계층을 글로벌 핸들러에서 일괄 처리 |
+| **중복 키 처리** | `DuplicateKeyException` 캐치 → 서비스 레이어에서 비즈니스 예외로 변환 후 응답 |
