@@ -3064,7 +3064,7 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        실무에서의 사용
+        언제 쓰는지
       
     </span>
   </a>
@@ -3075,7 +3075,51 @@
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         단점 / 주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        특징
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        베스트 프랙티스
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실무에서는?
       
     </span>
   </a>
@@ -3088,7 +3132,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       
         내부 동작 원리
@@ -3098,17 +3142,6 @@
   
     <nav class="md-nav" aria-label="내부 동작 원리">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dispatcherservlet" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DispatcherServlet이 뭔가?
-      
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#dispatcherservletdodispatch" class="md-nav__link">
@@ -5145,7 +5178,7 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        실무에서의 사용
+        언제 쓰는지
       
     </span>
   </a>
@@ -5156,7 +5189,51 @@
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         단점 / 주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        특징
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        베스트 프랙티스
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실무에서는?
       
     </span>
   </a>
@@ -5169,7 +5246,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       
         내부 동작 원리
@@ -5179,17 +5256,6 @@
   
     <nav class="md-nav" aria-label="내부 동작 원리">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dispatcherservlet" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DispatcherServlet이 뭔가?
-      
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#dispatcherservletdodispatch" class="md-nav__link">
@@ -5350,12 +5416,58 @@
 </tr>
 </tbody>
 </table>
-<h3 id="_7">실무에서의 사용</h3>
-<div class="admonition tip">
-<p class="admonition-title">실무 팁</p>
-<p><abbr title="Representational State Transfer. HTTP를 기반으로 자원을 URI로 표현하고 메서드로 행위를 나타내는 아키텍처 스타일.">REST</abbr> <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 위주인 실무에서는 <code>@Controller</code> + 뷰 반환보다 <code>@RestController</code>를 주로 쓴다. Spring MVC의 DispatcherServlet 흐름 자체는 <abbr title="Representational State Transfer. HTTP를 기반으로 자원을 URI로 표현하고 메서드로 행위를 나타내는 아키텍처 스타일.">REST</abbr> API에서도 동일하게 작동한다. (→ <a href="../restapi/"><abbr title="Representational State Transfer. HTTP를 기반으로 자원을 URI로 표현하고 메서드로 행위를 나타내는 아키텍처 스타일.">REST</abbr> <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr></a> 참고)</p>
-</div>
-<h3 id="_8">단점 / 주의할 점</h3>
+<h3 id="_7">언제 쓰는지</h3>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>서버사이드 렌더링</strong></td>
+<td>Thymeleaf·JSP로 HTML을 서버에서 생성·반환할 때</td>
+</tr>
+<tr>
+<td><strong>폼 기반 웹 페이지</strong></td>
+<td><code>@ModelAttribute</code>로 폼 데이터를 바인딩·검증할 때</td>
+</tr>
+<tr>
+<td><strong>관리자 화면</strong></td>
+<td>SPA 없이 서버 렌더링 방식의 백오피스</td>
+</tr>
+</tbody>
+</table>
+<p><abbr title="Representational State Transfer. HTTP를 기반으로 자원을 URI로 표현하고 메서드로 행위를 나타내는 아키텍처 스타일.">REST</abbr> <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 중심 서비스라면 <code>@RestController</code>를 사용한다. DispatcherServlet 흐름은 동일하다.</p>
+<h3 id="_8">장점</h3>
+<table>
+<thead>
+<tr>
+<th>장점</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>공통 처리 중앙화</strong></td>
+<td>인코딩, 보안, 로깅을 DispatcherServlet에서 일괄 처리</td>
+</tr>
+<tr>
+<td><strong>어노테이션 기반 간결함</strong></td>
+<td><code>@Controller</code>, <code>@GetMapping</code> 등으로 URL 매핑이 명확</td>
+</tr>
+<tr>
+<td><strong>유연한 확장</strong></td>
+<td><code>HandlerInterceptor</code>, <code>ArgumentResolver</code> 등 확장 포인트 다수</td>
+</tr>
+<tr>
+<td><strong>다양한 뷰 지원</strong></td>
+<td>Thymeleaf, JSP, Mustache, JSON 등 뷰 전략 교체 가능</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_9">단점 / 주의할 점</h3>
 <div class="warning-box">
 <table>
 <thead>
@@ -5384,65 +5496,75 @@
 </tbody>
 </table>
 </div>
+<h3 id="_10">특징</h3>
+<ul>
+<li><strong>프론트 컨트롤러 패턴</strong>: 모든 요청이 <code>DispatcherServlet</code> 하나를 경유 — 공통 로직 중앙화</li>
+<li><strong>ArgumentResolver</strong>: 컨트롤러 파라미터(<code>@PathVariable</code>, <code>@RequestBody</code>, <code>Model</code> 등)를 자동으로 준비해줌</li>
+<li><strong><code>@Controller</code> vs <code>@RestController</code></strong>: <code>@RestController</code> = <code>@Controller</code> + <code>@ResponseBody</code> — 뷰 반환 대신 객체를 JSON으로 직렬화</li>
+</ul>
+<h3 id="_11">베스트 프랙티스</h3>
+<div class="success-box">
+<ul>
+<li><strong>컨트롤러는 얇게</strong> — 요청 수신·응답 반환만 담당, 비즈니스 로직은 Service 계층으로 분리</li>
+<li><strong>DTO 사용</strong> — 엔티티를 뷰에 직접 넘기지 말고 필요한 데이터만 담은 DTO 사용</li>
+<li><strong>PRG 패턴</strong> — 폼 제출 후 <code>redirect:</code>로 중복 제출 방지</li>
+<li><strong><code>@Valid</code> 활용</strong> — 입력 검증은 <code>@ModelAttribute</code> + Bean Validation 어노테이션으로 처리</li>
+</ul>
+</div>
+<h3 id="_12">실무에서는?</h3>
+<ul>
+<li><strong><abbr title="Representational State Transfer. HTTP를 기반으로 자원을 URI로 표현하고 메서드로 행위를 나타내는 아키텍처 스타일.">REST</abbr> <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 중심</strong>: <code>@RestController</code>를 주로 사용. DispatcherServlet 흐름은 REST에서도 동일</li>
+<li><strong>뷰 렌더링</strong>: 관리자 화면 등 서버사이드 HTML이 필요한 경우에만 <code>@Controller</code> + Thymeleaf 사용</li>
+<li><strong>전역 예외 처리</strong>: <code>@ControllerAdvice</code> + <code>@ExceptionHandler</code>로 예외 일괄 처리 → <a href="../exception/">Exception Handler</a> 참고</li>
+<li><strong>공통 로직</strong>: 인증·인가·로깅은 <code>HandlerInterceptor</code>로 분리</li>
+</ul>
 <hr />
-<h2 id="_9">내부 동작 원리</h2>
-<h3 id="dispatcherservlet">DispatcherServlet이 뭔가?</h3>
-<blockquote>
-<p>서블릿(Servlet)은 <abbr title="HyperText Transfer Protocol. 웹에서 클라이언트-서버 간 데이터를 주고받는 애플리케이션 계층 프로토콜.">HTTP</abbr> 요청을 처리하는 Java 클래스다. 예전에는 URL마다 서블릿 클래스를 따로 만들었다(<code>/login</code> → <code>LoginServlet</code>, <code>/members</code> → <code>MemberServlet</code>...). DispatcherServlet은 이 모든 요청을 <strong>혼자서 다 받아서</strong> 적절한 곳으로 넘겨주는 <strong>중앙 접수창구</strong>다.</p>
-</blockquote>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>클라이언트 HTTP 요청
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>      ↓
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  Servlet Container (Tomcat)
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>      ↓ &quot;모든 경로(/*) 담당&quot;
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  DispatcherServlet        ← 딱 1개, 모든 요청의 입구
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>      ↓
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  각 컨트롤러 메서드로 위임
-</code></pre></div>
+<h2 id="_13">내부 동작 원리</h2>
 <h3 id="dispatcherservletdodispatch">DispatcherServlet.doDispatch() 상세 흐름</h3>
 <p>실제로 <code>DispatcherServlet</code>은 <code>doDispatch()</code> 메서드 하나로 모든 요청을 처리한다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>① HandlerMapping 탐색
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>   → 등록된 HandlerMapping 목록 순회
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>   → URL, HTTP 메서드, 헤더 조건과 일치하는 @RequestMapping 메서드를 찾음
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>   → &quot;GET /members&quot; → MemberController.list() 찾아냄
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>   → 결과: HandlerExecutionChain (컨트롤러 메서드 + 인터셉터 목록)
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>② HandlerAdapter 선택
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>   → 찾은 컨트롤러 메서드를 &quot;어떻게 호출할지&quot; 담당하는 어댑터를 선택
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>   → @RequestMapping 메서드라면 RequestMappingHandlerAdapter 선택
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>③ 인터셉터 preHandle() 실행
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>   → 등록된 HandlerInterceptor들의 preHandle() 순서대로 실행
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>   → false 반환하면 여기서 요청 중단
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>④ HandlerAdapter.handle() — 실제 컨트롤러 실행
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>   → ArgumentResolver로 메서드 파라미터 준비 (자세한 설명 아래)
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>   → 컨트롤러 메서드 호출
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>   → ReturnValueHandler로 반환값 처리
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
-<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>⑤ ViewResolver (뷰 렌더링인 경우)
-<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>   → 컨트롤러가 &quot;members/list&quot; 문자열 반환
-<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>   → ViewResolver가 &quot;templates/members/list.html&quot; 실제 경로로 변환
-<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>   → Thymeleaf 등으로 HTML 렌더링
-<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>
-<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>⑥ 인터셉터 postHandle() / afterCompletion() 실행
-<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>
-<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>⑦ HTTP 응답 전송
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>① HandlerMapping 탐색
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>   → 등록된 HandlerMapping 목록 순회
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>   → URL, HTTP 메서드, 헤더 조건과 일치하는 @RequestMapping 메서드를 찾음
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>   → &quot;GET /members&quot; → MemberController.list() 찾아냄
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>   → 결과: HandlerExecutionChain (컨트롤러 메서드 + 인터셉터 목록)
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>② HandlerAdapter 선택
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>   → 찾은 컨트롤러 메서드를 &quot;어떻게 호출할지&quot; 담당하는 어댑터를 선택
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>   → @RequestMapping 메서드라면 RequestMappingHandlerAdapter 선택
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>③ 인터셉터 preHandle() 실행
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>   → 등록된 HandlerInterceptor들의 preHandle() 순서대로 실행
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>   → false 반환하면 여기서 요청 중단
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>④ HandlerAdapter.handle() — 실제 컨트롤러 실행
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>   → ArgumentResolver로 메서드 파라미터 준비 (자세한 설명 아래)
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>   → 컨트롤러 메서드 호출
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>   → ReturnValueHandler로 반환값 처리
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>⑤ ViewResolver (뷰 렌더링인 경우)
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>   → 컨트롤러가 &quot;members/list&quot; 문자열 반환
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>   → ViewResolver가 &quot;templates/members/list.html&quot; 실제 경로로 변환
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>   → Thymeleaf 등으로 HTML 렌더링
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>⑥ 인터셉터 postHandle() / afterCompletion() 실행
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>⑦ HTTP 응답 전송
 </code></pre></div>
 <h3 id="argumentresolver">ArgumentResolver — 파라미터는 어떻게 채워지나?</h3>
 <p>컨트롤러 메서드에 <code>@PathVariable</code>, <code>@RequestParam</code>, <code>@RequestBody</code>, <code>Model</code> 등 다양한 파라미터가 붙는다. <code>RequestMappingHandlerAdapter</code>가 호출 전에 각 파라미터를 <strong>자동으로 채워주는</strong> 역할을 한다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// 이 메서드를 호출하려면 id, model 파라미터가 필요하다</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/members/{id}&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">find</span><span class="p">(</span><span class="nd">@PathVariable</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">Model</span><span class="w"> </span><span class="n">model</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// 이 메서드를 호출하려면 id, model 파라미터가 필요하다</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/members/{id}&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">find</span><span class="p">(</span><span class="nd">@PathVariable</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">Model</span><span class="w"> </span><span class="n">model</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>RequestMappingHandlerAdapter
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  → 파라미터 목록 검사
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  → @PathVariable Long id
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>       → PathVariableMethodArgumentResolver
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>       → URL에서 {id} 부분 추출 → &quot;42&quot; → Long으로 변환 → 42L
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>  → Model model
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>       → ModelMethodProcessor
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>       → 현재 요청의 Model 객체를 그대로 주입
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>  → 모든 파라미터 준비 완료 → 메서드 호출
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>RequestMappingHandlerAdapter
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  → 파라미터 목록 검사
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  → @PathVariable Long id
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>       → PathVariableMethodArgumentResolver
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>       → URL에서 {id} 부분 추출 → &quot;42&quot; → Long으로 변환 → 42L
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  → Model model
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>       → ModelMethodProcessor
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>       → 현재 요청의 Model 객체를 그대로 주입
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>  → 모든 파라미터 준비 완료 → 메서드 호출
 </code></pre></div>
 <table>
 <thead>
@@ -5480,14 +5602,14 @@
 </table>
 <h3 id="handlermapping-url">HandlerMapping 내부 — URL을 어떻게 찾나?</h3>
 <p><code>RequestMappingHandlerMapping</code>은 애플리케이션 시작 시점에 모든 <code>@Controller</code> 클래스를 스캔해 <code>@RequestMapping</code> 정보를 <strong>Map에 미리 캐싱</strong>해 둔다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>애플리케이션 시작
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  → @Controller 빈들 스캔
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  → 각 메서드의 @RequestMapping, @GetMapping 등 정보 읽음
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  → Map&lt;RequestMappingInfo, HandlerMethod&gt;에 저장
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>요청 처리 시 (매번)
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>  → Map에서 URL + HTTP 메서드로 조회 → O(1) 성능
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>  → HandlerMethod (컨트롤러 + 메서드 정보) 반환
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>애플리케이션 시작
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  → @Controller 빈들 스캔
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  → 각 메서드의 @RequestMapping, @GetMapping 등 정보 읽음
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  → Map&lt;RequestMappingInfo, HandlerMethod&gt;에 저장
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>요청 처리 시 (매번)
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>  → Map에서 URL + HTTP 메서드로 조회 → O(1) 성능
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>  → HandlerMethod (컨트롤러 + 메서드 정보) 반환
 </code></pre></div>
 <div class="tip-box">
 <p><strong>@RestController는 뭐가 다른가?</strong>
@@ -5521,7 +5643,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 11일 11:10:27 UTC">2026년 4월 11일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 20일 11:15:39 UTC">2026년 4월 20일</span>
   </span>
 
     
