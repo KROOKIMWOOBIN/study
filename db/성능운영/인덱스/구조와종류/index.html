@@ -14,7 +14,7 @@
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../%EC%84%A4%EA%B3%84%EC%99%80%EC%82%AC%EC%9A%A9%EB%B2%95/">
+        <link rel="next" href="../B-Tree/">
       
       
         
@@ -4574,7 +4574,7 @@
   <a href="#b-tree" class="md-nav__link">
     <span class="md-ellipsis">
       
-        내부 구조 — B-Tree
+        내부 구조 — B-Tree 계열
       
     </span>
   </a>
@@ -4785,6 +4785,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../B-Tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-Tree VS B+Tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -5311,7 +5339,7 @@
   <a href="#b-tree" class="md-nav__link">
     <span class="md-ellipsis">
       
-        내부 구조 — B-Tree
+        내부 구조 — B-Tree 계열
       
     </span>
   </a>
@@ -5558,6 +5586,10 @@
 <td>B+Tree, 클러스터/보조 인덱스, 물리 동작</td>
 </tr>
 <tr>
+<td><a href="../B-Tree/"><abbr title="Balanced Tree. 모든 리프 노드까지 깊이가 동일한 자가 균형 탐색 트리. DB 인덱스의 기본 자료구조.">B-Tree</abbr> VS B+Tree</a></td>
+<td>B-Tree와 B+Tree 구조 차이, DB가 B+Tree를 쓰는 이유</td>
+</tr>
+<tr>
 <td><a href="../%EC%84%A4%EA%B3%84%EC%99%80%EC%82%AC%EC%9A%A9%EB%B2%95/">설계와 사용법</a></td>
 <td>커버링 인덱스, 카디널리티, CREATE/ALTER/DROP</td>
 </tr>
@@ -5577,7 +5609,7 @@
 </div>
 <h2 id="_2">왜 쓰는지</h2>
 <p>인덱스 없이 <code>WHERE id = 100</code> 같은 쿼리를 실행하면 DBMS는 테이블의 <strong>모든 행을 처음부터 끝까지 스캔(Full Table Scan)</strong> 한다. 행이 100만 건이면 100만 번 비교한다.</p>
-<p>인덱스를 만들면 <abbr title="Balanced Tree. 모든 리프 노드까지 깊이가 동일한 자가 균형 탐색 트리. DB 인덱스의 기본 자료구조.">B-Tree</abbr> 구조에 정렬된 값이 저장되어 <strong>O(log n)</strong> 으로 찾을 수 있다.</p>
+<p>인덱스를 만들면 <abbr title="Balanced Tree. 모든 리프 노드까지 깊이가 동일한 자가 균형 탐색 트리. DB 인덱스의 기본 자료구조.">B-Tree</abbr> 계열 구조에 정렬된 값이 저장되어 <strong>O(log n)</strong> 으로 찾을 수 있다.</p>
 <table>
 <thead>
 <tr>
@@ -5599,8 +5631,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="b-tree">내부 구조 — <abbr title="Balanced Tree. 모든 리프 노드까지 깊이가 동일한 자가 균형 탐색 트리. DB 인덱스의 기본 자료구조.">B-Tree</abbr></h2>
-<p>대부분의 RDBMS(MySQL InnoDB, PostgreSQL)는 <strong><abbr title="Balanced Tree. 모든 리프 노드까지 깊이가 동일한 자가 균형 탐색 트리. DB 인덱스의 기본 자료구조.">B-Tree</abbr>(Balanced Tree)</strong> 를 기본 인덱스 구조로 사용한다.</p>
+<h2 id="b-tree">내부 구조 — <abbr title="Balanced Tree. 모든 리프 노드까지 깊이가 동일한 자가 균형 탐색 트리. DB 인덱스의 기본 자료구조.">B-Tree</abbr> 계열</h2>
+<p>대부분의 RDBMS는 <strong><abbr title="Balanced Tree. 모든 리프 노드까지 깊이가 동일한 자가 균형 탐색 트리. DB 인덱스의 기본 자료구조.">B-Tree</abbr> 계열</strong>을 기본 인덱스 구조로 사용한다. 실무에서는 이를 통칭해서 <abbr title="Balanced Tree. 모든 리프 노드까지 깊이가 동일한 자가 균형 탐색 트리. DB 인덱스의 기본 자료구조.">B-Tree</abbr> 인덱스라고 부르지만, MySQL InnoDB의 실제 일반 인덱스 구조는 <strong>B+Tree</strong>에 가깝다.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>        [50]
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>       /    \
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>   [25]      [75]
@@ -5610,13 +5642,13 @@
 <ul>
 <li>모든 리프 노드까지의 깊이가 같다. (Balanced)</li>
 <li>범위 검색(<code>BETWEEN</code>, <code>&gt;</code>, <code>&lt;</code>)에도 효율적이다.</li>
-<li>리프 노드끼리 연결 리스트로 이어져 있어 순차 접근도 빠르다.</li>
+<li>한 노드에 여러 키를 저장해 트리 높이를 낮춘다.</li>
 </ul>
 <div class="tip-box">
-<p><strong>팁</strong>: MySQL InnoDB는 B-Tree가 아닌 <strong>B+Tree</strong>를 사용한다. 내부 노드에는 키만, 리프 노드에 키+데이터를 모두 저장하여 범위 스캔이 더 빠르다.</p>
+<p><strong>팁</strong>: MySQL InnoDB는 내부 노드에는 길 안내용 키를, 리프 노드에는 실제 데이터 또는 PK를 저장하는 <strong>B+Tree</strong> 구조를 사용한다. 자세한 구조 차이는 <a href="../B-Tree/"><abbr title="Balanced Tree. 모든 리프 노드까지 깊이가 동일한 자가 균형 탐색 트리. DB 인덱스의 기본 자료구조.">B-Tree</abbr> VS B+Tree</a>에서 따로 정리한다.</p>
 </div>
 <h2 id="_3">다른 인덱스 구조</h2>
-<p>B-Tree가 기본이지만, 용도에 따라 다른 구조의 인덱스도 사용할 수 있다.</p>
+<p><abbr title="Balanced Tree. 모든 리프 노드까지 깊이가 동일한 자가 균형 탐색 트리. DB 인덱스의 기본 자료구조.">B-Tree</abbr> 계열이 기본이지만, 용도에 따라 다른 구조의 인덱스도 사용할 수 있다.</p>
 <h3 id="hash-index">Hash Index</h3>
 <div class="concept-box">
 <p><strong>Hash Index</strong>: 키를 해시 함수로 변환하여 <strong>O(1)</strong> 에 접근하는 인덱스. 등호(<code>=</code>) 비교에 최적화되어 있다.</p>
@@ -5946,7 +5978,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 24일 11:38:29 UTC">2026년 4월 24일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 24일 13:12:33 UTC">2026년 4월 24일</span>
   </span>
 
     

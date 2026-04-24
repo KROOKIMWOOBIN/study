@@ -8,31 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://krookimwoobin.github.io/study/spring/redis/">
+        <link rel="canonical" href="https://krookimwoobin.github.io/study/db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/B-Tree/">
       
       
-        <link rel="prev" href="../jpa-performance/">
+        <link rel="prev" href="../%EA%B5%AC%EC%A1%B0%EC%99%80%EC%A2%85%EB%A5%98/">
       
       
-        <link rel="next" href="../security/">
+        <link rel="next" href="../%EC%84%A4%EA%B3%84%EC%99%80%EC%82%AC%EC%9A%A9%EB%B2%95/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Redis - 학습 노트</title>
+        <title>B-Tree VS B+Tree - 학습 노트</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,9 +51,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#redis" class="md-skip">
+        <a href="#b-tree-vs-btree" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -94,7 +94,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="상단/헤더">
-    <a href="../.." title="학습 노트" class="md-header__button md-logo" aria-label="학습 노트" data-md-component="logo">
+    <a href="../../../.." title="학습 노트" class="md-header__button md-logo" aria-label="학습 노트" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Redis
+              B-Tree VS B+Tree
             
           </span>
         </div>
@@ -232,7 +232,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="네비게이션" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="학습 노트" class="md-nav__button md-logo" aria-label="학습 노트" data-md-component="logo">
+    <a href="../../../.." title="학습 노트" class="md-nav__button md-logo" aria-label="학습 노트" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -262,7 +262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         
   
   
@@ -341,7 +341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/java/" class="md-nav__link">
+      <a href="../../../../java/java/" class="md-nav__link">
         
   
   
@@ -418,7 +418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/oop/%EB%8B%A4%ED%98%95%EC%84%B1/" class="md-nav__link">
+      <a href="../../../../java/oop/%EB%8B%A4%ED%98%95%EC%84%B1/" class="md-nav__link">
         
   
   
@@ -446,7 +446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/oop/%EC%83%81%EC%86%8D/" class="md-nav__link">
+      <a href="../../../../java/oop/%EC%83%81%EC%86%8D/" class="md-nav__link">
         
   
   
@@ -474,7 +474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/oop/%EC%B6%94%EC%83%81%ED%99%94/" class="md-nav__link">
+      <a href="../../../../java/oop/%EC%B6%94%EC%83%81%ED%99%94/" class="md-nav__link">
         
   
   
@@ -502,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/oop/%EC%BA%A1%EC%8A%90%ED%99%94/" class="md-nav__link">
+      <a href="../../../../java/oop/%EC%BA%A1%EC%8A%90%ED%99%94/" class="md-nav__link">
         
   
   
@@ -587,7 +587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/core/" class="md-nav__link">
+      <a href="../../../../java/core/core/" class="md-nav__link">
         
   
   
@@ -615,7 +615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/Object/" class="md-nav__link">
+      <a href="../../../../java/core/Object/" class="md-nav__link">
         
   
   
@@ -643,7 +643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/%EB%B6%88%EB%B3%80%EA%B0%9D%EC%B2%B4VS%EA%B0%80%EB%B3%80%EA%B0%9D%EC%B2%B4/" class="md-nav__link">
+      <a href="../../../../java/core/%EB%B6%88%EB%B3%80%EA%B0%9D%EC%B2%B4VS%EA%B0%80%EB%B3%80%EA%B0%9D%EC%B2%B4/" class="md-nav__link">
         
   
   
@@ -671,7 +671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/%EB%9E%98%ED%8D%BC%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
+      <a href="../../../../java/core/%EB%9E%98%ED%8D%BC%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -699,7 +699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/Enum/" class="md-nav__link">
+      <a href="../../../../java/core/Enum/" class="md-nav__link">
         
   
   
@@ -727,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
+      <a href="../../../../java/core/%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
         
   
   
@@ -755,7 +755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/%EC%A4%91%EC%B2%A9%EB%82%B4%EB%B6%80%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
+      <a href="../../../../java/core/%EC%A4%91%EC%B2%A9%EB%82%B4%EB%B6%80%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -783,7 +783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/Class/" class="md-nav__link">
+      <a href="../../../../java/core/Class/" class="md-nav__link">
         
   
   
@@ -811,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/Math/" class="md-nav__link">
+      <a href="../../../../java/core/Math/" class="md-nav__link">
         
   
   
@@ -839,7 +839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/SystemClass/" class="md-nav__link">
+      <a href="../../../../java/core/SystemClass/" class="md-nav__link">
         
   
   
@@ -924,7 +924,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/collections/" class="md-nav__link">
+      <a href="../../../../java/collections/collections/" class="md-nav__link">
         
   
   
@@ -952,7 +952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Collection/" class="md-nav__link">
+      <a href="../../../../java/collections/Collection/" class="md-nav__link">
         
   
   
@@ -980,7 +980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Generic/" class="md-nav__link">
+      <a href="../../../../java/collections/Generic/" class="md-nav__link">
         
   
   
@@ -1008,7 +1008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Array/" class="md-nav__link">
+      <a href="../../../../java/collections/Array/" class="md-nav__link">
         
   
   
@@ -1036,7 +1036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/List/" class="md-nav__link">
+      <a href="../../../../java/collections/List/" class="md-nav__link">
         
   
   
@@ -1064,7 +1064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/ArrayList/" class="md-nav__link">
+      <a href="../../../../java/collections/ArrayList/" class="md-nav__link">
         
   
   
@@ -1092,7 +1092,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/LinkedList/" class="md-nav__link">
+      <a href="../../../../java/collections/LinkedList/" class="md-nav__link">
         
   
   
@@ -1120,7 +1120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Set/" class="md-nav__link">
+      <a href="../../../../java/collections/Set/" class="md-nav__link">
         
   
   
@@ -1148,7 +1148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/HashSet/" class="md-nav__link">
+      <a href="../../../../java/collections/HashSet/" class="md-nav__link">
         
   
   
@@ -1176,7 +1176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Map/" class="md-nav__link">
+      <a href="../../../../java/collections/Map/" class="md-nav__link">
         
   
   
@@ -1204,7 +1204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Stack/" class="md-nav__link">
+      <a href="../../../../java/collections/Stack/" class="md-nav__link">
         
   
   
@@ -1232,7 +1232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Queue/" class="md-nav__link">
+      <a href="../../../../java/collections/Queue/" class="md-nav__link">
         
   
   
@@ -1260,7 +1260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/%EC%88%9C%ED%9A%8C/" class="md-nav__link">
+      <a href="../../../../java/collections/%EC%88%9C%ED%9A%8C/" class="md-nav__link">
         
   
   
@@ -1288,7 +1288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/%EB%B9%84%EA%B5%90/" class="md-nav__link">
+      <a href="../../../../java/collections/%EB%B9%84%EA%B5%90/" class="md-nav__link">
         
   
   
@@ -1316,7 +1316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/BigO/" class="md-nav__link">
+      <a href="../../../../java/collections/BigO/" class="md-nav__link">
         
   
   
@@ -1401,7 +1401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/start/" class="md-nav__link">
+      <a href="../../../../java/lambda/start/" class="md-nav__link">
         
   
   
@@ -1429,7 +1429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/function/" class="md-nav__link">
+      <a href="../../../../java/lambda/function/" class="md-nav__link">
         
   
   
@@ -1457,7 +1457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/method/" class="md-nav__link">
+      <a href="../../../../java/lambda/method/" class="md-nav__link">
         
   
   
@@ -1485,7 +1485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/programming/" class="md-nav__link">
+      <a href="../../../../java/lambda/programming/" class="md-nav__link">
         
   
   
@@ -1513,7 +1513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/stream/" class="md-nav__link">
+      <a href="../../../../java/lambda/stream/" class="md-nav__link">
         
   
   
@@ -1541,7 +1541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/streamApi/" class="md-nav__link">
+      <a href="../../../../java/lambda/streamApi/" class="md-nav__link">
         
   
   
@@ -1569,7 +1569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/%EC%A6%89%EC%8B%9CVS%EC%A7%80%EC%97%B0/" class="md-nav__link">
+      <a href="../../../../java/lambda/%EC%A6%89%EC%8B%9CVS%EC%A7%80%EC%97%B0/" class="md-nav__link">
         
   
   
@@ -1597,7 +1597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/optional/" class="md-nav__link">
+      <a href="../../../../java/lambda/optional/" class="md-nav__link">
         
   
   
@@ -1625,7 +1625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/orElseVSorElseGet/" class="md-nav__link">
+      <a href="../../../../java/lambda/orElseVSorElseGet/" class="md-nav__link">
         
   
   
@@ -1653,7 +1653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/defaultMethod/" class="md-nav__link">
+      <a href="../../../../java/lambda/defaultMethod/" class="md-nav__link">
         
   
   
@@ -1681,7 +1681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/%EB%B3%91%EB%A0%AC%EC%8A%A4%ED%8A%B8%EB%A6%BC/" class="md-nav__link">
+      <a href="../../../../java/lambda/%EB%B3%91%EB%A0%AC%EC%8A%A4%ED%8A%B8%EB%A6%BC/" class="md-nav__link">
         
   
   
@@ -1709,7 +1709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/%ED%95%A8%EC%88%98%ED%98%95%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" class="md-nav__link">
+      <a href="../../../../java/lambda/%ED%95%A8%EC%88%98%ED%98%95%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" class="md-nav__link">
         
   
   
@@ -1794,7 +1794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/thread/" class="md-nav__link">
+      <a href="../../../../java/thread/thread/" class="md-nav__link">
         
   
   
@@ -1822,7 +1822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/" class="md-nav__link">
+      <a href="../../../../java/thread/%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/" class="md-nav__link">
         
   
   
@@ -1850,7 +1850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/Thread1/" class="md-nav__link">
+      <a href="../../../../java/thread/Thread1/" class="md-nav__link">
         
   
   
@@ -1878,7 +1878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/Thread2/" class="md-nav__link">
+      <a href="../../../../java/thread/Thread2/" class="md-nav__link">
         
   
   
@@ -1906,7 +1906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/Thread3/" class="md-nav__link">
+      <a href="../../../../java/thread/Thread3/" class="md-nav__link">
         
   
   
@@ -1934,7 +1934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/synchronized/" class="md-nav__link">
+      <a href="../../../../java/thread/synchronized/" class="md-nav__link">
         
   
   
@@ -1962,7 +1962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/volatile/" class="md-nav__link">
+      <a href="../../../../java/thread/volatile/" class="md-nav__link">
         
   
   
@@ -1990,7 +1990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/%EB%8F%99%EA%B8%B0%ED%99%94%EC%99%80%EC%9B%90%EC%9E%90%EC%A0%81%EC%97%B0%EC%82%B0/" class="md-nav__link">
+      <a href="../../../../java/thread/%EB%8F%99%EA%B8%B0%ED%99%94%EC%99%80%EC%9B%90%EC%9E%90%EC%A0%81%EC%97%B0%EC%82%B0/" class="md-nav__link">
         
   
   
@@ -2018,7 +2018,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/Lock/" class="md-nav__link">
+      <a href="../../../../java/thread/Lock/" class="md-nav__link">
         
   
   
@@ -2046,7 +2046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/%EB%8F%99%EC%8B%9C%EC%84%B1%EC%BB%AC%EB%A0%89%EC%85%98/" class="md-nav__link">
+      <a href="../../../../java/thread/%EB%8F%99%EC%8B%9C%EC%84%B1%EC%BB%AC%EB%A0%89%EC%85%98/" class="md-nav__link">
         
   
   
@@ -2074,7 +2074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/%EC%83%9D%EC%82%B0%EC%9E%90%EC%86%8C%EB%B9%84%EC%9E%90%EB%AC%B8%EC%A0%9C/" class="md-nav__link">
+      <a href="../../../../java/thread/%EC%83%9D%EC%82%B0%EC%9E%90%EC%86%8C%EB%B9%84%EC%9E%90%EB%AC%B8%EC%A0%9C/" class="md-nav__link">
         
   
   
@@ -2102,7 +2102,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/ThreadPool_Executor_Overview1/" class="md-nav__link">
+      <a href="../../../../java/thread/ThreadPool_Executor_Overview1/" class="md-nav__link">
         
   
   
@@ -2130,7 +2130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/ThreadPool_Executor_Overview2/" class="md-nav__link">
+      <a href="../../../../java/thread/ThreadPool_Executor_Overview2/" class="md-nav__link">
         
   
   
@@ -2215,7 +2215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/io-network/IO/" class="md-nav__link">
+      <a href="../../../../java/io-network/IO/" class="md-nav__link">
         
   
   
@@ -2243,7 +2243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/io-network/network/" class="md-nav__link">
+      <a href="../../../../java/io-network/network/" class="md-nav__link">
         
   
   
@@ -2271,7 +2271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/io-network/Charset_Encoding/" class="md-nav__link">
+      <a href="../../../../java/io-network/Charset_Encoding/" class="md-nav__link">
         
   
   
@@ -2299,7 +2299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/io-network/annotation/" class="md-nav__link">
+      <a href="../../../../java/io-network/annotation/" class="md-nav__link">
         
   
   
@@ -2327,7 +2327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/io-network/reflection/" class="md-nav__link">
+      <a href="../../../../java/io-network/reflection/" class="md-nav__link">
         
   
   
@@ -2422,7 +2422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../html/html/" class="md-nav__link">
+      <a href="../../../../html/html/" class="md-nav__link">
         
   
   
@@ -2450,7 +2450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../html/Session/" class="md-nav__link">
+      <a href="../../../../html/Session/" class="md-nav__link">
         
   
   
@@ -2482,8 +2482,6 @@
       
   
   
-    
-  
   
   
     
@@ -2496,11 +2494,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
@@ -2521,7 +2519,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2539,7 +2537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../spring/" class="md-nav__link">
+      <a href="../../../../spring/spring/" class="md-nav__link">
         
   
   
@@ -2616,7 +2614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../solid/" class="md-nav__link">
+      <a href="../../../../spring/solid/" class="md-nav__link">
         
   
   
@@ -2644,7 +2642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../IoC-DI/" class="md-nav__link">
+      <a href="../../../../spring/IoC-DI/" class="md-nav__link">
         
   
   
@@ -2672,7 +2670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%EC%8A%A4%ED%94%84%EB%A7%81%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88/" class="md-nav__link">
+      <a href="../../../../spring/%EC%8A%A4%ED%94%84%EB%A7%81%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88/" class="md-nav__link">
         
   
   
@@ -2700,7 +2698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%EC%8B%B1%EA%B8%80%ED%86%A4/" class="md-nav__link">
+      <a href="../../../../spring/%EC%8B%B1%EA%B8%80%ED%86%A4/" class="md-nav__link">
         
   
   
@@ -2728,7 +2726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%8A%A4%EC%BA%94/" class="md-nav__link">
+      <a href="../../../../spring/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%8A%A4%EC%BA%94/" class="md-nav__link">
         
   
   
@@ -2756,7 +2754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84%EC%A3%BC%EC%9E%85/" class="md-nav__link">
+      <a href="../../../../spring/%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84%EC%A3%BC%EC%9E%85/" class="md-nav__link">
         
   
   
@@ -2784,7 +2782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%EB%B9%88%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0/" class="md-nav__link">
+      <a href="../../../../spring/%EB%B9%88%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0/" class="md-nav__link">
         
   
   
@@ -2812,7 +2810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%EB%B9%88%EC%8A%A4%EC%BD%94%ED%94%84/" class="md-nav__link">
+      <a href="../../../../spring/%EB%B9%88%EC%8A%A4%EC%BD%94%ED%94%84/" class="md-nav__link">
         
   
   
@@ -2897,7 +2895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../springboot/" class="md-nav__link">
+      <a href="../../../../spring/springboot/" class="md-nav__link">
         
   
   
@@ -2925,7 +2923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mvc/" class="md-nav__link">
+      <a href="../../../../spring/mvc/" class="md-nav__link">
         
   
   
@@ -2953,7 +2951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../restapi/" class="md-nav__link">
+      <a href="../../../../spring/restapi/" class="md-nav__link">
         
   
   
@@ -2981,7 +2979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../validation/" class="md-nav__link">
+      <a href="../../../../spring/validation/" class="md-nav__link">
         
   
   
@@ -3009,7 +3007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../exception/" class="md-nav__link">
+      <a href="../../../../spring/exception/" class="md-nav__link">
         
   
   
@@ -3037,7 +3035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../swagger/" class="md-nav__link">
+      <a href="../../../../spring/swagger/" class="md-nav__link">
         
   
   
@@ -3122,7 +3120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../aop/" class="md-nav__link">
+      <a href="../../../../spring/aop/" class="md-nav__link">
         
   
   
@@ -3150,7 +3148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transaction/" class="md-nav__link">
+      <a href="../../../../spring/transaction/" class="md-nav__link">
         
   
   
@@ -3178,7 +3176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../logging/" class="md-nav__link">
+      <a href="../../../../spring/logging/" class="md-nav__link">
         
   
   
@@ -3263,7 +3261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../JDBC/" class="md-nav__link">
+      <a href="../../../../spring/JDBC/" class="md-nav__link">
         
   
   
@@ -3291,7 +3289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%EC%BB%A4%EB%84%A5%EC%85%98%ED%92%80-DataSource/" class="md-nav__link">
+      <a href="../../../../spring/%EC%BB%A4%EB%84%A5%EC%85%98%ED%92%80-DataSource/" class="md-nav__link">
         
   
   
@@ -3319,7 +3317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../db%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
+      <a href="../../../../spring/db%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
         
   
   
@@ -3347,7 +3345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../jpa/" class="md-nav__link">
+      <a href="../../../../spring/jpa/" class="md-nav__link">
         
   
   
@@ -3375,7 +3373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../querydsl/" class="md-nav__link">
+      <a href="../../../../spring/querydsl/" class="md-nav__link">
         
   
   
@@ -3403,7 +3401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../jpa-performance/" class="md-nav__link">
+      <a href="../../../../spring/jpa-performance/" class="md-nav__link">
         
   
   
@@ -3436,8 +3434,6 @@
                 
   
   
-    
-  
   
   
     
@@ -3447,11 +3443,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
         
           
           <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
@@ -3472,7 +3468,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3487,35 +3483,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Redis
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../spring/redis/" class="md-nav__link">
         
   
   
@@ -3531,118 +3502,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="목차">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      목차
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#redis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Redis
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Redis">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        왜 쓰는가?
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        의존성
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#spring-cache-cacheable" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Spring Cache — @Cacheable
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#redistemplate" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        RedisTemplate — 직접 제어
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        주요 자료구조
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        인기 게시글 캐시 전략
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        단점 / 주의할 점
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3655,7 +3514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../security/" class="md-nav__link">
+      <a href="../../../../spring/security/" class="md-nav__link">
         
   
   
@@ -3683,7 +3542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concurrency/" class="md-nav__link">
+      <a href="../../../../spring/concurrency/" class="md-nav__link">
         
   
   
@@ -3711,7 +3570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kafka/" class="md-nav__link">
+      <a href="../../../../spring/kafka/" class="md-nav__link">
         
   
   
@@ -3739,7 +3598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../outbox/" class="md-nav__link">
+      <a href="../../../../spring/outbox/" class="md-nav__link">
         
   
   
@@ -3824,7 +3683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../testing/" class="md-nav__link">
+      <a href="../../../../spring/testing/" class="md-nav__link">
         
   
   
@@ -3852,7 +3711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../monitoring/" class="md-nav__link">
+      <a href="../../../../spring/monitoring/" class="md-nav__link">
         
   
   
@@ -3880,7 +3739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../architecture/" class="md-nav__link">
+      <a href="../../../../spring/architecture/" class="md-nav__link">
         
   
   
@@ -3908,7 +3767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../msa/" class="md-nav__link">
+      <a href="../../../../spring/msa/" class="md-nav__link">
         
   
   
@@ -3948,8 +3807,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -3960,11 +3821,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
@@ -3985,7 +3846,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -4003,7 +3864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/db/" class="md-nav__link">
+      <a href="../../../db/" class="md-nav__link">
         
   
   
@@ -4080,7 +3941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/" class="md-nav__link">
+      <a href="../../../%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -4108,7 +3969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EA%B8%B0%EC%B4%88/ACID/" class="md-nav__link">
+      <a href="../../../%EA%B8%B0%EC%B4%88/ACID/" class="md-nav__link">
         
   
   
@@ -4136,7 +3997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EA%B8%B0%EC%B4%88/SQL/" class="md-nav__link">
+      <a href="../../../%EA%B8%B0%EC%B4%88/SQL/" class="md-nav__link">
         
   
   
@@ -4164,7 +4025,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%83%80%EC%9E%85/" class="md-nav__link">
+      <a href="../../../%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%83%80%EC%9E%85/" class="md-nav__link">
         
   
   
@@ -4192,7 +4053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EA%B8%B0%EC%B4%88/%EC%A0%9C%EC%95%BD%EC%A1%B0%EA%B1%B4/" class="md-nav__link">
+      <a href="../../../%EA%B8%B0%EC%B4%88/%EC%A0%9C%EC%95%BD%EC%A1%B0%EA%B1%B4/" class="md-nav__link">
         
   
   
@@ -4220,7 +4081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EA%B8%B0%EC%B4%88/%EC%A0%95%EA%B7%9C%ED%99%94/" class="md-nav__link">
+      <a href="../../../%EA%B8%B0%EC%B4%88/%EC%A0%95%EA%B7%9C%ED%99%94/" class="md-nav__link">
         
   
   
@@ -4305,7 +4166,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%BF%BC%EB%A6%AC/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%80%EA%B3%B5/" class="md-nav__link">
+      <a href="../../../%EC%BF%BC%EB%A6%AC/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%80%EA%B3%B5/" class="md-nav__link">
         
   
   
@@ -4333,7 +4194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%BF%BC%EB%A6%AC/%EC%A7%91%EA%B3%84/" class="md-nav__link">
+      <a href="../../../%EC%BF%BC%EB%A6%AC/%EC%A7%91%EA%B3%84/" class="md-nav__link">
         
   
   
@@ -4361,7 +4222,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%BF%BC%EB%A6%AC/JOIN/" class="md-nav__link">
+      <a href="../../../%EC%BF%BC%EB%A6%AC/JOIN/" class="md-nav__link">
         
   
   
@@ -4389,7 +4250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%BF%BC%EB%A6%AC/%EC%84%9C%EB%B8%8C%EC%BF%BC%EB%A6%AC/" class="md-nav__link">
+      <a href="../../../%EC%BF%BC%EB%A6%AC/%EC%84%9C%EB%B8%8C%EC%BF%BC%EB%A6%AC/" class="md-nav__link">
         
   
   
@@ -4417,7 +4278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%BF%BC%EB%A6%AC/UNION/" class="md-nav__link">
+      <a href="../../../%EC%BF%BC%EB%A6%AC/UNION/" class="md-nav__link">
         
   
   
@@ -4445,7 +4306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%BF%BC%EB%A6%AC/CASE/" class="md-nav__link">
+      <a href="../../../%EC%BF%BC%EB%A6%AC/CASE/" class="md-nav__link">
         
   
   
@@ -4473,7 +4334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%BF%BC%EB%A6%AC/VIEW/" class="md-nav__link">
+      <a href="../../../%EC%BF%BC%EB%A6%AC/VIEW/" class="md-nav__link">
         
   
   
@@ -4506,6 +4367,8 @@
                 
   
   
+    
+  
   
   
     
@@ -4515,11 +4378,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" checked>
         
           
           <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
@@ -4540,7 +4403,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -4555,6 +4418,8 @@
                 
   
   
+    
+  
   
   
     
@@ -4564,11 +4429,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_1" checked>
         
           
           <label class="md-nav__link" for="__nav_5_4_1" id="__nav_5_4_1_label" tabindex="0">
@@ -4589,7 +4454,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_4_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -4607,7 +4472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -4635,7 +4500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EA%B5%AC%EC%A1%B0%EC%99%80%EC%A2%85%EB%A5%98/" class="md-nav__link">
+      <a href="../%EA%B5%AC%EC%A1%B0%EC%99%80%EC%A2%85%EB%A5%98/" class="md-nav__link">
         
   
   
@@ -4660,10 +4525,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/B-Tree/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-Tree VS B+Tree
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -4679,6 +4571,342 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        왜 쓰는지
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        어떻게 쓰는지
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B-Tree 구조
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="B-Tree 구조">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        탐색 과정
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-tree_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B-Tree의 특징
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#btree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B+Tree 구조
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="B+Tree 구조">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        탐색 과정
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#btree_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B+Tree의 특징
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-tree-vs-btree_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B-Tree VS B+Tree
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#db-btree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        왜 DB는 B+Tree를 선호하는가
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="왜 DB는 B+Tree를 선호하는가">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 트리 높이가 낮아진다
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 범위 검색이 빠르다
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 정렬 조회와 페이징에 유리하다
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 디스크 I/O 패턴이 좋아진다
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        언제 쓰는지
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장점
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="장점">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#b-tree_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B-Tree 장점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#btree_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B+Tree 장점
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="단점">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#b-tree_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B-Tree 단점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#btree_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B+Tree 단점
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        특징
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        베스트 프랙티스
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실무에서는?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        관련 문서
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4691,7 +4919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EC%84%A4%EA%B3%84%EC%99%80%EC%82%AC%EC%9A%A9%EB%B2%95/" class="md-nav__link">
+      <a href="../%EC%84%A4%EA%B3%84%EC%99%80%EC%82%AC%EC%9A%A9%EB%B2%95/" class="md-nav__link">
         
   
   
@@ -4719,7 +4947,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EC%BF%BC%EB%A6%AC%ED%8C%A8%ED%84%B4/" class="md-nav__link">
+      <a href="../%EC%BF%BC%EB%A6%AC%ED%8C%A8%ED%84%B4/" class="md-nav__link">
         
   
   
@@ -4747,7 +4975,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EC%9A%B4%EC%98%81%EA%B3%BC%ED%8A%9C%EB%8B%9D/" class="md-nav__link">
+      <a href="../%EC%9A%B4%EC%98%81%EA%B3%BC%ED%8A%9C%EB%8B%9D/" class="md-nav__link">
         
   
   
@@ -4783,7 +5011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/" class="md-nav__link">
+      <a href="../../%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/" class="md-nav__link">
         
   
   
@@ -4811,7 +5039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EA%B2%A9%EB%A6%AC%EC%88%98%EC%A4%80/" class="md-nav__link">
+      <a href="../../%EA%B2%A9%EB%A6%AC%EC%88%98%EC%A4%80/" class="md-nav__link">
         
   
   
@@ -4906,7 +5134,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../jvm/jvm/" class="md-nav__link">
+      <a href="../../../../jvm/jvm/" class="md-nav__link">
         
   
   
@@ -4934,7 +5162,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../jvm/JVM%EA%B0%9C%EC%9A%94/" class="md-nav__link">
+      <a href="../../../../jvm/JVM%EA%B0%9C%EC%9A%94/" class="md-nav__link">
         
   
   
@@ -5021,7 +5249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/cs/" class="md-nav__link">
+      <a href="../../../../cs/cs/" class="md-nav__link">
         
   
   
@@ -5049,7 +5277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/%EB%8F%99%EA%B8%B0VS%EB%B9%84%EB%8F%99%EA%B8%B0/" class="md-nav__link">
+      <a href="../../../../cs/%EB%8F%99%EA%B8%B0VS%EB%B9%84%EB%8F%99%EA%B8%B0/" class="md-nav__link">
         
   
   
@@ -5136,7 +5364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../troubleshooting/smtp/" class="md-nav__link">
+      <a href="../../../../troubleshooting/smtp/" class="md-nav__link">
         
   
   
@@ -5181,6 +5409,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -5189,66 +5419,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#redis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Redis
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Redis">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        왜 쓰는가?
+        왜 쓰는지
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        의존성
+        어떻게 쓰는지
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#spring-cache-cacheable" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#b-tree" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Spring Cache — @Cacheable
+        B-Tree 구조
       
     </span>
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#redistemplate" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        RedisTemplate — 직접 제어
-      
-    </span>
-  </a>
-  
-</li>
+    <nav class="md-nav" aria-label="B-Tree 구조">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        주요 자료구조
+        탐색 과정
       
     </span>
   </a>
@@ -5256,21 +5464,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#b-tree_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        인기 게시글 캐시 전략
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        단점 / 주의할 점
+        B-Tree의 특징
       
     </span>
   </a>
@@ -5279,6 +5476,261 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#btree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B+Tree 구조
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="B+Tree 구조">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        탐색 과정
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#btree_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B+Tree의 특징
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-tree-vs-btree_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B-Tree VS B+Tree
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#db-btree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        왜 DB는 B+Tree를 선호하는가
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="왜 DB는 B+Tree를 선호하는가">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 트리 높이가 낮아진다
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 범위 검색이 빠르다
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 정렬 조회와 페이징에 유리하다
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 디스크 I/O 패턴이 좋아진다
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        언제 쓰는지
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장점
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="장점">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#b-tree_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B-Tree 장점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#btree_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B+Tree 장점
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="단점">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#b-tree_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B-Tree 단점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#btree_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B+Tree 단점
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        특징
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        베스트 프랙티스
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실무에서는?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        관련 문서
+      
+    </span>
+  </a>
   
 </li>
       
@@ -5302,173 +5754,402 @@
   
 
 
-  <h1>Redis</h1>
-
-<h2 id="redis">Redis</h2>
-<h3 id="_1">왜 쓰는가?</h3>
+<h1 id="b-tree-vs-btree"><abbr title="Balanced Tree. 모든 리프 노드까지 깊이가 동일한 자가 균형 탐색 트리. DB 인덱스의 기본 자료구조.">B-Tree</abbr> VS B+Tree</h1>
 <div class="concept-box">
-<p>DB는 디스크 기반이라 반복 조회 시 느리다. ==Redis==는 <strong>인메모리 저장소</strong>로 DB보다 10~100배 빠른 응답을 제공한다. 캐시, 세션, 분산 락 등 다양한 용도로 활용한다.</p>
+<p><strong><abbr title="Balanced Tree. 모든 리프 노드까지 깊이가 동일한 자가 균형 탐색 트리. DB 인덱스의 기본 자료구조.">B-Tree</abbr> 계열 인덱스</strong>: 디스크나 메모리 페이지 단위로 많은 키를 한 노드에 저장해, 적은 I/O로 원하는 데이터를 찾도록 설계된 균형 트리 자료구조다.</p>
 </div>
-<h3 id="_2">의존성</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>implementation &#39;org.springframework.boot:spring-boot-starter-data-redis&#39;
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gh"># application.yml</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>spring:
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  data:
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    redis:
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>      host: localhost
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>      port: 6379
-</code></pre></div>
-<h3 id="spring-cache-cacheable">Spring Cache — @Cacheable</h3>
-<p>가장 간단한 캐시 적용 방법. 메서드 결과를 자동으로 Redis에 저장하고 재사용한다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="ni">@Configuration</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="ni">@EnableCaching</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>public class CacheConfig {
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="ni">@Bean</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    public CacheManager cacheManager(RedisConnectionFactory factory) {
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig()
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>            .entryTtl(Duration.ofMinutes(10))  // TTL 10분
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>            .serializeKeysWith(RedisSerializationContext.SerializationPair
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>                .fromSerializer(new StringRedisSerializer()))
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>            .serializeValuesWith(RedisSerializationContext.SerializationPair
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>                .fromSerializer(new GenericJackson2JsonRedisSerializer()));
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>        return RedisCacheManager.create(factory);
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    }
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>}
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="ni">@Service</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>public class ProductService {
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="ni">@Cacheable</span>(value = &quot;products&quot;, key = &quot;#id&quot;)
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    public ProductResponse findById(Long id) {
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        // 캐시 미스 시에만 실행
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        return productRepository.findById(id).map(ProductResponse::from).orElseThrow();
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    }
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="ni">@CacheEvict</span>(value = &quot;products&quot;, key = &quot;#id&quot;)
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    public void update(Long id, ProductUpdateRequest request) {
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>        // 수정 시 캐시 삭제
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    }
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    <span class="ni">@CachePut</span>(value = &quot;products&quot;, key = &quot;#result.id&quot;)
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>    public ProductResponse save(ProductCreateRequest request) {
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>        // 저장 후 캐시 갱신
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>    }
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>}
-</code></pre></div>
-<h3 id="redistemplate">RedisTemplate — 직접 제어</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="ni">@Service</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="ni">@RequiredArgsConstructor</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>public class TokenService {
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    private final RedisTemplate&lt;String, String&gt; redisTemplate;
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    public void saveRefreshToken(Long userId, String token) {
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>        redisTemplate.opsForValue()
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>            .set(&quot;refresh:&quot; + userId, token, Duration.ofDays(7));
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    }
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    public String getRefreshToken(Long userId) {
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>        return redisTemplate.opsForValue().get(&quot;refresh:&quot; + userId);
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    }
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
-<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    public void deleteRefreshToken(Long userId) {
-<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>        redisTemplate.delete(&quot;refresh:&quot; + userId);
-<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>    }
-<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>}
-</code></pre></div>
-<h3 id="_3">주요 자료구조</h3>
+<div class="tip-box">
+<p><strong>용어 주의</strong>: <code>B-Tree</code>의 <code>-</code>는 마이너스가 아니라 이름에 들어가는 하이픈이다. <code>B+Tree</code>는 B-Tree를 DB 인덱스에 더 잘 맞게 변형한 구조다.</p>
+</div>
 <table>
 <thead>
 <tr>
-<th>자료구조</th>
-<th>메서드</th>
-<th>사용 사례</th>
+<th>바로가기</th>
+<th>볼 내용</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>String</td>
-<td><code>opsForValue()</code></td>
-<td>단순 캐시, 카운터, 토큰</td>
+<td><a href="../">개요</a></td>
+<td>인덱스 전체 지도, 상황별 바로가기</td>
 </tr>
 <tr>
-<td>Hash</td>
-<td><code>opsForHash()</code></td>
-<td>객체 필드별 저장</td>
+<td><a href="../%EA%B5%AC%EC%A1%B0%EC%99%80%EC%A2%85%EB%A5%98/">구조와 종류</a></td>
+<td>B+Tree, 클러스터/보조 인덱스, 물리 동작</td>
 </tr>
 <tr>
-<td>List</td>
-<td><code>opsForList()</code></td>
-<td>메시지 큐, 최근 목록</td>
+<td><a href="./"><abbr title="Balanced Tree. 모든 리프 노드까지 깊이가 동일한 자가 균형 탐색 트리. DB 인덱스의 기본 자료구조.">B-Tree</abbr> VS B+Tree</a></td>
+<td>B-Tree와 B+Tree 구조 차이, DB가 B+Tree를 쓰는 이유</td>
 </tr>
 <tr>
-<td>Set</td>
-<td><code>opsForSet()</code></td>
-<td>중복 없는 목록, 태그</td>
+<td><a href="../%EC%84%A4%EA%B3%84%EC%99%80%EC%82%AC%EC%9A%A9%EB%B2%95/">설계와 사용법</a></td>
+<td>커버링 인덱스, 카디널리티, CREATE/ALTER/DROP</td>
 </tr>
 <tr>
-<td>ZSet</td>
-<td><code>opsForZSet()</code></td>
-<td>랭킹, 점수 기반 정렬</td>
+<td><a href="../%EC%BF%BC%EB%A6%AC%ED%8C%A8%ED%84%B4/">쿼리 패턴</a></td>
+<td>연산자별 동작, 복합 인덱스, ESR 규칙</td>
+</tr>
+<tr>
+<td><a href="../%EC%9A%B4%EC%98%81%EA%B3%BC%ED%8A%9C%EB%8B%9D/">운영과 튜닝</a></td>
+<td>고급 기법, 힌트, 통계, 모니터링, 베스트 프랙티스</td>
 </tr>
 </tbody>
 </table>
-<h3 id="_4">인기 게시글 캐시 전략</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>// 조회 요청 시: Cache-Aside 패턴
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>public PostResponse findPost(Long id) {
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    String key = &quot;post:&quot; + id;
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    String cached = redisTemplate.opsForValue().get(key);
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    if (cached != null) {
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>        return objectMapper.readValue(cached, PostResponse.class);  // 캐시 히트
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    }
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    PostResponse response = postRepository.findById(id)...;  // DB 조회
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    redisTemplate.opsForValue().set(key, objectMapper.writeValueAsString(response),
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>        Duration.ofMinutes(30));  // 캐시 저장
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>    return response;
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>}
+<hr />
+<h2 id="_1">왜 쓰는지</h2>
+<p>DB 인덱스는 메모리 안에서만 도는 자료구조가 아니라, 디스크의 페이지를 읽고 쓰는 구조다. 데이터가 커질수록 성능 병목은 CPU 비교 횟수보다 <strong>몇 개의 페이지를 읽는가</strong>에 가까워진다.</p>
+<p><abbr title="Balanced Tree. 모든 리프 노드까지 깊이가 동일한 자가 균형 탐색 트리. DB 인덱스의 기본 자료구조.">B-Tree</abbr> 계열은 이런 문제를 줄이기 위해 만들어졌다.</p>
+<table>
+<thead>
+<tr>
+<th>문제</th>
+<th><abbr title="Balanced Tree. 모든 리프 노드까지 깊이가 동일한 자가 균형 탐색 트리. DB 인덱스의 기본 자료구조.">B-Tree</abbr> 계열이 해결하는 방식</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>데이터가 많아지면 선형 탐색이 느림</td>
+<td>트리 높이를 낮춰 <code>O(log n)</code> 탐색</td>
+</tr>
+<tr>
+<td>디스크 I/O가 비쌈</td>
+<td>한 노드에 많은 키를 넣어 한 번의 페이지 읽기로 많은 분기 처리</td>
+</tr>
+<tr>
+<td>삽입·삭제 후 정렬 유지가 필요</td>
+<td>노드 분할·병합으로 균형 유지</td>
+</tr>
+<tr>
+<td>범위 검색이 자주 발생</td>
+<td>B+Tree는 리프 노드를 연결해 순차 스캔 최적화</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_2">어떻게 쓰는지</h2>
+<p>개발자가 직접 B+Tree를 만드는 경우는 거의 없다. MySQL InnoDB에서 일반 인덱스를 만들면 내부적으로 B+Tree 계열 구조가 사용된다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">-- InnoDB의 일반 인덱스는 B+Tree 계열로 저장된다.</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_member_email</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="p">(</span><span class="n">email</span><span class="p">);</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1">-- PRIMARY KEY는 클러스터 인덱스 B+Tree가 된다.</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="n">email</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">)</span><span class="w"> </span><span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="p">;</span>
 </code></pre></div>
-<h3 id="_5">단점 / 주의할 점</h3>
+<p>개발자가 알아야 할 포인트는 문법이 아니라, <strong>이 인덱스가 어떤 방식으로 읽히는지</strong>다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">-- 포인트 탐색: 루트 -&gt; 내부 노드 -&gt; 리프 노드</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1">-- 범위 탐색: 시작 리프를 찾은 뒤 리프 노드를 순서대로 스캔</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="s1">&#39;2026-01-01&#39;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="s1">&#39;2026-02-01&#39;</span><span class="p">;</span>
+</code></pre></div>
+<hr />
+<h2 id="b-tree"><abbr title="Balanced Tree. 모든 리프 노드까지 깊이가 동일한 자가 균형 탐색 트리. DB 인덱스의 기본 자료구조.">B-Tree</abbr> 구조</h2>
+<p>B-Tree는 하나의 노드에 여러 키와 여러 자식 포인터를 저장한다. 데이터 또는 데이터 포인터도 내부 노드와 리프 노드 모두에 저장될 수 있다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>B-Tree 예시
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>            [20 | 50]
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>          /     |      \
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>   [5 | 10]  [30 | 40]  [60 | 80]
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>      데이터     데이터      데이터
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>내부 노드에도 키와 데이터가 함께 있을 수 있다.
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>검색은 내부 노드에서 끝날 수도 있고, 리프 노드까지 내려갈 수도 있다.
+</code></pre></div>
+<h3 id="_3">탐색 과정</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>찾는 값: 50
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>1. 루트 [20 | 50] 확인
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>2. 루트 노드에서 50 발견
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>3. 검색 종료
+</code></pre></div>
+<p>B-Tree는 검색 대상이 내부 노드에 있으면 리프까지 내려가지 않아도 된다. 그래서 단일 키 조회만 보면 B+Tree보다 빠르게 끝나는 경우가 생길 수 있다.</p>
+<h3 id="b-tree_1">B-Tree의 특징</h3>
+<ul>
+<li>모든 리프 노드의 깊이가 같다.</li>
+<li>한 노드에 여러 키를 저장해 트리 높이를 낮춘다.</li>
+<li>내부 노드에도 실제 데이터 또는 데이터 포인터가 들어갈 수 있다.</li>
+<li>검색이 내부 노드에서 끝날 수 있다.</li>
+<li>범위 검색 시 다음 값을 찾기 위해 트리를 다시 오르내리는 비용이 생길 수 있다.</li>
+</ul>
+<hr />
+<h2 id="btree">B+Tree 구조</h2>
+<p>B+Tree는 B-Tree와 다르게 <strong>실제 데이터는 리프 노드에만 저장</strong>한다. 내부 노드는 길 안내용 키와 자식 포인터만 가진다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>B+Tree 예시
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>             [30 | 60]                 내부 노드: 길 안내
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>            /    |    \
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a> [1,5,10,20] -&gt; [30,40,50] -&gt; [60,70,80]
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>     데이터          데이터          데이터
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>         리프 노드끼리 연결 리스트로 이어짐
+</code></pre></div>
+<h3 id="_4">탐색 과정</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>찾는 값: 40
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>1. 루트 [30 | 60] 확인
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>2. 30보다 크거나 같고 60보다 작으므로 가운데 리프로 이동
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>3. 내부 노드는 길 안내만 하므로 계속 리프까지 내려감
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>4. 리프 노드에서 40 확인
+</code></pre></div>
+<p>B+Tree는 검색이 항상 리프 노드에서 끝난다. 대신 내부 노드가 가벼워져 더 많은 키를 담을 수 있고, 리프 노드가 연결되어 범위 검색이 빠르다.</p>
+<h3 id="btree_1">B+Tree의 특징</h3>
+<ul>
+<li>실제 데이터는 리프 노드에만 저장한다.</li>
+<li>내부 노드는 키와 자식 포인터만 저장한다.</li>
+<li>모든 검색은 리프 노드까지 내려간다.</li>
+<li>리프 노드끼리 연결되어 있어 범위 검색과 정렬 조회가 빠르다.</li>
+<li>내부 노드에 더 많은 키를 담을 수 있어 트리 높이가 낮아지기 쉽다.</li>
+</ul>
+<hr />
+<h2 id="b-tree-vs-btree_1"><abbr title="Balanced Tree. 모든 리프 노드까지 깊이가 동일한 자가 균형 탐색 트리. DB 인덱스의 기본 자료구조.">B-Tree</abbr> VS B+Tree</h2>
+<table>
+<thead>
+<tr>
+<th>비교</th>
+<th><abbr title="Balanced Tree. 모든 리프 노드까지 깊이가 동일한 자가 균형 탐색 트리. DB 인덱스의 기본 자료구조.">B-Tree</abbr></th>
+<th>B+Tree</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>데이터 저장 위치</td>
+<td>내부 노드와 리프 노드 모두 가능</td>
+<td>리프 노드에만 저장</td>
+</tr>
+<tr>
+<td>내부 노드 역할</td>
+<td>키 + 데이터 또는 데이터 포인터</td>
+<td>길 안내용 키 + 자식 포인터</td>
+</tr>
+<tr>
+<td>검색 종료 위치</td>
+<td>내부 노드 또는 리프 노드</td>
+<td>항상 리프 노드</td>
+</tr>
+<tr>
+<td>단건 조회</td>
+<td>내부 노드에서 찾으면 빠를 수 있음</td>
+<td>항상 리프까지 내려감</td>
+</tr>
+<tr>
+<td>범위 조회</td>
+<td>다음 값을 찾기 위한 이동이 복잡</td>
+<td>리프 노드 연결로 순차 스캔이 쉬움</td>
+</tr>
+<tr>
+<td>팬아웃</td>
+<td>내부 노드가 상대적으로 무거움</td>
+<td>내부 노드가 가벼워 팬아웃이 큼</td>
+</tr>
+<tr>
+<td>트리 높이</td>
+<td>상대적으로 높아질 수 있음</td>
+<td>상대적으로 낮아지기 쉬움</td>
+</tr>
+<tr>
+<td>DB 인덱스 적합성</td>
+<td>단건 조회 중심이면 가능</td>
+<td>범위·정렬·대량 조회에 더 적합</td>
+</tr>
+</tbody>
+</table>
+<div class="success-box">
+<p><strong>핵심</strong>: DB 인덱스에서는 단건 조회만큼이나 범위 조회, 정렬, 페이징, JOIN이 중요하다. 그래서 MySQL InnoDB는 B-Tree라고 통칭되지만 실제로는 B+Tree 계열 구조를 사용한다.</p>
+</div>
+<hr />
+<h2 id="db-btree">왜 DB는 B+Tree를 선호하는가</h2>
+<h3 id="1">1. 트리 높이가 낮아진다</h3>
+<p>DB 인덱스 노드는 보통 페이지 단위로 저장된다. InnoDB 기본 페이지 크기는 16KB다. 내부 노드에 실제 데이터가 없고 키와 포인터만 있으면, 한 페이지에 더 많은 키를 담을 수 있다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>한 내부 노드에 담을 수 있는 키가 많음
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  -&gt; 한 번의 페이지 읽기로 더 많은 분기 가능
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  -&gt; 트리 높이 감소
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  -&gt; 디스크 I/O 감소
+</code></pre></div>
+<h3 id="2">2. 범위 검색이 빠르다</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="s1">&#39;2026-01-01&#39;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="s1">&#39;2026-02-01&#39;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">created_at</span><span class="p">;</span>
+</code></pre></div>
+<p>B+Tree는 시작 리프 노드만 찾으면, 이후에는 연결된 리프 노드를 순서대로 읽으면 된다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>created_at 시작 지점 탐색
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  -&gt; 2026-01-01이 있는 리프 도착
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>  -&gt; 다음 리프 -&gt; 다음 리프 -&gt; 다음 리프
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>  -&gt; 범위가 끝날 때까지 순차 스캔
+</code></pre></div>
+<h3 id="3">3. 정렬 조회와 페이징에 유리하다</h3>
+<p>인덱스 키가 정렬된 상태로 리프 노드에 저장되므로 <code>ORDER BY</code>, <code>LIMIT</code>과 잘 맞는다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">created_at</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">member_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="k">DESC</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="k">LIMIT</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+</code></pre></div>
+<p>복합 인덱스가 <code>(member_id, created_at)</code> 순서라면, 특정 회원의 주문을 이미 정렬된 인덱스 순서로 읽을 수 있다.</p>
+<h3 id="4-io">4. 디스크 I/O 패턴이 좋아진다</h3>
+<p>B+Tree는 리프 노드 연결 덕분에 범위 스캔이 순차 I/O에 가까워진다. 반면 보조 인덱스에서 <code>SELECT *</code>를 하면 리프에서 PK를 찾은 뒤 클러스터 인덱스를 다시 찾아가므로 랜덤 I/O가 늘 수 있다.</p>
+<p>관련 내용은 <a href="../%EC%9A%B4%EC%98%81%EA%B3%BC%ED%8A%9C%EB%8B%9D/#랜덤-io-vs-순차-io">랜덤 I/O VS 순차 I/O</a>에서 이어서 보면 좋다.</p>
+<hr />
+<h2 id="_5">언제 쓰는지</h2>
 <table>
 <thead>
 <tr>
 <th>상황</th>
-<th>문제</th>
-<th>해결</th>
+<th>봐야 할 관점</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>캐시 무효화 시점</td>
-<td>수정 후 캐시 미삭제 → 오래된 데이터 반환</td>
-<td><code>@CacheEvict</code> 또는 수동 삭제</td>
+<td>인덱스가 왜 빠른지 이해하고 싶을 때</td>
+<td>트리 높이, 팬아웃, 페이지 I/O</td>
 </tr>
 <tr>
-<td>캐시 스탬피드</td>
-<td>캐시 만료 시 동시 DB 요청 폭주</td>
-<td>분산 락으로 한 건만 DB 조회</td>
+<td>범위 검색이 많은 쿼리를 튜닝할 때</td>
+<td>B+Tree 리프 노드 연결 구조</td>
 </tr>
 <tr>
-<td>Redis 장애</td>
-<td>서비스 전체 장애 가능성</td>
-<td>Circuit Breaker, fallback 처리</td>
+<td><code>ORDER BY</code>, <code>LIMIT</code> 성능을 볼 때</td>
+<td>인덱스 정렬 순서와 리프 스캔</td>
 </tr>
 <tr>
-<td>직렬화 불일치</td>
-<td>객체 변경 시 역직렬화 실패</td>
-<td>TTL 짧게 설정 또는 캐시 키 버전 관리</td>
+<td><code>SELECT *</code>가 느릴 때</td>
+<td>보조 인덱스 리프와 Double Lookup</td>
 </tr>
 <tr>
-<td>민감 데이터 캐시</td>
-<td>Redis는 암호화 없으므로 위험</td>
-<td>민감 정보는 캐시하지 않음</td>
+<td><abbr title="Primary Key. 테이블에서 각 행을 유일하게 식별하는 기본 키. NOT NULL + UNIQUE.">PK</abbr> 설계를 할 때</td>
+<td>클러스터 인덱스 리프 노드의 물리 정렬</td>
 </tr>
 </tbody>
 </table>
+<hr />
+<h2 id="_6">장점</h2>
+<h3 id="b-tree_2"><abbr title="Balanced Tree. 모든 리프 노드까지 깊이가 동일한 자가 균형 탐색 트리. DB 인덱스의 기본 자료구조.">B-Tree</abbr> 장점</h3>
+<ul>
+<li>내부 노드에서 검색이 끝날 수 있어 단건 조회가 빠르게 끝나는 경우가 있다.</li>
+<li>내부 노드와 리프 노드에 데이터가 분산되어 중복 저장이 상대적으로 적을 수 있다.</li>
+<li>일반적인 정렬 자료구조로도 이해하기 쉽다.</li>
+</ul>
+<h3 id="btree_2">B+Tree 장점</h3>
+<ul>
+<li>내부 노드가 가벼워 팬아웃이 커지고 트리 높이가 낮아진다.</li>
+<li>리프 노드가 연결되어 범위 검색, 정렬 조회, 페이징에 유리하다.</li>
+<li>모든 데이터가 리프에 모여 있어 순차 접근 패턴을 만들기 쉽다.</li>
+<li>DBMS가 페이지 캐시와 함께 최적화하기 좋다.</li>
+</ul>
+<hr />
+<h2 id="_7">단점</h2>
+<h3 id="b-tree_3"><abbr title="Balanced Tree. 모든 리프 노드까지 깊이가 동일한 자가 균형 탐색 트리. DB 인덱스의 기본 자료구조.">B-Tree</abbr> 단점</h3>
+<ul>
+<li>내부 노드에 데이터가 들어가면 한 노드에 담을 수 있는 키 수가 줄어든다.</li>
+<li>범위 검색 시 다음 데이터를 찾는 흐름이 B+Tree보다 복잡하다.</li>
+<li>DB의 <code>BETWEEN</code>, <code>ORDER BY</code>, <code>LIMIT</code> 같은 패턴에는 B+Tree보다 덜 적합하다.</li>
+</ul>
+<h3 id="btree_3">B+Tree 단점</h3>
+<ul>
+<li>단건 조회도 항상 리프 노드까지 내려간다.</li>
+<li>내부 노드의 키가 리프 노드에도 다시 나타나므로 키 중복이 생긴다.</li>
+<li>삽입·삭제 시 리프 노드 분할·병합과 부모 노드 갱신이 필요하다.</li>
+</ul>
+<hr />
+<h2 id="_8">특징</h2>
+<table>
+<thead>
+<tr>
+<th>특징</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>균형 트리</td>
+<td>삽입·삭제 후에도 모든 리프 깊이를 같게 유지한다.</td>
+</tr>
+<tr>
+<td>높은 팬아웃</td>
+<td>이진 트리처럼 2개로만 갈라지지 않고, 한 노드에서 많은 자식으로 분기한다.</td>
+</tr>
+<tr>
+<td>페이지 친화적</td>
+<td>노드 하나를 DB 페이지 하나처럼 다룰 수 있어 디스크 I/O를 줄인다.</td>
+</tr>
+<tr>
+<td>정렬 유지</td>
+<td>키가 정렬된 상태로 저장되어 범위 조건과 정렬에 활용된다.</td>
+</tr>
+<tr>
+<td>쓰기 비용 존재</td>
+<td>삽입·삭제 시 노드 분할, 병합, 재분배가 발생할 수 있다.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_9">주의할 점</h2>
+<div class="warning-box">
+<p><strong>B-Tree라는 말이 항상 순수 B-Tree를 뜻하지는 않는다.</strong> DB 문서나 실무 대화에서 "<abbr title="Balanced Tree. 모든 리프 노드까지 깊이가 동일한 자가 균형 탐색 트리. DB 인덱스의 기본 자료구조.">B-Tree</abbr> 인덱스"라고 말해도, 실제 구현은 B+Tree인 경우가 많다. MySQL InnoDB도 일반적으로 B+Tree 계열로 이해하면 된다.</p>
+</div>
+<ul>
+<li><code>B+Tree라서 무조건 빠르다</code>가 아니라, 조건이 인덱스 순서와 맞아야 빠르다.</li>
+<li>리프 노드가 연결되어 있어도 시작 지점을 못 찾으면 Full Scan이 될 수 있다.</li>
+<li>보조 인덱스는 리프 노드에서 끝나지 않고 PK로 클러스터 인덱스를 다시 조회할 수 있다.</li>
+<li>UUID처럼 무작위 PK를 쓰면 클러스터 인덱스 리프 페이지 분할이 잦아질 수 있다.</li>
+</ul>
+<hr />
+<h2 id="_10">베스트 프랙티스</h2>
+<div class="success-box">
+<p><strong>B+Tree를 의식한 인덱스 설계</strong></p>
+<ul>
+<li><code>WHERE</code>에서 등호 조건으로 좁히는 컬럼을 앞에 둔다.</li>
+<li>범위 조건은 뒤쪽에 배치한다.</li>
+<li><code>ORDER BY</code> 방향과 복합 인덱스 컬럼 순서를 맞춘다.</li>
+<li><code>SELECT *</code>를 줄이고 필요한 컬럼만 조회해 커버링 인덱스를 노린다.</li>
+<li>PK는 가능하면 짧고, 변하지 않고, 순차 증가하는 값으로 둔다.</li>
+</ul>
+</div>
+<hr />
+<h2 id="_11">실무에서는?</h2>
+<table>
+<thead>
+<tr>
+<th>실무 질문</th>
+<th>판단 방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>왜 인덱스가 빠른가?</td>
+<td>트리 높이가 낮아 읽는 페이지 수가 줄어든다.</td>
+</tr>
+<tr>
+<td>왜 MySQL은 B+Tree를 쓰는가?</td>
+<td>범위 검색, 정렬, 페이징, JOIN에 유리하기 때문이다.</td>
+</tr>
+<tr>
+<td>왜 <code>LIKE '%값'</code>은 느린가?</td>
+<td>B+Tree는 왼쪽부터 정렬되어 있어 시작 지점을 찾을 수 없다.</td>
+</tr>
+<tr>
+<td>왜 <code>SELECT *</code>가 문제인가?</td>
+<td>보조 인덱스만으로 끝나지 않고 클러스터 인덱스를 다시 조회한다.</td>
+</tr>
+<tr>
+<td>왜 UUID PK가 불리한가?</td>
+<td>무작위 삽입으로 B+Tree 리프 중간에 끼어들어 페이지 분할이 잦아진다.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_12">관련 문서</h2>
+<ul>
+<li><a href="../%EA%B5%AC%EC%A1%B0%EC%99%80%EC%A2%85%EB%A5%98/">인덱스 구조와 종류</a> — 클러스터 인덱스, 보조 인덱스, 물리 동작</li>
+<li><a href="../%EC%84%A4%EA%B3%84%EC%99%80%EC%82%AC%EC%9A%A9%EB%B2%95/">인덱스 설계와 사용법</a> — 커버링 인덱스, 카디널리티, CRUD</li>
+<li><a href="../%EC%BF%BC%EB%A6%AC%ED%8C%A8%ED%84%B4/">인덱스 쿼리 패턴</a> — 연산자별 인덱스 사용 여부와 복합 인덱스</li>
+<li><a href="../%EC%9A%B4%EC%98%81%EA%B3%BC%ED%8A%9C%EB%8B%9D/">인덱스 운영과 튜닝</a> — 손익분기점, 랜덤 I/O, 모니터링</li>
+</ul>
 <!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
 
 <!-- ===== DB / SQL ===== -->
@@ -5497,7 +6178,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 8일 11:08:33 UTC">2026년 4월 8일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 24일 13:12:33 UTC">2026년 4월 24일</span>
   </span>
 
     
@@ -5507,7 +6188,7 @@
     <span class="md-icon" title="작성일">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 6일 11:46:41 UTC">2026년 4월 6일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 24일 13:12:33 UTC">2026년 4월 24일</span>
   </span>
 
     
@@ -5562,10 +6243,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.instant", "search.highlight", "search.suggest", "content.code.copy", "content.tooltips", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.sections", "navigation.top", "navigation.instant", "search.highlight", "search.suggest", "content.code.copy", "content.tooltips", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
       
