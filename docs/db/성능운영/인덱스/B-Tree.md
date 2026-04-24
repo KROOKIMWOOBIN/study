@@ -195,34 +195,42 @@ B+Tree 예시
 
              [30 | 60]                 내부 노드: 길 안내
             /    |    \
- [1,5,10,20] -> [30,40,50] -> [60,70,80]
-     데이터          데이터          데이터
-         리프 노드끼리 연결 리스트로 이어짐
+ [1,data] -> [30,data] -> [60,data]
+ [5,data]    [40,data]    [70,data]
+ [10,data]   [50,data]    [80,data]
+ [20,data]
+       리프 노드끼리 next pointer로 이어짐
 ```
 
 ```mermaid
 flowchart TD
-    R["Root Page<br/>separator keys: 30, 60<br/>data 없음"]
-    L1["Leaf Page<br/>keys: 1, 5, 10, 20<br/>data records"]
-    L2["Leaf Page<br/>keys: 30, 40, 50<br/>data records"]
-    L3["Leaf Page<br/>keys: 60, 70, 80<br/>data records"]
+    R["Root Page<br/>separator keys only: 30, 60<br/>child page pointers<br/>row data 없음"]
+    L1["Leaf Page<br/>entries: (1,data), (5,data), (10,data), (20,data)"]
+    L2["Leaf Page<br/>entries: (30,data), (40,data), (50,data)"]
+    L3["Leaf Page<br/>entries: (60,data), (70,data), (80,data)"]
 
-    R -->|"key < 30"| L1
-    R -->|"30 <= key < 60"| L2
-    R -->|"key >= 60"| L3
+    R -->|"child pointer<br/>key < 30"| L1
+    R -->|"child pointer<br/>30 <= key < 60"| L2
+    R -->|"child pointer<br/>key >= 60"| L3
 
-    L1 -. "next leaf" .-> L2
-    L2 -. "next leaf" .-> L3
+    L1 -. "leaf sibling pointer: next" .-> L2
+    L2 -. "leaf sibling pointer: next" .-> L3
 ```
+
+<div class="tip-box" markdown="1">
+
+**next leaf란?** 리프 페이지가 오른쪽 형제 리프 페이지를 가리키는 포인터다. 루트나 내부 노드로 다시 올라가지 않고, 리프 페이지끼리 옆으로 이동하면서 범위 검색을 이어가기 위해 사용한다. 트리의 부모-자식 포인터가 아니라 **리프 간 연결 포인터**다.
+
+</div>
 
 ### 노드 안에는 무엇이 들어가나
 
 ```text
 B+Tree 내부 노드
 
-┌────────────────────────────────────────────┐
-│ child ptr │ key=30 │ child ptr │ key=60    │
-└────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────┐
+│ child ptr(<30) │ sep key=30 │ child ptr(30~59) │ sep key=60 │ child ptr(>=60) │
+└────────────────────────────────────────────────────────────────────┘
 
 내부 노드는 길 안내만 한다.
 실제 데이터는 없다.
@@ -235,6 +243,8 @@ B+Tree 리프 노드
 
 리프 노드에 실제 데이터가 모이고, 다음 리프 노드로 이어지는 포인터가 있다.
 ```
+
+여기서 `sep key=30`, `sep key=60`은 실제 row 값이 아니다. 어느 자식 페이지로 내려갈지 결정하는 **분기 기준값(separator key)** 이다. 실제 데이터는 리프 노드의 `(key, data)` 엔트리에 있다. InnoDB에서는 클러스터 인덱스 리프의 `data`가 row 전체이고, 보조 인덱스 리프의 `data`는 PK 값이라고 보면 된다.
 
 ### 탐색 과정
 
@@ -280,7 +290,7 @@ flowchart LR
     L3["Leaf<br/>60, 70, 80"]
 
     R --> L2
-    L1 -.-> L2
+    L1 -. "next" .-> L2
     L2 -->|"range scan: 30 to 40 to 50"| L3
 ```
 
