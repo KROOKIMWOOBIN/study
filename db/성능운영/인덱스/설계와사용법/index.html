@@ -8,31 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://krookimwoobin.github.io/study/db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EA%B2%A9%EB%A6%AC%EC%88%98%EC%A4%80/">
+        <link rel="canonical" href="https://krookimwoobin.github.io/study/db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EC%84%A4%EA%B3%84%EC%99%80%EC%82%AC%EC%9A%A9%EB%B2%95/">
       
       
-        <link rel="prev" href="../%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/">
+        <link rel="prev" href="../%EA%B5%AC%EC%A1%B0%EC%99%80%EC%A2%85%EB%A5%98/">
       
       
-        <link rel="next" href="../../../jvm/jvm/">
+        <link rel="next" href="../%EC%BF%BC%EB%A6%AC%ED%8C%A8%ED%84%B4/">
       
       
         
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>격리 수준 - 학습 노트</title>
+        <title>설계와 사용법 - 학습 노트</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,9 +51,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#transaction-isolation-level" class="md-skip">
+        <a href="#_1" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -94,7 +94,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="상단/헤더">
-    <a href="../../.." title="학습 노트" class="md-header__button md-logo" aria-label="학습 노트" data-md-component="logo">
+    <a href="../../../.." title="학습 노트" class="md-header__button md-logo" aria-label="학습 노트" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              격리 수준
+              설계와 사용법
             
           </span>
         </div>
@@ -232,7 +232,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="네비게이션" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="학습 노트" class="md-nav__button md-logo" aria-label="학습 노트" data-md-component="logo">
+    <a href="../../../.." title="학습 노트" class="md-nav__button md-logo" aria-label="학습 노트" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -262,7 +262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         
   
   
@@ -341,7 +341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/java/" class="md-nav__link">
+      <a href="../../../../java/java/" class="md-nav__link">
         
   
   
@@ -418,7 +418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/oop/%EB%8B%A4%ED%98%95%EC%84%B1/" class="md-nav__link">
+      <a href="../../../../java/oop/%EB%8B%A4%ED%98%95%EC%84%B1/" class="md-nav__link">
         
   
   
@@ -446,7 +446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/oop/%EC%83%81%EC%86%8D/" class="md-nav__link">
+      <a href="../../../../java/oop/%EC%83%81%EC%86%8D/" class="md-nav__link">
         
   
   
@@ -474,7 +474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/oop/%EC%B6%94%EC%83%81%ED%99%94/" class="md-nav__link">
+      <a href="../../../../java/oop/%EC%B6%94%EC%83%81%ED%99%94/" class="md-nav__link">
         
   
   
@@ -502,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/oop/%EC%BA%A1%EC%8A%90%ED%99%94/" class="md-nav__link">
+      <a href="../../../../java/oop/%EC%BA%A1%EC%8A%90%ED%99%94/" class="md-nav__link">
         
   
   
@@ -587,7 +587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/core/core/" class="md-nav__link">
+      <a href="../../../../java/core/core/" class="md-nav__link">
         
   
   
@@ -615,7 +615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/core/Object/" class="md-nav__link">
+      <a href="../../../../java/core/Object/" class="md-nav__link">
         
   
   
@@ -643,7 +643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/core/%EB%B6%88%EB%B3%80%EA%B0%9D%EC%B2%B4VS%EA%B0%80%EB%B3%80%EA%B0%9D%EC%B2%B4/" class="md-nav__link">
+      <a href="../../../../java/core/%EB%B6%88%EB%B3%80%EA%B0%9D%EC%B2%B4VS%EA%B0%80%EB%B3%80%EA%B0%9D%EC%B2%B4/" class="md-nav__link">
         
   
   
@@ -671,7 +671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/core/%EB%9E%98%ED%8D%BC%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
+      <a href="../../../../java/core/%EB%9E%98%ED%8D%BC%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -699,7 +699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/core/Enum/" class="md-nav__link">
+      <a href="../../../../java/core/Enum/" class="md-nav__link">
         
   
   
@@ -727,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/core/%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
+      <a href="../../../../java/core/%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
         
   
   
@@ -755,7 +755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/core/%EC%A4%91%EC%B2%A9%EB%82%B4%EB%B6%80%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
+      <a href="../../../../java/core/%EC%A4%91%EC%B2%A9%EB%82%B4%EB%B6%80%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -783,7 +783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/core/Class/" class="md-nav__link">
+      <a href="../../../../java/core/Class/" class="md-nav__link">
         
   
   
@@ -811,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/core/Math/" class="md-nav__link">
+      <a href="../../../../java/core/Math/" class="md-nav__link">
         
   
   
@@ -839,7 +839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/core/SystemClass/" class="md-nav__link">
+      <a href="../../../../java/core/SystemClass/" class="md-nav__link">
         
   
   
@@ -924,7 +924,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/collections/collections/" class="md-nav__link">
+      <a href="../../../../java/collections/collections/" class="md-nav__link">
         
   
   
@@ -952,7 +952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/collections/Collection/" class="md-nav__link">
+      <a href="../../../../java/collections/Collection/" class="md-nav__link">
         
   
   
@@ -980,7 +980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/collections/Generic/" class="md-nav__link">
+      <a href="../../../../java/collections/Generic/" class="md-nav__link">
         
   
   
@@ -1008,7 +1008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/collections/Array/" class="md-nav__link">
+      <a href="../../../../java/collections/Array/" class="md-nav__link">
         
   
   
@@ -1036,7 +1036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/collections/List/" class="md-nav__link">
+      <a href="../../../../java/collections/List/" class="md-nav__link">
         
   
   
@@ -1064,7 +1064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/collections/ArrayList/" class="md-nav__link">
+      <a href="../../../../java/collections/ArrayList/" class="md-nav__link">
         
   
   
@@ -1092,7 +1092,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/collections/LinkedList/" class="md-nav__link">
+      <a href="../../../../java/collections/LinkedList/" class="md-nav__link">
         
   
   
@@ -1120,7 +1120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/collections/Set/" class="md-nav__link">
+      <a href="../../../../java/collections/Set/" class="md-nav__link">
         
   
   
@@ -1148,7 +1148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/collections/HashSet/" class="md-nav__link">
+      <a href="../../../../java/collections/HashSet/" class="md-nav__link">
         
   
   
@@ -1176,7 +1176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/collections/Map/" class="md-nav__link">
+      <a href="../../../../java/collections/Map/" class="md-nav__link">
         
   
   
@@ -1204,7 +1204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/collections/Stack/" class="md-nav__link">
+      <a href="../../../../java/collections/Stack/" class="md-nav__link">
         
   
   
@@ -1232,7 +1232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/collections/Queue/" class="md-nav__link">
+      <a href="../../../../java/collections/Queue/" class="md-nav__link">
         
   
   
@@ -1260,7 +1260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/collections/%EC%88%9C%ED%9A%8C/" class="md-nav__link">
+      <a href="../../../../java/collections/%EC%88%9C%ED%9A%8C/" class="md-nav__link">
         
   
   
@@ -1288,7 +1288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/collections/%EB%B9%84%EA%B5%90/" class="md-nav__link">
+      <a href="../../../../java/collections/%EB%B9%84%EA%B5%90/" class="md-nav__link">
         
   
   
@@ -1316,7 +1316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/collections/BigO/" class="md-nav__link">
+      <a href="../../../../java/collections/BigO/" class="md-nav__link">
         
   
   
@@ -1401,7 +1401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/lambda/start/" class="md-nav__link">
+      <a href="../../../../java/lambda/start/" class="md-nav__link">
         
   
   
@@ -1429,7 +1429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/lambda/function/" class="md-nav__link">
+      <a href="../../../../java/lambda/function/" class="md-nav__link">
         
   
   
@@ -1457,7 +1457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/lambda/method/" class="md-nav__link">
+      <a href="../../../../java/lambda/method/" class="md-nav__link">
         
   
   
@@ -1485,7 +1485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/lambda/programming/" class="md-nav__link">
+      <a href="../../../../java/lambda/programming/" class="md-nav__link">
         
   
   
@@ -1513,7 +1513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/lambda/stream/" class="md-nav__link">
+      <a href="../../../../java/lambda/stream/" class="md-nav__link">
         
   
   
@@ -1541,7 +1541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/lambda/streamApi/" class="md-nav__link">
+      <a href="../../../../java/lambda/streamApi/" class="md-nav__link">
         
   
   
@@ -1569,7 +1569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/lambda/%EC%A6%89%EC%8B%9CVS%EC%A7%80%EC%97%B0/" class="md-nav__link">
+      <a href="../../../../java/lambda/%EC%A6%89%EC%8B%9CVS%EC%A7%80%EC%97%B0/" class="md-nav__link">
         
   
   
@@ -1597,7 +1597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/lambda/optional/" class="md-nav__link">
+      <a href="../../../../java/lambda/optional/" class="md-nav__link">
         
   
   
@@ -1625,7 +1625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/lambda/orElseVSorElseGet/" class="md-nav__link">
+      <a href="../../../../java/lambda/orElseVSorElseGet/" class="md-nav__link">
         
   
   
@@ -1653,7 +1653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/lambda/defaultMethod/" class="md-nav__link">
+      <a href="../../../../java/lambda/defaultMethod/" class="md-nav__link">
         
   
   
@@ -1681,7 +1681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/lambda/%EB%B3%91%EB%A0%AC%EC%8A%A4%ED%8A%B8%EB%A6%BC/" class="md-nav__link">
+      <a href="../../../../java/lambda/%EB%B3%91%EB%A0%AC%EC%8A%A4%ED%8A%B8%EB%A6%BC/" class="md-nav__link">
         
   
   
@@ -1709,7 +1709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/lambda/%ED%95%A8%EC%88%98%ED%98%95%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" class="md-nav__link">
+      <a href="../../../../java/lambda/%ED%95%A8%EC%88%98%ED%98%95%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" class="md-nav__link">
         
   
   
@@ -1794,7 +1794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/thread/thread/" class="md-nav__link">
+      <a href="../../../../java/thread/thread/" class="md-nav__link">
         
   
   
@@ -1822,7 +1822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/thread/%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/" class="md-nav__link">
+      <a href="../../../../java/thread/%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/" class="md-nav__link">
         
   
   
@@ -1850,7 +1850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/thread/Thread1/" class="md-nav__link">
+      <a href="../../../../java/thread/Thread1/" class="md-nav__link">
         
   
   
@@ -1878,7 +1878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/thread/Thread2/" class="md-nav__link">
+      <a href="../../../../java/thread/Thread2/" class="md-nav__link">
         
   
   
@@ -1906,7 +1906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/thread/Thread3/" class="md-nav__link">
+      <a href="../../../../java/thread/Thread3/" class="md-nav__link">
         
   
   
@@ -1934,7 +1934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/thread/synchronized/" class="md-nav__link">
+      <a href="../../../../java/thread/synchronized/" class="md-nav__link">
         
   
   
@@ -1962,7 +1962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/thread/volatile/" class="md-nav__link">
+      <a href="../../../../java/thread/volatile/" class="md-nav__link">
         
   
   
@@ -1990,7 +1990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/thread/%EB%8F%99%EA%B8%B0%ED%99%94%EC%99%80%EC%9B%90%EC%9E%90%EC%A0%81%EC%97%B0%EC%82%B0/" class="md-nav__link">
+      <a href="../../../../java/thread/%EB%8F%99%EA%B8%B0%ED%99%94%EC%99%80%EC%9B%90%EC%9E%90%EC%A0%81%EC%97%B0%EC%82%B0/" class="md-nav__link">
         
   
   
@@ -2018,7 +2018,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/thread/Lock/" class="md-nav__link">
+      <a href="../../../../java/thread/Lock/" class="md-nav__link">
         
   
   
@@ -2046,7 +2046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/thread/%EB%8F%99%EC%8B%9C%EC%84%B1%EC%BB%AC%EB%A0%89%EC%85%98/" class="md-nav__link">
+      <a href="../../../../java/thread/%EB%8F%99%EC%8B%9C%EC%84%B1%EC%BB%AC%EB%A0%89%EC%85%98/" class="md-nav__link">
         
   
   
@@ -2074,7 +2074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/thread/%EC%83%9D%EC%82%B0%EC%9E%90%EC%86%8C%EB%B9%84%EC%9E%90%EB%AC%B8%EC%A0%9C/" class="md-nav__link">
+      <a href="../../../../java/thread/%EC%83%9D%EC%82%B0%EC%9E%90%EC%86%8C%EB%B9%84%EC%9E%90%EB%AC%B8%EC%A0%9C/" class="md-nav__link">
         
   
   
@@ -2102,7 +2102,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/thread/ThreadPool_Executor_Overview1/" class="md-nav__link">
+      <a href="../../../../java/thread/ThreadPool_Executor_Overview1/" class="md-nav__link">
         
   
   
@@ -2130,7 +2130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/thread/ThreadPool_Executor_Overview2/" class="md-nav__link">
+      <a href="../../../../java/thread/ThreadPool_Executor_Overview2/" class="md-nav__link">
         
   
   
@@ -2215,7 +2215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/io-network/IO/" class="md-nav__link">
+      <a href="../../../../java/io-network/IO/" class="md-nav__link">
         
   
   
@@ -2243,7 +2243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/io-network/network/" class="md-nav__link">
+      <a href="../../../../java/io-network/network/" class="md-nav__link">
         
   
   
@@ -2271,7 +2271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/io-network/Charset_Encoding/" class="md-nav__link">
+      <a href="../../../../java/io-network/Charset_Encoding/" class="md-nav__link">
         
   
   
@@ -2299,7 +2299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/io-network/annotation/" class="md-nav__link">
+      <a href="../../../../java/io-network/annotation/" class="md-nav__link">
         
   
   
@@ -2327,7 +2327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/io-network/reflection/" class="md-nav__link">
+      <a href="../../../../java/io-network/reflection/" class="md-nav__link">
         
   
   
@@ -2422,7 +2422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../html/html/" class="md-nav__link">
+      <a href="../../../../html/html/" class="md-nav__link">
         
   
   
@@ -2450,7 +2450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../html/Session/" class="md-nav__link">
+      <a href="../../../../html/Session/" class="md-nav__link">
         
   
   
@@ -2537,7 +2537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/spring/" class="md-nav__link">
+      <a href="../../../../spring/spring/" class="md-nav__link">
         
   
   
@@ -2614,7 +2614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/solid/" class="md-nav__link">
+      <a href="../../../../spring/solid/" class="md-nav__link">
         
   
   
@@ -2642,7 +2642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/IoC-DI/" class="md-nav__link">
+      <a href="../../../../spring/IoC-DI/" class="md-nav__link">
         
   
   
@@ -2670,7 +2670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/%EC%8A%A4%ED%94%84%EB%A7%81%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88/" class="md-nav__link">
+      <a href="../../../../spring/%EC%8A%A4%ED%94%84%EB%A7%81%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88/" class="md-nav__link">
         
   
   
@@ -2698,7 +2698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/%EC%8B%B1%EA%B8%80%ED%86%A4/" class="md-nav__link">
+      <a href="../../../../spring/%EC%8B%B1%EA%B8%80%ED%86%A4/" class="md-nav__link">
         
   
   
@@ -2726,7 +2726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%8A%A4%EC%BA%94/" class="md-nav__link">
+      <a href="../../../../spring/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%8A%A4%EC%BA%94/" class="md-nav__link">
         
   
   
@@ -2754,7 +2754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84%EC%A3%BC%EC%9E%85/" class="md-nav__link">
+      <a href="../../../../spring/%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84%EC%A3%BC%EC%9E%85/" class="md-nav__link">
         
   
   
@@ -2782,7 +2782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/%EB%B9%88%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0/" class="md-nav__link">
+      <a href="../../../../spring/%EB%B9%88%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0/" class="md-nav__link">
         
   
   
@@ -2810,7 +2810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/%EB%B9%88%EC%8A%A4%EC%BD%94%ED%94%84/" class="md-nav__link">
+      <a href="../../../../spring/%EB%B9%88%EC%8A%A4%EC%BD%94%ED%94%84/" class="md-nav__link">
         
   
   
@@ -2895,7 +2895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/springboot/" class="md-nav__link">
+      <a href="../../../../spring/springboot/" class="md-nav__link">
         
   
   
@@ -2923,7 +2923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/mvc/" class="md-nav__link">
+      <a href="../../../../spring/mvc/" class="md-nav__link">
         
   
   
@@ -2951,7 +2951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/restapi/" class="md-nav__link">
+      <a href="../../../../spring/restapi/" class="md-nav__link">
         
   
   
@@ -2979,7 +2979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/validation/" class="md-nav__link">
+      <a href="../../../../spring/validation/" class="md-nav__link">
         
   
   
@@ -3007,7 +3007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/exception/" class="md-nav__link">
+      <a href="../../../../spring/exception/" class="md-nav__link">
         
   
   
@@ -3035,7 +3035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/swagger/" class="md-nav__link">
+      <a href="../../../../spring/swagger/" class="md-nav__link">
         
   
   
@@ -3120,7 +3120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/aop/" class="md-nav__link">
+      <a href="../../../../spring/aop/" class="md-nav__link">
         
   
   
@@ -3148,7 +3148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/transaction/" class="md-nav__link">
+      <a href="../../../../spring/transaction/" class="md-nav__link">
         
   
   
@@ -3176,7 +3176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/logging/" class="md-nav__link">
+      <a href="../../../../spring/logging/" class="md-nav__link">
         
   
   
@@ -3261,7 +3261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/JDBC/" class="md-nav__link">
+      <a href="../../../../spring/JDBC/" class="md-nav__link">
         
   
   
@@ -3289,7 +3289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/%EC%BB%A4%EB%84%A5%EC%85%98%ED%92%80-DataSource/" class="md-nav__link">
+      <a href="../../../../spring/%EC%BB%A4%EB%84%A5%EC%85%98%ED%92%80-DataSource/" class="md-nav__link">
         
   
   
@@ -3317,7 +3317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/db%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
+      <a href="../../../../spring/db%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
         
   
   
@@ -3345,7 +3345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/jpa/" class="md-nav__link">
+      <a href="../../../../spring/jpa/" class="md-nav__link">
         
   
   
@@ -3373,7 +3373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/querydsl/" class="md-nav__link">
+      <a href="../../../../spring/querydsl/" class="md-nav__link">
         
   
   
@@ -3401,7 +3401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/jpa-performance/" class="md-nav__link">
+      <a href="../../../../spring/jpa-performance/" class="md-nav__link">
         
   
   
@@ -3486,7 +3486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/redis/" class="md-nav__link">
+      <a href="../../../../spring/redis/" class="md-nav__link">
         
   
   
@@ -3514,7 +3514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/security/" class="md-nav__link">
+      <a href="../../../../spring/security/" class="md-nav__link">
         
   
   
@@ -3542,7 +3542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/concurrency/" class="md-nav__link">
+      <a href="../../../../spring/concurrency/" class="md-nav__link">
         
   
   
@@ -3570,7 +3570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/kafka/" class="md-nav__link">
+      <a href="../../../../spring/kafka/" class="md-nav__link">
         
   
   
@@ -3598,7 +3598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/outbox/" class="md-nav__link">
+      <a href="../../../../spring/outbox/" class="md-nav__link">
         
   
   
@@ -3683,7 +3683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/testing/" class="md-nav__link">
+      <a href="../../../../spring/testing/" class="md-nav__link">
         
   
   
@@ -3711,7 +3711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/monitoring/" class="md-nav__link">
+      <a href="../../../../spring/monitoring/" class="md-nav__link">
         
   
   
@@ -3739,7 +3739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/architecture/" class="md-nav__link">
+      <a href="../../../../spring/architecture/" class="md-nav__link">
         
   
   
@@ -3767,7 +3767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/msa/" class="md-nav__link">
+      <a href="../../../../spring/msa/" class="md-nav__link">
         
   
   
@@ -3864,7 +3864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/" class="md-nav__link">
+      <a href="../../../db/" class="md-nav__link">
         
   
   
@@ -3941,7 +3941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/" class="md-nav__link">
+      <a href="../../../%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -3969,7 +3969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%EA%B8%B0%EC%B4%88/ACID/" class="md-nav__link">
+      <a href="../../../%EA%B8%B0%EC%B4%88/ACID/" class="md-nav__link">
         
   
   
@@ -3997,7 +3997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%EA%B8%B0%EC%B4%88/SQL/" class="md-nav__link">
+      <a href="../../../%EA%B8%B0%EC%B4%88/SQL/" class="md-nav__link">
         
   
   
@@ -4025,7 +4025,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%83%80%EC%9E%85/" class="md-nav__link">
+      <a href="../../../%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%83%80%EC%9E%85/" class="md-nav__link">
         
   
   
@@ -4053,7 +4053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%EA%B8%B0%EC%B4%88/%EC%A0%9C%EC%95%BD%EC%A1%B0%EA%B1%B4/" class="md-nav__link">
+      <a href="../../../%EA%B8%B0%EC%B4%88/%EC%A0%9C%EC%95%BD%EC%A1%B0%EA%B1%B4/" class="md-nav__link">
         
   
   
@@ -4081,7 +4081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%EA%B8%B0%EC%B4%88/%EC%A0%95%EA%B7%9C%ED%99%94/" class="md-nav__link">
+      <a href="../../../%EA%B8%B0%EC%B4%88/%EC%A0%95%EA%B7%9C%ED%99%94/" class="md-nav__link">
         
   
   
@@ -4166,7 +4166,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%EC%BF%BC%EB%A6%AC/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%80%EA%B3%B5/" class="md-nav__link">
+      <a href="../../../%EC%BF%BC%EB%A6%AC/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%80%EA%B3%B5/" class="md-nav__link">
         
   
   
@@ -4194,7 +4194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%EC%BF%BC%EB%A6%AC/%EC%A7%91%EA%B3%84/" class="md-nav__link">
+      <a href="../../../%EC%BF%BC%EB%A6%AC/%EC%A7%91%EA%B3%84/" class="md-nav__link">
         
   
   
@@ -4222,7 +4222,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%EC%BF%BC%EB%A6%AC/JOIN/" class="md-nav__link">
+      <a href="../../../%EC%BF%BC%EB%A6%AC/JOIN/" class="md-nav__link">
         
   
   
@@ -4250,7 +4250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%EC%BF%BC%EB%A6%AC/%EC%84%9C%EB%B8%8C%EC%BF%BC%EB%A6%AC/" class="md-nav__link">
+      <a href="../../../%EC%BF%BC%EB%A6%AC/%EC%84%9C%EB%B8%8C%EC%BF%BC%EB%A6%AC/" class="md-nav__link">
         
   
   
@@ -4278,7 +4278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%EC%BF%BC%EB%A6%AC/UNION/" class="md-nav__link">
+      <a href="../../../%EC%BF%BC%EB%A6%AC/UNION/" class="md-nav__link">
         
   
   
@@ -4306,7 +4306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%EC%BF%BC%EB%A6%AC/CASE/" class="md-nav__link">
+      <a href="../../../%EC%BF%BC%EB%A6%AC/CASE/" class="md-nav__link">
         
   
   
@@ -4334,7 +4334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%EC%BF%BC%EB%A6%AC/VIEW/" class="md-nav__link">
+      <a href="../../../%EC%BF%BC%EB%A6%AC/VIEW/" class="md-nav__link">
         
   
   
@@ -4418,6 +4418,8 @@
                 
   
   
+    
+  
   
   
     
@@ -4427,11 +4429,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_1" checked>
         
           
           <label class="md-nav__link" for="__nav_5_4_1" id="__nav_5_4_1_label" tabindex="0">
@@ -4452,7 +4454,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_4_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -4470,7 +4472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%EC%9D%B8%EB%8D%B1%EC%8A%A4/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -4498,7 +4500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EA%B5%AC%EC%A1%B0%EC%99%80%EC%A2%85%EB%A5%98/" class="md-nav__link">
+      <a href="../%EA%B5%AC%EC%A1%B0%EC%99%80%EC%A2%85%EB%A5%98/" class="md-nav__link">
         
   
   
@@ -4506,126 +4508,6 @@
     
   
     구조와 종류
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EC%84%A4%EA%B3%84%EC%99%80%EC%82%AC%EC%9A%A9%EB%B2%95/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    설계와 사용법
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EC%BF%BC%EB%A6%AC%ED%8C%A8%ED%84%B4/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    쿼리 패턴
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EC%9A%B4%EC%98%81%EA%B3%BC%ED%8A%9C%EB%8B%9D/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    운영과 튜닝
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    트랜잭션
   
 
     
@@ -4662,7 +4544,7 @@
   <span class="md-ellipsis">
     
   
-    격리 수준
+    설계와 사용법
   
 
     
@@ -4680,7 +4562,7 @@
   <span class="md-ellipsis">
     
   
-    격리 수준
+    설계와 사용법
   
 
     
@@ -4706,30 +4588,24 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#커버링-인덱스" class="md-nav__link">
     <span class="md-ellipsis">
       
-        격리 수준이 왜 필요한가
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="격리 수준이 왜 필요한가">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        동시성 문제
+        커버링 인덱스 (Covering Index)
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        카디널리티와 선택도
+      
+    </span>
+  </a>
   
 </li>
       
@@ -4737,141 +4613,53 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        격리 수준별 발생하는 이상 현상
+        언제 쓰는지
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="격리 수준별 발생하는 이상 현상">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dirty-read" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dirty Read (더티 리드)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#non-repeatable-read" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Non-Repeatable Read (반복 불가능한 읽기)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#phantom-read" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Phantom Read (팬텀 리드)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
+  <a href="#사용-방법-crud" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4가지 격리 수준
+        사용 방법 (CRUD)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="4가지 격리 수준">
+    <nav class="md-nav" aria-label="사용 방법 (CRUD)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#read-uncommitted" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        READ UNCOMMITTED (격리 수준 최하)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#read-committed-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        READ COMMITTED (격리 수준 2)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#repeatable-read-3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        REPEATABLE READ (격리 수준 3)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#serializable" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SERIALIZABLE (격리 수준 최상)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        요약 표
+        기본 문법 구조
       
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#create" class="md-nav__link">
+    <span class="md-ellipsis">
       
-        <li class="md-nav__item">
+        인덱스 생성 (CREATE)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="인덱스 생성 (CREATE)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        이상 현상 상세 설명
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="이상 현상 상세 설명">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dirty-read_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dirty Read
+        단일 컬럼 인덱스
       
     </span>
   </a>
@@ -4879,60 +4667,54 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#non-repeatable-read_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Non-Repeatable Read
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#phantom-read_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Phantom Read
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#db" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DB별 기본 격리 수준
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        실무 선택 기준
+        복합 인덱스
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="실무 선택 기준">
-      <ul class="md-nav__list">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UNIQUE 인덱스
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asc-desc-mysql-80" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ASC / DESC 인덱스 (MySQL 8.0+)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fulltext" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FULLTEXT 인덱스
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        스프링에서 격리 수준 지정
+        테이블 생성 시 인덱스 정의
       
     </span>
   </a>
@@ -4940,10 +4722,126 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#alter-table" class="md-nav__link">
     <span class="md-ellipsis">
       
-        주의사항
+        ALTER TABLE로 인덱스 추가
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        인덱스 조회 (READ)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="인덱스 조회 (READ)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#show-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SHOW INDEX — 가장 빠른 확인
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-create-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SHOW CREATE TABLE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#information_schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        information_schema로 상세 조회
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EXPLAIN으로 실행 계획 확인
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        인덱스 수정 (ALTER)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="인덱스 수정 (ALTER)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mysql-57" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        인덱스 이름 변경 (MySQL 5.7+)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mysql-80" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        인덱스 가시성 변경 — 인비저블 (MySQL 8.0+)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        인덱스 삭제 (DROP)
       
     </span>
   </a>
@@ -4959,6 +4857,126 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%EC%BF%BC%EB%A6%AC%ED%8C%A8%ED%84%B4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    쿼리 패턴
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%EC%9A%B4%EC%98%81%EA%B3%BC%ED%8A%9C%EB%8B%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    운영과 튜닝
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    트랜잭션
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%EA%B2%A9%EB%A6%AC%EC%88%98%EC%A4%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    격리 수준
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -5038,7 +5056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jvm/jvm/" class="md-nav__link">
+      <a href="../../../../jvm/jvm/" class="md-nav__link">
         
   
   
@@ -5066,7 +5084,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jvm/JVM%EA%B0%9C%EC%9A%94/" class="md-nav__link">
+      <a href="../../../../jvm/JVM%EA%B0%9C%EC%9A%94/" class="md-nav__link">
         
   
   
@@ -5153,7 +5171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/cs/" class="md-nav__link">
+      <a href="../../../../cs/cs/" class="md-nav__link">
         
   
   
@@ -5181,7 +5199,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/%EB%8F%99%EA%B8%B0VS%EB%B9%84%EB%8F%99%EA%B8%B0/" class="md-nav__link">
+      <a href="../../../../cs/%EB%8F%99%EA%B8%B0VS%EB%B9%84%EB%8F%99%EA%B8%B0/" class="md-nav__link">
         
   
   
@@ -5268,7 +5286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../troubleshooting/smtp/" class="md-nav__link">
+      <a href="../../../../troubleshooting/smtp/" class="md-nav__link">
         
   
   
@@ -5323,30 +5341,24 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#커버링-인덱스" class="md-nav__link">
     <span class="md-ellipsis">
       
-        격리 수준이 왜 필요한가
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="격리 수준이 왜 필요한가">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        동시성 문제
+        커버링 인덱스 (Covering Index)
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        카디널리티와 선택도
+      
+    </span>
+  </a>
   
 </li>
       
@@ -5354,141 +5366,53 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        격리 수준별 발생하는 이상 현상
+        언제 쓰는지
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="격리 수준별 발생하는 이상 현상">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dirty-read" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dirty Read (더티 리드)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#non-repeatable-read" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Non-Repeatable Read (반복 불가능한 읽기)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#phantom-read" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Phantom Read (팬텀 리드)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
+  <a href="#사용-방법-crud" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4가지 격리 수준
+        사용 방법 (CRUD)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="4가지 격리 수준">
+    <nav class="md-nav" aria-label="사용 방법 (CRUD)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#read-uncommitted" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        READ UNCOMMITTED (격리 수준 최하)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#read-committed-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        READ COMMITTED (격리 수준 2)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#repeatable-read-3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        REPEATABLE READ (격리 수준 3)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#serializable" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SERIALIZABLE (격리 수준 최상)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        요약 표
+        기본 문법 구조
       
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#create" class="md-nav__link">
+    <span class="md-ellipsis">
       
-        <li class="md-nav__item">
+        인덱스 생성 (CREATE)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="인덱스 생성 (CREATE)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        이상 현상 상세 설명
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="이상 현상 상세 설명">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dirty-read_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dirty Read
+        단일 컬럼 인덱스
       
     </span>
   </a>
@@ -5496,60 +5420,54 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#non-repeatable-read_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Non-Repeatable Read
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#phantom-read_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Phantom Read
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#db" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DB별 기본 격리 수준
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        실무 선택 기준
+        복합 인덱스
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="실무 선택 기준">
-      <ul class="md-nav__list">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UNIQUE 인덱스
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asc-desc-mysql-80" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ASC / DESC 인덱스 (MySQL 8.0+)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fulltext" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FULLTEXT 인덱스
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        스프링에서 격리 수준 지정
+        테이블 생성 시 인덱스 정의
       
     </span>
   </a>
@@ -5557,10 +5475,126 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#alter-table" class="md-nav__link">
     <span class="md-ellipsis">
       
-        주의사항
+        ALTER TABLE로 인덱스 추가
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        인덱스 조회 (READ)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="인덱스 조회 (READ)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#show-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SHOW INDEX — 가장 빠른 확인
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-create-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SHOW CREATE TABLE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#information_schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        information_schema로 상세 조회
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EXPLAIN으로 실행 계획 확인
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        인덱스 수정 (ALTER)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="인덱스 수정 (ALTER)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mysql-57" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        인덱스 이름 변경 (MySQL 5.7+)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mysql-80" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        인덱스 가시성 변경 — 인비저블 (MySQL 8.0+)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        인덱스 삭제 (DROP)
       
     </span>
   </a>
@@ -5592,286 +5626,470 @@
   
 
 
-<h1 id="transaction-isolation-level">트랜잭션 격리 수준 (Transaction Isolation Level)</h1>
-<hr />
-<h2 id="_1">격리 수준이 왜 필요한가</h2>
-<h3 id="_2">동시성 문제</h3>
-<p>여러 트랜잭션이 <strong>동시에</strong> 같은 데이터에 접근할 때 문제가 발생한다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>트랜잭션 A: 계좌 잔액 조회 중...
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>트랜잭션 B: 계좌 잔액 변경 중...
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  → A가 변경 도중의 값을 읽으면 잘못된 결과!
-</code></pre></div>
-<div class="warning-box">
-<p>격리 수준이 높으면 → <strong>정확성 UP, 동시성 DOWN</strong> (성능 저하)
-격리 수준이 낮으면 → <strong>동시성 UP, 정확성 DOWN</strong> (이상 현상 발생 가능)</p>
-<p>이 트레이드오프를 조절하기 위해 <strong>4단계의 격리 수준</strong>을 표준으로 정의했다.</p>
-</div>
-<hr />
-<h2 id="_3">격리 수준별 발생하는 이상 현상</h2>
-<h3 id="dirty-read">Dirty Read (더티 리드)</h3>
-<blockquote>
-<p>커밋되지 않은 데이터를 읽는 현상</p>
-</blockquote>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="err">트랜잭션</span><span class="w"> </span><span class="n">A</span><span class="w">                     </span><span class="err">트랜잭션</span><span class="w"> </span><span class="n">B</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">                               </span><span class="k">UPDATE</span><span class="w"> </span><span class="n">money</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2000</span><span class="w"> </span><span class="p">(</span><span class="err">아직</span><span class="w"> </span><span class="err">커밋</span><span class="w"> </span><span class="n">X</span><span class="p">)</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">money</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2000</span><span class="w"> </span><span class="p">(</span><span class="err">읽음</span><span class="o">!</span><span class="p">)</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">                               </span><span class="k">ROLLBACK</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">money는</span><span class="w"> </span><span class="err">다시</span><span class="w"> </span><span class="mi">1000</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="err">→</span><span class="w"> </span><span class="n">A는</span><span class="w"> </span><span class="err">존재하지</span><span class="w"> </span><span class="err">않는</span><span class="w"> </span><span class="err">값</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span><span class="err">을</span><span class="w"> </span><span class="err">읽었다</span><span class="o">!</span>
-</code></pre></div>
-<h3 id="non-repeatable-read">Non-Repeatable Read (반복 불가능한 읽기)</h3>
-<blockquote>
-<p>같은 트랜잭션 내에서 같은 데이터를 두 번 읽었는데 값이 달라지는 현상</p>
-</blockquote>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="err">트랜잭션</span><span class="w"> </span><span class="n">A</span><span class="w">                     </span><span class="err">트랜잭션</span><span class="w"> </span><span class="n">B</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">money</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">                               </span><span class="k">UPDATE</span><span class="w"> </span><span class="n">money</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2000</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">COMMIT</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">money</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2000</span><span class="w"> </span><span class="err">←</span><span class="w"> </span><span class="err">달라짐</span><span class="o">!</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="err">→</span><span class="w"> </span><span class="err">같은</span><span class="w"> </span><span class="err">트랜잭션에서</span><span class="w"> </span><span class="err">같은</span><span class="w"> </span><span class="err">행을</span><span class="w"> </span><span class="err">읽었는데</span><span class="w"> </span><span class="err">값이</span><span class="w"> </span><span class="err">다르다</span><span class="o">!</span>
-</code></pre></div>
-<h3 id="phantom-read">Phantom Read (팬텀 리드)</h3>
-<blockquote>
-<p>같은 트랜잭션 내에서 같은 조건으로 조회했는데 결과 건수가 달라지는 현상</p>
-</blockquote>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="err">트랜잭션</span><span class="w"> </span><span class="n">A</span><span class="w">                     </span><span class="err">트랜잭션</span><span class="w"> </span><span class="n">B</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">(</span><span class="k">WHERE</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">                               </span><span class="k">INSERT</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">COMMIT</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="err">←</span><span class="w"> </span><span class="err">달라짐</span><span class="o">!</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="err">→</span><span class="w"> </span><span class="err">없던</span><span class="w"> </span><span class="err">행이</span><span class="w"> </span><span class="err">갑자기</span><span class="w"> </span><span class="err">나타났다</span><span class="p">(</span><span class="n">Phantom</span><span class="p">)</span><span class="o">!</span>
-</code></pre></div>
-<hr />
-<h2 id="4">4가지 격리 수준</h2>
-<h3 id="read-uncommitted">READ UNCOMMITTED (격리 수준 최하)</h3>
-<p>커밋되지 않은 변경 사항도 읽을 수 있다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>트랜잭션 A: 잔액 1000원 → 2000원으로 변경 (아직 커밋 X)
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>트랜잭션 B: 잔액 조회 → 2000원 (커밋 전 데이터 읽음)
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>트랜잭션 A: ROLLBACK → 잔액 다시 1000원
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>트랜잭션 B: 2000원이라는 잘못된 데이터 기반으로 처리...
-</code></pre></div>
-<ul>
-<li>발생 문제: <strong>Dirty Read, Non-Repeatable Read, Phantom Read</strong></li>
-<li>실무: <strong>거의 사용하지 않음</strong> (데이터 정합성이 너무 낮음)</li>
-</ul>
-<h3 id="read-committed-2">READ COMMITTED (격리 수준 2)</h3>
-<p>커밋된 데이터만 읽는다. <strong>Oracle 기본값</strong>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>트랜잭션 A: 잔액 1000원 → 2000원으로 변경 (아직 커밋 X)
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>트랜잭션 B: 잔액 조회 → 1000원 (커밋 전이므로 undo log에서 읽음)
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>트랜잭션 A: COMMIT
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>트랜잭션 B: 잔액 다시 조회 → 2000원 (이제 커밋됐으므로)
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>→ 같은 트랜잭션에서 값이 달라짐!
-</code></pre></div>
-<ul>
-<li>발생 문제: <strong>Non-Repeatable Read, Phantom Read</strong></li>
-<li>실무: <strong>가장 많이 사용 (Oracle 기본, AWS RDS 기본)</strong></li>
-</ul>
-<h3 id="repeatable-read-3">REPEATABLE READ (격리 수준 3)</h3>
-<p>트랜잭션 시작 전에 커밋된 데이터만 읽으며, 트랜잭션 내에서 같은 행은 항상 같은 값.
-<strong>MySQL InnoDB 기본값</strong>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>트랜잭션 B (트랜잭션 ID: 10) 시작
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>트랜잭션 A: 잔액 1000원 → 2000원으로 변경 + COMMIT (트랜잭션 ID: 11)
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>트랜잭션 B: 잔액 조회 → 1000원 (트랜잭션 ID 10 이전 데이터, undo log에서 읽음)
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>트랜잭션 B: 잔액 다시 조회 → 1000원 (여전히 동일!)
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>→ Non-Repeatable Read 없음!
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>[MVCC (Multi-Version Concurrency Control)]
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>변경 시 이전 버전을 undo log에 보관
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>읽기 시 트랜잭션 시작 시점의 undo log 버전 읽음
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>→ 읽기와 쓰기가 서로 블로킹하지 않음!
-</code></pre></div>
-<ul>
-<li>발생 문제: <strong>Phantom Read</strong> (SELECT ... FOR UPDATE 등 잠금 읽기 시)</li>
-<li>실무: <strong>MySQL 기본값, 자주 사용</strong></li>
-</ul>
-<h3 id="serializable">SERIALIZABLE (격리 수준 최상)</h3>
-<p>모든 트랜잭션을 순차적으로 실행하는 것처럼 처리. 읽기 시 공유 잠금 획득.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="err">트랜잭션</span><span class="w"> </span><span class="n">A</span><span class="p">:</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">(</span><span class="err">공유</span><span class="w"> </span><span class="err">잠금</span><span class="w"> </span><span class="err">획득</span><span class="p">)</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="err">트랜잭션</span><span class="w"> </span><span class="n">B</span><span class="p">:</span><span class="w"> </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="err">대기</span><span class="o">!</span><span class="w"> </span><span class="p">(</span><span class="n">A가</span><span class="w"> </span><span class="err">공유</span><span class="w"> </span><span class="err">잠금</span><span class="w"> </span><span class="err">보유</span><span class="w"> </span><span class="err">중</span><span class="p">)</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="err">트랜잭션</span><span class="w"> </span><span class="n">A</span><span class="p">:</span><span class="w"> </span><span class="k">COMMIT</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="err">잠금</span><span class="w"> </span><span class="err">해제</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="err">트랜잭션</span><span class="w"> </span><span class="n">B</span><span class="p">:</span><span class="w"> </span><span class="err">이제</span><span class="w"> </span><span class="k">INSERT</span><span class="w"> </span><span class="err">가능</span>
-</code></pre></div>
-<ul>
-<li>발생 문제: <strong>없음</strong> (모든 이상 현상 방지)</li>
-<li>실무: <strong>거의 사용하지 않음</strong> (성능이 너무 낮음, 데드락 위험)</li>
-</ul>
-<hr />
-<h2 id="_4">요약 표</h2>
+<h1 id="_1">인덱스 설계와 사용법</h1>
+<div class="tip-box">
+<p><strong>인덱스 파워링크</strong></p>
 <table>
 <thead>
 <tr>
-<th>격리 수준</th>
-<th>Dirty Read</th>
-<th>Non-Repeatable Read</th>
-<th>Phantom Read</th>
+<th>바로가기</th>
+<th>볼 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../">개요</a></td>
+<td>인덱스 전체 지도, 상황별 바로가기</td>
+</tr>
+<tr>
+<td><a href="../%EA%B5%AC%EC%A1%B0%EC%99%80%EC%A2%85%EB%A5%98/">구조와 종류</a></td>
+<td>B+Tree, 클러스터/보조 인덱스, 물리 동작</td>
+</tr>
+<tr>
+<td><a href="./">설계와 사용법</a></td>
+<td>커버링 인덱스, 카디널리티, CREATE/ALTER/DROP</td>
+</tr>
+<tr>
+<td><a href="../%EC%BF%BC%EB%A6%AC%ED%8C%A8%ED%84%B4/">쿼리 패턴</a></td>
+<td>연산자별 동작, 복합 인덱스, ESR 규칙</td>
+</tr>
+<tr>
+<td><a href="../%EC%9A%B4%EC%98%81%EA%B3%BC%ED%8A%9C%EB%8B%9D/">운영과 튜닝</a></td>
+<td>고급 기법, 힌트, 통계, 모니터링, 베스트 프랙티스</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="커버링-인덱스">커버링 인덱스 (Covering Index)</h2>
+<div class="concept-box">
+<p><strong>커버링 인덱스</strong>: 쿼리가 필요로 하는 모든 컬럼이 인덱스에 포함되어 있어, ==테이블 데이터에 접근하지 않고 인덱스만으로 결과를 반환==하는 것. Secondary Index의 Double Lookup을 제거하여 디스크 I/O를 대폭 줄인다.</p>
+</div>
+<div class="compare-grid">
+<div class="before">
+<p><strong>Bad — Double Lookup 발생</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">-- idx_order_member_date: (member_id, created_at)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">member_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</code></pre></div>
+<p>인덱스로 PK를 찾고 → PK로 다시 클러스터 인덱스를 조회한다.</p>
+</div>
+<div class="after">
+<p><strong>Good — 커버링 인덱스</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">-- idx_order_member_date: (member_id, created_at)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">member_id</span><span class="p">,</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">member_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</code></pre></div>
+<p>필요한 컬럼이 모두 인덱스에 있으므로 테이블 접근 없이 응답한다.</p>
+</div>
+</div>
+<p>EXPLAIN으로 확인할 때 <code>Extra</code> 컬럼에 ==<strong>Using index</strong>==가 표시되면 커버링 인덱스가 사용된 것이다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">member_id</span><span class="p">,</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">member_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1">-- Extra: Using index  ← 커버링 인덱스 사용 중</span>
+</code></pre></div>
+<div class="warning-box">
+<p><strong>주의</strong>: <code>SELECT *</code>를 남발하면 커버링 인덱스를 활용할 수 없다. 필요한 컬럼만 명시적으로 SELECT하는 습관이 중요하다.</p>
+</div>
+<h2 id="_2">카디널리티와 선택도</h2>
+<div class="concept-box">
+<p><strong>카디널리티(Cardinality)</strong>: 해당 컬럼의 고유 값 개수.
+<strong>선택도(Selectivity)</strong>: 카디널리티 / 전체 행 수. <mark>선택도가 1에 가까울수록 인덱스 효과가 크다.</mark></p>
+</div>
+<table>
+<thead>
+<tr>
+<th>컬럼</th>
+<th>전체 행 수</th>
+<th>카디널리티</th>
+<th>선택도</th>
+<th>인덱스 효과</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>email (UNIQUE)</td>
+<td>1,000,000</td>
+<td>1,000,000</td>
+<td>1.0</td>
+<td>매우 높음</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>1,000,000</td>
+<td>365,000</td>
+<td>0.365</td>
+<td>높음</td>
+</tr>
+<tr>
+<td>gender (M/F)</td>
+<td>1,000,000</td>
+<td>2</td>
+<td>0.000002</td>
+<td>거의 없음</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">-- 카디널리티 확인</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">SHOW</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">member</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1">-- Cardinality 컬럼에 추정값이 표시된다 (InnoDB는 통계 기반 추정)</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1">-- 통계 갱신</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">ANALYZE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">member</span><span class="p">;</span>
+</code></pre></div>
+<div class="warning-box">
+<p><strong>주의</strong>: 인덱스로 조회 시 전체 행의 약 <strong>5~10% 이하</strong>만 읽을 때 인덱스가 효과적이다. 그 이상이면 옵티마이저가 오히려 Full Scan을 선택할 수 있다.</p>
+</div>
+<div class="tip-box">
+<p><strong>팁</strong>: 단일 컬럼의 카디널리티가 낮더라도 <mark>복합 인덱스로 조합하면 결합 카디널리티가 높아질 수 있다</mark>. 예를 들어 <code>gender</code>(2종류)와 <code>age</code>(100종류)를 조합하면 최대 200종류까지 올라간다.</p>
+</div>
+<h2 id="_3">언제 쓰는지</h2>
+<p>인덱스를 걸면 좋은 컬럼:</p>
+<ul>
+<li><code>WHERE</code> 조건에 자주 등장하는 컬럼</li>
+<li><code>JOIN</code> 조건에 쓰이는 컬럼 (<abbr title="Foreign Key. 다른 테이블의 PK를 참조하는 외래 키. 참조 무결성을 보장한다.">FK</abbr> 컬럼)</li>
+<li><code>ORDER BY</code>, <code>GROUP BY</code> 에 쓰이는 컬럼</li>
+<li><strong>카디널리티(Cardinality)가 높은 컬럼</strong> — 값의 종류가 많을수록 효과적</li>
+</ul>
+<div class="warning-box">
+<p><strong>주의</strong>: <code>성별(M/F)</code>, <code>상태(Y/N)</code> 같이 값의 종류가 2~3개뿐인 컬럼은 인덱스 효과가 거의 없다. 전체 행의 20~30% 이상을 읽어야 한다면 Full Scan이 더 빠를 수 있다.</p>
+</div>
+<h2 id="사용-방법-crud">사용 방법 (CRUD)</h2>
+<h3 id="_4">기본 문법 구조</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="p">[</span><span class="k">UNIQUE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">FULLTEXT</span><span class="p">]</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">index_name</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="p">[</span><span class="k">USING</span><span class="w"> </span><span class="err">{</span><span class="n">BTREE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">HASH</span><span class="err">}</span><span class="p">]</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="p">(</span><span class="n">col</span><span class="w"> </span><span class="p">[</span><span class="k">ASC</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">DESC</span><span class="p">],</span><span class="w"> </span><span class="p">...)</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="p">[</span><span class="n">ALGORITHM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{</span><span class="k">DEFAULT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">INPLACE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">COPY</span><span class="err">}</span><span class="p">]</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="p">[</span><span class="k">LOCK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{</span><span class="k">DEFAULT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">NONE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">SHARED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">EXCLUSIVE</span><span class="err">}</span><span class="p">];</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>옵션</th>
 <th>설명</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>READ UNCOMMITTED</strong></td>
-<td>발생</td>
-<td>발생</td>
-<td>발생</td>
-<td>미완료 변경도 읽음</td>
+<td><code>UNIQUE</code></td>
+<td>중복 값 허용 안 함 (NULL은 여러 개 허용)</td>
 </tr>
 <tr>
-<td><strong>READ COMMITTED</strong></td>
-<td>없음</td>
-<td>발생</td>
-<td>발생</td>
-<td>커밋된 데이터만 읽음</td>
+<td><code>FULLTEXT</code></td>
+<td>전문 검색 인덱스</td>
 </tr>
 <tr>
-<td><strong>REPEATABLE READ</strong></td>
-<td>없음</td>
-<td>없음</td>
-<td>발생(일부)</td>
-<td>트랜잭션 동안 같은 행은 고정</td>
+<td><code>USING BTREE</code></td>
+<td>기본값. B+Tree 인덱스</td>
 </tr>
 <tr>
-<td><strong>SERIALIZABLE</strong></td>
-<td>없음</td>
-<td>없음</td>
-<td>없음</td>
-<td>완전 직렬화, 가장 안전</td>
+<td><code>USING HASH</code></td>
+<td>Memory 엔진에서만 의미 있음. InnoDB는 무시</td>
+</tr>
+<tr>
+<td><code>ALGORITHM=INPLACE</code></td>
+<td>Online <abbr title="Data Definition Language. 테이블·인덱스 등 DB 구조를 정의하는 SQL 분류. CREATE, ALTER, DROP.">DDL</abbr> — 테이블 잠금 최소화 (MySQL 8.0 기본값)</td>
+</tr>
+<tr>
+<td><code>LOCK=NONE</code></td>
+<td>무잠금 — 동시 읽기·쓰기 허용</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="_5">이상 현상 상세 설명</h2>
-<h3 id="dirty-read_1">Dirty Read</h3>
-<p>아직 확정되지 않은 값을 읽어버리는 것.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="err">트랜잭션</span><span class="w"> </span><span class="n">A</span><span class="w">                </span><span class="err">트랜잭션</span><span class="w"> </span><span class="n">B</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">BEGIN</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">money</span><span class="o">=</span><span class="mi">2000</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">1</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">                         </span><span class="k">BEGIN</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">                         </span><span class="k">SELECT</span><span class="w"> </span><span class="n">money</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">1</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">                         </span><span class="c1">-- 결과: 2000 (커밋 전!)</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="k">ROLLBACK</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="c1">-- money는 다시 1000</span>
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">                         </span><span class="c1">-- B가 읽은 2000은 &quot;더티 데이터&quot;</span>
+<h3 id="create">인덱스 생성 (CREATE)</h3>
+<h4 id="_5">단일 컬럼 인덱스</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_member_email</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="p">(</span><span class="n">email</span><span class="p">);</span>
 </code></pre></div>
-<h3 id="non-repeatable-read_1">Non-Repeatable Read</h3>
-<p>같은 데이터를 두 번 읽었는데 값이 달라지는 것.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="err">트랜잭션</span><span class="w"> </span><span class="n">A</span><span class="w">                </span><span class="err">트랜잭션</span><span class="w"> </span><span class="n">B</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">BEGIN</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">money</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">                         </span><span class="k">BEGIN</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">                         </span><span class="k">UPDATE</span><span class="w"> </span><span class="n">money</span><span class="o">=</span><span class="mi">2000</span>
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">                         </span><span class="k">COMMIT</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">money</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2000</span><span class="w"> </span><span class="err">←</span><span class="w"> </span><span class="err">달라짐</span><span class="o">!</span>
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="c1">-- 같은 트랜잭션인데 다른 값</span>
+<h4 id="_6">복합 인덱스</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">-- 컬럼 순서가 쿼리 성능에 결정적 영향을 미친다 (ESR 원칙 참고)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_order_member_date</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="p">(</span><span class="n">member_id</span><span class="p">,</span><span class="w"> </span><span class="n">created_at</span><span class="p">);</span>
 </code></pre></div>
-<p><strong>문제 시나리오</strong>: 재고가 10개인지 확인 후 주문 → 주문 처리 사이에 재고가 0개로 변경됨.</p>
-<h3 id="phantom-read_1">Phantom Read</h3>
-<p>없던 데이터가 갑자기 나타나거나(또는 사라지는) 현상.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="err">트랜잭션</span><span class="w"> </span><span class="n">A</span><span class="w">                </span><span class="err">트랜잭션</span><span class="w"> </span><span class="n">B</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">BEGIN</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">20</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">                         </span><span class="k">BEGIN</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">                         </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">members</span><span class="w"> </span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">                         </span><span class="k">COMMIT</span>
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="err">←</span><span class="w"> </span><span class="err">행이</span><span class="w"> </span><span class="err">추가됨</span><span class="o">!</span>
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="c1">-- 없던 행이 나타남 (팬텀)</span>
+<h4 id="unique">UNIQUE 인덱스</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">-- 중복 삽입 시 오류 발생. NULL은 중복으로 취급하지 않아 여러 개 허용</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">uq_member_email</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="p">(</span><span class="n">email</span><span class="p">);</span>
 </code></pre></div>
-<p><strong>MySQL REPEATABLE READ에서의 특이점</strong>:
-- 일반 SELECT: MVCC로 팬텀 리드 방지
-- <code>SELECT ... FOR UPDATE</code> (잠금 읽기): 팬텀 리드 발생 가능</p>
-<hr />
-<h2 id="db">DB별 기본 격리 수준</h2>
+<h4 id="asc-desc-mysql-80">ASC / DESC 인덱스 (MySQL 8.0+)</h4>
+<div class="concept-box">
+<p><strong>오름차순·내림차순 인덱스</strong>: MySQL 8.0부터 컬럼별로 정렬 방향을 지정할 수 있다. 복합 인덱스에서 컬럼마다 정렬 방향이 <strong>혼합</strong>될 때 진가를 발휘한다.</p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">-- 기본: ASC (오름차순) — 생략 시 기본값</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_member_name</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="k">ASC</span><span class="p">);</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1">-- DESC (내림차순)</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_orders_date_desc</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="p">(</span><span class="n">created_at</span><span class="w"> </span><span class="k">DESC</span><span class="p">);</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1">-- 복합 인덱스에서 방향 혼합 — 이게 DESC 인덱스의 핵심 사용 사례</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_orders_member_date</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="p">(</span><span class="n">member_id</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="k">DESC</span><span class="p">);</span>
+</code></pre></div>
+<div class="tip-box">
+<p><strong>팁: MySQL 5.7 이하 vs 8.0+</strong></p>
 <table>
 <thead>
 <tr>
-<th>데이터베이스</th>
-<th>기본 격리 수준</th>
+<th>버전</th>
+<th>DESC 인덱스 동작</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>MySQL (InnoDB)</strong></td>
-<td>REPEATABLE READ</td>
+<td>MySQL 5.7 이하</td>
+<td><code>DESC</code> 키워드를 파싱하지만 <strong>실제 저장은 ASC와 동일</strong> — 역순 스캔(Backward Scan)으로 처리. 혼합 정렬에서 filesort 발생</td>
 </tr>
 <tr>
-<td><strong>Oracle</strong></td>
-<td>READ COMMITTED</td>
-</tr>
-<tr>
-<td><strong>PostgreSQL</strong></td>
-<td>READ COMMITTED</td>
-</tr>
-<tr>
-<td><strong>SQL Server</strong></td>
-<td>READ COMMITTED</td>
-</tr>
-<tr>
-<td><strong>H2</strong></td>
-<td>READ COMMITTED</td>
+<td>MySQL 8.0+</td>
+<td>진정한 <strong>내림차순 B+Tree</strong> 생성 — Forward Scan으로 처리해 혼합 정렬에서도 filesort 없음</td>
 </tr>
 </tbody>
 </table>
+</div>
+<p><strong>언제 DESC 인덱스가 필요한가</strong></p>
+<p>단일 컬럼만 정렬하는 경우는 ASC 인덱스를 역방향으로 읽으면 충분하다. <mark>복합 인덱스에서 컬럼마다 정렬 방향이 다를 때 DESC 인덱스가 실질적인 성능 차이를 만든다.</mark></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">-- 이 쿼리를 filesort 없이 처리하려면</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">member_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">member_id</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="c1">-- ❌ 같은 방향 복합 인덱스 → filesort 발생</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_orders</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="p">(</span><span class="n">member_id</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="k">ASC</span><span class="p">);</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="c1">-- ✅ 혼합 방향 복합 인덱스 → filesort 없음 (MySQL 8.0+)</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_orders</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="p">(</span><span class="n">member_id</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="k">DESC</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="fulltext">FULLTEXT 인덱스</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">-- 한국어는 ngram parser 필수 (공백 기반 토큰화 불가)</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="n">FULLTEXT</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">ft_article</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">article</span><span class="w"> </span><span class="p">(</span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">content</span><span class="p">)</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">PARSER</span><span class="w"> </span><span class="n">ngram</span><span class="p">;</span>
+</code></pre></div>
+<h4 id="_7">테이블 생성 시 인덱스 정의</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="n">id</span><span class="w">         </span><span class="nb">BIGINT</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="n">member_id</span><span class="w">  </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="n">order_code</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="n">status</span><span class="w">     </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="n">amount</span><span class="w">     </span><span class="nb">INT</span><span class="p">,</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="n">created_at</span><span class="w"> </span><span class="n">DATETIME</span><span class="p">,</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">),</span><span class="w">                                           </span><span class="c1">-- 클러스터 인덱스 자동 생성</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="k">UNIQUE</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">uq_order_code</span><span class="w"> </span><span class="p">(</span><span class="n">order_code</span><span class="p">),</span><span class="w">                     </span><span class="c1">-- UNIQUE 인덱스</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">    </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_order_member_date</span><span class="w"> </span><span class="p">(</span><span class="n">member_id</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="k">DESC</span><span class="p">),</span><span class="w"> </span><span class="c1">-- 복합 + DESC</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">    </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_order_status</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="p">)</span><span class="w">                             </span><span class="c1">-- 단순 인덱스</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="p">)</span><span class="w"> </span><span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="p">;</span>
+</code></pre></div>
+<h4 id="alter-table">ALTER TABLE로 인덱스 추가</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">-- 단순 인덱스 추가 (Online DDL — 서비스 중 실행 가능)</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">member</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="k">ADD</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_member_name</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">),</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="n">ALGORITHM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INPLACE</span><span class="p">,</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="k">LOCK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">NONE</span><span class="p">;</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="c1">-- UNIQUE 인덱스 추가</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">member</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="k">ADD</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">uq_member_phone</span><span class="w"> </span><span class="p">(</span><span class="n">phone</span><span class="p">);</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="c1">-- 여러 인덱스 한 번에 추가 (DDL 횟수 최소화)</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">orders</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">    </span><span class="k">ADD</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_status</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="p">),</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">    </span><span class="k">ADD</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_amount</span><span class="w"> </span><span class="p">(</span><span class="n">amount</span><span class="p">);</span>
+</code></pre></div>
 <hr />
-<h2 id="_6">실무 선택 기준</h2>
+<h3 id="read">인덱스 조회 (READ)</h3>
+<h4 id="show-index">SHOW INDEX — 가장 빠른 확인</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">SHOW</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span><span class="p">;</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="c1">-- 또는</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="k">SHOW</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">mydb</span><span class="p">;</span>
+</code></pre></div>
 <table>
 <thead>
 <tr>
-<th>상황</th>
-<th>권장 격리 수준</th>
-<th>이유</th>
+<th>컬럼</th>
+<th>설명</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>일반 웹 서비스</td>
-<td>READ COMMITTED</td>
-<td>성능과 정합성의 균형</td>
+<td><code>Key_name</code></td>
+<td>인덱스 이름. <code>PRIMARY</code> = <abbr title="Primary Key. 테이블에서 각 행을 유일하게 식별하는 기본 키. NOT NULL + UNIQUE.">PK</abbr> (클러스터 인덱스)</td>
 </tr>
 <tr>
-<td>금융 / 정산</td>
-<td>REPEATABLE READ</td>
-<td>반복 읽기 정합성 필요</td>
+<td><code>Seq_in_index</code></td>
+<td>복합 인덱스에서 컬럼 순서 (1부터 시작)</td>
 </tr>
 <tr>
-<td>배치 집계 작업</td>
-<td>READ COMMITTED</td>
-<td>대용량 데이터, 성능 중요</td>
+<td><code>Column_name</code></td>
+<td>인덱스가 걸린 컬럼명</td>
 </tr>
 <tr>
-<td>타임슬롯/예약 시스템</td>
-<td>REPEATABLE READ + 잠금</td>
-<td>동시 예약 방지</td>
+<td><code>Non_unique</code></td>
+<td><code>0</code> = UNIQUE 인덱스, <code>1</code> = 중복 허용</td>
 </tr>
 <tr>
-<td>실시간 재고 관리</td>
-<td>SELECT FOR UPDATE</td>
-<td>정확한 재고 차감 필요</td>
+<td><code>Cardinality</code></td>
+<td>추정 고유 값 수 (통계 기반 — <code>ANALYZE TABLE</code> 후 갱신)</td>
+</tr>
+<tr>
+<td><code>Collation</code></td>
+<td><code>A</code> = ASC 저장, <code>D</code> = DESC 저장 (MySQL 8.0+에서 의미 있음)</td>
+</tr>
+<tr>
+<td><code>Sub_part</code></td>
+<td>프리픽스 인덱스면 글자 수, 아니면 NULL</td>
+</tr>
+<tr>
+<td><code>Index_type</code></td>
+<td><code>BTREE</code> / <code>FULLTEXT</code> / <code>HASH</code></td>
+</tr>
+<tr>
+<td><code>Visible</code></td>
+<td><code>YES</code> / <code>NO</code> — 인비저블 인덱스 여부</td>
 </tr>
 </tbody>
 </table>
-<h3 id="_7">스프링에서 격리 수준 지정</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">// 기본 (DB 기본값 사용)</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nd">@Transactional</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">defaultIsolation</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="c1">// READ COMMITTED 명시</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="nd">@Transactional</span><span class="p">(</span><span class="n">isolation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Isolation</span><span class="p">.</span><span class="na">READ_COMMITTED</span><span class="p">)</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">readCommittedExample</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="c1">// REPEATABLE READ</span>
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="nd">@Transactional</span><span class="p">(</span><span class="n">isolation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Isolation</span><span class="p">.</span><span class="na">REPEATABLE_READ</span><span class="p">)</span>
-<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">repeatableReadExample</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>
-<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="c1">// 금융 정산 등 중요한 작업</span>
-<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="nd">@Transactional</span><span class="p">(</span><span class="n">isolation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Isolation</span><span class="p">.</span><span class="na">SERIALIZABLE</span><span class="p">)</span>
-<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">criticalWork</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+<h4 id="show-create-table">SHOW CREATE TABLE</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1">-- 테이블 전체 정의 확인 (인덱스 방향·옵션 포함)</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">SHOW</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">orders</span><span class="err">\</span><span class="k">G</span>
 </code></pre></div>
-<h3 id="_8">주의사항</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>격리 수준이 높을수록:
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>  - 잠금(Lock) 유지 시간이 길어짐
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>  - 동시 처리 처리량(Throughput) 감소
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>  - 데드락(Deadlock) 발생 위험 증가
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
-<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>실무 결론:
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>  READ COMMITTED + 필요한 곳에만 REPEATABLE READ 적용
-<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>  SERIALIZABLE은 절대적으로 필요한 경우 외에는 사용하지 않음
+<h4 id="information_schema">information_schema로 상세 조회</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1">-- 특정 테이블의 모든 인덱스 상세 정보</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">SELECT</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="n">index_name</span><span class="p">,</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="n">seq_in_index</span><span class="p">,</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">    </span><span class="k">column_name</span><span class="p">,</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">    </span><span class="k">collation</span><span class="p">,</span><span class="w">      </span><span class="c1">-- A: ASC 저장, D: DESC 저장</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">    </span><span class="k">cardinality</span><span class="p">,</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">    </span><span class="k">nullable</span><span class="p">,</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">    </span><span class="n">index_type</span><span class="p">,</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="w">    </span><span class="n">is_visible</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="k">FROM</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="k">STATISTICS</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">table_schema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;mydb&#39;</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;orders&#39;</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">index_name</span><span class="p">,</span><span class="w"> </span><span class="n">seq_in_index</span><span class="p">;</span>
 </code></pre></div>
+<h4 id="explain">EXPLAIN으로 실행 계획 확인</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;test@test.com&#39;</span><span class="p">;</span>
+</code></pre></div>
+<p>EXPLAIN 결과에서 <code>type</code> 컬럼은 인덱스 사용 방식을 나타낸다. <span class="text-green">위에 있을수록 좋다.</span></p>
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>설명</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>const</code></td>
+<td><abbr title="Primary Key. 테이블에서 각 행을 유일하게 식별하는 기본 키. NOT NULL + UNIQUE.">PK</abbr> 또는 UNIQUE로 <strong>1건</strong> 조회. 상수 취급</td>
+<td><code>WHERE id = 1</code></td>
+</tr>
+<tr>
+<td><code>eq_ref</code></td>
+<td>JOIN에서 <abbr title="Primary Key. 테이블에서 각 행을 유일하게 식별하는 기본 키. NOT NULL + UNIQUE.">PK</abbr>/UNIQUE로 정확히 1건 매칭</td>
+<td><code>JOIN member m ON m.id = o.member_id</code></td>
+</tr>
+<tr>
+<td><code>ref</code></td>
+<td>논유니크 인덱스로 여러 건 매칭</td>
+<td><code>WHERE member_id = 1</code> (<abbr title="Foreign Key. 다른 테이블의 PK를 참조하는 외래 키. 참조 무결성을 보장한다.">FK</abbr> 인덱스)</td>
+</tr>
+<tr>
+<td><code>range</code></td>
+<td>인덱스 범위 스캔</td>
+<td><code>WHERE created_at BETWEEN '2024-01-01' AND '2024-12-31'</code></td>
+</tr>
+<tr>
+<td><code>index</code></td>
+<td>인덱스 전체 스캔 (Full Index Scan)</td>
+<td><code>SELECT member_id FROM orders</code> (커버링이지만 전체 스캔)</td>
+</tr>
+<tr>
+<td><code>ALL</code></td>
+<td>테이블 전체 스캔 (Full Table Scan)</td>
+<td>인덱스 미사용</td>
+</tr>
+</tbody>
+</table>
+<div class="danger-box">
+<p><strong>위험</strong>: <code>type</code>이 <code>ALL</code>이면 Full Table Scan이다. 반드시 인덱스 추가 또는 쿼리 개선을 검토해야 한다. <code>index</code>도 인덱스 전체를 읽는 것이므로 대용량 테이블에서는 느릴 수 있다.</p>
+</div>
+<div class="tip-box">
+<p><strong>팁</strong>: <code>Extra</code> 컬럼도 함께 확인하자.</p>
+<table>
+<thead>
+<tr>
+<th>Extra 값</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Using index</code></td>
+<td>커버링 인덱스 사용 (테이블 접근 없음)</td>
+</tr>
+<tr>
+<td><code>Using where</code></td>
+<td>인덱스로 찾은 후 추가 필터링</td>
+</tr>
+<tr>
+<td><code>Using filesort</code></td>
+<td>정렬에 인덱스를 사용하지 못해 별도 정렬 수행</td>
+</tr>
+<tr>
+<td><code>Using temporary</code></td>
+<td>임시 테이블 생성 (GROUP BY, DISTINCT 등)</td>
+</tr>
+<tr>
+<td><code>Backward index scan</code></td>
+<td>DESC 인덱스 또는 역방향 스캔 사용</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h3 id="alter">인덱스 수정 (ALTER)</h3>
+<h4 id="mysql-57">인덱스 이름 변경 (MySQL 5.7+)</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">RENAME</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_member_email</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">idx_email</span><span class="p">;</span>
+</code></pre></div>
+<h4 id="mysql-80">인덱스 가시성 변경 — 인비저블 (MySQL 8.0+)</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1">-- 옵티마이저에게 숨기기 (물리 인덱스는 유지)</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">ALTER</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_member_email</span><span class="w"> </span><span class="n">INVISIBLE</span><span class="p">;</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="c1">-- 복원</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">ALTER</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_member_email</span><span class="w"> </span><span class="n">VISIBLE</span><span class="p">;</span>
+</code></pre></div>
+<div class="warning-box">
+<p><strong>주의</strong>: 인덱스의 컬럼 목록, 순서, 타입 자체는 수정할 수 없다. 변경이 필요하면 DROP 후 다시 CREATE해야 한다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1">-- 인덱스 구조 변경 = DROP + CREATE</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="k">DROP</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_old</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">member</span><span class="p">;</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_new</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="p">(</span><span class="n">email</span><span class="w"> </span><span class="k">DESC</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">ASC</span><span class="p">);</span>
+</code></pre></div>
+</div>
+<hr />
+<h3 id="drop">인덱스 삭제 (DROP)</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1">-- 방법 1: DROP INDEX (가장 일반적)</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="k">DROP</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_member_email</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">member</span><span class="p">;</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="c1">-- 방법 2: ALTER TABLE로 삭제 (여러 작업과 함께 묶을 때 유리)</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_member_email</span><span class="p">;</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="c1">-- PK 삭제 (AUTO_INCREMENT 컬럼이 있으면 먼저 AUTO_INCREMENT 제거 필요)</span>
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">;</span>
+</code></pre></div>
+<div class="danger-box">
+<p><strong>삭제 전 인비저블 인덱스로 영향 검증 → 확인 후 삭제</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1">-- ① 인비저블로 전환 (물리 인덱스는 유지, 옵티마이저만 무시)</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">ALTER</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_member_email</span><span class="w"> </span><span class="n">INVISIBLE</span><span class="p">;</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="c1">-- ② 운영 환경에서 충분히 모니터링 (최소 1~2일, 배치 포함 시 더 길게)</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">sys</span><span class="p">.</span><span class="n">schema_unused_indexes</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">object_schema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;mydb&#39;</span><span class="p">;</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="c1">-- ③ 이상 없으면 삭제</span>
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="k">DROP</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_member_email</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">member</span><span class="p">;</span>
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="c1">-- ③-1 문제 발생 시 즉시 복원 (DROP 전이라면)</span>
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">ALTER</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_member_email</span><span class="w"> </span><span class="n">VISIBLE</span><span class="p">;</span>
+</code></pre></div>
+</div>
+<hr />
+<p><strong>이전</strong>: <a href="../%EA%B5%AC%EC%A1%B0%EC%99%80%EC%A2%85%EB%A5%98/">인덱스 구조와 종류</a> · <strong>다음</strong>: <a href="../%EC%BF%BC%EB%A6%AC%ED%8C%A8%ED%84%B4/">인덱스 쿼리 패턴</a></p>
 <!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
 
 <!-- ===== DB / SQL ===== -->
@@ -5900,7 +6118,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 11일 11:10:27 UTC">2026년 4월 11일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 24일 11:38:29 UTC">2026년 4월 24일</span>
   </span>
 
     
@@ -5910,7 +6128,7 @@
     <span class="md-icon" title="작성일">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025년 12월 13일 10:57:04 UTC">2025년 12월 13일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 24일 11:38:29 UTC">2026년 4월 24일</span>
   </span>
 
     
@@ -5965,10 +6183,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections", "navigation.top", "navigation.instant", "search.highlight", "search.suggest", "content.code.copy", "content.tooltips", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.sections", "navigation.top", "navigation.instant", "search.highlight", "search.suggest", "content.code.copy", "content.tooltips", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
       
