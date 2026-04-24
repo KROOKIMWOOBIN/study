@@ -3927,6 +3927,50 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
+        먼저 잡고 가는 큰 그림
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        추천 학습 순서
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        신입이 자주 헷갈리는 구분
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실무 상황별로 찾아보기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         학습 목록
       
     </span>
@@ -4916,6 +4960,50 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
+        먼저 잡고 가는 큰 그림
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        추천 학습 순서
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        신입이 자주 헷갈리는 구분
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실무 상황별로 찾아보기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         학습 목록
       
     </span>
@@ -4945,8 +5033,188 @@
 
 <h1 id="db-database">DB (Database)</h1>
 <p>데이터베이스 핵심 개념 정리.</p>
+<div class="concept-box">
+<p><strong>읽는 목표</strong>: DB편은 SQL 문법만 외우는 문서가 아니라, 애플리케이션이 데이터를 저장·조회·변경할 때 DB가 어떤 규칙으로 안전하게 처리하는지 이해하기 위한 문서다.</p>
+</div>
 <hr />
-<h2 id="_1">학습 목록</h2>
+<h2 id="_1">먼저 잡고 가는 큰 그림</h2>
+<p>DB를 처음 보면 <code>SQL</code>, <code>트랜잭션</code>, <code>인덱스</code>, <code>정규화</code>가 따로 노는 개념처럼 보인다. 실제로는 아래 흐름으로 이어진다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>데이터를 어디에 저장할까?
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  -&gt; 테이블, 컬럼, 데이터 타입, 제약 조건
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>데이터를 어떻게 읽고 바꿀까?
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  -&gt; SQL, JOIN, GROUP BY, 서브쿼리, CASE
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>데이터를 안전하게 바꿀 수 있을까?
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  -&gt; 트랜잭션, ACID, 격리 수준
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>데이터가 많아져도 빠르게 찾을 수 있을까?
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>  -&gt; 인덱스, 실행 계획, 쿼리 튜닝
+</code></pre></div>
+<div class="tip-box">
+<p><strong>신입 개발자 기준 핵심 질문</strong></p>
+<ul>
+<li>테이블을 만들 때 어떤 컬럼과 제약 조건을 둬야 하는가?</li>
+<li><code>SELECT</code> 결과가 왜 예상보다 많거나 적게 나오는가?</li>
+<li><code>UPDATE</code>, <code>DELETE</code>를 안전하게 실행하려면 무엇을 확인해야 하는가?</li>
+<li>데이터가 늘어났을 때 어떤 쿼리가 느려지는가?</li>
+<li>여러 요청이 동시에 들어오면 데이터 정합성은 어떻게 지켜지는가?</li>
+</ul>
+</div>
+<hr />
+<h2 id="_2">추천 학습 순서</h2>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>문서</th>
+<th>먼저 알아야 하는 이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="../%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/">데이터베이스</a></td>
+<td><abbr title="DataBase Management System. 데이터베이스를 관리하는 소프트웨어. MySQL, PostgreSQL, Oracle 등.">DBMS</abbr>, RDBMS, NoSQL, 스키마 같은 기본 용어를 잡는다.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="../%EA%B8%B0%EC%B4%88/SQL/">SQL</a></td>
+<td>데이터를 조회·추가·수정·삭제하는 기본 언어를 익힌다.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="../%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%83%80%EC%9E%85/">데이터 타입</a></td>
+<td>컬럼에 어떤 값을 저장할 수 있는지 이해한다.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="../%EA%B8%B0%EC%B4%88/%EC%A0%9C%EC%95%BD%EC%A1%B0%EA%B1%B4/">제약 조건</a></td>
+<td>잘못된 데이터가 들어오지 않도록 DB 레벨의 규칙을 잡는다.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="../%EA%B8%B0%EC%B4%88/%EC%A0%95%EA%B7%9C%ED%99%94/">정규화</a></td>
+<td>테이블을 어떻게 나누고 관계를 설계할지 배운다.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="../%EC%BF%BC%EB%A6%AC/JOIN/">JOIN</a></td>
+<td>나뉜 테이블을 다시 연결해서 조회하는 방법을 익힌다.</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="../%EC%BF%BC%EB%A6%AC/%EC%A7%91%EA%B3%84/">그룹과 집계</a></td>
+<td>통계, 합계, 카운트처럼 여러 행을 요약하는 법을 익힌다.</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="../%EC%BF%BC%EB%A6%AC/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%80%EA%B3%B5/">데이터 가공</a>, <a href="../%EC%BF%BC%EB%A6%AC/CASE/">CASE</a></td>
+<td>조회 결과를 화면·리포트에 맞게 가공한다.</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="../%EC%BF%BC%EB%A6%AC/%EC%84%9C%EB%B8%8C%EC%BF%BC%EB%A6%AC/">서브쿼리</a>, <a href="../%EC%BF%BC%EB%A6%AC/UNION/">UNION</a>, <a href="../%EC%BF%BC%EB%A6%AC/VIEW/">VIEW</a></td>
+<td>복잡한 조회를 여러 방식으로 풀어낸다.</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="../%EA%B8%B0%EC%B4%88/ACID/"><abbr title="Atomicity(원자성)·Consistency(일관성)·Isolation(격리성)·Durability(지속성). 트랜잭션이 안전하게 수행되기 위한 4가지 성질.">ACID</abbr></a>, <a href="../%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/">트랜잭션</a>, <a href="../%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EA%B2%A9%EB%A6%AC%EC%88%98%EC%A4%80/">격리 수준</a></td>
+<td>데이터 변경 작업을 안전하게 묶고 동시성 문제를 이해한다.</td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="../%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/">인덱스</a></td>
+<td>데이터가 많아졌을 때 조회 성능을 개선하는 기준을 익힌다.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_3">신입이 자주 헷갈리는 구분</h2>
+<table>
+<thead>
+<tr>
+<th>헷갈리는 개념</th>
+<th>구분 기준</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DB vs <abbr title="DataBase Management System. 데이터베이스를 관리하는 소프트웨어. MySQL, PostgreSQL, Oracle 등.">DBMS</abbr></td>
+<td>DB는 저장된 데이터 묶음이고, DBMS는 그 데이터를 관리하는 소프트웨어다.</td>
+</tr>
+<tr>
+<td>스키마 vs 데이터</td>
+<td>스키마는 테이블 구조이고, 데이터는 실제 저장된 행이다.</td>
+</tr>
+<tr>
+<td><abbr title="Primary Key. 테이블에서 각 행을 유일하게 식별하는 기본 키. NOT NULL + UNIQUE.">PK</abbr> vs <abbr title="Foreign Key. 다른 테이블의 PK를 참조하는 외래 키. 참조 무결성을 보장한다.">FK</abbr></td>
+<td>PK는 내 테이블의 행 식별자이고, FK는 다른 테이블의 행을 참조하는 값이다.</td>
+</tr>
+<tr>
+<td>WHERE vs HAVING</td>
+<td><code>WHERE</code>는 그룹화 전 행 필터링, <code>HAVING</code>은 그룹화 후 그룹 필터링이다.</td>
+</tr>
+<tr>
+<td>JOIN vs 서브쿼리</td>
+<td>JOIN은 테이블을 옆으로 붙여 조회하고, 서브쿼리는 쿼리 안에 다른 조회를 넣는다.</td>
+</tr>
+<tr>
+<td>DELETE vs TRUNCATE</td>
+<td><code>DELETE</code>는 행을 삭제하는 <abbr title="Data Manipulation Language. 데이터를 조작하는 SQL 분류. SELECT, INSERT, UPDATE, DELETE.">DML</abbr>, <code>TRUNCATE</code>는 테이블 데이터를 비우는 <abbr title="Data Definition Language. 테이블·인덱스 등 DB 구조를 정의하는 SQL 분류. CREATE, ALTER, DROP.">DDL</abbr> 성격이 강하다.</td>
+</tr>
+<tr>
+<td>트랜잭션 vs 격리 수준</td>
+<td>트랜잭션은 작업 묶음이고, 격리 수준은 동시에 실행될 때 서로를 얼마나 분리할지 정하는 정책이다.</td>
+</tr>
+<tr>
+<td>인덱스 vs 제약 조건</td>
+<td>인덱스는 빠른 탐색을 위한 구조이고, 제약 조건은 데이터 무결성을 지키는 규칙이다.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_4">실무 상황별로 찾아보기</h2>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>먼저 볼 문서</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>새 테이블을 설계해야 할 때</td>
+<td><a href="../%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%83%80%EC%9E%85/">데이터 타입</a>, <a href="../%EA%B8%B0%EC%B4%88/%EC%A0%9C%EC%95%BD%EC%A1%B0%EA%B1%B4/">제약 조건</a>, <a href="../%EA%B8%B0%EC%B4%88/%EC%A0%95%EA%B7%9C%ED%99%94/">정규화</a></td>
+</tr>
+<tr>
+<td><abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 응답에 필요한 데이터를 조회해야 할 때</td>
+<td><a href="../%EA%B8%B0%EC%B4%88/SQL/">SQL</a>, <a href="../%EC%BF%BC%EB%A6%AC/JOIN/">JOIN</a>, <a href="../%EC%BF%BC%EB%A6%AC/%EC%84%9C%EB%B8%8C%EC%BF%BC%EB%A6%AC/">서브쿼리</a></td>
+</tr>
+<tr>
+<td>통계·리포트 쿼리를 작성해야 할 때</td>
+<td><a href="../%EC%BF%BC%EB%A6%AC/%EC%A7%91%EA%B3%84/">그룹과 집계</a>, <a href="../%EC%BF%BC%EB%A6%AC/CASE/">CASE</a>, <a href="../%EC%BF%BC%EB%A6%AC/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%80%EA%B3%B5/">데이터 가공</a></td>
+</tr>
+<tr>
+<td>데이터 변경 중 오류가 나면 되돌려야 할 때</td>
+<td><a href="../%EA%B8%B0%EC%B4%88/ACID/"><abbr title="Atomicity(원자성)·Consistency(일관성)·Isolation(격리성)·Durability(지속성). 트랜잭션이 안전하게 수행되기 위한 4가지 성질.">ACID</abbr></a>, <a href="../%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/">트랜잭션</a></td>
+</tr>
+<tr>
+<td>동시에 주문·결제·재고 차감이 일어날 때</td>
+<td><a href="../%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/">트랜잭션</a>, <a href="../%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EA%B2%A9%EB%A6%AC%EC%88%98%EC%A4%80/">격리 수준</a></td>
+</tr>
+<tr>
+<td>쿼리가 느려졌을 때</td>
+<td><a href="../%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/">인덱스</a>, <a href="../%EC%BF%BC%EB%A6%AC/JOIN/">JOIN</a></td>
+</tr>
+<tr>
+<td>반복되는 복잡한 조회를 재사용하고 싶을 때</td>
+<td><a href="../%EC%BF%BC%EB%A6%AC/VIEW/">VIEW</a>, <a href="../%EC%BF%BC%EB%A6%AC/%EC%84%9C%EB%B8%8C%EC%BF%BC%EB%A6%AC/">서브쿼리</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_5">학습 목록</h2>
 <table>
 <thead>
 <tr>
@@ -5049,7 +5317,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 18일 07:26:41 UTC">2026년 4월 18일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 24일 11:28:33 UTC">2026년 4월 24일</span>
   </span>
 
     
