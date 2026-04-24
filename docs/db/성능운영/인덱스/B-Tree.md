@@ -201,28 +201,37 @@ B+Tree는 B-Tree와 다르게 **실제 데이터는 리프 노드에만 저장**
 ```text
 B+Tree 예시
 
-             [30 | 60]                 내부 노드: 길 안내
-            /    |    \
- [1,data] -> [30,data] -> [60,data]
- [5,data]    [40,data]    [70,data]
- [10,data]   [50,data]    [80,data]
- [20,data]
-       리프 노드끼리 next pointer로 이어짐
+Internal Level
+  Root Page: sep key 30, sep key 60
+  row data 없음, child pointer만 있음
+
+Leaf Level
+  Leaf 1: (1,data),  (5,data),  (10,data), (20,data)
+       next ->
+  Leaf 2: (30,data), (40,data), (50,data)
+       next ->
+  Leaf 3: (60,data), (70,data), (80,data)
+
+실제 데이터는 Leaf Level에만 있다.
 ```
 
 ```mermaid
-flowchart TD
-    R["Root Page<br/>separator keys: 30, 60<br/>row data 없음"]
-    L1["Leaf Page<br/>entries: (1,data), (5,data), (10,data)"]
-    L2["Leaf Page<br/>entries: (30,data), (40,data), (50,data)"]
-    L3["Leaf Page<br/>entries: (60,data), (70,data), (80,data)"]
+flowchart TB
+    R["Internal Node<br/>sep keys: 30, 60<br/>child ptr only<br/>row data 없음"]
 
-    R -->|"child pointer<br/>key < 30"| L1
-    R -->|"child pointer<br/>30 <= key < 60"| L2
-    R -->|"child pointer<br/>key >= 60"| L3
+    subgraph LEAF["Leaf Level - 실제 데이터가 있는 곳"]
+        direction LR
+        L1["Leaf 1<br/>(1,data)<br/>(5,data)<br/>(10,data)<br/>(20,data)"]
+        L2["Leaf 2<br/>(30,data)<br/>(40,data)<br/>(50,data)"]
+        L3["Leaf 3<br/>(60,data)<br/>(70,data)<br/>(80,data)"]
 
-    L1 -. "leaf sibling pointer: next" .-> L2
-    L2 -. "leaf sibling pointer: next" .-> L3
+        L1 -. "next leaf" .-> L2
+        L2 -. "next leaf" .-> L3
+    end
+
+    R -->|"key < 30"| L1
+    R -->|"30 <= key < 60"| L2
+    R -->|"key >= 60"| L3
 ```
 
 <div class="tip-box" markdown="1">
