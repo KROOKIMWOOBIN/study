@@ -398,6 +398,12 @@ flowchart LR
 
 인덱스 키가 정렬된 상태로 리프 노드에 저장되므로 `ORDER BY`, `LIMIT`과 잘 맞는다.
 
+<div class="warning-box" markdown="1">
+
+**주의**: B+Tree가 정렬된 구조라는 말은 `ORDER BY` 없이 결과 순서가 보장된다는 뜻이 아니다. SQL 결과 순서를 보장하려면 반드시 `ORDER BY`를 명시해야 한다. B+Tree 인덱스는 그 정렬 작업을 빠르게 처리하도록 도와준다.
+
+</div>
+
 ```sql
 SELECT id, created_at
 FROM orders
