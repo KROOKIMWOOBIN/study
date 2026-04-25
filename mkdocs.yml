@@ -76,10 +76,11 @@ nav:
   - Java:
     - 개요: java/java.md
     - OOP:
-      - 다형성: java/oop/다형성.md
+      - 개요: java/oop/oop.md
+      - 캡슐화: java/oop/캡슐화.md
       - 상속: java/oop/상속.md
       - 추상화: java/oop/추상화.md
-      - 캡슐화: java/oop/캡슐화.md
+      - 다형성: java/oop/다형성.md
     - 핵심 클래스:
       - 개요: java/core/core.md
       - Object: java/core/Object.md
