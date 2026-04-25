@@ -12,6 +12,51 @@
 
 Kafka를 큐로만 이해하면 장애 대응이 어려워집니다. 실무에서는 Kafka를 **보존 가능한 이벤트 로그**로 보고, producer·broker·consumer·저장소 사이의 실패 지점을 각각 나누어 설계해야 합니다.
 
+### 전체 그림
+
+Kafka는 producer가 이벤트를 넣고, broker가 이벤트를 보관하고, consumer group이 각자 필요한 속도로 읽어가는 구조입니다.
+
+```mermaid
+flowchart LR
+    P1[주문 서비스<br/>Producer] --> K[(Kafka Cluster)]
+    P2[결제 서비스<br/>Producer] --> K
+
+    K --> T1[topic: order-events]
+    T1 --> PA[partition 0]
+    T1 --> PB[partition 1]
+    T1 --> PC[partition 2]
+
+    PA --> C1[재고 Consumer Group]
+    PB --> C1
+    PC --> C1
+
+    PA --> C2[알림 Consumer Group]
+    PB --> C2
+    PC --> C2
+
+    C1 --> D1[(재고 DB)]
+    C2 --> D2[문자·메일 발송]
+```
+
+그림을 이렇게 읽으면 됩니다.
+
+| 구성요소 | 쉬운 설명 |
+|----------|-----------|
+| Producer | 이벤트를 Kafka에 넣는 쪽 |
+| Topic | 이벤트를 종류별로 담는 이름 |
+| Partition | topic 안에서 실제로 쌓이는 로그 파일 같은 단위 |
+| Consumer Group | 같은 일을 나눠 처리하는 소비자 묶음 |
+| Offset | consumer group이 어디까지 읽었는지 표시하는 책갈피 |
+
+Kafka를 처음 배울 때 가장 중요한 문장입니다.
+
+```text
+Producer는 topic에 쓴다.
+Kafka는 partition에 순서대로 보관한다.
+Consumer group은 offset을 기억하며 읽는다.
+서로 다른 consumer group은 같은 이벤트를 따로 읽을 수 있다.
+```
+
 ## 어떻게 쓰는지
 
 ### 토픽 생성
@@ -35,6 +80,18 @@ kafka-topics.sh \
 | `replication-factor` | 파티션 복제본 수 | 운영은 보통 3 이상 |
 | `min.insync.replicas` | 성공 쓰기에 필요한 ISR 수 | RF 3이면 2를 자주 사용 |
 | `retention.ms` | 메시지 보관 시간 | 재처리 가능 기간 기준 |
+
+토픽을 만들면 내부적으로는 여러 partition이 생깁니다.
+
+```mermaid
+flowchart TB
+    T[topic<br/>order-created]
+    T --> P0[partition 0<br/>offset 0 -> 1 -> 2]
+    T --> P1[partition 1<br/>offset 0 -> 1 -> 2]
+    T --> P2[partition 2<br/>offset 0 -> 1 -> 2]
+```
+
+여기서 partition 수는 "동시에 몇 줄로 처리할 수 있는가"를 정합니다. partition이 6개면 같은 consumer group 안에서 최대 6개 consumer가 각 partition을 하나씩 맡아 병렬 처리할 수 있습니다.
 
 ### 이벤트 설계
 
@@ -66,6 +123,20 @@ kafka-topics.sh \
 | `aggregateId` | 순서 보장 key 후보 |
 | `producer` | 장애 추적 |
 
+이벤트는 단순 데이터 덩어리가 아니라 "나중에 다시 봐도 무슨 일이 있었는지 알 수 있는 기록"이어야 합니다.
+
+```mermaid
+flowchart LR
+    E[event]
+    E --> ID[eventId<br/>중복 방지]
+    E --> TYPE[eventType<br/>무슨 일인가]
+    E --> VER[schemaVersion<br/>형태 버전]
+    E --> AGG[aggregateId<br/>순서 기준]
+    E --> PAY[payload<br/>업무 데이터]
+```
+
+신입이 이벤트를 설계할 때 `payload`부터 채우는 경우가 많습니다. 실무에서는 `eventId`, `eventType`, `schemaVersion`, `aggregateId`처럼 운영과 장애 대응에 필요한 필드가 먼저 안정적으로 잡혀야 합니다.
+
 ### Producer 설정
 
 중요 이벤트는 유실보다 중복이 낫습니다. producer는 재시도와 멱등성을 켜고, consumer는 중복을 견디게 설계합니다.
@@ -93,6 +164,19 @@ max.in.flight.requests.per.connection=5
 | `batch.size` | 배치 크기 | 너무 크면 지연과 메모리 증가 |
 | `compression.type` | 압축 | CPU와 네트워크 절충 |
 
+Producer는 메시지를 바로 네트워크에 하나씩 던지는 것이 아니라, 내부 버퍼에 모았다가 batch로 보냅니다.
+
+```mermaid
+flowchart LR
+    A[send record 1] --> B[Producer buffer]
+    C[send record 2] --> B
+    D[send record 3] --> B
+    B -->|linger.ms 또는 batch.size 충족| E[batch 전송]
+    E --> K[(Kafka broker)]
+```
+
+그래서 `linger.ms`를 조금 주면 처리량은 좋아질 수 있지만, 그만큼 각 메시지가 잠깐 기다릴 수 있습니다. 실시간성이 중요한 알림과 대량 로그 수집은 producer 설정 기준이 달라질 수 있습니다.
+
 ### Key 선택
 
 Kafka의 순서는 토픽 전체가 아니라 **파티션 안에서만** 보장됩니다. 같은 업무 단위의 순서가 필요하면 같은 key를 사용해야 합니다.
@@ -113,6 +197,20 @@ value: ORDER_PAID
 | `userId` | 사용자별 순서 보장 | 큰 사용자 편차가 있으면 불균등 |
 | 랜덤 key | 분산이 좋음 | 업무 순서 보장 어려움 |
 | key 없음 | round-robin 분산 | 같은 엔티티 순서 보장 없음 |
+
+key는 partition을 고르는 기준입니다.
+
+```mermaid
+flowchart TB
+    E1[order-1001<br/>ORDER_CREATED] --> H[partitioner<br/>key hash]
+    E2[order-1001<br/>ORDER_PAID] --> H
+    E3[order-2002<br/>ORDER_CREATED] --> H
+
+    H -->|order-1001| P1[partition 1]
+    H -->|order-2002| P2[partition 2]
+```
+
+같은 주문의 이벤트가 같은 key를 쓰면 같은 partition으로 들어갑니다. 그러면 consumer는 그 partition 안에서 `ORDER_CREATED -> ORDER_PAID -> ORDER_CANCELED` 순서를 지킬 수 있습니다.
 
 ### Consumer 처리 흐름
 
@@ -138,6 +236,23 @@ while running:
 | 처리 | DB 저장, 외부 API 호출, 캐시 갱신 등 |
 | 처리 기록 | `eventId` 저장으로 멱등성 확보 |
 | commit | 다음 시작 위치를 Kafka에 저장 |
+
+offset commit은 책갈피를 옮기는 일입니다.
+
+```mermaid
+sequenceDiagram
+    participant C as Consumer
+    participant K as Kafka
+    participant DB as 처리 DB
+
+    C->>K: poll offset 10
+    K-->>C: record offset 10
+    C->>DB: 비즈니스 처리
+    DB-->>C: 처리 성공
+    C->>K: commit offset 11
+```
+
+`offset 10`을 처리하고 나면 다음에 읽을 위치인 `offset 11`을 commit합니다. 처리 전에 commit하면 장애 시 메시지를 잃을 수 있고, 처리 후 commit하면 장애 시 같은 메시지를 다시 읽을 수 있습니다. 그래서 consumer는 중복 처리를 견뎌야 합니다.
 
 Consumer 주요 설정입니다.
 
@@ -219,6 +334,18 @@ flowchart LR
 | Offset | partition 안의 위치 |
 | Record | key, value, headers, timestamp를 가진 메시지 |
 
+조금 더 실제 로그처럼 보면 아래와 같습니다.
+
+```text
+partition 0
+offset: 0        1        2        3
+        A -----> B -----> C -----> D
+                         ^
+                         consumer group offset
+```
+
+consumer group offset이 `2`라면 보통 "다음에 offset 2부터 읽는다"는 의미입니다. 이미 처리한 마지막 메시지 번호가 아니라, 다음에 읽을 위치를 저장한다고 이해하면 헷갈림이 줄어듭니다.
+
 ### Broker, Leader, Follower, ISR
 
 Kafka cluster는 여러 broker로 구성됩니다. 각 partition에는 leader replica가 있고, follower replica가 leader를 따라갑니다.
@@ -248,6 +375,23 @@ flowchart TB
 | Controller | partition leader 선출과 metadata 관리 |
 
 `acks=all`은 producer가 leader에게 보낸 메시지가 ISR 조건을 만족할 때 성공으로 봅니다. `min.insync.replicas=2`인데 ISR이 leader 1개뿐이면 producer는 실패를 받습니다. 이것은 장애가 아니라 **유실을 막기 위해 쓰기를 거부하는 정상 보호 동작**일 수 있습니다.
+
+정상 쓰기와 쓰기 거부를 나누면 이렇게 볼 수 있습니다.
+
+```mermaid
+flowchart TB
+    P[Producer<br/>acks=all]
+    P --> L[Leader]
+    L --> F1[Follower 1<br/>ISR]
+    L --> F2[Follower 2<br/>ISR]
+    F1 --> OK[ack 가능<br/>ISR 2개 이상]
+    F2 --> OK
+
+    L --> X[Follower 지연 또는 장애]
+    X --> FAIL[ISR 부족<br/>NotEnoughReplicas]
+```
+
+`NotEnoughReplicas`가 보이면 무조건 설정을 낮춰서 성공시키는 것이 답은 아닙니다. Kafka가 "지금은 안전하게 복제할 수 없으니 쓰기를 실패시키겠다"고 알려주는 신호일 수 있습니다.
 
 ### Producer 전송 흐름
 
@@ -287,6 +431,26 @@ flowchart LR
 
 Rebalance 중에는 일시적으로 소비가 멈추거나 중복 처리가 발생할 수 있습니다. 처리 시간이 긴 작업은 `max.poll.records`를 줄이고, 메시지 처리를 별도 워커로 넘길 때는 offset commit 순서를 특히 조심해야 합니다.
 
+consumer 수와 partition 수의 관계도 중요합니다.
+
+```mermaid
+flowchart TB
+    subgraph Case1[partition 3개, consumer 2개]
+        P0A[p0] --> C1A[consumer-1]
+        P1A[p1] --> C1A
+        P2A[p2] --> C2A[consumer-2]
+    end
+
+    subgraph Case2[partition 3개, consumer 4개]
+        P0B[p0] --> C1B[consumer-1]
+        P1B[p1] --> C2B[consumer-2]
+        P2B[p2] --> C3B[consumer-3]
+        C4B[consumer-4<br/>할당 없음]
+    end
+```
+
+같은 consumer group에서는 partition 하나를 동시에 여러 consumer가 처리하지 않습니다. 그래서 consumer만 무작정 늘려도 partition 수보다 많아지면 놀고 있는 consumer가 생깁니다.
+
 ### Offset Commit
 
 Offset commit은 "여기까지 처리했다"는 소비자 그룹의 체크포인트입니다.
@@ -303,6 +467,18 @@ Offset commit은 "여기까지 처리했다"는 소비자 그룹의 체크포인
 ### Retention과 Compaction
 
 Kafka는 소비했다고 메시지를 바로 지우지 않습니다. 보관 정책에 따라 지웁니다.
+
+```mermaid
+flowchart LR
+    A[메시지 생산] --> B[Kafka에 저장]
+    B --> C[Consumer가 읽음]
+    C --> D[메시지는 바로 삭제되지 않음]
+    D --> E{보관 정책}
+    E -->|retention 시간/크기 초과| F[삭제]
+    E -->|compaction| G[같은 key의 최신값 중심 유지]
+```
+
+이 점이 일반 큐와 크게 다릅니다. consumer가 읽었다고 Kafka 메시지가 사라지는 것이 아니기 때문에, 장애 후 offset을 되돌려 재처리할 수 있습니다. 대신 retention 기간이 지나 삭제된 메시지는 다시 읽을 수 없습니다.
 
 | 정책 | 설명 | 사용처 |
 |------|------|--------|
@@ -349,11 +525,35 @@ Retention을 너무 짧게 잡으면 장애 복구 전에 메시지가 사라질
 
 특정 메시지가 계속 실패하면 consumer가 같은 offset에서 멈춰 lag가 계속 증가합니다.
 
+```mermaid
+flowchart LR
+    A[offset 10<br/>정상] --> B[offset 11<br/>정상]
+    B --> C[offset 12<br/>계속 실패]
+    C --> D[offset 13<br/>대기]
+    C --> E[DLQ로 격리]
+    E --> F[offset 13부터 계속 처리]
+```
+
 대응은 재시도 횟수 제한, DLQ, 실패 원인 기록, 스키마 검증입니다.
 
 ### Lag는 원인이 아니라 결과다
 
 Lag는 consumer가 producer 속도를 따라가지 못한다는 신호입니다. 원인은 consumer 처리 지연, sink DB 지연, broker 지연, hot partition, poison pill, rebalance 등 다양합니다.
+
+```text
+lag = LOG-END-OFFSET - CURRENT-OFFSET
+
+LOG-END-OFFSET: Kafka partition의 최신 위치
+CURRENT-OFFSET: consumer group이 commit한 위치
+```
+
+```mermaid
+flowchart LR
+    A[CURRENT-OFFSET<br/>100] --> B[아직 처리 못한 구간<br/>lag 50]
+    B --> C[LOG-END-OFFSET<br/>150]
+```
+
+lag가 높다는 말은 "Kafka가 느리다"가 아니라 "생산된 속도보다 소비 후 commit하는 속도가 느리다"는 뜻입니다. 먼저 partition별 lag를 보고, 한 partition만 높은지 전체가 높은지 나누어 봐야 합니다.
 
 ### Schema Evolution
 
@@ -488,6 +688,20 @@ kafka-console-consumer.sh \
 
 </div>
 
+DLQ를 쓰는 흐름은 아래처럼 잡습니다.
+
+```mermaid
+flowchart TB
+    M[원본 메시지] --> C[Consumer 처리]
+    C -->|성공| OK[업무 반영 후 offset commit]
+    C -->|일시 실패| R[제한 횟수 재시도]
+    R -->|계속 실패| D[DLQ topic에 실패 원인과 함께 저장]
+    D --> COMMIT[원본 offset commit]
+    D --> FIX[원인 수정 후 재처리]
+```
+
+DLQ는 실패 메시지를 버리는 곳이 아니라 **전체 소비를 멈추지 않기 위해 격리하는 곳**입니다. DLQ에 넣을 때 원본 topic, partition, offset, key, 에러 메시지를 함께 남겨야 나중에 복구할 수 있습니다.
+
 ### 6. 중복 소비 발생
 
 | 단계 | 확인 |
@@ -518,6 +732,24 @@ CREATE TABLE processed_event (
 5. transaction commit
 6. Kafka offset commit
 ```
+
+중복 소비는 아래 시나리오에서 자주 발생합니다.
+
+```mermaid
+sequenceDiagram
+    participant C as Consumer
+    participant DB as DB
+    participant K as Kafka
+
+    C->>K: offset 10 poll
+    C->>DB: 업무 처리 성공
+    C--xK: offset commit 전에 장애
+    C->>K: 재시작 후 offset 10 다시 poll
+    C->>DB: 같은 eventId 확인 후 중복 처리 차단
+    C->>K: offset 11 commit
+```
+
+그래서 "Kafka를 쓰면 한 번만 처리된다"가 아니라, "다시 와도 같은 결과가 되게 만든다"가 실무 기준입니다.
 
 ### 7. 순서가 깨진 것처럼 보임
 
