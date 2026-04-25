@@ -222,5 +222,3 @@ nav:
   - CS:
     - 개요: cs/cs.md
     - 동기 VS 비동기: cs/동기VS비동기.md
-  - Troubleshooting:
-    - SMTP: troubleshooting/smtp.md
