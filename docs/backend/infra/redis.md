@@ -1,132 +1,184 @@
-## Redis
+# Redis
 
-### 왜 쓰는가?
+## 왜 쓰는지
+
+DB는 디스크 기반 저장소라 반복 조회, 집계, 세션 조회처럼 자주 접근하는 데이터에 매번 사용하면 부하가 커집니다. Redis는 메모리에 데이터를 저장해 빠르게 읽고 쓸 수 있는 Key-Value 저장소입니다.
 
 <div class="concept-box" markdown="1">
 
-DB는 디스크 기반이라 반복 조회 시 느리다. ==Redis==는 **인메모리 저장소**로 DB보다 10~100배 빠른 응답을 제공한다. 캐시, 세션, 분산 락 등 다양한 용도로 활용한다.
+**핵심**: Redis는 캐시, 세션, 분산 락, 랭킹, 속도 제한처럼 빠른 응답과 짧은 수명의 상태 관리가 필요한 곳에 쓰는 인메모리 데이터 저장소입니다.
 
 </div>
 
-### 의존성
+## 어떻게 쓰는지
 
-```markdown
-implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+### 기본 Key-Value
+
+```bash
+SET user:1:name "kim"
+GET user:1:name
+DEL user:1:name
 ```
 
-```markdown
-# application.yml
-spring:
-  data:
-    redis:
-      host: localhost
-      port: 6379
+### TTL 설정
+
+```bash
+SET auth:code:1234 "928311" EX 180
+TTL auth:code:1234
 ```
 
-### Spring Cache — @Cacheable
-
-가장 간단한 캐시 적용 방법. 메서드 결과를 자동으로 Redis에 저장하고 재사용한다.
-
-```markdown
-@Configuration
-@EnableCaching
-public class CacheConfig {
-
-    @Bean
-    public CacheManager cacheManager(RedisConnectionFactory factory) {
-        RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig()
-            .entryTtl(Duration.ofMinutes(10))  // TTL 10분
-            .serializeKeysWith(RedisSerializationContext.SerializationPair
-                .fromSerializer(new StringRedisSerializer()))
-            .serializeValuesWith(RedisSerializationContext.SerializationPair
-                .fromSerializer(new GenericJackson2JsonRedisSerializer()));
-
-        return RedisCacheManager.create(factory);
-    }
-}
-```
-
-```markdown
-@Service
-public class ProductService {
-
-    @Cacheable(value = "products", key = "#id")
-    public ProductResponse findById(Long id) {
-        // 캐시 미스 시에만 실행
-        return productRepository.findById(id).map(ProductResponse::from).orElseThrow();
-    }
-
-    @CacheEvict(value = "products", key = "#id")
-    public void update(Long id, ProductUpdateRequest request) {
-        // 수정 시 캐시 삭제
-    }
-
-    @CachePut(value = "products", key = "#result.id")
-    public ProductResponse save(ProductCreateRequest request) {
-        // 저장 후 캐시 갱신
-    }
-}
-```
-
-### RedisTemplate — 직접 제어
-
-```markdown
-@Service
-@RequiredArgsConstructor
-public class TokenService {
-
-    private final RedisTemplate<String, String> redisTemplate;
-
-    public void saveRefreshToken(Long userId, String token) {
-        redisTemplate.opsForValue()
-            .set("refresh:" + userId, token, Duration.ofDays(7));
-    }
-
-    public String getRefreshToken(Long userId) {
-        return redisTemplate.opsForValue().get("refresh:" + userId);
-    }
-
-    public void deleteRefreshToken(Long userId) {
-        redisTemplate.delete("refresh:" + userId);
-    }
-}
-```
+`EX 180`은 180초 뒤 자동 삭제를 의미합니다. 인증 코드, 임시 토큰, 캐시처럼 만료가 필요한 데이터에 사용합니다.
 
 ### 주요 자료구조
 
-| 자료구조 | 메서드 | 사용 사례 |
-|---------|--------|----------|
-| String | `opsForValue()` | 단순 캐시, 카운터, 토큰 |
-| Hash | `opsForHash()` | 객체 필드별 저장 |
-| List | `opsForList()` | 메시지 큐, 최근 목록 |
-| Set | `opsForSet()` | 중복 없는 목록, 태그 |
-| ZSet | `opsForZSet()` | 랭킹, 점수 기반 정렬 |
+| 자료구조 | 사용 예 |
+|----------|---------|
+| `String` | 캐시 값, 토큰, 카운터 |
+| `Hash` | 객체 필드 저장 |
+| `List` | 간단한 큐, 최근 항목 |
+| `Set` | 중복 없는 집합, 권한 목록 |
+| `Sorted Set` | 랭킹, 우선순위 |
+| `Stream` | 이벤트 로그, 간단한 메시징 |
 
-### 인기 게시글 캐시 전략
+```bash
+HSET user:1 name "kim" age 20
+HGET user:1 name
 
-```markdown
-// 조회 요청 시: Cache-Aside 패턴
-public PostResponse findPost(Long id) {
-    String key = "post:" + id;
-    String cached = redisTemplate.opsForValue().get(key);
-
-    if (cached != null) {
-        return objectMapper.readValue(cached, PostResponse.class);  // 캐시 히트
-    }
-
-    PostResponse response = postRepository.findById(id)...;  // DB 조회
-    redisTemplate.opsForValue().set(key, objectMapper.writeValueAsString(response),
-        Duration.ofMinutes(30));  // 캐시 저장
-    return response;
-}
+ZADD ranking 1200 "user:1"
+ZREVRANGE ranking 0 9 WITHSCORES
 ```
 
-### 단점 / 주의할 점
+## 언제 쓰는지
 
-| 상황 | 문제 | 해결 |
-|------|------|------|
-| 캐시 무효화 시점 | 수정 후 캐시 미삭제 → 오래된 데이터 반환 | `@CacheEvict` 또는 수동 삭제 |
-| 캐시 스탬피드 | 캐시 만료 시 동시 DB 요청 폭주 | 분산 락으로 한 건만 DB 조회 |
-| Redis 장애 | 서비스 전체 장애 가능성 | Circuit Breaker, fallback 처리 |
-| 직렬화 불일치 | 객체 변경 시 역직렬화 실패 | TTL 짧게 설정 또는 캐시 키 버전 관리 |
-| 민감 데이터 캐시 | Redis는 암호화 없으므로 위험 | 민감 정보는 캐시하지 않음 |
+| 상황 | Redis 적합도 | 이유 |
+|------|--------------|------|
+| **반복 조회 캐시** | 높음 | DB 부하와 응답 시간 감소 |
+| **로그인 세션 저장** | 높음 | TTL과 빠른 조회가 필요 |
+| **인증 코드/임시 토큰** | 높음 | 자동 만료 처리 가능 |
+| **랭킹/점수판** | 높음 | Sorted Set으로 정렬 유지 |
+| **분산 락** | 조건부 | 여러 서버의 동시 작업 제어 |
+| **영구 원장 데이터** | 낮음 | Redis만 단독 저장소로 쓰기엔 위험 |
+| **복잡한 관계형 조회** | 낮음 | 조인, 정규화, 트랜잭션 모델에 부적합 |
+
+## 장점
+
+| 장점 | 설명 |
+|------|------|
+| **빠른 응답** | 메모리 기반이라 대부분의 연산이 매우 빠름 |
+| **다양한 자료구조** | 단순 문자열뿐 아니라 Set, Sorted Set, Stream 제공 |
+| **TTL 지원** | 만료 시간이 필요한 데이터를 쉽게 관리 |
+| **원자적 연산** | `INCR`, `SET NX` 등 단일 명령은 원자적으로 처리 |
+| **운영 패턴 다양** | 캐시, 세션, 락, 랭킹, rate limit에 활용 가능 |
+
+## 단점
+
+| 단점 | 설명 |
+|------|------|
+| **메모리 비용** | 저장량이 커질수록 비용이 빠르게 증가 |
+| **데이터 유실 가능성** | 설정에 따라 장애 시 최근 쓰기 데이터가 사라질 수 있음 |
+| **캐시 일관성 문제** | DB와 Redis 값이 달라질 수 있음 |
+| **Hot Key 위험** | 특정 Key에 요청이 몰리면 병목 발생 |
+| **운영 난이도** | eviction, persistence, replication 설정을 이해해야 함 |
+
+## 특징
+
+### 1. 인메모리 저장
+
+Redis는 데이터를 메모리에 두기 때문에 빠릅니다. 대신 메모리 크기가 한계가 되고, 설정에 따라 오래된 데이터가 제거될 수 있습니다.
+
+### 2. TTL과 Eviction
+
+TTL은 Key 단위 만료 시간입니다. Eviction은 메모리가 부족할 때 어떤 Key를 제거할지 정하는 정책입니다.
+
+| 정책 | 설명 |
+|------|------|
+| `noeviction` | 메모리 부족 시 쓰기 실패 |
+| `allkeys-lru` | 모든 Key 중 오래 사용하지 않은 Key 제거 |
+| `volatile-lru` | TTL이 있는 Key 중 오래 사용하지 않은 Key 제거 |
+| `allkeys-lfu` | 모든 Key 중 사용 빈도가 낮은 Key 제거 |
+
+### 3. Persistence
+
+Redis는 메모리 저장소지만 디스크 저장 옵션도 제공합니다.
+
+| 방식 | 설명 |
+|------|------|
+| `RDB` | 특정 시점 스냅샷 저장 |
+| `AOF` | 쓰기 명령 로그를 저장 |
+| `RDB + AOF` | 복구 안정성과 성능을 함께 고려 |
+
+### 4. Cache Aside 패턴
+
+```text
+1. 애플리케이션이 Redis에서 먼저 조회
+2. 없으면 DB에서 조회
+3. DB 조회 결과를 Redis에 저장
+4. 다음 요청부터 Redis에서 응답
+```
+
+데이터 변경 시에는 DB를 먼저 갱신하고 관련 캐시를 삭제하거나 갱신합니다.
+
+## 주의할 점
+
+<div class="warning-box" markdown="1">
+
+**캐시는 정답 저장소가 아닙니다.**
+
+중요한 원장 데이터는 DB에 저장하고 Redis는 빠른 조회나 임시 상태 저장 용도로 사용합니다.
+
+</div>
+
+<div class="warning-box" markdown="1">
+
+**캐시 만료가 한 번에 몰리면 장애가 날 수 있습니다.**
+
+동일한 TTL을 대량 Key에 적용하면 특정 시점에 캐시가 한꺼번에 사라져 DB로 요청이 몰립니다. TTL에 작은 랜덤 값을 섞어 분산합니다.
+
+</div>
+
+<div class="danger-box" markdown="1">
+
+**분산 락은 만능이 아닙니다.**
+
+락 만료 시간, 작업 시간 초과, 네트워크 지연, 재시도 정책을 함께 설계하지 않으면 중복 실행이 발생할 수 있습니다.
+
+</div>
+
+## 베스트 프랙티스
+
+| 권장 방식 | 이유 |
+|-----------|------|
+| **Key 네이밍 규칙 통일** | `domain:type:id` 형태로 추적과 삭제가 쉬움 |
+| **TTL을 명시적으로 설계** | 무기한 Key 증가를 방지 |
+| **TTL에 jitter 추가** | 캐시 동시 만료 방지 |
+| **큰 Value 저장 지양** | 네트워크와 메모리 부담 감소 |
+| **중요 데이터는 DB 기준** | Redis 장애나 유실에 대비 |
+| **캐시 삭제 전략 문서화** | DB 변경 후 오래된 캐시가 남지 않게 함 |
+| **메모리와 hit ratio 모니터링** | 캐시 효과와 장애 징후 파악 |
+
+## 실무에서는?
+
+| 사용처 | 예시 |
+|--------|------|
+| **상품/게시글 캐시** | 조회가 많은 상세 페이지 응답 캐시 |
+| **세션 저장소** | 로그인 사용자 상태 저장 |
+| **Refresh Token 관리** | 토큰 만료와 강제 로그아웃 처리 |
+| **인증 코드** | SMS/Email 인증번호 TTL 관리 |
+| **Rate Limiting** | 사용자별 요청 횟수 제한 |
+| **랭킹** | 점수 기반 Top N 조회 |
+| **분산 락** | 중복 결제, 재고 차감 같은 동시 처리 제어 |
+
+## 정리
+
+| 항목 | 설명 |
+|------|------|
+| **Redis** | 인메모리 Key-Value 저장소 |
+| **주요 용도** | 캐시, 세션, TTL 데이터, 랭킹, 분산 락 |
+| **강점** | 빠른 응답, 다양한 자료구조, TTL |
+| **주의** | 영구 저장소 대체 금지, 캐시 일관성, 메모리 관리 |
+
+---
+
+**관련 파일:**
+- [동시성 제어](../operations/concurrency.md) — Redis 분산 락
+- [모니터링](../operations/monitoring.md) — Redis 지표 관찰

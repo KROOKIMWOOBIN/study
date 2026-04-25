@@ -1,348 +1,170 @@
-## MSA (Microservices Architecture)
+# MSA
 
-### 왜 쓰는지
+## 왜 쓰는지
+
+모놀리식은 배포와 운영이 단순하지만, 규모가 커질수록 한 기능의 장애와 변경이 전체 서비스에 영향을 줄 수 있습니다. MSA는 시스템을 여러 작은 서비스로 나누어 독립적으로 개발, 배포, 확장하기 위한 방식입니다.
 
 <div class="concept-box" markdown="1">
 
-**핵심**: MSA는 **하나의 애플리케이션을 여러 개의 작은 독립 서비스로 분리**하여, 각 서비스를 독립적으로 개발·배포·확장할 수 있게 하는 아키텍처입니다.
+**핵심**: MSA는 기능을 작은 서비스로 나누는 것이 아니라, 데이터 소유권과 배포 책임까지 분리하는 아키텍처입니다.
 
 </div>
 
-모놀리식 서비스는 규모가 커질수록:
-- **배포 위험도**: 전체 재배포로 한 기능 변경이 전체 영향
-- **확장 비효율**: 특정 모듈만 병목이어도 전체 스케일 아웃
-- **장애 파급**: 하나의 모듈 장애가 전체 서비스 다운
-- **기술 선택 제약**: 단일 기술 스택 강제
+## 어떻게 쓰는지
 
-MSA는 이러한 문제를 해결합니다:
-
-| 구분 | 모놀리식 | MSA |
-|------|---------|-----|
-| **배포** | 전체 재배포 | 서비스 단위 독립 배포 |
-| **확장** | 전체 스케일 아웃 | 병목 서비스만 확장 |
-| **장애 격리** | 하나 죽으면 전체 영향 | 일부 서비스만 영향 |
-| **기술 선택** | 단일 스택 | 서비스별 최적 기술 |
-| **복잡도** | 낮음 | 높음 (네트워크, 분산 트랜잭션) |
-
----
-
-### 어떻게 쓰는지
-
-#### Spring Cloud 구성요소
-
-| 컴포넌트 | 역할 | 구현체 |
-|---------|------|--------|
-| **API Gateway** | 단일 진입점, 라우팅, 인증, 로깅 | Spring Cloud Gateway |
-| **Service Discovery** | 서비스 위치 동적 등록/조회 | Eureka, Consul |
-| **Config Server** | 중앙 설정 관리 (환경별 분리) | Spring Cloud Config |
-| **Circuit Breaker** | 장애 전파 차단, Fallback | Resilience4j, Hystrix |
-| **Load Balancer** | 서비스 인스턴스 부하 분산 | Spring Cloud LoadBalancer |
-| **분산 트래킹** | 마이크로서비스 간 요청 추적 | Sleuth, Zipkin |
-| **메시지 브로커** | 비동기 통신, 이벤트 기반 | Kafka, RabbitMQ |
-
-#### 1) API Gateway (단일 진입점)
-
-```yaml
-# application.yml (Gateway)
-spring:
-  cloud:
-    gateway:
-      routes:
-        - id: member-service
-          uri: lb://MEMBER-SERVICE  # Eureka로 동적 조회
-          predicates:
-            - Path=/api/members/**
-          filters:
-            - AuthorizationFilter  # JWT 검증
-            - name: CircuitBreaker
-              args:
-                name: memberServiceCB
-
-        - id: order-service
-          uri: lb://ORDER-SERVICE
-          predicates:
-            - Path=/api/orders/**
-```
-
-#### 2) Service Discovery (Eureka)
-
-```java
-// Eureka Server
-@SpringBootApplication
-@EnableEurekaServer
-public class DiscoveryServer { ... }
-
-// Eureka Client (각 서비스)
-@SpringBootApplication
-@EnableEurekaClient
-public class MemberServiceApplication { ... }
-```
-
-```yaml
-# application.yml (각 서비스)
-spring:
-  application:
-    name: MEMBER-SERVICE
-eureka:
-  client:
-    service-url:
-      defaultZone: http://discovery-server:8761/eureka
-```
-
-#### 3) 서비스 간 통신 (FeignClient)
-
-```java
-@FeignClient(name = "ORDER-SERVICE")
-public interface OrderFeignClient {
-
-    @GetMapping("/api/orders/member/{memberId}")
-    List<OrderResponse> getOrdersByMember(@PathVariable Long memberId);
-}
-
-// 사용
-@Service
-@RequiredArgsConstructor
-public class MemberService {
-
-    private final OrderFeignClient orderFeignClient;
-
-    public MemberDetailResponse getMemberDetail(Long memberId) {
-        Member member = memberRepository.findById(memberId).orElseThrow();
-        List<OrderResponse> orders = orderFeignClient.getOrdersByMember(memberId);
-        return new MemberDetailResponse(member, orders);
-    }
-}
-```
-
-#### 4) Circuit Breaker (장애 전파 차단)
-
-호출 대상 서비스가 장애일 때 연속 호출을 차단하고 fallback을 반환합니다.
-
-```java
-@CircuitBreaker(name = "orderService", fallbackMethod = "getOrdersFallback")
-public List<OrderResponse> getOrders(Long memberId) {
-    return orderFeignClient.getOrdersByMember(memberId);
-}
-
-public List<OrderResponse> getOrdersFallback(Long memberId, Exception e) {
-    log.warn("주문 서비스 장애, fallback 반환: {}", e.getMessage());
-    return Collections.emptyList();  // 빈 목록으로 graceful degradation
-}
-```
-
-#### 5) 분산 트랜잭션 (SAGA 패턴)
-
-MSA에서 `@Transactional`은 서비스 간 원자성을 보장하지 못합니다. **SAGA 패턴**으로 보상 트랜잭션을 구현합니다.
+### 서비스 경계 나누기
 
 ```text
-Choreography 방식 (이벤트 기반)
-주문 서비스: 주문 생성 → "ORDER_CREATED" 이벤트 발행
-결제 서비스: 이벤트 수신 → 결제 처리 → "PAYMENT_COMPLETED" 발행
-재고 서비스: 이벤트 수신 → 재고 차감
-
-결제 실패 시 (보상 트랜잭션)
-결제 서비스: "PAYMENT_FAILED" 이벤트 발행
-주문 서비스: 이벤트 수신 → 주문 취소
-재고 서비스: 이벤트 수신 → 재고 복구
+member-service    -> 회원 데이터 소유
+order-service     -> 주문 데이터 소유
+payment-service   -> 결제 데이터 소유
+inventory-service -> 재고 데이터 소유
 ```
 
----
+서비스 경계는 테이블 수나 코드 양이 아니라 **업무 책임과 데이터 소유권**을 기준으로 나눕니다.
 
-### 언제 쓰는지
+### 통신 방식
 
-| 상황 | 선택 | 이유 |
-|------|------|------|
-| **높은 확장성 필요** | ✅ MSA | 병목 서비스만 독립 확장 |
-| **팀 규모 크고 다양** | ✅ MSA | 팀별 독립 개발/배포 |
-| **기술 스택 다양화** | ✅ MSA | 서비스별 최적 기술 선택 |
-| **빈번한 배포 필요** | ✅ MSA | 단일 서비스만 배포 |
-| **작은 팀, 단순 서비스** | ❌ 모놀리식 | 복잡도 대비 이득 부족 |
-| **강한 ACID 보장 필요** | ⚠️ 신중 | 분산 트랜잭션 복잡도 증가 |
+| 방식 | 설명 | 사용 예 |
+|------|------|---------|
+| 동기 호출 | 요청 후 응답을 기다림 | 주문 화면에서 회원 정보 조회 |
+| 비동기 이벤트 | 이벤트 발행 후 각 서비스가 처리 | 주문 완료 후 알림/재고 차감 |
 
----
+```text
+order-service
+  └─ OrderCreated 이벤트 발행
+       ├─ payment-service
+       ├─ inventory-service
+       └─ notification-service
+```
 
-### 장점
+### 데이터 일관성
+
+MSA에서는 서비스마다 DB를 분리하는 경우가 많습니다. 그래서 단일 DB 트랜잭션으로 여러 서비스의 데이터를 한 번에 묶기 어렵습니다.
+
+```text
+주문 생성
+  -> 결제 요청
+  -> 재고 차감
+  -> 실패 시 보상 처리
+```
+
+이런 흐름은 Saga, Outbox, 멱등성 같은 패턴을 함께 고려합니다.
+
+## 언제 쓰는지
+
+| 상황 | MSA 적합도 | 이유 |
+|------|------------|------|
+| **팀이 서비스별로 나뉨** | 높음 | 독립 개발과 배포 가능 |
+| **특정 기능만 독립 확장 필요** | 높음 | 병목 서비스만 확장 가능 |
+| **장애 격리가 중요함** | 높음 | 일부 서비스 장애가 전체로 번지는 것을 줄임 |
+| **도메인 경계가 명확함** | 높음 | 서비스 책임을 나누기 쉬움 |
+| **작은 서비스/초기 제품** | 낮음 | 운영 복잡도가 더 큼 |
+| **트랜잭션이 강하게 묶임** | 낮음 | 분산 일관성 처리 비용이 큼 |
+
+## 장점
 
 | 장점 | 설명 |
 |------|------|
-| **독립 배포** | 각 서비스 독립 배포로 배포 위험 감소 |
-| **병목 확장** | 병목 서비스만 선택적으로 스케일 아웃 |
-| **장애 격리** | 한 서비스 장애가 다른 서비스에 영향 최소화 |
-| **기술 자유도** | 서비스별로 최적의 기술 스택 선택 가능 |
-| **팀 독립성** | 팀별로 독립적 개발/배포/운영 가능 |
-| **높은 가용성** | 일부 서비스 장애 시에도 부분 서비스 제공 |
+| **독립 배포** | 서비스별로 배포 가능 |
+| **독립 확장** | 트래픽이 많은 서비스만 확장 |
+| **장애 격리** | 장애 전파 범위를 줄일 수 있음 |
+| **팀 자율성** | 서비스별 의사결정이 쉬움 |
+| **기술 선택 유연성** | 서비스 특성에 맞는 저장소나 런타임 선택 가능 |
 
----
-
-### 단점
+## 단점
 
 | 단점 | 설명 |
 |------|------|
-| **네트워크 오버헤드** | 서비스 간 호출로 인한 지연 증가 |
-| **분산 트랜잭션 복잡성** | ACID 보장 불가능, SAGA 패턴 필수 |
-| **데이터 일관성** | 최종 일관성(Eventual Consistency) 모델 |
-| **운영 복잡도** | 서비스 수만큼 모니터링·로깅·추적 포인트 증가 |
-| **테스트 어려움** | 통합 테스트, E2E 테스트 복잡도 증가 |
-| **초기 비용** | CI/CD, 모니터링, 인프라 구축 필요 |
+| **운영 복잡도 증가** | 배포, 모니터링, 로깅 대상이 늘어남 |
+| **분산 트랜잭션 어려움** | 강한 일관성을 유지하기 어려움 |
+| **네트워크 비용** | 프로세스 내부 호출보다 느리고 실패 가능성이 있음 |
+| **테스트 복잡도** | 서비스 간 계약과 통합 흐름 검증 필요 |
+| **데이터 중복 가능성** | 조회 성능을 위해 복제 데이터가 생김 |
 
----
+## 특징
 
-### 특징
+### 1. Database per Service
 
-#### 1. 분산 시스템의 도전
-
-```text
-1️⃣ 네트워크 지연
-   - 서비스 간 호출마다 네트워크 왕복
-   - 최대 지연 시간 예측 어려움
-
-2️⃣ 부분 장애 (Partial Failure)
-   - 일부 서비스만 장애 가능
-   - 전체 요청 실패로 처리할지 부분 성공 반환할지 판단 어려움
-
-3️⃣ 데이터 일관성
-   - 서비스별 독립 DB로 인한 데이터 동기화 문제
-   - ACID 보장 불가능 → 최종 일관성(Eventual Consistency)
-
-4️⃣ 네트워크 분할 (Network Partition)
-   - 데이터센터 간 네트워크 단절 시 합의 불가능
-   - CAP 정리에 따라 일관성과 가용성 선택
-```
-
-#### 2. 동기 vs 비동기 통신
+각 서비스가 자신의 데이터를 소유합니다. 다른 서비스가 직접 DB를 조회하지 않고 API나 이벤트로 협력합니다.
 
 ```text
-동기 호출 (FeignClient)
-- 장점: 응답 대기, 즉시 처리 가능, 구현 단순
-- 단점: 연쇄 지연, 타임아웃 처리 필수, 신뢰성 낮음
-
-비동기 호출 (메시지 브로커)
-- 장점: 느슨한 결합, 높은 처리량, 부분 장애 격리
-- 단점: 복잡한 디버깅, 순서 보장 어려움, 메시지 손실 처리
+order-service -> order_db
+payment-service -> payment_db
 ```
 
-#### 3. API Gateway의 역할
+### 2. 서비스 간 계약
 
-```text
-API Gateway 없이
-- 클라이언트가 각 서비스 URL 알아야 함
-- 서비스 변경 시 클라이언트 수정 필요
-- 인증/로깅 중복 구현
+API 스펙, 이벤트 스키마, 에러 포맷이 계약이 됩니다. 계약 변경은 소비자에게 영향을 주므로 하위 호환성을 고려해야 합니다.
 
-API Gateway 적용
-- 단일 진입점으로 서비스 발견 자동화
-- 라우팅, 인증, 로깅 중앙 처리
-- 서비스 변경 시 클라이언트 영향 없음
-```
+### 3. 관찰 가능성
 
----
+서비스가 많아질수록 로그, 메트릭, 트레이스가 없으면 장애 원인을 찾기 어렵습니다.
 
-### 주의할 점
+### 4. 최종 일관성
+
+여러 서비스가 즉시 같은 상태가 되지 않을 수 있습니다. 비즈니스가 허용하는 지연 시간과 보상 정책을 정해야 합니다.
+
+## 주의할 점
 
 <div class="danger-box" markdown="1">
 
-**❌ 초기 도입 오류**
+**작은 조직에서 성급하게 MSA를 도입하면 운영 비용이 더 큽니다.**
 
-```text
-작은 조직, 단순 서비스에 MSA 도입
-→ 구축 비용: 높음
-→ 운영 복잡도: 높음
-→ 실제 이득: 미미
-```
-
-**✅ 올바른 접근:**
-- 모놀리식으로 시작
-- 서비스 수가 많아지고 확장 필요 시 분리
-- "느린 소프트웨어 사망" (Slow software death) 문제 발생 후 마이그레이션
-
-</div>
-
-<div class="danger-box" markdown="1">
-
-**❌ 동기 호출 과다**
-
-```text
-서비스 A → B → C → D 의존 체인
-- 한 서비스 장애 시 전체 요청 실패
-- 네트워크 지연 누적: 4 배의 지연 발생
-```
-
-**✅ 올바른 방식:**
-- 필수 기능만 동기 호출
-- 나머지는 비동기 (메시지 브로커)
-- Circuit Breaker로 장애 전파 차단
+서비스 수만큼 배포, 장애 대응, 모니터링, 테스트 복잡도가 증가합니다.
 
 </div>
 
 <div class="warning-box" markdown="1">
 
-**⚠️ 분산 트랜잭션 오류**
+**공유 DB는 서비스 분리 효과를 크게 떨어뜨립니다.**
 
-```java
-// ❌ MSA에서 작동하지 않음
-@Transactional  // 서비스 경계를 넘을 수 없음
-public void placeOrder(Order order) {
-    orderService.save(order);      // Service A
-    paymentService.pay(order);     // Service B (다른 서버)
-}
-```
-
-**✅ SAGA 패턴 사용:**
-- Choreography: 이벤트 기반 (느슨한 결합)
-- Orchestration: 중앙 조정자 (명확한 흐름)
+여러 서비스가 같은 테이블을 직접 읽고 쓰면 배포와 변경이 다시 강하게 묶입니다.
 
 </div>
 
 <div class="warning-box" markdown="1">
 
-**⚠️ 모니터링 부재**
+**동기 호출 체인이 길어지면 장애가 전파됩니다.**
 
-```text
-MSA 환경에서 문제 추적 어려움
-- 요청이 여러 서비스를 거침
-- 어느 서비스에서 느린지 파악 어려움
-- 한 서비스의 오류가 전체 영향
-```
-
-**✅ 필수 구성:**
-- 분산 추적 (Sleuth, Zipkin)
-- 중앙 로그 수집 (ELK Stack)
-- 메트릭 수집 (Prometheus, Grafana)
+타임아웃, 재시도, Circuit Breaker, 비동기 이벤트를 함께 설계해야 합니다.
 
 </div>
 
-<div class="warning-box" markdown="1">
+## 베스트 프랙티스
 
-**⚠️ 데이터 일관성 기대 오류**
+| 권장 방식 | 이유 |
+|-----------|------|
+| **모듈러 모놀리스로 경계 검증** | 분산 전 도메인 경계를 확인 |
+| **데이터 소유권 명확화** | 공유 DB로 인한 결합 방지 |
+| **API/Event 계약 관리** | 서비스 간 변경 영향 제어 |
+| **타임아웃과 재시도 정책 설정** | 장애 전파와 무한 대기 방지 |
+| **멱등성 설계** | 중복 요청과 이벤트 재처리에 안전 |
+| **관찰 가능성 먼저 구축** | 로그, 메트릭, 트레이스로 장애 분석 |
+| **Outbox/Saga 고려** | 서비스 간 데이터 정합성 보완 |
 
-```text
-// ❌ 즉시 일관성 기대
-주문 생성 → 결제 처리 → 재고 차감
-// 결제 중 장애 시 롤백 불가능 (서로 다른 DB)
-```
+## 실무에서는?
 
-**✅ 최종 일관성 설계:**
-- 보상 트랜잭션으로 일관성 복구
-- 임시적 불일치 허용
-- 일관성 감시 도구 (Saga 보상 로직)
+| 상황 | 적용 방식 |
+|------|-----------|
+| **주문/결제/재고 분리** | 각 서비스가 자신의 DB를 갖고 이벤트로 동기화 |
+| **알림 서비스 분리** | 주문 흐름과 알림 발송을 비동기로 분리 |
+| **검색 서비스 분리** | 원본 DB 변경 이벤트를 받아 검색 색인 갱신 |
+| **대규모 트래픽** | 병목 서비스만 수평 확장 |
+| **조직 확장** | 팀 단위로 서비스 소유와 배포 책임 분리 |
 
-</div>
-
----
-
-### 정리
+## 정리
 
 | 항목 | 설명 |
 |------|------|
-| **구성요소** | API Gateway, Service Discovery, Config Server, Circuit Breaker, 분산 추적 |
-| **통신 방식** | 동기 (FeignClient), 비동기 (Kafka, RabbitMQ) |
-| **트랜잭션** | SAGA 패턴 (Choreography / Orchestration) |
-| **장점** | 확장성, 독립 배포, 기술 자유도, 높은 가용성 |
-| **단점** | 복잡도, 분산 트랜잭션, 네트워크 오버헤드, 운영 복잡도 |
-| **주의점** | 조직 규모에 맞는 도입, 적절한 통신 방식 선택, 모니터링 필수 |
+| **MSA** | 독립 배포 가능한 작은 서비스들의 구조 |
+| **핵심 기준** | 데이터 소유권, 배포 책임, 도메인 경계 |
+| **장점** | 독립 배포, 확장, 장애 격리 |
+| **주의** | 운영 복잡도, 분산 일관성, 관찰 가능성 |
 
 ---
 
 **관련 파일:**
-- [아키텍처 패턴](architecture.md) — 다양한 아키텍처 패턴
-- [Kafka](../infra/kafka.md) — 메시지 브로커 기반 비동기 통신
+- [아키텍처 패턴](architecture.md) — 모듈러 모놀리스와 계층 구조
+- [Kafka](../infra/kafka.md) — 비동기 이벤트 통신
+- [아웃박스 패턴](outbox.md) — 이벤트 발행 정합성

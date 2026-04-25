@@ -125,17 +125,3 @@ public class OrderServiceImpl implements OrderService {
 | 단계 | 주제 |
 |------|------|
 | 21 | [Testing](./testing.md) |
-
-### Backend로 이어지는 주제
-
-Redis, Kafka, MSA, Outbox는 Spring으로 구현할 수 있지만 개념 자체는 Spring보다 넓다. 그래서 별도 [Backend 학습 노트](../backend/backend.md)에서 다룬다.
-
-| 주제 | 위치 |
-|------|------|
-| Redis | [Backend / Redis](../backend/infra/redis.md) |
-| Kafka | [Backend / Kafka](../backend/infra/kafka.md) |
-| 아웃박스 패턴 | [Backend / 아웃박스 패턴](../backend/architecture/outbox.md) |
-| 아키텍처 패턴 | [Backend / 아키텍처 패턴](../backend/architecture/architecture.md) |
-| MSA | [Backend / MSA](../backend/architecture/msa.md) |
-| 동시성 제어 | [Backend / 동시성 제어](../backend/operations/concurrency.md) |
-| 모니터링 | [Backend / 모니터링](../backend/operations/monitoring.md) |

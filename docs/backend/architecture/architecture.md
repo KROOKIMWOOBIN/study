@@ -1,135 +1,157 @@
-## 아키텍처 패턴
+# 아키텍처 패턴
 
-### 왜 쓰는가?
+## 왜 쓰는지
+
+서비스가 커질수록 코드가 어디에 있어야 하는지, 변경이 어디까지 퍼지는지, 테스트를 어떻게 나눌지 기준이 필요합니다. 아키텍처 패턴은 코드와 시스템의 책임을 나누는 기준을 제공합니다.
 
 <div class="concept-box" markdown="1">
 
-코드 규모가 커질수록 **어디에 무엇을 두어야 하는지** 기준이 필요하다. 아키텍처 패턴은 역할을 명확히 분리해 유지보수성과 테스트 용이성을 높인다.
+**핵심**: 아키텍처 패턴은 기술 이름이 아니라 의존성 방향, 책임 분리, 변경 범위를 정하는 설계 기준입니다.
 
 </div>
 
----
+## 어떻게 쓰는지
 
-### Layered Architecture (계층형)
+### Layered Architecture
 
-가장 일반적인 구조. 각 계층은 아래 계층만 의존한다.
-
-```markdown
-[Presentation Layer]  — Controller, DTO
-        ↓
-[Application Layer]   — Service
-        ↓
-[Domain Layer]        — Entity, Domain Logic
-        ↓
-[Infrastructure Layer]— Repository, DB, 외부 API
+```text
+Presentation
+    ↓
+Application
+    ↓
+Domain
+    ↓
+Infrastructure
 ```
 
-```markdown
-// 전형적인 패키지 구조
-com.myapp
-├── controller    // HTTP 요청/응답
-├── service       // 비즈니스 로직 조율
-├── domain        // 엔티티, 도메인 로직
-├── repository    // DB 접근
-└── dto           // 계층 간 데이터 전달
-```
-
-**장점:** 구조가 단순하고 익히기 쉽다.
-**단점:** 규모가 커지면 Service 계층이 비대해지고 도메인 로직이 분산된다.
-
----
-
-### DDD (Domain-Driven Design) 기반 패키지 구조
-
-기술 중심이 아닌 **도메인(업무) 중심**으로 패키지를 구성한다.
-
-```markdown
-com.myapp
-├── member
-│   ├── controller    MemberController
-│   ├── service       MemberService
-│   ├── domain        Member, MemberStatus
-│   ├── repository    MemberRepository
-│   └── dto           MemberCreateRequest, MemberResponse
-├── order
-│   ├── controller    OrderController
-│   ├── service       OrderService
-│   ├── domain        Order, OrderItem
-│   └── repository    OrderRepository
-└── payment
-    ├── service       PaymentService
-    └── domain        Payment
-```
-
-**장점:** 관련 코드가 모여 있어 이해하기 쉽고 MSA로의 전환이 쉽다.
-**단점:** 팀 간 도메인 경계 합의가 필요하다.
-
----
-
-### 핵심 설계 원칙
-
-**단방향 의존성**
-
-```markdown
-// Good: Controller → Service → Repository
-@Service
-public class MemberService {
-    private final MemberRepository repository;  // 아래 계층만 의존
-}
-
-// Bad: Repository → Service (역방향)
-@Repository
-public class MemberRepository {
-    private final MemberService service;  // 순환 의존 발생
-}
-```
-
-**도메인 로직은 엔티티에**
-
-```markdown
-// Bad: 서비스에 도메인 로직
-public class OrderService {
-    public void cancel(Order order) {
-        if (order.getStatus() == OrderStatus.SHIPPED) {
-            throw new IllegalStateException("배송 중인 주문은 취소 불가");
-        }
-        order.setStatus(OrderStatus.CANCELLED);
-    }
-}
-
-// Good: 엔티티에 도메인 로직
-public class Order {
-    public void cancel() {
-        if (this.status == OrderStatus.SHIPPED) {
-            throw new IllegalStateException("배송 중인 주문은 취소 불가");
-        }
-        this.status = OrderStatus.CANCELLED;
-    }
-}
-```
-
-**DTO로 계층 경계**
-
-```markdown
-// 외부 → 컨트롤러 → 서비스: Request DTO
-// 서비스 → 컨트롤러 → 외부: Response DTO
-// 엔티티는 서비스/도메인 계층 내부에서만 사용
-```
-
----
-
-### 어떤 아키텍처를 선택할까?
-
-| 상황 | 추천 |
+| 계층 | 책임 |
 |------|------|
-| 스타트업, 소규모 팀 | Layered (단순, 빠른 개발) |
-| 복잡한 도메인, 중규모 이상 | DDD 패키지 구조 |
-| MSA 준비 중 | DDD + 도메인별 모듈 분리 |
+| Presentation | 요청/응답, 입력 검증 |
+| Application | 유스케이스 흐름 조율 |
+| Domain | 핵심 비즈니스 규칙 |
+| Infrastructure | DB, 메시징, 외부 API 연동 |
 
-### 주의할 점
+### Hexagonal Architecture
 
-| 상황 | 문제 | 해결 |
-|------|------|------|
-| 과도한 추상화 | 간단한 CRUD에도 복잡한 구조 | 실제 복잡도에 맞는 구조 선택 |
-| 도메인 로직이 서비스에 | 테스트 어렵고 재사용 불가 | 엔티티에 도메인 로직 위치 |
-| 순환 의존성 | 컴파일 오류, 설계 오류 | 단방향 의존 규칙 준수 |
+```text
+        Adapter
+           ↓
+Port -> Application/Domain <- Port
+           ↑
+        Adapter
+```
+
+핵심 비즈니스 로직을 중앙에 두고, DB나 외부 API 같은 기술은 Adapter로 분리합니다.
+
+### Modular Monolith
+
+```text
+monolith
+ ├─ order
+ ├─ payment
+ ├─ member
+ └─ inventory
+```
+
+배포는 하나로 유지하되 내부 모듈 경계를 명확히 나눕니다. 처음부터 분산 시스템으로 가지 않고도 서비스 경계를 연습할 수 있습니다.
+
+## 언제 쓰는지
+
+| 상황 | 선택 |
+|------|------|
+| **단순 CRUD 중심** | Layered Architecture |
+| **도메인 규칙이 중요함** | Layered + Domain 분리 |
+| **외부 시스템 교체 가능성이 큼** | Hexagonal Architecture |
+| **서비스 분리 전 단계** | Modular Monolith |
+| **팀과 배포 단위가 독립적임** | MSA 고려 |
+
+## 장점
+
+| 장점 | 설명 |
+|------|------|
+| **변경 범위 축소** | 책임이 나뉘어 수정 영향이 줄어듦 |
+| **테스트 용이** | 계층이나 모듈 단위로 검증 가능 |
+| **의존성 관리** | 핵심 규칙이 외부 기술에 덜 묶임 |
+| **확장성** | 규모가 커져도 구조를 유지하기 쉬움 |
+
+## 단점
+
+| 단점 | 설명 |
+|------|------|
+| **초기 비용** | 작은 기능에도 구조가 늘어날 수 있음 |
+| **과설계 위험** | 단순 서비스에 복잡한 구조를 적용할 수 있음 |
+| **경계 판단 어려움** | 무엇을 어느 계층/모듈에 둘지 경험이 필요 |
+| **규칙 미준수 위험** | 의존성 방향이 깨지면 구조가 빠르게 무너짐 |
+
+## 특징
+
+### 1. 의존성 방향
+
+좋은 구조는 핵심 정책이 세부 기술에 의존하지 않게 합니다.
+
+```text
+좋음: Application -> Port <- Adapter
+나쁨: Domain -> DatabaseClient
+```
+
+### 2. 계층은 책임 기준이다
+
+파일을 폴더에 나눴다고 구조가 좋아지는 것은 아닙니다. 각 계층이 자신의 책임만 가져야 합니다.
+
+### 3. 모듈 경계는 데이터 소유권과 함께 봐야 한다
+
+`order`, `payment`, `inventory`처럼 나눌 때는 어떤 모듈이 어떤 데이터를 소유하는지도 함께 정해야 합니다.
+
+## 주의할 점
+
+<div class="warning-box" markdown="1">
+
+**패턴을 먼저 정하고 도메인을 끼워 맞추지 않습니다.**
+
+현재 문제의 변경 지점, 팀 구조, 배포 방식, 데이터 소유권을 보고 필요한 만큼만 적용합니다.
+
+</div>
+
+<div class="danger-box" markdown="1">
+
+**계층을 건너뛰는 의존성이 늘면 구조가 무너집니다.**
+
+Presentation이 DB를 직접 호출하거나 Domain이 외부 API 클라이언트를 직접 알면 변경 영향이 커집니다.
+
+</div>
+
+## 베스트 프랙티스
+
+| 권장 방식 | 이유 |
+|-----------|------|
+| **작게 시작** | 처음부터 복잡한 구조를 만들지 않음 |
+| **의존성 방향을 문서화** | 팀원이 같은 기준으로 코드 작성 |
+| **도메인 규칙은 중앙에 둠** | 규칙이 여러 계층에 흩어지는 것을 방지 |
+| **외부 연동은 Adapter로 분리** | DB, 메시징, API 변경에 강해짐 |
+| **모듈 간 직접 참조 제한** | 경계가 흐려지는 것을 방지 |
+
+## 실무에서는?
+
+| 상황 | 적용 예 |
+|------|---------|
+| **초기 서비스** | Layered Architecture로 빠르게 시작 |
+| **도메인 복잡도 증가** | Domain 계층을 분리하고 유스케이스 중심으로 정리 |
+| **외부 연동 다수** | Port/Adapter 구조로 테스트와 교체 비용 감소 |
+| **MSA 전환 전** | Modular Monolith로 경계를 먼저 검증 |
+| **레거시 개선** | 가장 변경이 잦은 기능부터 모듈 경계 분리 |
+
+## 정리
+
+| 항목 | 설명 |
+|------|------|
+| **목적** | 책임 분리와 변경 범위 축소 |
+| **기본 선택** | 단순하면 Layered |
+| **복잡한 도메인** | Domain 중심 구조 |
+| **외부 연동 많음** | Hexagonal |
+| **분산 전 단계** | Modular Monolith |
+
+---
+
+**관련 파일:**
+- [MSA](msa.md) — 서비스 분리 기준
+- [아웃박스 패턴](outbox.md) — 이벤트 발행 정합성

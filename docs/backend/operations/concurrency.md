@@ -1,143 +1,218 @@
-## 동시성 제어
+# 동시성 제어
 
-### 왜 쓰는가?
+## 왜 쓰는지
 
-<div class="danger-box" markdown="1">
+여러 요청이 같은 데이터를 동시에 수정하면 의도하지 않은 결과가 생깁니다.
 
-선착순 이벤트, 재고 차감, 결제 처리처럼 **여러 요청이 동시에 같은 데이터를 수정**할 때 데이터 정합성 문제가 발생한다. ==레이스 컨디션(Race Condition)==으로 인해 재고가 음수가 되거나 중복 결제가 발생할 수 있다.
+```text
+재고 1개
+
+요청 A: 재고 조회 -> 1
+요청 B: 재고 조회 -> 1
+요청 A: 재고 차감 -> 0
+요청 B: 재고 차감 -> 0
+
+결과: 1개 재고로 2번 판매됨
+```
+
+<div class="concept-box" markdown="1">
+
+**핵심**: 동시성 제어는 여러 작업이 동시에 실행되더라도 데이터가 깨지지 않도록 읽기와 쓰기 순서를 제어하는 방법입니다.
 
 </div>
 
-### 문제 상황
+## 어떻게 쓰는지
 
-```markdown
-// 재고 100개, 동시에 100명이 차감 요청
-public void decrease(Long itemId) {
-    Item item = itemRepository.findById(itemId).get();
-    item.decrease(1);          // 동시 접근 시 Lost Update 발생
-    itemRepository.save(item); // 재고가 음수가 될 수 있음
-}
+### 1. DB 제약 조건
+
+가장 먼저 DB가 보장할 수 있는 것은 DB에 맡깁니다.
+
+```sql
+ALTER TABLE users
+ADD CONSTRAINT uk_users_email UNIQUE (email);
 ```
+
+중복 가입 방지처럼 명확한 규칙은 애플리케이션에서 먼저 조회하기보다 DB 제약 조건과 예외 처리로 막는 것이 안전합니다.
+
+### 2. 낙관적 락
+
+충돌이 드물다고 보고, 수정 시점에 버전이 같은지 확인합니다.
+
+```sql
+UPDATE item
+SET stock = stock - 1,
+    version = version + 1
+WHERE id = 1
+  AND version = 3
+  AND stock > 0;
+```
+
+수정된 row 수가 0이면 누군가 먼저 변경한 것입니다. 이때 재조회 후 재시도하거나 사용자에게 실패를 알려줍니다.
+
+### 3. 비관적 락
+
+충돌이 자주 발생한다고 보고, 먼저 잠근 뒤 처리합니다.
+
+```sql
+SELECT *
+FROM item
+WHERE id = 1
+FOR UPDATE;
+
+UPDATE item
+SET stock = stock - 1
+WHERE id = 1;
+```
+
+잠금을 잡은 트랜잭션이 끝날 때까지 다른 트랜잭션은 대기합니다.
+
+### 4. 분산 락
+
+서버가 여러 대이고 DB 락만으로 제어하기 어려운 작업은 외부 저장소를 이용해 락을 둘 수 있습니다.
+
+```bash
+SET lock:item:1 request-123 NX PX 3000
+```
+
+| 옵션 | 의미 |
+|------|------|
+| `NX` | Key가 없을 때만 설정 |
+| `PX 3000` | 3초 뒤 자동 만료 |
+
+락 해제는 자신이 잡은 락인지 확인한 뒤 삭제해야 합니다.
+
+## 언제 쓰는지
+
+| 상황 | 선택 |
+|------|------|
+| **중복 가입/중복 주문 번호 방지** | DB Unique 제약 |
+| **충돌이 드문 수정** | 낙관적 락 |
+| **충돌이 잦고 반드시 순차 처리** | 비관적 락 |
+| **여러 서버에서 같은 작업 제어** | 분산 락 |
+| **외부 API 중복 호출 방지** | Idempotency Key |
+| **단순 읽기 요청** | 락 불필요 |
+
+## 장점
+
+| 방식 | 장점 |
+|------|------|
+| DB 제약 조건 | 가장 단순하고 신뢰도 높음 |
+| 낙관적 락 | 대기 시간이 적고 성능 부담이 낮음 |
+| 비관적 락 | 충돌이 많을 때 데이터 정합성 확보 |
+| 분산 락 | 여러 서버 인스턴스 간 작업 조율 |
+| Idempotency Key | 재시도와 중복 요청에 안전 |
+
+## 단점
+
+| 방식 | 단점 |
+|------|------|
+| DB 제약 조건 | 복잡한 순서 제어에는 부족 |
+| 낙관적 락 | 충돌 시 재시도 로직 필요 |
+| 비관적 락 | 대기, 데드락, 처리량 저하 가능 |
+| 분산 락 | 만료 시간, 네트워크 장애, 소유권 관리가 어려움 |
+| Idempotency Key | 요청 저장소와 만료 정책 필요 |
+
+## 특징
+
+### 1. Race Condition
+
+여러 작업이 실행 순서에 따라 다른 결과를 만드는 상황입니다. 재고 차감, 쿠폰 발급, 포인트 적립에서 자주 발생합니다.
+
+### 2. Lost Update
+
+두 요청이 같은 값을 읽고 각자 계산한 뒤 저장하면서 한쪽 변경이 사라지는 문제입니다.
+
+```text
+A: balance 100 읽음
+B: balance 100 읽음
+A: +10 저장 -> 110
+B: -20 저장 -> 80
+
+A의 변경이 사라짐
+```
+
+### 3. Idempotency
+
+같은 요청이 여러 번 들어와도 결과가 한 번 처리한 것과 같도록 만드는 성질입니다.
+
+```text
+Idempotency-Key: pay-20260425-0001
+```
+
+결제, 주문 생성, 이벤트 소비처럼 재시도가 가능한 작업에는 멱등성 키가 중요합니다.
+
+### 4. Deadlock
+
+두 트랜잭션이 서로의 락을 기다리며 멈추는 상황입니다.
+
+```text
+T1: A 잠금 -> B 대기
+T2: B 잠금 -> A 대기
+```
+
+락 획득 순서를 통일하면 데드락 가능성을 줄일 수 있습니다.
+
+## 주의할 점
+
+<div class="warning-box" markdown="1">
+
+**조회 후 삽입 방식은 안전하지 않습니다.**
+
+`SELECT`로 중복을 확인한 뒤 `INSERT`하는 사이에 다른 요청이 먼저 삽입할 수 있습니다. 중복 방지는 Unique 제약 조건을 기준으로 처리합니다.
+
+</div>
+
+<div class="danger-box" markdown="1">
+
+**분산 락 만료 시간이 작업 시간보다 짧으면 중복 실행될 수 있습니다.**
+
+락 TTL, 작업 제한 시간, 재시도 정책을 함께 맞춰야 합니다.
+
+</div>
+
+<div class="warning-box" markdown="1">
+
+**락 범위는 최대한 작게 잡습니다.**
+
+외부 API 호출이나 오래 걸리는 연산을 락 안에 넣으면 대기 시간이 길어지고 장애 전파가 커집니다.
+
+</div>
+
+## 베스트 프랙티스
+
+| 권장 방식 | 이유 |
+|-----------|------|
+| **DB 제약 조건 우선** | 단순하고 강력한 정합성 보장 |
+| **락 범위 최소화** | 대기 시간과 데드락 가능성 감소 |
+| **락 획득 순서 통일** | 데드락 가능성 감소 |
+| **타임아웃 설정** | 무한 대기 방지 |
+| **재시도 횟수 제한** | 장애 상황에서 요청 폭증 방지 |
+| **멱등성 키 저장** | 중복 요청과 재처리에 안전 |
+| **충돌 빈도에 따라 방식 선택** | 낙관적/비관적 락의 장단점 반영 |
+
+## 실무에서는?
+
+| 상황 | 적용 예 |
+|------|---------|
+| **회원 이메일 중복** | Unique 제약 조건 |
+| **재고 차감** | 낙관적 락 또는 비관적 락 |
+| **선착순 쿠폰** | DB 원자 업데이트, 락, 큐 조합 |
+| **결제 요청 재시도** | Idempotency Key |
+| **이벤트 중복 소비** | processed_event 테이블 |
+| **여러 서버의 배치 중복 실행** | 분산 락 |
+
+## 정리
+
+| 항목 | 설명 |
+|------|------|
+| **동시성 제어 목적** | 동시에 실행되어도 데이터 정합성 유지 |
+| **기본 수단** | DB 제약 조건, 락, 멱등성 |
+| **충돌 드묾** | 낙관적 락 |
+| **충돌 잦음** | 비관적 락 |
+| **다중 서버 조율** | 분산 락 |
 
 ---
 
-### 낙관적 락 (Optimistic Lock)
-
-충돌이 드물 것이라고 가정. 실제 충돌 시 예외를 던지고 재시도한다. DB 락을 걸지 않아 성능이 좋다.
-
-```markdown
-@Entity
-public class Item {
-    @Id private Long id;
-    private int stock;
-
-    @Version   // 낙관적 락 버전 컬럼
-    private Long version;
-}
-
-// Repository
-public interface ItemRepository extends JpaRepository<Item, Long> {
-    @Lock(LockModeType.OPTIMISTIC)
-    Optional<Item> findById(Long id);
-}
-```
-
-```markdown
-// 충돌 시 ObjectOptimisticLockingFailureException 발생 → 재시도
-@Retryable(value = ObjectOptimisticLockingFailureException.class, maxAttempts = 3)
-@Transactional
-public void decrease(Long itemId) {
-    Item item = itemRepository.findById(itemId).orElseThrow();
-    item.decrease(1);
-}
-```
-
-**언제 사용:** 읽기가 많고 쓰기 충돌이 드문 경우. (상품 좋아요, 조회수)
-
----
-
-### 비관적 락 (Pessimistic Lock)
-
-충돌이 많을 것이라고 가정. 조회 시점에 DB 락을 걸어 다른 트랜잭션의 접근을 차단한다.
-
-```markdown
-public interface ItemRepository extends JpaRepository<Item, Long> {
-    @Lock(LockModeType.PESSIMISTIC_WRITE)  // SELECT ... FOR UPDATE
-    @Query("SELECT i FROM Item i WHERE i.id = :id")
-    Optional<Item> findByIdWithLock(@Param("id") Long id);
-}
-
-@Transactional
-public void decrease(Long itemId) {
-    Item item = itemRepository.findByIdWithLock(itemId).orElseThrow();
-    item.decrease(1);  // 락을 걸고 수정 → 다른 트랜잭션은 대기
-}
-```
-
-**언제 사용:** 쓰기 충돌이 자주 발생하는 경우. (재고 차감, 선착순 쿠폰)
-
----
-
-### Redis 분산 락 (Distributed Lock)
-
-여러 서버 인스턴스에서 동시에 접근하는 경우, DB 락만으로 부족하다. Redis로 애플리케이션 레벨 락을 구현한다. Redisson 라이브러리를 주로 사용한다.
-
-```markdown
-implementation 'org.redisson:redisson-spring-boot-starter:3.27.0'
-```
-
-```markdown
-@Service
-@RequiredArgsConstructor
-public class StockService {
-
-    private final RedissonClient redissonClient;
-
-    public void decrease(Long itemId) {
-        RLock lock = redissonClient.getLock("lock:item:" + itemId);
-
-        try {
-            boolean acquired = lock.tryLock(5, 3, TimeUnit.SECONDS);
-            // waitTime: 락 획득 대기 시간, leaseTime: 락 유지 시간
-
-            if (!acquired) {
-                throw new RuntimeException("락 획득 실패");
-            }
-
-            // 락 획득 성공 → 안전하게 수정
-            Item item = itemRepository.findById(itemId).orElseThrow();
-            item.decrease(1);
-            itemRepository.save(item);
-
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        } finally {
-            if (lock.isHeldByCurrentThread()) {
-                lock.unlock();  // 반드시 해제
-            }
-        }
-    }
-}
-```
-
-**언제 사용:** 다중 서버 환경, 외부 API 중복 호출 방지, 선착순 이벤트
-
----
-
-### 비교
-
-| 구분 | 낙관적 락 | 비관적 락 | Redis 분산 락 |
-|------|---------|---------|--------------|
-| 락 방식 | 버전 비교 (충돌 시 예외) | DB SELECT FOR UPDATE | Redis SETNX |
-| 성능 | 높음 (락 없음) | 낮음 (대기 발생) | 중간 |
-| 충돌 처리 | 재시도 필요 | 자동 대기 | 실패 처리 |
-| 다중 서버 | 가능 | 가능 | 가능 (Redis 공유) |
-| 적합 상황 | 충돌 드문 경우 | 충돌 잦은 경우 | MSA, 외부 API 제어 |
-
-### 단점 / 주의할 점
-
-| 상황 | 문제 | 해결 |
-|------|------|------|
-| 락 해제 누락 | 데드락 또는 영구 락 | `finally`에서 반드시 해제, TTL 설정 |
-| 비관적 락 과다 | 전체 성능 저하 | 필요한 구간에만 적용 |
-| 낙관적 락 재시도 무한 반복 | 계속 충돌 시 무한 루프 | 최대 재시도 횟수 제한 |
+**관련 파일:**
+- [Redis](../infra/redis.md) — 분산 락 저장소
+- [Outbox](../architecture/outbox.md) — 이벤트 중복 처리와 멱등성
