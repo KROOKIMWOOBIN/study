@@ -3781,6 +3781,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -3823,6 +3825,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -3831,33 +3835,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#redis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Redis
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Redis">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        왜 쓰는가?
+        왜 쓰는지
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        의존성
+        어떻게 쓰는지
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="어떻게 쓰는지">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기본 Key-Value
       
     </span>
   </a>
@@ -3865,21 +3869,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#spring-cache-cacheable" class="md-nav__link">
+  <a href="#ttl" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Spring Cache — @Cacheable
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#redistemplate" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        RedisTemplate — 직접 제어
+        TTL 설정
       
     </span>
   </a>
@@ -3897,11 +3890,61 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        인기 게시글 캐시 전략
+        언제 쓰는지
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        특징
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="특징">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 인메모리 저장
       
     </span>
   </a>
@@ -3909,10 +3952,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#2-ttl-eviction" class="md-nav__link">
     <span class="md-ellipsis">
       
-        단점 / 주의할 점
+        2. TTL과 Eviction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Persistence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-cache-aside" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Cache Aside 패턴
       
     </span>
   </a>
@@ -3921,6 +3986,50 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        베스트 프랙티스
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실무에서는?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        정리
+      
+    </span>
+  </a>
   
 </li>
       
@@ -5380,6 +5489,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -5388,33 +5499,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#redis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Redis
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Redis">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        왜 쓰는가?
+        왜 쓰는지
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        의존성
+        어떻게 쓰는지
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="어떻게 쓰는지">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기본 Key-Value
       
     </span>
   </a>
@@ -5422,21 +5533,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#spring-cache-cacheable" class="md-nav__link">
+  <a href="#ttl" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Spring Cache — @Cacheable
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#redistemplate" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        RedisTemplate — 직접 제어
+        TTL 설정
       
     </span>
   </a>
@@ -5454,11 +5554,61 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        인기 게시글 캐시 전략
+        언제 쓰는지
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        특징
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="특징">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 인메모리 저장
       
     </span>
   </a>
@@ -5466,10 +5616,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#2-ttl-eviction" class="md-nav__link">
     <span class="md-ellipsis">
       
-        단점 / 주의할 점
+        2. TTL과 Eviction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Persistence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-cache-aside" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Cache Aside 패턴
       
     </span>
   </a>
@@ -5478,6 +5650,50 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        베스트 프랙티스
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실무에서는?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        정리
+      
+    </span>
+  </a>
   
 </li>
       
@@ -5501,173 +5717,357 @@
   
 
 
-  <h1>Redis</h1>
-
-<h2 id="redis">Redis</h2>
-<h3 id="_1">왜 쓰는가?</h3>
+<h1 id="redis">Redis</h1>
+<h2 id="_1">왜 쓰는지</h2>
+<p>DB는 디스크 기반 저장소라 반복 조회, 집계, 세션 조회처럼 자주 접근하는 데이터에 매번 사용하면 부하가 커집니다. Redis는 메모리에 데이터를 저장해 빠르게 읽고 쓸 수 있는 Key-Value 저장소입니다.</p>
 <div class="concept-box">
-<p>DB는 디스크 기반이라 반복 조회 시 느리다. ==Redis==는 <strong>인메모리 저장소</strong>로 DB보다 10~100배 빠른 응답을 제공한다. 캐시, 세션, 분산 락 등 다양한 용도로 활용한다.</p>
+<p><strong>핵심</strong>: Redis는 캐시, 세션, 분산 락, 랭킹, 속도 제한처럼 빠른 응답과 짧은 수명의 상태 관리가 필요한 곳에 쓰는 인메모리 데이터 저장소입니다.</p>
 </div>
-<h3 id="_2">의존성</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>implementation &#39;org.springframework.boot:spring-boot-starter-data-redis&#39;
+<h2 id="_2">어떻게 쓰는지</h2>
+<h3 id="key-value">기본 Key-Value</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>SET<span class="w"> </span>user:1:name<span class="w"> </span><span class="s2">&quot;kim&quot;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>GET<span class="w"> </span>user:1:name
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>DEL<span class="w"> </span>user:1:name
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gh"># application.yml</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>spring:
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  data:
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    redis:
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>      host: localhost
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>      port: 6379
+<h3 id="ttl">TTL 설정</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>SET<span class="w"> </span>auth:code:1234<span class="w"> </span><span class="s2">&quot;928311&quot;</span><span class="w"> </span>EX<span class="w"> </span><span class="m">180</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>TTL<span class="w"> </span>auth:code:1234
 </code></pre></div>
-<h3 id="spring-cache-cacheable">Spring Cache — @Cacheable</h3>
-<p>가장 간단한 캐시 적용 방법. 메서드 결과를 자동으로 Redis에 저장하고 재사용한다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="ni">@Configuration</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="ni">@EnableCaching</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>public class CacheConfig {
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="ni">@Bean</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    public CacheManager cacheManager(RedisConnectionFactory factory) {
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig()
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>            .entryTtl(Duration.ofMinutes(10))  // TTL 10분
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>            .serializeKeysWith(RedisSerializationContext.SerializationPair
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>                .fromSerializer(new StringRedisSerializer()))
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>            .serializeValuesWith(RedisSerializationContext.SerializationPair
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>                .fromSerializer(new GenericJackson2JsonRedisSerializer()));
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>        return RedisCacheManager.create(factory);
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    }
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>}
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="ni">@Service</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>public class ProductService {
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="ni">@Cacheable</span>(value = &quot;products&quot;, key = &quot;#id&quot;)
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    public ProductResponse findById(Long id) {
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        // 캐시 미스 시에만 실행
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        return productRepository.findById(id).map(ProductResponse::from).orElseThrow();
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    }
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="ni">@CacheEvict</span>(value = &quot;products&quot;, key = &quot;#id&quot;)
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    public void update(Long id, ProductUpdateRequest request) {
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>        // 수정 시 캐시 삭제
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    }
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    <span class="ni">@CachePut</span>(value = &quot;products&quot;, key = &quot;#result.id&quot;)
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>    public ProductResponse save(ProductCreateRequest request) {
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>        // 저장 후 캐시 갱신
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>    }
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>}
-</code></pre></div>
-<h3 id="redistemplate">RedisTemplate — 직접 제어</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="ni">@Service</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="ni">@RequiredArgsConstructor</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>public class TokenService {
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    private final RedisTemplate&lt;String, String&gt; redisTemplate;
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    public void saveRefreshToken(Long userId, String token) {
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>        redisTemplate.opsForValue()
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>            .set(&quot;refresh:&quot; + userId, token, Duration.ofDays(7));
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    }
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    public String getRefreshToken(Long userId) {
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>        return redisTemplate.opsForValue().get(&quot;refresh:&quot; + userId);
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    }
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
-<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    public void deleteRefreshToken(Long userId) {
-<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>        redisTemplate.delete(&quot;refresh:&quot; + userId);
-<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>    }
-<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>}
-</code></pre></div>
+<p><code>EX 180</code>은 180초 뒤 자동 삭제를 의미합니다. 인증 코드, 임시 토큰, 캐시처럼 만료가 필요한 데이터에 사용합니다.</p>
 <h3 id="_3">주요 자료구조</h3>
 <table>
 <thead>
 <tr>
 <th>자료구조</th>
-<th>메서드</th>
-<th>사용 사례</th>
+<th>사용 예</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>String</td>
-<td><code>opsForValue()</code></td>
-<td>단순 캐시, 카운터, 토큰</td>
+<td><code>String</code></td>
+<td>캐시 값, 토큰, 카운터</td>
 </tr>
 <tr>
-<td>Hash</td>
-<td><code>opsForHash()</code></td>
-<td>객체 필드별 저장</td>
+<td><code>Hash</code></td>
+<td>객체 필드 저장</td>
 </tr>
 <tr>
-<td>List</td>
-<td><code>opsForList()</code></td>
-<td>메시지 큐, 최근 목록</td>
+<td><code>List</code></td>
+<td>간단한 큐, 최근 항목</td>
 </tr>
 <tr>
-<td>Set</td>
-<td><code>opsForSet()</code></td>
-<td>중복 없는 목록, 태그</td>
+<td><code>Set</code></td>
+<td>중복 없는 집합, 권한 목록</td>
 </tr>
 <tr>
-<td>ZSet</td>
-<td><code>opsForZSet()</code></td>
-<td>랭킹, 점수 기반 정렬</td>
+<td><code>Sorted Set</code></td>
+<td>랭킹, 우선순위</td>
+</tr>
+<tr>
+<td><code>Stream</code></td>
+<td>이벤트 로그, 간단한 메시징</td>
 </tr>
 </tbody>
 </table>
-<h3 id="_4">인기 게시글 캐시 전략</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>// 조회 요청 시: Cache-Aside 패턴
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>public PostResponse findPost(Long id) {
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    String key = &quot;post:&quot; + id;
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    String cached = redisTemplate.opsForValue().get(key);
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    if (cached != null) {
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>        return objectMapper.readValue(cached, PostResponse.class);  // 캐시 히트
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    }
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    PostResponse response = postRepository.findById(id)...;  // DB 조회
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    redisTemplate.opsForValue().set(key, objectMapper.writeValueAsString(response),
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>        Duration.ofMinutes(30));  // 캐시 저장
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>    return response;
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>}
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>HSET<span class="w"> </span>user:1<span class="w"> </span>name<span class="w"> </span><span class="s2">&quot;kim&quot;</span><span class="w"> </span>age<span class="w"> </span><span class="m">20</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>HGET<span class="w"> </span>user:1<span class="w"> </span>name
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>ZADD<span class="w"> </span>ranking<span class="w"> </span><span class="m">1200</span><span class="w"> </span><span class="s2">&quot;user:1&quot;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>ZREVRANGE<span class="w"> </span>ranking<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">9</span><span class="w"> </span>WITHSCORES
 </code></pre></div>
-<h3 id="_5">단점 / 주의할 점</h3>
+<h2 id="_4">언제 쓰는지</h2>
 <table>
 <thead>
 <tr>
 <th>상황</th>
-<th>문제</th>
-<th>해결</th>
+<th>Redis 적합도</th>
+<th>이유</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>캐시 무효화 시점</td>
-<td>수정 후 캐시 미삭제 → 오래된 데이터 반환</td>
-<td><code>@CacheEvict</code> 또는 수동 삭제</td>
+<td><strong>반복 조회 캐시</strong></td>
+<td>높음</td>
+<td>DB 부하와 응답 시간 감소</td>
 </tr>
 <tr>
-<td>캐시 스탬피드</td>
-<td>캐시 만료 시 동시 DB 요청 폭주</td>
-<td>분산 락으로 한 건만 DB 조회</td>
+<td><strong>로그인 세션 저장</strong></td>
+<td>높음</td>
+<td>TTL과 빠른 조회가 필요</td>
 </tr>
 <tr>
-<td>Redis 장애</td>
-<td>서비스 전체 장애 가능성</td>
-<td>Circuit Breaker, fallback 처리</td>
+<td><strong>인증 코드/임시 토큰</strong></td>
+<td>높음</td>
+<td>자동 만료 처리 가능</td>
 </tr>
 <tr>
-<td>직렬화 불일치</td>
-<td>객체 변경 시 역직렬화 실패</td>
-<td>TTL 짧게 설정 또는 캐시 키 버전 관리</td>
+<td><strong>랭킹/점수판</strong></td>
+<td>높음</td>
+<td>Sorted Set으로 정렬 유지</td>
 </tr>
 <tr>
-<td>민감 데이터 캐시</td>
-<td>Redis는 암호화 없으므로 위험</td>
-<td>민감 정보는 캐시하지 않음</td>
+<td><strong>분산 락</strong></td>
+<td>조건부</td>
+<td>여러 서버의 동시 작업 제어</td>
+</tr>
+<tr>
+<td><strong>영구 원장 데이터</strong></td>
+<td>낮음</td>
+<td>Redis만 단독 저장소로 쓰기엔 위험</td>
+</tr>
+<tr>
+<td><strong>복잡한 관계형 조회</strong></td>
+<td>낮음</td>
+<td>조인, 정규화, 트랜잭션 모델에 부적합</td>
 </tr>
 </tbody>
 </table>
+<h2 id="_5">장점</h2>
+<table>
+<thead>
+<tr>
+<th>장점</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>빠른 응답</strong></td>
+<td>메모리 기반이라 대부분의 연산이 매우 빠름</td>
+</tr>
+<tr>
+<td><strong>다양한 자료구조</strong></td>
+<td>단순 문자열뿐 아니라 Set, Sorted Set, Stream 제공</td>
+</tr>
+<tr>
+<td><strong>TTL 지원</strong></td>
+<td>만료 시간이 필요한 데이터를 쉽게 관리</td>
+</tr>
+<tr>
+<td><strong>원자적 연산</strong></td>
+<td><code>INCR</code>, <code>SET NX</code> 등 단일 명령은 원자적으로 처리</td>
+</tr>
+<tr>
+<td><strong>운영 패턴 다양</strong></td>
+<td>캐시, 세션, 락, 랭킹, rate limit에 활용 가능</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_6">단점</h2>
+<table>
+<thead>
+<tr>
+<th>단점</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>메모리 비용</strong></td>
+<td>저장량이 커질수록 비용이 빠르게 증가</td>
+</tr>
+<tr>
+<td><strong>데이터 유실 가능성</strong></td>
+<td>설정에 따라 장애 시 최근 쓰기 데이터가 사라질 수 있음</td>
+</tr>
+<tr>
+<td><strong>캐시 일관성 문제</strong></td>
+<td>DB와 Redis 값이 달라질 수 있음</td>
+</tr>
+<tr>
+<td><strong>Hot Key 위험</strong></td>
+<td>특정 Key에 요청이 몰리면 병목 발생</td>
+</tr>
+<tr>
+<td><strong>운영 난이도</strong></td>
+<td>eviction, persistence, replication 설정을 이해해야 함</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_7">특징</h2>
+<h3 id="1">1. 인메모리 저장</h3>
+<p>Redis는 데이터를 메모리에 두기 때문에 빠릅니다. 대신 메모리 크기가 한계가 되고, 설정에 따라 오래된 데이터가 제거될 수 있습니다.</p>
+<h3 id="2-ttl-eviction">2. TTL과 Eviction</h3>
+<p>TTL은 Key 단위 만료 시간입니다. Eviction은 메모리가 부족할 때 어떤 Key를 제거할지 정하는 정책입니다.</p>
+<table>
+<thead>
+<tr>
+<th>정책</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>noeviction</code></td>
+<td>메모리 부족 시 쓰기 실패</td>
+</tr>
+<tr>
+<td><code>allkeys-lru</code></td>
+<td>모든 Key 중 오래 사용하지 않은 Key 제거</td>
+</tr>
+<tr>
+<td><code>volatile-lru</code></td>
+<td>TTL이 있는 Key 중 오래 사용하지 않은 Key 제거</td>
+</tr>
+<tr>
+<td><code>allkeys-lfu</code></td>
+<td>모든 Key 중 사용 빈도가 낮은 Key 제거</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-persistence">3. Persistence</h3>
+<p>Redis는 메모리 저장소지만 디스크 저장 옵션도 제공합니다.</p>
+<table>
+<thead>
+<tr>
+<th>방식</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>RDB</code></td>
+<td>특정 시점 스냅샷 저장</td>
+</tr>
+<tr>
+<td><code>AOF</code></td>
+<td>쓰기 명령 로그를 저장</td>
+</tr>
+<tr>
+<td><code>RDB + AOF</code></td>
+<td>복구 안정성과 성능을 함께 고려</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-cache-aside">4. Cache Aside 패턴</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>1. 애플리케이션이 Redis에서 먼저 조회
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>2. 없으면 DB에서 조회
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>3. DB 조회 결과를 Redis에 저장
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>4. 다음 요청부터 Redis에서 응답
+</code></pre></div>
+<p>데이터 변경 시에는 DB를 먼저 갱신하고 관련 캐시를 삭제하거나 갱신합니다.</p>
+<h2 id="_8">주의할 점</h2>
+<div class="warning-box">
+<p><strong>캐시는 정답 저장소가 아닙니다.</strong></p>
+<p>중요한 원장 데이터는 DB에 저장하고 Redis는 빠른 조회나 임시 상태 저장 용도로 사용합니다.</p>
+</div>
+<div class="warning-box">
+<p><strong>캐시 만료가 한 번에 몰리면 장애가 날 수 있습니다.</strong></p>
+<p>동일한 TTL을 대량 Key에 적용하면 특정 시점에 캐시가 한꺼번에 사라져 DB로 요청이 몰립니다. TTL에 작은 랜덤 값을 섞어 분산합니다.</p>
+</div>
+<div class="danger-box">
+<p><strong>분산 락은 만능이 아닙니다.</strong></p>
+<p>락 만료 시간, 작업 시간 초과, 네트워크 지연, 재시도 정책을 함께 설계하지 않으면 중복 실행이 발생할 수 있습니다.</p>
+</div>
+<h2 id="_9">베스트 프랙티스</h2>
+<table>
+<thead>
+<tr>
+<th>권장 방식</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Key 네이밍 규칙 통일</strong></td>
+<td><code>domain:type:id</code> 형태로 추적과 삭제가 쉬움</td>
+</tr>
+<tr>
+<td><strong>TTL을 명시적으로 설계</strong></td>
+<td>무기한 Key 증가를 방지</td>
+</tr>
+<tr>
+<td><strong>TTL에 jitter 추가</strong></td>
+<td>캐시 동시 만료 방지</td>
+</tr>
+<tr>
+<td><strong>큰 Value 저장 지양</strong></td>
+<td>네트워크와 메모리 부담 감소</td>
+</tr>
+<tr>
+<td><strong>중요 데이터는 DB 기준</strong></td>
+<td>Redis 장애나 유실에 대비</td>
+</tr>
+<tr>
+<td><strong>캐시 삭제 전략 문서화</strong></td>
+<td>DB 변경 후 오래된 캐시가 남지 않게 함</td>
+</tr>
+<tr>
+<td><strong>메모리와 hit ratio 모니터링</strong></td>
+<td>캐시 효과와 장애 징후 파악</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_10">실무에서는?</h2>
+<table>
+<thead>
+<tr>
+<th>사용처</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>상품/게시글 캐시</strong></td>
+<td>조회가 많은 상세 페이지 응답 캐시</td>
+</tr>
+<tr>
+<td><strong>세션 저장소</strong></td>
+<td>로그인 사용자 상태 저장</td>
+</tr>
+<tr>
+<td><strong>Refresh Token 관리</strong></td>
+<td>토큰 만료와 강제 로그아웃 처리</td>
+</tr>
+<tr>
+<td><strong>인증 코드</strong></td>
+<td>SMS/Email 인증번호 TTL 관리</td>
+</tr>
+<tr>
+<td><strong>Rate Limiting</strong></td>
+<td>사용자별 요청 횟수 제한</td>
+</tr>
+<tr>
+<td><strong>랭킹</strong></td>
+<td>점수 기반 Top N 조회</td>
+</tr>
+<tr>
+<td><strong>분산 락</strong></td>
+<td>중복 결제, 재고 차감 같은 동시 처리 제어</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_11">정리</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Redis</strong></td>
+<td>인메모리 Key-Value 저장소</td>
+</tr>
+<tr>
+<td><strong>주요 용도</strong></td>
+<td>캐시, 세션, TTL 데이터, 랭킹, 분산 락</td>
+</tr>
+<tr>
+<td><strong>강점</strong></td>
+<td>빠른 응답, 다양한 자료구조, TTL</td>
+</tr>
+<tr>
+<td><strong>주의</strong></td>
+<td>영구 저장소 대체 금지, 캐시 일관성, 메모리 관리</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>관련 파일:</strong>
+- <a href="../../operations/concurrency/">동시성 제어</a> — Redis 분산 락
+- <a href="../../operations/monitoring/">모니터링</a> — Redis 지표 관찰</p>
 <!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
 
 <!-- ===== DB / SQL ===== -->
@@ -5696,7 +6096,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 8일 11:08:33 UTC">2026년 4월 8일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 25일 13:06:55 UTC">2026년 4월 25일</span>
   </span>
 
     

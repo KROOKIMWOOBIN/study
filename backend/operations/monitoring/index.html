@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#actuator-prometheus-grafana" class="md-skip">
+        <a href="#_1" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -4063,6 +4063,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -4105,6 +4107,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -4113,66 +4117,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#actuator-prometheus-grafana" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        모니터링 (Actuator + Prometheus + Grafana)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="모니터링 (Actuator + Prometheus + Grafana)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        왜 쓰는가?
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#spring-actuator" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Spring Actuator
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#prometheus-grafana" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Prometheus + Grafana 연동
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        커스텀 메트릭
+        왜 쓰는지
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        주요 모니터링 지표
+        어떻게 쓰는지
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="어떻게 쓰는지">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Metrics
       
     </span>
   </a>
@@ -4180,10 +4151,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#2-logs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        헬스체크 커스터마이징
+        2. Logs
       
     </span>
   </a>
@@ -4191,10 +4162,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#3-traces" class="md-nav__link">
     <span class="md-ellipsis">
       
-        단점 / 주의할 점
+        3. Traces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-health-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Health Check
       
     </span>
   </a>
@@ -4203,6 +4185,144 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        언제 쓰는지
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        특징
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="특징">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-golden-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Golden Signals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-slislo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. SLI/SLO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-alert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Alert
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        베스트 프랙티스
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실무에서는?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        정리
+      
+    </span>
+  </a>
   
 </li>
       
@@ -5380,6 +5500,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -5388,66 +5510,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#actuator-prometheus-grafana" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        모니터링 (Actuator + Prometheus + Grafana)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="모니터링 (Actuator + Prometheus + Grafana)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        왜 쓰는가?
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#spring-actuator" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Spring Actuator
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#prometheus-grafana" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Prometheus + Grafana 연동
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        커스텀 메트릭
+        왜 쓰는지
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        주요 모니터링 지표
+        어떻게 쓰는지
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="어떻게 쓰는지">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Metrics
       
     </span>
   </a>
@@ -5455,10 +5544,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#2-logs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        헬스체크 커스터마이징
+        2. Logs
       
     </span>
   </a>
@@ -5466,10 +5555,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#3-traces" class="md-nav__link">
     <span class="md-ellipsis">
       
-        단점 / 주의할 점
+        3. Traces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-health-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Health Check
       
     </span>
   </a>
@@ -5478,6 +5578,144 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        언제 쓰는지
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        특징
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="특징">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-golden-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Golden Signals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-slislo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. SLI/SLO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-alert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Alert
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        베스트 프랙티스
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실무에서는?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        정리
+      
+    </span>
+  </a>
   
 </li>
       
@@ -5501,181 +5739,380 @@
   
 
 
-  <h1>모니터링</h1>
-
-<h2 id="actuator-prometheus-grafana">모니터링 (Actuator + Prometheus + Grafana)</h2>
-<h3 id="_1">왜 쓰는가?</h3>
+<h1 id="_1">모니터링</h1>
+<h2 id="_2">왜 쓰는지</h2>
+<p>서비스 장애는 대부분 사용자가 먼저 발견하면 늦습니다. 모니터링은 시스템 상태를 지표와 로그로 관찰해 장애를 빨리 감지하고 원인을 찾기 위한 운영 활동입니다.</p>
 <div class="concept-box">
-<p>서버가 죽기 전에 신호를 감지하고 대응해야 한다. 모니터링은 CPU, 메모리, 응답 시간, 에러율 등의 지표를 수집해 <strong>장애를 사전에 예방</strong>하고 원인을 빠르게 파악하게 한다.</p>
+<p><strong>핵심</strong>: 모니터링은 CPU 사용률을 보는 것이 전부가 아니라, 서비스가 정상적으로 사용자 요청을 처리하고 있는지 관찰하는 체계입니다.</p>
 </div>
-<hr />
-<h3 id="spring-actuator">Spring Actuator</h3>
-<p>애플리케이션 상태를 <abbr title="HyperText Transfer Protocol. 웹에서 클라이언트-서버 간 데이터를 주고받는 애플리케이션 계층 프로토콜.">HTTP</abbr> 엔드포인트로 노출한다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>implementation &#39;org.springframework.boot:spring-boot-starter-actuator&#39;
+<h2 id="_3">어떻게 쓰는지</h2>
+<h3 id="1-metrics">1. Metrics</h3>
+<p>숫자로 수집되는 지표입니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>http_requests_total{method=&quot;GET&quot;, status=&quot;200&quot;} 12039
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>http_request_duration_seconds_bucket{le=&quot;0.5&quot;} 9321
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>process_cpu_usage 0.42
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gh"># application.yml</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>management:
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  endpoints:
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    web:
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>      exposure:
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        include: health, info, metrics, prometheus
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  endpoint:
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    health:
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>      show-details: always
-</code></pre></div>
-<table>
-<thead>
-<tr>
-<th>엔드포인트</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/actuator/health</code></td>
-<td>서버 상태 확인 (로드밸런서 헬스체크)</td>
-</tr>
-<tr>
-<td><code>/actuator/metrics</code></td>
-<td>수집 가능한 메트릭 목록</td>
-</tr>
-<tr>
-<td><code>/actuator/metrics/jvm.memory.used</code></td>
-<td><abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr> 메모리 사용량</td>
-</tr>
-<tr>
-<td><code>/actuator/prometheus</code></td>
-<td>Prometheus 형식 메트릭</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>// 헬스체크 응답
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>{
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  &quot;status&quot;: &quot;UP&quot;,
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  &quot;components&quot;: {
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    &quot;db&quot;: { &quot;status&quot;: &quot;UP&quot; },
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    &quot;redis&quot;: { &quot;status&quot;: &quot;UP&quot; }
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  }
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>}
-</code></pre></div>
-<hr />
-<h3 id="prometheus-grafana">Prometheus + Grafana 연동</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>implementation &#39;io.micrometer:micrometer-registry-prometheus&#39;
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gh"># prometheus.yml</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>scrape_configs:
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="k">-</span><span class="w"> </span>job_name: &#39;spring-app&#39;
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    metrics_path: &#39;/actuator/prometheus&#39;
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    scrape_interval: 15s
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    static_configs:
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">      </span><span class="k">-</span><span class="w"> </span>targets: [&#39;app:8080&#39;]
-</code></pre></div>
-<p>Prometheus가 15초마다 <code>/actuator/prometheus</code>에서 메트릭 수집 → Grafana에서 시각화.</p>
-<hr />
-<h3 id="_2">커스텀 메트릭</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="ni">@Service</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="ni">@RequiredArgsConstructor</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>public class OrderService {
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    private final MeterRegistry meterRegistry;
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    private final Counter orderCounter;
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="ni">@PostConstruct</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    public void init() {
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>        orderCounter = Counter.builder(&quot;order.count&quot;)
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>            .description(&quot;총 주문 수&quot;)
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>            .tag(&quot;type&quot;, &quot;all&quot;)
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>            .register(meterRegistry);
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    }
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
-<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    public void placeOrder(OrderRequest request) {
-<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>        // 주문 처리...
-<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>        orderCounter.increment();  // 메트릭 기록
-<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>    }
-<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>}
-</code></pre></div>
-<hr />
-<h3 id="_3">주요 모니터링 지표</h3>
+<p>대표 지표:</p>
 <table>
 <thead>
 <tr>
 <th>지표</th>
 <th>의미</th>
-<th>알람 기준 (예시)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>jvm.memory.used</code></td>
-<td><abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr> 힙 사용량</td>
-<td>80% 이상</td>
+<td>요청 수</td>
+<td>트래픽 변화</td>
 </tr>
 <tr>
-<td><code>process.cpu.usage</code></td>
-<td>CPU 사용률</td>
-<td>80% 이상</td>
+<td>에러율</td>
+<td>장애 징후</td>
 </tr>
 <tr>
-<td><code>http.server.requests</code></td>
-<td>요청 수, 응답 시간, 에러율</td>
-<td>에러율 1% 이상</td>
+<td>응답 시간</td>
+<td>사용자 경험</td>
 </tr>
 <tr>
-<td><code>hikaricp.connections.active</code></td>
-<td>DB 커넥션 사용 수</td>
-<td>풀 크기의 80%</td>
+<td>CPU/Memory</td>
+<td>리소스 사용량</td>
 </tr>
 <tr>
-<td><code>jvm.gc.pause</code></td>
-<td><abbr title="Garbage Collection. JVM이 더 이상 참조되지 않는 객체를 자동으로 메모리에서 해제하는 과정.">GC</abbr> 일시정지 시간</td>
-<td>500ms 이상</td>
+<td>DB connection</td>
+<td>DB 병목</td>
+</tr>
+<tr>
+<td>queue lag</td>
+<td>비동기 처리 지연</td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h3 id="_4">헬스체크 커스터마이징</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="ni">@Component</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>public class ExternalApiHealthIndicator implements HealthIndicator {
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="ni">@Override</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    public Health health() {
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>        try {
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>            // 외부 API 상태 확인
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>            restTemplate.getForObject(&quot;https://api.external.com/health&quot;, String.class);
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>            return Health.up().withDetail(&quot;externalApi&quot;, &quot;정상&quot;).build();
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>        } catch (Exception e) {
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>            return Health.down().withDetail(&quot;externalApi&quot;, e.getMessage()).build();
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>        }
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    }
-<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>}
+<h3 id="2-logs">2. Logs</h3>
+<p>이벤트와 에러의 상세 기록입니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ERROR&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;traceId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;abc-123&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;payment approval failed&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">&quot;orderId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1001</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">}</span>
 </code></pre></div>
-<h3 id="_5">단점 / 주의할 점</h3>
+<p>로그는 장애 원인 분석에 강하고, 메트릭은 장애 감지에 강합니다.</p>
+<h3 id="3-traces">3. Traces</h3>
+<p>하나의 요청이 여러 서비스와 저장소를 거치는 흐름을 추적합니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>GET /orders/1001
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a> ├─ order-service
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a> ├─ payment-service
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a> └─ database
+</code></pre></div>
+<p>분산 환경에서는 traceId를 로그에도 함께 남겨야 요청 흐름을 따라가기 쉽습니다.</p>
+<h3 id="4-health-check">4. Health Check</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="err">GET /health</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="err">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="err">  &quot;status&quot;: &quot;UP&quot;,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="err">  &quot;database&quot;: &quot;UP&quot;,</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="err">  &quot;redis&quot;: &quot;UP&quot;,</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="err">  &quot;messageBroker&quot;: &quot;UP&quot;</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="err">}</span>
+</code></pre></div>
+<p>단순 프로세스 생존 여부와 실제 의존성 상태는 구분해서 봅니다.</p>
+<h2 id="_4">언제 쓰는지</h2>
 <table>
 <thead>
 <tr>
 <th>상황</th>
-<th>문제</th>
-<th>해결</th>
+<th>필요한 관찰</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Actuator 외부 노출</td>
-<td>내부 정보 노출</td>
-<td>운영 환경에서는 <code>/actuator</code> 접근 제한</td>
+<td><strong>장애 조기 감지</strong></td>
+<td>에러율, 응답 시간, health check</td>
 </tr>
 <tr>
-<td>Prometheus 데이터 무제한 축적</td>
-<td>디스크 부족</td>
-<td>보존 기간 설정 (<code>--storage.tsdb.retention.time</code>)</td>
+<td><strong>성능 저하 분석</strong></td>
+<td>latency, DB query, CPU, memory</td>
 </tr>
 <tr>
-<td>메트릭 태그 폭발</td>
-<td>카디널리티 높은 태그(userId 등)</td>
-<td>범용 태그만 사용</td>
+<td><strong>트래픽 증가 대응</strong></td>
+<td>요청 수, 처리량, queue lag</td>
+</tr>
+<tr>
+<td><strong>배포 영향 확인</strong></td>
+<td>배포 전후 에러율과 응답 시간</td>
+</tr>
+<tr>
+<td><strong>비동기 처리 확인</strong></td>
+<td>broker lag, 실패 메시지 수</td>
+</tr>
+<tr>
+<td><strong>용량 계획</strong></td>
+<td>리소스 사용 추세</td>
 </tr>
 </tbody>
 </table>
+<h2 id="_5">장점</h2>
+<table>
+<thead>
+<tr>
+<th>장점</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>장애 감지</strong></td>
+<td>사용자가 알기 전에 문제를 발견</td>
+</tr>
+<tr>
+<td><strong>원인 분석</strong></td>
+<td>로그와 trace로 병목 위치 확인</td>
+</tr>
+<tr>
+<td><strong>운영 판단</strong></td>
+<td>증설, 롤백, 장애 대응 근거 확보</td>
+</tr>
+<tr>
+<td><strong>성능 개선</strong></td>
+<td>느린 구간을 수치로 확인</td>
+</tr>
+<tr>
+<td><strong>재발 방지</strong></td>
+<td>장애 패턴을 알림과 대시보드에 반영</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_6">단점</h2>
+<table>
+<thead>
+<tr>
+<th>단점</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>데이터 비용</strong></td>
+<td>로그와 메트릭 저장 비용 발생</td>
+</tr>
+<tr>
+<td><strong>노이즈</strong></td>
+<td>의미 없는 알림이 많으면 무시하게 됨</td>
+</tr>
+<tr>
+<td><strong>설계 필요</strong></td>
+<td>무엇을 볼지 정하지 않으면 지표만 쌓임</td>
+</tr>
+<tr>
+<td><strong>민감 정보 위험</strong></td>
+<td>로그에 개인정보나 토큰이 남을 수 있음</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_7">특징</h2>
+<h3 id="1-golden-signals">1. Golden Signals</h3>
+<table>
+<thead>
+<tr>
+<th>신호</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Latency</td>
+<td>요청 처리 시간</td>
+</tr>
+<tr>
+<td>Traffic</td>
+<td>요청량</td>
+</tr>
+<tr>
+<td>Errors</td>
+<td>실패율</td>
+</tr>
+<tr>
+<td>Saturation</td>
+<td>리소스 포화도</td>
+</tr>
+</tbody>
+</table>
+<p>서비스 운영의 기본 대시보드는 이 네 가지를 중심으로 잡습니다.</p>
+<h3 id="2-slislo">2. SLI/SLO</h3>
+<table>
+<thead>
+<tr>
+<th>용어</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SLI</td>
+<td>실제 측정 지표</td>
+</tr>
+<tr>
+<td>SLO</td>
+<td>달성해야 하는 목표</td>
+</tr>
+</tbody>
+</table>
+<p>예시:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>SLI: 5xx가 아닌 요청 비율
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>SLO: 99.9% 이상
+</code></pre></div>
+<h3 id="3-alert">3. Alert</h3>
+<p>알림은 "사람이 행동해야 하는 상황"에만 걸어야 합니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>5분 동안 5xx 비율 &gt; 5%
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>10분 동안 p95 latency &gt; 1s
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>consumer lag &gt; 10000
+</code></pre></div>
+<h3 id="4-dashboard">4. Dashboard</h3>
+<p>대시보드는 장애 대응 시 바로 판단할 수 있어야 합니다.</p>
+<table>
+<thead>
+<tr>
+<th>대시보드</th>
+<th>포함 지표</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>서비스</td>
+<td>요청 수, 에러율, latency</td>
+</tr>
+<tr>
+<td>인프라</td>
+<td>CPU, memory, disk, network</td>
+</tr>
+<tr>
+<td>DB</td>
+<td>connection, slow query, lock wait</td>
+</tr>
+<tr>
+<td>메시징</td>
+<td>publish rate, consume rate, lag</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_8">주의할 점</h2>
+<div class="warning-box">
+<p><strong>모든 지표에 알림을 걸지 않습니다.</strong></p>
+<p>알림은 적을수록 강합니다. 사람이 즉시 대응해야 하는 지표부터 설정합니다.</p>
+</div>
+<div class="danger-box">
+<p><strong>로그에 민감 정보를 남기지 않습니다.</strong></p>
+<p>비밀번호, 토큰, 주민번호, 카드번호 같은 값은 마스킹하거나 기록하지 않습니다.</p>
+</div>
+<div class="warning-box">
+<p><strong>평균 응답 시간만 보면 위험합니다.</strong></p>
+<p>평균은 일부 느린 요청을 숨길 수 있습니다. p95, p99 같은 percentile을 함께 봅니다.</p>
+</div>
+<h2 id="_9">베스트 프랙티스</h2>
+<table>
+<thead>
+<tr>
+<th>권장 방식</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>요청 수/에러율/latency 기본 수집</strong></td>
+<td>서비스 상태를 빠르게 판단</td>
+</tr>
+<tr>
+<td><strong>traceId를 로그에 포함</strong></td>
+<td>요청 흐름 추적</td>
+</tr>
+<tr>
+<td><strong>p95/p99 latency 확인</strong></td>
+<td>느린 사용자 경험 파악</td>
+</tr>
+<tr>
+<td><strong>알림은 행동 기준으로 설정</strong></td>
+<td>알림 피로 방지</td>
+</tr>
+<tr>
+<td><strong>배포 이벤트 표시</strong></td>
+<td>배포와 장애 상관관계 파악</td>
+</tr>
+<tr>
+<td><strong>민감 정보 마스킹</strong></td>
+<td>보안 사고 방지</td>
+</tr>
+<tr>
+<td><strong>대시보드 정기 점검</strong></td>
+<td>오래된 지표와 무의미한 알림 제거</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_10">실무에서는?</h2>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>확인 지표</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>응답이 느림</strong></td>
+<td>p95 latency, DB query, CPU, external <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> latency</td>
+</tr>
+<tr>
+<td><strong>에러 증가</strong></td>
+<td>5xx rate, exception log, 배포 시점</td>
+</tr>
+<tr>
+<td><strong>비동기 처리 지연</strong></td>
+<td>consumer lag, 실패 메시지 수</td>
+</tr>
+<tr>
+<td><strong>DB 병목</strong></td>
+<td>connection pool, lock wait, slow query</td>
+</tr>
+<tr>
+<td><strong>캐시 효과 확인</strong></td>
+<td>cache hit ratio, Redis memory</td>
+</tr>
+<tr>
+<td><strong>트래픽 급증</strong></td>
+<td>request rate, queue depth, saturation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_11">정리</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>목적</strong></td>
+<td>장애 감지와 원인 분석</td>
+</tr>
+<tr>
+<td><strong>핵심 데이터</strong></td>
+<td>Metrics, Logs, Traces</td>
+</tr>
+<tr>
+<td><strong>기본 신호</strong></td>
+<td>Latency, Traffic, Errors, Saturation</td>
+</tr>
+<tr>
+<td><strong>주의</strong></td>
+<td>알림 노이즈, 민감 정보 로그, 평균 지표 착시</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>관련 파일:</strong>
+- <a href="../../infra/kafka/">Kafka</a> — consumer lag 관찰
+- <a href="../../infra/redis/">Redis</a> — cache hit ratio와 memory 관찰</p>
 <!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
 
 <!-- ===== DB / SQL ===== -->
@@ -5704,7 +6141,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 8일 11:08:33 UTC">2026년 4월 8일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 25일 13:06:55 UTC">2026년 4월 25일</span>
   </span>
 
     
