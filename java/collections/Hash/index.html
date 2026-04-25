@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://krookimwoobin.github.io/study/java/collections/HashSet/">
+        <link rel="canonical" href="https://krookimwoobin.github.io/study/java/collections/Hash/">
       
       
-        <link rel="prev" href="../Set/">
+        <link rel="prev" href="../LinkedList/">
       
       
-        <link rel="next" href="../Map/">
+        <link rel="next" href="../Set/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>HashSet - 학습 노트</title>
+        <title>Hash - 학습 노트</title>
       
     
     
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              HashSet
+              Hash
             
           </span>
         </div>
@@ -1149,6 +1149,335 @@
                 
   
   
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hash
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hash
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        왜 쓰는지
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        어떻게 쓰는지
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="어떻게 쓰는지">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hashset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HashSet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hashmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HashMap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        직접 만든 객체를 해시 컬렉션에 넣기
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        언제 쓰는지
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        특징
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="특징">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 해시 테이블 구조
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 해시 코드, 해시 함수, 해시 인덱스
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 해시 충돌
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-java-hashmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Java HashMap의 충돌 최적화
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 리사이즈와 리해싱
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-hashcode-equals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. hashCode()와 equals() 관계
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 가변 객체를 Key로 쓰면 위험한 이유
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-hashset-hashmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. HashSet과 HashMap의 관계
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-o1-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 평균 O(1)과 최악 O(n)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        베스트 프랙티스
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실무에서는?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        정리
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
   
   
     <li class="md-nav__item">
@@ -1168,215 +1497,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    HashSet
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    HashSet
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="목차">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      목차
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#hash" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        해시 알고리즘 (Hash)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="해시 알고리즘 (Hash)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        왜 사용하는가?
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        장점
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        단점
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        특이점
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#o1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        인덱스 직접 사용 (O(1))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hash-index" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        해시 인덱스 (Hash Index)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hash-collision" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        해시 충돌 (Hash Collision)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hash-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        해시 코드 (Hash Code)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hash-function" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        해시 함수 (Hash Function)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hashcode-equals" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        hashCode와 equals를 재정의하는 이유
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        어떨 때 많이 쓰는가?
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -5253,6 +5373,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -5261,22 +5383,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#hash" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        해시 알고리즘 (Hash)
+        왜 쓰는지
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="해시 알고리즘 (Hash)">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        어떻게 쓰는지
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="어떻게 쓰는지">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#hashset" class="md-nav__link">
     <span class="md-ellipsis">
       
-        왜 사용하는가?
+        HashSet
       
     </span>
   </a>
@@ -5284,10 +5417,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#hashmap" class="md-nav__link">
     <span class="md-ellipsis">
       
-        장점
+        HashMap
       
     </span>
   </a>
@@ -5298,95 +5431,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        단점
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        특이점
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#o1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        인덱스 직접 사용 (O(1))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hash-index" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        해시 인덱스 (Hash Index)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hash-collision" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        해시 충돌 (Hash Collision)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hash-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        해시 코드 (Hash Code)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hash-function" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        해시 함수 (Hash Function)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hashcode-equals" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        hashCode와 equals를 재정의하는 이유
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        어떨 때 많이 쓰는가?
+        직접 만든 객체를 해시 컬렉션에 넣기
       
     </span>
   </a>
@@ -5395,6 +5440,199 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        언제 쓰는지
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        특징
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="특징">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 해시 테이블 구조
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 해시 코드, 해시 함수, 해시 인덱스
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 해시 충돌
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-java-hashmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Java HashMap의 충돌 최적화
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 리사이즈와 리해싱
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-hashcode-equals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. hashCode()와 equals() 관계
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 가변 객체를 Key로 쓰면 위험한 이유
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-hashset-hashmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. HashSet과 HashMap의 관계
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-o1-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 평균 O(1)과 최악 O(n)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        베스트 프랙티스
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실무에서는?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        정리
+      
+    </span>
+  </a>
   
 </li>
       
@@ -5418,19 +5656,544 @@
   
 
 
-  <h1>HashSet</h1>
-
-<h2 id="hash">해시 알고리즘 (Hash)</h2>
+<h1 id="hash">해시 (Hash)</h1>
+<h2 id="_1">왜 쓰는지</h2>
+<p>배열은 인덱스를 알면 값을 바로 찾을 수 있습니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="o">[</span><span class="mi">10</span><span class="o">]</span><span class="p">;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">names</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;kim&quot;</span><span class="p">;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">names</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="c1">// 인덱스를 알면 O(1)</span>
+</code></pre></div>
+<p>하지만 실무에서는 보통 <code>3</code> 같은 숫자 인덱스보다 <code>"user-100"</code>, <code>"kim@example.com"</code>, <code>Member(id=1)</code> 같은 값을 기준으로 데이터를 찾고 싶습니다. 해시는 이런 값을 <strong>배열 인덱스로 바꿔서 빠르게 찾기 위한 방법</strong>입니다.</p>
 <div class="concept-box">
-<p><mark>해시(Hash)</mark>: 데이터를 평균 ==O(1)==에 저장/검색하기 위한 알고리즘. <code>HashSet</code>, <code>HashMap</code>의 내부 동작 원리.</p>
+<p><strong>핵심</strong>: 해시는 임의의 값을 해시 코드로 바꾸고, 그 해시 코드를 배열의 버킷 인덱스로 변환해 평균 <code>O(1)</code> 조회를 가능하게 하는 방식입니다. Java의 <code>HashSet</code>, <code>HashMap</code>이 이 원리를 사용합니다.</p>
 </div>
-<h3 id="_1">왜 사용하는가?</h3>
-<ul>
-<li>데이터를 O(1)에 저장/검색하기 위해</li>
-<li>배열의 인덱스 방식 + 충돌 처리를 결합하여 빠른 조회 구현</li>
-<li><code>HashSet</code>, <code>HashMap</code>의 내부 동작 원리</li>
-</ul>
-<h3 id="_2">장점</h3>
+<h2 id="_2">어떻게 쓰는지</h2>
+<h3 id="hashset">HashSet</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">emails</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">emails</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;a@example.com&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">emails</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;b@example.com&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">emails</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;a@example.com&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 중복이므로 저장되지 않음</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="kt">boolean</span><span class="w"> </span><span class="n">exists</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emails</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="s">&quot;a@example.com&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 평균 O(1)</span>
+</code></pre></div>
+<p><code>HashSet</code>은 값 자체를 해시 기준으로 저장합니다. 그래서 <strong>중복 제거</strong>와 <strong>존재 여부 확인</strong>에 자주 사용합니다.</p>
+<h3 id="hashmap">HashMap</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">loginCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">loginCount</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;kim&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">loginCount</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;lee&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">loginCount</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;kim&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 평균 O(1)</span>
+</code></pre></div>
+<p><code>HashMap</code>은 Key를 해시 기준으로 저장하고, Key에 연결된 Value를 찾습니다.</p>
+<h3 id="_3">직접 만든 객체를 해시 컬렉션에 넣기</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Member</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Member</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">email</span><span class="p">;</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">equals</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">o</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">Member</span><span class="w"> </span><span class="n">member</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Objects</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">member</span><span class="p">.</span><span class="na">id</span><span class="p">);</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">hashCode</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Objects</span><span class="p">.</span><span class="na">hash</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="p">}</span>
+</code></pre></div>
+<p><code>HashSet</code>과 <code>HashMap</code>은 같은 값인지 판단할 때 <code>hashCode()</code>와 <code>equals()</code>를 함께 사용합니다. 직접 만든 객체를 Key나 Set 요소로 쓸 때는 둘을 같이 재정의해야 합니다.</p>
+<h2 id="_4">언제 쓰는지</h2>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>선택</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>중복 제거</strong></td>
+<td><code>HashSet</code></td>
+<td>같은 값은 한 번만 저장</td>
+</tr>
+<tr>
+<td><strong>존재 여부 확인</strong></td>
+<td><code>HashSet</code></td>
+<td><code>contains()</code> 평균 <code>O(1)</code></td>
+</tr>
+<tr>
+<td><strong>Key로 빠른 조회</strong></td>
+<td><code>HashMap</code></td>
+<td><code>get(key)</code> 평균 <code>O(1)</code></td>
+</tr>
+<tr>
+<td><strong>빈도 계산</strong></td>
+<td><code>HashMap&lt;T, Integer&gt;</code></td>
+<td>값별 카운트 저장</td>
+</tr>
+<tr>
+<td><strong>방문 여부 기록</strong></td>
+<td><code>HashSet</code></td>
+<td>이미 처리한 값인지 빠르게 확인</td>
+</tr>
+<tr>
+<td><strong>정렬/범위 검색 필요</strong></td>
+<td><code>TreeSet</code>, <code>TreeMap</code></td>
+<td>해시는 정렬과 범위 검색에 부적합</td>
+</tr>
+<tr>
+<td><strong>삽입 순서 필요</strong></td>
+<td><code>LinkedHashSet</code>, <code>LinkedHashMap</code></td>
+<td>해시 성능에 순서 정보를 추가</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_5">장점</h2>
+<table>
+<thead>
+<tr>
+<th>장점</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>빠른 조회</strong></td>
+<td>평균적으로 삽입, 삭제, 조회가 <code>O(1)</code></td>
+</tr>
+<tr>
+<td><strong>유연한 Key</strong></td>
+<td>문자열, 숫자, 직접 만든 객체 모두 사용 가능</td>
+</tr>
+<tr>
+<td><strong>중복 처리에 강함</strong></td>
+<td><code>Set</code>과 결합하면 중복 제거를 쉽게 구현</td>
+</tr>
+<tr>
+<td><strong>구현체가 풍부함</strong></td>
+<td><code>HashSet</code>, <code>HashMap</code>, <code>LinkedHashMap</code>, <code>ConcurrentHashMap</code> 등</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_6">단점</h2>
+<table>
+<thead>
+<tr>
+<th>단점</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>순서 보장 없음</strong></td>
+<td><code>HashSet</code>, <code>HashMap</code> 순회 순서는 입력 순서와 다를 수 있음</td>
+</tr>
+<tr>
+<td><strong>충돌 가능성</strong></td>
+<td>서로 다른 값이 같은 버킷에 들어갈 수 있음</td>
+</tr>
+<tr>
+<td><strong>메모리 오버헤드</strong></td>
+<td>버킷 배열과 노드 객체를 유지해야 함</td>
+</tr>
+<tr>
+<td><strong>최악 성능 저하</strong></td>
+<td>해시가 나쁘거나 충돌이 많으면 조회 성능이 나빠짐</td>
+</tr>
+<tr>
+<td><strong>가변 Key 위험</strong></td>
+<td>Key의 필드가 바뀌면 다시 찾지 못할 수 있음</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_7">특징</h2>
+<h3 id="1">1. 해시 테이블 구조</h3>
+<p>해시 테이블은 내부적으로 배열을 사용합니다. 값을 바로 배열에 넣는 것이 아니라, 해시 함수를 통해 어느 버킷에 넣을지 정합니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>값: &quot;kim&quot;
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  ↓ hashCode()
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>해시 코드: 106079
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  ↓ 버킷 인덱스 계산
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>인덱스: 7
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  ↓
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>table[7]에 저장
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>table
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>┌───────┬────────────────────┐
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>│ index │ bucket             │
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>├───────┼────────────────────┤
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>│ 0     │                    │
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>│ 1     │ &quot;lee&quot;              │
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>│ 2     │                    │
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>│ 3     │ &quot;park&quot;             │
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>│ 4     │                    │
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>│ 5     │                    │
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>│ 6     │                    │
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>│ 7     │ &quot;kim&quot;              │
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>└───────┴────────────────────┘
+</code></pre></div>
+<h3 id="2">2. 해시 코드, 해시 함수, 해시 인덱스</h3>
+<p>비슷해 보이지만 서로 다른 개념입니다.</p>
+<table>
+<thead>
+<tr>
+<th>용어</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>해시 함수</strong></td>
+<td>입력값을 해시 코드로 바꾸는 함수</td>
+</tr>
+<tr>
+<td><strong>해시 코드</strong></td>
+<td><code>hashCode()</code>가 반환하는 정수 값</td>
+</tr>
+<tr>
+<td><strong>해시 인덱스</strong></td>
+<td>해시 코드를 배열 크기에 맞게 변환한 버킷 위치</td>
+</tr>
+</tbody>
+</table>
+<p>개념적으로는 다음과 같이 생각할 수 있습니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">key</span><span class="p">.</span><span class="na">hashCode</span><span class="p">();</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">floorMod</span><span class="p">(</span><span class="n">hashCode</span><span class="p">,</span><span class="w"> </span><span class="n">table</span><span class="p">.</span><span class="na">length</span><span class="p">);</span>
+</code></pre></div>
+<p>Java의 <code>HashMap</code>은 실제로는 배열 길이를 2의 거듭제곱으로 맞추고 비트 연산을 사용합니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">table</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">hash</span><span class="p">;</span>
+</code></pre></div>
+<p>그래서 단순히 <code>%</code>만 쓰는 예시는 원리 이해용으로 보면 됩니다.</p>
+<h3 id="3">3. 해시 충돌</h3>
+<p>해시 충돌은 <strong>서로 다른 값이 같은 버킷 인덱스를 갖는 상황</strong>입니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>&quot;kim&quot;  -&gt; index 7
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>&quot;moon&quot; -&gt; index 7
+</code></pre></div>
+<p>충돌은 버그가 아니라 해시 테이블에서 자연스럽게 발생하는 현상입니다. 입력값의 개수는 사실상 무한하지만, 버킷 배열 크기는 제한되어 있기 때문입니다.</p>
+<p>Java의 <code>HashMap</code>은 충돌이 생기면 같은 버킷 안에 노드를 연결합니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>table[7]
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>  ↓
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>[&quot;kim&quot;] -&gt; [&quot;moon&quot;] -&gt; [&quot;choi&quot;]
+</code></pre></div>
+<p>충돌이 적으면 거의 <code>O(1)</code>처럼 동작하지만, 한 버킷에 값이 몰리면 연결된 노드를 비교해야 하므로 느려집니다.</p>
+<h3 id="4-java-hashmap">4. Java HashMap의 충돌 최적화</h3>
+<p>Java 8 이후 대표적인 <code>HashMap</code> 구현은 한 버킷에 노드가 너무 많이 몰리면 연결 리스트를 트리 구조로 바꿀 수 있습니다.</p>
+<table>
+<thead>
+<tr>
+<th>기준</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>기본 초기 용량</strong></td>
+<td><code>16</code></td>
+</tr>
+<tr>
+<td><strong>기본 로드 팩터</strong></td>
+<td><code>0.75</code></td>
+</tr>
+<tr>
+<td><strong>리사이즈 기준</strong></td>
+<td>저장 개수 &gt; <code>capacity * loadFactor</code></td>
+</tr>
+<tr>
+<td><strong>트리화 기준</strong></td>
+<td>한 버킷의 노드가 <code>8</code>개 이상이고 테이블 크기가 충분히 클 때</td>
+</tr>
+<tr>
+<td><strong>트리화 최소 테이블 크기</strong></td>
+<td><code>64</code>보다 작으면 트리화보다 리사이즈를 우선</td>
+</tr>
+<tr>
+<td><strong>리스트 복귀 기준</strong></td>
+<td>트리 노드 수가 <code>6</code>개 이하로 줄면 다시 리스트화 가능</td>
+</tr>
+<tr>
+<td><strong>트리 구조</strong></td>
+<td>Red-Black Tree</td>
+</tr>
+</tbody>
+</table>
+<div class="warning-box">
+<p><strong>주의</strong>: <code>0.75</code>는 충돌률이 아니라 로드 팩터입니다.</p>
+<p>즉 "충돌이 75% 이상이면 리해시"가 아니라, <strong>저장된 엔트리 수가 전체 버킷 용량의 75%를 넘으면 리사이즈</strong> 대상이 됩니다.</p>
+</div>
+<h3 id="5">5. 리사이즈와 리해싱</h3>
+<p>해시 테이블에 값이 너무 많이 들어가면 버킷 하나당 평균 데이터 수가 늘고 충돌 가능성이 커집니다. 그래서 일정 기준을 넘으면 내부 배열을 키웁니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>capacity = 16
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>loadFactor = 0.75
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>threshold = 12
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>size가 13이 되면 resize 대상
+</code></pre></div>
+<p>리사이즈가 발생하면 배열 크기가 커지고, 기존 데이터의 버킷 위치가 다시 배치됩니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>기존 table length = 16
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>&quot;kim&quot; index = 7
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>리사이즈 후 table length = 32
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>&quot;kim&quot; index가 달라질 수 있음
+</code></pre></div>
+<p>이 작업은 순간적으로 비용이 큽니다. 그래서 대량 데이터를 넣을 것을 알고 있다면 초기 용량을 적절히 지정하는 것이 좋습니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">expectedSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10_000</span><span class="p">;</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">Set</span><span class="o">&lt;</span><span class="n">Long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">expectedSize</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="6-hashcode-equals">6. <code>hashCode()</code>와 <code>equals()</code> 관계</h3>
+<p>Java 해시 컬렉션은 보통 다음 순서로 값을 찾습니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>1. hashCode()로 버킷 위치를 찾는다
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>2. 같은 버킷 안에서 equals()로 실제 같은 값인지 확인한다
+</code></pre></div>
+<p>그래서 두 메서드는 다음 규칙을 지켜야 합니다.</p>
+<table>
+<thead>
+<tr>
+<th>규칙</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>equals()</code>가 <code>true</code>이면</td>
+<td><code>hashCode()</code>는 반드시 같아야 함</td>
+</tr>
+<tr>
+<td><code>hashCode()</code>가 같아도</td>
+<td><code>equals()</code>는 <code>false</code>일 수 있음</td>
+</tr>
+<tr>
+<td>객체 상태가 같으면</td>
+<td>같은 실행 중에는 <code>hashCode()</code>가 일관되어야 함</td>
+</tr>
+</tbody>
+</table>
+<div class="danger-box">
+<p><strong>위험</strong>: <code>equals()</code>만 재정의하고 <code>hashCode()</code>를 재정의하지 않으면 <code>HashSet</code>에서 중복 제거가 깨질 수 있습니다.</p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kd">class</span> <span class="nc">BadMember</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="n">BadMember</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">equals</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">o</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">BadMember</span><span class="w"> </span><span class="n">member</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Objects</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">member</span><span class="p">.</span><span class="na">id</span><span class="p">);</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="p">}</span>
+<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="n">Set</span><span class="o">&lt;</span><span class="n">BadMember</span><span class="o">&gt;</span><span class="w"> </span><span class="n">members</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="n">members</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BadMember</span><span class="p">(</span><span class="mi">1L</span><span class="p">));</span>
+<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="n">members</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BadMember</span><span class="p">(</span><span class="mi">1L</span><span class="p">));</span>
+<a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>
+<a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">members</span><span class="p">.</span><span class="na">size</span><span class="p">());</span><span class="w"> </span><span class="c1">// 2가 될 수 있음</span>
+</code></pre></div>
+<h3 id="7-key">7. 가변 객체를 Key로 쓰면 위험한 이유</h3>
+<p>해시 컬렉션에 들어간 뒤 <code>hashCode()</code> 계산에 쓰이는 필드가 바뀌면, 객체가 저장된 버킷과 조회할 버킷이 달라질 수 있습니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kd">class</span> <span class="nc">UserKey</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">;</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="n">UserKey</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">email</span><span class="p">;</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">equals</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">o</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">UserKey</span><span class="w"> </span><span class="n">key</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Objects</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">email</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">.</span><span class="na">email</span><span class="p">);</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">hashCode</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Objects</span><span class="p">.</span><span class="na">hash</span><span class="p">(</span><span class="n">email</span><span class="p">);</span>
+<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="p">}</span>
+<a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a>
+<a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="n">UserKey</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UserKey</span><span class="p">(</span><span class="s">&quot;a@example.com&quot;</span><span class="p">);</span>
+<a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">UserKey</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a>
+<a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a><span class="n">key</span><span class="p">.</span><span class="na">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;b@example.com&quot;</span><span class="p">;</span>
+<a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a>
+<a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">key</span><span class="p">));</span><span class="w"> </span><span class="c1">// null이 나올 수 있음</span>
+</code></pre></div>
+<p>Key로 사용할 객체는 불변으로 만드는 것이 안전합니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">UserKey</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="8-hashset-hashmap">8. HashSet과 HashMap의 관계</h3>
+<p><code>HashSet</code>은 내부적으로 <code>HashMap</code>을 사용합니다. Set에는 값만 저장하는 것처럼 보이지만, 내부적으로는 값을 <code>HashMap</code>의 Key로 넣고 더미 값을 Value로 둡니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>HashSet.add(&quot;kim&quot;)
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>  ↓
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>HashMap.put(&quot;kim&quot;, PRESENT)
+</code></pre></div>
+<p>그래서 <code>HashSet</code>에서 중복 여부를 판단하는 방식도 <code>HashMap</code>의 Key 판단 방식과 같습니다.</p>
+<table>
+<thead>
+<tr>
+<th>컬렉션</th>
+<th>해시 기준</th>
+<th>중복 판단</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>HashSet&lt;E&gt;</code></td>
+<td>요소 <code>E</code></td>
+<td>같은 요소는 하나만 저장</td>
+</tr>
+<tr>
+<td><code>HashMap&lt;K, V&gt;</code></td>
+<td>Key <code>K</code></td>
+<td>같은 Key는 Value를 덮어씀</td>
+</tr>
+</tbody>
+</table>
+<h3 id="9-o1-on">9. 평균 O(1)과 최악 O(n)</h3>
+<p>해시 컬렉션을 설명할 때 <code>O(1)</code>이라고 말하지만, 정확히는 <strong>평균 O(1)</strong> 입니다.</p>
+<table>
+<thead>
+<tr>
+<th>연산</th>
+<th>평균</th>
+<th>충돌이 심한 경우</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>add()</code> / <code>put()</code></td>
+<td><code>O(1)</code></td>
+<td>리스트 버킷 <code>O(n)</code>, 트리 버킷 <code>O(log n)</code></td>
+</tr>
+<tr>
+<td><code>contains()</code> / <code>get()</code></td>
+<td><code>O(1)</code></td>
+<td>리스트 버킷 <code>O(n)</code>, 트리 버킷 <code>O(log n)</code></td>
+</tr>
+<tr>
+<td><code>remove()</code></td>
+<td><code>O(1)</code></td>
+<td>리스트 버킷 <code>O(n)</code>, 트리 버킷 <code>O(log n)</code></td>
+</tr>
+</tbody>
+</table>
+<p>충돌이 심하게 몰리거나 해시 함수가 값을 잘 분산하지 못하면 성능이 나빠집니다. Java의 트리화 최적화가 있더라도, 해시가 좋을수록 성능이 안정적입니다.</p>
+<h2 id="_8">주의할 점</h2>
+<div class="warning-box">
+<p><strong>순회 순서에 의존하지 말 것</strong></p>
+<p><code>HashSet</code>, <code>HashMap</code>의 출력 순서가 지금 보기에는 일정해 보여도 보장된 계약이 아닙니다. 순서가 필요하면 <code>LinkedHashSet</code>, <code>LinkedHashMap</code>, <code>TreeSet</code>, <code>TreeMap</code>을 사용합니다.</p>
+</div>
+<div class="danger-box">
+<p><strong>해시 컬렉션의 Key는 불변으로 둘 것</strong></p>
+<p><code>HashMap</code>의 Key나 <code>HashSet</code>의 요소가 저장 후 바뀌면 조회, 삭제, 중복 판단이 깨질 수 있습니다.</p>
+</div>
+<div class="warning-box">
+<p><strong><code>Math.abs(hashCode) % length</code>는 조심</strong></p>
+<p><code>Math.abs(Integer.MIN_VALUE)</code>는 여전히 음수입니다. 직접 해시 인덱스를 만들 때는 <code>Math.floorMod(hashCode, length)</code>를 사용하거나 Java 컬렉션 구현체에 맡기는 편이 안전합니다.</p>
+</div>
+<div class="tip-box">
+<p><strong>암호학적 해시와 컬렉션 해시는 목적이 다릅니다.</strong></p>
+<p><code>hashCode()</code>는 빠른 분산이 목적이고, SHA-256 같은 암호학적 해시는 위변조 검증과 역추적 난이도가 목적입니다. 비밀번호 저장, 서명, 무결성 검증에는 <code>hashCode()</code>를 쓰면 안 됩니다.</p>
+</div>
+<h2 id="_9">베스트 프랙티스</h2>
+<table>
+<thead>
+<tr>
+<th>권장 방식</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Key는 불변 객체 사용</strong></td>
+<td>저장 후 해시 위치가 바뀌지 않음</td>
+</tr>
+<tr>
+<td><strong><code>equals()</code>와 <code>hashCode()</code>는 함께 재정의</strong></td>
+<td>해시 컬렉션의 중복 판단 계약을 지킴</td>
+</tr>
+<tr>
+<td><strong>같은 필드를 기준으로 비교</strong></td>
+<td><code>equals()</code>와 <code>hashCode()</code>의 기준이 달라지는 실수를 방지</td>
+</tr>
+<tr>
+<td><strong>대량 삽입 시 초기 용량 지정</strong></td>
+<td>중간 리사이즈 비용을 줄일 수 있음</td>
+</tr>
+<tr>
+<td><strong>순서가 필요하면 Linked/Tree 계열 선택</strong></td>
+<td><code>HashSet</code>, <code>HashMap</code> 순서에 의존하지 않음</td>
+</tr>
+<tr>
+<td><strong>직접 해시 함수를 만들기보다 표준 구현 사용</strong></td>
+<td>충돌, 음수 인덱스, 리사이즈 같은 세부 처리를 줄임</td>
+</tr>
+<tr>
+<td><strong>객체 식별 기준을 먼저 정함</strong></td>
+<td><code>id</code> 기준인지, 전체 필드 기준인지 명확해짐</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_10">실무에서는?</h2>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>사용 예</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>중복 요청 방지</strong></td>
+<td>처리한 요청 ID를 <code>HashSet</code>에 저장</td>
+</tr>
+<tr>
+<td><strong>캐시</strong></td>
+<td>Key로 계산 결과나 외부 <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 응답을 <code>HashMap</code>에 저장</td>
+</tr>
+<tr>
+<td><strong>집계</strong></td>
+<td>단어 빈도, 사용자별 카운트를 <code>HashMap&lt;T, Integer&gt;</code>로 계산</td>
+</tr>
+<tr>
+<td><strong>방문 체크</strong></td>
+<td>그래프 탐색, 배치 처리에서 이미 방문한 ID 기록</td>
+</tr>
+<tr>
+<td><strong>권한/태그 검사</strong></td>
+<td>사용자가 특정 권한이나 태그를 가졌는지 빠르게 확인</td>
+</tr>
+<tr>
+<td><strong>도메인 객체 비교</strong></td>
+<td>Entity/Value Object의 <code>equals()</code>/<code>hashCode()</code> 설계</td>
+</tr>
+<tr>
+<td><strong>인메모리 인덱스</strong></td>
+<td>DB 조회 전 임시로 ID -&gt; 객체 매핑</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_11">정리</h2>
 <table>
 <thead>
 <tr>
@@ -5440,125 +6203,37 @@
 </thead>
 <tbody>
 <tr>
-<td>빠른 검색</td>
-<td>평균 O(1) 조회/삽입/삭제</td>
+<td><strong>해시 목적</strong></td>
+<td>임의의 값을 배열 인덱스로 바꿔 빠르게 찾기</td>
 </tr>
 <tr>
-<td>유연한 키</td>
-<td>문자열, 객체 등 다양한 타입 키 사용 가능</td>
+<td><strong>핵심 구조</strong></td>
+<td>버킷 배열 + 충돌 처리</td>
 </tr>
 <tr>
-<td>중복 제거</td>
-<td>해시 기반으로 중복 자동 처리</td>
+<td><strong>대표 컬렉션</strong></td>
+<td><code>HashSet</code>, <code>HashMap</code></td>
+</tr>
+<tr>
+<td><strong>평균 성능</strong></td>
+<td>삽입, 삭제, 조회 <code>O(1)</code></td>
+</tr>
+<tr>
+<td><strong>핵심 계약</strong></td>
+<td><code>equals()</code>가 같으면 <code>hashCode()</code>도 같아야 함</td>
+</tr>
+<tr>
+<td><strong>주의</strong></td>
+<td>순서 보장 없음, 가변 Key 금지, 충돌 가능</td>
 </tr>
 </tbody>
 </table>
-<h3 id="_3">단점</h3>
-<table>
-<thead>
-<tr>
-<th>항목</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>순서 없음</td>
-<td>삽입 순서 보장 안 됨</td>
-</tr>
-<tr>
-<td>해시 충돌</td>
-<td>다른 값이 같은 해시 인덱스를 가질 수 있음</td>
-</tr>
-<tr>
-<td>최악의 경우</td>
-<td>충돌이 많으면 O(n)으로 성능 저하</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_4">특이점</h3>
-<ul>
-<li>해시 충돌이 75% 이상 발생하면 자바의 <code>HashMap</code>/<code>HashSet</code>은 <strong>재해싱(Rehashing)</strong> 수행</li>
-<li>배열 크기를 2배로 늘리고 모든 요소의 해시 인덱스 재계산</li>
-</ul>
 <hr />
-<h3 id="o1">인덱스 직접 사용 (O(1))</h3>
-<ul>
-<li>자기 자신의 값을 인덱스로 사용하면 검색 속도 O(1)
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">Integer</span><span class="o">[]</span><span class="w"> </span><span class="n">intList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Integer</span><span class="o">[</span><span class="mi">100</span><span class="o">]</span><span class="p">;</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">intList</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">intList</span><span class="o">[</span><span class="mi">8</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kt">int</span><span class="w"> </span><span class="n">search</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">Integer</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">intList</span><span class="o">[</span><span class="n">search</span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="c1">// O(1)</span>
-</code></pre></div></li>
-</ul>
-<h3 id="hash-index">해시 인덱스 (Hash Index)</h3>
-<ul>
-<li>원래 값을 계산해서 나온 인덱스를 해시 인덱스라 한다
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">hashIndex</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">abs</span><span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="na">hashCode</span><span class="p">())</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">CAPACITY</span><span class="p">;</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">}</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>값 14 → hashIndex(14) = 14 % 10 = 4
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>값 99 → hashIndex(99) = 99 % 10 = 9
-</code></pre></div></li>
-</ul>
-<h3 id="hash-collision">해시 충돌 (Hash Collision)</h3>
-<ul>
-<li>다른 값을 입력했지만 같은 해시 인덱스가 나오는 현상</li>
-<li><strong>체이닝(Chaining)</strong> 방식으로 해결 → 충돌 위치에 LinkedList 사용
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;[]</span><span class="w"> </span><span class="n">buckets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedList</span><span class="o">[</span><span class="n">CAPACITY</span><span class="o">]</span><span class="p">;</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1">// [[], [1], [2], [], [14], [5], [], [], [8], [99, 9]]</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1">// 인덱스 9에 99와 9가 충돌 → LinkedList로 관리</span>
-</code></pre></div></li>
-</ul>
-<h3 id="hash-code">해시 코드 (Hash Code)</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">hashCode</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="kt">char</span><span class="o">[]</span><span class="w"> </span><span class="n">charArrays</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="na">toCharArray</span><span class="p">();</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">charArrays</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">}</span>
-</code></pre></div>
-<h3 id="hash-function">해시 함수 (Hash Function)</h3>
-<ul>
-<li>임의의 길이 데이터를 입력받아 고정된 길이의 해시값을 출력하는 함수</li>
-<li>같은 데이터를 입력하면 항상 같은 해시 코드가 출력된다</li>
-</ul>
-<hr />
-<h3 id="hashcode-equals">hashCode와 equals를 재정의하는 이유</h3>
-<ol>
-<li><code>hashCode()</code>를 재정의하지 않으면 <code>Object.hashCode()</code>로 주소 기반 해시값 사용</li>
-<li>같은 필드 값이어도 다른 객체면 다른 해시 인덱스 → <code>HashSet</code>에서 중복으로 인식하지 못함</li>
-<li><code>equals()</code>를 재정의하지 않으면 동일성(<code>==</code>)만 비교</li>
-<li>같은 필드 값의 다른 인스턴스를 다른 객체로 판단</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">class</span> <span class="nc">Member</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nd">@Override</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">hashCode</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Objects</span><span class="p">.</span><span class="na">hash</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="nd">@Override</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">equals</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">o</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">Member</span><span class="w"> </span><span class="n">m</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Objects</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="na">id</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Objects</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="na">name</span><span class="p">);</span>
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="p">}</span>
-</code></pre></div>
-<h3 id="_5">어떨 때 많이 쓰는가?</h3>
-<ul>
-<li><code>HashSet</code>에 객체를 넣을 때 중복 판별이 필요한 경우</li>
-<li><code>HashMap</code>의 키로 객체를 사용할 때</li>
-<li>빠른 데이터 검색이 필요한 캐시, 인덱싱 구현</li>
-</ul>
+<p><strong>관련 파일:</strong>
+- <a href="../Set/">Set</a> — 중복 없는 집합
+- <a href="../Map/">Map</a> — Key-Value 저장
+- <a href="../Collection/">Collection</a> — 컬렉션 프레임워크 개요
+- <a href="../../core/%EB%B6%88%EB%B3%80%EA%B0%9D%EC%B2%B4VS%EA%B0%80%EB%B3%80%EA%B0%9D%EC%B2%B4/">불변객체</a> — 안전한 Key 설계</p>
 <!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
 
 <!-- ===== DB / SQL ===== -->
@@ -5587,7 +6262,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 8일 11:14:43 UTC">2026년 4월 8일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 25일 12:07:32 UTC">2026년 4월 25일</span>
   </span>
 
     
@@ -5597,7 +6272,7 @@
     <span class="md-icon" title="작성일">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 6일 11:46:41 UTC">2026년 4월 6일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 25일 12:07:32 UTC">2026년 4월 25일</span>
   </span>
 
     
