@@ -108,8 +108,8 @@ Map (별도 계층 — Collection 미상속)
 | [리스트](./List.md) | 순서 유지, 중복 허용 |
 | [배열리스트](./ArrayList.md) | 동적 배열 기반 List |
 | [연결리스트](./LinkedList.md) | 노드 참조 기반 List |
+| [해시(Hash)](./Hash.md) | HashSet, HashMap의 내부 원리 |
 | [세트(Set)](./Set.md) | 중복 불허, 순서 미보장 |
-| [해시(HashSet)](./HashSet.md) | 해시 알고리즘과 충돌 처리 |
 | [맵](./Map.md) | Key-Value 쌍 저장 |
 | [스택](./Stack.md) | LIFO 자료구조 |
 | [큐](./Queue.md) | FIFO 자료구조 |

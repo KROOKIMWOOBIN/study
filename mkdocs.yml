@@ -100,8 +100,8 @@ nav:
       - List: java/collections/List.md
       - ArrayList: java/collections/ArrayList.md
       - LinkedList: java/collections/LinkedList.md
+      - Hash: java/collections/Hash.md
       - Set: java/collections/Set.md
-      - HashSet: java/collections/HashSet.md
       - Map: java/collections/Map.md
       - Stack: java/collections/Stack.md
       - Queue: java/collections/Queue.md

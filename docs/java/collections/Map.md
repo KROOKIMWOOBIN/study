@@ -317,4 +317,4 @@ caseInsensitiveMap.put("alice", 26);
 
 ---
 
-**관련 파일:** [Collection](Collection.md), [Set](Set.md), [List](List.md)
+**관련 파일:** [Hash](Hash.md), [Collection](Collection.md), [Set](Set.md), [List](List.md)
