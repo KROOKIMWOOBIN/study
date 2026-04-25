@@ -113,26 +113,29 @@ public class OrderServiceImpl implements OrderService {
 | 17 | [JPA / Spring Data JPA](./jpa.md) |
 | 18 | [QueryDSL](./querydsl.md) |
 | 19 | [JPA 성능 최적화](./jpa-performance.md) |
-| 20 | [Redis](./redis.md) |
 
-### 보안 & 동시성
-
-| 단계 | 주제 |
-|------|------|
-| 21 | [Spring Security + JWT](./security.md) |
-| 22 | [동시성 제어](./concurrency.md) |
-
-### 메시징 & 테스트
+### 보안
 
 | 단계 | 주제 |
 |------|------|
-| 23 | [Kafka](./kafka.md) |
-| 24 | [Testing](./testing.md) |
+| 20 | [Spring Security + JWT](./security.md) |
 
-### 운영 & 아키텍처
+### 테스트
 
 | 단계 | 주제 |
 |------|------|
-| 25 | [모니터링 (Actuator + Grafana)](./monitoring.md) |
-| 26 | [아키텍처 패턴](./architecture.md) |
-| 27 | [MSA (Spring Cloud)](./msa.md) |
+| 21 | [Testing](./testing.md) |
+
+### Backend로 이어지는 주제
+
+Redis, Kafka, MSA, Outbox는 Spring으로 구현할 수 있지만 개념 자체는 Spring보다 넓다. 그래서 별도 [Backend 학습 노트](../backend/backend.md)에서 다룬다.
+
+| 주제 | 위치 |
+|------|------|
+| Redis | [Backend / Redis](../backend/infra/redis.md) |
+| Kafka | [Backend / Kafka](../backend/infra/kafka.md) |
+| 아웃박스 패턴 | [Backend / 아웃박스 패턴](../backend/architecture/outbox.md) |
+| 아키텍처 패턴 | [Backend / 아키텍처 패턴](../backend/architecture/architecture.md) |
+| MSA | [Backend / MSA](../backend/architecture/msa.md) |
+| 동시성 제어 | [Backend / 동시성 제어](../backend/operations/concurrency.md) |
+| 모니터링 | [Backend / 모니터링](../backend/operations/monitoring.md) |

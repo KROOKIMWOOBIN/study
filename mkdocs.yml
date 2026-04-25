@@ -173,17 +173,22 @@ nav:
       - JPA: spring/jpa.md
       - QueryDSL: spring/querydsl.md
       - JPA 성능 최적화: spring/jpa-performance.md
-    - 인프라 & 보안:
-      - Redis: spring/redis.md
+    - 보안:
       - Spring Security & JWT: spring/security.md
-      - 동시성 제어: spring/concurrency.md
-      - Kafka: spring/kafka.md
-      - 아웃박스 패턴: spring/outbox.md
-    - 운영 & 설계:
+    - 테스트:
       - Testing: spring/testing.md
-      - 모니터링: spring/monitoring.md
-      - 아키텍처 패턴: spring/architecture.md
-      - MSA: spring/msa.md
+  - Backend:
+    - 개요: backend/backend.md
+    - 인프라:
+      - Redis: backend/infra/redis.md
+      - Kafka: backend/infra/kafka.md
+    - 아키텍처:
+      - 아키텍처 패턴: backend/architecture/architecture.md
+      - MSA: backend/architecture/msa.md
+      - 아웃박스 패턴: backend/architecture/outbox.md
+    - 운영:
+      - 동시성 제어: backend/operations/concurrency.md
+      - 모니터링: backend/operations/monitoring.md
   - DB:
     - 개요: db/db.md
     - 기초:

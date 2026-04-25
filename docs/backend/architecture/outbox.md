@@ -545,6 +545,6 @@ LIMIT 1000;
 ---
 
 **관련 파일:**
-- [kafka.md](kafka.md) — Kafka 기본과 메시지 발행
-- [msa.md](msa.md) — MSA 아키텍처와 분산 트랜잭션
-- [transaction.md](transaction.md) — 트랜잭션 개념과 격리 수준
+- [Kafka](../infra/kafka.md) — Kafka 기본과 메시지 발행
+- [MSA](msa.md) — MSA 아키텍처와 분산 트랜잭션
+- [Spring Transaction](../../spring/transaction.md) — 트랜잭션 개념과 격리 수준

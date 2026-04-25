@@ -344,5 +344,5 @@ MSA 환경에서 문제 추적 어려움
 ---
 
 **관련 파일:**
-- [architecture.md](architecture.md) — 다양한 아키텍처 패턴
-- [kafka.md](kafka.md) — 메시지 브로커 기반 비동기 통신
+- [아키텍처 패턴](architecture.md) — 다양한 아키텍처 패턴
+- [Kafka](../infra/kafka.md) — 메시지 브로커 기반 비동기 통신
