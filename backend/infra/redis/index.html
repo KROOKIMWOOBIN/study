@@ -3858,32 +3858,65 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#key-value" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        기본 Key-Value
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ttl" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TTL 설정
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        주요 자료구조
+        기본 명령
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        키 이름 규칙
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        자료구조 선택
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cache-aside" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cache Aside 패턴
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rate-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        카운터와 Rate Limit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        분산 락
       
     </span>
   </a>
@@ -3896,7 +3929,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         언제 쓰는지
@@ -3907,7 +3940,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         장점
@@ -3918,7 +3951,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
         단점
@@ -3929,7 +3962,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
         특징
@@ -3941,10 +3974,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. 인메모리 저장
+        메모리 기반 처리
       
     </span>
   </a>
@@ -3952,10 +3985,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-ttl-eviction" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. TTL과 Eviction
+        단일 스레드처럼 보이는 명령 실행
       
     </span>
   </a>
@@ -3963,10 +3996,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-persistence" class="md-nav__link">
+  <a href="#ttl-eviction" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Persistence
+        TTL과 Eviction
       
     </span>
   </a>
@@ -3974,10 +4007,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-cache-aside" class="md-nav__link">
+  <a href="#persistence-rdb-aof" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Cache Aside 패턴
+        Persistence: RDB와 AOF
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replication-sentinel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Replication과 Sentinel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cluster-hash-slot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cluster와 Hash Slot
       
     </span>
   </a>
@@ -3990,7 +4045,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       
         주의할 점
@@ -3998,10 +4053,270 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="주의할 점">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redis_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redis를 원본 저장소로 착각하지 않기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cache-stampede" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cache Stampede
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cache-penetration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cache Penetration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cache-avalanche" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cache Avalanche
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hot-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hot Key
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#big-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Big Key
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#runbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장애 대응 Runbook
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="장애 대응 Runbook">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Redis 지연이 급증함
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 메모리 부족 또는 쓰기 실패
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cache-stampede" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Cache Stampede 발생
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-hot-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Hot Key로 특정 노드만 과부하
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-big-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Big Key가 발견됨
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 커넥션 폭증
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-master-failover" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Master 장애와 failover
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-replica-lag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Replica lag 증가
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-aof-rewrite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. AOF rewrite 또는 디스크 문제
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-cluster-moved-ask-crossslot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Cluster MOVED, ASK, CROSSSLOT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. 캐시 값이 DB와 다름
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. 분산 락 중복 실행
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        관찰 지표
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="관찰 지표">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redis_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redis 명령
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        알림 기준 예시
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
       
         베스트 프랙티스
@@ -4012,7 +4327,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     <span class="md-ellipsis">
       
         실무에서는?
@@ -4020,10 +4335,27 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="실무에서는?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        운영 체크리스트
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_19" class="md-nav__link">
     <span class="md-ellipsis">
       
         정리
@@ -5522,32 +5854,65 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#key-value" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        기본 Key-Value
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ttl" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TTL 설정
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        주요 자료구조
+        기본 명령
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        키 이름 규칙
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        자료구조 선택
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cache-aside" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cache Aside 패턴
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rate-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        카운터와 Rate Limit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        분산 락
       
     </span>
   </a>
@@ -5560,7 +5925,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         언제 쓰는지
@@ -5571,7 +5936,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         장점
@@ -5582,7 +5947,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
         단점
@@ -5593,7 +5958,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
         특징
@@ -5605,10 +5970,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. 인메모리 저장
+        메모리 기반 처리
       
     </span>
   </a>
@@ -5616,10 +5981,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-ttl-eviction" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. TTL과 Eviction
+        단일 스레드처럼 보이는 명령 실행
       
     </span>
   </a>
@@ -5627,10 +5992,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-persistence" class="md-nav__link">
+  <a href="#ttl-eviction" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Persistence
+        TTL과 Eviction
       
     </span>
   </a>
@@ -5638,10 +6003,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-cache-aside" class="md-nav__link">
+  <a href="#persistence-rdb-aof" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Cache Aside 패턴
+        Persistence: RDB와 AOF
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replication-sentinel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Replication과 Sentinel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cluster-hash-slot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cluster와 Hash Slot
       
     </span>
   </a>
@@ -5654,7 +6041,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       
         주의할 점
@@ -5662,10 +6049,270 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="주의할 점">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redis_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redis를 원본 저장소로 착각하지 않기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cache-stampede" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cache Stampede
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cache-penetration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cache Penetration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cache-avalanche" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cache Avalanche
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hot-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hot Key
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#big-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Big Key
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#runbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장애 대응 Runbook
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="장애 대응 Runbook">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Redis 지연이 급증함
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 메모리 부족 또는 쓰기 실패
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cache-stampede" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Cache Stampede 발생
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-hot-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Hot Key로 특정 노드만 과부하
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-big-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Big Key가 발견됨
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 커넥션 폭증
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-master-failover" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Master 장애와 failover
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-replica-lag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Replica lag 증가
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-aof-rewrite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. AOF rewrite 또는 디스크 문제
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-cluster-moved-ask-crossslot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Cluster MOVED, ASK, CROSSSLOT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. 캐시 값이 DB와 다름
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. 분산 락 중복 실행
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        관찰 지표
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="관찰 지표">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redis_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redis 명령
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        알림 기준 예시
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
       
         베스트 프랙티스
@@ -5676,7 +6323,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     <span class="md-ellipsis">
       
         실무에서는?
@@ -5684,10 +6331,27 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="실무에서는?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        운영 체크리스트
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_19" class="md-nav__link">
     <span class="md-ellipsis">
       
         정리
@@ -5719,63 +6383,254 @@
 
 <h1 id="redis">Redis</h1>
 <h2 id="_1">왜 쓰는지</h2>
-<p>DB는 디스크 기반 저장소라 반복 조회, 집계, 세션 조회처럼 자주 접근하는 데이터에 매번 사용하면 부하가 커집니다. Redis는 메모리에 데이터를 저장해 빠르게 읽고 쓸 수 있는 Key-Value 저장소입니다.</p>
+<p>DB는 디스크, 트랜잭션, 인덱스, 락, 영속성을 책임지기 때문에 모든 요청을 DB로만 처리하면 응답 속도와 처리량에 한계가 옵니다. Redis는 자주 읽는 데이터, 짧게 살아도 되는 상태, 빠른 원자 연산을 메모리에서 처리해 DB와 애플리케이션의 부담을 줄입니다.</p>
 <div class="concept-box">
-<p><strong>핵심</strong>: Redis는 캐시, 세션, 분산 락, 랭킹, 속도 제한처럼 빠른 응답과 짧은 수명의 상태 관리가 필요한 곳에 쓰는 인메모리 데이터 저장소입니다.</p>
+<p><strong>핵심</strong>: Redis는 메모리 기반 Key-Value 저장소이며, 캐시·세션·분산 락·카운터·랭킹·큐·스트림 같은 빠른 상태 저장에 사용한다.</p>
 </div>
+<p>Redis를 처음 배울 때는 "빠른 DB"로 생각하기 쉽지만 실무에서는 <strong>원본 저장소가 아니라 보조 저장소</strong>로 보는 것이 안전합니다. 장애가 나도 복구할 기준 데이터는 DB나 이벤트 로그처럼 더 강한 저장소에 있어야 합니다.</p>
 <h2 id="_2">어떻게 쓰는지</h2>
-<h3 id="key-value">기본 Key-Value</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>SET<span class="w"> </span>user:1:name<span class="w"> </span><span class="s2">&quot;kim&quot;</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>GET<span class="w"> </span>user:1:name
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>DEL<span class="w"> </span>user:1:name
+<h3 id="_3">기본 명령</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 값 저장</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>SET<span class="w"> </span>user:1:name<span class="w"> </span><span class="s2">&quot;kim&quot;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># 값 조회</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>GET<span class="w"> </span>user:1:name
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># TTL과 함께 저장</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>SET<span class="w"> </span>auth:token:abc<span class="w"> </span><span class="s2">&quot;user-1&quot;</span><span class="w"> </span>EX<span class="w"> </span><span class="m">3600</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># 만료 시간 부여</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>EXPIRE<span class="w"> </span>user:1:name<span class="w"> </span><span class="m">60</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># 남은 TTL 확인</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>TTL<span class="w"> </span>user:1:name
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="c1"># 삭제</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>DEL<span class="w"> </span>user:1:name
 </code></pre></div>
-<h3 id="ttl">TTL 설정</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>SET<span class="w"> </span>auth:code:1234<span class="w"> </span><span class="s2">&quot;928311&quot;</span><span class="w"> </span>EX<span class="w"> </span><span class="m">180</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>TTL<span class="w"> </span>auth:code:1234
-</code></pre></div>
-<p><code>EX 180</code>은 180초 뒤 자동 삭제를 의미합니다. 인증 코드, 임시 토큰, 캐시처럼 만료가 필요한 데이터에 사용합니다.</p>
-<h3 id="_3">주요 자료구조</h3>
 <table>
 <thead>
 <tr>
-<th>자료구조</th>
-<th>사용 예</th>
+<th>명령</th>
+<th>의미</th>
+<th>주의</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>String</code></td>
-<td>캐시 값, 토큰, 카운터</td>
+<td><code>SET</code></td>
+<td>값을 저장</td>
+<td>기본은 TTL 없음</td>
 </tr>
 <tr>
-<td><code>Hash</code></td>
-<td>객체 필드 저장</td>
+<td><code>GET</code></td>
+<td>값을 조회</td>
+<td>없는 키는 <code>nil</code></td>
 </tr>
 <tr>
-<td><code>List</code></td>
-<td>간단한 큐, 최근 항목</td>
+<td><code>EXPIRE</code></td>
+<td>만료 시간 지정</td>
+<td>갱신 시 TTL이 사라지는 명령이 있으므로 확인 필요</td>
 </tr>
 <tr>
-<td><code>Set</code></td>
-<td>중복 없는 집합, 권한 목록</td>
+<td><code>TTL</code></td>
+<td>남은 만료 시간 확인</td>
+<td><code>-1</code>은 TTL 없음, <code>-2</code>는 키 없음</td>
 </tr>
 <tr>
-<td><code>Sorted Set</code></td>
-<td>랭킹, 우선순위</td>
-</tr>
-<tr>
-<td><code>Stream</code></td>
-<td>이벤트 로그, 간단한 메시징</td>
+<td><code>DEL</code></td>
+<td>키 삭제</td>
+<td>큰 키 삭제는 지연을 만들 수 있어 <code>UNLINK</code> 고려</td>
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>HSET<span class="w"> </span>user:1<span class="w"> </span>name<span class="w"> </span><span class="s2">&quot;kim&quot;</span><span class="w"> </span>age<span class="w"> </span><span class="m">20</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>HGET<span class="w"> </span>user:1<span class="w"> </span>name
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>ZADD<span class="w"> </span>ranking<span class="w"> </span><span class="m">1200</span><span class="w"> </span><span class="s2">&quot;user:1&quot;</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>ZREVRANGE<span class="w"> </span>ranking<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">9</span><span class="w"> </span>WITHSCORES
+<h3 id="_4">키 이름 규칙</h3>
+<p>Redis는 키 이름이 설계의 절반입니다. 키만 봐도 소유 도메인, 데이터 의미, 식별자, TTL 여부를 추측할 수 있어야 합니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>user:{userId}:profile
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>user:{userId}:sessions
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>order:{orderId}:summary
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>rate-limit:login:{userId}
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>lock:coupon:{couponId}
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>rank:daily:{yyyyMMdd}
 </code></pre></div>
-<h2 id="_4">언제 쓰는지</h2>
+<table>
+<thead>
+<tr>
+<th>규칙</th>
+<th>예시</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:</code>로 계층 구분</td>
+<td><code>user:10:profile</code></td>
+<td>검색과 운영이 쉬움</td>
+</tr>
+<tr>
+<td>식별자는 명확히 포함</td>
+<td><code>order:9001:summary</code></td>
+<td>충돌 방지</td>
+</tr>
+<tr>
+<td>용도를 앞에 둠</td>
+<td><code>lock:coupon:1</code></td>
+<td>장애 시 키 성격 파악</td>
+</tr>
+<tr>
+<td>TTL 키는 도메인별로 통일</td>
+<td><code>auth:token:*</code></td>
+<td>만료 정책 관리</td>
+</tr>
+<tr>
+<td>Cluster 다중 키는 hash tag 사용</td>
+<td><code>cart:{user-1}:items</code></td>
+<td>같은 hash slot 배치</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_5">자료구조 선택</h3>
+<table>
+<thead>
+<tr>
+<th>자료구조</th>
+<th>대표 명령</th>
+<th>언제 쓰는지</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String</td>
+<td><code>GET</code>, <code>SET</code>, <code>INCR</code></td>
+<td>단일 값, JSON 문자열, 카운터</td>
+<td>조회 결과 캐시, 인증 토큰</td>
+</tr>
+<tr>
+<td>Hash</td>
+<td><code>HGET</code>, <code>HSET</code>, <code>HINCRBY</code></td>
+<td>한 객체의 여러 필드</td>
+<td>사용자 프로필 일부 필드</td>
+</tr>
+<tr>
+<td>List</td>
+<td><code>LPUSH</code>, <code>RPOP</code>, <code>BRPOP</code></td>
+<td>간단한 FIFO/LIFO 큐</td>
+<td>짧은 작업 큐</td>
+</tr>
+<tr>
+<td>Set</td>
+<td><code>SADD</code>, <code>SISMEMBER</code></td>
+<td>중복 없는 집합</td>
+<td>좋아요 사용자 목록</td>
+</tr>
+<tr>
+<td>Sorted Set</td>
+<td><code>ZADD</code>, <code>ZRANGE</code></td>
+<td>점수 기반 정렬</td>
+<td>랭킹, 우선순위</td>
+</tr>
+<tr>
+<td>Stream</td>
+<td><code>XADD</code>, <code>XREADGROUP</code></td>
+<td>Redis 내부 이벤트 로그</td>
+<td>소규모 이벤트 처리</td>
+</tr>
+<tr>
+<td>Bitmap</td>
+<td><code>SETBIT</code>, <code>GETBIT</code></td>
+<td>boolean 대량 저장</td>
+<td>출석 체크</td>
+</tr>
+<tr>
+<td>HyperLogLog</td>
+<td><code>PFADD</code>, <code>PFCOUNT</code></td>
+<td>대략적인 고유 수</td>
+<td>UV 추정</td>
+</tr>
+</tbody>
+</table>
+<div class="warning-box">
+<p><strong>주의</strong>: Redis 자료구조는 편하지만 큰 컬렉션 하나에 데이터를 끝없이 넣으면 장애 지점이 된다. 한 키의 크기와 한 명령의 처리 시간이 커지는 순간 Redis 전체 지연으로 번질 수 있다.</p>
+</div>
+<h3 id="cache-aside">Cache Aside 패턴</h3>
+<p>가장 흔한 캐시 사용 방식입니다. 애플리케이션이 캐시를 먼저 보고, 없으면 DB에서 읽은 뒤 Redis에 저장합니다.</p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant Client
+    participant App
+    participant Redis
+    participant DB
+
+    Client-&gt;&gt;App: 상품 조회
+    App-&gt;&gt;Redis: GET product:1
+    alt cache hit
+        Redis--&gt;&gt;App: cached product
+    else cache miss
+        App-&gt;&gt;DB: SELECT product
+        DB--&gt;&gt;App: product
+        App-&gt;&gt;Redis: SET product:1 EX 300
+    end
+    App--&gt;&gt;Client: 응답</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>1. Redis에서 조회한다.
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>2. 값이 있으면 그대로 응답한다.
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>3. 값이 없으면 DB에서 조회한다.
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>4. DB 결과를 Redis에 TTL과 함께 저장한다.
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>5. 다음 요청부터 Redis에서 응답한다.
+</code></pre></div>
+<p>캐시 무효화는 보통 쓰기 시점에 처리합니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>DB update 성공
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>-&gt; 관련 Redis key 삭제
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>-&gt; 다음 조회에서 DB 기준으로 다시 캐시 생성
+</code></pre></div>
+<h3 id="rate-limit">카운터와 Rate Limit</h3>
+<p><code>INCR</code>는 단일 명령으로 원자적으로 증가합니다. 로그인 실패 횟수, <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 호출 횟수 같은 짧은 카운터에 적합합니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>INCR<span class="w"> </span>rate-limit:login:user-1
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>EXPIRE<span class="w"> </span>rate-limit:login:user-1<span class="w"> </span><span class="m">60</span>
+</code></pre></div>
+<p>다만 <code>INCR</code>와 <code>EXPIRE</code>를 따로 호출하면 중간 실패로 TTL 없는 키가 남을 수 있습니다. 실무에서는 Lua 스크립트나 트랜잭션으로 묶습니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">redis</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s2">&quot;INCR&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">KEYS</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kr">if</span><span class="w"> </span><span class="nv">current</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nv">redis</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s2">&quot;EXPIRE&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">KEYS</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="nv">ARGV</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="kr">end</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="kr">return</span><span class="w"> </span><span class="nv">current</span>
+</code></pre></div>
+<h3 id="_6">분산 락</h3>
+<p>여러 서버가 같은 자원을 동시에 처리하면 Redis의 <code>SET NX PX</code>를 이용해 짧은 락을 만들 수 있습니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>SET<span class="w"> </span>lock:coupon:100<span class="w"> </span>request-uuid<span class="w"> </span>NX<span class="w"> </span>PX<span class="w"> </span><span class="m">3000</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>옵션</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NX</code></td>
+<td>키가 없을 때만 저장</td>
+</tr>
+<tr>
+<td><code>PX 3000</code></td>
+<td>3초 뒤 자동 만료</td>
+</tr>
+<tr>
+<td><code>request-uuid</code></td>
+<td>락 소유자를 구분하는 값</td>
+</tr>
+</tbody>
+</table>
+<p>해제할 때는 반드시 <strong>내가 잡은 락인지 확인한 뒤 삭제</strong>해야 합니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kr">if</span><span class="w"> </span><span class="nv">redis</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">KEYS</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">ARGV</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">redis</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s2">&quot;DEL&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">KEYS</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kr">else</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="kr">end</span>
+</code></pre></div>
+<div class="danger-box">
+<p><strong>위험</strong>: 분산 락은 트랜잭션을 대신하지 않는다. 락 만료 시간이 작업 시간보다 짧으면 다른 서버가 같은 락을 다시 잡을 수 있고, 네트워크 지연·프로세스 정지·failover 상황에서는 중복 실행이 발생할 수 있다.</p>
+</div>
+<h2 id="_7">언제 쓰는지</h2>
 <table>
 <thead>
 <tr>
@@ -5786,43 +6641,48 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>반복 조회 캐시</strong></td>
+<td>자주 읽지만 자주 바뀌지 않는 데이터</td>
 <td>높음</td>
-<td>DB 부하와 응답 시간 감소</td>
+<td>DB 조회를 줄이고 응답 속도 개선</td>
 </tr>
 <tr>
-<td><strong>로그인 세션 저장</strong></td>
+<td>세션, 인증 토큰 같은 짧은 상태</td>
 <td>높음</td>
-<td>TTL과 빠른 조회가 필요</td>
+<td>TTL로 자동 만료 가능</td>
 </tr>
 <tr>
-<td><strong>인증 코드/임시 토큰</strong></td>
+<td>카운터, 조회수, Rate Limit</td>
 <td>높음</td>
-<td>자동 만료 처리 가능</td>
+<td>원자 증가 연산이 빠름</td>
 </tr>
 <tr>
-<td><strong>랭킹/점수판</strong></td>
+<td>랭킹, 점수 정렬</td>
 <td>높음</td>
-<td>Sorted Set으로 정렬 유지</td>
+<td>Sorted Set이 적합</td>
 </tr>
 <tr>
-<td><strong>분산 락</strong></td>
+<td>짧은 분산 락</td>
 <td>조건부</td>
-<td>여러 서버의 동시 작업 제어</td>
+<td>단기 중복 실행 방지에 사용</td>
 </tr>
 <tr>
-<td><strong>영구 원장 데이터</strong></td>
+<td>반드시 유실되면 안 되는 원장 데이터</td>
 <td>낮음</td>
-<td>Redis만 단독 저장소로 쓰기엔 위험</td>
+<td>Redis 장애·failover·설정 오류에 취약</td>
 </tr>
 <tr>
-<td><strong>복잡한 관계형 조회</strong></td>
+<td>복잡한 조인과 검색</td>
 <td>낮음</td>
-<td>조인, 정규화, 트랜잭션 모델에 부적합</td>
+<td>관계형 조회나 검색 엔진 역할이 아님</td>
+</tr>
+<tr>
+<td>긴 작업 큐의 유일 저장소</td>
+<td>낮음</td>
+<td>메시지 내구성, 재처리, 추적은 전용 브로커가 더 적합</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_5">장점</h2>
+<h2 id="_8">장점</h2>
 <table>
 <thead>
 <tr>
@@ -5832,28 +6692,28 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>빠른 응답</strong></td>
-<td>메모리 기반이라 대부분의 연산이 매우 빠름</td>
+<td>빠른 응답</td>
+<td>메모리 기반이라 단순 조회·갱신이 빠름</td>
 </tr>
 <tr>
-<td><strong>다양한 자료구조</strong></td>
-<td>단순 문자열뿐 아니라 Set, Sorted Set, Stream 제공</td>
+<td>다양한 자료구조</td>
+<td>String뿐 아니라 Hash, Set, Sorted Set, Stream 지원</td>
 </tr>
 <tr>
-<td><strong>TTL 지원</strong></td>
-<td>만료 시간이 필요한 데이터를 쉽게 관리</td>
+<td>TTL 지원</td>
+<td>임시 데이터 자동 삭제 가능</td>
 </tr>
 <tr>
-<td><strong>원자적 연산</strong></td>
-<td><code>INCR</code>, <code>SET NX</code> 등 단일 명령은 원자적으로 처리</td>
+<td>원자 명령</td>
+<td><code>INCR</code>, <code>SET NX</code>, Lua로 경쟁 조건 감소</td>
 </tr>
 <tr>
-<td><strong>운영 패턴 다양</strong></td>
-<td>캐시, 세션, 락, 랭킹, rate limit에 활용 가능</td>
+<td>운영 기능</td>
+<td>replication, Sentinel, Cluster, persistence 제공</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_6">단점</h2>
+<h2 id="_9">단점</h2>
 <table>
 <thead>
 <tr>
@@ -5863,181 +6723,217 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>메모리 비용</strong></td>
-<td>저장량이 커질수록 비용이 빠르게 증가</td>
+<td>메모리 비용</td>
+<td>데이터가 커질수록 비용이 빠르게 증가</td>
 </tr>
 <tr>
-<td><strong>데이터 유실 가능성</strong></td>
-<td>설정에 따라 장애 시 최근 쓰기 데이터가 사라질 수 있음</td>
+<td>유실 가능성</td>
+<td>AOF/RDB 설정과 장애 타이밍에 따라 최근 데이터 손실 가능</td>
 </tr>
 <tr>
-<td><strong>캐시 일관성 문제</strong></td>
-<td>DB와 Redis 값이 달라질 수 있음</td>
+<td>단일 명령 지연 영향</td>
+<td>느린 명령 하나가 전체 지연으로 이어질 수 있음</td>
 </tr>
 <tr>
-<td><strong>Hot Key 위험</strong></td>
-<td>특정 Key에 요청이 몰리면 병목 발생</td>
+<td>캐시 정합성 문제</td>
+<td>DB와 Redis 값이 일시적으로 달라질 수 있음</td>
 </tr>
 <tr>
-<td><strong>운영 난이도</strong></td>
-<td>eviction, persistence, replication 설정을 이해해야 함</td>
+<td>운영 난도</td>
+<td>eviction, big key, hot key, replication lag, failover 관리 필요</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_7">특징</h2>
-<h3 id="1">1. 인메모리 저장</h3>
-<p>Redis는 데이터를 메모리에 두기 때문에 빠릅니다. 대신 메모리 크기가 한계가 되고, 설정에 따라 오래된 데이터가 제거될 수 있습니다.</p>
-<h3 id="2-ttl-eviction">2. TTL과 Eviction</h3>
-<p>TTL은 Key 단위 만료 시간입니다. Eviction은 메모리가 부족할 때 어떤 Key를 제거할지 정하는 정책입니다.</p>
+<h2 id="_10">특징</h2>
+<h3 id="_11">메모리 기반 처리</h3>
+<p>Redis는 대부분의 명령을 메모리에서 처리합니다. 그래서 빠르지만, 메모리 사용량이 곧 비용과 장애 한계가 됩니다.</p>
+<table>
+<thead>
+<tr>
+<th>확인 항목</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>used_memory</code></td>
+<td>Redis가 할당한 메모리</td>
+</tr>
+<tr>
+<td><code>used_memory_rss</code></td>
+<td>OS가 실제로 잡고 있는 메모리</td>
+</tr>
+<tr>
+<td><code>mem_fragmentation_ratio</code></td>
+<td>메모리 단편화 비율</td>
+</tr>
+<tr>
+<td><code>maxmemory</code></td>
+<td>Redis가 사용할 최대 메모리</td>
+</tr>
+<tr>
+<td><code>evicted_keys</code></td>
+<td>메모리 부족으로 제거된 키 수</td>
+</tr>
+</tbody>
+</table>
+<p>메모리는 데이터 크기만큼만 쓰이지 않습니다. 키 이름, 자료구조 메타데이터, TTL 정보, replication buffer, client buffer, allocator 단편화까지 포함됩니다.</p>
+<h3 id="_12">단일 스레드처럼 보이는 명령 실행</h3>
+<p>Redis는 명령 실행 경로가 이벤트 루프 중심이라 한 명령이 오래 걸리면 뒤의 요청도 밀립니다. 최신 Redis는 I/O, persistence, lazy free 등 일부 작업에 별도 스레드를 활용할 수 있지만, <strong>느린 명령이 전체 지연을 만든다</strong>는 운영 감각은 그대로 중요합니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>빠른 명령 1ms
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>빠른 명령 1ms
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>큰 키 삭제 500ms
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>빠른 명령 1ms  -&gt; 앞의 큰 키 삭제 때문에 대기
+</code></pre></div>
+<p>피해야 하는 패턴입니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># 운영 환경에서 전체 키 스캔 위험</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>KEYS<span class="w"> </span>*
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># 큰 컬렉션 전체 조회 위험</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>LRANGE<span class="w"> </span>big:list<span class="w"> </span><span class="m">0</span><span class="w"> </span>-1
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>SMEMBERS<span class="w"> </span>big:set
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>HGETALL<span class="w"> </span>huge:hash
+</code></pre></div>
+<p>대신 점진적으로 나누어 처리합니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>SCAN<span class="w"> </span><span class="m">0</span><span class="w"> </span>MATCH<span class="w"> </span>user:*<span class="w"> </span>COUNT<span class="w"> </span><span class="m">100</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>HSCAN<span class="w"> </span>user:1:profile<span class="w"> </span><span class="m">0</span><span class="w"> </span>COUNT<span class="w"> </span><span class="m">100</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>SSCAN<span class="w"> </span>active-users<span class="w"> </span><span class="m">0</span><span class="w"> </span>COUNT<span class="w"> </span><span class="m">100</span>
+</code></pre></div>
+<h3 id="ttl-eviction">TTL과 Eviction</h3>
+<p>TTL은 키별 만료 시간이고, eviction은 <code>maxmemory</code>에 도달했을 때 Redis가 키를 제거하는 정책입니다. 둘은 다릅니다.</p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TTL</td>
+<td>시간이 지나면 키 삭제</td>
+</tr>
+<tr>
+<td>Eviction</td>
+<td>메모리가 부족할 때 정책에 따라 키 삭제</td>
+</tr>
+</tbody>
+</table>
+<p>주요 eviction 정책입니다.</p>
 <table>
 <thead>
 <tr>
 <th>정책</th>
-<th>설명</th>
+<th>제거 대상</th>
+<th>언제 고려</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>noeviction</code></td>
-<td>메모리 부족 시 쓰기 실패</td>
+<td>제거하지 않음</td>
+<td>쓰기 실패를 감수하고 데이터 삭제를 막을 때</td>
 </tr>
 <tr>
 <td><code>allkeys-lru</code></td>
-<td>모든 Key 중 오래 사용하지 않은 Key 제거</td>
-</tr>
-<tr>
-<td><code>volatile-lru</code></td>
-<td>TTL이 있는 Key 중 오래 사용하지 않은 Key 제거</td>
+<td>전체 키 중 덜 최근에 사용한 키</td>
+<td>일반 캐시</td>
 </tr>
 <tr>
 <td><code>allkeys-lfu</code></td>
-<td>모든 Key 중 사용 빈도가 낮은 Key 제거</td>
+<td>전체 키 중 덜 자주 사용한 키</td>
+<td>인기 데이터가 뚜렷할 때</td>
+</tr>
+<tr>
+<td><code>volatile-lru</code></td>
+<td>TTL 있는 키 중 덜 최근에 사용한 키</td>
+<td>TTL 없는 키를 보호해야 할 때</td>
+</tr>
+<tr>
+<td><code>volatile-lfu</code></td>
+<td>TTL 있는 키 중 덜 자주 사용한 키</td>
+<td>TTL 기반 캐시</td>
+</tr>
+<tr>
+<td><code>volatile-ttl</code></td>
+<td>TTL이 짧은 키</td>
+<td>곧 만료될 키 우선 제거</td>
+</tr>
+<tr>
+<td><code>allkeys-random</code></td>
+<td>전체 키 중 랜덤</td>
+<td>접근 패턴 예측이 어려울 때</td>
 </tr>
 </tbody>
 </table>
-<h3 id="3-persistence">3. Persistence</h3>
-<p>Redis는 메모리 저장소지만 디스크 저장 옵션도 제공합니다.</p>
+<div class="warning-box">
+<p><strong>주의</strong>: <code>volatile-*</code> 정책은 TTL이 있는 키만 제거한다. TTL이 없는 키가 많으면 메모리 부족 상황에서 기대처럼 제거되지 않고 쓰기 실패가 날 수 있다.</p>
+</div>
+<h3 id="persistence-rdb-aof">Persistence: RDB와 AOF</h3>
+<p>Redis는 메모리 저장소지만 디스크에 복구용 데이터를 남길 수 있습니다.</p>
 <table>
 <thead>
 <tr>
 <th>방식</th>
 <th>설명</th>
+<th>장점</th>
+<th>단점</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>RDB</code></td>
-<td>특정 시점 스냅샷 저장</td>
+<td>RDB</td>
+<td>특정 시점 스냅샷</td>
+<td>파일이 작고 복구가 빠름</td>
+<td>마지막 스냅샷 이후 데이터 유실 가능</td>
 </tr>
 <tr>
-<td><code>AOF</code></td>
-<td>쓰기 명령 로그를 저장</td>
+<td>AOF</td>
+<td>쓰기 명령 로그</td>
+<td>더 적은 유실 가능</td>
+<td>파일 증가, rewrite 비용</td>
 </tr>
 <tr>
-<td><code>RDB + AOF</code></td>
-<td>복구 안정성과 성능을 함께 고려</td>
+<td>RDB + AOF</td>
+<td>둘 다 사용</td>
+<td>복구 안정성 향상</td>
+<td>운영 비용 증가</td>
 </tr>
 </tbody>
 </table>
-<h3 id="4-cache-aside">4. Cache Aside 패턴</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>1. 애플리케이션이 Redis에서 먼저 조회
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>2. 없으면 DB에서 조회
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>3. DB 조회 결과를 Redis에 저장
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>4. 다음 요청부터 Redis에서 응답
-</code></pre></div>
-<p>데이터 변경 시에는 DB를 먼저 갱신하고 관련 캐시를 삭제하거나 갱신합니다.</p>
-<h2 id="_8">주의할 점</h2>
-<div class="warning-box">
-<p><strong>캐시는 정답 저장소가 아닙니다.</strong></p>
-<p>중요한 원장 데이터는 DB에 저장하고 Redis는 빠른 조회나 임시 상태 저장 용도로 사용합니다.</p>
-</div>
-<div class="warning-box">
-<p><strong>캐시 만료가 한 번에 몰리면 장애가 날 수 있습니다.</strong></p>
-<p>동일한 TTL을 대량 Key에 적용하면 특정 시점에 캐시가 한꺼번에 사라져 DB로 요청이 몰립니다. TTL에 작은 랜덤 값을 섞어 분산합니다.</p>
-</div>
-<div class="danger-box">
-<p><strong>분산 락은 만능이 아닙니다.</strong></p>
-<p>락 만료 시간, 작업 시간 초과, 네트워크 지연, 재시도 정책을 함께 설계하지 않으면 중복 실행이 발생할 수 있습니다.</p>
-</div>
-<h2 id="_9">베스트 프랙티스</h2>
+<p>AOF fsync 정책입니다.</p>
 <table>
 <thead>
 <tr>
-<th>권장 방식</th>
-<th>이유</th>
+<th>설정</th>
+<th>의미</th>
+<th>장애 시</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Key 네이밍 규칙 통일</strong></td>
-<td><code>domain:type:id</code> 형태로 추적과 삭제가 쉬움</td>
+<td><code>appendfsync always</code></td>
+<td>매 쓰기마다 fsync</td>
+<td>가장 안전하지만 느림</td>
 </tr>
 <tr>
-<td><strong>TTL을 명시적으로 설계</strong></td>
-<td>무기한 Key 증가를 방지</td>
+<td><code>appendfsync everysec</code></td>
+<td>보통 1초마다 fsync</td>
+<td>성능과 안전성 균형, 최근 약 1초 유실 가능</td>
 </tr>
 <tr>
-<td><strong>TTL에 jitter 추가</strong></td>
-<td>캐시 동시 만료 방지</td>
-</tr>
-<tr>
-<td><strong>큰 Value 저장 지양</strong></td>
-<td>네트워크와 메모리 부담 감소</td>
-</tr>
-<tr>
-<td><strong>중요 데이터는 DB 기준</strong></td>
-<td>Redis 장애나 유실에 대비</td>
-</tr>
-<tr>
-<td><strong>캐시 삭제 전략 문서화</strong></td>
-<td>DB 변경 후 오래된 캐시가 남지 않게 함</td>
-</tr>
-<tr>
-<td><strong>메모리와 hit ratio 모니터링</strong></td>
-<td>캐시 효과와 장애 징후 파악</td>
+<td><code>appendfsync no</code></td>
+<td>OS flush에 맡김</td>
+<td>빠르지만 유실 범위가 커질 수 있음</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_10">실무에서는?</h2>
-<table>
-<thead>
-<tr>
-<th>사용처</th>
-<th>예시</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>상품/게시글 캐시</strong></td>
-<td>조회가 많은 상세 페이지 응답 캐시</td>
-</tr>
-<tr>
-<td><strong>세션 저장소</strong></td>
-<td>로그인 사용자 상태 저장</td>
-</tr>
-<tr>
-<td><strong>Refresh Token 관리</strong></td>
-<td>토큰 만료와 강제 로그아웃 처리</td>
-</tr>
-<tr>
-<td><strong>인증 코드</strong></td>
-<td>SMS/Email 인증번호 TTL 관리</td>
-</tr>
-<tr>
-<td><strong>Rate Limiting</strong></td>
-<td>사용자별 요청 횟수 제한</td>
-</tr>
-<tr>
-<td><strong>랭킹</strong></td>
-<td>점수 기반 Top N 조회</td>
-</tr>
-<tr>
-<td><strong>분산 락</strong></td>
-<td>중복 결제, 재고 차감 같은 동시 처리 제어</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_11">정리</h2>
+<p>Redis를 캐시로만 쓰면 persistence를 끌 수도 있습니다. 하지만 세션, 락, 카운터처럼 장애 후 상태가 중요하면 RDB/AOF 정책과 백업을 명확히 정해야 합니다.</p>
+<h3 id="replication-sentinel">Replication과 Sentinel</h3>
+<p>Redis replication은 master가 replica에 변경 명령을 전달하는 방식입니다. 기본은 비동기 복제입니다.</p>
+<pre class="mermaid"><code>flowchart LR
+    A[Master] --&gt; B[Replica 1]
+    A --&gt; C[Replica 2]</code></pre>
 <table>
 <thead>
 <tr>
@@ -6047,27 +6943,943 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Redis</strong></td>
-<td>인메모리 Key-Value 저장소</td>
+<td>master</td>
+<td>쓰기를 받는 노드</td>
 </tr>
 <tr>
-<td><strong>주요 용도</strong></td>
-<td>캐시, 세션, TTL 데이터, 랭킹, 분산 락</td>
+<td>replica</td>
+<td>master 데이터를 복제</td>
 </tr>
 <tr>
-<td><strong>강점</strong></td>
-<td>빠른 응답, 다양한 자료구조, TTL</td>
+<td>async replication</td>
+<td>master가 매 쓰기마다 replica 적용을 기다리지 않음</td>
 </tr>
 <tr>
-<td><strong>주의</strong></td>
-<td>영구 저장소 대체 금지, 캐시 일관성, 메모리 관리</td>
+<td>replication lag</td>
+<td>replica가 master보다 늦은 정도</td>
+</tr>
+<tr>
+<td>failover</td>
+<td>master 장애 시 replica를 새 master로 승격</td>
+</tr>
+</tbody>
+</table>
+<p>Sentinel은 master 장애를 감지하고 failover를 자동화하는 구성입니다.</p>
+<pre class="mermaid"><code>flowchart TB
+    S1[Sentinel 1]
+    S2[Sentinel 2]
+    S3[Sentinel 3]
+    M[Redis Master]
+    R1[Redis Replica]
+    R2[Redis Replica]
+
+    S1 -.감시.-&gt; M
+    S2 -.감시.-&gt; M
+    S3 -.감시.-&gt; M
+    M --&gt; R1
+    M --&gt; R2</code></pre>
+<div class="warning-box">
+<p><strong>주의</strong>: 비동기 복제에서는 master가 성공 응답을 보낸 직후 장애가 나고, 그 쓰기가 replica에 도달하지 않았다면 failover 후 데이터가 사라질 수 있다.</p>
+</div>
+<h3 id="cluster-hash-slot">Cluster와 Hash Slot</h3>
+<p>Redis Cluster는 데이터를 여러 master에 나누어 저장합니다. Redis Cluster는 16384개의 hash slot을 사용하고, 각 키는 하나의 slot에 배치됩니다.</p>
+<pre class="mermaid"><code>flowchart LR
+    C[Client] --&gt; A[Master A&lt;br/&gt;slot 0-5460]
+    C --&gt; B[Master B&lt;br/&gt;slot 5461-10922]
+    C --&gt; D[Master C&lt;br/&gt;slot 10923-16383]
+    A --&gt; A1[Replica A1]
+    B --&gt; B1[Replica B1]
+    D --&gt; D1[Replica C1]</code></pre>
+<table>
+<thead>
+<tr>
+<th>개념</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hash slot</td>
+<td>키가 배치되는 논리 슬롯</td>
+</tr>
+<tr>
+<td><code>MOVED</code></td>
+<td>키의 slot 담당 노드가 바뀌었으니 새 노드로 가라는 응답</td>
+</tr>
+<tr>
+<td><code>ASK</code></td>
+<td>slot 이동 중 임시로 다른 노드에 물어보라는 응답</td>
+</tr>
+<tr>
+<td>hash tag</td>
+<td><code>{}</code> 안의 문자열만 hash해 여러 키를 같은 slot에 배치</td>
+</tr>
+</tbody>
+</table>
+<p>다중 키 명령은 같은 slot에 있어야 합니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>가능:
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>cart:{user-1}:items
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>cart:{user-1}:summary
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>불가능할 수 있음:
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>cart:user-1:items
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>cart:user-1:summary
+</code></pre></div>
+<h2 id="_13">주의할 점</h2>
+<h3 id="redis_1">Redis를 원본 저장소로 착각하지 않기</h3>
+<p>Redis가 장애로 비어도 다시 만들 수 있어야 안전합니다.</p>
+<table>
+<thead>
+<tr>
+<th>데이터</th>
+<th>Redis 단독 저장 가능성</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>상품 상세 캐시</td>
+<td>가능</td>
+<td>DB에서 다시 만들 수 있음</td>
+</tr>
+<tr>
+<td>로그인 세션</td>
+<td>조건부</td>
+<td>로그아웃, 만료, 보안 정책 필요</td>
+</tr>
+<tr>
+<td>쿠폰 발급 원장</td>
+<td>낮음</td>
+<td>유실되면 금전/재고 문제</td>
+</tr>
+<tr>
+<td>결제 상태</td>
+<td>낮음</td>
+<td>강한 정합성과 감사 로그 필요</td>
+</tr>
+<tr>
+<td>랭킹 중간 집계</td>
+<td>조건부</td>
+<td>재계산 가능하면 OK</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cache-stampede">Cache Stampede</h3>
+<p>인기 키가 동시에 만료되면 많은 요청이 한 번에 DB로 몰립니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>인기 상품 캐시 만료
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>-&gt; 요청 1,000개가 동시에 miss
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>-&gt; DB 조회 1,000번
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>-&gt; DB 지연
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>-&gt; 애플리케이션 타임아웃
+</code></pre></div>
+<p>대응 방법입니다.</p>
+<table>
+<thead>
+<tr>
+<th>방법</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TTL jitter</td>
+<td>TTL에 랜덤 값을 섞어 동시에 만료되지 않게 함</td>
+</tr>
+<tr>
+<td>mutex lock</td>
+<td>miss 시 한 요청만 DB 조회, 나머지는 대기 또는 stale 응답</td>
+</tr>
+<tr>
+<td>stale cache</td>
+<td>만료된 값이라도 잠시 응답하고 백그라운드 갱신</td>
+</tr>
+<tr>
+<td>pre-warming</td>
+<td>배포·이벤트 전 인기 키 미리 적재</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cache-penetration">Cache Penetration</h3>
+<p>존재하지 않는 값을 계속 조회해 캐시를 우회하는 문제입니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>GET product:-1 -&gt; miss
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>DB 조회 -&gt; 없음
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>다음 요청도 miss
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>DB 조회 반복
+</code></pre></div>
+<p>대응 방법입니다.</p>
+<table>
+<thead>
+<tr>
+<th>방법</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>null cache</td>
+<td>없는 결과도 짧은 TTL로 캐시</td>
+</tr>
+<tr>
+<td>입력 검증</td>
+<td>말이 안 되는 ID를 DB까지 보내지 않음</td>
+</tr>
+<tr>
+<td>Bloom Filter</td>
+<td>존재 가능성이 없는 키를 빠르게 차단</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cache-avalanche">Cache Avalanche</h3>
+<p>많은 키가 비슷한 시간에 만료되어 DB로 트래픽이 쏠리는 문제입니다.</p>
+<p>대응 방법은 TTL 분산, 대량 키 갱신 속도 제한, 사전 적재, fallback 응답입니다.</p>
+<h3 id="hot-key">Hot Key</h3>
+<p>하나의 키에 요청이 몰리면 특정 Redis 노드 또는 단일 명령 경로가 병목이 됩니다.</p>
+<table>
+<thead>
+<tr>
+<th>대응</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>local cache</td>
+<td>아주 짧은 로컬 메모리 캐시로 Redis 요청 감소</td>
+</tr>
+<tr>
+<td>key sharding</td>
+<td><code>hot:key:0..N</code>으로 나누어 부하 분산</td>
+</tr>
+<tr>
+<td>replica read</td>
+<td>읽기 전용 트래픽을 replica로 분산</td>
+</tr>
+<tr>
+<td>TTL 조정</td>
+<td>너무 짧은 TTL로 반복 재생성되지 않게 함</td>
+</tr>
+</tbody>
+</table>
+<h3 id="big-key">Big Key</h3>
+<p>한 키의 값이 너무 크면 네트워크 전송, 삭제, 복제, 백업, failover가 모두 느려집니다.</p>
+<table>
+<thead>
+<tr>
+<th>Big Key 예시</th>
+<th>문제</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>수십 MB String</td>
+<td>조회 한 번에 네트워크와 이벤트 루프 점유</td>
+</tr>
+<tr>
+<td>필드 수백만 Hash</td>
+<td><code>HGETALL</code>이 전체 지연 유발</td>
+</tr>
+<tr>
+<td>원소 수백만 Set</td>
+<td>삭제와 복제가 오래 걸림</td>
+</tr>
+<tr>
+<td>긴 List</td>
+<td>pop/push는 괜찮아도 전체 조회가 위험</td>
+</tr>
+</tbody>
+</table>
+<p>대응 방법은 키 분할, 페이지 단위 조회, <code>UNLINK</code> 사용, 자료구조 재설계입니다.</p>
+<h2 id="runbook">장애 대응 Runbook</h2>
+<p>장애 대응은 "증상 확인 -&gt; 영향 범위 파악 -&gt; 완화 -&gt; 원인 제거 -&gt; 재발 방지" 순서로 움직입니다.</p>
+<h3 id="1-redis">1. Redis 지연이 급증함</h3>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>확인</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>증상</td>
+<td><abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 응답 지연, Redis timeout, connection pool 대기 증가</td>
+</tr>
+<tr>
+<td>즉시 확인</td>
+<td><code>SLOWLOG GET</code>, <code>LATENCY DOCTOR</code>, <code>INFO commandstats</code>, CPU, 네트워크</td>
+</tr>
+<tr>
+<td>의심 원인</td>
+<td>big key 조회/삭제, <code>KEYS</code>, 큰 <code>HGETALL</code>, AOF rewrite, fork 비용, swap</td>
+</tr>
+<tr>
+<td>완화</td>
+<td>느린 명령 중단, 트래픽 제한, timeout 조정, 큰 키 접근 차단</td>
+</tr>
+<tr>
+<td>재발 방지</td>
+<td>big key 탐지, <code>SCAN</code> 사용, 명령별 timeout, slowlog 알림</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>redis-cli<span class="w"> </span>SLOWLOG<span class="w"> </span>GET<span class="w"> </span><span class="m">20</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>redis-cli<span class="w"> </span>LATENCY<span class="w"> </span>DOCTOR
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>redis-cli<span class="w"> </span>INFO<span class="w"> </span>commandstats
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>redis-cli<span class="w"> </span>--bigkeys
+</code></pre></div>
+<h3 id="2">2. 메모리 부족 또는 쓰기 실패</h3>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>확인</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>증상</td>
+<td><code>OOM command not allowed</code>, write 실패, <code>evicted_keys</code> 증가</td>
+</tr>
+<tr>
+<td>즉시 확인</td>
+<td><code>INFO memory</code>, <code>CONFIG GET maxmemory</code>, <code>CONFIG GET maxmemory-policy</code></td>
+</tr>
+<tr>
+<td>의심 원인</td>
+<td>TTL 없는 키 증가, big key, eviction 정책 부적합, 메모리 단편화</td>
+</tr>
+<tr>
+<td>완화</td>
+<td>불필요 키 삭제, TTL 부여, 임시 scale up, write traffic 제한</td>
+</tr>
+<tr>
+<td>재발 방지</td>
+<td>메모리 알림, 키 수 추적, 도메인별 TTL 표준화, 용량 산정</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>redis-cli<span class="w"> </span>INFO<span class="w"> </span>memory
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>redis-cli<span class="w"> </span>INFO<span class="w"> </span>stats<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>evicted_keys
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>redis-cli<span class="w"> </span>CONFIG<span class="w"> </span>GET<span class="w"> </span>maxmemory
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>redis-cli<span class="w"> </span>CONFIG<span class="w"> </span>GET<span class="w"> </span>maxmemory-policy
+</code></pre></div>
+<h3 id="3-cache-stampede">3. Cache Stampede 발생</h3>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>확인</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>증상</td>
+<td>특정 캐시 miss 후 DB QPS 폭증</td>
+</tr>
+<tr>
+<td>즉시 확인</td>
+<td>DB slow query, Redis <code>keyspace_misses</code>, 특정 key TTL</td>
+</tr>
+<tr>
+<td>의심 원인</td>
+<td>인기 키 동시 만료, 배포 후 캐시 초기화</td>
+</tr>
+<tr>
+<td>완화</td>
+<td>임시 TTL 연장, stale 응답 허용, 요청 제한</td>
+</tr>
+<tr>
+<td>재발 방지</td>
+<td>TTL jitter, mutex, pre-warming, null cache</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>redis-cli<span class="w"> </span>TTL<span class="w"> </span>product:popular:1
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>redis-cli<span class="w"> </span>INFO<span class="w"> </span>stats<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>keyspace
+</code></pre></div>
+<h3 id="4-hot-key">4. Hot Key로 특정 노드만 과부하</h3>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>확인</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>증상</td>
+<td>Cluster 일부 노드 CPU·network만 높음</td>
+</tr>
+<tr>
+<td>즉시 확인</td>
+<td>key별 QPS, <code>MONITOR</code>는 짧게만 사용, 애플리케이션 로그</td>
+</tr>
+<tr>
+<td>의심 원인</td>
+<td>인기 상품, 공통 설정 키, 짧은 TTL</td>
+</tr>
+<tr>
+<td>완화</td>
+<td>local cache, read replica, 임시 TTL 증가</td>
+</tr>
+<tr>
+<td>재발 방지</td>
+<td>hot key sharding, 캐시 계층화, 인기 키 별도 정책</td>
+</tr>
+</tbody>
+</table>
+<p><code>MONITOR</code>는 Redis에 부하를 줄 수 있으므로 운영에서는 짧게만 사용합니다.</p>
+<h3 id="5-big-key">5. Big Key가 발견됨</h3>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>확인</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>증상</td>
+<td>특정 명령만 느림, network output 급증, failover 지연</td>
+</tr>
+<tr>
+<td>즉시 확인</td>
+<td><code>--bigkeys</code>, <code>MEMORY USAGE</code>, 자료구조 길이</td>
+</tr>
+<tr>
+<td>의심 원인</td>
+<td>무제한 컬렉션, 전체 객체 캐시, 삭제 누락</td>
+</tr>
+<tr>
+<td>완화</td>
+<td>큰 키 접근 차단, <code>UNLINK</code>, 배치 분할</td>
+</tr>
+<tr>
+<td>재발 방지</td>
+<td>키 크기 제한, 페이지 단위 저장, 만료 정책</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>redis-cli<span class="w"> </span>--bigkeys
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>redis-cli<span class="w"> </span>MEMORY<span class="w"> </span>USAGE<span class="w"> </span>some:key
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>redis-cli<span class="w"> </span>HLEN<span class="w"> </span>some:hash
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>redis-cli<span class="w"> </span>SCARD<span class="w"> </span>some:set
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>redis-cli<span class="w"> </span>ZCARD<span class="w"> </span>some:zset
+</code></pre></div>
+<h3 id="6">6. 커넥션 폭증</h3>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>확인</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>증상</td>
+<td><code>max number of clients reached</code>, timeout, 연결 생성 지연</td>
+</tr>
+<tr>
+<td>즉시 확인</td>
+<td><code>INFO clients</code>, <code>CLIENT LIST</code>, 애플리케이션 인스턴스 수</td>
+</tr>
+<tr>
+<td>의심 원인</td>
+<td>connection leak, pool 과다, 장애 재시도 폭주</td>
+</tr>
+<tr>
+<td>완화</td>
+<td>클라이언트 재시작, pool 제한, 재시도 backoff 적용</td>
+</tr>
+<tr>
+<td>재발 방지</td>
+<td>connection pool 표준, idle timeout, circuit breaker</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>redis-cli<span class="w"> </span>INFO<span class="w"> </span>clients
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>redis-cli<span class="w"> </span>CLIENT<span class="w"> </span>LIST
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>redis-cli<span class="w"> </span>CONFIG<span class="w"> </span>GET<span class="w"> </span>maxclients
+</code></pre></div>
+<h3 id="7-master-failover">7. Master 장애와 failover</h3>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>확인</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>증상</td>
+<td>write 실패, <code>READONLY</code> 에러, 짧은 장애 후 데이터 일부 누락</td>
+</tr>
+<tr>
+<td>즉시 확인</td>
+<td>Sentinel/Cluster 상태, <code>INFO replication</code>, client topology 갱신</td>
+</tr>
+<tr>
+<td>의심 원인</td>
+<td>master 다운, 네트워크 분리, replica lag</td>
+</tr>
+<tr>
+<td>완화</td>
+<td>client가 새 master를 보도록 갱신, 쓰기 재시도, 장애 노드 격리</td>
+</tr>
+<tr>
+<td>재발 방지</td>
+<td>replica lag 알림, Sentinel quorum 점검, client timeout·retry 정책</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>redis-cli<span class="w"> </span>INFO<span class="w"> </span>replication
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>redis-cli<span class="w"> </span>ROLE
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>redis-cli<span class="w"> </span>SENTINEL<span class="w"> </span>masters
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>redis-cli<span class="w"> </span>CLUSTER<span class="w"> </span>INFO
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>redis-cli<span class="w"> </span>CLUSTER<span class="w"> </span>NODES
+</code></pre></div>
+<h3 id="8-replica-lag">8. Replica lag 증가</h3>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>확인</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>증상</td>
+<td>replica read에서 오래된 값 조회, failover 후 데이터 유실 의심</td>
+</tr>
+<tr>
+<td>즉시 확인</td>
+<td><code>master_repl_offset</code>, <code>slave_repl_offset</code>, network, big key</td>
+</tr>
+<tr>
+<td>의심 원인</td>
+<td>네트워크 지연, replica 성능 부족, 큰 쓰기, full resync</td>
+</tr>
+<tr>
+<td>완화</td>
+<td>replica read 중단, master read로 전환, 쓰기량 제한</td>
+</tr>
+<tr>
+<td>재발 방지</td>
+<td>lag 기준 알림, replica sizing, 큰 키 제거</td>
+</tr>
+</tbody>
+</table>
+<h3 id="9-aof-rewrite">9. AOF rewrite 또는 디스크 문제</h3>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>확인</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>증상</td>
+<td>지연 증가, disk full, AOF 파일 급증, 재시작 실패</td>
+</tr>
+<tr>
+<td>즉시 확인</td>
+<td><code>INFO persistence</code>, 디스크 사용량, fork 실패 로그</td>
+</tr>
+<tr>
+<td>의심 원인</td>
+<td>AOF rewrite 중 disk I/O, 디스크 부족, 파일 손상</td>
+</tr>
+<tr>
+<td>완화</td>
+<td>디스크 확보, rewrite 중복 방지, 백업 확인</td>
+</tr>
+<tr>
+<td>재발 방지</td>
+<td>AOF rewrite 기준 조정, 디스크 알림, 백업 복구 훈련</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>redis-cli<span class="w"> </span>INFO<span class="w"> </span>persistence
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>redis-cli<span class="w"> </span>BGREWRITEAOF
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>redis-check-aof<span class="w"> </span>--fix<span class="w"> </span>appendonly.aof
+</code></pre></div>
+<h3 id="10-cluster-moved-ask-crossslot">10. Cluster <code>MOVED</code>, <code>ASK</code>, <code>CROSSSLOT</code></h3>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>확인</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>증상</td>
+<td>Cluster client 에러, 다중 키 명령 실패</td>
+</tr>
+<tr>
+<td>즉시 확인</td>
+<td>client가 cluster mode 지원인지, key hash slot</td>
+</tr>
+<tr>
+<td>의심 원인</td>
+<td>resharding, topology cache 미갱신, hash tag 누락</td>
+</tr>
+<tr>
+<td>완화</td>
+<td>client topology refresh, 같은 slot 키로 재시도</td>
+</tr>
+<tr>
+<td>재발 방지</td>
+<td>hash tag 설계, cluster 지원 client 사용, resharding 절차화</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>redis-cli<span class="w"> </span>CLUSTER<span class="w"> </span>KEYSLOT<span class="w"> </span>cart:<span class="o">{</span>user-1<span class="o">}</span>:items
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>redis-cli<span class="w"> </span>CLUSTER<span class="w"> </span>KEYSLOT<span class="w"> </span>cart:<span class="o">{</span>user-1<span class="o">}</span>:summary
+</code></pre></div>
+<h3 id="11-db">11. 캐시 값이 DB와 다름</h3>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>확인</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>증상</td>
+<td>사용자가 오래된 정보 조회</td>
+</tr>
+<tr>
+<td>즉시 확인</td>
+<td>해당 key TTL, DB updated_at, 캐시 갱신 로그</td>
+</tr>
+<tr>
+<td>의심 원인</td>
+<td>DB update 후 cache delete 실패, write 순서 문제</td>
+</tr>
+<tr>
+<td>완화</td>
+<td>해당 key 삭제, 도메인 캐시 일괄 무효화</td>
+</tr>
+<tr>
+<td>재발 방지</td>
+<td>cache aside 표준화, outbox 기반 무효화 이벤트, 짧은 TTL</td>
+</tr>
+</tbody>
+</table>
+<h3 id="12">12. 분산 락 중복 실행</h3>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>확인</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>증상</td>
+<td>같은 주문·쿠폰·배치가 두 번 처리됨</td>
+</tr>
+<tr>
+<td>즉시 확인</td>
+<td>락 TTL, 작업 수행 시간, 프로세스 중단 여부</td>
+</tr>
+<tr>
+<td>의심 원인</td>
+<td>TTL보다 작업이 길었음, 락 해제 시 소유자 확인 누락</td>
+</tr>
+<tr>
+<td>완화</td>
+<td>중복 처리 보정, idempotency key로 재처리 차단</td>
+</tr>
+<tr>
+<td>재발 방지</td>
+<td>작업 시간보다 긴 TTL, fencing token, DB unique 제약</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_14">관찰 지표</h2>
+<h3 id="redis_2">Redis 명령</h3>
+<table>
+<thead>
+<tr>
+<th>명령</th>
+<th>볼 것</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>INFO memory</code></td>
+<td>메모리 사용량, 단편화</td>
+</tr>
+<tr>
+<td><code>INFO stats</code></td>
+<td>hit/miss, evicted, expired</td>
+</tr>
+<tr>
+<td><code>INFO clients</code></td>
+<td>연결 수, blocked client</td>
+</tr>
+<tr>
+<td><code>INFO replication</code></td>
+<td>master/replica 상태, lag</td>
+</tr>
+<tr>
+<td><code>INFO persistence</code></td>
+<td>RDB/AOF 상태</td>
+</tr>
+<tr>
+<td><code>SLOWLOG GET</code></td>
+<td>느린 명령</td>
+</tr>
+<tr>
+<td><code>LATENCY DOCTOR</code></td>
+<td>지연 이벤트</td>
+</tr>
+<tr>
+<td><code>MEMORY USAGE key</code></td>
+<td>키별 메모리</td>
+</tr>
+<tr>
+<td><code>CLIENT LIST</code></td>
+<td>클라이언트 연결</td>
+</tr>
+<tr>
+<td><code>CLUSTER INFO</code></td>
+<td>클러스터 상태</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_15">알림 기준 예시</h3>
+<table>
+<thead>
+<tr>
+<th>지표</th>
+<th>위험 신호</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>used_memory / maxmemory</code></td>
+<td>80~90% 이상 지속</td>
+</tr>
+<tr>
+<td><code>evicted_keys</code></td>
+<td>예상하지 않은 증가</td>
+</tr>
+<tr>
+<td><code>keyspace_misses</code></td>
+<td>갑작스러운 증가</td>
+</tr>
+<tr>
+<td><code>connected_clients</code></td>
+<td>평소 대비 급증</td>
+</tr>
+<tr>
+<td><code>blocked_clients</code></td>
+<td>0보다 큼</td>
+</tr>
+<tr>
+<td><code>rejected_connections</code></td>
+<td>증가</td>
+</tr>
+<tr>
+<td><code>master_link_status</code></td>
+<td><code>down</code></td>
+</tr>
+<tr>
+<td>replication lag</td>
+<td>기준 초과</td>
+</tr>
+<tr>
+<td>slowlog count</td>
+<td>특정 시간 내 급증</td>
+</tr>
+<tr>
+<td>command latency p95/p99</td>
+<td>SLO 초과</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_16">베스트 프랙티스</h2>
+<table>
+<thead>
+<tr>
+<th>권장 방식</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>모든 캐시에 TTL 부여</td>
+<td>무한 증가 방지</td>
+</tr>
+<tr>
+<td>TTL에 jitter 추가</td>
+<td>동시 만료 방지</td>
+</tr>
+<tr>
+<td>원본 데이터는 DB에 유지</td>
+<td>Redis 유실·초기화 대응</td>
+</tr>
+<tr>
+<td>큰 키 금지</td>
+<td>지연, 복제, failover 리스크 감소</td>
+</tr>
+<tr>
+<td><code>KEYS</code> 대신 <code>SCAN</code> 사용</td>
+<td>전체 blocking 방지</td>
+</tr>
+<tr>
+<td>삭제는 큰 키면 <code>UNLINK</code> 고려</td>
+<td>비동기 free로 지연 감소</td>
+</tr>
+<tr>
+<td>hot key는 local cache 또는 sharding</td>
+<td>단일 키 병목 완화</td>
+</tr>
+<tr>
+<td>분산 락은 idempotency와 함께 사용</td>
+<td>락 실패·중복 실행 대비</td>
+</tr>
+<tr>
+<td><code>maxmemory</code>와 eviction 정책 명시</td>
+<td>메모리 장애 동작 예측 가능</td>
+</tr>
+<tr>
+<td>slowlog와 latency 알림 설정</td>
+<td>장애 전조 조기 감지</td>
+</tr>
+<tr>
+<td>failover 훈련</td>
+<td>client 재연결, 데이터 유실 범위 확인</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_17">실무에서는?</h2>
+<table>
+<thead>
+<tr>
+<th>사용처</th>
+<th>설계 기준</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>조회 캐시</td>
+<td>Cache Aside, 짧은 TTL, 갱신 시 삭제</td>
+</tr>
+<tr>
+<td>세션 저장</td>
+<td>TTL 필수, 로그아웃 시 삭제, 장애 시 재로그인 허용 여부 결정</td>
+</tr>
+<tr>
+<td><abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> Rate Limit</td>
+<td><code>INCR</code> + TTL, Lua로 원자 처리</td>
+</tr>
+<tr>
+<td>랭킹</td>
+<td>Sorted Set, 기간별 key 분리, 오래된 key 만료</td>
+</tr>
+<tr>
+<td>분산 락</td>
+<td><code>SET NX PX</code>, 소유자 확인 삭제, DB unique와 함께 사용</td>
+</tr>
+<tr>
+<td>이벤트 중간 버퍼</td>
+<td>Stream 사용 가능, 장기 내구성이 필요하면 메시지 브로커 고려</td>
+</tr>
+<tr>
+<td>설정 캐시</td>
+<td>짧은 TTL 또는 pub/sub 무효화, 기본값 준비</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_18">운영 체크리스트</h3>
+<table>
+<thead>
+<tr>
+<th>체크</th>
+<th>질문</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>용량</td>
+<td>최대 키 수, 평균 value 크기, peak memory를 계산했는가</td>
+</tr>
+<tr>
+<td>TTL</td>
+<td>무기한 키가 필요한 이유가 명확한가</td>
+</tr>
+<tr>
+<td>장애</td>
+<td>Redis가 비어도 서비스가 복구 가능한가</td>
+</tr>
+<tr>
+<td>정합성</td>
+<td>DB 변경 후 캐시 무효화가 보장되는가</td>
+</tr>
+<tr>
+<td>복제</td>
+<td>replica lag가 어느 정도까지 허용되는가</td>
+</tr>
+<tr>
+<td>failover</td>
+<td>client가 새 master로 자동 전환되는가</td>
+</tr>
+<tr>
+<td>보안</td>
+<td>외부 노출 차단, 인증, TLS, 명령 제한을 적용했는가</td>
+</tr>
+<tr>
+<td>백업</td>
+<td>RDB/AOF 백업과 복구를 실제로 해봤는가</td>
+</tr>
+<tr>
+<td>알림</td>
+<td>memory, latency, evictions, replication, connections 알림이 있는가</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_19">정리</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Redis</td>
+<td>메모리 기반 Key-Value 저장소</td>
+</tr>
+<tr>
+<td>핵심 용도</td>
+<td>캐시, TTL 상태, 카운터, 랭킹, 분산 락</td>
+</tr>
+<tr>
+<td>가장 큰 장점</td>
+<td>빠른 응답과 다양한 자료구조</td>
+</tr>
+<tr>
+<td>가장 큰 위험</td>
+<td>메모리 한계, big key, hot key, 캐시 정합성, 비동기 복제</td>
+</tr>
+<tr>
+<td>운영 핵심</td>
+<td>TTL, eviction, persistence, replication, slowlog, failover</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <p><strong>관련 파일:</strong>
-- <a href="../../operations/concurrency/">동시성 제어</a> — Redis 분산 락
-- <a href="../../operations/monitoring/">모니터링</a> — Redis 지표 관찰</p>
+- <a href="../../operations/concurrency/">동시성 제어</a> — 분산 락과 중복 실행 방지
+- <a href="../../operations/monitoring/">모니터링</a> — 지표와 알림 설계
+- <a href="../kafka/">Kafka</a> — 메시지 기반 비동기 처리</p>
 <!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
 
 <!-- ===== DB / SQL ===== -->
@@ -6096,7 +7908,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 25일 13:06:55 UTC">2026년 4월 25일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 25일 13:22:39 UTC">2026년 4월 25일</span>
   </span>
 
     
