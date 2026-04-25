@@ -5,6 +5,38 @@
          <lastmod>2026-04-25</lastmod>
     </url>
     <url>
+         <loc>https://krookimwoobin.github.io/study/backend/backend/</loc>
+         <lastmod>2026-04-25</lastmod>
+    </url>
+    <url>
+         <loc>https://krookimwoobin.github.io/study/backend/architecture/architecture/</loc>
+         <lastmod>2026-04-25</lastmod>
+    </url>
+    <url>
+         <loc>https://krookimwoobin.github.io/study/backend/architecture/msa/</loc>
+         <lastmod>2026-04-25</lastmod>
+    </url>
+    <url>
+         <loc>https://krookimwoobin.github.io/study/backend/architecture/outbox/</loc>
+         <lastmod>2026-04-25</lastmod>
+    </url>
+    <url>
+         <loc>https://krookimwoobin.github.io/study/backend/infra/kafka/</loc>
+         <lastmod>2026-04-25</lastmod>
+    </url>
+    <url>
+         <loc>https://krookimwoobin.github.io/study/backend/infra/redis/</loc>
+         <lastmod>2026-04-25</lastmod>
+    </url>
+    <url>
+         <loc>https://krookimwoobin.github.io/study/backend/operations/concurrency/</loc>
+         <lastmod>2026-04-25</lastmod>
+    </url>
+    <url>
+         <loc>https://krookimwoobin.github.io/study/backend/operations/monitoring/</loc>
+         <lastmod>2026-04-25</lastmod>
+    </url>
+    <url>
          <loc>https://krookimwoobin.github.io/study/cs/cs/</loc>
          <lastmod>2026-04-25</lastmod>
     </url>
@@ -377,14 +409,6 @@
          <lastmod>2026-04-25</lastmod>
     </url>
     <url>
-         <loc>https://krookimwoobin.github.io/study/spring/architecture/</loc>
-         <lastmod>2026-04-25</lastmod>
-    </url>
-    <url>
-         <loc>https://krookimwoobin.github.io/study/spring/concurrency/</loc>
-         <lastmod>2026-04-25</lastmod>
-    </url>
-    <url>
          <loc>https://krookimwoobin.github.io/study/spring/db%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/</loc>
          <lastmod>2026-04-25</lastmod>
     </url>
@@ -401,19 +425,7 @@
          <lastmod>2026-04-25</lastmod>
     </url>
     <url>
-         <loc>https://krookimwoobin.github.io/study/spring/kafka/</loc>
-         <lastmod>2026-04-25</lastmod>
-    </url>
-    <url>
          <loc>https://krookimwoobin.github.io/study/spring/logging/</loc>
-         <lastmod>2026-04-25</lastmod>
-    </url>
-    <url>
-         <loc>https://krookimwoobin.github.io/study/spring/monitoring/</loc>
-         <lastmod>2026-04-25</lastmod>
-    </url>
-    <url>
-         <loc>https://krookimwoobin.github.io/study/spring/msa/</loc>
          <lastmod>2026-04-25</lastmod>
     </url>
     <url>
@@ -421,15 +433,7 @@
          <lastmod>2026-04-25</lastmod>
     </url>
     <url>
-         <loc>https://krookimwoobin.github.io/study/spring/outbox/</loc>
-         <lastmod>2026-04-25</lastmod>
-    </url>
-    <url>
          <loc>https://krookimwoobin.github.io/study/spring/querydsl/</loc>
-         <lastmod>2026-04-25</lastmod>
-    </url>
-    <url>
-         <loc>https://krookimwoobin.github.io/study/spring/redis/</loc>
          <lastmod>2026-04-25</lastmod>
     </url>
     <url>

@@ -8,31 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://krookimwoobin.github.io/study/spring/monitoring/">
+        <link rel="canonical" href="https://krookimwoobin.github.io/study/backend/infra/redis/">
       
       
-        <link rel="prev" href="../testing/">
+        <link rel="prev" href="../../backend/">
       
       
-        <link rel="next" href="../architecture/">
+        <link rel="next" href="../kafka/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>모니터링 - 학습 노트</title>
+        <title>Redis - 학습 노트</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,9 +51,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#actuator-prometheus-grafana" class="md-skip">
+        <a href="#redis" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -94,7 +94,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="상단/헤더">
-    <a href="../.." title="학습 노트" class="md-header__button md-logo" aria-label="학습 노트" data-md-component="logo">
+    <a href="../../.." title="학습 노트" class="md-header__button md-logo" aria-label="학습 노트" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              모니터링
+              Redis
             
           </span>
         </div>
@@ -232,7 +232,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="네비게이션" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="학습 노트" class="md-nav__button md-logo" aria-label="학습 노트" data-md-component="logo">
+    <a href="../../.." title="학습 노트" class="md-nav__button md-logo" aria-label="학습 노트" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -262,7 +262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -341,7 +341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/java/" class="md-nav__link">
+      <a href="../../../java/java/" class="md-nav__link">
         
   
   
@@ -418,7 +418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/oop/oop/" class="md-nav__link">
+      <a href="../../../java/oop/oop/" class="md-nav__link">
         
   
   
@@ -446,7 +446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/oop/%EC%BA%A1%EC%8A%90%ED%99%94/" class="md-nav__link">
+      <a href="../../../java/oop/%EC%BA%A1%EC%8A%90%ED%99%94/" class="md-nav__link">
         
   
   
@@ -474,7 +474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/oop/%EC%83%81%EC%86%8D/" class="md-nav__link">
+      <a href="../../../java/oop/%EC%83%81%EC%86%8D/" class="md-nav__link">
         
   
   
@@ -502,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/oop/%EC%B6%94%EC%83%81%ED%99%94/" class="md-nav__link">
+      <a href="../../../java/oop/%EC%B6%94%EC%83%81%ED%99%94/" class="md-nav__link">
         
   
   
@@ -530,7 +530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/oop/%EB%8B%A4%ED%98%95%EC%84%B1/" class="md-nav__link">
+      <a href="../../../java/oop/%EB%8B%A4%ED%98%95%EC%84%B1/" class="md-nav__link">
         
   
   
@@ -615,7 +615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/core/" class="md-nav__link">
+      <a href="../../../java/core/core/" class="md-nav__link">
         
   
   
@@ -643,7 +643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/Object/" class="md-nav__link">
+      <a href="../../../java/core/Object/" class="md-nav__link">
         
   
   
@@ -671,7 +671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/%EB%B6%88%EB%B3%80%EA%B0%9D%EC%B2%B4VS%EA%B0%80%EB%B3%80%EA%B0%9D%EC%B2%B4/" class="md-nav__link">
+      <a href="../../../java/core/%EB%B6%88%EB%B3%80%EA%B0%9D%EC%B2%B4VS%EA%B0%80%EB%B3%80%EA%B0%9D%EC%B2%B4/" class="md-nav__link">
         
   
   
@@ -699,7 +699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/%EB%9E%98%ED%8D%BC%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
+      <a href="../../../java/core/%EB%9E%98%ED%8D%BC%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -727,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/Enum/" class="md-nav__link">
+      <a href="../../../java/core/Enum/" class="md-nav__link">
         
   
   
@@ -755,7 +755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
+      <a href="../../../java/core/%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
         
   
   
@@ -783,7 +783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/%EC%A4%91%EC%B2%A9%EB%82%B4%EB%B6%80%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
+      <a href="../../../java/core/%EC%A4%91%EC%B2%A9%EB%82%B4%EB%B6%80%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -811,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/Class/" class="md-nav__link">
+      <a href="../../../java/core/Class/" class="md-nav__link">
         
   
   
@@ -839,7 +839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/Math/" class="md-nav__link">
+      <a href="../../../java/core/Math/" class="md-nav__link">
         
   
   
@@ -867,7 +867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/core/SystemClass/" class="md-nav__link">
+      <a href="../../../java/core/SystemClass/" class="md-nav__link">
         
   
   
@@ -952,7 +952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/collections/" class="md-nav__link">
+      <a href="../../../java/collections/collections/" class="md-nav__link">
         
   
   
@@ -980,7 +980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Collection/" class="md-nav__link">
+      <a href="../../../java/collections/Collection/" class="md-nav__link">
         
   
   
@@ -1008,7 +1008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Generic/" class="md-nav__link">
+      <a href="../../../java/collections/Generic/" class="md-nav__link">
         
   
   
@@ -1036,7 +1036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Array/" class="md-nav__link">
+      <a href="../../../java/collections/Array/" class="md-nav__link">
         
   
   
@@ -1064,7 +1064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/List/" class="md-nav__link">
+      <a href="../../../java/collections/List/" class="md-nav__link">
         
   
   
@@ -1092,7 +1092,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/ArrayList/" class="md-nav__link">
+      <a href="../../../java/collections/ArrayList/" class="md-nav__link">
         
   
   
@@ -1120,7 +1120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/LinkedList/" class="md-nav__link">
+      <a href="../../../java/collections/LinkedList/" class="md-nav__link">
         
   
   
@@ -1148,7 +1148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Hash/" class="md-nav__link">
+      <a href="../../../java/collections/Hash/" class="md-nav__link">
         
   
   
@@ -1176,7 +1176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Set/" class="md-nav__link">
+      <a href="../../../java/collections/Set/" class="md-nav__link">
         
   
   
@@ -1204,7 +1204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Map/" class="md-nav__link">
+      <a href="../../../java/collections/Map/" class="md-nav__link">
         
   
   
@@ -1232,7 +1232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Stack/" class="md-nav__link">
+      <a href="../../../java/collections/Stack/" class="md-nav__link">
         
   
   
@@ -1260,7 +1260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/Queue/" class="md-nav__link">
+      <a href="../../../java/collections/Queue/" class="md-nav__link">
         
   
   
@@ -1288,7 +1288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/%EC%88%9C%ED%9A%8C/" class="md-nav__link">
+      <a href="../../../java/collections/%EC%88%9C%ED%9A%8C/" class="md-nav__link">
         
   
   
@@ -1316,7 +1316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/%EB%B9%84%EA%B5%90/" class="md-nav__link">
+      <a href="../../../java/collections/%EB%B9%84%EA%B5%90/" class="md-nav__link">
         
   
   
@@ -1344,7 +1344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/collections/BigO/" class="md-nav__link">
+      <a href="../../../java/collections/BigO/" class="md-nav__link">
         
   
   
@@ -1429,7 +1429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/start/" class="md-nav__link">
+      <a href="../../../java/lambda/start/" class="md-nav__link">
         
   
   
@@ -1457,7 +1457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/function/" class="md-nav__link">
+      <a href="../../../java/lambda/function/" class="md-nav__link">
         
   
   
@@ -1485,7 +1485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/method/" class="md-nav__link">
+      <a href="../../../java/lambda/method/" class="md-nav__link">
         
   
   
@@ -1513,7 +1513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/programming/" class="md-nav__link">
+      <a href="../../../java/lambda/programming/" class="md-nav__link">
         
   
   
@@ -1541,7 +1541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/stream/" class="md-nav__link">
+      <a href="../../../java/lambda/stream/" class="md-nav__link">
         
   
   
@@ -1569,7 +1569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/streamApi/" class="md-nav__link">
+      <a href="../../../java/lambda/streamApi/" class="md-nav__link">
         
   
   
@@ -1597,7 +1597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/%EC%A6%89%EC%8B%9CVS%EC%A7%80%EC%97%B0/" class="md-nav__link">
+      <a href="../../../java/lambda/%EC%A6%89%EC%8B%9CVS%EC%A7%80%EC%97%B0/" class="md-nav__link">
         
   
   
@@ -1625,7 +1625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/optional/" class="md-nav__link">
+      <a href="../../../java/lambda/optional/" class="md-nav__link">
         
   
   
@@ -1653,7 +1653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/orElseVSorElseGet/" class="md-nav__link">
+      <a href="../../../java/lambda/orElseVSorElseGet/" class="md-nav__link">
         
   
   
@@ -1681,7 +1681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/defaultMethod/" class="md-nav__link">
+      <a href="../../../java/lambda/defaultMethod/" class="md-nav__link">
         
   
   
@@ -1709,7 +1709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/%EB%B3%91%EB%A0%AC%EC%8A%A4%ED%8A%B8%EB%A6%BC/" class="md-nav__link">
+      <a href="../../../java/lambda/%EB%B3%91%EB%A0%AC%EC%8A%A4%ED%8A%B8%EB%A6%BC/" class="md-nav__link">
         
   
   
@@ -1737,7 +1737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/lambda/%ED%95%A8%EC%88%98%ED%98%95%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" class="md-nav__link">
+      <a href="../../../java/lambda/%ED%95%A8%EC%88%98%ED%98%95%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" class="md-nav__link">
         
   
   
@@ -1822,7 +1822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/thread/" class="md-nav__link">
+      <a href="../../../java/thread/thread/" class="md-nav__link">
         
   
   
@@ -1850,7 +1850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/" class="md-nav__link">
+      <a href="../../../java/thread/%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/" class="md-nav__link">
         
   
   
@@ -1878,7 +1878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/Thread1/" class="md-nav__link">
+      <a href="../../../java/thread/Thread1/" class="md-nav__link">
         
   
   
@@ -1906,7 +1906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/Thread2/" class="md-nav__link">
+      <a href="../../../java/thread/Thread2/" class="md-nav__link">
         
   
   
@@ -1934,7 +1934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/Thread3/" class="md-nav__link">
+      <a href="../../../java/thread/Thread3/" class="md-nav__link">
         
   
   
@@ -1962,7 +1962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/synchronized/" class="md-nav__link">
+      <a href="../../../java/thread/synchronized/" class="md-nav__link">
         
   
   
@@ -1990,7 +1990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/volatile/" class="md-nav__link">
+      <a href="../../../java/thread/volatile/" class="md-nav__link">
         
   
   
@@ -2018,7 +2018,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/%EB%8F%99%EA%B8%B0%ED%99%94%EC%99%80%EC%9B%90%EC%9E%90%EC%A0%81%EC%97%B0%EC%82%B0/" class="md-nav__link">
+      <a href="../../../java/thread/%EB%8F%99%EA%B8%B0%ED%99%94%EC%99%80%EC%9B%90%EC%9E%90%EC%A0%81%EC%97%B0%EC%82%B0/" class="md-nav__link">
         
   
   
@@ -2046,7 +2046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/Lock/" class="md-nav__link">
+      <a href="../../../java/thread/Lock/" class="md-nav__link">
         
   
   
@@ -2074,7 +2074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/%EB%8F%99%EC%8B%9C%EC%84%B1%EC%BB%AC%EB%A0%89%EC%85%98/" class="md-nav__link">
+      <a href="../../../java/thread/%EB%8F%99%EC%8B%9C%EC%84%B1%EC%BB%AC%EB%A0%89%EC%85%98/" class="md-nav__link">
         
   
   
@@ -2102,7 +2102,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/%EC%83%9D%EC%82%B0%EC%9E%90%EC%86%8C%EB%B9%84%EC%9E%90%EB%AC%B8%EC%A0%9C/" class="md-nav__link">
+      <a href="../../../java/thread/%EC%83%9D%EC%82%B0%EC%9E%90%EC%86%8C%EB%B9%84%EC%9E%90%EB%AC%B8%EC%A0%9C/" class="md-nav__link">
         
   
   
@@ -2130,7 +2130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/ThreadPool_Executor_Overview1/" class="md-nav__link">
+      <a href="../../../java/thread/ThreadPool_Executor_Overview1/" class="md-nav__link">
         
   
   
@@ -2158,7 +2158,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/thread/ThreadPool_Executor_Overview2/" class="md-nav__link">
+      <a href="../../../java/thread/ThreadPool_Executor_Overview2/" class="md-nav__link">
         
   
   
@@ -2243,7 +2243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/io-network/IO/" class="md-nav__link">
+      <a href="../../../java/io-network/IO/" class="md-nav__link">
         
   
   
@@ -2271,7 +2271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/io-network/network/" class="md-nav__link">
+      <a href="../../../java/io-network/network/" class="md-nav__link">
         
   
   
@@ -2299,7 +2299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/io-network/Charset_Encoding/" class="md-nav__link">
+      <a href="../../../java/io-network/Charset_Encoding/" class="md-nav__link">
         
   
   
@@ -2327,7 +2327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/io-network/annotation/" class="md-nav__link">
+      <a href="../../../java/io-network/annotation/" class="md-nav__link">
         
   
   
@@ -2355,7 +2355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/io-network/reflection/" class="md-nav__link">
+      <a href="../../../java/io-network/reflection/" class="md-nav__link">
         
   
   
@@ -2450,7 +2450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../html/html/" class="md-nav__link">
+      <a href="../../../html/html/" class="md-nav__link">
         
   
   
@@ -2478,7 +2478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../html/Session/" class="md-nav__link">
+      <a href="../../../html/Session/" class="md-nav__link">
         
   
   
@@ -2510,8 +2510,6 @@
       
   
   
-    
-  
   
   
     
@@ -2524,11 +2522,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
@@ -2549,7 +2547,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2567,7 +2565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../spring/" class="md-nav__link">
+      <a href="../../../spring/spring/" class="md-nav__link">
         
   
   
@@ -2644,7 +2642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../solid/" class="md-nav__link">
+      <a href="../../../spring/solid/" class="md-nav__link">
         
   
   
@@ -2672,7 +2670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../IoC-DI/" class="md-nav__link">
+      <a href="../../../spring/IoC-DI/" class="md-nav__link">
         
   
   
@@ -2700,7 +2698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%EC%8A%A4%ED%94%84%EB%A7%81%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88/" class="md-nav__link">
+      <a href="../../../spring/%EC%8A%A4%ED%94%84%EB%A7%81%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88/" class="md-nav__link">
         
   
   
@@ -2728,7 +2726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%EC%8B%B1%EA%B8%80%ED%86%A4/" class="md-nav__link">
+      <a href="../../../spring/%EC%8B%B1%EA%B8%80%ED%86%A4/" class="md-nav__link">
         
   
   
@@ -2756,7 +2754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%8A%A4%EC%BA%94/" class="md-nav__link">
+      <a href="../../../spring/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%8A%A4%EC%BA%94/" class="md-nav__link">
         
   
   
@@ -2784,7 +2782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84%EC%A3%BC%EC%9E%85/" class="md-nav__link">
+      <a href="../../../spring/%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84%EC%A3%BC%EC%9E%85/" class="md-nav__link">
         
   
   
@@ -2812,7 +2810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%EB%B9%88%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0/" class="md-nav__link">
+      <a href="../../../spring/%EB%B9%88%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0/" class="md-nav__link">
         
   
   
@@ -2840,7 +2838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%EB%B9%88%EC%8A%A4%EC%BD%94%ED%94%84/" class="md-nav__link">
+      <a href="../../../spring/%EB%B9%88%EC%8A%A4%EC%BD%94%ED%94%84/" class="md-nav__link">
         
   
   
@@ -2925,7 +2923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../springboot/" class="md-nav__link">
+      <a href="../../../spring/springboot/" class="md-nav__link">
         
   
   
@@ -2953,7 +2951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mvc/" class="md-nav__link">
+      <a href="../../../spring/mvc/" class="md-nav__link">
         
   
   
@@ -2981,7 +2979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../restapi/" class="md-nav__link">
+      <a href="../../../spring/restapi/" class="md-nav__link">
         
   
   
@@ -3009,7 +3007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../validation/" class="md-nav__link">
+      <a href="../../../spring/validation/" class="md-nav__link">
         
   
   
@@ -3037,7 +3035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../exception/" class="md-nav__link">
+      <a href="../../../spring/exception/" class="md-nav__link">
         
   
   
@@ -3065,7 +3063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../swagger/" class="md-nav__link">
+      <a href="../../../spring/swagger/" class="md-nav__link">
         
   
   
@@ -3150,7 +3148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../aop/" class="md-nav__link">
+      <a href="../../../spring/aop/" class="md-nav__link">
         
   
   
@@ -3178,7 +3176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transaction/" class="md-nav__link">
+      <a href="../../../spring/transaction/" class="md-nav__link">
         
   
   
@@ -3206,7 +3204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../logging/" class="md-nav__link">
+      <a href="../../../spring/logging/" class="md-nav__link">
         
   
   
@@ -3291,7 +3289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../JDBC/" class="md-nav__link">
+      <a href="../../../spring/JDBC/" class="md-nav__link">
         
   
   
@@ -3319,7 +3317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%EC%BB%A4%EB%84%A5%EC%85%98%ED%92%80-DataSource/" class="md-nav__link">
+      <a href="../../../spring/%EC%BB%A4%EB%84%A5%EC%85%98%ED%92%80-DataSource/" class="md-nav__link">
         
   
   
@@ -3347,7 +3345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../db%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
+      <a href="../../../spring/db%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
         
   
   
@@ -3375,7 +3373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../jpa/" class="md-nav__link">
+      <a href="../../../spring/jpa/" class="md-nav__link">
         
   
   
@@ -3403,7 +3401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../querydsl/" class="md-nav__link">
+      <a href="../../../spring/querydsl/" class="md-nav__link">
         
   
   
@@ -3431,7 +3429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../jpa-performance/" class="md-nav__link">
+      <a href="../../../spring/jpa-performance/" class="md-nav__link">
         
   
   
@@ -3487,7 +3485,7 @@
   <span class="md-ellipsis">
     
   
-    인프라 & 보안
+    보안
   
 
     
@@ -3503,7 +3501,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    인프라 & 보안
+    보안
   
 
           </label>
@@ -3516,35 +3514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../redis/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Redis
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../security/" class="md-nav__link">
+      <a href="../../../spring/security/" class="md-nav__link">
         
   
   
@@ -3552,90 +3522,6 @@
     
   
     Spring Security & JWT
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concurrency/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    동시성 제어
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../kafka/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Kafka
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../outbox/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    아웃박스 패턴
   
 
     
@@ -3661,8 +3547,6 @@
                 
   
   
-    
-  
   
   
     
@@ -3672,11 +3556,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
         
           
           <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
@@ -3686,7 +3570,7 @@
   <span class="md-ellipsis">
     
   
-    운영 & 설계
+    테스트
   
 
     
@@ -3697,12 +3581,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_7">
             <span class="md-nav__icon md-icon"></span>
             
   
-    운영 & 설계
+    테스트
   
 
           </label>
@@ -3715,7 +3599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../testing/" class="md-nav__link">
+      <a href="../../../spring/testing/" class="md-nav__link">
         
   
   
@@ -3735,6 +3619,154 @@
   
 
               
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Backend
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../backend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    인프라
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    인프라
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -3757,7 +3789,7 @@
   <span class="md-ellipsis">
     
   
-    모니터링
+    Redis
   
 
     
@@ -3775,7 +3807,7 @@
   <span class="md-ellipsis">
     
   
-    모니터링
+    Redis
   
 
     
@@ -3799,15 +3831,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#actuator-prometheus-grafana" class="md-nav__link">
+  <a href="#redis" class="md-nav__link">
     <span class="md-ellipsis">
       
-        모니터링 (Actuator + Prometheus + Grafana)
+        Redis
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="모니터링 (Actuator + Prometheus + Grafana)">
+    <nav class="md-nav" aria-label="Redis">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3822,32 +3854,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#spring-actuator" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Spring Actuator
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#prometheus-grafana" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Prometheus + Grafana 연동
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        커스텀 메트릭
+        의존성
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spring-cache-cacheable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spring Cache — @Cacheable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redistemplate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RedisTemplate — 직접 제어
       
     </span>
   </a>
@@ -3858,7 +3890,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        주요 모니터링 지표
+        주요 자료구조
       
     </span>
   </a>
@@ -3869,7 +3901,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        헬스체크 커스터마이징
+        인기 게시글 캐시 전략
       
     </span>
   </a>
@@ -3908,354 +3940,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../architecture/" class="md-nav__link">
+      <a href="../kafka/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    아키텍처 패턴
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../msa/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    MSA
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    DB
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    DB
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../db/db/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    개요
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    기초
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_2">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    기초
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../db/%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    데이터베이스
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../db/%EA%B8%B0%EC%B4%88/ACID/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    ACID
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../db/%EA%B8%B0%EC%B4%88/SQL/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    SQL
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../db/%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%83%80%EC%9E%85/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    데이터 타입
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../db/%EA%B8%B0%EC%B4%88/%EC%A0%9C%EC%95%BD%EC%A1%B0%EA%B1%B4/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    제약 조건
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../db/%EA%B8%B0%EC%B4%88/%EC%A0%95%EA%B7%9C%ED%99%94/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    정규화
+    Kafka
   
 
     
@@ -4304,7 +3996,7 @@
   <span class="md-ellipsis">
     
   
-    쿼리
+    아키텍처
   
 
     
@@ -4320,7 +4012,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    쿼리
+    아키텍처
   
 
           </label>
@@ -4333,14 +4025,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%BF%BC%EB%A6%AC/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%80%EA%B3%B5/" class="md-nav__link">
+      <a href="../../architecture/architecture/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    데이터 가공
+    아키텍처 패턴
   
 
     
@@ -4361,14 +4053,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%BF%BC%EB%A6%AC/%EC%A7%91%EA%B3%84/" class="md-nav__link">
+      <a href="../../architecture/msa/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    그룹과 집계
+    MSA
   
 
     
@@ -4389,126 +4081,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%BF%BC%EB%A6%AC/JOIN/" class="md-nav__link">
+      <a href="../../architecture/outbox/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    JOIN
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../db/%EC%BF%BC%EB%A6%AC/%EC%84%9C%EB%B8%8C%EC%BF%BC%EB%A6%AC/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    서브쿼리
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../db/%EC%BF%BC%EB%A6%AC/UNION/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    UNION
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../db/%EC%BF%BC%EB%A6%AC/CASE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    CASE
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../db/%EC%BF%BC%EB%A6%AC/VIEW/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    VIEW
+    아웃박스 패턴
   
 
     
@@ -4557,7 +4137,7 @@
   <span class="md-ellipsis">
     
   
-    성능 & 운영
+    운영
   
 
     
@@ -4573,56 +4153,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    성능 & 운영
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_5_4_1" id="__nav_5_4_1_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    인덱스
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_4_1">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    인덱스
+    운영
   
 
           </label>
@@ -4635,14 +4166,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/" class="md-nav__link">
+      <a href="../../operations/concurrency/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    개요
+    동시성 제어
   
 
     
@@ -4663,190 +4194,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EA%B5%AC%EC%A1%B0%EC%99%80%EC%A2%85%EB%A5%98/" class="md-nav__link">
+      <a href="../../operations/monitoring/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    구조와 종류
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/B-Tree/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    B-Tree VS B+Tree
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EC%84%A4%EA%B3%84%EC%99%80%EC%82%AC%EC%9A%A9%EB%B2%95/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    설계와 사용법
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EC%BF%BC%EB%A6%AC%ED%8C%A8%ED%84%B4/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    쿼리 패턴
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EC%9A%B4%EC%98%81%EA%B3%BC%ED%8A%9C%EB%8B%9D/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    운영과 튜닝
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    트랜잭션
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EA%B2%A9%EB%A6%AC%EC%88%98%EC%A4%80/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    격리 수준
+    모니터링
   
 
     
@@ -4905,7 +4260,7 @@
   <span class="md-ellipsis">
     
   
-    JVM
+    DB
   
 
     
@@ -4921,7 +4276,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    JVM
+    DB
   
 
           </label>
@@ -4934,7 +4289,611 @@
   
   
     <li class="md-nav__item">
-      <a href="../../jvm/jvm/" class="md-nav__link">
+      <a href="../../../db/db/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기초
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기초
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    데이터베이스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/%EA%B8%B0%EC%B4%88/ACID/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ACID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/%EA%B8%B0%EC%B4%88/SQL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%83%80%EC%9E%85/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    데이터 타입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/%EA%B8%B0%EC%B4%88/%EC%A0%9C%EC%95%BD%EC%A1%B0%EA%B1%B4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    제약 조건
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/%EA%B8%B0%EC%B4%88/%EC%A0%95%EA%B7%9C%ED%99%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    정규화
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    쿼리
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    쿼리
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/%EC%BF%BC%EB%A6%AC/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%80%EA%B3%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    데이터 가공
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/%EC%BF%BC%EB%A6%AC/%EC%A7%91%EA%B3%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    그룹과 집계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/%EC%BF%BC%EB%A6%AC/JOIN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JOIN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/%EC%BF%BC%EB%A6%AC/%EC%84%9C%EB%B8%8C%EC%BF%BC%EB%A6%AC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    서브쿼리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/%EC%BF%BC%EB%A6%AC/UNION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UNION
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/%EC%BF%BC%EB%A6%AC/CASE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CASE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/%EC%BF%BC%EB%A6%AC/VIEW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VIEW
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    성능 & 운영
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    성능 & 운영
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_4_1" id="__nav_6_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    인덱스
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    인덱스
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -4962,14 +4921,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../jvm/JVM%EA%B0%9C%EC%9A%94/" class="md-nav__link">
+      <a href="../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EA%B5%AC%EC%A1%B0%EC%99%80%EC%A2%85%EB%A5%98/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    JVM 상세
+    구조와 종류
   
 
     
@@ -4978,6 +4937,190 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/B-Tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-Tree VS B+Tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EC%84%A4%EA%B3%84%EC%99%80%EC%82%AC%EC%9A%A9%EB%B2%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    설계와 사용법
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EC%BF%BC%EB%A6%AC%ED%8C%A8%ED%84%B4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    쿼리 패턴
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EC%9A%B4%EC%98%81%EA%B3%BC%ED%8A%9C%EB%8B%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    운영과 튜닝
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    트랜잭션
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EA%B2%A9%EB%A6%AC%EC%88%98%EC%A4%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    격리 수준
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -5020,7 +5163,7 @@
   <span class="md-ellipsis">
     
   
-    CS
+    JVM
   
 
     
@@ -5036,7 +5179,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    CS
+    JVM
   
 
           </label>
@@ -5049,7 +5192,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/cs/" class="md-nav__link">
+      <a href="../../../jvm/jvm/" class="md-nav__link">
         
   
   
@@ -5077,14 +5220,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/%EB%8F%99%EA%B8%B0VS%EB%B9%84%EB%8F%99%EA%B8%B0/" class="md-nav__link">
+      <a href="../../../jvm/JVM%EA%B0%9C%EC%9A%94/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    동기 VS 비동기
+    JVM 상세
   
 
     
@@ -5135,7 +5278,7 @@
   <span class="md-ellipsis">
     
   
-    Troubleshooting
+    CS
   
 
     
@@ -5148,6 +5291,121 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/cs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/%EB%8F%99%EA%B8%B0VS%EB%B9%84%EB%8F%99%EA%B8%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    동기 VS 비동기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -5164,7 +5422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../troubleshooting/smtp/" class="md-nav__link">
+      <a href="../../../troubleshooting/smtp/" class="md-nav__link">
         
   
   
@@ -5217,15 +5475,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#actuator-prometheus-grafana" class="md-nav__link">
+  <a href="#redis" class="md-nav__link">
     <span class="md-ellipsis">
       
-        모니터링 (Actuator + Prometheus + Grafana)
+        Redis
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="모니터링 (Actuator + Prometheus + Grafana)">
+    <nav class="md-nav" aria-label="Redis">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -5240,32 +5498,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#spring-actuator" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Spring Actuator
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#prometheus-grafana" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Prometheus + Grafana 연동
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        커스텀 메트릭
+        의존성
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spring-cache-cacheable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spring Cache — @Cacheable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redistemplate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RedisTemplate — 직접 제어
       
     </span>
   </a>
@@ -5276,7 +5534,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        주요 모니터링 지표
+        주요 자료구조
       
     </span>
   </a>
@@ -5287,7 +5545,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        헬스체크 커스터마이징
+        인기 게시글 캐시 전략
       
     </span>
   </a>
@@ -5330,153 +5588,135 @@
   
 
 
-  <h1>모니터링</h1>
+  <h1>Redis</h1>
 
-<h2 id="actuator-prometheus-grafana">모니터링 (Actuator + Prometheus + Grafana)</h2>
+<h2 id="redis">Redis</h2>
 <h3 id="_1">왜 쓰는가?</h3>
 <div class="concept-box">
-<p>서버가 죽기 전에 신호를 감지하고 대응해야 한다. 모니터링은 CPU, 메모리, 응답 시간, 에러율 등의 지표를 수집해 <strong>장애를 사전에 예방</strong>하고 원인을 빠르게 파악하게 한다.</p>
+<p>DB는 디스크 기반이라 반복 조회 시 느리다. ==Redis==는 <strong>인메모리 저장소</strong>로 DB보다 10~100배 빠른 응답을 제공한다. 캐시, 세션, 분산 락 등 다양한 용도로 활용한다.</p>
 </div>
-<hr />
-<h3 id="spring-actuator">Spring Actuator</h3>
-<p>애플리케이션 상태를 <abbr title="HyperText Transfer Protocol. 웹에서 클라이언트-서버 간 데이터를 주고받는 애플리케이션 계층 프로토콜.">HTTP</abbr> 엔드포인트로 노출한다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>implementation &#39;org.springframework.boot:spring-boot-starter-actuator&#39;
+<h3 id="_2">의존성</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>implementation &#39;org.springframework.boot:spring-boot-starter-data-redis&#39;
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gh"># application.yml</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>management:
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  endpoints:
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    web:
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>      exposure:
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        include: health, info, metrics, prometheus
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  endpoint:
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    health:
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>      show-details: always
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>spring:
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  data:
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    redis:
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>      host: localhost
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>      port: 6379
 </code></pre></div>
+<h3 id="spring-cache-cacheable">Spring Cache — @Cacheable</h3>
+<p>가장 간단한 캐시 적용 방법. 메서드 결과를 자동으로 Redis에 저장하고 재사용한다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="ni">@Configuration</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="ni">@EnableCaching</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>public class CacheConfig {
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="ni">@Bean</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    public CacheManager cacheManager(RedisConnectionFactory factory) {
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig()
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>            .entryTtl(Duration.ofMinutes(10))  // TTL 10분
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>            .serializeKeysWith(RedisSerializationContext.SerializationPair
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>                .fromSerializer(new StringRedisSerializer()))
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>            .serializeValuesWith(RedisSerializationContext.SerializationPair
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>                .fromSerializer(new GenericJackson2JsonRedisSerializer()));
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>        return RedisCacheManager.create(factory);
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    }
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>}
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="ni">@Service</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>public class ProductService {
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="ni">@Cacheable</span>(value = &quot;products&quot;, key = &quot;#id&quot;)
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    public ProductResponse findById(Long id) {
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        // 캐시 미스 시에만 실행
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        return productRepository.findById(id).map(ProductResponse::from).orElseThrow();
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    }
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="ni">@CacheEvict</span>(value = &quot;products&quot;, key = &quot;#id&quot;)
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    public void update(Long id, ProductUpdateRequest request) {
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>        // 수정 시 캐시 삭제
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    }
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    <span class="ni">@CachePut</span>(value = &quot;products&quot;, key = &quot;#result.id&quot;)
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>    public ProductResponse save(ProductCreateRequest request) {
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>        // 저장 후 캐시 갱신
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>    }
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>}
+</code></pre></div>
+<h3 id="redistemplate">RedisTemplate — 직접 제어</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="ni">@Service</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="ni">@RequiredArgsConstructor</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>public class TokenService {
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    private final RedisTemplate&lt;String, String&gt; redisTemplate;
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    public void saveRefreshToken(Long userId, String token) {
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>        redisTemplate.opsForValue()
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>            .set(&quot;refresh:&quot; + userId, token, Duration.ofDays(7));
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    }
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    public String getRefreshToken(Long userId) {
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>        return redisTemplate.opsForValue().get(&quot;refresh:&quot; + userId);
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    }
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    public void deleteRefreshToken(Long userId) {
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>        redisTemplate.delete(&quot;refresh:&quot; + userId);
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>    }
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>}
+</code></pre></div>
+<h3 id="_3">주요 자료구조</h3>
 <table>
 <thead>
 <tr>
-<th>엔드포인트</th>
-<th>설명</th>
+<th>자료구조</th>
+<th>메서드</th>
+<th>사용 사례</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>/actuator/health</code></td>
-<td>서버 상태 확인 (로드밸런서 헬스체크)</td>
+<td>String</td>
+<td><code>opsForValue()</code></td>
+<td>단순 캐시, 카운터, 토큰</td>
 </tr>
 <tr>
-<td><code>/actuator/metrics</code></td>
-<td>수집 가능한 메트릭 목록</td>
+<td>Hash</td>
+<td><code>opsForHash()</code></td>
+<td>객체 필드별 저장</td>
 </tr>
 <tr>
-<td><code>/actuator/metrics/jvm.memory.used</code></td>
-<td><abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr> 메모리 사용량</td>
+<td>List</td>
+<td><code>opsForList()</code></td>
+<td>메시지 큐, 최근 목록</td>
 </tr>
 <tr>
-<td><code>/actuator/prometheus</code></td>
-<td>Prometheus 형식 메트릭</td>
+<td>Set</td>
+<td><code>opsForSet()</code></td>
+<td>중복 없는 목록, 태그</td>
+</tr>
+<tr>
+<td>ZSet</td>
+<td><code>opsForZSet()</code></td>
+<td>랭킹, 점수 기반 정렬</td>
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>// 헬스체크 응답
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>{
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  &quot;status&quot;: &quot;UP&quot;,
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  &quot;components&quot;: {
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    &quot;db&quot;: { &quot;status&quot;: &quot;UP&quot; },
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    &quot;redis&quot;: { &quot;status&quot;: &quot;UP&quot; }
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  }
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>}
-</code></pre></div>
-<hr />
-<h3 id="prometheus-grafana">Prometheus + Grafana 연동</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>implementation &#39;io.micrometer:micrometer-registry-prometheus&#39;
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gh"># prometheus.yml</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>scrape_configs:
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="k">-</span><span class="w"> </span>job_name: &#39;spring-app&#39;
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    metrics_path: &#39;/actuator/prometheus&#39;
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    scrape_interval: 15s
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    static_configs:
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">      </span><span class="k">-</span><span class="w"> </span>targets: [&#39;app:8080&#39;]
-</code></pre></div>
-<p>Prometheus가 15초마다 <code>/actuator/prometheus</code>에서 메트릭 수집 → Grafana에서 시각화.</p>
-<hr />
-<h3 id="_2">커스텀 메트릭</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="ni">@Service</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="ni">@RequiredArgsConstructor</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>public class OrderService {
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    private final MeterRegistry meterRegistry;
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    private final Counter orderCounter;
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="ni">@PostConstruct</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    public void init() {
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>        orderCounter = Counter.builder(&quot;order.count&quot;)
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>            .description(&quot;총 주문 수&quot;)
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>            .tag(&quot;type&quot;, &quot;all&quot;)
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>            .register(meterRegistry);
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    }
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
-<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    public void placeOrder(OrderRequest request) {
-<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>        // 주문 처리...
-<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>        orderCounter.increment();  // 메트릭 기록
-<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>    }
-<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>}
-</code></pre></div>
-<hr />
-<h3 id="_3">주요 모니터링 지표</h3>
-<table>
-<thead>
-<tr>
-<th>지표</th>
-<th>의미</th>
-<th>알람 기준 (예시)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>jvm.memory.used</code></td>
-<td><abbr title="Java Virtual Machine. Java 바이트코드를 OS에 맞게 실행하는 가상 머신. 플랫폼 독립성을 제공한다.">JVM</abbr> 힙 사용량</td>
-<td>80% 이상</td>
-</tr>
-<tr>
-<td><code>process.cpu.usage</code></td>
-<td>CPU 사용률</td>
-<td>80% 이상</td>
-</tr>
-<tr>
-<td><code>http.server.requests</code></td>
-<td>요청 수, 응답 시간, 에러율</td>
-<td>에러율 1% 이상</td>
-</tr>
-<tr>
-<td><code>hikaricp.connections.active</code></td>
-<td>DB 커넥션 사용 수</td>
-<td>풀 크기의 80%</td>
-</tr>
-<tr>
-<td><code>jvm.gc.pause</code></td>
-<td><abbr title="Garbage Collection. JVM이 더 이상 참조되지 않는 객체를 자동으로 메모리에서 해제하는 과정.">GC</abbr> 일시정지 시간</td>
-<td>500ms 이상</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h3 id="_4">헬스체크 커스터마이징</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="ni">@Component</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>public class ExternalApiHealthIndicator implements HealthIndicator {
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="ni">@Override</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    public Health health() {
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>        try {
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>            // 외부 API 상태 확인
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>            restTemplate.getForObject(&quot;https://api.external.com/health&quot;, String.class);
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>            return Health.up().withDetail(&quot;externalApi&quot;, &quot;정상&quot;).build();
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>        } catch (Exception e) {
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>            return Health.down().withDetail(&quot;externalApi&quot;, e.getMessage()).build();
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>        }
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    }
-<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>}
+<h3 id="_4">인기 게시글 캐시 전략</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>// 조회 요청 시: Cache-Aside 패턴
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>public PostResponse findPost(Long id) {
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    String key = &quot;post:&quot; + id;
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    String cached = redisTemplate.opsForValue().get(key);
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    if (cached != null) {
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>        return objectMapper.readValue(cached, PostResponse.class);  // 캐시 히트
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    }
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    PostResponse response = postRepository.findById(id)...;  // DB 조회
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    redisTemplate.opsForValue().set(key, objectMapper.writeValueAsString(response),
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>        Duration.ofMinutes(30));  // 캐시 저장
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>    return response;
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>}
 </code></pre></div>
 <h3 id="_5">단점 / 주의할 점</h3>
 <table>
@@ -5489,19 +5729,29 @@
 </thead>
 <tbody>
 <tr>
-<td>Actuator 외부 노출</td>
-<td>내부 정보 노출</td>
-<td>운영 환경에서는 <code>/actuator</code> 접근 제한</td>
+<td>캐시 무효화 시점</td>
+<td>수정 후 캐시 미삭제 → 오래된 데이터 반환</td>
+<td><code>@CacheEvict</code> 또는 수동 삭제</td>
 </tr>
 <tr>
-<td>Prometheus 데이터 무제한 축적</td>
-<td>디스크 부족</td>
-<td>보존 기간 설정 (<code>--storage.tsdb.retention.time</code>)</td>
+<td>캐시 스탬피드</td>
+<td>캐시 만료 시 동시 DB 요청 폭주</td>
+<td>분산 락으로 한 건만 DB 조회</td>
 </tr>
 <tr>
-<td>메트릭 태그 폭발</td>
-<td>카디널리티 높은 태그(userId 등)</td>
-<td>범용 태그만 사용</td>
+<td>Redis 장애</td>
+<td>서비스 전체 장애 가능성</td>
+<td>Circuit Breaker, fallback 처리</td>
+</tr>
+<tr>
+<td>직렬화 불일치</td>
+<td>객체 변경 시 역직렬화 실패</td>
+<td>TTL 짧게 설정 또는 캐시 키 버전 관리</td>
+</tr>
+<tr>
+<td>민감 데이터 캐시</td>
+<td>Redis는 암호화 없으므로 위험</td>
+<td>민감 정보는 캐시하지 않음</td>
 </tr>
 </tbody>
 </table>
@@ -5598,10 +5848,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.instant", "search.highlight", "search.suggest", "content.code.copy", "content.tooltips", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections", "navigation.top", "navigation.instant", "search.highlight", "search.suggest", "content.code.copy", "content.tooltips", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
       
