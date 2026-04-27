@@ -4216,6 +4216,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        공통 5분 점검 순서
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1-redis" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6207,6 +6218,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        공통 5분 점검 순서
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1-redis" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6493,6 +6515,54 @@
 </tr>
 </tbody>
 </table>
+<h2 id="5">공통 5분 점검 순서</h2>
+<p>장애가 났을 때는 한 번에 원인을 단정하지 말고, Redis 자체 문제인지 애플리케이션 문제인지 먼저 나눕니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 1. Redis 응답 여부</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>redis-cli<span class="w"> </span>PING
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># 2. 전체 상태 요약</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>redis-cli<span class="w"> </span>INFO<span class="w"> </span>stats
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>redis-cli<span class="w"> </span>INFO<span class="w"> </span>memory
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>redis-cli<span class="w"> </span>INFO<span class="w"> </span>clients
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># 3. 느린 명령과 지연 이벤트</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>redis-cli<span class="w"> </span>SLOWLOG<span class="w"> </span>GET<span class="w"> </span><span class="m">20</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>redis-cli<span class="w"> </span>LATENCY<span class="w"> </span>DOCTOR
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># 4. 복제/클러스터 상태</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>redis-cli<span class="w"> </span>INFO<span class="w"> </span>replication
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>redis-cli<span class="w"> </span>CLUSTER<span class="w"> </span>INFO
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>먼저 볼 것</th>
+<th>판단</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PING</code> 실패</td>
+<td>네트워크, 프로세스, 보안 그룹, DNS 확인</td>
+</tr>
+<tr>
+<td><code>connected_clients</code> 급증</td>
+<td>pool leak, retry 폭주</td>
+</tr>
+<tr>
+<td><code>used_memory</code> 한계 접근</td>
+<td>eviction/OOM 위험</td>
+</tr>
+<tr>
+<td>slowlog에 O(N) 명령</td>
+<td>애플리케이션 명령 패턴 문제</td>
+</tr>
+<tr>
+<td>replication link down</td>
+<td>replica read, failover 위험</td>
+</tr>
+</tbody>
+</table>
 <h2 id="1-redis">1. Redis 지연이 급증함</h2>
 <table>
 <thead>
@@ -6524,11 +6594,12 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>redis-cli<span class="w"> </span>SLOWLOG<span class="w"> </span>GET<span class="w"> </span><span class="m">20</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>redis-cli<span class="w"> </span>LATENCY<span class="w"> </span>DOCTOR
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>redis-cli<span class="w"> </span>INFO<span class="w"> </span>commandstats
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>redis-cli<span class="w"> </span>--bigkeys
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>redis-cli<span class="w"> </span>SLOWLOG<span class="w"> </span>GET<span class="w"> </span><span class="m">20</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>redis-cli<span class="w"> </span>LATENCY<span class="w"> </span>DOCTOR
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>redis-cli<span class="w"> </span>INFO<span class="w"> </span>commandstats
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>redis-cli<span class="w"> </span>--bigkeys
 </code></pre></div>
+<p>추가로 애플리케이션 쪽에서는 Redis 호출 p95/p99, pool 대기 시간, timeout count를 함께 봅니다. Redis는 멀쩡하지만 connection pool이 고갈되어 API가 느려지는 경우도 많습니다.</p>
 <h2 id="2-connection-timeout">2. Connection Timeout</h2>
 <table>
 <thead>
@@ -6557,6 +6628,36 @@
 <tr>
 <td>재발 방지</td>
 <td>connection pool 표준, idle timeout, circuit breaker</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>redis-cli<span class="w"> </span>INFO<span class="w"> </span>clients
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>redis-cli<span class="w"> </span>CONFIG<span class="w"> </span>GET<span class="w"> </span>maxclients
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>redis-cli<span class="w"> </span>CLIENT<span class="w"> </span>LIST
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>확인</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>connected_clients</code></td>
+<td>현재 연결 수</td>
+</tr>
+<tr>
+<td><code>blocked_clients</code></td>
+<td>blocking 명령으로 대기 중인 client</td>
+</tr>
+<tr>
+<td><code>rejected_connections</code></td>
+<td>maxclients 초과로 거부된 연결</td>
+</tr>
+<tr>
+<td><code>CLIENT LIST</code></td>
+<td>어떤 client가 많이 붙어 있는지</td>
 </tr>
 </tbody>
 </table>
@@ -6591,6 +6692,11 @@
 </tr>
 </tbody>
 </table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>redis-cli<span class="w"> </span>SLOWLOG<span class="w"> </span>GET<span class="w"> </span><span class="m">50</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>redis-cli<span class="w"> </span>INFO<span class="w"> </span>commandstats
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>redis-cli<span class="w"> </span>LATENCY<span class="w"> </span>LATEST
+</code></pre></div>
+<p>slowlog에 <code>KEYS</code>, <code>HGETALL</code>, <code>SMEMBERS</code>, 큰 <code>LRANGE</code>, 긴 Lua가 보이면 해당 API와 배포 시각을 연결해서 봅니다.</p>
 <h2 id="4-eviction">4. 메모리 부족 또는 Eviction 발생</h2>
 <table>
 <thead>
@@ -6622,11 +6728,42 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>redis-cli<span class="w"> </span>INFO<span class="w"> </span>memory
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>redis-cli<span class="w"> </span>INFO<span class="w"> </span>stats<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>evicted_keys
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>redis-cli<span class="w"> </span>CONFIG<span class="w"> </span>GET<span class="w"> </span>maxmemory
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>redis-cli<span class="w"> </span>CONFIG<span class="w"> </span>GET<span class="w"> </span>maxmemory-policy
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>redis-cli<span class="w"> </span>INFO<span class="w"> </span>memory
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>redis-cli<span class="w"> </span>INFO<span class="w"> </span>stats<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>evicted_keys
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>redis-cli<span class="w"> </span>CONFIG<span class="w"> </span>GET<span class="w"> </span>maxmemory
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>redis-cli<span class="w"> </span>CONFIG<span class="w"> </span>GET<span class="w"> </span>maxmemory-policy
 </code></pre></div>
+<table>
+<thead>
+<tr>
+<th>지표</th>
+<th>위험 해석</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>used_memory</code></td>
+<td>Redis가 사용하는 메모리</td>
+</tr>
+<tr>
+<td><code>used_memory_rss</code></td>
+<td>OS가 잡은 실제 메모리</td>
+</tr>
+<tr>
+<td><code>mem_fragmentation_ratio</code></td>
+<td>단편화 정도</td>
+</tr>
+<tr>
+<td><code>evicted_keys</code></td>
+<td>메모리 부족으로 제거된 key</td>
+</tr>
+<tr>
+<td><code>expired_keys</code></td>
+<td>TTL 만료로 제거된 key</td>
+</tr>
+</tbody>
+</table>
+<p><code>noeviction</code> 정책에서는 메모리가 꽉 차면 쓰기 명령이 실패합니다. 캐시 목적이면 <code>allkeys-lru</code>나 <code>allkeys-lfu</code>를 검토하고, 세션처럼 함부로 지우면 안 되는 데이터와 한 Redis에 섞지 않는 것이 좋습니다.</p>
 <h2 id="5-swapping-cpu">5. Swapping과 CPU 병목</h2>
 <table>
 <thead>
@@ -6654,6 +6791,11 @@
 </tr>
 </tbody>
 </table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>redis-cli<span class="w"> </span>INFO<span class="w"> </span>cpu
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>redis-cli<span class="w"> </span>INFO<span class="w"> </span>persistence
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>redis-cli<span class="w"> </span>LATENCY<span class="w"> </span>DOCTOR
+</code></pre></div>
+<p>RDB snapshot이나 AOF rewrite는 fork를 동반할 수 있어 메모리 여유가 부족하면 지연이 커집니다. 지연 시각과 <code>rdb_bgsave_in_progress</code>, <code>aof_rewrite_in_progress</code>를 함께 확인합니다.</p>
 <h2 id="6-big-key">6. Big Key 장애</h2>
 <table>
 <thead>
@@ -6681,11 +6823,14 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>redis-cli<span class="w"> </span>--bigkeys
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>redis-cli<span class="w"> </span>MEMORY<span class="w"> </span>USAGE<span class="w"> </span>some:key
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>redis-cli<span class="w"> </span>HLEN<span class="w"> </span>some:hash
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>redis-cli<span class="w"> </span>SCARD<span class="w"> </span>some:set
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>redis-cli<span class="w"> </span>ZCARD<span class="w"> </span>some:zset
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>redis-cli<span class="w"> </span>--bigkeys
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>redis-cli<span class="w"> </span>MEMORY<span class="w"> </span>USAGE<span class="w"> </span>some:key
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>redis-cli<span class="w"> </span>HLEN<span class="w"> </span>some:hash
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>redis-cli<span class="w"> </span>SCARD<span class="w"> </span>some:set
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>redis-cli<span class="w"> </span>ZCARD<span class="w"> </span>some:zset
+</code></pre></div>
+<p>발견한 big key는 바로 <code>DEL</code>하지 말고 크기와 자료구조를 먼저 봅니다. 큰 key 삭제는 <code>UNLINK</code>나 작은 단위 분할 삭제가 안전합니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>redis-cli<span class="w"> </span>UNLINK<span class="w"> </span>huge:key
 </code></pre></div>
 <h2 id="7-hot-key">7. Hot Key 장애</h2>
 <table>
@@ -6714,6 +6859,13 @@
 </tr>
 </tbody>
 </table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># 운영에서는 짧게만 사용</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>redis-cli<span class="w"> </span>MONITOR
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Cluster라면 특정 노드만 높은지 확인</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>redis-cli<span class="w"> </span>--cluster<span class="w"> </span>info<span class="w"> </span>redis-node-1:6379
+</code></pre></div>
+<p><code>MONITOR</code>는 Redis에 부담을 줄 수 있으므로 짧게만 사용합니다. 가능하면 애플리케이션 metric에서 key prefix별 호출량을 수집하는 편이 안전합니다.</p>
 <h2 id="8-on">8. O(N) 명령 장애</h2>
 <table>
 <thead>
@@ -6772,6 +6924,35 @@
 </tr>
 </tbody>
 </table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>redis-cli<span class="w"> </span>INFO<span class="w"> </span>replication
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>필드</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>role</code></td>
+<td>master/replica 역할</td>
+</tr>
+<tr>
+<td><code>master_link_status</code></td>
+<td>replica가 master와 연결됐는지</td>
+</tr>
+<tr>
+<td><code>master_repl_offset</code></td>
+<td>master 복제 offset</td>
+</tr>
+<tr>
+<td><code>slave_repl_offset</code></td>
+<td>replica 복제 offset</td>
+</tr>
+</tbody>
+</table>
+<p>replica read를 사용 중이면 lag가 커졌을 때 오래된 값을 읽을 수 있습니다. 중요한 조회는 master read로 전환하거나 replica read를 일시 중단합니다.</p>
 <h2 id="10-failover">10. Failover 지연</h2>
 <table>
 <thead>
@@ -6803,12 +6984,13 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>redis-cli<span class="w"> </span>INFO<span class="w"> </span>replication
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>redis-cli<span class="w"> </span>ROLE
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>redis-cli<span class="w"> </span>SENTINEL<span class="w"> </span>masters
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>redis-cli<span class="w"> </span>CLUSTER<span class="w"> </span>INFO
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>redis-cli<span class="w"> </span>CLUSTER<span class="w"> </span>NODES
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>redis-cli<span class="w"> </span>INFO<span class="w"> </span>replication
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>redis-cli<span class="w"> </span>ROLE
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>redis-cli<span class="w"> </span>SENTINEL<span class="w"> </span>masters
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>redis-cli<span class="w"> </span>CLUSTER<span class="w"> </span>INFO
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>redis-cli<span class="w"> </span>CLUSTER<span class="w"> </span>NODES
 </code></pre></div>
+<p>failover 이후 애플리케이션이 새 master를 인식하지 못하면 <code>READONLY</code>나 write timeout이 반복됩니다. client topology refresh, DNS cache, connection pool 재생성을 확인합니다.</p>
 <h2 id="11-cluster-slot-migration">11. Cluster Slot Migration 문제</h2>
 <table>
 <thead>
@@ -6841,6 +7023,12 @@
 </tr>
 </tbody>
 </table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>redis-cli<span class="w"> </span>CLUSTER<span class="w"> </span>INFO
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>redis-cli<span class="w"> </span>CLUSTER<span class="w"> </span>NODES
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>redis-cli<span class="w"> </span>CLUSTER<span class="w"> </span>KEYSLOT<span class="w"> </span>cart:<span class="o">{</span>user-1<span class="o">}</span>:items
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>redis-cli<span class="w"> </span>CLUSTER<span class="w"> </span>KEYSLOT<span class="w"> </span>cart:<span class="o">{</span>user-1<span class="o">}</span>:summary
+</code></pre></div>
+<p><code>CROSSSLOT</code>은 장애라기보다 key 설계 문제인 경우가 많습니다. 다중 key 명령이 필요한 key는 <code>{user-1}</code>처럼 같은 hash tag를 사용합니다.</p>
 <h2 id="12-db">12. 캐시 값이 DB와 다름</h2>
 <table>
 <thead>
@@ -6872,6 +7060,11 @@
 </tr>
 </tbody>
 </table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>redis-cli<span class="w"> </span>GET<span class="w"> </span>product:1001:summary
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>redis-cli<span class="w"> </span>TTL<span class="w"> </span>product:1001:summary
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>redis-cli<span class="w"> </span>DEL<span class="w"> </span>product:1001:summary
+</code></pre></div>
+<p>장애 중에는 먼저 해당 key를 삭제해 사용자 영향을 줄이고, 이후 DB update 로그와 캐시 delete 로그의 순서를 확인합니다.</p>
 <h2 id="13">13. 분산 락 중복 실행</h2>
 <table>
 <thead>
@@ -6903,6 +7096,10 @@
 </tr>
 </tbody>
 </table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>redis-cli<span class="w"> </span>GET<span class="w"> </span>lock:coupon:100
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>redis-cli<span class="w"> </span>PTTL<span class="w"> </span>lock:coupon:100
+</code></pre></div>
+<p>락 TTL이 작업 시간보다 짧았는지, unlock이 owner 확인 없이 <code>DEL</code>만 수행했는지, DB에 unique 제약이 있는지 확인합니다.</p>
 <h2 id="_2">장애 격리 전략</h2>
 <table>
 <thead>
@@ -7060,7 +7257,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 27일 13:44:13 UTC">2026년 4월 27일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 27일 14:00:05 UTC">2026년 4월 27일</span>
   </span>
 
     
