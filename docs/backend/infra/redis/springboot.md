@@ -43,9 +43,22 @@ spring:
       host: localhost
       port: 6379
       timeout: 2s
+      lettuce:
+        pool:
+          max-active: 16
+          max-idle: 16
+          min-idle: 2
+          max-wait: 500ms
 ```
 
 운영에서는 host, port뿐 아니라 command timeout, connect timeout, pool, retry, circuit breaker를 함께 봅니다.
+
+| 설정 | 의미 | 기준 |
+|------|------|------|
+| `timeout` | Redis command timeout | API timeout보다 짧게 |
+| `max-active` | pool에서 사용할 최대 연결 수 | 인스턴스 수와 Redis `maxclients` 기준 |
+| `max-wait` | pool 대기 시간 | 길면 장애 전파, 짧으면 빠른 실패 |
+| `min-idle` | 유지할 idle 연결 수 | 급격한 트래픽 대비 |
 
 ## RedisTemplate
 
@@ -91,6 +104,46 @@ public void updateProduct(Long productId, ProductUpdateRequest request) {
 
 조회 캐시는 Spring Cache로 시작하기 좋지만, TTL, key prefix, null cache, lock 기반 stampede 방지까지 필요하면 설정을 명확히 봐야 합니다.
 
+### CacheManager TTL 설정
+
+cache 이름별로 TTL을 다르게 두면 운영 기준이 명확해집니다.
+
+```java
+@Bean
+RedisCacheManager redisCacheManager(RedisConnectionFactory factory) {
+    RedisCacheConfiguration defaultConfig = RedisCacheConfiguration.defaultCacheConfig()
+        .entryTtl(Duration.ofMinutes(10))
+        .disableCachingNullValues()
+        .serializeKeysWith(
+            RedisSerializationContext.SerializationPair.fromSerializer(new StringRedisSerializer())
+        )
+        .serializeValuesWith(
+            RedisSerializationContext.SerializationPair.fromSerializer(new GenericJackson2JsonRedisSerializer())
+        );
+
+    Map<String, RedisCacheConfiguration> configs = Map.of(
+        "product", defaultConfig.entryTtl(Duration.ofMinutes(5)),
+        "category", defaultConfig.entryTtl(Duration.ofHours(1)),
+        "notice", defaultConfig.entryTtl(Duration.ofMinutes(30))
+    );
+
+    return RedisCacheManager.builder(factory)
+        .cacheDefaults(defaultConfig)
+        .withInitialCacheConfigurations(configs)
+        .build();
+}
+```
+
+| cache | TTL 기준 |
+|-------|----------|
+| `product` | 가격·상태 변경 가능성이 있어 짧게 |
+| `category` | 변경이 적어 길게 |
+| `notice` | 운영자가 수정할 수 있어 중간 정도 |
+
+### Null Cache 주의
+
+Spring Cache에서 null caching을 켜면 cache penetration을 줄일 수 있지만, 존재하지 않는 값도 Redis에 저장됩니다. null cache가 필요하면 짧은 TTL을 따로 두거나, 서비스 코드에서 명시적인 `EMPTY` value를 저장하는 방식을 검토합니다.
+
 ## Redis Repository
 
 Redis Repository는 객체를 Redis Hash로 저장하는 추상화입니다. 세션성 객체나 짧게 살아도 되는 상태에는 쓸 수 있지만, RDB repository처럼 원장 데이터를 맡기면 위험합니다.
@@ -127,6 +180,30 @@ Redis Repository는 객체를 Redis Hash로 저장하는 추상화입니다. 세
 | retry | 짧고 제한적으로, 폭주 방지 |
 | circuit breaker | Redis 장애가 전체 서비스 장애로 번지지 않게 |
 
+### Lettuce Client 설정 예시
+
+```java
+@Bean
+LettuceClientConfigurationBuilderCustomizer lettuceCustomizer() {
+    return builder -> builder
+        .commandTimeout(Duration.ofSeconds(2))
+        .shutdownTimeout(Duration.ofMillis(100));
+}
+```
+
+Redis timeout은 DB timeout, API timeout과 함께 맞춰야 합니다. Redis가 캐시라면 Redis timeout이 길어서 전체 API가 느려지는 상황을 피하는 것이 보통입니다.
+
+### Retry와 Circuit Breaker
+
+Redis 장애에서 무제한 retry는 장애를 키웁니다.
+
+| 상황 | 권장 |
+|------|------|
+| 조회 캐시 실패 | 짧게 실패 후 DB fallback |
+| 락 획득 실패 | 제한 횟수 retry 후 실패 응답 |
+| rate limit Redis 실패 | 보안 요구에 따라 fail-open/fail-closed 결정 |
+| Redis 전체 장애 | circuit breaker로 일정 시간 호출 차단 |
+
 ## Redis 장애 시 Fallback
 
 | 상황 | 대응 |
@@ -136,6 +213,25 @@ Redis Repository는 객체를 Redis Hash로 저장하는 추상화입니다. 세
 | 락 Redis 장애 | 작업 중단 또는 DB unique로 보호 |
 | rate limit Redis 장애 | fail-open/fail-closed 정책 결정 |
 
+```java
+public ProductResponse getProduct(Long productId) {
+    try {
+        ProductResponse cached = cacheReader.get(productId);
+        if (cached != null) {
+            return cached;
+        }
+    } catch (RedisConnectionFailureException ex) {
+        // Redis 장애 시 DB fallback
+    }
+
+    ProductResponse response = productRepository.findResponse(productId);
+    cacheWriter.put(productId, response);
+    return response;
+}
+```
+
+fallback을 넣을 때는 DB가 갑자기 모든 트래픽을 받게 될 수 있습니다. Redis 장애 시 DB 보호를 위해 rate limit, degraded response, circuit breaker를 함께 고려합니다.
+
 ## 테스트 전략
 
 | 방식 | 특징 |
@@ -144,6 +240,39 @@ Redis Repository는 객체를 Redis Hash로 저장하는 추상화입니다. 세
 | Docker Redis | 개발 환경 일관성 |
 | Testcontainers | 통합 테스트 재현성 |
 | Embedded Redis | 환경에 따라 유지보수 이슈 가능 |
+
+### Testcontainers 예시
+
+```java
+@Testcontainers
+@SpringBootTest
+class RedisCacheTest {
+
+    @Container
+    static GenericContainer<?> redis = new GenericContainer<>("redis:7")
+        .withExposedPorts(6379);
+
+    @DynamicPropertySource
+    static void redisProperties(DynamicPropertyRegistry registry) {
+        registry.add("spring.data.redis.host", redis::getHost);
+        registry.add("spring.data.redis.port", () -> redis.getMappedPort(6379));
+    }
+
+    @Autowired
+    StringRedisTemplate redisTemplate;
+
+    @Test
+    void saveWithTtl() {
+        redisTemplate.opsForValue().set("auth:code:user-1", "123456", Duration.ofMinutes(3));
+
+        Long ttl = redisTemplate.getExpire("auth:code:user-1");
+
+        assertThat(ttl).isPositive();
+    }
+}
+```
+
+테스트에서는 단순 저장 성공뿐 아니라 TTL, serializer, key prefix, cache eviction까지 확인하는 것이 좋습니다.
 
 ## 베스트 프랙티스
 
