@@ -182,6 +182,7 @@ nav:
     - 인프라:
       - Redis:
         - 개요: backend/infra/redis.md
+        - Redis란?: backend/infra/redis/redis란.md
         - 기본 사용과 자료구조: backend/infra/redis/기본사용.md
         - Key 설계와 데이터 관리: backend/infra/redis/데이터관리.md
         - 캐시 전략과 정합성: backend/infra/redis/캐시패턴.md
