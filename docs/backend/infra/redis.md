@@ -23,9 +23,9 @@ Redis가 비어도 DB 기준으로 복구할 수 있어야 한다.
 | 읽고 싶은 내용 | 바로가기 | 핵심 질문 |
 |----------------|----------|-----------|
 | 기본 명령, 키 이름, 자료구조 | [기본 사용과 자료구조](./redis/기본사용.md) | 어떤 자료구조를 어떤 조회 방식에 맞춰 고를 것인가? |
-| Cache Aside, Rate Limit, 분산 락 | [캐시와 락 패턴](./redis/캐시패턴.md) | DB 부하와 중복 실행을 어떻게 줄일 것인가? |
+| Cache Aside, Cache Warming, Rate Limit, 분산 락 | [캐시와 락 패턴](./redis/캐시패턴.md) | DB 부하와 중복 실행을 어떻게 줄일 것인가? |
 | 메모리, TTL, persistence, replication, cluster | [구조와 운영 특성](./redis/구조와운영.md) | 빠른 대신 어떤 운영 한계가 생기는가? |
-| 장애 대응, 지표, 체크리스트 | [장애 대응과 관찰 지표](./redis/장애대응.md) | 지연, OOM, hot key, failover를 어떤 순서로 볼 것인가? |
+| 장애 대응, Hit Ratio, 지표, 체크리스트 | [장애 대응과 관찰 지표](./redis/장애대응.md) | 지연, OOM, hot key, failover를 어떤 순서로 볼 것인가? |
 
 ---
 
@@ -53,11 +53,13 @@ Redis가 비어도 DB 기준으로 복구할 수 있어야 한다.
 | 주제 | 기준 |
 |------|------|
 | Cache | Cache Aside, 짧은 TTL, DB 변경 후 캐시 삭제를 기본으로 검토 |
+| Warming | 트래픽이 예측되는 핵심 데이터는 미리 적재하되 TTL jitter를 함께 고려 |
+| Penetration | 존재하지 않는 값 반복 조회는 null cache, 입력 검증, Bloom Filter로 완화 |
 | Key | 도메인과 용도가 드러나게 `:`로 계층화하고, cluster 다중 키는 hash tag 고려 |
 | Memory | `maxmemory`, eviction 정책, big key 제한을 명확히 둠 |
 | Lock | `SET NX PX`, 소유자 확인 삭제, DB unique나 멱등성과 함께 사용 |
 | 장애 | Redis가 비어도 DB 기준으로 복구 가능한지 먼저 확인 |
-| 관찰 | memory, latency, evictions, replication lag, connection을 알림으로 관리 |
+| 관찰 | Hit Ratio, memory, latency, evictions, replication lag, connection을 알림으로 관리 |
 
 ## 정리
 
