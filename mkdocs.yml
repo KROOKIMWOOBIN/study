@@ -180,8 +180,18 @@ nav:
   - Backend:
     - 개요: backend/backend.md
     - 인프라:
-      - Redis: backend/infra/redis.md
-      - Kafka: backend/infra/kafka.md
+      - Redis:
+        - 개요: backend/infra/redis.md
+        - 기본 사용과 자료구조: backend/infra/redis/기본사용.md
+        - 캐시와 락 패턴: backend/infra/redis/캐시패턴.md
+        - 구조와 운영 특성: backend/infra/redis/구조와운영.md
+        - 장애 대응과 관찰 지표: backend/infra/redis/장애대응.md
+      - Kafka:
+        - 개요: backend/infra/kafka.md
+        - 기본 개념과 구조: backend/infra/kafka/기본개념.md
+        - Producer와 이벤트 설계: backend/infra/kafka/producer.md
+        - Consumer와 전달 보장: backend/infra/kafka/consumer.md
+        - 운영과 장애 대응: backend/infra/kafka/운영장애대응.md
     - 아키텍처:
       - 아키텍처 패턴: backend/architecture/architecture.md
       - MSA: backend/architecture/msa.md
