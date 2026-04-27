@@ -4170,6 +4170,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#hit-ratio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hit Ratio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6067,6 +6078,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#hit-ratio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hit Ratio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6606,6 +6628,35 @@
 </tr>
 </tbody>
 </table>
+<h3 id="hit-ratio">Hit Ratio</h3>
+<p>Hit Ratio는 전체 캐시 조회 중 Redis에서 바로 응답한 비율입니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Hit Ratio = keyspace_hits / (keyspace_hits + keyspace_misses)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>redis-cli<span class="w"> </span>INFO<span class="w"> </span>stats
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>지표</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>keyspace_hits</code></td>
+<td>Redis에서 값을 찾은 횟수</td>
+</tr>
+<tr>
+<td><code>keyspace_misses</code></td>
+<td>Redis에 값이 없어 miss가 난 횟수</td>
+</tr>
+<tr>
+<td>Hit Ratio 하락</td>
+<td>TTL이 너무 짧거나, 캐시 대상이 부적절하거나, 캐시 무효화가 과도할 수 있음</td>
+</tr>
+</tbody>
+</table>
+<p>Hit Ratio는 높을수록 좋지만 숫자만 단독으로 보면 위험합니다. 예를 들어 중요하지 않은 설정 키만 hit가 높고, 정작 DB 부하를 만드는 상품 상세가 계속 miss라면 캐시 효과는 낮습니다. 실무에서는 <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr>, 도메인, key prefix 단위로 나누어 봅니다.</p>
 <h3 id="_2">알림 기준 예시</h3>
 <table>
 <thead>
@@ -6626,6 +6677,10 @@
 <tr>
 <td><code>keyspace_misses</code></td>
 <td>갑작스러운 증가</td>
+</tr>
+<tr>
+<td>Hit Ratio</td>
+<td>주요 캐시에서 목표치 아래로 하락</td>
 </tr>
 <tr>
 <td><code>connected_clients</code></td>
@@ -6675,6 +6730,14 @@
 <td>동시 만료 방지</td>
 </tr>
 <tr>
+<td>핵심 데이터는 cache warming 검토</td>
+<td>첫 요청 miss와 이벤트 직후 DB 부하 완화</td>
+</tr>
+<tr>
+<td>없는 결과는 짧은 TTL로 null cache</td>
+<td>cache penetration으로 인한 DB 반복 조회 차단</td>
+</tr>
+<tr>
 <td>원본 데이터는 DB에 유지</td>
 <td>Redis 유실·초기화 대응</td>
 </tr>
@@ -6707,6 +6770,10 @@
 <td>장애 전조 조기 감지</td>
 </tr>
 <tr>
+<td>Hit Ratio를 prefix·<abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 단위로 관찰</td>
+<td>캐시가 실제 DB 부하를 줄이는지 확인</td>
+</tr>
+<tr>
 <td>failover 훈련</td>
 <td>client 재연결, 데이터 유실 범위 확인</td>
 </tr>
@@ -6724,6 +6791,10 @@
 <tr>
 <td>조회 캐시</td>
 <td>Cache Aside, 짧은 TTL, 갱신 시 삭제</td>
+</tr>
+<tr>
+<td>이벤트 전 인기 데이터</td>
+<td>Cache Warming, TTL jitter, 워밍 실패 시 fallback 준비</td>
 </tr>
 <tr>
 <td>세션 저장</td>
@@ -6831,7 +6902,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 27일 11:15:11 UTC">2026년 4월 27일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 27일 12:28:05 UTC">2026년 4월 27일</span>
   </span>
 
     

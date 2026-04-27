@@ -3942,10 +3942,49 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        캐시 기본 용어
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cache-aside" class="md-nav__link">
     <span class="md-ellipsis">
       
         Cache Aside 패턴
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cache Aside 패턴">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redis-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redis와 DB를 둘 다 조회해도 쓰는 이유
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cache-warming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cache Warming
       
     </span>
   </a>
@@ -3964,7 +4003,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         분산 락
@@ -4004,6 +4043,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Cache Penetration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#null-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Null Cache
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -5745,10 +5801,49 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        캐시 기본 용어
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cache-aside" class="md-nav__link">
     <span class="md-ellipsis">
       
         Cache Aside 패턴
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cache Aside 패턴">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redis-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redis와 DB를 둘 다 조회해도 쓰는 이유
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cache-warming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cache Warming
       
     </span>
   </a>
@@ -5767,7 +5862,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         분산 락
@@ -5808,6 +5903,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Cache Penetration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#null-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Null Cache
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -5843,6 +5955,48 @@
 
 <h1 id="redis">Redis 캐시와 락 패턴</h1>
 <p>Redis는 반복 조회를 빠르게 만드는 캐시, 짧은 카운터, 단기 중복 실행 방지에 자주 사용됩니다. 다만 원본 저장소가 아니므로 <strong>DB 기준 복구와 멱등성</strong>을 함께 설계해야 합니다.</p>
+<h2 id="_1">캐시 기본 용어</h2>
+<table>
+<thead>
+<tr>
+<th>용어</th>
+<th>의미</th>
+<th>실무에서 보는 포인트</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cache Hit</td>
+<td>Redis에 값이 있어 DB 조회 없이 응답하는 경우</td>
+<td>응답 속도와 DB 부하 감소</td>
+</tr>
+<tr>
+<td>Cache Miss</td>
+<td>Redis에 값이 없어 DB까지 조회하는 경우</td>
+<td>첫 조회 또는 만료 직후에는 느릴 수 있음</td>
+</tr>
+<tr>
+<td>Cache Warming</td>
+<td>서비스 오픈·이벤트 전에 주요 데이터를 미리 Redis에 적재</td>
+<td>대량 miss를 줄여 초기 트래픽을 완화</td>
+</tr>
+<tr>
+<td>Cache Penetration</td>
+<td>존재하지 않는 키 요청이 반복되어 매번 DB까지 가는 문제</td>
+<td>null cache, 입력 검증, Bloom Filter로 완화</td>
+</tr>
+<tr>
+<td>Cache Stampede</td>
+<td>인기 키 만료 직후 많은 요청이 동시에 DB로 몰리는 문제</td>
+<td>TTL jitter, mutex, stale cache가 필요</td>
+</tr>
+<tr>
+<td>Hit Ratio</td>
+<td>전체 조회 중 cache hit 비율</td>
+<td>캐시가 실제로 효과를 내는지 보는 핵심 지표</td>
+</tr>
+</tbody>
+</table>
 <h2 id="cache-aside">Cache Aside 패턴</h2>
 <p>가장 흔한 캐시 사용 방식입니다. 애플리케이션이 캐시를 먼저 보고, 없으면 DB에서 읽은 뒤 Redis에 저장합니다.</p>
 <pre class="mermaid"><code>sequenceDiagram
@@ -5880,21 +6034,84 @@
     D --&gt; E[Redis에 TTL과 함께 저장]
     E --&gt; F[응답]</code></pre>
 <p>처음 요청은 느릴 수 있습니다. 대신 다음 요청부터는 DB를 거치지 않습니다. 그래서 Redis 캐시는 "첫 요청을 빠르게"가 아니라 <strong>반복 조회를 빠르게</strong> 만드는 기술입니다.</p>
+<h3 id="redis-db">Redis와 DB를 둘 다 조회해도 쓰는 이유</h3>
+<p>Cache Miss가 나면 애플리케이션은 Redis 조회 후 DB까지 조회합니다. 이 경우 단순히 DB만 조회하는 것보다 네트워크 I/O가 한 번 더 생겨 첫 요청은 더 느릴 수 있습니다.</p>
+<p>그럼에도 Redis를 쓰는 이유는 <strong>첫 조회 비용을 감수하고 이후 반복 조회의 비용을 크게 줄이기 위해서</strong>입니다.</p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>흐름</th>
+<th>특징</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DB만 사용</td>
+<td>App -&gt; DB</td>
+<td>매 요청이 DB 부하로 이어짐</td>
+</tr>
+<tr>
+<td>Cache Miss</td>
+<td>App -&gt; Redis -&gt; DB -&gt; Redis 저장</td>
+<td>첫 조회는 느릴 수 있지만 다음 hit를 준비</td>
+</tr>
+<tr>
+<td>Cache Hit</td>
+<td>App -&gt; Redis</td>
+<td>DB를 거치지 않아 빠르고 DB 부하가 줄어듦</td>
+</tr>
+</tbody>
+</table>
+<div class="tip-box">
+<p><strong>팁</strong>: 첫 조회 지연이 부담되는 핵심 데이터는 Cache Warming으로 미리 Redis에 넣어둘 수 있다. 단, 워밍 대상과 주기를 과하게 잡으면 Redis 메모리와 DB 배치 부하가 늘어난다.</p>
+</div>
+<h2 id="cache-warming">Cache Warming</h2>
+<p>Cache Warming은 서비스 오픈, 배포 직후, 이벤트 시작 전에 예상되는 핵심 데이터를 미리 Redis에 적재하는 방식입니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>이벤트 시작 전
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>-&gt; 인기 상품 ID 목록 조회
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>-&gt; DB에서 상품 상세 조회
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>-&gt; Redis에 TTL과 함께 저장
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>-&gt; 이벤트 시작 후 첫 요청부터 cache hit 가능
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>언제 쓰는지</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>트래픽이 몰릴 시간이 예측됨</td>
+<td>특가 이벤트, 티켓 오픈, 공지 발송 직후</td>
+</tr>
+<tr>
+<td>인기 데이터가 명확함</td>
+<td>메인 페이지 상품, 카테고리 상위 목록</td>
+</tr>
+<tr>
+<td>첫 요청 지연을 줄이고 싶음</td>
+<td>앱 실행 직후 필요한 공통 설정</td>
+</tr>
+</tbody>
+</table>
+<p>주의할 점은 워밍이 캐시 문제를 모두 해결하지는 않는다는 것입니다. 워밍한 키가 동시에 만료되면 다시 Cache Stampede가 생길 수 있으므로 TTL jitter와 함께 설계하는 것이 좋습니다.</p>
 <h2 id="rate-limit">카운터와 Rate Limit</h2>
 <p><code>INCR</code>는 단일 명령으로 원자적으로 증가합니다. 로그인 실패 횟수, <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 호출 횟수 같은 짧은 카운터에 적합합니다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>INCR<span class="w"> </span>rate-limit:login:user-1
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>EXPIRE<span class="w"> </span>rate-limit:login:user-1<span class="w"> </span><span class="m">60</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>INCR<span class="w"> </span>rate-limit:login:user-1
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>EXPIRE<span class="w"> </span>rate-limit:login:user-1<span class="w"> </span><span class="m">60</span>
 </code></pre></div>
 <p>다만 <code>INCR</code>와 <code>EXPIRE</code>를 따로 호출하면 중간 실패로 TTL 없는 키가 남을 수 있습니다. 실무에서는 Lua 스크립트나 트랜잭션으로 묶습니다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">redis</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s2">&quot;INCR&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">KEYS</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kr">if</span><span class="w"> </span><span class="nv">current</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">then</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nv">redis</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s2">&quot;EXPIRE&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">KEYS</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="nv">ARGV</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kr">end</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="kr">return</span><span class="w"> </span><span class="nv">current</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">redis</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s2">&quot;INCR&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">KEYS</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kr">if</span><span class="w"> </span><span class="nv">current</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nv">redis</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s2">&quot;EXPIRE&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">KEYS</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="nv">ARGV</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kr">end</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="kr">return</span><span class="w"> </span><span class="nv">current</span>
 </code></pre></div>
-<h2 id="_1">분산 락</h2>
+<h2 id="_2">분산 락</h2>
 <p>여러 서버가 같은 자원을 동시에 처리하면 Redis의 <code>SET NX PX</code>를 이용해 짧은 락을 만들 수 있습니다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>SET<span class="w"> </span>lock:coupon:100<span class="w"> </span>request-uuid<span class="w"> </span>NX<span class="w"> </span>PX<span class="w"> </span><span class="m">3000</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>SET<span class="w"> </span>lock:coupon:100<span class="w"> </span>request-uuid<span class="w"> </span>NX<span class="w"> </span>PX<span class="w"> </span><span class="m">3000</span>
 </code></pre></div>
 <table>
 <thead>
@@ -5919,11 +6136,11 @@
 </tbody>
 </table>
 <p>해제할 때는 반드시 <strong>내가 잡은 락인지 확인한 뒤 삭제</strong>해야 합니다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kr">if</span><span class="w"> </span><span class="nv">redis</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">KEYS</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">ARGV</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="kr">then</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">redis</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s2">&quot;DEL&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">KEYS</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kr">else</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="mi">0</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="kr">end</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kr">if</span><span class="w"> </span><span class="nv">redis</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">KEYS</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">ARGV</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">redis</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s2">&quot;DEL&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">KEYS</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kr">else</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="kr">end</span>
 </code></pre></div>
 <div class="danger-box">
 <p><strong>위험</strong>: 분산 락은 트랜잭션을 대신하지 않는다. 락 만료 시간이 작업 시간보다 짧으면 다른 서버가 같은 락을 다시 잡을 수 있고, 네트워크 지연·프로세스 정지·failover 상황에서는 중복 실행이 발생할 수 있다.</p>
@@ -5978,11 +6195,11 @@
     R3 --&gt; DB
     R4 --&gt; DB
     DB --&gt; S[DB 부하 급증]</code></pre>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>인기 상품 캐시 만료
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>-&gt; 요청 1,000개가 동시에 miss
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>-&gt; DB 조회 1,000번
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>-&gt; DB 지연
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>-&gt; 애플리케이션 타임아웃
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>인기 상품 캐시 만료
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>-&gt; 요청 1,000개가 동시에 miss
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>-&gt; DB 조회 1,000번
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>-&gt; DB 지연
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>-&gt; 애플리케이션 타임아웃
 </code></pre></div>
 <p>대응 방법입니다.</p>
 <table>
@@ -6013,10 +6230,10 @@
 </table>
 <h2 id="cache-penetration">Cache Penetration</h2>
 <p>존재하지 않는 값을 계속 조회해 캐시를 우회하는 문제입니다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>GET product:-1 -&gt; miss
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>DB 조회 -&gt; 없음
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>다음 요청도 miss
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>DB 조회 반복
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>GET product:-1 -&gt; miss
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>DB 조회 -&gt; 없음
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>다음 요청도 miss
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>DB 조회 반복
 </code></pre></div>
 <p>대응 방법입니다.</p>
 <table>
@@ -6041,6 +6258,32 @@
 </tr>
 </tbody>
 </table>
+<h3 id="null-cache">Null Cache</h3>
+<p>Null Cache는 DB에 데이터가 없다는 사실도 Redis에 짧게 저장하는 방식입니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>GET product:-1 -&gt; miss
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>DB 조회 -&gt; 없음
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>SET product:-1 &quot;__EMPTY__&quot; EX 30
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>다음 요청 -&gt; Redis에서 빈 결과를 바로 응답
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>장점</th>
+<th>단점</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>존재하지 않는 값 조회가 DB까지 반복 도달하는 것을 막음</td>
+<td>없는 값도 캐시에 저장하므로 메모리를 사용</td>
+</tr>
+<tr>
+<td>공격성 요청이나 잘못된 ID 반복 조회에 효과적</td>
+<td>TTL이 너무 길면 나중에 실제 데이터가 생겼을 때 늦게 보일 수 있음</td>
+</tr>
+</tbody>
+</table>
+<p>그래서 null cache는 보통 일반 데이터보다 TTL을 짧게 잡습니다. 데이터 생성 가능성이 거의 없는 ID는 조금 길게 둘 수 있지만, 상품·게시글처럼 나중에 생성될 수 있는 도메인은 짧은 TTL과 캐시 무효화 전략을 함께 둡니다.</p>
 <h2 id="cache-avalanche">Cache Avalanche</h2>
 <p>많은 키가 비슷한 시간에 만료되어 DB로 트래픽이 쏠리는 문제입니다.</p>
 <p>대응 방법은 TTL 분산, 대량 키 갱신 속도 제한, 사전 적재, fallback 응답입니다.</p>
@@ -6077,7 +6320,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 27일 11:15:11 UTC">2026년 4월 27일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 27일 12:28:05 UTC">2026년 4월 27일</span>
   </span>
 
     
