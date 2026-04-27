@@ -8,31 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://krookimwoobin.github.io/study/java/lambda/programming/">
+        <link rel="canonical" href="https://krookimwoobin.github.io/study/backend/infra/redis/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%8B%AC%ED%99%94/">
       
       
-        <link rel="prev" href="../method/">
+        <link rel="prev" href="../%EA%B8%B0%EB%B3%B8%EC%82%AC%EC%9A%A9/">
       
       
-        <link rel="next" href="../stream/">
+        <link rel="next" href="../%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B4%80%EB%A6%AC/">
       
       
         
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>함수형 프로그래밍 - 학습 노트</title>
+        <title>자료구조 심화 - 학습 노트</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,9 +51,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#vs" class="md-skip">
+        <a href="#redis" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -94,7 +94,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="상단/헤더">
-    <a href="../../.." title="학습 노트" class="md-header__button md-logo" aria-label="학습 노트" data-md-component="logo">
+    <a href="../../../.." title="학습 노트" class="md-header__button md-logo" aria-label="학습 노트" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              함수형 프로그래밍
+              자료구조 심화
             
           </span>
         </div>
@@ -232,7 +232,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="네비게이션" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="학습 노트" class="md-nav__button md-logo" aria-label="학습 노트" data-md-component="logo">
+    <a href="../../../.." title="학습 노트" class="md-nav__button md-logo" aria-label="학습 노트" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -262,7 +262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         
   
   
@@ -286,8 +286,6 @@
       
   
   
-    
-  
   
   
     
@@ -300,11 +298,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -325,7 +323,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -343,7 +341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/" class="md-nav__link">
+      <a href="../../../../java/java/" class="md-nav__link">
         
   
   
@@ -420,7 +418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../oop/oop/" class="md-nav__link">
+      <a href="../../../../java/oop/oop/" class="md-nav__link">
         
   
   
@@ -448,7 +446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../oop/%EC%BA%A1%EC%8A%90%ED%99%94/" class="md-nav__link">
+      <a href="../../../../java/oop/%EC%BA%A1%EC%8A%90%ED%99%94/" class="md-nav__link">
         
   
   
@@ -476,7 +474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../oop/%EC%83%81%EC%86%8D/" class="md-nav__link">
+      <a href="../../../../java/oop/%EC%83%81%EC%86%8D/" class="md-nav__link">
         
   
   
@@ -504,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../oop/%EC%B6%94%EC%83%81%ED%99%94/" class="md-nav__link">
+      <a href="../../../../java/oop/%EC%B6%94%EC%83%81%ED%99%94/" class="md-nav__link">
         
   
   
@@ -532,7 +530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../oop/%EB%8B%A4%ED%98%95%EC%84%B1/" class="md-nav__link">
+      <a href="../../../../java/oop/%EB%8B%A4%ED%98%95%EC%84%B1/" class="md-nav__link">
         
   
   
@@ -617,7 +615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/core/" class="md-nav__link">
+      <a href="../../../../java/core/core/" class="md-nav__link">
         
   
   
@@ -645,7 +643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/Object/" class="md-nav__link">
+      <a href="../../../../java/core/Object/" class="md-nav__link">
         
   
   
@@ -673,7 +671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/%EB%B6%88%EB%B3%80%EA%B0%9D%EC%B2%B4VS%EA%B0%80%EB%B3%80%EA%B0%9D%EC%B2%B4/" class="md-nav__link">
+      <a href="../../../../java/core/%EB%B6%88%EB%B3%80%EA%B0%9D%EC%B2%B4VS%EA%B0%80%EB%B3%80%EA%B0%9D%EC%B2%B4/" class="md-nav__link">
         
   
   
@@ -701,7 +699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/%EB%9E%98%ED%8D%BC%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
+      <a href="../../../../java/core/%EB%9E%98%ED%8D%BC%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -729,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/Enum/" class="md-nav__link">
+      <a href="../../../../java/core/Enum/" class="md-nav__link">
         
   
   
@@ -757,7 +755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
+      <a href="../../../../java/core/%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
         
   
   
@@ -785,7 +783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/%EC%A4%91%EC%B2%A9%EB%82%B4%EB%B6%80%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
+      <a href="../../../../java/core/%EC%A4%91%EC%B2%A9%EB%82%B4%EB%B6%80%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -813,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/Class/" class="md-nav__link">
+      <a href="../../../../java/core/Class/" class="md-nav__link">
         
   
   
@@ -841,7 +839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/Math/" class="md-nav__link">
+      <a href="../../../../java/core/Math/" class="md-nav__link">
         
   
   
@@ -869,7 +867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/SystemClass/" class="md-nav__link">
+      <a href="../../../../java/core/SystemClass/" class="md-nav__link">
         
   
   
@@ -954,7 +952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/collections/" class="md-nav__link">
+      <a href="../../../../java/collections/collections/" class="md-nav__link">
         
   
   
@@ -982,7 +980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/Collection/" class="md-nav__link">
+      <a href="../../../../java/collections/Collection/" class="md-nav__link">
         
   
   
@@ -1010,7 +1008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/Generic/" class="md-nav__link">
+      <a href="../../../../java/collections/Generic/" class="md-nav__link">
         
   
   
@@ -1038,7 +1036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/Array/" class="md-nav__link">
+      <a href="../../../../java/collections/Array/" class="md-nav__link">
         
   
   
@@ -1066,7 +1064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/List/" class="md-nav__link">
+      <a href="../../../../java/collections/List/" class="md-nav__link">
         
   
   
@@ -1094,7 +1092,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/ArrayList/" class="md-nav__link">
+      <a href="../../../../java/collections/ArrayList/" class="md-nav__link">
         
   
   
@@ -1122,7 +1120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/LinkedList/" class="md-nav__link">
+      <a href="../../../../java/collections/LinkedList/" class="md-nav__link">
         
   
   
@@ -1150,7 +1148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/Hash/" class="md-nav__link">
+      <a href="../../../../java/collections/Hash/" class="md-nav__link">
         
   
   
@@ -1178,7 +1176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/Set/" class="md-nav__link">
+      <a href="../../../../java/collections/Set/" class="md-nav__link">
         
   
   
@@ -1206,7 +1204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/Map/" class="md-nav__link">
+      <a href="../../../../java/collections/Map/" class="md-nav__link">
         
   
   
@@ -1234,7 +1232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/Stack/" class="md-nav__link">
+      <a href="../../../../java/collections/Stack/" class="md-nav__link">
         
   
   
@@ -1262,7 +1260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/Queue/" class="md-nav__link">
+      <a href="../../../../java/collections/Queue/" class="md-nav__link">
         
   
   
@@ -1290,7 +1288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/%EC%88%9C%ED%9A%8C/" class="md-nav__link">
+      <a href="../../../../java/collections/%EC%88%9C%ED%9A%8C/" class="md-nav__link">
         
   
   
@@ -1318,7 +1316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/%EB%B9%84%EA%B5%90/" class="md-nav__link">
+      <a href="../../../../java/collections/%EB%B9%84%EA%B5%90/" class="md-nav__link">
         
   
   
@@ -1346,7 +1344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/BigO/" class="md-nav__link">
+      <a href="../../../../java/collections/BigO/" class="md-nav__link">
         
   
   
@@ -1379,8 +1377,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1390,11 +1386,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
         
           
           <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
@@ -1415,7 +1411,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1433,7 +1429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../start/" class="md-nav__link">
+      <a href="../../../../java/lambda/start/" class="md-nav__link">
         
   
   
@@ -1461,7 +1457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../function/" class="md-nav__link">
+      <a href="../../../../java/lambda/function/" class="md-nav__link">
         
   
   
@@ -1489,7 +1485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../method/" class="md-nav__link">
+      <a href="../../../../java/lambda/method/" class="md-nav__link">
         
   
   
@@ -1514,35 +1510,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    함수형 프로그래밍
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../java/lambda/programming/" class="md-nav__link">
         
   
   
@@ -1558,252 +1529,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="목차">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      목차
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#vs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        명령형 vs 선언형 프로그래밍
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="명령형 vs 선언형 프로그래밍">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        왜 구분하는지
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        어떻게 쓰는지
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="어떻게 쓰는지">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#imperative-how" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        명령형 (Imperative) - HOW
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#declarative-what" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        선언형 (Declarative) - WHAT
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        더 복잡한 예시
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        언제 쓰는지
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        장점
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="장점">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        명령형 장점
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        선언형 장점
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        단점
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="단점">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        명령형 단점
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        선언형 단점
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        특징
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="특징">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        명령형 특징
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        선언형 특징
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        주의할 점
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        정리
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1816,7 +1541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../stream/" class="md-nav__link">
+      <a href="../../../../java/lambda/stream/" class="md-nav__link">
         
   
   
@@ -1844,7 +1569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../streamApi/" class="md-nav__link">
+      <a href="../../../../java/lambda/streamApi/" class="md-nav__link">
         
   
   
@@ -1872,7 +1597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%EC%A6%89%EC%8B%9CVS%EC%A7%80%EC%97%B0/" class="md-nav__link">
+      <a href="../../../../java/lambda/%EC%A6%89%EC%8B%9CVS%EC%A7%80%EC%97%B0/" class="md-nav__link">
         
   
   
@@ -1900,7 +1625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../optional/" class="md-nav__link">
+      <a href="../../../../java/lambda/optional/" class="md-nav__link">
         
   
   
@@ -1928,7 +1653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../orElseVSorElseGet/" class="md-nav__link">
+      <a href="../../../../java/lambda/orElseVSorElseGet/" class="md-nav__link">
         
   
   
@@ -1956,7 +1681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../defaultMethod/" class="md-nav__link">
+      <a href="../../../../java/lambda/defaultMethod/" class="md-nav__link">
         
   
   
@@ -1984,7 +1709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%EB%B3%91%EB%A0%AC%EC%8A%A4%ED%8A%B8%EB%A6%BC/" class="md-nav__link">
+      <a href="../../../../java/lambda/%EB%B3%91%EB%A0%AC%EC%8A%A4%ED%8A%B8%EB%A6%BC/" class="md-nav__link">
         
   
   
@@ -2012,7 +1737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%ED%95%A8%EC%88%98%ED%98%95%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" class="md-nav__link">
+      <a href="../../../../java/lambda/%ED%95%A8%EC%88%98%ED%98%95%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" class="md-nav__link">
         
   
   
@@ -2097,7 +1822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../thread/thread/" class="md-nav__link">
+      <a href="../../../../java/thread/thread/" class="md-nav__link">
         
   
   
@@ -2125,7 +1850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../thread/%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/" class="md-nav__link">
+      <a href="../../../../java/thread/%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/" class="md-nav__link">
         
   
   
@@ -2153,7 +1878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../thread/Thread1/" class="md-nav__link">
+      <a href="../../../../java/thread/Thread1/" class="md-nav__link">
         
   
   
@@ -2181,7 +1906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../thread/Thread2/" class="md-nav__link">
+      <a href="../../../../java/thread/Thread2/" class="md-nav__link">
         
   
   
@@ -2209,7 +1934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../thread/Thread3/" class="md-nav__link">
+      <a href="../../../../java/thread/Thread3/" class="md-nav__link">
         
   
   
@@ -2237,7 +1962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../thread/synchronized/" class="md-nav__link">
+      <a href="../../../../java/thread/synchronized/" class="md-nav__link">
         
   
   
@@ -2265,7 +1990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../thread/volatile/" class="md-nav__link">
+      <a href="../../../../java/thread/volatile/" class="md-nav__link">
         
   
   
@@ -2293,7 +2018,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../thread/%EB%8F%99%EA%B8%B0%ED%99%94%EC%99%80%EC%9B%90%EC%9E%90%EC%A0%81%EC%97%B0%EC%82%B0/" class="md-nav__link">
+      <a href="../../../../java/thread/%EB%8F%99%EA%B8%B0%ED%99%94%EC%99%80%EC%9B%90%EC%9E%90%EC%A0%81%EC%97%B0%EC%82%B0/" class="md-nav__link">
         
   
   
@@ -2321,7 +2046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../thread/Lock/" class="md-nav__link">
+      <a href="../../../../java/thread/Lock/" class="md-nav__link">
         
   
   
@@ -2349,7 +2074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../thread/%EB%8F%99%EC%8B%9C%EC%84%B1%EC%BB%AC%EB%A0%89%EC%85%98/" class="md-nav__link">
+      <a href="../../../../java/thread/%EB%8F%99%EC%8B%9C%EC%84%B1%EC%BB%AC%EB%A0%89%EC%85%98/" class="md-nav__link">
         
   
   
@@ -2377,7 +2102,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../thread/%EC%83%9D%EC%82%B0%EC%9E%90%EC%86%8C%EB%B9%84%EC%9E%90%EB%AC%B8%EC%A0%9C/" class="md-nav__link">
+      <a href="../../../../java/thread/%EC%83%9D%EC%82%B0%EC%9E%90%EC%86%8C%EB%B9%84%EC%9E%90%EB%AC%B8%EC%A0%9C/" class="md-nav__link">
         
   
   
@@ -2405,7 +2130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../thread/ThreadPool_Executor_Overview1/" class="md-nav__link">
+      <a href="../../../../java/thread/ThreadPool_Executor_Overview1/" class="md-nav__link">
         
   
   
@@ -2433,7 +2158,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../thread/ThreadPool_Executor_Overview2/" class="md-nav__link">
+      <a href="../../../../java/thread/ThreadPool_Executor_Overview2/" class="md-nav__link">
         
   
   
@@ -2518,7 +2243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io-network/IO/" class="md-nav__link">
+      <a href="../../../../java/io-network/IO/" class="md-nav__link">
         
   
   
@@ -2546,7 +2271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io-network/network/" class="md-nav__link">
+      <a href="../../../../java/io-network/network/" class="md-nav__link">
         
   
   
@@ -2574,7 +2299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io-network/Charset_Encoding/" class="md-nav__link">
+      <a href="../../../../java/io-network/Charset_Encoding/" class="md-nav__link">
         
   
   
@@ -2602,7 +2327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io-network/annotation/" class="md-nav__link">
+      <a href="../../../../java/io-network/annotation/" class="md-nav__link">
         
   
   
@@ -2630,7 +2355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io-network/reflection/" class="md-nav__link">
+      <a href="../../../../java/io-network/reflection/" class="md-nav__link">
         
   
   
@@ -2725,7 +2450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../html/html/" class="md-nav__link">
+      <a href="../../../../html/html/" class="md-nav__link">
         
   
   
@@ -2753,7 +2478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../html/Session/" class="md-nav__link">
+      <a href="../../../../html/Session/" class="md-nav__link">
         
   
   
@@ -2840,7 +2565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/spring/" class="md-nav__link">
+      <a href="../../../../spring/spring/" class="md-nav__link">
         
   
   
@@ -2917,7 +2642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/solid/" class="md-nav__link">
+      <a href="../../../../spring/solid/" class="md-nav__link">
         
   
   
@@ -2945,7 +2670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/IoC-DI/" class="md-nav__link">
+      <a href="../../../../spring/IoC-DI/" class="md-nav__link">
         
   
   
@@ -2973,7 +2698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/%EC%8A%A4%ED%94%84%EB%A7%81%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88/" class="md-nav__link">
+      <a href="../../../../spring/%EC%8A%A4%ED%94%84%EB%A7%81%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88/" class="md-nav__link">
         
   
   
@@ -3001,7 +2726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/%EC%8B%B1%EA%B8%80%ED%86%A4/" class="md-nav__link">
+      <a href="../../../../spring/%EC%8B%B1%EA%B8%80%ED%86%A4/" class="md-nav__link">
         
   
   
@@ -3029,7 +2754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%8A%A4%EC%BA%94/" class="md-nav__link">
+      <a href="../../../../spring/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%8A%A4%EC%BA%94/" class="md-nav__link">
         
   
   
@@ -3057,7 +2782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84%EC%A3%BC%EC%9E%85/" class="md-nav__link">
+      <a href="../../../../spring/%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84%EC%A3%BC%EC%9E%85/" class="md-nav__link">
         
   
   
@@ -3085,7 +2810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/%EB%B9%88%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0/" class="md-nav__link">
+      <a href="../../../../spring/%EB%B9%88%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0/" class="md-nav__link">
         
   
   
@@ -3113,7 +2838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/%EB%B9%88%EC%8A%A4%EC%BD%94%ED%94%84/" class="md-nav__link">
+      <a href="../../../../spring/%EB%B9%88%EC%8A%A4%EC%BD%94%ED%94%84/" class="md-nav__link">
         
   
   
@@ -3198,7 +2923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/springboot/" class="md-nav__link">
+      <a href="../../../../spring/springboot/" class="md-nav__link">
         
   
   
@@ -3226,7 +2951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/mvc/" class="md-nav__link">
+      <a href="../../../../spring/mvc/" class="md-nav__link">
         
   
   
@@ -3254,7 +2979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/restapi/" class="md-nav__link">
+      <a href="../../../../spring/restapi/" class="md-nav__link">
         
   
   
@@ -3282,7 +3007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/validation/" class="md-nav__link">
+      <a href="../../../../spring/validation/" class="md-nav__link">
         
   
   
@@ -3310,7 +3035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/exception/" class="md-nav__link">
+      <a href="../../../../spring/exception/" class="md-nav__link">
         
   
   
@@ -3338,7 +3063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/swagger/" class="md-nav__link">
+      <a href="../../../../spring/swagger/" class="md-nav__link">
         
   
   
@@ -3423,7 +3148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/aop/" class="md-nav__link">
+      <a href="../../../../spring/aop/" class="md-nav__link">
         
   
   
@@ -3451,7 +3176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/transaction/" class="md-nav__link">
+      <a href="../../../../spring/transaction/" class="md-nav__link">
         
   
   
@@ -3479,7 +3204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/logging/" class="md-nav__link">
+      <a href="../../../../spring/logging/" class="md-nav__link">
         
   
   
@@ -3564,7 +3289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/JDBC/" class="md-nav__link">
+      <a href="../../../../spring/JDBC/" class="md-nav__link">
         
   
   
@@ -3592,7 +3317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/%EC%BB%A4%EB%84%A5%EC%85%98%ED%92%80-DataSource/" class="md-nav__link">
+      <a href="../../../../spring/%EC%BB%A4%EB%84%A5%EC%85%98%ED%92%80-DataSource/" class="md-nav__link">
         
   
   
@@ -3620,7 +3345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/db%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
+      <a href="../../../../spring/db%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
         
   
   
@@ -3648,7 +3373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/jpa/" class="md-nav__link">
+      <a href="../../../../spring/jpa/" class="md-nav__link">
         
   
   
@@ -3676,7 +3401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/querydsl/" class="md-nav__link">
+      <a href="../../../../spring/querydsl/" class="md-nav__link">
         
   
   
@@ -3704,7 +3429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/jpa-performance/" class="md-nav__link">
+      <a href="../../../../spring/jpa-performance/" class="md-nav__link">
         
   
   
@@ -3789,7 +3514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/security/" class="md-nav__link">
+      <a href="../../../../spring/security/" class="md-nav__link">
         
   
   
@@ -3874,7 +3599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/testing/" class="md-nav__link">
+      <a href="../../../../spring/testing/" class="md-nav__link">
         
   
   
@@ -3914,8 +3639,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -3926,11 +3653,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
@@ -3951,7 +3678,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3969,7 +3696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/backend/" class="md-nav__link">
+      <a href="../../../backend/" class="md-nav__link">
         
   
   
@@ -3994,6 +3721,8 @@
                 
   
   
+    
+  
   
   
     
@@ -4003,11 +3732,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
         
           
           <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
@@ -4028,7 +3757,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -4043,6 +3772,8 @@
                 
   
   
+    
+  
   
   
     
@@ -4052,11 +3783,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_1" checked>
         
           
           <label class="md-nav__link" for="__nav_5_2_1" id="__nav_5_2_1_label" tabindex="0">
@@ -4077,7 +3808,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_2_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -4095,7 +3826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -4123,7 +3854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/redis%EB%9E%80/" class="md-nav__link">
+      <a href="../redis%EB%9E%80/" class="md-nav__link">
         
   
   
@@ -4151,7 +3882,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/%EA%B8%B0%EB%B3%B8%EC%82%AC%EC%9A%A9/" class="md-nav__link">
+      <a href="../%EA%B8%B0%EB%B3%B8%EC%82%AC%EC%9A%A9/" class="md-nav__link">
         
   
   
@@ -4176,10 +3907,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%8B%AC%ED%99%94/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    자료구조 심화
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -4195,6 +3953,631 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        용어
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        질문
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="질문">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        자료구조는 무엇을 기준으로 고르는가?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        전체 명령어 비용 감각
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        String
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="String">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요 명령
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        예시
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-vs-hash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        String vs Hash
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hash
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hash">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요 명령
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        예시
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="List">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요 명령
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        예시
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-vs-stream-vs-kafka" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List vs Stream vs Kafka
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Set">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요 명령
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        예시
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-vs-sorted-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set vs Sorted Set
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sorted-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sorted Set
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sorted Set">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요 명령
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        랭킹 예시
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        동점 처리
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기간별 key 설계
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bitmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bitmap
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bitmap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요 명령
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        예시
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hyperloglog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HyperLogLog
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HyperLogLog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요 명령
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        예시
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stream
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Stream">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요 명령
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consumer-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consumer Group 예시
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dlq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        재처리와 DLQ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geospatial-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geospatial Index
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Geospatial Index">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요 명령
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주변 매장 검색 예시
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#javaspring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Java/Spring 사용 예시
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Java/Spring 사용 예시">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stringredistemplate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StringRedisTemplate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hash_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hash
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sorted-set_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sorted Set
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장애/성능 체크리스트
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        베스트 프랙티스
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실무에서는?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4207,7 +4590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B4%80%EB%A6%AC/" class="md-nav__link">
+      <a href="../%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B4%80%EB%A6%AC/" class="md-nav__link">
         
   
   
@@ -4235,7 +4618,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/%EC%BA%90%EC%8B%9C%ED%8C%A8%ED%84%B4/" class="md-nav__link">
+      <a href="../%EC%BA%90%EC%8B%9C%ED%8C%A8%ED%84%B4/" class="md-nav__link">
         
   
   
@@ -4263,7 +4646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/%EB%8F%99%EC%8B%9C%EC%84%B1%EB%9D%BD/" class="md-nav__link">
+      <a href="../%EB%8F%99%EC%8B%9C%EC%84%B1%EB%9D%BD/" class="md-nav__link">
         
   
   
@@ -4291,7 +4674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/%EB%A9%94%EC%8B%9C%EC%A7%95/" class="md-nav__link">
+      <a href="../%EB%A9%94%EC%8B%9C%EC%A7%95/" class="md-nav__link">
         
   
   
@@ -4319,7 +4702,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/%EA%B5%AC%EC%A1%B0%EC%99%80%EC%9A%B4%EC%98%81/" class="md-nav__link">
+      <a href="../%EA%B5%AC%EC%A1%B0%EC%99%80%EC%9A%B4%EC%98%81/" class="md-nav__link">
         
   
   
@@ -4347,7 +4730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/springboot/" class="md-nav__link">
+      <a href="../springboot/" class="md-nav__link">
         
   
   
@@ -4375,7 +4758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/%EC%8B%A4%EB%AC%B4%EC%9C%A0%EC%A6%88%EC%BC%80%EC%9D%B4%EC%8A%A4/" class="md-nav__link">
+      <a href="../%EC%8B%A4%EB%AC%B4%EC%9C%A0%EC%A6%88%EC%BC%80%EC%9D%B4%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -4403,7 +4786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/%EC%84%B1%EB%8A%A5%EC%B5%9C%EC%A0%81%ED%99%94/" class="md-nav__link">
+      <a href="../%EC%84%B1%EB%8A%A5%EC%B5%9C%EC%A0%81%ED%99%94/" class="md-nav__link">
         
   
   
@@ -4431,7 +4814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/%EC%9E%A5%EC%95%A0%EB%8C%80%EC%9D%91/" class="md-nav__link">
+      <a href="../%EC%9E%A5%EC%95%A0%EB%8C%80%EC%9D%91/" class="md-nav__link">
         
   
   
@@ -4459,7 +4842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%EB%B3%B4%EC%95%88/" class="md-nav__link">
+      <a href="../%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%EB%B3%B4%EC%95%88/" class="md-nav__link">
         
   
   
@@ -4487,7 +4870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/%EB%B9%84%EA%B5%90%EC%84%A0%ED%83%9D/" class="md-nav__link">
+      <a href="../%EB%B9%84%EA%B5%90%EC%84%A0%ED%83%9D/" class="md-nav__link">
         
   
   
@@ -4515,7 +4898,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/redis-stack/" class="md-nav__link">
+      <a href="../redis-stack/" class="md-nav__link">
         
   
   
@@ -4543,7 +4926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/%EB%B2%A0%EC%8A%A4%ED%8A%B8%ED%94%84%EB%9E%99%ED%8B%B0%EC%8A%A4/" class="md-nav__link">
+      <a href="../%EB%B2%A0%EC%8A%A4%ED%8A%B8%ED%94%84%EB%9E%99%ED%8B%B0%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -4628,7 +5011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/kafka/" class="md-nav__link">
+      <a href="../../kafka/" class="md-nav__link">
         
   
   
@@ -4656,7 +5039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/kafka/%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/" class="md-nav__link">
+      <a href="../../kafka/%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/" class="md-nav__link">
         
   
   
@@ -4684,7 +5067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/kafka/producer/" class="md-nav__link">
+      <a href="../../kafka/producer/" class="md-nav__link">
         
   
   
@@ -4712,7 +5095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/kafka/consumer/" class="md-nav__link">
+      <a href="../../kafka/consumer/" class="md-nav__link">
         
   
   
@@ -4740,7 +5123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/kafka/%EC%9A%B4%EC%98%81%EC%9E%A5%EC%95%A0%EB%8C%80%EC%9D%91/" class="md-nav__link">
+      <a href="../../kafka/%EC%9A%B4%EC%98%81%EC%9E%A5%EC%95%A0%EB%8C%80%EC%9D%91/" class="md-nav__link">
         
   
   
@@ -4833,7 +5216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/architecture/architecture/" class="md-nav__link">
+      <a href="../../../architecture/architecture/" class="md-nav__link">
         
   
   
@@ -4861,7 +5244,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/architecture/msa/" class="md-nav__link">
+      <a href="../../../architecture/msa/" class="md-nav__link">
         
   
   
@@ -4889,7 +5272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/architecture/outbox/" class="md-nav__link">
+      <a href="../../../architecture/outbox/" class="md-nav__link">
         
   
   
@@ -4974,7 +5357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/operations/concurrency/" class="md-nav__link">
+      <a href="../../../operations/concurrency/" class="md-nav__link">
         
   
   
@@ -5002,7 +5385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/operations/monitoring/" class="md-nav__link">
+      <a href="../../../operations/monitoring/" class="md-nav__link">
         
   
   
@@ -5097,7 +5480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/db/" class="md-nav__link">
+      <a href="../../../../db/db/" class="md-nav__link">
         
   
   
@@ -5174,7 +5557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/" class="md-nav__link">
+      <a href="../../../../db/%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -5202,7 +5585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EA%B8%B0%EC%B4%88/ACID/" class="md-nav__link">
+      <a href="../../../../db/%EA%B8%B0%EC%B4%88/ACID/" class="md-nav__link">
         
   
   
@@ -5230,7 +5613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EA%B8%B0%EC%B4%88/SQL/" class="md-nav__link">
+      <a href="../../../../db/%EA%B8%B0%EC%B4%88/SQL/" class="md-nav__link">
         
   
   
@@ -5258,7 +5641,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%83%80%EC%9E%85/" class="md-nav__link">
+      <a href="../../../../db/%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%83%80%EC%9E%85/" class="md-nav__link">
         
   
   
@@ -5286,7 +5669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EA%B8%B0%EC%B4%88/%EC%A0%9C%EC%95%BD%EC%A1%B0%EA%B1%B4/" class="md-nav__link">
+      <a href="../../../../db/%EA%B8%B0%EC%B4%88/%EC%A0%9C%EC%95%BD%EC%A1%B0%EA%B1%B4/" class="md-nav__link">
         
   
   
@@ -5314,7 +5697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EA%B8%B0%EC%B4%88/%EC%A0%95%EA%B7%9C%ED%99%94/" class="md-nav__link">
+      <a href="../../../../db/%EA%B8%B0%EC%B4%88/%EC%A0%95%EA%B7%9C%ED%99%94/" class="md-nav__link">
         
   
   
@@ -5399,7 +5782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%BF%BC%EB%A6%AC/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%80%EA%B3%B5/" class="md-nav__link">
+      <a href="../../../../db/%EC%BF%BC%EB%A6%AC/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%80%EA%B3%B5/" class="md-nav__link">
         
   
   
@@ -5427,7 +5810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%BF%BC%EB%A6%AC/%EC%A7%91%EA%B3%84/" class="md-nav__link">
+      <a href="../../../../db/%EC%BF%BC%EB%A6%AC/%EC%A7%91%EA%B3%84/" class="md-nav__link">
         
   
   
@@ -5455,7 +5838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%BF%BC%EB%A6%AC/JOIN/" class="md-nav__link">
+      <a href="../../../../db/%EC%BF%BC%EB%A6%AC/JOIN/" class="md-nav__link">
         
   
   
@@ -5483,7 +5866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%BF%BC%EB%A6%AC/%EC%84%9C%EB%B8%8C%EC%BF%BC%EB%A6%AC/" class="md-nav__link">
+      <a href="../../../../db/%EC%BF%BC%EB%A6%AC/%EC%84%9C%EB%B8%8C%EC%BF%BC%EB%A6%AC/" class="md-nav__link">
         
   
   
@@ -5511,7 +5894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%BF%BC%EB%A6%AC/UNION/" class="md-nav__link">
+      <a href="../../../../db/%EC%BF%BC%EB%A6%AC/UNION/" class="md-nav__link">
         
   
   
@@ -5539,7 +5922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%BF%BC%EB%A6%AC/CASE/" class="md-nav__link">
+      <a href="../../../../db/%EC%BF%BC%EB%A6%AC/CASE/" class="md-nav__link">
         
   
   
@@ -5567,7 +5950,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%BF%BC%EB%A6%AC/VIEW/" class="md-nav__link">
+      <a href="../../../../db/%EC%BF%BC%EB%A6%AC/VIEW/" class="md-nav__link">
         
   
   
@@ -5701,7 +6084,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/" class="md-nav__link">
+      <a href="../../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -5729,7 +6112,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EA%B5%AC%EC%A1%B0%EC%99%80%EC%A2%85%EB%A5%98/" class="md-nav__link">
+      <a href="../../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EA%B5%AC%EC%A1%B0%EC%99%80%EC%A2%85%EB%A5%98/" class="md-nav__link">
         
   
   
@@ -5757,7 +6140,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/B-Tree/" class="md-nav__link">
+      <a href="../../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/B-Tree/" class="md-nav__link">
         
   
   
@@ -5785,7 +6168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EC%84%A4%EA%B3%84%EC%99%80%EC%82%AC%EC%9A%A9%EB%B2%95/" class="md-nav__link">
+      <a href="../../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EC%84%A4%EA%B3%84%EC%99%80%EC%82%AC%EC%9A%A9%EB%B2%95/" class="md-nav__link">
         
   
   
@@ -5813,7 +6196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EC%BF%BC%EB%A6%AC%ED%8C%A8%ED%84%B4/" class="md-nav__link">
+      <a href="../../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EC%BF%BC%EB%A6%AC%ED%8C%A8%ED%84%B4/" class="md-nav__link">
         
   
   
@@ -5841,7 +6224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EC%9A%B4%EC%98%81%EA%B3%BC%ED%8A%9C%EB%8B%9D/" class="md-nav__link">
+      <a href="../../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EC%9A%B4%EC%98%81%EA%B3%BC%ED%8A%9C%EB%8B%9D/" class="md-nav__link">
         
   
   
@@ -5877,7 +6260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/" class="md-nav__link">
+      <a href="../../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/" class="md-nav__link">
         
   
   
@@ -5905,7 +6288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EA%B2%A9%EB%A6%AC%EC%88%98%EC%A4%80/" class="md-nav__link">
+      <a href="../../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EA%B2%A9%EB%A6%AC%EC%88%98%EC%A4%80/" class="md-nav__link">
         
   
   
@@ -5933,7 +6316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%ED%94%84%EB%A1%9C%EC%8B%9C%EC%A0%80/" class="md-nav__link">
+      <a href="../../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%ED%94%84%EB%A1%9C%EC%8B%9C%EC%A0%80/" class="md-nav__link">
         
   
   
@@ -6028,7 +6411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jvm/jvm/" class="md-nav__link">
+      <a href="../../../../jvm/jvm/" class="md-nav__link">
         
   
   
@@ -6056,7 +6439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jvm/JVM%EA%B0%9C%EC%9A%94/" class="md-nav__link">
+      <a href="../../../../jvm/JVM%EA%B0%9C%EC%9A%94/" class="md-nav__link">
         
   
   
@@ -6143,7 +6526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/cs/" class="md-nav__link">
+      <a href="../../../../cs/cs/" class="md-nav__link">
         
   
   
@@ -6171,7 +6554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/%EB%8F%99%EA%B8%B0VS%EB%B9%84%EB%8F%99%EA%B8%B0/" class="md-nav__link">
+      <a href="../../../../cs/%EB%8F%99%EA%B8%B0VS%EB%B9%84%EB%8F%99%EA%B8%B0/" class="md-nav__link">
         
   
   
@@ -6216,6 +6599,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -6224,67 +6609,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#vs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        명령형 vs 선언형 프로그래밍
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="명령형 vs 선언형 프로그래밍">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        왜 구분하는지
+        용어
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        어떻게 쓰는지
+        질문
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="어떻게 쓰는지">
+    <nav class="md-nav" aria-label="질문">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#imperative-how" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        명령형 (Imperative) - HOW
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#declarative-what" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        선언형 (Declarative) - WHAT
-      
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        더 복잡한 예시
+        자료구조는 무엇을 기준으로 고르는가?
       
     </span>
   </a>
@@ -6295,12 +6646,35 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        언제 쓰는지
+        전체 명령어 비용 감각
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        String
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="String">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요 명령
       
     </span>
   </a>
@@ -6308,22 +6682,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        장점
+        예시
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="장점">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#string-vs-hash" class="md-nav__link">
     <span class="md-ellipsis">
       
-        명령형 장점
+        String vs Hash
       
     </span>
   </a>
@@ -6334,7 +6707,7 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        선언형 장점
+        주의할 점
       
     </span>
   </a>
@@ -6345,24 +6718,35 @@
     </nav>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#hash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hash
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hash">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        단점
+        주요 명령
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="단점">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        명령형 단점
+        예시
       
     </span>
   </a>
@@ -6373,7 +6757,7 @@
   <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
-        선언형 단점
+        주의할 점
       
     </span>
   </a>
@@ -6384,24 +6768,24 @@
     </nav>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="List">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
-        특징
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="특징">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        명령형 특징
+        주요 명령
       
     </span>
   </a>
@@ -6409,10 +6793,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       
-        선언형 특징
+        예시
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-vs-stream-vs-kafka" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List vs Stream vs Kafka
       
     </span>
   </a>
@@ -6421,6 +6816,29 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Set">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요 명령
+      
+    </span>
+  </a>
   
 </li>
         
@@ -6428,7 +6846,18 @@
   <a href="#_14" class="md-nav__link">
     <span class="md-ellipsis">
       
-        주의할 점
+        예시
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-vs-sorted-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set vs Sorted Set
       
     </span>
   </a>
@@ -6439,7 +6868,7 @@
   <a href="#_15" class="md-nav__link">
     <span class="md-ellipsis">
       
-        정리
+        주의할 점
       
     </span>
   </a>
@@ -6448,6 +6877,339 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sorted-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sorted Set
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sorted Set">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요 명령
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        랭킹 예시
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        동점 처리
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기간별 key 설계
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bitmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bitmap
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bitmap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요 명령
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        예시
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hyperloglog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HyperLogLog
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HyperLogLog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요 명령
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        예시
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stream
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Stream">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요 명령
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consumer-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consumer Group 예시
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dlq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        재처리와 DLQ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geospatial-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geospatial Index
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Geospatial Index">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요 명령
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주변 매장 검색 예시
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#javaspring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Java/Spring 사용 예시
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Java/Spring 사용 예시">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stringredistemplate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StringRedisTemplate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hash_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hash
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sorted-set_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sorted Set
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장애/성능 체크리스트
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        베스트 프랙티스
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실무에서는?
+      
+    </span>
+  </a>
   
 </li>
       
@@ -6471,373 +7233,973 @@
   
 
 
-  <h1>함수형 프로그래밍</h1>
-
-<h2 id="vs">명령형 vs 선언형 프로그래밍</h2>
-<h3 id="_1">왜 구분하는지</h3>
-<p>같은 결과를 얻지만 <strong>코드를 작성하는 방식이 완전히 다릅니다</strong>:
-- <strong>명령형</strong>: "어떻게 할 것인가"에 초점 → 절차를 상세히 기술
-- <strong>선언형</strong>: "무엇을 할 것인가"에 초점 → 결과만 표현</p>
-<p>Java 8 이전에는 <strong>명령형만 가능</strong>했지만, 람다와 스트림 도입 후 <strong>선언형 작성 가능</strong>해졌습니다.</p>
-<div class="concept-box">
-<p><strong>핵심</strong>: 두 방식은 같은 문제의 다른 표현 방식입니다. 선언형이 더 간결하고 안전합니다.</p>
-</div>
-<h3 id="_2">어떻게 쓰는지</h3>
-<h4 id="imperative-how">명령형 (Imperative) - HOW</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// 문제: 리스트에서 길이 3 초과인 이름을 대문자로 변환</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1">// ❌ 명령형: 절차를 상세히 기술</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="s">&quot;Alice&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Bob&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Charlie&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Diana&quot;</span><span class="p">);</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">names</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// 1단계: 필터링</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="n">result</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="na">toUpperCase</span><span class="p">());</span><span class="w">  </span><span class="c1">// 2단계: 변환</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">result</span><span class="p">);</span><span class="w">  </span><span class="c1">// [ALICE, CHARLIE, DIANA]</span>
-</code></pre></div>
-<p><strong>설명:</strong>
-1. 빈 List 생성
-2. 반복문으로 각 요소 순회
-3. 조건 확인
-4. 조건 만족 시 결과에 추가</p>
-<h4 id="declarative-what">선언형 (Declarative) - WHAT</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// ✅ 선언형: 원하는 결과만 표현</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="s">&quot;Alice&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Bob&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Charlie&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Diana&quot;</span><span class="p">);</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">names</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">name</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">String</span><span class="p">::</span><span class="n">toUpperCase</span><span class="p">)</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="p">.</span><span class="na">toList</span><span class="p">();</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">result</span><span class="p">);</span><span class="w">  </span><span class="c1">// [ALICE, CHARLIE, DIANA]</span>
-</code></pre></div>
-<p><strong>설명:</strong>
-- "길이 3 초과인 이름을 대문자로 변환해서 리스트로 만들어"
-- HOW(어떻게)는 스트림 라이브러리가 담당</p>
-<h4 id="_3">더 복잡한 예시</h4>
-<p><strong>요구사항:</strong> "모든 주문에서 금액 &gt; 100인 항목만 찾아, 카테고리별로 그룹화하고, 카테고리별 합계 계산"</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Order</span><span class="o">&gt;</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w"> </span><span class="c1">// 주문 목록</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1">// ❌ 명령형: 복잡함</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Order</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">orders</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Item</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">order</span><span class="p">.</span><span class="na">getItems</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">item</span><span class="p">.</span><span class="na">getPrice</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">item</span><span class="p">.</span><span class="na">getCategory</span><span class="p">();</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">result</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="n">category</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">                </span><span class="n">result</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">category</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="n">L</span><span class="p">);</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">            </span><span class="p">}</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">            </span><span class="n">result</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">category</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">category</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">item</span><span class="p">.</span><span class="na">getPrice</span><span class="p">());</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">}</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="c1">// ✅ 선언형: 간결함</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orders</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="p">.</span><span class="na">flatMap</span><span class="p">(</span><span class="n">order</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">order</span><span class="p">.</span><span class="na">getItems</span><span class="p">().</span><span class="na">stream</span><span class="p">())</span>
-<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">    </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">item</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">item</span><span class="p">.</span><span class="na">getPrice</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span>
-<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">groupingBy</span><span class="p">(</span>
-<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">        </span><span class="n">Item</span><span class="p">::</span><span class="n">getCategory</span><span class="p">,</span>
-<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">        </span><span class="n">Collectors</span><span class="p">.</span><span class="na">summingLong</span><span class="p">(</span><span class="n">Item</span><span class="p">::</span><span class="n">getPrice</span><span class="p">)</span>
-<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">    </span><span class="p">));</span>
-</code></pre></div>
-<h3 id="_4">언제 쓰는지</h3>
+<h1 id="redis">Redis 자료구조 심화</h1>
+<p>Redis 자료구조 심화는 <strong>요구사항을 어떤 자료구조로 표현할지</strong>, 그리고 <strong>어떤 명령이 운영에서 위험해질 수 있는지</strong>를 판단하기 위한 문서입니다.</p>
+<h2 id="_1">용어</h2>
 <table>
 <thead>
 <tr>
-<th>상황</th>
-<th>선택</th>
+<th>용어</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cardinality</td>
+<td>한 key 안에 들어 있는 원소 수</td>
+</tr>
+<tr>
+<td>Big Key</td>
+<td>value 크기나 원소 수가 지나치게 큰 key</td>
+</tr>
+<tr>
+<td>Hot Key</td>
+<td>요청이 한 key에 과도하게 몰리는 상태</td>
+</tr>
+<tr>
+<td>Time Complexity</td>
+<td>명령 실행 비용이 데이터 크기에 따라 증가하는 방식</td>
+</tr>
+<tr>
+<td>Cursor Scan</td>
+<td>한 번에 전부 읽지 않고 cursor로 나누어 탐색하는 방식</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">질문</h2>
+<h3 id="_3">자료구조는 무엇을 기준으로 고르는가?</h3>
+<p>자료구조는 저장 모양보다 <strong>조회·수정 패턴</strong>으로 고릅니다.</p>
+<table>
+<thead>
+<tr>
+<th>요구사항</th>
+<th>추천 자료구조</th>
+<th>이유</th>
+<th>주의</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>값 하나 저장</td>
+<td>String</td>
+<td>가장 단순</td>
+<td>JSON 일부 수정 어려움</td>
+</tr>
+<tr>
+<td>객체 필드 일부 수정</td>
+<td>Hash</td>
+<td>필드 단위 접근</td>
+<td><code>HGETALL</code> 주의</td>
+</tr>
+<tr>
+<td>중복 없는 목록</td>
+<td>Set</td>
+<td>포함 여부가 빠름</td>
+<td><code>SMEMBERS</code> 주의</td>
+</tr>
+<tr>
+<td>랭킹</td>
+<td>Sorted Set</td>
+<td>score 정렬 지원</td>
+<td>hot key 주의</td>
+</tr>
+<tr>
+<td>간단한 큐</td>
+<td>List</td>
+<td>push/pop이 쉬움</td>
+<td>재처리 부족</td>
+</tr>
+<tr>
+<td>이벤트 처리</td>
+<td>Stream</td>
+<td>consumer group 지원</td>
+<td>Kafka 대체 아님</td>
+</tr>
+<tr>
+<td>boolean 대량 저장</td>
+<td>Bitmap</td>
+<td>메모리 효율 좋음</td>
+<td>offset 설계 필요</td>
+</tr>
+<tr>
+<td>대략적인 고유 수</td>
+<td>HyperLogLog</td>
+<td>메모리 절약</td>
+<td>정확한 목록 불가</td>
+</tr>
+<tr>
+<td>주변 위치 검색</td>
+<td>Geospatial</td>
+<td>거리 기반 검색</td>
+<td>복잡한 공간 검색 한계</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_4">전체 명령어 비용 감각</h2>
+<table>
+<thead>
+<tr>
+<th>자료구조</th>
+<th>안전한 편</th>
+<th>조심할 명령</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String</td>
+<td><code>GET</code>, <code>SET</code>, <code>INCR</code></td>
+<td>큰 value <code>GET</code>, 대량 <code>MGET</code></td>
+</tr>
+<tr>
+<td>Hash</td>
+<td><code>HGET</code>, <code>HSET</code>, <code>HINCRBY</code></td>
+<td><code>HGETALL</code>, 큰 hash <code>HSCAN</code></td>
+</tr>
+<tr>
+<td>List</td>
+<td><code>LPUSH</code>, <code>RPOP</code>, <code>BRPOP</code></td>
+<td><code>LRANGE 0 -1</code>, 긴 list trim</td>
+</tr>
+<tr>
+<td>Set</td>
+<td><code>SADD</code>, <code>SISMEMBER</code>, <code>SCARD</code></td>
+<td><code>SMEMBERS</code>, 큰 set 연산</td>
+</tr>
+<tr>
+<td>Sorted Set</td>
+<td><code>ZADD</code>, <code>ZINCRBY</code>, <code>ZRANGE 0 N</code></td>
+<td>큰 범위 조회, 큰 rank 계산</td>
+</tr>
+<tr>
+<td>Bitmap</td>
+<td><code>SETBIT</code>, <code>GETBIT</code></td>
+<td>큰 offset, 전체 <code>BITCOUNT</code></td>
+</tr>
+<tr>
+<td>HyperLogLog</td>
+<td><code>PFADD</code>, <code>PFCOUNT</code></td>
+<td>정확한 목록 요구</td>
+</tr>
+<tr>
+<td>Stream</td>
+<td><code>XADD</code>, <code>XREADGROUP COUNT N</code></td>
+<td>trim 없는 무한 증가</td>
+</tr>
+<tr>
+<td>Geospatial</td>
+<td><code>GEOADD</code>, 제한된 <code>GEOSEARCH</code></td>
+<td>큰 반경 검색</td>
+</tr>
+</tbody>
+</table>
+<h2 id="string">String</h2>
+<p>String은 가장 기본적인 자료구조입니다. value 하나를 통째로 읽고 쓰는 캐시, 인증 토큰, 인증번호, 카운터에 적합합니다.</p>
+<h3 id="_5">주요 명령</h3>
+<table>
+<thead>
+<tr>
+<th>명령</th>
+<th>의미</th>
+<th>사용 예</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SET key value</code></td>
+<td>값 저장</td>
+<td>캐시 저장</td>
+</tr>
+<tr>
+<td><code>SET key value EX seconds</code></td>
+<td>TTL과 함께 저장</td>
+<td>인증번호</td>
+</tr>
+<tr>
+<td><code>SET key value NX EX seconds</code></td>
+<td>없을 때만 저장</td>
+<td>중복 요청 방지</td>
+</tr>
+<tr>
+<td><code>GET key</code></td>
+<td>값 조회</td>
+<td>캐시 조회</td>
+</tr>
+<tr>
+<td><code>MGET key1 key2</code></td>
+<td>여러 값 조회</td>
+<td>목록 화면 캐시</td>
+</tr>
+<tr>
+<td><code>INCR key</code></td>
+<td>1 증가</td>
+<td>조회수</td>
+</tr>
+<tr>
+<td><code>INCRBY key n</code></td>
+<td>n 증가</td>
+<td>포인트 임시 집계</td>
+</tr>
+<tr>
+<td><code>DECR key</code></td>
+<td>1 감소</td>
+<td>재고 임시 차감</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_6">예시</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>SET<span class="w"> </span>auth:email:user-1<span class="w"> </span><span class="s2">&quot;123456&quot;</span><span class="w"> </span>EX<span class="w"> </span><span class="m">180</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>GET<span class="w"> </span>auth:email:user-1
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>SET<span class="w"> </span>idempotency:payment:req-123<span class="w"> </span><span class="s2">&quot;processing&quot;</span><span class="w"> </span>NX<span class="w"> </span>EX<span class="w"> </span><span class="m">300</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>INCR<span class="w"> </span>product:1001:view-count
+</code></pre></div>
+<h3 id="string-vs-hash">String vs Hash</h3>
+<table>
+<thead>
+<tr>
+<th>기준</th>
+<th>String JSON</th>
+<th>Hash</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>전체 객체 조회</td>
+<td>좋음</td>
+<td>가능</td>
+</tr>
+<tr>
+<td>필드 일부 수정</td>
+<td>불편</td>
+<td>좋음</td>
+</tr>
+<tr>
+<td>직렬화</td>
+<td>애플리케이션이 담당</td>
+<td>Redis 필드로 분리</td>
+</tr>
+<tr>
+<td>value 크기</td>
+<td>객체 전체가 커질 수 있음</td>
+<td>필드가 많아지면 big key</td>
+</tr>
+<tr>
+<td>추천</td>
+<td>통째로 읽고 쓰는 캐시</td>
+<td>일부 필드 갱신이 잦은 객체</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_7">주의할 점</h3>
+<table>
+<thead>
+<tr>
+<th>주의</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>큰 JSON value</td>
+<td>네트워크와 메모리 비용 증가</td>
+</tr>
+<tr>
+<td>카운터 유실</td>
+<td>DB 반영 전 Redis 장애 시 값이 사라질 수 있음</td>
+</tr>
+<tr>
+<td>TTL 누락</td>
+<td>인증번호·토큰이 계속 남을 수 있음</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hash">Hash</h2>
+<p>Hash는 한 객체를 여러 field로 나누어 저장합니다. 사용자 요약 정보, 설정, 장바구니 요약처럼 일부 필드를 자주 읽거나 바꿀 때 유용합니다.</p>
+<h3 id="_8">주요 명령</h3>
+<table>
+<thead>
+<tr>
+<th>명령</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>HSET key field value</code></td>
+<td>필드 저장</td>
+</tr>
+<tr>
+<td><code>HGET key field</code></td>
+<td>필드 조회</td>
+</tr>
+<tr>
+<td><code>HMGET key f1 f2</code></td>
+<td>여러 필드 조회</td>
+</tr>
+<tr>
+<td><code>HINCRBY key field n</code></td>
+<td>숫자 필드 증가</td>
+</tr>
+<tr>
+<td><code>HDEL key field</code></td>
+<td>필드 삭제</td>
+</tr>
+<tr>
+<td><code>HLEN key</code></td>
+<td>필드 개수</td>
+</tr>
+<tr>
+<td><code>HSCAN key cursor</code></td>
+<td>필드 점진 조회</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_9">예시</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>HSET<span class="w"> </span>user:1<span class="w"> </span>name<span class="w"> </span><span class="s2">&quot;kim&quot;</span><span class="w"> </span>grade<span class="w"> </span><span class="s2">&quot;gold&quot;</span><span class="w"> </span>point<span class="w"> </span><span class="m">100</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>HGET<span class="w"> </span>user:1<span class="w"> </span>grade
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>HINCRBY<span class="w"> </span>user:1<span class="w"> </span>point<span class="w"> </span><span class="m">50</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>HMGET<span class="w"> </span>user:1<span class="w"> </span>name<span class="w"> </span>grade<span class="w"> </span>point
+</code></pre></div>
+<h3 id="_10">주의할 점</h3>
+<p><code>HGETALL</code>은 필드가 많은 Hash에서 위험합니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># 작은 hash면 편함</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>HGETALL<span class="w"> </span>user:1
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># 큰 hash면 나누어 조회</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>HSCAN<span class="w"> </span>user:1<span class="w"> </span><span class="m">0</span><span class="w"> </span>COUNT<span class="w"> </span><span class="m">100</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>실수</th>
+<th>대안</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>사용자 전체 활동 이력을 Hash 하나에 계속 누적</td>
+<td>날짜별 key 분리</td>
+</tr>
+<tr>
+<td>매 요청마다 <code>HGETALL</code></td>
+<td>필요한 필드만 <code>HMGET</code></td>
+</tr>
+<tr>
+<td>field 수 제한 없음</td>
+<td>cardinality 알림</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list">List</h2>
+<p>List는 양쪽 끝에서 넣고 빼는 자료구조입니다. 간단한 큐나 최근 N개 목록에 적합합니다.</p>
+<h3 id="_11">주요 명령</h3>
+<table>
+<thead>
+<tr>
+<th>명령</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LPUSH</code></td>
+<td>왼쪽에 추가</td>
+</tr>
+<tr>
+<td><code>RPUSH</code></td>
+<td>오른쪽에 추가</td>
+</tr>
+<tr>
+<td><code>LPOP</code></td>
+<td>왼쪽에서 꺼냄</td>
+</tr>
+<tr>
+<td><code>RPOP</code></td>
+<td>오른쪽에서 꺼냄</td>
+</tr>
+<tr>
+<td><code>BRPOP</code></td>
+<td>값이 들어올 때까지 blocking pop</td>
+</tr>
+<tr>
+<td><code>LRANGE</code></td>
+<td>범위 조회</td>
+</tr>
+<tr>
+<td><code>LTRIM</code></td>
+<td>범위 밖 제거</td>
+</tr>
+<tr>
+<td><code>LLEN</code></td>
+<td>길이 확인</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_12">예시</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>LPUSH<span class="w"> </span>recent:products:user-1<span class="w"> </span>product-1001
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>LTRIM<span class="w"> </span>recent:products:user-1<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">49</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>LRANGE<span class="w"> </span>recent:products:user-1<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">9</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>LPUSH<span class="w"> </span>job:email<span class="w"> </span><span class="s2">&quot;message-1&quot;</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>BRPOP<span class="w"> </span>job:email<span class="w"> </span><span class="m">5</span>
+</code></pre></div>
+<h3 id="list-vs-stream-vs-kafka">List vs Stream vs Kafka</h3>
+<table>
+<thead>
+<tr>
+<th>기준</th>
+<th>List</th>
+<th>Stream</th>
+<th>Kafka</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>구현 난도</td>
+<td>낮음</td>
+<td>중간</td>
+<td>높음</td>
+</tr>
+<tr>
+<td>ACK</td>
+<td>없음</td>
+<td>있음</td>
+<td>offset commit</td>
+</tr>
+<tr>
+<td>재처리</td>
+<td>직접 구현</td>
+<td>PEL/claim 활용</td>
+<td>강함</td>
+</tr>
+<tr>
+<td>여러 consumer</td>
+<td>직접 구현</td>
+<td>consumer group</td>
+<td>consumer group</td>
+</tr>
+<tr>
+<td>추천</td>
+<td>간단한 임시 큐</td>
+<td>Redis 내부 작업 큐</td>
+<td>서비스 간 핵심 이벤트</td>
+</tr>
+</tbody>
+</table>
+<h2 id="set">Set</h2>
+<p>Set은 중복 없는 집합입니다. 좋아요 여부, 권한, 태그, 중복 제거에 적합합니다.</p>
+<h3 id="_13">주요 명령</h3>
+<table>
+<thead>
+<tr>
+<th>명령</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SADD</code></td>
+<td>원소 추가</td>
+</tr>
+<tr>
+<td><code>SREM</code></td>
+<td>원소 제거</td>
+</tr>
+<tr>
+<td><code>SISMEMBER</code></td>
+<td>포함 여부</td>
+</tr>
+<tr>
+<td><code>SCARD</code></td>
+<td>원소 수</td>
+</tr>
+<tr>
+<td><code>SINTER</code></td>
+<td>교집합</td>
+</tr>
+<tr>
+<td><code>SUNION</code></td>
+<td>합집합</td>
+</tr>
+<tr>
+<td><code>SDIFF</code></td>
+<td>차집합</td>
+</tr>
+<tr>
+<td><code>SSCAN</code></td>
+<td>점진 조회</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_14">예시</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>SADD<span class="w"> </span>post:1:likes<span class="w"> </span>user-1
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>SISMEMBER<span class="w"> </span>post:1:likes<span class="w"> </span>user-1
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>SCARD<span class="w"> </span>post:1:likes
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>SREM<span class="w"> </span>post:1:likes<span class="w"> </span>user-1
+</code></pre></div>
+<h3 id="set-vs-sorted-set">Set vs Sorted Set</h3>
+<table>
+<thead>
+<tr>
+<th>기준</th>
+<th>Set</th>
+<th>Sorted Set</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>중복 제거</td>
+<td>좋음</td>
+<td>좋음</td>
+</tr>
+<tr>
+<td>포함 여부</td>
+<td>좋음</td>
+<td>가능</td>
+</tr>
+<tr>
+<td>순서</td>
+<td>없음</td>
+<td>score 기준 정렬</td>
+</tr>
+<tr>
+<td>랭킹</td>
+<td>부적합</td>
+<td>적합</td>
+</tr>
+<tr>
+<td>비용</td>
+<td>단순</td>
+<td><code>O(log N)</code> 계열 많음</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_15">주의할 점</h3>
+<p><code>SMEMBERS</code>는 전체 원소를 반환합니다. 좋아요 사용자가 수백만 명이면 한 번에 가져오면 안 됩니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>SSCAN<span class="w"> </span>post:1:likes<span class="w"> </span><span class="m">0</span><span class="w"> </span>COUNT<span class="w"> </span><span class="m">100</span>
+</code></pre></div>
+<h2 id="sorted-set">Sorted Set</h2>
+<p>Sorted Set은 원소마다 score를 갖고, score 기준으로 정렬됩니다. 랭킹, 우선순위, 시간 정렬에 자주 씁니다.</p>
+<h3 id="_16">주요 명령</h3>
+<table>
+<thead>
+<tr>
+<th>명령</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ZADD</code></td>
+<td>score와 member 추가</td>
+</tr>
+<tr>
+<td><code>ZINCRBY</code></td>
+<td>score 증가</td>
+</tr>
+<tr>
+<td><code>ZRANGE</code></td>
+<td>낮은 score부터 범위 조회</td>
+</tr>
+<tr>
+<td><code>ZREVRANGE</code></td>
+<td>높은 score부터 범위 조회</td>
+</tr>
+<tr>
+<td><code>ZRANK</code></td>
+<td>낮은 score 기준 순위</td>
+</tr>
+<tr>
+<td><code>ZREVRANK</code></td>
+<td>높은 score 기준 순위</td>
+</tr>
+<tr>
+<td><code>ZSCORE</code></td>
+<td>member score 조회</td>
+</tr>
+<tr>
+<td><code>ZREM</code></td>
+<td>member 제거</td>
+</tr>
+<tr>
+<td><code>ZREMRANGEBYRANK</code></td>
+<td>순위 범위 삭제</td>
+</tr>
+<tr>
+<td><code>ZREMRANGEBYSCORE</code></td>
+<td>score 범위 삭제</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_17">랭킹 예시</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ZINCRBY<span class="w"> </span>rank:daily:20260427<span class="w"> </span><span class="m">120</span><span class="w"> </span>user-1
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>ZINCRBY<span class="w"> </span>rank:daily:20260427<span class="w"> </span><span class="m">90</span><span class="w"> </span>user-2
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>ZREVRANGE<span class="w"> </span>rank:daily:20260427<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">9</span><span class="w"> </span>WITHSCORES
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>ZREVRANK<span class="w"> </span>rank:daily:20260427<span class="w"> </span>user-1
+</code></pre></div>
+<h3 id="_18">동점 처리</h3>
+<p>Sorted Set은 score가 같으면 member 문자열 기준 정렬이 섞일 수 있습니다. 동점 정책이 중요하면 score에 시간이나 보조 점수를 반영하거나, DB에서 최종 순위를 보정합니다.</p>
+<table>
+<thead>
+<tr>
+<th>방식</th>
+<th>설명</th>
+<th>주의</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>score만 사용</td>
+<td>단순</td>
+<td>동점 순서가 업무 기준과 다를 수 있음</td>
+</tr>
+<tr>
+<td>score + timestamp 조합</td>
+<td>먼저 달성한 사람 우선 등 표현</td>
+<td>score 설계가 복잡</td>
+</tr>
+<tr>
+<td>Redis는 후보만, DB에서 최종 정렬</td>
+<td>정확함</td>
+<td>조회 비용 증가</td>
+</tr>
+</tbody>
+</table>
+<h3 id="key">기간별 key 설계</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>rank:daily:20260427
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>rank:weekly:2026-W18
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>rank:monthly:2026-04
+</code></pre></div>
+<p>기간별 key를 나누면 삭제, 집계, hot key 완화가 쉬워집니다.</p>
+<h2 id="bitmap">Bitmap</h2>
+<p>Bitmap은 String을 bit 배열처럼 쓰는 방식입니다. 출석, 방문 여부처럼 true/false 상태를 대량 저장할 때 좋습니다.</p>
+<h3 id="_19">주요 명령</h3>
+<table>
+<thead>
+<tr>
+<th>명령</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SETBIT key offset value</code></td>
+<td>특정 bit 설정</td>
+</tr>
+<tr>
+<td><code>GETBIT key offset</code></td>
+<td>특정 bit 조회</td>
+</tr>
+<tr>
+<td><code>BITCOUNT key</code></td>
+<td>1인 bit 개수</td>
+</tr>
+<tr>
+<td><code>BITOP</code></td>
+<td>AND/OR/XOR 연산</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_20">예시</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>SETBIT<span class="w"> </span>attendance:20260427<span class="w"> </span><span class="m">1001</span><span class="w"> </span><span class="m">1</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>GETBIT<span class="w"> </span>attendance:20260427<span class="w"> </span><span class="m">1001</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>BITCOUNT<span class="w"> </span>attendance:20260427
+</code></pre></div>
+<h3 id="_21">주의할 점</h3>
+<p>offset이 매우 크면 중간 공간까지 메모리를 사용할 수 있습니다. userId를 그대로 offset으로 쓰기 전에 ID 범위와 밀도를 확인합니다.</p>
+<h2 id="hyperloglog">HyperLogLog</h2>
+<p>HyperLogLog는 고유 개수를 근사치로 계산합니다.</p>
+<h3 id="_22">주요 명령</h3>
+<table>
+<thead>
+<tr>
+<th>명령</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PFADD</code></td>
+<td>원소 추가</td>
+</tr>
+<tr>
+<td><code>PFCOUNT</code></td>
+<td>고유 수 추정</td>
+</tr>
+<tr>
+<td><code>PFMERGE</code></td>
+<td>여러 HyperLogLog 병합</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_23">예시</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>PFADD<span class="w"> </span>uv:20260427<span class="w"> </span>user-1<span class="w"> </span>user-2<span class="w"> </span>user-3
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>PFCOUNT<span class="w"> </span>uv:20260427
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>PFMERGE<span class="w"> </span>uv:202604<span class="w"> </span>uv:20260401<span class="w"> </span>uv:20260402<span class="w"> </span>uv:20260403
+</code></pre></div>
+<p>정확한 사용자 목록이 필요하면 Set을 써야 합니다. HyperLogLog는 고유 수만 필요하고 약간의 오차를 허용할 때 적합합니다.</p>
+<h2 id="stream">Stream</h2>
+<p>Stream은 append-only log 자료구조입니다. Redis 안에서 이벤트를 쌓고 consumer group으로 처리할 수 있습니다.</p>
+<h3 id="_24">주요 명령</h3>
+<table>
+<thead>
+<tr>
+<th>명령</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>XADD</code></td>
+<td>메시지 추가</td>
+</tr>
+<tr>
+<td><code>XRANGE</code></td>
+<td>범위 조회</td>
+</tr>
+<tr>
+<td><code>XREAD</code></td>
+<td>메시지 읽기</td>
+</tr>
+<tr>
+<td><code>XGROUP CREATE</code></td>
+<td>consumer group 생성</td>
+</tr>
+<tr>
+<td><code>XREADGROUP</code></td>
+<td>group으로 메시지 읽기</td>
+</tr>
+<tr>
+<td><code>XACK</code></td>
+<td>처리 완료</td>
+</tr>
+<tr>
+<td><code>XPENDING</code></td>
+<td>pending 메시지 확인</td>
+</tr>
+<tr>
+<td><code>XAUTOCLAIM</code></td>
+<td>오래 pending 된 메시지 인계</td>
+</tr>
+<tr>
+<td><code>XTRIM</code></td>
+<td>stream 길이 제한</td>
+</tr>
+</tbody>
+</table>
+<h3 id="consumer-group">Consumer Group 예시</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>XADD<span class="w"> </span>order-events<span class="w"> </span>*<span class="w"> </span><span class="nb">type</span><span class="w"> </span>ORDER_CREATED<span class="w"> </span>orderId<span class="w"> </span><span class="m">1001</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>XGROUP<span class="w"> </span>CREATE<span class="w"> </span>order-events<span class="w"> </span>order-service<span class="w"> </span>$<span class="w"> </span>MKSTREAM
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>XREADGROUP<span class="w"> </span>GROUP<span class="w"> </span>order-service<span class="w"> </span>consumer-1<span class="w"> </span>COUNT<span class="w"> </span><span class="m">10</span><span class="w"> </span>STREAMS<span class="w"> </span>order-events<span class="w"> </span>&gt;
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>XACK<span class="w"> </span>order-events<span class="w"> </span>order-service<span class="w"> </span><span class="m">1740000000000</span>-0
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>XPENDING<span class="w"> </span>order-events<span class="w"> </span>order-service
+</code></pre></div>
+<h3 id="dlq">재처리와 DLQ</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>1. consumer가 XREADGROUP으로 메시지 읽음
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>2. 처리 성공 시 XACK
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>3. 처리 실패 시 재시도
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>4. 계속 실패하면 DLQ stream에 원본과 에러 저장
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>5. 원본 메시지는 ACK해서 전체 소비가 멈추지 않게 함
+</code></pre></div>
+<p>Stream은 Redis 내부의 가벼운 이벤트 처리에 좋습니다. 서비스 간 핵심 이벤트, 긴 보관, 대규모 재처리가 필요하면 Kafka를 우선 비교합니다.</p>
+<h2 id="geospatial-index">Geospatial Index</h2>
+<p>Geospatial은 좌표 기반 검색을 지원합니다.</p>
+<h3 id="_25">주요 명령</h3>
+<table>
+<thead>
+<tr>
+<th>명령</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GEOADD</code></td>
+<td>좌표 추가</td>
+</tr>
+<tr>
+<td><code>GEODIST</code></td>
+<td>두 member 거리</td>
+</tr>
+<tr>
+<td><code>GEOSEARCH</code></td>
+<td>좌표/멤버 기준 반경 검색</td>
+</tr>
+<tr>
+<td><code>GEOHASH</code></td>
+<td>geohash 조회</td>
+</tr>
+<tr>
+<td><code>ZREM</code></td>
+<td>위치 member 삭제</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_26">주변 매장 검색 예시</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>GEOADD<span class="w"> </span>store:geo<span class="w"> </span><span class="m">127</span>.0276<span class="w"> </span><span class="m">37</span>.4979<span class="w"> </span>store-1
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>GEOADD<span class="w"> </span>store:geo<span class="w"> </span><span class="m">127</span>.0290<span class="w"> </span><span class="m">37</span>.5001<span class="w"> </span>store-2
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>GEOSEARCH<span class="w"> </span>store:geo<span class="w"> </span>FROMLONLAT<span class="w"> </span><span class="m">127</span>.03<span class="w"> </span><span class="m">37</span>.50<span class="w"> </span>BYRADIUS<span class="w"> </span><span class="m">2</span><span class="w"> </span>km<span class="w"> </span>WITHDIST<span class="w"> </span>COUNT<span class="w"> </span><span class="m">20</span><span class="w"> </span>ASC
+</code></pre></div>
+<p>반경이 너무 크거나 결과 수 제한이 없으면 응답이 커질 수 있습니다. 복잡한 조건 검색, 정교한 공간 검색이 필요하면 검색 엔진을 검토합니다.</p>
+<h2 id="javaspring">Java/Spring 사용 예시</h2>
+<h3 id="stringredistemplate">StringRedisTemplate</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">stringRedisTemplate</span><span class="p">.</span><span class="na">opsForValue</span><span class="p">()</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">&quot;auth:email:user-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;123456&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Duration</span><span class="p">.</span><span class="na">ofMinutes</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="n">String</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stringRedisTemplate</span><span class="p">.</span><span class="na">opsForValue</span><span class="p">()</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;auth:email:user-1&quot;</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="hash_1">Hash</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">HashOperations</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">redisTemplate</span><span class="p">.</span><span class="na">opsForHash</span><span class="p">();</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">hash</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;user:1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;grade&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;gold&quot;</span><span class="p">);</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">Object</span><span class="w"> </span><span class="n">grade</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;user:1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;grade&quot;</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="sorted-set_1">Sorted Set</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">redisTemplate</span><span class="p">.</span><span class="na">opsForZSet</span><span class="p">()</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">    </span><span class="p">.</span><span class="na">incrementScore</span><span class="p">(</span><span class="s">&quot;rank:daily:20260427&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;user-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">120</span><span class="p">);</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="n">Set</span><span class="o">&lt;</span><span class="n">ZSetOperations</span><span class="p">.</span><span class="na">TypedTuple</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">top10</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">redisTemplate</span><span class="p">.</span><span class="na">opsForZSet</span><span class="p">()</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">    </span><span class="p">.</span><span class="na">reverseRangeWithScores</span><span class="p">(</span><span class="s">&quot;rank:daily:20260427&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="set_1">Set</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">redisTemplate</span><span class="p">.</span><span class="na">opsForSet</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;post:1:likes&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;user-1&quot;</span><span class="p">);</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">Boolean</span><span class="w"> </span><span class="n">liked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">redisTemplate</span><span class="p">.</span><span class="na">opsForSet</span><span class="p">().</span><span class="na">isMember</span><span class="p">(</span><span class="s">&quot;post:1:likes&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;user-1&quot;</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="_27">장애/성능 체크리스트</h2>
+<table>
+<thead>
+<tr>
+<th>체크</th>
+<th>질문</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cardinality</td>
+<td>한 key에 최대 몇 개까지 들어가는가</td>
+</tr>
+<tr>
+<td>전체 조회</td>
+<td><code>HGETALL</code>, <code>SMEMBERS</code>, <code>LRANGE 0 -1</code>을 운영 API에서 쓰는가</td>
+</tr>
+<tr>
+<td>TTL</td>
+<td>key가 자동으로 정리되는가</td>
+</tr>
+<tr>
+<td>Hot Key</td>
+<td>인기 key 하나에 요청이 몰리는가</td>
+</tr>
+<tr>
+<td>Big Key</td>
+<td>value 크기나 원소 수 알림이 있는가</td>
+</tr>
+<tr>
+<td>분할 기준</td>
+<td>날짜, 사용자, 도메인별 key 분리가 필요한가</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_28">베스트 프랙티스</h2>
+<table>
+<thead>
+<tr>
+<th>권장 방식</th>
 <th>이유</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>컬렉션 처리</strong></td>
-<td>✅ 선언형 (Stream)</td>
-<td>간결하고 버그 적음</td>
+<td>자료구조 선택 전에 조회 패턴을 먼저 적음</td>
+<td>잘못된 모델링 방지</td>
 </tr>
 <tr>
-<td><strong>데이터 변환/필터링</strong></td>
-<td>✅ 선언형 (Stream)</td>
-<td>의도 명확</td>
+<td>큰 컬렉션은 기간별·샤딩 key로 분리</td>
+<td>big key 완화</td>
 </tr>
 <tr>
-<td><strong>성능 최적화 필요</strong></td>
-<td>✅ 선언형 (Stream)</td>
-<td>병렬화 자동 지원</td>
+<td>운영 API에서 전체 조회 명령 제한</td>
+<td>지연 방지</td>
 </tr>
 <tr>
-<td><strong>매우 간단한 루프</strong></td>
-<td>❌ 명령형 (for-each)</td>
-<td>for-each가 더 읽기 쉬움</td>
+<td>Stream/List는 길이 제한</td>
+<td>무한 증가 방지</td>
 </tr>
 <tr>
-<td><strong>상태 변경 추적</strong></td>
-<td>❌ 명령형</td>
-<td>선언형으로는 중간 상태 추적 어려움</td>
+<td>랭킹은 기간별 key 사용</td>
+<td>삭제와 집계가 쉬움</td>
+</tr>
+<tr>
+<td>정확도 요구를 먼저 확인</td>
+<td>Set vs HyperLogLog 선택 기준</td>
 </tr>
 </tbody>
 </table>
-<h3 id="_5">장점</h3>
-<h4 id="_6">명령형 장점</h4>
+<h2 id="_29">실무에서는?</h2>
 <table>
 <thead>
 <tr>
-<th>장점</th>
-<th>설명</th>
+<th>요구</th>
+<th>추천</th>
+<th>이유</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>직관적</strong></td>
-<td>원리가 명확함 (초보자 친화적)</td>
+<td>상품 상세 캐시</td>
+<td>String JSON</td>
+<td>통째 조회</td>
 </tr>
 <tr>
-<td><strong>디버깅</strong></td>
-<td>단계별 상태 추적 가능</td>
+<td>사용자 포인트 일부 갱신</td>
+<td>Hash</td>
+<td>필드 단위 증가</td>
 </tr>
 <tr>
-<td><strong>세밀한 제어</strong></td>
-<td>중간 결과에 접근 가능</td>
+<td>게시글 좋아요 여부</td>
+<td>Set</td>
+<td>중복 없는 포함 여부</td>
+</tr>
+<tr>
+<td>일간 랭킹</td>
+<td>Sorted Set</td>
+<td>score 정렬</td>
+</tr>
+<tr>
+<td>최근 본 상품 50개</td>
+<td>List</td>
+<td>순서 유지 + <code>LTRIM</code></td>
+</tr>
+<tr>
+<td>출석 체크</td>
+<td>Bitmap</td>
+<td>boolean 대량 저장</td>
+</tr>
+<tr>
+<td>일간 UV</td>
+<td>HyperLogLog</td>
+<td>고유 수 추정</td>
+</tr>
+<tr>
+<td>비동기 작업 처리</td>
+<td>Stream</td>
+<td>consumer group과 ACK</td>
+</tr>
+<tr>
+<td>주변 매장 검색</td>
+<td>Geospatial</td>
+<td>좌표 반경 검색</td>
 </tr>
 </tbody>
 </table>
-<h4 id="_7">선언형 장점</h4>
-<table>
-<thead>
-<tr>
-<th>장점</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>간결함</strong></td>
-<td>코드 줄 수 크게 감소</td>
-</tr>
-<tr>
-<td><strong>안전성</strong></td>
-<td>불변성 강조로 버그 감소</td>
-</tr>
-<tr>
-<td><strong>병렬화</strong></td>
-<td><code>parallelStream()</code>으로 자동 병렬 처리</td>
-</tr>
-<tr>
-<td><strong>의도 명확</strong></td>
-<td>무엇을 하려는지 한눈에 파악</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_8">단점</h3>
-<h4 id="_9">명령형 단점</h4>
-<table>
-<thead>
-<tr>
-<th>단점</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>길고 복잡</strong></td>
-<td>간단한 작업도 코드 길어짐</td>
-</tr>
-<tr>
-<td><strong>상태 변경</strong></td>
-<td>버그 가능성 높음</td>
-</tr>
-<tr>
-<td><strong>가독성</strong></td>
-<td>로직이 절차에 묻혀서 의도 불명확</td>
-</tr>
-<tr>
-<td><strong>병렬화 어려움</strong></td>
-<td>수동으로 처리해야 함</td>
-</tr>
-</tbody>
-</table>
-<h4 id="_10">선언형 단점</h4>
-<table>
-<thead>
-<tr>
-<th>단점</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>학습곡선</strong></td>
-<td>함수형 개념 이해 필요</td>
-</tr>
-<tr>
-<td><strong>디버깅</strong></td>
-<td>라이브러리 내부 동작 파악 어려움</td>
-</tr>
-<tr>
-<td><strong>오버헤드</strong></td>
-<td>함수 객체 생성 비용</td>
-</tr>
-<tr>
-<td><strong>중간 상태 접근</strong></td>
-<td>각 단계 중간값 확인 어려움</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_11">특징</h3>
-<h4 id="_12">명령형 특징</h4>
-<ol>
-<li>
-<p><strong>상태 변경 기반</strong> → Mutation에 의존
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">result</span><span class="p">.</span><span class="na">add</span><span class="p">(...);</span><span class="w">  </span><span class="c1">// result 상태 계속 변경</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>제어 흐름 직접 관리</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(...)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// 반복 시점 명시</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(...)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// 조건 명시</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">        </span><span class="c1">// 실행 시점 명시</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">}</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>외부 변수 수정 가능</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">for</span><span class="w"> </span><span class="p">(...)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="n">count</span><span class="o">++</span><span class="p">;</span><span class="w">  </span><span class="c1">// 수정 가능</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">}</span>
-</code></pre></div></p>
-</li>
-</ol>
-<h4 id="_13">선언형 특징</h4>
-<ol>
-<li>
-<p><strong>불변성 기반</strong> → 새로운 값 생성
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">stream</span><span class="p">.</span><span class="na">filter</span><span class="p">(...).</span><span class="na">map</span><span class="p">(...);</span><span class="w">  </span><span class="c1">// 원본 변경 없음</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>의도 명확</strong> → 체이닝으로 단계 표현
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">stream</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="p">.</span><span class="na">filter</span><span class="p">(...)</span><span class="w">  </span><span class="c1">// &quot;필터링해&quot;</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="p">.</span><span class="na">map</span><span class="p">(...)</span><span class="w">     </span><span class="c1">// &quot;변환해&quot;</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="p">.</span><span class="na">collect</span><span class="p">(...)</span><span class="w"> </span><span class="c1">// &quot;수집해&quot;</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>내부 구현 추상화</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">stream</span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">groupingBy</span><span class="p">(...));</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1">// 어떻게 그룹화하는지는 라이브러리가 처리</span>
-</code></pre></div></p>
-</li>
-</ol>
-<h3 id="_14">주의할 점</h3>
-<div class="warning-box">
-<p><strong>⚠️ 명령형과 선언형 섞지 않기</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// ❌ 나쁜 패턴: 섞음</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">names</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">name</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="na">toUpperCase</span><span class="p">()));</span><span class="w">  </span><span class="c1">// ❌ 상태 변경</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="c1">// ✅ 올바른 방식: 선언형으로 통일</span>
-<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">names</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
-<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">    </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">name</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
-<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">    </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">String</span><span class="p">::</span><span class="n">toUpperCase</span><span class="p">)</span>
-<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">    </span><span class="p">.</span><span class="na">toList</span><span class="p">();</span>
-</code></pre></div>
-<p>이유: forEach + add = 명령형 스타일이 섞임, 병렬화 시 위험</p>
-</div>
-<div class="warning-box">
-<p><strong>⚠️ 성능 고려하기</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">// ❌ 작은 데이터셋에서는 오버헤드</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">numbers</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span>
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1">// ✅ 단순한 경우는 for-each 더 빠름</span>
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">numbers</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
-<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="p">}</span>
-</code></pre></div>
-<p><strong>선택 기준:</strong>
-- 요소 수 많음 (&gt; 100) → 선언형
-- 변환/필터링 복잡 → 선언형
-- 단순 순회 → for-each</p>
-</div>
-<div class="danger-box">
-<p><strong>❌ 선언형에서 외부 변수 수정 금지</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="c1">// ❌ 반복문 스타일 → 선언형이 아님</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">list</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">count</span><span class="o">[</span><span class="mi">0</span><span class="o">]++</span><span class="p">);</span>
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="c1">// ✅ 진정한 선언형</span>
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="kt">int</span><span class="w"> </span><span class="n">newCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
-<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">    </span><span class="p">.</span><span class="na">count</span><span class="p">();</span>
-</code></pre></div>
-</div>
-<h3 id="_15">정리</h3>
-<table>
-<thead>
-<tr>
-<th>항목</th>
-<th>명령형</th>
-<th>선언형</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>관점</strong></td>
-<td>HOW (어떻게)</td>
-<td>WHAT (무엇)</td>
-</tr>
-<tr>
-<td><strong>코드 스타일</strong></td>
-<td>절차형</td>
-<td>함수형</td>
-</tr>
-<tr>
-<td><strong>가독성</strong></td>
-<td>낮음 (복잡함)</td>
-<td>높음 (간결)</td>
-</tr>
-<tr>
-<td><strong>병렬화</strong></td>
-<td>수동</td>
-<td>자동 (<code>parallelStream</code>)</td>
-</tr>
-<tr>
-<td><strong>버그</strong></td>
-<td>상태 변경으로 높음</td>
-<td>불변성으로 낮음</td>
-</tr>
-<tr>
-<td><strong>언제 쓰는가</strong></td>
-<td>간단한 루프</td>
-<td>복잡한 데이터 처리</td>
-</tr>
-</tbody>
-</table>
-<div class="success-box">
-<p><strong>권장</strong>: Java 8+에서는 <strong>선언형(스트림)을 기본으로 사용</strong>하되, 매우 간단한 경우만 명령형 사용</p>
-</div>
 <hr />
-<p><strong>관련 내용:</strong>
-- <a href="../start/">람다 기초</a> — 선언형을 가능하게 하는 문법
-- <a href="../stream/">스트림</a> — 선언형의 핵심 도구
-- <a href="../streamApi/">Stream <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr></a> — 선언형 구체적 사용법</p>
+<p><strong>관련 파일:</strong>
+- <a href="../%EA%B8%B0%EB%B3%B8%EC%82%AC%EC%9A%A9/">기본 사용과 자료구조</a>
+- <a href="../%EC%84%B1%EB%8A%A5%EC%B5%9C%EC%A0%81%ED%99%94/">성능 최적화</a>
+- <a href="../%EB%A9%94%EC%8B%9C%EC%A7%95/">Pub/Sub과 Stream</a></p>
 <!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
 
 <!-- ===== DB / SQL ===== -->
@@ -6866,7 +8228,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 16일 11:54:43 UTC">2026년 4월 16일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 27일 14:04:37 UTC">2026년 4월 27일</span>
   </span>
 
     
@@ -6876,7 +8238,7 @@
     <span class="md-icon" title="작성일">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 6일 11:46:41 UTC">2026년 4월 6일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 27일 14:04:37 UTC">2026년 4월 27일</span>
   </span>
 
     
@@ -6931,10 +8293,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections", "navigation.top", "navigation.instant", "search.highlight", "search.suggest", "content.code.copy", "content.tooltips", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.sections", "navigation.top", "navigation.instant", "search.highlight", "search.suggest", "content.code.copy", "content.tooltips", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
       
