@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://krookimwoobin.github.io/study/backend/infra/redis/%EA%B8%B0%EB%B3%B8%EC%82%AC%EC%9A%A9/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../redis%EB%9E%80/">
       
       
         <link rel="next" href="../%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B4%80%EB%A6%AC/">
@@ -3851,6 +3851,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis%EB%9E%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redis란?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -3937,10 +3965,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rdb-redis" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        RDB와 Redis는 무엇이 다른가?
+        자료구조는 무엇을 기준으로 고르는가?
       
     </span>
   </a>
@@ -3953,7 +3981,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         기본 명령
@@ -3986,7 +4014,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         데이터 타입
@@ -4102,7 +4130,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         주의할 점
@@ -4113,7 +4141,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         베스트 프랙티스
@@ -4124,7 +4152,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         실무에서는?
@@ -6192,10 +6220,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rdb-redis" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        RDB와 Redis는 무엇이 다른가?
+        자료구조는 무엇을 기준으로 고르는가?
       
     </span>
   </a>
@@ -6208,7 +6236,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         기본 명령
@@ -6241,7 +6269,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         데이터 타입
@@ -6357,7 +6385,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         주의할 점
@@ -6368,7 +6396,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         베스트 프랙티스
@@ -6379,7 +6407,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         실무에서는?
@@ -6443,40 +6471,39 @@
 </tbody>
 </table>
 <h2 id="_2">질문</h2>
-<h3 id="rdb-redis">RDB와 Redis는 무엇이 다른가?</h3>
+<h3 id="_3">자료구조는 무엇을 기준으로 고르는가?</h3>
+<p>Redis 자료구조는 "무엇을 저장하느냐"보다 <strong>어떤 방식으로 꺼내고 바꿀 것인가</strong>를 기준으로 고릅니다.</p>
 <table>
 <thead>
 <tr>
-<th>구분</th>
-<th>RDB</th>
-<th>Redis</th>
+<th>필요한 동작</th>
+<th>먼저 볼 자료구조</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>저장 위치</td>
-<td>주로 디스크</td>
-<td>주로 메모리</td>
+<td>값 하나를 빠르게 읽고 쓴다</td>
+<td>String</td>
 </tr>
 <tr>
-<td>강점</td>
-<td>트랜잭션, 조인, 영속성, 정합성</td>
-<td>빠른 단순 조회·갱신, TTL, 원자 명령</td>
+<td>객체의 일부 필드만 읽고 쓴다</td>
+<td>Hash</td>
 </tr>
 <tr>
-<td>주 사용처</td>
-<td>원본 데이터</td>
-<td>캐시, 짧은 상태, 카운터, 랭킹</td>
+<td>중복 없이 포함 여부를 본다</td>
+<td>Set</td>
 </tr>
 <tr>
-<td>주의</td>
-<td>쿼리와 락 비용</td>
-<td>메모리 비용과 유실 가능성</td>
+<td>점수 기준으로 정렬한다</td>
+<td>Sorted Set</td>
+</tr>
+<tr>
+<td>이벤트를 순서대로 쌓고 읽는다</td>
+<td>Stream</td>
 </tr>
 </tbody>
 </table>
-<p>Redis는 RDB를 대체하기보다 RDB 앞에서 <strong>반복 조회와 짧은 상태 처리 비용을 줄이는 역할</strong>로 쓰는 경우가 많습니다.</p>
-<h2 id="_3">기본 명령</h2>
+<h2 id="_4">기본 명령</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 값 저장</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>SET<span class="w"> </span>user:1:name<span class="w"> </span><span class="s2">&quot;kim&quot;</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
@@ -6580,7 +6607,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_4">데이터 타입</h2>
+<h2 id="_5">데이터 타입</h2>
 <table>
 <thead>
 <tr>
@@ -6703,7 +6730,7 @@
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>GEOSEARCH<span class="w"> </span>store:geo<span class="w"> </span>FROMLONLAT<span class="w"> </span><span class="m">127</span>.03<span class="w"> </span><span class="m">37</span>.50<span class="w"> </span>BYRADIUS<span class="w"> </span><span class="m">2</span><span class="w"> </span>km
 </code></pre></div>
 <p>주변 매장, 근처 사용자 같은 기능에 쓸 수 있습니다. 복잡한 공간 검색은 전용 검색 엔진을 검토합니다.</p>
-<h2 id="_5">주의할 점</h2>
+<h2 id="_6">주의할 점</h2>
 <table>
 <thead>
 <tr>
@@ -6730,7 +6757,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_6">베스트 프랙티스</h2>
+<h2 id="_7">베스트 프랙티스</h2>
 <table>
 <thead>
 <tr>
@@ -6757,7 +6784,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_7">실무에서는?</h2>
+<h2 id="_8">실무에서는?</h2>
 <table>
 <thead>
 <tr>
@@ -6802,6 +6829,7 @@
 </table>
 <hr />
 <p><strong>관련 파일:</strong>
+- <a href="../redis%EB%9E%80/">Redis란?</a>
 - <a href="../%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B4%80%EB%A6%AC/">Key 설계와 데이터 관리</a>
 - <a href="../%EC%BA%90%EC%8B%9C%ED%8C%A8%ED%84%B4/">캐시 전략과 정합성</a>
 - <a href="../%EC%84%B1%EB%8A%A5%EC%B5%9C%EC%A0%81%ED%99%94/">성능 최적화</a></p>
@@ -6833,7 +6861,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 27일 13:44:13 UTC">2026년 4월 27일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 27일 13:49:27 UTC">2026년 4월 27일</span>
   </span>
 
     

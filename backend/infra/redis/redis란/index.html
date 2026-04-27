@@ -8,31 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://krookimwoobin.github.io/study/java/thread/volatile/">
+        <link rel="canonical" href="https://krookimwoobin.github.io/study/backend/infra/redis/redis%EB%9E%80/">
       
       
-        <link rel="prev" href="../synchronized/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../%EB%8F%99%EA%B8%B0%ED%99%94%EC%99%80%EC%9B%90%EC%9E%90%EC%A0%81%EC%97%B0%EC%82%B0/">
+        <link rel="next" href="../%EA%B8%B0%EB%B3%B8%EC%82%AC%EC%9A%A9/">
       
       
         
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>volatile - 학습 노트</title>
+        <title>Redis란? - 학습 노트</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,9 +51,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#volatile" class="md-skip">
+        <a href="#redis" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -94,7 +94,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="상단/헤더">
-    <a href="../../.." title="학습 노트" class="md-header__button md-logo" aria-label="학습 노트" data-md-component="logo">
+    <a href="../../../.." title="학습 노트" class="md-header__button md-logo" aria-label="학습 노트" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              volatile
+              Redis란?
             
           </span>
         </div>
@@ -232,7 +232,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="네비게이션" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="학습 노트" class="md-nav__button md-logo" aria-label="학습 노트" data-md-component="logo">
+    <a href="../../../.." title="학습 노트" class="md-nav__button md-logo" aria-label="학습 노트" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -262,7 +262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         
   
   
@@ -286,8 +286,6 @@
       
   
   
-    
-  
   
   
     
@@ -300,11 +298,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -325,7 +323,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -343,7 +341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/" class="md-nav__link">
+      <a href="../../../../java/java/" class="md-nav__link">
         
   
   
@@ -420,7 +418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../oop/oop/" class="md-nav__link">
+      <a href="../../../../java/oop/oop/" class="md-nav__link">
         
   
   
@@ -448,7 +446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../oop/%EC%BA%A1%EC%8A%90%ED%99%94/" class="md-nav__link">
+      <a href="../../../../java/oop/%EC%BA%A1%EC%8A%90%ED%99%94/" class="md-nav__link">
         
   
   
@@ -476,7 +474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../oop/%EC%83%81%EC%86%8D/" class="md-nav__link">
+      <a href="../../../../java/oop/%EC%83%81%EC%86%8D/" class="md-nav__link">
         
   
   
@@ -504,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../oop/%EC%B6%94%EC%83%81%ED%99%94/" class="md-nav__link">
+      <a href="../../../../java/oop/%EC%B6%94%EC%83%81%ED%99%94/" class="md-nav__link">
         
   
   
@@ -532,7 +530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../oop/%EB%8B%A4%ED%98%95%EC%84%B1/" class="md-nav__link">
+      <a href="../../../../java/oop/%EB%8B%A4%ED%98%95%EC%84%B1/" class="md-nav__link">
         
   
   
@@ -617,7 +615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/core/" class="md-nav__link">
+      <a href="../../../../java/core/core/" class="md-nav__link">
         
   
   
@@ -645,7 +643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/Object/" class="md-nav__link">
+      <a href="../../../../java/core/Object/" class="md-nav__link">
         
   
   
@@ -673,7 +671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/%EB%B6%88%EB%B3%80%EA%B0%9D%EC%B2%B4VS%EA%B0%80%EB%B3%80%EA%B0%9D%EC%B2%B4/" class="md-nav__link">
+      <a href="../../../../java/core/%EB%B6%88%EB%B3%80%EA%B0%9D%EC%B2%B4VS%EA%B0%80%EB%B3%80%EA%B0%9D%EC%B2%B4/" class="md-nav__link">
         
   
   
@@ -701,7 +699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/%EB%9E%98%ED%8D%BC%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
+      <a href="../../../../java/core/%EB%9E%98%ED%8D%BC%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -729,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/Enum/" class="md-nav__link">
+      <a href="../../../../java/core/Enum/" class="md-nav__link">
         
   
   
@@ -757,7 +755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
+      <a href="../../../../java/core/%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
         
   
   
@@ -785,7 +783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/%EC%A4%91%EC%B2%A9%EB%82%B4%EB%B6%80%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
+      <a href="../../../../java/core/%EC%A4%91%EC%B2%A9%EB%82%B4%EB%B6%80%ED%81%B4%EB%9E%98%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -813,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/Class/" class="md-nav__link">
+      <a href="../../../../java/core/Class/" class="md-nav__link">
         
   
   
@@ -841,7 +839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/Math/" class="md-nav__link">
+      <a href="../../../../java/core/Math/" class="md-nav__link">
         
   
   
@@ -869,7 +867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/SystemClass/" class="md-nav__link">
+      <a href="../../../../java/core/SystemClass/" class="md-nav__link">
         
   
   
@@ -954,7 +952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/collections/" class="md-nav__link">
+      <a href="../../../../java/collections/collections/" class="md-nav__link">
         
   
   
@@ -982,7 +980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/Collection/" class="md-nav__link">
+      <a href="../../../../java/collections/Collection/" class="md-nav__link">
         
   
   
@@ -1010,7 +1008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/Generic/" class="md-nav__link">
+      <a href="../../../../java/collections/Generic/" class="md-nav__link">
         
   
   
@@ -1038,7 +1036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/Array/" class="md-nav__link">
+      <a href="../../../../java/collections/Array/" class="md-nav__link">
         
   
   
@@ -1066,7 +1064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/List/" class="md-nav__link">
+      <a href="../../../../java/collections/List/" class="md-nav__link">
         
   
   
@@ -1094,7 +1092,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/ArrayList/" class="md-nav__link">
+      <a href="../../../../java/collections/ArrayList/" class="md-nav__link">
         
   
   
@@ -1122,7 +1120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/LinkedList/" class="md-nav__link">
+      <a href="../../../../java/collections/LinkedList/" class="md-nav__link">
         
   
   
@@ -1150,7 +1148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/Hash/" class="md-nav__link">
+      <a href="../../../../java/collections/Hash/" class="md-nav__link">
         
   
   
@@ -1178,7 +1176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/Set/" class="md-nav__link">
+      <a href="../../../../java/collections/Set/" class="md-nav__link">
         
   
   
@@ -1206,7 +1204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/Map/" class="md-nav__link">
+      <a href="../../../../java/collections/Map/" class="md-nav__link">
         
   
   
@@ -1234,7 +1232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/Stack/" class="md-nav__link">
+      <a href="../../../../java/collections/Stack/" class="md-nav__link">
         
   
   
@@ -1262,7 +1260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/Queue/" class="md-nav__link">
+      <a href="../../../../java/collections/Queue/" class="md-nav__link">
         
   
   
@@ -1290,7 +1288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/%EC%88%9C%ED%9A%8C/" class="md-nav__link">
+      <a href="../../../../java/collections/%EC%88%9C%ED%9A%8C/" class="md-nav__link">
         
   
   
@@ -1318,7 +1316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/%EB%B9%84%EA%B5%90/" class="md-nav__link">
+      <a href="../../../../java/collections/%EB%B9%84%EA%B5%90/" class="md-nav__link">
         
   
   
@@ -1346,7 +1344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/BigO/" class="md-nav__link">
+      <a href="../../../../java/collections/BigO/" class="md-nav__link">
         
   
   
@@ -1431,7 +1429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lambda/start/" class="md-nav__link">
+      <a href="../../../../java/lambda/start/" class="md-nav__link">
         
   
   
@@ -1459,7 +1457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lambda/function/" class="md-nav__link">
+      <a href="../../../../java/lambda/function/" class="md-nav__link">
         
   
   
@@ -1487,7 +1485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lambda/method/" class="md-nav__link">
+      <a href="../../../../java/lambda/method/" class="md-nav__link">
         
   
   
@@ -1515,7 +1513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lambda/programming/" class="md-nav__link">
+      <a href="../../../../java/lambda/programming/" class="md-nav__link">
         
   
   
@@ -1543,7 +1541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lambda/stream/" class="md-nav__link">
+      <a href="../../../../java/lambda/stream/" class="md-nav__link">
         
   
   
@@ -1571,7 +1569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lambda/streamApi/" class="md-nav__link">
+      <a href="../../../../java/lambda/streamApi/" class="md-nav__link">
         
   
   
@@ -1599,7 +1597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lambda/%EC%A6%89%EC%8B%9CVS%EC%A7%80%EC%97%B0/" class="md-nav__link">
+      <a href="../../../../java/lambda/%EC%A6%89%EC%8B%9CVS%EC%A7%80%EC%97%B0/" class="md-nav__link">
         
   
   
@@ -1627,7 +1625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lambda/optional/" class="md-nav__link">
+      <a href="../../../../java/lambda/optional/" class="md-nav__link">
         
   
   
@@ -1655,7 +1653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lambda/orElseVSorElseGet/" class="md-nav__link">
+      <a href="../../../../java/lambda/orElseVSorElseGet/" class="md-nav__link">
         
   
   
@@ -1683,7 +1681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lambda/defaultMethod/" class="md-nav__link">
+      <a href="../../../../java/lambda/defaultMethod/" class="md-nav__link">
         
   
   
@@ -1711,7 +1709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lambda/%EB%B3%91%EB%A0%AC%EC%8A%A4%ED%8A%B8%EB%A6%BC/" class="md-nav__link">
+      <a href="../../../../java/lambda/%EB%B3%91%EB%A0%AC%EC%8A%A4%ED%8A%B8%EB%A6%BC/" class="md-nav__link">
         
   
   
@@ -1739,7 +1737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lambda/%ED%95%A8%EC%88%98%ED%98%95%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" class="md-nav__link">
+      <a href="../../../../java/lambda/%ED%95%A8%EC%88%98%ED%98%95%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" class="md-nav__link">
         
   
   
@@ -1772,8 +1770,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1783,11 +1779,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
         
           
           <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
@@ -1808,7 +1804,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1826,7 +1822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../thread/" class="md-nav__link">
+      <a href="../../../../java/thread/thread/" class="md-nav__link">
         
   
   
@@ -1854,7 +1850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/" class="md-nav__link">
+      <a href="../../../../java/thread/%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/" class="md-nav__link">
         
   
   
@@ -1882,7 +1878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Thread1/" class="md-nav__link">
+      <a href="../../../../java/thread/Thread1/" class="md-nav__link">
         
   
   
@@ -1910,7 +1906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Thread2/" class="md-nav__link">
+      <a href="../../../../java/thread/Thread2/" class="md-nav__link">
         
   
   
@@ -1938,7 +1934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Thread3/" class="md-nav__link">
+      <a href="../../../../java/thread/Thread3/" class="md-nav__link">
         
   
   
@@ -1966,7 +1962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../synchronized/" class="md-nav__link">
+      <a href="../../../../java/thread/synchronized/" class="md-nav__link">
         
   
   
@@ -1991,35 +1987,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    volatile
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../java/thread/volatile/" class="md-nav__link">
         
   
   
@@ -2035,240 +2006,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="목차">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      목차
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#volatile" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        volatile 키워드 &amp; 메모리 가시성
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="volatile 키워드 &amp; 메모리 가시성">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        왜 쓰는지
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        어떻게 쓰는지
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="어떻게 쓰는지">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        메모리 가시성 문제
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#volatile_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        volatile 기본 사용
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#volatile-vs-synchronized" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        volatile vs synchronized
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-happens-before" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        해피포닝-비포 (Happens-Before) 규칙
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        언제 쓰는지
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        장점
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        단점
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        특징
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="특징">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-cpu" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. CPU 캐시 구조
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-memory-barrier" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Memory Barrier (메모리 배리어)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-java-memory-model-jmm" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Java Memory Model (JMM)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-volatile-vs-atomicinteger" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. volatile vs AtomicInteger
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-reordering" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Reordering 문제
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        주의할 점
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        정리
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2281,7 +2018,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%EB%8F%99%EA%B8%B0%ED%99%94%EC%99%80%EC%9B%90%EC%9E%90%EC%A0%81%EC%97%B0%EC%82%B0/" class="md-nav__link">
+      <a href="../../../../java/thread/%EB%8F%99%EA%B8%B0%ED%99%94%EC%99%80%EC%9B%90%EC%9E%90%EC%A0%81%EC%97%B0%EC%82%B0/" class="md-nav__link">
         
   
   
@@ -2309,7 +2046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Lock/" class="md-nav__link">
+      <a href="../../../../java/thread/Lock/" class="md-nav__link">
         
   
   
@@ -2337,7 +2074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%EB%8F%99%EC%8B%9C%EC%84%B1%EC%BB%AC%EB%A0%89%EC%85%98/" class="md-nav__link">
+      <a href="../../../../java/thread/%EB%8F%99%EC%8B%9C%EC%84%B1%EC%BB%AC%EB%A0%89%EC%85%98/" class="md-nav__link">
         
   
   
@@ -2365,7 +2102,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%EC%83%9D%EC%82%B0%EC%9E%90%EC%86%8C%EB%B9%84%EC%9E%90%EB%AC%B8%EC%A0%9C/" class="md-nav__link">
+      <a href="../../../../java/thread/%EC%83%9D%EC%82%B0%EC%9E%90%EC%86%8C%EB%B9%84%EC%9E%90%EB%AC%B8%EC%A0%9C/" class="md-nav__link">
         
   
   
@@ -2393,7 +2130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ThreadPool_Executor_Overview1/" class="md-nav__link">
+      <a href="../../../../java/thread/ThreadPool_Executor_Overview1/" class="md-nav__link">
         
   
   
@@ -2421,7 +2158,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ThreadPool_Executor_Overview2/" class="md-nav__link">
+      <a href="../../../../java/thread/ThreadPool_Executor_Overview2/" class="md-nav__link">
         
   
   
@@ -2506,7 +2243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io-network/IO/" class="md-nav__link">
+      <a href="../../../../java/io-network/IO/" class="md-nav__link">
         
   
   
@@ -2534,7 +2271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io-network/network/" class="md-nav__link">
+      <a href="../../../../java/io-network/network/" class="md-nav__link">
         
   
   
@@ -2562,7 +2299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io-network/Charset_Encoding/" class="md-nav__link">
+      <a href="../../../../java/io-network/Charset_Encoding/" class="md-nav__link">
         
   
   
@@ -2590,7 +2327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io-network/annotation/" class="md-nav__link">
+      <a href="../../../../java/io-network/annotation/" class="md-nav__link">
         
   
   
@@ -2618,7 +2355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io-network/reflection/" class="md-nav__link">
+      <a href="../../../../java/io-network/reflection/" class="md-nav__link">
         
   
   
@@ -2713,7 +2450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../html/html/" class="md-nav__link">
+      <a href="../../../../html/html/" class="md-nav__link">
         
   
   
@@ -2741,7 +2478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../html/Session/" class="md-nav__link">
+      <a href="../../../../html/Session/" class="md-nav__link">
         
   
   
@@ -2828,7 +2565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/spring/" class="md-nav__link">
+      <a href="../../../../spring/spring/" class="md-nav__link">
         
   
   
@@ -2905,7 +2642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/solid/" class="md-nav__link">
+      <a href="../../../../spring/solid/" class="md-nav__link">
         
   
   
@@ -2933,7 +2670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/IoC-DI/" class="md-nav__link">
+      <a href="../../../../spring/IoC-DI/" class="md-nav__link">
         
   
   
@@ -2961,7 +2698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/%EC%8A%A4%ED%94%84%EB%A7%81%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88/" class="md-nav__link">
+      <a href="../../../../spring/%EC%8A%A4%ED%94%84%EB%A7%81%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88/" class="md-nav__link">
         
   
   
@@ -2989,7 +2726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/%EC%8B%B1%EA%B8%80%ED%86%A4/" class="md-nav__link">
+      <a href="../../../../spring/%EC%8B%B1%EA%B8%80%ED%86%A4/" class="md-nav__link">
         
   
   
@@ -3017,7 +2754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%8A%A4%EC%BA%94/" class="md-nav__link">
+      <a href="../../../../spring/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%8A%A4%EC%BA%94/" class="md-nav__link">
         
   
   
@@ -3045,7 +2782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84%EC%A3%BC%EC%9E%85/" class="md-nav__link">
+      <a href="../../../../spring/%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84%EC%A3%BC%EC%9E%85/" class="md-nav__link">
         
   
   
@@ -3073,7 +2810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/%EB%B9%88%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0/" class="md-nav__link">
+      <a href="../../../../spring/%EB%B9%88%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0/" class="md-nav__link">
         
   
   
@@ -3101,7 +2838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/%EB%B9%88%EC%8A%A4%EC%BD%94%ED%94%84/" class="md-nav__link">
+      <a href="../../../../spring/%EB%B9%88%EC%8A%A4%EC%BD%94%ED%94%84/" class="md-nav__link">
         
   
   
@@ -3186,7 +2923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/springboot/" class="md-nav__link">
+      <a href="../../../../spring/springboot/" class="md-nav__link">
         
   
   
@@ -3214,7 +2951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/mvc/" class="md-nav__link">
+      <a href="../../../../spring/mvc/" class="md-nav__link">
         
   
   
@@ -3242,7 +2979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/restapi/" class="md-nav__link">
+      <a href="../../../../spring/restapi/" class="md-nav__link">
         
   
   
@@ -3270,7 +3007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/validation/" class="md-nav__link">
+      <a href="../../../../spring/validation/" class="md-nav__link">
         
   
   
@@ -3298,7 +3035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/exception/" class="md-nav__link">
+      <a href="../../../../spring/exception/" class="md-nav__link">
         
   
   
@@ -3326,7 +3063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/swagger/" class="md-nav__link">
+      <a href="../../../../spring/swagger/" class="md-nav__link">
         
   
   
@@ -3411,7 +3148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/aop/" class="md-nav__link">
+      <a href="../../../../spring/aop/" class="md-nav__link">
         
   
   
@@ -3439,7 +3176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/transaction/" class="md-nav__link">
+      <a href="../../../../spring/transaction/" class="md-nav__link">
         
   
   
@@ -3467,7 +3204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/logging/" class="md-nav__link">
+      <a href="../../../../spring/logging/" class="md-nav__link">
         
   
   
@@ -3552,7 +3289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/JDBC/" class="md-nav__link">
+      <a href="../../../../spring/JDBC/" class="md-nav__link">
         
   
   
@@ -3580,7 +3317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/%EC%BB%A4%EB%84%A5%EC%85%98%ED%92%80-DataSource/" class="md-nav__link">
+      <a href="../../../../spring/%EC%BB%A4%EB%84%A5%EC%85%98%ED%92%80-DataSource/" class="md-nav__link">
         
   
   
@@ -3608,7 +3345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/db%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
+      <a href="../../../../spring/db%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/" class="md-nav__link">
         
   
   
@@ -3636,7 +3373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/jpa/" class="md-nav__link">
+      <a href="../../../../spring/jpa/" class="md-nav__link">
         
   
   
@@ -3664,7 +3401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/querydsl/" class="md-nav__link">
+      <a href="../../../../spring/querydsl/" class="md-nav__link">
         
   
   
@@ -3692,7 +3429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/jpa-performance/" class="md-nav__link">
+      <a href="../../../../spring/jpa-performance/" class="md-nav__link">
         
   
   
@@ -3777,7 +3514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/security/" class="md-nav__link">
+      <a href="../../../../spring/security/" class="md-nav__link">
         
   
   
@@ -3862,7 +3599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/testing/" class="md-nav__link">
+      <a href="../../../../spring/testing/" class="md-nav__link">
         
   
   
@@ -3902,8 +3639,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -3914,11 +3653,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
@@ -3939,7 +3678,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3957,7 +3696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/backend/" class="md-nav__link">
+      <a href="../../../backend/" class="md-nav__link">
         
   
   
@@ -3982,6 +3721,8 @@
                 
   
   
+    
+  
   
   
     
@@ -3991,11 +3732,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
         
           
           <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
@@ -4016,7 +3757,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -4031,6 +3772,8 @@
                 
   
   
+    
+  
   
   
     
@@ -4040,11 +3783,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_1" checked>
         
           
           <label class="md-nav__link" for="__nav_5_2_1" id="__nav_5_2_1_label" tabindex="0">
@@ -4065,7 +3808,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_2_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -4083,7 +3826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -4108,10 +3851,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/redis%EB%9E%80/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redis란?
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -4127,6 +3897,147 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        왜 쓰는지
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        어떻게 쓰는지
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rdb-vs-redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RDB vs Redis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        언제 쓰는지
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        특징
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        베스트 프랙티스
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실무에서는?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        정리
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4139,7 +4050,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/%EA%B8%B0%EB%B3%B8%EC%82%AC%EC%9A%A9/" class="md-nav__link">
+      <a href="../%EA%B8%B0%EB%B3%B8%EC%82%AC%EC%9A%A9/" class="md-nav__link">
         
   
   
@@ -4167,7 +4078,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B4%80%EB%A6%AC/" class="md-nav__link">
+      <a href="../%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B4%80%EB%A6%AC/" class="md-nav__link">
         
   
   
@@ -4195,7 +4106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/%EC%BA%90%EC%8B%9C%ED%8C%A8%ED%84%B4/" class="md-nav__link">
+      <a href="../%EC%BA%90%EC%8B%9C%ED%8C%A8%ED%84%B4/" class="md-nav__link">
         
   
   
@@ -4223,7 +4134,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/%EB%8F%99%EC%8B%9C%EC%84%B1%EB%9D%BD/" class="md-nav__link">
+      <a href="../%EB%8F%99%EC%8B%9C%EC%84%B1%EB%9D%BD/" class="md-nav__link">
         
   
   
@@ -4251,7 +4162,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/%EB%A9%94%EC%8B%9C%EC%A7%95/" class="md-nav__link">
+      <a href="../%EB%A9%94%EC%8B%9C%EC%A7%95/" class="md-nav__link">
         
   
   
@@ -4279,7 +4190,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/%EA%B5%AC%EC%A1%B0%EC%99%80%EC%9A%B4%EC%98%81/" class="md-nav__link">
+      <a href="../%EA%B5%AC%EC%A1%B0%EC%99%80%EC%9A%B4%EC%98%81/" class="md-nav__link">
         
   
   
@@ -4307,7 +4218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/springboot/" class="md-nav__link">
+      <a href="../springboot/" class="md-nav__link">
         
   
   
@@ -4335,7 +4246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/%EC%8B%A4%EB%AC%B4%EC%9C%A0%EC%A6%88%EC%BC%80%EC%9D%B4%EC%8A%A4/" class="md-nav__link">
+      <a href="../%EC%8B%A4%EB%AC%B4%EC%9C%A0%EC%A6%88%EC%BC%80%EC%9D%B4%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -4363,7 +4274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/%EC%84%B1%EB%8A%A5%EC%B5%9C%EC%A0%81%ED%99%94/" class="md-nav__link">
+      <a href="../%EC%84%B1%EB%8A%A5%EC%B5%9C%EC%A0%81%ED%99%94/" class="md-nav__link">
         
   
   
@@ -4391,7 +4302,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/%EC%9E%A5%EC%95%A0%EB%8C%80%EC%9D%91/" class="md-nav__link">
+      <a href="../%EC%9E%A5%EC%95%A0%EB%8C%80%EC%9D%91/" class="md-nav__link">
         
   
   
@@ -4419,7 +4330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%EB%B3%B4%EC%95%88/" class="md-nav__link">
+      <a href="../%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%EB%B3%B4%EC%95%88/" class="md-nav__link">
         
   
   
@@ -4447,7 +4358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/%EB%B9%84%EA%B5%90%EC%84%A0%ED%83%9D/" class="md-nav__link">
+      <a href="../%EB%B9%84%EA%B5%90%EC%84%A0%ED%83%9D/" class="md-nav__link">
         
   
   
@@ -4475,7 +4386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/redis-stack/" class="md-nav__link">
+      <a href="../redis-stack/" class="md-nav__link">
         
   
   
@@ -4503,7 +4414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/redis/%EB%B2%A0%EC%8A%A4%ED%8A%B8%ED%94%84%EB%9E%99%ED%8B%B0%EC%8A%A4/" class="md-nav__link">
+      <a href="../%EB%B2%A0%EC%8A%A4%ED%8A%B8%ED%94%84%EB%9E%99%ED%8B%B0%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -4588,7 +4499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/kafka/" class="md-nav__link">
+      <a href="../../kafka/" class="md-nav__link">
         
   
   
@@ -4616,7 +4527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/kafka/%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/" class="md-nav__link">
+      <a href="../../kafka/%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/" class="md-nav__link">
         
   
   
@@ -4644,7 +4555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/kafka/producer/" class="md-nav__link">
+      <a href="../../kafka/producer/" class="md-nav__link">
         
   
   
@@ -4672,7 +4583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/kafka/consumer/" class="md-nav__link">
+      <a href="../../kafka/consumer/" class="md-nav__link">
         
   
   
@@ -4700,7 +4611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/infra/kafka/%EC%9A%B4%EC%98%81%EC%9E%A5%EC%95%A0%EB%8C%80%EC%9D%91/" class="md-nav__link">
+      <a href="../../kafka/%EC%9A%B4%EC%98%81%EC%9E%A5%EC%95%A0%EB%8C%80%EC%9D%91/" class="md-nav__link">
         
   
   
@@ -4793,7 +4704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/architecture/architecture/" class="md-nav__link">
+      <a href="../../../architecture/architecture/" class="md-nav__link">
         
   
   
@@ -4821,7 +4732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/architecture/msa/" class="md-nav__link">
+      <a href="../../../architecture/msa/" class="md-nav__link">
         
   
   
@@ -4849,7 +4760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/architecture/outbox/" class="md-nav__link">
+      <a href="../../../architecture/outbox/" class="md-nav__link">
         
   
   
@@ -4934,7 +4845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/operations/concurrency/" class="md-nav__link">
+      <a href="../../../operations/concurrency/" class="md-nav__link">
         
   
   
@@ -4962,7 +4873,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../backend/operations/monitoring/" class="md-nav__link">
+      <a href="../../../operations/monitoring/" class="md-nav__link">
         
   
   
@@ -5057,7 +4968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/db/" class="md-nav__link">
+      <a href="../../../../db/db/" class="md-nav__link">
         
   
   
@@ -5134,7 +5045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/" class="md-nav__link">
+      <a href="../../../../db/%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -5162,7 +5073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EA%B8%B0%EC%B4%88/ACID/" class="md-nav__link">
+      <a href="../../../../db/%EA%B8%B0%EC%B4%88/ACID/" class="md-nav__link">
         
   
   
@@ -5190,7 +5101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EA%B8%B0%EC%B4%88/SQL/" class="md-nav__link">
+      <a href="../../../../db/%EA%B8%B0%EC%B4%88/SQL/" class="md-nav__link">
         
   
   
@@ -5218,7 +5129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%83%80%EC%9E%85/" class="md-nav__link">
+      <a href="../../../../db/%EA%B8%B0%EC%B4%88/%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%83%80%EC%9E%85/" class="md-nav__link">
         
   
   
@@ -5246,7 +5157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EA%B8%B0%EC%B4%88/%EC%A0%9C%EC%95%BD%EC%A1%B0%EA%B1%B4/" class="md-nav__link">
+      <a href="../../../../db/%EA%B8%B0%EC%B4%88/%EC%A0%9C%EC%95%BD%EC%A1%B0%EA%B1%B4/" class="md-nav__link">
         
   
   
@@ -5274,7 +5185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EA%B8%B0%EC%B4%88/%EC%A0%95%EA%B7%9C%ED%99%94/" class="md-nav__link">
+      <a href="../../../../db/%EA%B8%B0%EC%B4%88/%EC%A0%95%EA%B7%9C%ED%99%94/" class="md-nav__link">
         
   
   
@@ -5359,7 +5270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%BF%BC%EB%A6%AC/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%80%EA%B3%B5/" class="md-nav__link">
+      <a href="../../../../db/%EC%BF%BC%EB%A6%AC/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%80%EA%B3%B5/" class="md-nav__link">
         
   
   
@@ -5387,7 +5298,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%BF%BC%EB%A6%AC/%EC%A7%91%EA%B3%84/" class="md-nav__link">
+      <a href="../../../../db/%EC%BF%BC%EB%A6%AC/%EC%A7%91%EA%B3%84/" class="md-nav__link">
         
   
   
@@ -5415,7 +5326,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%BF%BC%EB%A6%AC/JOIN/" class="md-nav__link">
+      <a href="../../../../db/%EC%BF%BC%EB%A6%AC/JOIN/" class="md-nav__link">
         
   
   
@@ -5443,7 +5354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%BF%BC%EB%A6%AC/%EC%84%9C%EB%B8%8C%EC%BF%BC%EB%A6%AC/" class="md-nav__link">
+      <a href="../../../../db/%EC%BF%BC%EB%A6%AC/%EC%84%9C%EB%B8%8C%EC%BF%BC%EB%A6%AC/" class="md-nav__link">
         
   
   
@@ -5471,7 +5382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%BF%BC%EB%A6%AC/UNION/" class="md-nav__link">
+      <a href="../../../../db/%EC%BF%BC%EB%A6%AC/UNION/" class="md-nav__link">
         
   
   
@@ -5499,7 +5410,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%BF%BC%EB%A6%AC/CASE/" class="md-nav__link">
+      <a href="../../../../db/%EC%BF%BC%EB%A6%AC/CASE/" class="md-nav__link">
         
   
   
@@ -5527,7 +5438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%BF%BC%EB%A6%AC/VIEW/" class="md-nav__link">
+      <a href="../../../../db/%EC%BF%BC%EB%A6%AC/VIEW/" class="md-nav__link">
         
   
   
@@ -5661,7 +5572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/" class="md-nav__link">
+      <a href="../../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/" class="md-nav__link">
         
   
   
@@ -5689,7 +5600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EA%B5%AC%EC%A1%B0%EC%99%80%EC%A2%85%EB%A5%98/" class="md-nav__link">
+      <a href="../../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EA%B5%AC%EC%A1%B0%EC%99%80%EC%A2%85%EB%A5%98/" class="md-nav__link">
         
   
   
@@ -5717,7 +5628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/B-Tree/" class="md-nav__link">
+      <a href="../../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/B-Tree/" class="md-nav__link">
         
   
   
@@ -5745,7 +5656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EC%84%A4%EA%B3%84%EC%99%80%EC%82%AC%EC%9A%A9%EB%B2%95/" class="md-nav__link">
+      <a href="../../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EC%84%A4%EA%B3%84%EC%99%80%EC%82%AC%EC%9A%A9%EB%B2%95/" class="md-nav__link">
         
   
   
@@ -5773,7 +5684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EC%BF%BC%EB%A6%AC%ED%8C%A8%ED%84%B4/" class="md-nav__link">
+      <a href="../../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EC%BF%BC%EB%A6%AC%ED%8C%A8%ED%84%B4/" class="md-nav__link">
         
   
   
@@ -5801,7 +5712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EC%9A%B4%EC%98%81%EA%B3%BC%ED%8A%9C%EB%8B%9D/" class="md-nav__link">
+      <a href="../../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EC%9D%B8%EB%8D%B1%EC%8A%A4/%EC%9A%B4%EC%98%81%EA%B3%BC%ED%8A%9C%EB%8B%9D/" class="md-nav__link">
         
   
   
@@ -5837,7 +5748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/" class="md-nav__link">
+      <a href="../../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98/" class="md-nav__link">
         
   
   
@@ -5865,7 +5776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EA%B2%A9%EB%A6%AC%EC%88%98%EC%A4%80/" class="md-nav__link">
+      <a href="../../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%EA%B2%A9%EB%A6%AC%EC%88%98%EC%A4%80/" class="md-nav__link">
         
   
   
@@ -5893,7 +5804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%ED%94%84%EB%A1%9C%EC%8B%9C%EC%A0%80/" class="md-nav__link">
+      <a href="../../../../db/%EC%84%B1%EB%8A%A5%EC%9A%B4%EC%98%81/%ED%94%84%EB%A1%9C%EC%8B%9C%EC%A0%80/" class="md-nav__link">
         
   
   
@@ -5988,7 +5899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jvm/jvm/" class="md-nav__link">
+      <a href="../../../../jvm/jvm/" class="md-nav__link">
         
   
   
@@ -6016,7 +5927,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jvm/JVM%EA%B0%9C%EC%9A%94/" class="md-nav__link">
+      <a href="../../../../jvm/JVM%EA%B0%9C%EC%9A%94/" class="md-nav__link">
         
   
   
@@ -6103,7 +6014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/cs/" class="md-nav__link">
+      <a href="../../../../cs/cs/" class="md-nav__link">
         
   
   
@@ -6131,7 +6042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/%EB%8F%99%EA%B8%B0VS%EB%B9%84%EB%8F%99%EA%B8%B0/" class="md-nav__link">
+      <a href="../../../../cs/%EB%8F%99%EA%B8%B0VS%EB%B9%84%EB%8F%99%EA%B8%B0/" class="md-nav__link">
         
   
   
@@ -6176,6 +6087,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -6184,18 +6097,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#volatile" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        volatile 키워드 &amp; 메모리 가시성
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="volatile 키워드 &amp; 메모리 가시성">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6205,8 +6106,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6215,60 +6116,21 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="어떻게 쓰는지">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rdb-vs-redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RDB vs Redis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        메모리 가시성 문제
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#volatile_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        volatile 기본 사용
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#volatile-vs-synchronized" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        volatile vs synchronized
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-happens-before" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        해피포닝-비포 (Happens-Before) 규칙
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         언제 쓰는지
@@ -6277,9 +6139,9 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         장점
@@ -6288,9 +6150,9 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         단점
@@ -6299,9 +6161,9 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         특징
@@ -6309,71 +6171,10 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="특징">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-cpu" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. CPU 캐시 구조
-      
-    </span>
-  </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#2-memory-barrier" class="md-nav__link">
-    <span class="md-ellipsis">
       
-        2. Memory Barrier (메모리 배리어)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-java-memory-model-jmm" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Java Memory Model (JMM)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-volatile-vs-atomicinteger" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. volatile vs AtomicInteger
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-reordering" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Reordering 문제
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         주의할 점
@@ -6382,20 +6183,37 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        베스트 프랙티스
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실무에서는?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
         정리
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -6419,160 +6237,114 @@
   
 
 
-  <h1>volatile</h1>
-
-<h2 id="volatile">volatile 키워드 &amp; 메모리 가시성</h2>
-<h3 id="_1">왜 쓰는지</h3>
-<p>멀티코어 CPU에서 <strong>각 코어가 자신의 캐시에 값을 보관</strong>하므로:
-- 스레드 A가 변경한 값을 스레드 B가 못 보는 경우 발생
-- 메인 메모리와 캐시가 동기화되지 않음</p>
-<p><code>volatile</code>로 <strong>메모리 가시성을 보장</strong>할 수 있습니다.</p>
+<h1 id="redis">Redis란?</h1>
 <div class="concept-box">
-<p><strong>핵심</strong>: <code>volatile</code> 키워드는 <strong>해당 변수의 모든 읽기/쓰기를 메인 메모리와 직접 수행</strong>하여, 한 스레드의 변경사항이 다른 스레드에서 즉시 보이게 합니다.</p>
+<p><strong>Redis</strong>: 메모리 기반 Key-Value 저장소이며, 캐시·세션·분산 락·카운터·랭킹·메시징 같은 빠른 상태 저장에 사용한다.</p>
 </div>
-<h3 id="_2">어떻게 쓰는지</h3>
-<h4 id="_3">메모리 가시성 문제</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MemoryVisibilityProblem</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="c1">// ❌ 문제: volatile 없음</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">start</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="c1">// 스레드 1: 계속 실행</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">running</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// 캐시 값 읽음</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">                </span><span class="c1">// 작업</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">            </span><span class="p">}</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;종료됨&quot;</span><span class="p">);</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="p">}).</span><span class="na">start</span><span class="p">();</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="c1">// 메인: 값 변경</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">            </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">InterruptedException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">        </span><span class="n">running</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">  </span><span class="c1">// 메인 메모리에 쓰임</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">        </span><span class="c1">// 하지만 스레드 1의 캐시에는 여전히 true</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">        </span><span class="c1">// → 루프가 계속 실행됨 (또는 시간 지나서 어느 순간 감지)</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="p">}</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="c1">// ✅ 해결: volatile 사용</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="kd">private</span><span class="w"> </span><span class="kd">volatile</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="c1">// 이제 running의 모든 접근이 메인 메모리와 직접 수행</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="c1">// → 즉시 변경사항 인지</span>
+<h2 id="_1">왜 쓰는지</h2>
+<p>DB는 디스크, 트랜잭션, 인덱스, 락, 영속성을 책임지기 때문에 모든 요청을 DB로만 처리하면 응답 속도와 처리량에 한계가 옵니다. Redis는 자주 읽는 데이터, 짧게 살아도 되는 상태, 빠른 원자 연산을 메모리에서 처리해 DB와 애플리케이션의 부담을 줄입니다.</p>
+<p>Redis를 "빠른 DB"로만 이해하면 위험합니다. 실무에서는 Redis를 <strong>원본 저장소가 아니라 보조 저장소</strong>로 보는 것이 안전합니다. Redis가 비어도 복구할 기준 데이터는 DB, 이벤트 로그, 외부 원장처럼 더 강한 저장소에 있어야 합니다.</p>
+<h2 id="_2">어떻게 쓰는지</h2>
+<p>Redis는 보통 애플리케이션과 DB 사이에서 반복 조회를 빠르게 만듭니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Redis에 있으면 빠르게 응답한다.
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Redis에 없으면 DB에서 가져와 다시 채운다.
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Redis가 비어도 DB 기준으로 복구할 수 있어야 한다.
 </code></pre></div>
-<h4 id="volatile_1">volatile 기본 사용</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">VolatileExample</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="c1">// volatile: 메인 메모리와 직접 소통</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">volatile</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">volatile</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">writerThread</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">          </span><span class="c1">// 메인 메모리에 즉시 쓰기</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w">          </span><span class="c1">// 메인 메모리에 즉시 쓰기</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">readerThread</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">flag</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">       </span><span class="c1">// 메인 메모리에서 매번 읽기</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">            </span><span class="c1">// 대기</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">count</span><span class="p">);</span><span class="w">  </span><span class="c1">// 메인 메모리에서 읽기 (항상 100)</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">InterruptedException</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">        </span><span class="n">VolatileExample</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">VolatileExample</span><span class="p">();</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>
-<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">        </span><span class="n">Thread</span><span class="w"> </span><span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(</span><span class="n">example</span><span class="p">::</span><span class="n">writerThread</span><span class="p">);</span>
-<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">        </span><span class="n">Thread</span><span class="w"> </span><span class="n">reader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(</span><span class="n">example</span><span class="p">::</span><span class="n">readerThread</span><span class="p">);</span>
-<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>
-<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">        </span><span class="n">reader</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
-<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">        </span><span class="n">writer</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
-<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>
-<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">        </span><span class="n">writer</span><span class="p">.</span><span class="na">join</span><span class="p">();</span>
-<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">        </span><span class="n">reader</span><span class="p">.</span><span class="na">join</span><span class="p">();</span>
-<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="p">}</span>
-<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>
-<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="c1">// 출력: 100 (volatile이 있으므로 항상 최신 값)</span>
-</code></pre></div>
-<h4 id="volatile-vs-synchronized">volatile vs synchronized</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// 1️⃣ volatile: 가시성만 보장 (원자성 X)</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">private</span><span class="w"> </span><span class="kd">volatile</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1">// ❌ 여전히 race condition 발생</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">counter</span><span class="o">++</span><span class="p">;</span><span class="w">  </span><span class="c1">// 세 단계: 읽기 → 증가 → 쓰기</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1">// 2️⃣ synchronized: 원자성도 보장</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1">// ✅ 원자적으로 실행</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="kd">synchronized</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">increment</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="n">counter</span><span class="o">++</span><span class="p">;</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">}</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="c1">// 3️⃣ 필요한 것만 선택</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="kd">private</span><span class="w"> </span><span class="kd">volatile</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">  </span><span class="c1">// volatile: 단순 플래그</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">                    </span><span class="c1">// synchronized: 복잡한 상태</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="kd">synchronized</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">updateData</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">    </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
-<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="n">running</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
-<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="p">}</span>
-</code></pre></div>
-<h4 id="-happens-before">해피포닝-비포 (Happens-Before) 규칙</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HappensBeforeExample</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">volatile</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// volatile 변수</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">writer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">      </span><span class="c1">// (1)</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">      </span><span class="c1">// (2) volatile write</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">reader</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// (3) volatile read</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">            </span><span class="c1">// (3)이 (2)를 보면, (2)보다 전에 일어난 모든 변수 (a 포함)도 보임</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="w">  </span><span class="c1">// 반드시 1이 출력됨</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="c1">// Happens-Before 관계:</span>
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="c1">// (1) happens-before (2) happens-before (3)</span>
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">    </span><span class="c1">// → (3)에서 b를 보면 a도 업데이트된 값을 봄</span>
-<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="p">}</span>
-</code></pre></div>
-<h3 id="_4">언제 쓰는지</h3>
+<pre class="mermaid"><code>flowchart LR
+    U[사용자 요청] --&gt; A[애플리케이션]
+    A --&gt; R[(Redis)]
+    A --&gt; D[(DB)]
+
+    R --&gt; C1[조회 캐시]
+    R --&gt; C2[세션과 토큰]
+    R --&gt; C3[카운터]
+    R --&gt; C4[랭킹]
+    R --&gt; C5[분산 락]
+
+    D --&gt; S1[원본 데이터]
+    D --&gt; S2[트랜잭션]
+    D --&gt; S3[감사와 복구 기준]</code></pre>
+<h2 id="rdb-vs-redis">RDB vs Redis</h2>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>RDB</th>
+<th>Redis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>저장 위치</td>
+<td>주로 디스크</td>
+<td>주로 메모리</td>
+</tr>
+<tr>
+<td>강점</td>
+<td>트랜잭션, 조인, 영속성, 정합성</td>
+<td>빠른 단순 조회·갱신, TTL, 원자 명령</td>
+</tr>
+<tr>
+<td>주 사용처</td>
+<td>원본 데이터</td>
+<td>캐시, 짧은 상태, 카운터, 랭킹</td>
+</tr>
+<tr>
+<td>장애 기준</td>
+<td>데이터 보존과 복구가 핵심</td>
+<td>비어도 다시 만들 수 있는지 확인</td>
+</tr>
+</tbody>
+</table>
+<p>Redis는 RDB를 대체하기보다 RDB 앞에서 <strong>반복 조회와 짧은 상태 처리 비용을 줄이는 역할</strong>로 쓰는 경우가 많습니다.</p>
+<h2 id="_3">언제 쓰는지</h2>
 <table>
 <thead>
 <tr>
 <th>상황</th>
-<th>선택</th>
+<th>적합도</th>
 <th>이유</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>플래그 변수</strong></td>
-<td>✅ volatile</td>
-<td>단순 가시성만 필요</td>
+<td>자주 읽지만 자주 바뀌지 않는 데이터</td>
+<td>높음</td>
+<td>DB 조회를 줄이고 응답 속도 개선</td>
 </tr>
 <tr>
-<td><strong>상태 변수</strong></td>
-<td>✅ volatile</td>
-<td>여러 스레드가 읽음</td>
+<td>세션, 인증 토큰 같은 짧은 상태</td>
+<td>높음</td>
+<td>TTL로 자동 만료 가능</td>
 </tr>
 <tr>
-<td><strong>복합 연산</strong></td>
-<td>❌ synchronized</td>
-<td>원자성도 필요</td>
+<td>카운터, 조회수, Rate Limit</td>
+<td>높음</td>
+<td>원자 증가 연산이 빠름</td>
 </tr>
 <tr>
-<td><strong>카운터</strong></td>
-<td>❌ AtomicInteger</td>
-<td>원자적 증가 필요</td>
+<td>랭킹, 점수 정렬</td>
+<td>높음</td>
+<td>Sorted Set이 적합</td>
+</tr>
+<tr>
+<td>짧은 분산 락</td>
+<td>조건부</td>
+<td>단기 중복 실행 방지에 사용하되 멱등성 필요</td>
+</tr>
+<tr>
+<td>반드시 유실되면 안 되는 원장 데이터</td>
+<td>낮음</td>
+<td>Redis 장애·failover·설정 오류에 취약</td>
+</tr>
+<tr>
+<td>복잡한 조인과 검색</td>
+<td>낮음</td>
+<td>RDBMS나 검색 엔진 역할이 아님</td>
 </tr>
 </tbody>
 </table>
-<h3 id="_5">장점</h3>
+<h2 id="_4">장점</h2>
 <table>
 <thead>
 <tr>
@@ -6582,24 +6354,28 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>가시성</strong></td>
-<td>메모리 가시성 보장</td>
+<td>빠른 응답</td>
+<td>메모리 기반이라 단순 조회·갱신이 빠름</td>
 </tr>
 <tr>
-<td><strong>경량</strong></td>
-<td>synchronized보다 오버헤드 작음</td>
+<td>다양한 자료구조</td>
+<td>String, Hash, Set, Sorted Set, Stream 등을 지원</td>
 </tr>
 <tr>
-<td><strong>성능</strong></td>
-<td>캐시 동기화만 수행</td>
+<td>TTL 지원</td>
+<td>임시 데이터를 자동 삭제할 수 있음</td>
 </tr>
 <tr>
-<td><strong>간편성</strong></td>
-<td>단순 플래그에 적합</td>
+<td>원자 명령</td>
+<td><code>INCR</code>, <code>SET NX</code>, Lua로 경쟁 조건을 줄일 수 있음</td>
+</tr>
+<tr>
+<td>운영 기능</td>
+<td>replication, Sentinel, Cluster, persistence 제공</td>
 </tr>
 </tbody>
 </table>
-<h3 id="_6">단점</h3>
+<h2 id="_5">단점</h2>
 <table>
 <thead>
 <tr>
@@ -6609,141 +6385,156 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>원자성 없음</strong></td>
-<td>복합 연산은 보호 안됨 (i++ 등)</td>
+<td>메모리 비용</td>
+<td>데이터가 커질수록 비용이 빠르게 증가</td>
 </tr>
 <tr>
-<td><strong>혼동 가능</strong></td>
-<td>synchronized와 다른 의미</td>
+<td>유실 가능성</td>
+<td>AOF/RDB 설정과 장애 타이밍에 따라 최근 데이터 손실 가능</td>
 </tr>
 <tr>
-<td><strong>캐시 비용</strong></td>
-<td>메인 메모리 접근이 캐시보다 느림</td>
+<td>캐시 정합성 문제</td>
+<td>DB와 Redis 값이 일시적으로 다를 수 있음</td>
 </tr>
 <tr>
-<td><strong>제한적</strong></td>
-<td>플래그나 상태 변수에만 적합</td>
+<td>느린 명령 영향</td>
+<td>큰 key나 O(N) 명령 하나가 전체 지연으로 이어질 수 있음</td>
+</tr>
+<tr>
+<td>운영 난도</td>
+<td>eviction, big key, hot key, replication lag, failover 관리 필요</td>
 </tr>
 </tbody>
 </table>
-<h3 id="_7">특징</h3>
-<h4 id="1-cpu">1. CPU 캐시 구조</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Core 1               Core 2
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  │                   │
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  L1 Cache            L1 Cache
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  │                   │
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  L2 Cache            L2 Cache
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  └────────┬──────────┘
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>           │
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>        Main Memory (RAM)
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>volatile 변수는 캐시를 우회하고 Main Memory에 직접 접근
-</code></pre></div>
-<h4 id="2-memory-barrier">2. Memory Barrier (메모리 배리어)</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// volatile write: store barrier</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">volatile</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">  </span><span class="c1">// 메인 메모리에 즉시 기록</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1">// volatile read: load barrier</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w">          </span><span class="c1">// 메인 메모리에서 읽기</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1">// JVM/CPU가 메모리 배리어를 삽입하여 가시성 보장</span>
-</code></pre></div>
-<h4 id="3-java-memory-model-jmm">3. Java Memory Model (JMM)</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>JMM이 정의하는 3가지 보장:
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>1️⃣ 가시성 (Visibility)
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>   한 스레드의 쓰기가 다른 스레드에서 언제 보이는가?
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>   → volatile, synchronized, lock
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>2️⃣ 원자성 (Atomicity)
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>   연산이 중간에 끊기지 않고 수행되는가?
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>   → synchronized, AtomicInteger, ...
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>3️⃣ 순서 보장 (Ordering)
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>   명령어가 재정렬되지 않는가?
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>   → volatile, synchronized, happens-before
-</code></pre></div>
-<h4 id="4-volatile-vs-atomicinteger">4. volatile vs AtomicInteger</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// 1️⃣ volatile: 가시성만</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">private</span><span class="w"> </span><span class="kd">volatile</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">count</span><span class="o">++</span><span class="p">;</span><span class="w">  </span><span class="c1">// ❌ race condition</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1">// 2️⃣ AtomicInteger: 가시성 + 원자성</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="kd">private</span><span class="w"> </span><span class="n">AtomicInteger</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AtomicInteger</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="n">count</span><span class="p">.</span><span class="na">incrementAndGet</span><span class="p">();</span><span class="w">  </span><span class="c1">// ✅ 원자적</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="c1">// 성능 비교</span>
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="c1">// volatile:          쓰기는 빠르지만 읽기-수정-쓰기는 위험</span>
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="c1">// AtomicInteger:    원자적 연산으로 안전 (약간 느림)</span>
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="c1">// synchronized:     가장 안전하지만 가장 느림</span>
-</code></pre></div>
-<h4 id="5-reordering">5. Reordering 문제</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ReorderingExample</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">method1</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">        </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">        </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">  </span><span class="c1">// JIT 컴파일러가 순서 바꿀 수 있음</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="c1">// ✅ 올바른 방식: volatile로 순서 보장</span>
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">volatile</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>
-<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">method1</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">        </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">        </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">  </span><span class="c1">// b는 volatile이므로 순서 보장됨</span>
-<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="p">}</span>
-</code></pre></div>
-<h3 id="_8">주의할 점</h3>
-<div class="danger-box">
-<p><strong>❌ volatile로 원자성 기대하기</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">volatile</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1">// ❌ 여전히 race condition</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">counter</span><span class="o">++</span><span class="p">;</span><span class="w">  </span><span class="c1">// 읽기 → 증가 → 쓰기 (3단계)</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="c1">// 스레드 A: 읽기(5) → 증가(6) → 쓰기(6)</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c1">// 스레드 B:       읽기(5) → 증가(6) → 쓰기(6)</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="c1">// 결과: 6 (7이 되어야 함!)</span>
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>
-<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="c1">// ✅ 올바른 방식: synchronized 또는 AtomicInteger</span>
-<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="kd">private</span><span class="w"> </span><span class="n">AtomicInteger</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AtomicInteger</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="n">counter</span><span class="p">.</span><span class="na">incrementAndGet</span><span class="p">();</span><span class="w">  </span><span class="c1">// 원자적</span>
-</code></pre></div>
-</div>
-<div class="warning-box">
-<p><strong>⚠️ volatile 배열 원소</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">// volatile 배열</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kd">private</span><span class="w"> </span><span class="kd">volatile</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">10</span><span class="o">]</span><span class="p">;</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1">// ❌ 착각: array[0]이 volatile이 되는 건 아님</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="n">array</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">  </span><span class="c1">// array[0]은 가시성 보장 없음</span>
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">               </span><span class="c1">// (array 참조 자체만 volatile)</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="c1">// ✅ 원소도 보장하려면:</span>
-<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="c1">// 1. 모든 접근을 synchronized로 보호</span>
-<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="c1">// 2. AtomicIntegerArray 사용</span>
-<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>
-<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="kd">private</span><span class="w"> </span><span class="n">AtomicIntegerArray</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AtomicIntegerArray</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="n">array</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span><span class="w">  </span><span class="c1">// 원자적이고 가시성 보장</span>
-</code></pre></div>
-</div>
-<div class="warning-box">
-<p><strong>⚠️ 성능 영향</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">// ❌ 모든 변수를 volatile로 만들기 (안티패턴)</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kd">private</span><span class="w"> </span><span class="kd">volatile</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">;</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1">// 메인 메모리 접근 반복 → 성능 저하</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="c1">// ✅ 필요한 것만 volatile</span>
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="kd">private</span><span class="w"> </span><span class="kd">volatile</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">flag</span><span class="p">;</span><span class="w">  </span><span class="c1">// 플래그만</span>
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">dataA</span><span class="p">,</span><span class="w"> </span><span class="n">dataB</span><span class="p">;</span><span class="w">       </span><span class="c1">// 데이터는 다른 방식으로 보호</span>
-</code></pre></div>
-</div>
-<h3 id="_9">정리</h3>
+<h2 id="_6">특징</h2>
+<table>
+<thead>
+<tr>
+<th>특징</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Key-Value</td>
+<td>key로 value를 바로 찾는 구조</td>
+</tr>
+<tr>
+<td>In-Memory</td>
+<td>대부분의 데이터를 메모리에서 처리</td>
+</tr>
+<tr>
+<td>Single Thread 기반 명령 실행</td>
+<td>명령 실행 경로가 단순하지만 느린 명령에 취약</td>
+</tr>
+<tr>
+<td>TTL</td>
+<td>key별 만료 시간을 설정 가능</td>
+</tr>
+<tr>
+<td>자료구조 제공</td>
+<td>단순 문자열뿐 아니라 랭킹, 집합, 이벤트 로그까지 표현 가능</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_7">주의할 점</h2>
+<table>
+<thead>
+<tr>
+<th>주의</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>원본 저장소로 착각하지 않기</td>
+<td>Redis가 비어도 DB 기준으로 복구 가능해야 함</td>
+</tr>
+<tr>
+<td>TTL 없는 캐시 방치 금지</td>
+<td>메모리 증가로 장애가 날 수 있음</td>
+</tr>
+<tr>
+<td>Big Key 조심</td>
+<td>조회·삭제·복제·failover가 느려짐</td>
+</tr>
+<tr>
+<td>Hot Key 조심</td>
+<td>특정 노드와 key에 부하가 몰림</td>
+</tr>
+<tr>
+<td>장애 전파 막기</td>
+<td>timeout, fallback, circuit breaker를 준비</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_8">베스트 프랙티스</h2>
+<table>
+<thead>
+<tr>
+<th>권장 방식</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>캐시에는 TTL 부여</td>
+<td>무한 증가 방지</td>
+</tr>
+<tr>
+<td>원본 데이터는 DB에 유지</td>
+<td>Redis 유실·초기화 대응</td>
+</tr>
+<tr>
+<td>key prefix 표준화</td>
+<td>운영 중 추적과 삭제가 쉬움</td>
+</tr>
+<tr>
+<td><code>KEYS</code> 대신 <code>SCAN</code> 사용</td>
+<td>전체 blocking 방지</td>
+</tr>
+<tr>
+<td>Hit Ratio와 latency 관찰</td>
+<td>캐시 효과와 장애 전조 확인</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_9">실무에서는?</h2>
+<table>
+<thead>
+<tr>
+<th>사용처</th>
+<th>설계 기준</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>조회 캐시</td>
+<td>Cache Aside, 짧은 TTL, 갱신 시 삭제</td>
+</tr>
+<tr>
+<td>세션 저장</td>
+<td>TTL 필수, 로그아웃 시 삭제</td>
+</tr>
+<tr>
+<td>인증번호</td>
+<td>짧은 TTL, 검증 횟수 제한</td>
+</tr>
+<tr>
+<td>랭킹</td>
+<td>Sorted Set, 기간별 key 분리</td>
+</tr>
+<tr>
+<td>분산 락</td>
+<td><code>SET NX PX</code>, 소유자 확인 삭제, DB unique와 함께 사용</td>
+</tr>
+<tr>
+<td>Rate Limit</td>
+<td><code>INCR</code> + TTL, Lua로 원자 처리</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_10">정리</h2>
 <table>
 <thead>
 <tr>
@@ -6753,36 +6544,28 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>volatile</strong></td>
-<td>메모리 가시성 보장</td>
+<td>Redis</td>
+<td>메모리 기반 Key-Value 저장소</td>
 </tr>
 <tr>
-<td><strong>원자성</strong></td>
-<td>보장 안 함 (플래그 제외)</td>
+<td>핵심 용도</td>
+<td>캐시, TTL 상태, 카운터, 랭킹, 분산 락, 메시징</td>
 </tr>
 <tr>
-<td><strong>사용처</strong></td>
-<td>플래그, 상태 변수</td>
+<td>가장 큰 강점</td>
+<td>빠른 응답과 다양한 자료구조</td>
 </tr>
 <tr>
-<td><strong>한계</strong></td>
-<td>복합 연산 불가</td>
-</tr>
-<tr>
-<td><strong>대안</strong></td>
-<td>synchronized, AtomicInteger</td>
-</tr>
-<tr>
-<td><strong>주의</strong></td>
-<td>i++는 volatile로도 보호 안됨</td>
+<td>가장 큰 주의점</td>
+<td>메모리 한계, big key, hot key, 캐시 정합성, 비동기 복제</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <p><strong>관련 파일:</strong>
-- <a href="../synchronized/">synchronized</a> — 동기화 메커니즘
-- <a href="../Thread2/">Thread2</a> — 스레드 상태 관리
-- <a href="../%EB%8F%99%EC%8B%9C%EC%84%B1%EC%BB%AC%EB%A0%89%EC%85%98/">동시성컬렉션</a> — 스레드 안전 자료구조</p>
+- <a href="../">Redis 개요</a>
+- <a href="../%EA%B8%B0%EB%B3%B8%EC%82%AC%EC%9A%A9/">기본 사용과 자료구조</a>
+- <a href="../%EC%BA%90%EC%8B%9C%ED%8C%A8%ED%84%B4/">캐시 전략과 정합성</a></p>
 <!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
 
 <!-- ===== DB / SQL ===== -->
@@ -6811,7 +6594,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 16일 12:07:50 UTC">2026년 4월 16일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 27일 13:49:27 UTC">2026년 4월 27일</span>
   </span>
 
     
@@ -6821,7 +6604,7 @@
     <span class="md-icon" title="작성일">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 6일 11:46:41 UTC">2026년 4월 6일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 27일 13:49:27 UTC">2026년 4월 27일</span>
   </span>
 
     
@@ -6876,10 +6659,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections", "navigation.top", "navigation.instant", "search.highlight", "search.suggest", "content.code.copy", "content.tooltips", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.sections", "navigation.top", "navigation.instant", "search.highlight", "search.suggest", "content.code.copy", "content.tooltips", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
       
