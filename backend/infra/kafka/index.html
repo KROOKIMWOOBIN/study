@@ -11,10 +11,10 @@
         <link rel="canonical" href="https://krookimwoobin.github.io/study/backend/infra/kafka/">
       
       
-        <link rel="prev" href="../redis/">
+        <link rel="prev" href="../redis/%EC%9E%A5%EC%95%A0%EB%8C%80%EC%9D%91/">
       
       
-        <link rel="next" href="../../architecture/architecture/">
+        <link rel="next" href="%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Kafka - 학습 노트</title>
+        <title>개요 - 학습 노트</title>
       
     
     
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Kafka
+              개요
             
           </span>
         </div>
@@ -3774,9 +3774,22 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../redis/" class="md-nav__link">
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_1" id="__nav_5_2_1_label" tabindex="0">
+            
   
   
   <span class="md-ellipsis">
@@ -3790,11 +3803,218 @@
   
   
 
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Redis
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개요
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
               
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/%EA%B8%B0%EB%B3%B8%EC%82%AC%EC%9A%A9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기본 사용과 자료구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/%EC%BA%90%EC%8B%9C%ED%8C%A8%ED%84%B4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    캐시와 락 패턴
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/%EA%B5%AC%EC%A1%B0%EC%99%80%EC%9A%B4%EC%98%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구조와 운영 특성
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/%EC%9E%A5%EC%95%A0%EB%8C%80%EC%9D%91/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    장애 대응과 관찰 지표
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_2" id="__nav_5_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kafka
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Kafka
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -3819,7 +4039,7 @@
   <span class="md-ellipsis">
     
   
-    Kafka
+    개요
   
 
     
@@ -3837,7 +4057,7 @@
   <span class="md-ellipsis">
     
   
-    Kafka
+    개요
   
 
     
@@ -3866,104 +4086,15 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        왜 쓰는지
+        먼저 보는 큰 그림
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="왜 쓰는지">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        전체 그림
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        어떻게 쓰는지
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="어떻게 쓰는지">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        토픽 생성
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        이벤트 설계
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#producer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Producer 설정
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#key" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key 선택
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#consumer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Consumer 처리 흐름
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         언제 쓰는지
@@ -3974,10 +4105,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        장점
+        장점과 단점
       
     </span>
   </a>
@@ -3985,10 +4116,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        단점
+        실무 핵심
       
     </span>
   </a>
@@ -3996,433 +4127,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        특징
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="특징">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#topic-partition-offset" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Topic, Partition, Offset
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#broker-leader-follower-isr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Broker, Leader, Follower, ISR
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#producer_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Producer 전송 흐름
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#consumer-group-rebalance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Consumer Group과 Rebalance
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#offset-commit" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Offset Commit
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#retention-compaction" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Retention과 Compaction
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        전달 보장
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        주의할 점
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="주의할 점">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        중복 메시지는 정상 시나리오다
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#partition" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        순서는 partition 안에서만 보장된다
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#poison-pill" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Poison Pill
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lag" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Lag는 원인이 아니라 결과다
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#schema-evolution" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Schema Evolution
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#runbook" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        장애 대응 Runbook
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="장애 대응 Runbook">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-producer-timeout" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Producer timeout 또는 발행 실패
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-broker" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Broker 한 대 장애
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-consumer-lag" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Consumer lag 급증
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-rebalance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Rebalance가 반복됨
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-poison-pill-offset" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Poison Pill로 특정 offset에서 멈춤
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. 중복 소비 발생
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. 순서가 깨진 것처럼 보임
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-disk-full-retention" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8. Disk full 또는 retention 문제
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9-hot-partition" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. Hot Partition
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#10-schema" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        10. Schema 불일치
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#11-offset-reset" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        11. Offset reset 사고
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12-consumer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        12. Consumer가 메시지를 못 읽음
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        관찰 지표와 명령
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="관찰 지표와 명령">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#topic" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Topic 상태
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#consumer-group" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Consumer Group 상태
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#broker" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Broker 지표
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#producer_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Producer 지표
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#consumer_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Consumer 지표
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        베스트 프랙티스
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        실무에서는?
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="실무에서는?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        운영 체크리스트
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         정리
@@ -4435,6 +4140,126 @@
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기본 개념과 구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="producer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Producer와 이벤트 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="consumer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consumer와 전달 보장
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%EC%9A%B4%EC%98%81%EC%9E%A5%EC%95%A0%EB%8C%80%EC%9D%91/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    운영과 장애 대응
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -5901,104 +5726,15 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        왜 쓰는지
+        먼저 보는 큰 그림
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="왜 쓰는지">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        전체 그림
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        어떻게 쓰는지
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="어떻게 쓰는지">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        토픽 생성
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        이벤트 설계
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#producer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Producer 설정
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#key" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key 선택
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#consumer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Consumer 처리 흐름
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         언제 쓰는지
@@ -6009,10 +5745,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        장점
+        장점과 단점
       
     </span>
   </a>
@@ -6020,10 +5756,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        단점
+        실무 핵심
       
     </span>
   </a>
@@ -6031,433 +5767,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        특징
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="특징">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#topic-partition-offset" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Topic, Partition, Offset
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#broker-leader-follower-isr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Broker, Leader, Follower, ISR
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#producer_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Producer 전송 흐름
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#consumer-group-rebalance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Consumer Group과 Rebalance
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#offset-commit" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Offset Commit
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#retention-compaction" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Retention과 Compaction
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        전달 보장
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        주의할 점
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="주의할 점">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        중복 메시지는 정상 시나리오다
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#partition" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        순서는 partition 안에서만 보장된다
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#poison-pill" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Poison Pill
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lag" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Lag는 원인이 아니라 결과다
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#schema-evolution" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Schema Evolution
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#runbook" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        장애 대응 Runbook
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="장애 대응 Runbook">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-producer-timeout" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Producer timeout 또는 발행 실패
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-broker" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Broker 한 대 장애
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-consumer-lag" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Consumer lag 급증
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-rebalance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Rebalance가 반복됨
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-poison-pill-offset" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Poison Pill로 특정 offset에서 멈춤
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. 중복 소비 발생
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. 순서가 깨진 것처럼 보임
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-disk-full-retention" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8. Disk full 또는 retention 문제
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9-hot-partition" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. Hot Partition
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#10-schema" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        10. Schema 불일치
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#11-offset-reset" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        11. Offset reset 사고
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12-consumer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        12. Consumer가 메시지를 못 읽음
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        관찰 지표와 명령
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="관찰 지표와 명령">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#topic" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Topic 상태
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#consumer-group" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Consumer Group 상태
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#broker" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Broker 지표
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#producer_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Producer 지표
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#consumer_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Consumer 지표
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        베스트 프랙티스
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        실무에서는?
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="실무에서는?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        운영 체크리스트
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         정리
@@ -6488,411 +5798,56 @@
 
 
 <h1 id="kafka">Kafka</h1>
-<h2 id="_1">왜 쓰는지</h2>
-<p>서비스가 다른 서비스에 직접 API를 호출하면 호출 대상 장애, 응답 지연, 일시적 트래픽 증가가 호출한 쪽까지 전파됩니다. Kafka는 이벤트를 중간에 저장해 생산자와 소비자를 분리하고, 소비자가 자기 속도에 맞춰 처리할 수 있게 합니다.</p>
 <div class="concept-box">
-<p><strong>핵심</strong>: Kafka는 이벤트를 토픽에 append-only log로 저장하고, 여러 소비자가 offset을 기준으로 독립적으로 읽어가는 분산 이벤트 스트리밍 플랫폼이다.</p>
+<p><strong>Kafka</strong>: 이벤트를 토픽에 append-only log로 저장하고, consumer group이 offset을 기준으로 독립적으로 읽어가는 분산 이벤트 스트리밍 플랫폼.</p>
 </div>
-<p>Kafka를 큐로만 이해하면 장애 대응이 어려워집니다. 실무에서는 Kafka를 <strong>보존 가능한 이벤트 로그</strong>로 보고, producer·broker·consumer·저장소 사이의 실패 지점을 각각 나누어 설계해야 합니다.</p>
-<h3 id="_2">전체 그림</h3>
-<p>Kafka는 producer가 이벤트를 넣고, broker가 이벤트를 보관하고, consumer group이 각자 필요한 속도로 읽어가는 구조입니다.</p>
-<pre class="mermaid"><code>flowchart LR
-    P1[주문 서비스&lt;br/&gt;Producer] --&gt; K[(Kafka Cluster)]
-    P2[결제 서비스&lt;br/&gt;Producer] --&gt; K
-
-    K --&gt; T1[topic: order-events]
-    T1 --&gt; PA[partition 0]
-    T1 --&gt; PB[partition 1]
-    T1 --&gt; PC[partition 2]
-
-    PA --&gt; C1[재고 Consumer Group]
-    PB --&gt; C1
-    PC --&gt; C1
-
-    PA --&gt; C2[알림 Consumer Group]
-    PB --&gt; C2
-    PC --&gt; C2
-
-    C1 --&gt; D1[(재고 DB)]
-    C2 --&gt; D2[문자·메일 발송]</code></pre>
-<p>그림을 이렇게 읽으면 됩니다.</p>
-<table>
-<thead>
-<tr>
-<th>구성요소</th>
-<th>쉬운 설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Producer</td>
-<td>이벤트를 Kafka에 넣는 쪽</td>
-</tr>
-<tr>
-<td>Topic</td>
-<td>이벤트를 종류별로 담는 이름</td>
-</tr>
-<tr>
-<td>Partition</td>
-<td>topic 안에서 실제로 쌓이는 로그 파일 같은 단위</td>
-</tr>
-<tr>
-<td>Consumer Group</td>
-<td>같은 일을 나눠 처리하는 소비자 묶음</td>
-</tr>
-<tr>
-<td>Offset</td>
-<td>consumer group이 어디까지 읽었는지 표시하는 책갈피</td>
-</tr>
-</tbody>
-</table>
-<p>Kafka를 처음 배울 때 가장 중요한 문장입니다.</p>
+<p>서비스가 다른 서비스에 직접 API를 호출하면 장애, 지연, 트래픽 증가가 호출한 쪽까지 전파됩니다. Kafka는 이벤트를 중간에 저장해 producer와 consumer를 분리하고, 소비자가 자기 속도에 맞춰 처리할 수 있게 합니다.</p>
+<p>Kafka는 단순 큐라기보다 <strong>보존 가능한 이벤트 로그</strong>입니다. 그래서 실무에서는 producer, broker, consumer, sink DB 사이의 실패 지점을 나누어 보고, 중복 처리와 재처리를 기본 시나리오로 설계합니다.</p>
+<hr />
+<h2 id="_1">먼저 보는 큰 그림</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Producer는 topic에 쓴다.
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Kafka는 partition에 순서대로 보관한다.
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Consumer group은 offset을 기억하며 읽는다.
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>서로 다른 consumer group은 같은 이벤트를 따로 읽을 수 있다.
 </code></pre></div>
-<h2 id="_3">어떻게 쓰는지</h2>
-<h3 id="_4">토픽 생성</h3>
-<p>운영 기준 토픽은 보통 replication factor를 3으로 두고, <code>acks=all</code>과 함께 <code>min.insync.replicas=2</code>를 사용합니다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>kafka-topics.sh<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>--bootstrap-server<span class="w"> </span>kafka-1:9092,kafka-2:9092,kafka-3:9092<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span>--create<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span>--topic<span class="w"> </span>order-created<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span>--partitions<span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span>--replication-factor<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span>--config<span class="w"> </span>min.insync.replicas<span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span>--config<span class="w"> </span>retention.ms<span class="o">=</span><span class="m">604800000</span>
-</code></pre></div>
 <table>
 <thead>
 <tr>
-<th>설정</th>
-<th>의미</th>
-<th>기준</th>
+<th>읽고 싶은 내용</th>
+<th>바로가기</th>
+<th>핵심 질문</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>partitions</code></td>
-<td>병렬 처리와 순서 보장 단위</td>
-<td>처리량, key 분포, consumer 수 기준</td>
+<td>Kafka의 구성요소와 내부 구조</td>
+<td><a href="%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/">기본 개념과 구조</a></td>
+<td>topic, partition, offset, broker, ISR이 무엇인가?</td>
 </tr>
 <tr>
-<td><code>replication-factor</code></td>
-<td>파티션 복제본 수</td>
-<td>운영은 보통 3 이상</td>
+<td>토픽 생성, 이벤트 설계, producer 설정</td>
+<td><a href="producer/">Producer와 이벤트 설계</a></td>
+<td>어떤 key와 설정으로 이벤트를 안전하게 발행할 것인가?</td>
 </tr>
 <tr>
-<td><code>min.insync.replicas</code></td>
-<td>성공 쓰기에 필요한 ISR 수</td>
-<td>RF 3이면 2를 자주 사용</td>
+<td>consumer 처리, offset commit, rebalance</td>
+<td><a href="consumer/">Consumer와 전달 보장</a></td>
+<td>중복 소비와 순서 보장을 어떻게 다룰 것인가?</td>
 </tr>
 <tr>
-<td><code>retention.ms</code></td>
-<td>메시지 보관 시간</td>
-<td>재처리 가능 기간 기준</td>
+<td>장애 대응, 지표, 운영 체크리스트</td>
+<td><a href="%EC%9A%B4%EC%98%81%EC%9E%A5%EC%95%A0%EB%8C%80%EC%9D%91/">운영과 장애 대응</a></td>
+<td>lag, poison pill, broker 장애를 어떤 순서로 볼 것인가?</td>
 </tr>
 </tbody>
 </table>
-<p>토픽을 만들면 내부적으로는 여러 partition이 생깁니다.</p>
-<pre class="mermaid"><code>flowchart TB
-    T[topic&lt;br/&gt;order-created]
-    T --&gt; P0[partition 0&lt;br/&gt;offset 0 -&gt; 1 -&gt; 2]
-    T --&gt; P1[partition 1&lt;br/&gt;offset 0 -&gt; 1 -&gt; 2]
-    T --&gt; P2[partition 2&lt;br/&gt;offset 0 -&gt; 1 -&gt; 2]</code></pre>
-<p>여기서 partition 수는 "동시에 몇 줄로 처리할 수 있는가"를 정합니다. partition이 6개면 같은 consumer group 안에서 최대 6개 consumer가 각 partition을 하나씩 맡아 병렬 처리할 수 있습니다.</p>
-<h3 id="_5">이벤트 설계</h3>
-<p>이벤트는 나중에 재처리하고 추적할 수 있어야 합니다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;eventId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;evt-20260425-000001&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;eventType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ORDER_CREATED&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">&quot;schemaVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nt">&quot;occurredAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-25T10:15:00Z&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="nt">&quot;aggregateType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ORDER&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="nt">&quot;aggregateId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;order-1001&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="nt">&quot;producer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;order-service&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="nt">&quot;payload&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="nt">&quot;orderId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1001</span><span class="p">,</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="nt">&quot;userId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">39000</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="p">}</span>
-</code></pre></div>
-<table>
-<thead>
-<tr>
-<th>필드</th>
-<th>이유</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>eventId</code></td>
-<td>중복 처리 방지, 추적</td>
-</tr>
-<tr>
-<td><code>eventType</code></td>
-<td>소비자가 이벤트 의미를 판단</td>
-</tr>
-<tr>
-<td><code>schemaVersion</code></td>
-<td>스키마 변경 대응</td>
-</tr>
-<tr>
-<td><code>occurredAt</code></td>
-<td>이벤트 발생 시각</td>
-</tr>
-<tr>
-<td><code>aggregateId</code></td>
-<td>순서 보장 key 후보</td>
-</tr>
-<tr>
-<td><code>producer</code></td>
-<td>장애 추적</td>
-</tr>
-</tbody>
-</table>
-<p>이벤트는 단순 데이터 덩어리가 아니라 "나중에 다시 봐도 무슨 일이 있었는지 알 수 있는 기록"이어야 합니다.</p>
-<pre class="mermaid"><code>flowchart LR
-    E[event]
-    E --&gt; ID[eventId&lt;br/&gt;중복 방지]
-    E --&gt; TYPE[eventType&lt;br/&gt;무슨 일인가]
-    E --&gt; VER[schemaVersion&lt;br/&gt;형태 버전]
-    E --&gt; AGG[aggregateId&lt;br/&gt;순서 기준]
-    E --&gt; PAY[payload&lt;br/&gt;업무 데이터]</code></pre>
-<p>신입이 이벤트를 설계할 때 <code>payload</code>부터 채우는 경우가 많습니다. 실무에서는 <code>eventId</code>, <code>eventType</code>, <code>schemaVersion</code>, <code>aggregateId</code>처럼 운영과 장애 대응에 필요한 필드가 먼저 안정적으로 잡혀야 합니다.</p>
-<h3 id="producer">Producer 설정</h3>
-<p>중요 이벤트는 유실보다 중복이 낫습니다. producer는 재시도와 멱등성을 켜고, consumer는 중복을 견디게 설계합니다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">bootstrap.servers</span><span class="o">=</span><span class="s">kafka-1:9092,kafka-2:9092,kafka-3:9092</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">acks</span><span class="o">=</span><span class="s">all</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="na">enable.idempotence</span><span class="o">=</span><span class="s">true</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="na">retries</span><span class="o">=</span><span class="s">2147483647</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="na">delivery.timeout.ms</span><span class="o">=</span><span class="s">120000</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="na">request.timeout.ms</span><span class="o">=</span><span class="s">30000</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="na">linger.ms</span><span class="o">=</span><span class="s">5</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="na">batch.size</span><span class="o">=</span><span class="s">32768</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="na">compression.type</span><span class="o">=</span><span class="s">lz4</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="na">max.in.flight.requests.per.connection</span><span class="o">=</span><span class="s">5</span>
-</code></pre></div>
-<table>
-<thead>
-<tr>
-<th>설정</th>
-<th>의미</th>
-<th>주의</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>acks=all</code></td>
-<td>leader가 ISR 복제를 기다림</td>
-<td><code>min.insync.replicas</code>와 같이 봐야 함</td>
-</tr>
-<tr>
-<td><code>enable.idempotence=true</code></td>
-<td>producer 재시도 중 broker log 중복 기록 방지</td>
-<td>consumer 중복 처리까지 없애는 것은 아님</td>
-</tr>
-<tr>
-<td><code>retries</code></td>
-<td>일시 장애 재시도</td>
-<td><code>delivery.timeout.ms</code> 안에서 동작</td>
-</tr>
-<tr>
-<td><code>delivery.timeout.ms</code></td>
-<td>발행 전체 제한 시간</td>
-<td>너무 짧으면 일시 장애에 취약</td>
-</tr>
-<tr>
-<td><code>linger.ms</code></td>
-<td>배치를 위해 잠깐 기다림</td>
-<td>처리량과 지연의 trade-off</td>
-</tr>
-<tr>
-<td><code>batch.size</code></td>
-<td>배치 크기</td>
-<td>너무 크면 지연과 메모리 증가</td>
-</tr>
-<tr>
-<td><code>compression.type</code></td>
-<td>압축</td>
-<td>CPU와 네트워크 절충</td>
-</tr>
-</tbody>
-</table>
-<p>Producer는 메시지를 바로 네트워크에 하나씩 던지는 것이 아니라, 내부 버퍼에 모았다가 batch로 보냅니다.</p>
-<pre class="mermaid"><code>flowchart LR
-    A[send record 1] --&gt; B[Producer buffer]
-    C[send record 2] --&gt; B
-    D[send record 3] --&gt; B
-    B --&gt;|linger.ms 또는 batch.size 충족| E[batch 전송]
-    E --&gt; K[(Kafka broker)]</code></pre>
-<p>그래서 <code>linger.ms</code>를 조금 주면 처리량은 좋아질 수 있지만, 그만큼 각 메시지가 잠깐 기다릴 수 있습니다. 실시간성이 중요한 알림과 대량 로그 수집은 producer 설정 기준이 달라질 수 있습니다.</p>
-<h3 id="key">Key 선택</h3>
-<p>Kafka의 순서는 토픽 전체가 아니라 <strong>파티션 안에서만</strong> 보장됩니다. 같은 업무 단위의 순서가 필요하면 같은 key를 사용해야 합니다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>topic: order-events
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>key: order-1001
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>value: ORDER_CREATED
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>topic: order-events
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>key: order-1001
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>value: ORDER_PAID
-</code></pre></div>
-<table>
-<thead>
-<tr>
-<th>key 후보</th>
-<th>장점</th>
-<th>단점</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>orderId</code></td>
-<td>주문별 순서 보장</td>
-<td>특정 주문 폭주 시 hot partition 가능</td>
-</tr>
-<tr>
-<td><code>userId</code></td>
-<td>사용자별 순서 보장</td>
-<td>큰 사용자 편차가 있으면 불균등</td>
-</tr>
-<tr>
-<td>랜덤 key</td>
-<td>분산이 좋음</td>
-<td>업무 순서 보장 어려움</td>
-</tr>
-<tr>
-<td>key 없음</td>
-<td>round-robin 분산</td>
-<td>같은 엔티티 순서 보장 없음</td>
-</tr>
-</tbody>
-</table>
-<p>key는 partition을 고르는 기준입니다.</p>
-<pre class="mermaid"><code>flowchart TB
-    E1[order-1001&lt;br/&gt;ORDER_CREATED] --&gt; H[partitioner&lt;br/&gt;key hash]
-    E2[order-1001&lt;br/&gt;ORDER_PAID] --&gt; H
-    E3[order-2002&lt;br/&gt;ORDER_CREATED] --&gt; H
-
-    H --&gt;|order-1001| P1[partition 1]
-    H --&gt;|order-2002| P2[partition 2]</code></pre>
-<p>같은 주문의 이벤트가 같은 key를 쓰면 같은 partition으로 들어갑니다. 그러면 consumer는 그 partition 안에서 <code>ORDER_CREATED -&gt; ORDER_PAID -&gt; ORDER_CANCELED</code> 순서를 지킬 수 있습니다.</p>
-<h3 id="consumer">Consumer 처리 흐름</h3>
-<p>가장 기본은 <strong>처리 성공 후 offset commit</strong>입니다. 그러면 장애 시 같은 메시지를 다시 읽을 수 있으므로 consumer 로직은 멱등해야 합니다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>while running:
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    records = poll()
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    for record in records:
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>        if already_processed(record.eventId):
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>            continue
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>        process_business_logic(record)
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>        save_processed_event_id(record.eventId)
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    commit_offset()
-</code></pre></div>
-<table>
-<thead>
-<tr>
-<th>순서</th>
-<th>의미</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>poll</code></td>
-<td>broker에서 메시지 가져오기</td>
-</tr>
-<tr>
-<td>처리</td>
-<td>DB 저장, 외부 <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 호출, 캐시 갱신 등</td>
-</tr>
-<tr>
-<td>처리 기록</td>
-<td><code>eventId</code> 저장으로 멱등성 확보</td>
-</tr>
-<tr>
-<td>commit</td>
-<td>다음 시작 위치를 Kafka에 저장</td>
-</tr>
-</tbody>
-</table>
-<p>offset commit은 책갈피를 옮기는 일입니다.</p>
-<pre class="mermaid"><code>sequenceDiagram
-    participant C as Consumer
-    participant K as Kafka
-    participant DB as 처리 DB
-
-    C-&gt;&gt;K: poll offset 10
-    K--&gt;&gt;C: record offset 10
-    C-&gt;&gt;DB: 비즈니스 처리
-    DB--&gt;&gt;C: 처리 성공
-    C-&gt;&gt;K: commit offset 11</code></pre>
-<p><code>offset 10</code>을 처리하고 나면 다음에 읽을 위치인 <code>offset 11</code>을 commit합니다. 처리 전에 commit하면 장애 시 메시지를 잃을 수 있고, 처리 후 commit하면 장애 시 같은 메시지를 다시 읽을 수 있습니다. 그래서 consumer는 중복 처리를 견뎌야 합니다.</p>
-<p>Consumer 주요 설정입니다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="na">group.id</span><span class="o">=</span><span class="s">inventory-service</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="na">enable.auto.commit</span><span class="o">=</span><span class="s">false</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="na">auto.offset.reset</span><span class="o">=</span><span class="s">earliest</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="na">max.poll.records</span><span class="o">=</span><span class="s">500</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="na">max.poll.interval.ms</span><span class="o">=</span><span class="s">300000</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="na">session.timeout.ms</span><span class="o">=</span><span class="s">45000</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="na">heartbeat.interval.ms</span><span class="o">=</span><span class="s">3000</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="na">isolation.level</span><span class="o">=</span><span class="s">read_committed</span>
-</code></pre></div>
-<table>
-<thead>
-<tr>
-<th>설정</th>
-<th>의미</th>
-<th>주의</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>group.id</code></td>
-<td>같은 일을 나눠 처리하는 consumer 묶음</td>
-<td>바꾸면 새 그룹처럼 다시 읽음</td>
-</tr>
-<tr>
-<td><code>enable.auto.commit=false</code></td>
-<td>처리 후 직접 commit</td>
-<td>자동 commit은 유실 위험 증가</td>
-</tr>
-<tr>
-<td><code>auto.offset.reset</code></td>
-<td>저장 offset 없을 때 시작점</td>
-<td><code>earliest</code>, <code>latest</code> 의미를 정확히 알아야 함</td>
-</tr>
-<tr>
-<td><code>max.poll.records</code></td>
-<td>한 번에 가져올 메시지 수</td>
-<td>처리 시간이 길면 줄임</td>
-</tr>
-<tr>
-<td><code>max.poll.interval.ms</code></td>
-<td>poll 사이 최대 간격</td>
-<td>초과하면 rebalance</td>
-</tr>
-<tr>
-<td><code>session.timeout.ms</code></td>
-<td>heartbeat 끊김 감지 시간</td>
-<td>너무 짧으면 불안정</td>
-</tr>
-<tr>
-<td><code>heartbeat.interval.ms</code></td>
-<td>heartbeat 주기</td>
-<td>보통 session timeout보다 충분히 짧게</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_6">언제 쓰는지</h2>
+<hr />
+<h2 id="_2">언제 쓰는지</h2>
 <table>
 <thead>
 <tr>
 <th>상황</th>
-<th>Kafka 적합도</th>
+<th>적합도</th>
 <th>이유</th>
 </tr>
 </thead>
@@ -6900,1303 +5855,90 @@
 <tr>
 <td>서비스 간 비동기 연동</td>
 <td>높음</td>
-<td>직접 호출 결합 감소</td>
+<td>직접 호출 결합과 장애 전파를 줄임</td>
 </tr>
 <tr>
 <td>이벤트 기반 아키텍처</td>
 <td>높음</td>
-<td>여러 소비자가 같은 이벤트 활용</td>
+<td>여러 consumer group이 같은 이벤트를 각자 활용 가능</td>
 </tr>
 <tr>
 <td>대용량 로그·클릭 스트림</td>
 <td>높음</td>
-<td>파티션 기반 높은 처리량</td>
+<td>partition과 batch 기반으로 처리량 확장</td>
 </tr>
 <tr>
 <td>재처리 필요</td>
 <td>높음</td>
-<td>offset 조정으로 과거 이벤트 재소비</td>
-</tr>
-<tr>
-<td>외부 <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 호출 완충</td>
-<td>높음</td>
-<td>consumer 속도 조절 가능</td>
+<td>retention 기간 안에서 offset 조정으로 다시 읽을 수 있음</td>
 </tr>
 <tr>
 <td>즉시 응답이 필요한 동기 조회</td>
 <td>낮음</td>
-<td>요청-응답 모델이 아님</td>
+<td>요청-응답 저장소가 아니라 이벤트 로그임</td>
 </tr>
 <tr>
 <td>강한 단일 트랜잭션</td>
 <td>낮음</td>
-<td>기본은 최종 일관성</td>
-</tr>
-<tr>
-<td>아주 작은 서비스의 단순 비동기</td>
-<td>조건부</td>
-<td>운영 비용이 더 클 수 있음</td>
+<td>기본은 최종 일관성이고 중복 처리를 고려해야 함</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_7">장점</h2>
+<h2 id="_3">장점과 단점</h2>
 <table>
 <thead>
 <tr>
-<th>장점</th>
-<th>설명</th>
+<th>구분</th>
+<th>내용</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>느슨한 결합</td>
-<td>producer와 consumer가 서로 직접 알 필요가 적음</td>
+<td>장점</td>
+<td>느슨한 결합, 높은 처리량, 이벤트 보존, 재처리, 수평 확장, 장애 흡수</td>
 </tr>
 <tr>
-<td>높은 처리량</td>
-<td>파티션과 배치 기반 처리</td>
-</tr>
-<tr>
-<td>이벤트 보존</td>
-<td>소비 후에도 retention 동안 메시지 유지</td>
-</tr>
-<tr>
-<td>재처리 가능</td>
-<td>offset을 바꿔 다시 읽을 수 있음</td>
-</tr>
-<tr>
-<td>수평 확장</td>
-<td>파티션과 consumer group으로 확장</td>
-</tr>
-<tr>
-<td>장애 흡수</td>
-<td>consumer 장애 중에도 broker가 메시지를 보관</td>
+<td>단점</td>
+<td>운영 복잡도, 중복 처리 가능성, partition 내부로 제한되는 순서 보장, schema 관리, 최종 일관성</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_8">단점</h2>
+<h2 id="_4">실무 핵심</h2>
 <table>
 <thead>
 <tr>
-<th>단점</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>운영 복잡도</td>
-<td>broker, partition, replica, lag, rebalance 관리 필요</td>
-</tr>
-<tr>
-<td>중복 처리 가능성</td>
-<td>재시도·commit 실패·rebalance 중 중복 소비 가능</td>
-</tr>
-<tr>
-<td>순서 보장 제한</td>
-<td>파티션 내부 순서만 보장</td>
-</tr>
-<tr>
-<td>스키마 관리 필요</td>
-<td>이벤트 변경이 여러 consumer에 영향</td>
-</tr>
-<tr>
-<td>최종 일관성</td>
-<td>producer 처리와 consumer 반영 사이 지연 존재</td>
-</tr>
-<tr>
-<td>장애 원인 분산</td>
-<td>producer, broker, consumer, sink DB를 함께 봐야 함</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_9">특징</h2>
-<h3 id="topic-partition-offset">Topic, Partition, Offset</h3>
-<p>Topic은 이벤트의 논리적 분류이고, Partition은 topic을 나누어 저장하는 append-only log입니다. Offset은 partition 안에서 메시지 위치를 나타냅니다.</p>
-<pre class="mermaid"><code>flowchart LR
-    subgraph T[topic: order-events]
-        P0[partition 0&lt;br/&gt;offset 0,1,2,3]
-        P1[partition 1&lt;br/&gt;offset 0,1,2,3]
-        P2[partition 2&lt;br/&gt;offset 0,1,2,3]
-    end</code></pre>
-<table>
-<thead>
-<tr>
-<th>개념</th>
-<th>설명</th>
+<th>주제</th>
+<th>기준</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Topic</td>
-<td>이벤트 종류</td>
-</tr>
-<tr>
-<td>Partition</td>
-<td>병렬 처리와 순서 보장 단위</td>
-</tr>
-<tr>
-<td>Offset</td>
-<td>partition 안의 위치</td>
-</tr>
-<tr>
-<td>Record</td>
-<td>key, value, headers, timestamp를 가진 메시지</td>
-</tr>
-</tbody>
-</table>
-<p>조금 더 실제 로그처럼 보면 아래와 같습니다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>partition 0
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>offset: 0        1        2        3
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>        A -----&gt; B -----&gt; C -----&gt; D
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>                         ^
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>                         consumer group offset
-</code></pre></div>
-<p>consumer group offset이 <code>2</code>라면 보통 "다음에 offset 2부터 읽는다"는 의미입니다. 이미 처리한 마지막 메시지 번호가 아니라, 다음에 읽을 위치를 저장한다고 이해하면 헷갈림이 줄어듭니다.</p>
-<h3 id="broker-leader-follower-isr">Broker, Leader, Follower, ISR</h3>
-<p>Kafka cluster는 여러 broker로 구성됩니다. 각 partition에는 leader replica가 있고, follower replica가 leader를 따라갑니다.</p>
-<pre class="mermaid"><code>flowchart TB
-    subgraph B1[broker-1]
-        L0[p0 leader]
-        F1[p1 follower]
-    end
-    subgraph B2[broker-2]
-        F0[p0 follower]
-        L1[p1 leader]
-    end
-    subgraph B3[broker-3]
-        F02[p0 follower]
-        F12[p1 follower]
-    end</code></pre>
-<table>
-<thead>
-<tr>
-<th>개념</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Leader</td>
-<td>producer write와 consumer read를 담당하는 replica</td>
-</tr>
-<tr>
-<td>Follower</td>
-<td>leader 데이터를 복제</td>
-</tr>
-<tr>
-<td>ISR</td>
-<td>leader와 충분히 동기화된 replica 집합</td>
-</tr>
-<tr>
-<td>High Watermark</td>
-<td>consumer에게 노출 가능한 안전한 offset 경계</td>
-</tr>
-<tr>
-<td>Controller</td>
-<td>partition leader 선출과 metadata 관리</td>
-</tr>
-</tbody>
-</table>
-<p><code>acks=all</code>은 producer가 leader에게 보낸 메시지가 ISR 조건을 만족할 때 성공으로 봅니다. <code>min.insync.replicas=2</code>인데 ISR이 leader 1개뿐이면 producer는 실패를 받습니다. 이것은 장애가 아니라 <strong>유실을 막기 위해 쓰기를 거부하는 정상 보호 동작</strong>일 수 있습니다.</p>
-<p>정상 쓰기와 쓰기 거부를 나누면 이렇게 볼 수 있습니다.</p>
-<pre class="mermaid"><code>flowchart TB
-    P[Producer&lt;br/&gt;acks=all]
-    P --&gt; L[Leader]
-    L --&gt; F1[Follower 1&lt;br/&gt;ISR]
-    L --&gt; F2[Follower 2&lt;br/&gt;ISR]
-    F1 --&gt; OK[ack 가능&lt;br/&gt;ISR 2개 이상]
-    F2 --&gt; OK
-
-    L --&gt; X[Follower 지연 또는 장애]
-    X --&gt; FAIL[ISR 부족&lt;br/&gt;NotEnoughReplicas]</code></pre>
-<p><code>NotEnoughReplicas</code>가 보이면 무조건 설정을 낮춰서 성공시키는 것이 답은 아닙니다. Kafka가 "지금은 안전하게 복제할 수 없으니 쓰기를 실패시키겠다"고 알려주는 신호일 수 있습니다.</p>
-<h3 id="producer_1">Producer 전송 흐름</h3>
-<pre class="mermaid"><code>sequenceDiagram
-    participant P as Producer
-    participant L as Partition Leader
-    participant F as Followers in ISR
-
-    P-&gt;&gt;L: produce request
-    L-&gt;&gt;L: append to leader log
-    L-&gt;&gt;F: replicate
-    F--&gt;&gt;L: ack
-    L--&gt;&gt;P: ack</code></pre>
-<p>Producer 성능은 하나씩 보내는 것이 아니라 batch, compression, linger로 묶어 보내는 방식에서 나옵니다. 처리량이 중요하면 배치를 키우고, 지연이 중요하면 linger와 batch를 줄입니다.</p>
-<h3 id="consumer-group-rebalance">Consumer Group과 Rebalance</h3>
-<p>같은 consumer group 안에서는 partition이 consumer들에게 나누어 배정됩니다.</p>
-<pre class="mermaid"><code>flowchart LR
-    P0[partition 0] --&gt; C1[consumer-1]
-    P1[partition 1] --&gt; C1
-    P2[partition 2] --&gt; C2[consumer-2]
-    P3[partition 3] --&gt; C2</code></pre>
-<table>
-<thead>
-<tr>
-<th>상황</th>
-<th>결과</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>consumer 추가</td>
-<td>partition 재분배</td>
-</tr>
-<tr>
-<td>consumer 종료</td>
-<td>다른 consumer가 partition 인계</td>
-</tr>
-<tr>
-<td><code>max.poll.interval.ms</code> 초과</td>
-<td>느린 consumer가 실패로 간주될 수 있음</td>
-</tr>
-<tr>
-<td>heartbeat 끊김</td>
-<td>group에서 제거되고 rebalance</td>
-</tr>
-</tbody>
-</table>
-<p>Rebalance 중에는 일시적으로 소비가 멈추거나 중복 처리가 발생할 수 있습니다. 처리 시간이 긴 작업은 <code>max.poll.records</code>를 줄이고, 메시지 처리를 별도 워커로 넘길 때는 offset commit 순서를 특히 조심해야 합니다.</p>
-<p>consumer 수와 partition 수의 관계도 중요합니다.</p>
-<pre class="mermaid"><code>flowchart TB
-    subgraph Case1[partition 3개, consumer 2개]
-        P0A[p0] --&gt; C1A[consumer-1]
-        P1A[p1] --&gt; C1A
-        P2A[p2] --&gt; C2A[consumer-2]
-    end
-
-    subgraph Case2[partition 3개, consumer 4개]
-        P0B[p0] --&gt; C1B[consumer-1]
-        P1B[p1] --&gt; C2B[consumer-2]
-        P2B[p2] --&gt; C3B[consumer-3]
-        C4B[consumer-4&lt;br/&gt;할당 없음]
-    end</code></pre>
-<p>같은 consumer group에서는 partition 하나를 동시에 여러 consumer가 처리하지 않습니다. 그래서 consumer만 무작정 늘려도 partition 수보다 많아지면 놀고 있는 consumer가 생깁니다.</p>
-<h3 id="offset-commit">Offset Commit</h3>
-<p>Offset commit은 "여기까지 처리했다"는 소비자 그룹의 체크포인트입니다.</p>
-<table>
-<thead>
-<tr>
-<th>방식</th>
-<th>설명</th>
-<th>위험</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>처리 전 commit</td>
-<td>빠름</td>
-<td>처리 실패 시 메시지 유실</td>
-</tr>
-<tr>
-<td>처리 후 commit</td>
-<td>안전한 기본값</td>
-<td>장애 시 중복 처리</td>
-</tr>
-<tr>
-<td>자동 commit</td>
-<td>구현 편함</td>
-<td>처리 성공과 commit 시점이 어긋남</td>
-</tr>
-<tr>
-<td>수동 commit</td>
-<td>제어 가능</td>
-<td>구현 난도 증가</td>
-</tr>
-</tbody>
-</table>
-<p>실무 기본은 <strong>처리 후 수동 commit + consumer 멱등성</strong>입니다.</p>
-<h3 id="retention-compaction">Retention과 Compaction</h3>
-<p>Kafka는 소비했다고 메시지를 바로 지우지 않습니다. 보관 정책에 따라 지웁니다.</p>
-<pre class="mermaid"><code>flowchart LR
-    A[메시지 생산] --&gt; B[Kafka에 저장]
-    B --&gt; C[Consumer가 읽음]
-    C --&gt; D[메시지는 바로 삭제되지 않음]
-    D --&gt; E{보관 정책}
-    E --&gt;|retention 시간/크기 초과| F[삭제]
-    E --&gt;|compaction| G[같은 key의 최신값 중심 유지]</code></pre>
-<p>이 점이 일반 큐와 크게 다릅니다. consumer가 읽었다고 Kafka 메시지가 사라지는 것이 아니기 때문에, 장애 후 offset을 되돌려 재처리할 수 있습니다. 대신 retention 기간이 지나 삭제된 메시지는 다시 읽을 수 없습니다.</p>
-<table>
-<thead>
-<tr>
-<th>정책</th>
-<th>설명</th>
-<th>사용처</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>delete</code></td>
-<td>시간 또는 크기 기준 삭제</td>
-<td>일반 이벤트, 로그</td>
-</tr>
-<tr>
-<td><code>compact</code></td>
-<td>같은 key의 최신 값 중심 유지</td>
-<td>상태 변경 최신값, 설정, CDC 일부</td>
-</tr>
-<tr>
-<td><code>delete,compact</code></td>
-<td>둘을 함께 사용</td>
-<td>최신값 유지 + 오래된 tombstone 정리</td>
-</tr>
-</tbody>
-</table>
-<p>Retention을 너무 짧게 잡으면 장애 복구 전에 메시지가 사라질 수 있고, 너무 길게 잡으면 디스크가 위험해집니다.</p>
-<h3 id="_10">전달 보장</h3>
-<table>
-<thead>
-<tr>
-<th>방식</th>
-<th>의미</th>
-<th>만드는 방법</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>At-most-once</td>
-<td>최대 한 번 처리, 유실 가능</td>
-<td>처리 전 commit</td>
-</tr>
-<tr>
-<td>At-least-once</td>
-<td>최소 한 번 처리, 중복 가능</td>
-<td>처리 후 commit</td>
-</tr>
-<tr>
-<td>Exactly-once</td>
-<td>특정 조건에서 결과 중복을 막음</td>
-<td>transaction, idempotent producer, sink 연동 필요</td>
-</tr>
-</tbody>
-</table>
-<div class="warning-box">
-<p><strong>주의</strong>: <code>enable.idempotence=true</code>는 producer 재시도로 같은 record batch가 broker log에 중복 기록되는 것을 막는 기능이다. consumer가 DB에 같은 이벤트를 두 번 반영하는 문제까지 자동으로 해결하지 않는다.</p>
-</div>
-<h2 id="_11">주의할 점</h2>
-<h3 id="_12">중복 메시지는 정상 시나리오다</h3>
-<p>다음 상황에서는 같은 메시지를 다시 처리할 수 있습니다.</p>
-<table>
-<thead>
-<tr>
-<th>상황</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>처리 성공 후 commit 전 장애</td>
-<td>재시작 후 같은 offset부터 다시 읽음</td>
-</tr>
-<tr>
-<td>commit 성공 응답을 받기 전 네트워크 장애</td>
-<td>성공했는지 몰라 재시도</td>
-</tr>
-<tr>
-<td>rebalance 중 partition 인계</td>
-<td>이전 consumer 처리 결과와 겹칠 수 있음</td>
-</tr>
-<tr>
-<td>producer 재시도</td>
-<td>멱등 설정이 없으면 log 중복 가능</td>
-</tr>
-</tbody>
-</table>
-<p>대응은 <code>eventId</code> 기반 중복 처리 방지, DB unique 제약, upsert, 상태 전이 검증입니다.</p>
-<h3 id="partition">순서는 partition 안에서만 보장된다</h3>
-<p>주문 생성, 결제, 취소 순서가 중요하면 같은 <code>orderId</code> key로 보내야 합니다. 다른 partition으로 흩어지면 소비 순서가 바뀔 수 있습니다.</p>
-<h3 id="poison-pill">Poison Pill</h3>
-<p>특정 메시지가 계속 실패하면 consumer가 같은 offset에서 멈춰 lag가 계속 증가합니다.</p>
-<pre class="mermaid"><code>flowchart LR
-    A[offset 10&lt;br/&gt;정상] --&gt; B[offset 11&lt;br/&gt;정상]
-    B --&gt; C[offset 12&lt;br/&gt;계속 실패]
-    C --&gt; D[offset 13&lt;br/&gt;대기]
-    C --&gt; E[DLQ로 격리]
-    E --&gt; F[offset 13부터 계속 처리]</code></pre>
-<p>대응은 재시도 횟수 제한, DLQ, 실패 원인 기록, 스키마 검증입니다.</p>
-<h3 id="lag">Lag는 원인이 아니라 결과다</h3>
-<p>Lag는 consumer가 producer 속도를 따라가지 못한다는 신호입니다. 원인은 consumer 처리 지연, sink DB 지연, broker 지연, hot partition, poison pill, rebalance 등 다양합니다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>lag = LOG-END-OFFSET - CURRENT-OFFSET
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>LOG-END-OFFSET: Kafka partition의 최신 위치
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>CURRENT-OFFSET: consumer group이 commit한 위치
-</code></pre></div>
-<pre class="mermaid"><code>flowchart LR
-    A[CURRENT-OFFSET&lt;br/&gt;100] --&gt; B[아직 처리 못한 구간&lt;br/&gt;lag 50]
-    B --&gt; C[LOG-END-OFFSET&lt;br/&gt;150]</code></pre>
-<p>lag가 높다는 말은 "Kafka가 느리다"가 아니라 "생산된 속도보다 소비 후 commit하는 속도가 느리다"는 뜻입니다. 먼저 partition별 lag를 보고, 한 partition만 높은지 전체가 높은지 나누어 봐야 합니다.</p>
-<h3 id="schema-evolution">Schema Evolution</h3>
-<p>이벤트는 여러 consumer가 읽습니다. producer가 필드를 지우거나 타입을 바꾸면 일부 consumer가 바로 깨질 수 있습니다.</p>
-<table>
-<thead>
-<tr>
-<th>변경</th>
-<th>안전성</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>optional 필드 추가</td>
-<td>비교적 안전</td>
-</tr>
-<tr>
-<td>필수 필드 추가</td>
-<td>기존 consumer 위험</td>
-</tr>
-<tr>
-<td>필드 삭제</td>
-<td>위험</td>
-</tr>
-<tr>
-<td>타입 변경</td>
-<td>위험</td>
-</tr>
-<tr>
-<td>enum 값 추가</td>
-<td>consumer 처리 로직 확인 필요</td>
-</tr>
-</tbody>
-</table>
-<h2 id="runbook">장애 대응 Runbook</h2>
-<h3 id="1-producer-timeout">1. Producer timeout 또는 발행 실패</h3>
-<table>
-<thead>
-<tr>
-<th>단계</th>
-<th>확인</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>증상</td>
-<td>send timeout, <code>NotEnoughReplicas</code>, <code>TimeoutException</code>, 이벤트 발행 지연</td>
-</tr>
-<tr>
-<td>즉시 확인</td>
-<td>topic ISR, broker 상태, producer error rate, network</td>
-</tr>
-<tr>
-<td>의심 원인</td>
-<td>ISR 부족, leader 장애, broker disk/network 병목, 잘못된 <code>bootstrap.servers</code></td>
-</tr>
-<tr>
-<td>완화</td>
-<td>producer 재시도 유지, 비핵심 이벤트 임시 차단, broker 복구</td>
-</tr>
-<tr>
-<td>재발 방지</td>
-<td>RF 3, <code>min.insync.replicas=2</code>, producer timeout/alert, outbox</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>kafka-topics.sh<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span>--bootstrap-server<span class="w"> </span>kafka-1:9092<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span>--describe<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span>--topic<span class="w"> </span>order-created
-</code></pre></div>
-<p>확인할 부분입니다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Leader: 정상 broker인가
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Replicas: 기대 복제본 수인가
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>Isr: min.insync.replicas 이상인가
-</code></pre></div>
-<h3 id="2-broker">2. Broker 한 대 장애</h3>
-<table>
-<thead>
-<tr>
-<th>단계</th>
-<th>확인</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>증상</td>
-<td>under-replicated partition 증가, leader election, producer 지연</td>
-</tr>
-<tr>
-<td>즉시 확인</td>
-<td>장애 broker, offline partition, controller log</td>
-</tr>
-<tr>
-<td>의심 원인</td>
-<td>프로세스 다운, 디스크 full, 네트워크 분리</td>
-</tr>
-<tr>
-<td>완화</td>
-<td>broker 복구, leader 재분배 확인, ISR 회복 대기</td>
-</tr>
-<tr>
-<td>재발 방지</td>
-<td>disk alert, rack awareness, graceful shutdown, capacity 여유</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>kafka-topics.sh<span class="w"> </span>--bootstrap-server<span class="w"> </span>kafka-1:9092<span class="w"> </span>--describe
-</code></pre></div>
-<p>운영에서 특히 봐야 할 지표입니다.</p>
-<table>
-<thead>
-<tr>
-<th>지표</th>
-<th>의미</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>UnderReplicatedPartitions</td>
-<td>follower가 leader를 못 따라감</td>
-</tr>
-<tr>
-<td>OfflinePartitionsCount</td>
-<td>leader가 없어 읽기/쓰기 불가</td>
-</tr>
-<tr>
-<td>ActiveControllerCount</td>
-<td>controller가 정확히 1개인지</td>
-</tr>
-<tr>
-<td>RequestHandlerAvgIdlePercent</td>
-<td>broker 처리 여유</td>
-</tr>
-</tbody>
-</table>
-<h3 id="3-consumer-lag">3. Consumer lag 급증</h3>
-<table>
-<thead>
-<tr>
-<th>단계</th>
-<th>확인</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>증상</td>
-<td>알림 지연, 이벤트 반영 지연, lag 증가</td>
-</tr>
-<tr>
-<td>즉시 확인</td>
-<td>group lag, partition별 lag, consumer 처리 시간, sink DB</td>
-</tr>
-<tr>
-<td>의심 원인</td>
-<td>consumer 처리 느림, DB 병목, poison pill, hot partition, rebalance</td>
-</tr>
-<tr>
-<td>완화</td>
-<td>consumer 임시 증설, <code>max.poll.records</code> 조정, 실패 메시지 격리</td>
-</tr>
-<tr>
-<td>재발 방지</td>
-<td>처리 시간 지표, DLQ, 파티션/key 재설계, backpressure</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>kafka-consumer-groups.sh<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span>--bootstrap-server<span class="w"> </span>kafka-1:9092<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span>--describe<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span>--group<span class="w"> </span>inventory-service
-</code></pre></div>
-<table>
-<thead>
-<tr>
-<th>컬럼</th>
-<th>의미</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>CURRENT-OFFSET</code></td>
-<td>consumer가 commit한 위치</td>
-</tr>
-<tr>
-<td><code>LOG-END-OFFSET</code></td>
-<td>partition 최신 위치</td>
-</tr>
-<tr>
-<td><code>LAG</code></td>
-<td>아직 처리하지 못한 메시지 수</td>
-</tr>
-</tbody>
-</table>
-<h3 id="4-rebalance">4. Rebalance가 반복됨</h3>
-<table>
-<thead>
-<tr>
-<th>단계</th>
-<th>확인</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>증상</td>
-<td>소비가 자주 멈춤, 중복 처리 증가, lag 톱니 패턴</td>
-</tr>
-<tr>
-<td>즉시 확인</td>
-<td>consumer restart, heartbeat 실패, poll interval 초과</td>
-</tr>
-<tr>
-<td>의심 원인</td>
-<td>처리 시간이 <code>max.poll.interval.ms</code> 초과, consumer 불안정, deploy 반복</td>
-</tr>
-<tr>
-<td>완화</td>
-<td>consumer 수 안정화, 처리량 제한, 긴 작업 분리</td>
-</tr>
-<tr>
-<td>재발 방지</td>
-<td>static membership, cooperative rebalance, poll/processing 분리</td>
-</tr>
-</tbody>
-</table>
-<p>확인할 설정입니다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="na">max.poll.interval.ms</span><span class="o">=</span><span class="s">300000</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="na">max.poll.records</span><span class="o">=</span><span class="s">500</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="na">session.timeout.ms</span><span class="o">=</span><span class="s">45000</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="na">heartbeat.interval.ms</span><span class="o">=</span><span class="s">3000</span>
-</code></pre></div>
-<p>처리 시간이 길면 <code>max.poll.records</code>를 줄여 한 poll 안에서 처리하는 총 시간을 줄입니다.</p>
-<h3 id="5-poison-pill-offset">5. Poison Pill로 특정 offset에서 멈춤</h3>
-<table>
-<thead>
-<tr>
-<th>단계</th>
-<th>확인</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>증상</td>
-<td>특정 partition lag만 증가, 같은 에러 로그 반복</td>
-</tr>
-<tr>
-<td>즉시 확인</td>
-<td>실패 offset, message key/value, deserialization error</td>
-</tr>
-<tr>
-<td>의심 원인</td>
-<td>깨진 메시지, 스키마 불일치, 비즈니스 검증 실패</td>
-</tr>
-<tr>
-<td>완화</td>
-<td>메시지를 DLQ로 보내고 offset 진행, 임시 skip은 승인 후 수행</td>
-</tr>
-<tr>
-<td>재발 방지</td>
-<td>schema compatibility, DLQ 표준, 재처리 도구</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>kafka-console-consumer.sh<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span>--bootstrap-server<span class="w"> </span>kafka-1:9092<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span>--topic<span class="w"> </span>order-created<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">  </span>--partition<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">  </span>--offset<span class="w"> </span><span class="m">15320</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">  </span>--max-messages<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">  </span>--property<span class="w"> </span>print.key<span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">  </span>--property<span class="w"> </span>print.headers<span class="o">=</span><span class="nb">true</span>
-</code></pre></div>
-<div class="danger-box">
-<p><strong>위험</strong>: offset을 강제로 넘기면 메시지를 처리하지 않고 버리는 것이다. 결제, 재고, 포인트 같은 이벤트는 DLQ 저장과 보정 계획 없이 skip하면 안 된다.</p>
-</div>
-<p>DLQ를 쓰는 흐름은 아래처럼 잡습니다.</p>
-<pre class="mermaid"><code>flowchart TB
-    M[원본 메시지] --&gt; C[Consumer 처리]
-    C --&gt;|성공| OK[업무 반영 후 offset commit]
-    C --&gt;|일시 실패| R[제한 횟수 재시도]
-    R --&gt;|계속 실패| D[DLQ topic에 실패 원인과 함께 저장]
-    D --&gt; COMMIT[원본 offset commit]
-    D --&gt; FIX[원인 수정 후 재처리]</code></pre>
-<p>DLQ는 실패 메시지를 버리는 곳이 아니라 <strong>전체 소비를 멈추지 않기 위해 격리하는 곳</strong>입니다. DLQ에 넣을 때 원본 topic, partition, offset, key, 에러 메시지를 함께 남겨야 나중에 복구할 수 있습니다.</p>
-<h3 id="6">6. 중복 소비 발생</h3>
-<table>
-<thead>
-<tr>
-<th>단계</th>
-<th>확인</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>증상</td>
-<td>같은 주문 알림 2번, 재고 중복 차감, 포인트 중복 적립</td>
-</tr>
-<tr>
-<td>즉시 확인</td>
-<td>같은 <code>eventId</code> 처리 로그, commit 실패, rebalance 시각</td>
-</tr>
-<tr>
-<td>의심 원인</td>
-<td>처리 후 commit 전 장애, 멱등성 누락, producer 중복</td>
-</tr>
-<tr>
-<td>완화</td>
-<td>DB unique로 추가 중복 차단, 보정 쿼리, 재처리 중지</td>
-</tr>
-<tr>
-<td>재발 방지</td>
-<td>processed event table, idempotency key, 상태 전이 검증</td>
-</tr>
-</tbody>
-</table>
-<p>예시 멱등성 테이블입니다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">processed_event</span><span class="w"> </span><span class="p">(</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">    </span><span class="n">event_id</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="n">consumer_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="n">processed_at</span><span class="w"> </span><span class="n">DATETIME</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="p">);</span>
-</code></pre></div>
-<p>처리 흐름입니다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>1. transaction 시작
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>2. processed_event에 eventId insert
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>3. 이미 있으면 처리하지 않고 성공으로 간주
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>4. 비즈니스 변경 저장
-<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>5. transaction commit
-<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>6. Kafka offset commit
-</code></pre></div>
-<p>중복 소비는 아래 시나리오에서 자주 발생합니다.</p>
-<pre class="mermaid"><code>sequenceDiagram
-    participant C as Consumer
-    participant DB as DB
-    participant K as Kafka
-
-    C-&gt;&gt;K: offset 10 poll
-    C-&gt;&gt;DB: 업무 처리 성공
-    C--xK: offset commit 전에 장애
-    C-&gt;&gt;K: 재시작 후 offset 10 다시 poll
-    C-&gt;&gt;DB: 같은 eventId 확인 후 중복 처리 차단
-    C-&gt;&gt;K: offset 11 commit</code></pre>
-<p>그래서 "Kafka를 쓰면 한 번만 처리된다"가 아니라, "다시 와도 같은 결과가 되게 만든다"가 실무 기준입니다.</p>
-<h3 id="7">7. 순서가 깨진 것처럼 보임</h3>
-<table>
-<thead>
-<tr>
-<th>단계</th>
-<th>확인</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>증상</td>
-<td>취소 이벤트가 생성 이벤트보다 먼저 반영</td>
-</tr>
-<tr>
-<td>즉시 확인</td>
-<td>두 이벤트의 key, partition, offset, occurredAt</td>
-</tr>
-<tr>
-<td>의심 원인</td>
-<td>key 불일치, 여러 producer 시각 차이, consumer 병렬 처리</td>
-</tr>
-<tr>
-<td>완화</td>
-<td>해당 aggregate 처리 일시 중지, 순서 보정</td>
-</tr>
-<tr>
-<td>재발 방지</td>
-<td>key 표준화, partition 내 순차 처리, 상태 전이 검증</td>
-</tr>
-</tbody>
-</table>
-<h3 id="8-disk-full-retention">8. Disk full 또는 retention 문제</h3>
-<table>
-<thead>
-<tr>
-<th>단계</th>
-<th>확인</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>증상</td>
-<td>broker write 실패, segment 삭제 지연, controller 불안정</td>
-</tr>
-<tr>
-<td>즉시 확인</td>
-<td>broker disk usage, topic별 log size, retention 설정</td>
-</tr>
-<tr>
-<td>의심 원인</td>
-<td>retention 과다, compact 지연, consumer 중단과 무관한 장기 보관</td>
-</tr>
-<tr>
-<td>완화</td>
-<td>불필요 topic retention 축소, broker disk 확장, 오래된 topic 정리</td>
-</tr>
-<tr>
-<td>재발 방지</td>
-<td>topic 생성 기준, disk alert, capacity planning</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>kafka-configs.sh<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span>--bootstrap-server<span class="w"> </span>kafka-1:9092<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span>--entity-type<span class="w"> </span>topics<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">  </span>--entity-name<span class="w"> </span>order-created<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">  </span>--describe
-</code></pre></div>
-<h3 id="9-hot-partition">9. Hot Partition</h3>
-<table>
-<thead>
-<tr>
-<th>단계</th>
-<th>확인</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>증상</td>
-<td>특정 partition lag만 높음, 특정 broker network/CPU 높음</td>
-</tr>
-<tr>
-<td>즉시 확인</td>
-<td>key 분포, partition별 bytes in/out, lag</td>
-</tr>
-<tr>
-<td>의심 원인</td>
-<td>특정 key에 이벤트 집중, partition 수 부족, 잘못된 key</td>
-</tr>
-<tr>
-<td>완화</td>
-<td>consumer 처리 최적화, 해당 key 별도 토픽, 임시 backpressure</td>
-</tr>
-<tr>
-<td>재발 방지</td>
-<td>key sharding, partition 증설, 도메인별 topic 분리</td>
-</tr>
-</tbody>
-</table>
-<div class="warning-box">
-<p><strong>주의</strong>: partition을 늘리면 새 메시지의 key 배치가 달라질 수 있다. key 기반 순서 보장과 기존 운영 도구 영향을 확인한 뒤 변경한다.</p>
-</div>
-<h3 id="10-schema">10. Schema 불일치</h3>
-<table>
-<thead>
-<tr>
-<th>단계</th>
-<th>확인</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>증상</td>
-<td>deserialization 실패, 특정 consumer만 실패</td>
-</tr>
-<tr>
-<td>즉시 확인</td>
-<td>schema version, 배포 시각, 실패 필드</td>
-</tr>
-<tr>
-<td>의심 원인</td>
-<td>필수 필드 추가, 타입 변경, enum 추가 미대응</td>
-</tr>
-<tr>
-<td>완화</td>
-<td>producer rollback, consumer hotfix, 실패 메시지 DLQ</td>
-</tr>
-<tr>
-<td>재발 방지</td>
-<td>backward/forward compatibility 검사, contract test</td>
-</tr>
-</tbody>
-</table>
-<h3 id="11-offset-reset">11. Offset reset 사고</h3>
-<table>
-<thead>
-<tr>
-<th>단계</th>
-<th>확인</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>증상</td>
-<td>과거 메시지 대량 재처리 또는 메시지 건너뜀</td>
-</tr>
-<tr>
-<td>즉시 확인</td>
-<td>group offset 변경 로그, reset 명령 시각, lag 변화</td>
-</tr>
-<tr>
-<td>의심 원인</td>
-<td>잘못된 <code>group.id</code>, <code>auto.offset.reset</code>, 운영 명령 실수</td>
-</tr>
-<tr>
-<td>완화</td>
-<td>consumer 중지, offset을 안전 지점으로 재설정, 중복 보정</td>
-</tr>
-<tr>
-<td>재발 방지</td>
-<td>운영 명령 승인 절차, dry-run, group naming 규칙</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>kafka-consumer-groups.sh<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span>--bootstrap-server<span class="w"> </span>kafka-1:9092<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span>--group<span class="w"> </span>inventory-service<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">  </span>--topic<span class="w"> </span>order-created<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">  </span>--reset-offsets<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">  </span>--to-datetime<span class="w"> </span><span class="m">2026</span>-04-25T10:00:00.000<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">  </span>--dry-run
-</code></pre></div>
-<p><code>--execute</code>는 dry-run 결과를 확인한 뒤에만 사용합니다.</p>
-<h3 id="12-consumer">12. Consumer가 메시지를 못 읽음</h3>
-<table>
-<thead>
-<tr>
-<th>단계</th>
-<th>확인</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>증상</td>
-<td>consumer 시작은 됐지만 처리 로그 없음</td>
-</tr>
-<tr>
-<td>즉시 확인</td>
-<td>topic 이름, group id, ACL, offset 위치, <code>auto.offset.reset</code></td>
-</tr>
-<tr>
-<td>의심 원인</td>
-<td>이미 latest에 offset 있음, 권한 없음, 다른 group과 착각</td>
-</tr>
-<tr>
-<td>완화</td>
-<td>console consumer로 직접 확인, group offset 확인</td>
-</tr>
-<tr>
-<td>재발 방지</td>
-<td>topic/group 명명 규칙, 권한 점검 체크리스트</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_13">관찰 지표와 명령</h2>
-<h3 id="topic">Topic 상태</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>kafka-topics.sh<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span>--bootstrap-server<span class="w"> </span>kafka-1:9092<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span>--describe<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">  </span>--topic<span class="w"> </span>order-created
-</code></pre></div>
-<table>
-<thead>
-<tr>
-<th>항목</th>
-<th>확인</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>partition 수</td>
-<td>consumer 병렬성 충분한가</td>
-</tr>
-<tr>
-<td>leader</td>
-<td>특정 broker에 몰리지 않았는가</td>
-</tr>
-<tr>
-<td>replicas</td>
-<td>replication factor가 맞는가</td>
-</tr>
-<tr>
-<td>ISR</td>
-<td>복제가 정상인가</td>
-</tr>
-</tbody>
-</table>
-<h3 id="consumer-group">Consumer Group 상태</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>kafka-consumer-groups.sh<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">  </span>--bootstrap-server<span class="w"> </span>kafka-1:9092<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">  </span>--describe<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">  </span>--group<span class="w"> </span>inventory-service
-</code></pre></div>
-<table>
-<thead>
-<tr>
-<th>지표</th>
-<th>의미</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>lag</td>
-<td>처리 지연</td>
-</tr>
-<tr>
-<td>records-lag-max</td>
-<td>consumer가 가진 partition 중 최대 lag</td>
-</tr>
-<tr>
-<td>poll duration</td>
-<td>처리 루프가 poll 제한 안에 도는지</td>
-</tr>
-<tr>
-<td>commit rate/error</td>
-<td>offset 저장 문제</td>
-</tr>
-<tr>
-<td>rebalance count</td>
-<td>group 안정성</td>
-</tr>
-</tbody>
-</table>
-<h3 id="broker">Broker 지표</h3>
-<table>
-<thead>
-<tr>
-<th>지표</th>
-<th>위험 신호</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>UnderReplicatedPartitions</td>
-<td>복제 지연 또는 broker 장애</td>
-</tr>
-<tr>
-<td>OfflinePartitionsCount</td>
-<td>읽기/쓰기 불가 partition</td>
-</tr>
-<tr>
-<td>RequestQueueSize</td>
-<td>요청 처리 밀림</td>
-</tr>
-<tr>
-<td>Produce/Fetch request latency</td>
-<td>broker 지연</td>
-</tr>
-<tr>
-<td>NetworkProcessorAvgIdlePercent</td>
-<td>네트워크 처리 여유 부족</td>
-</tr>
-<tr>
-<td>RequestHandlerAvgIdlePercent</td>
-<td>요청 처리 thread 부족</td>
-</tr>
-<tr>
-<td>disk usage</td>
-<td>retention·segment 삭제 위험</td>
-</tr>
-<tr>
-<td>bytes in/out</td>
-<td>트래픽 급증</td>
-</tr>
-</tbody>
-</table>
-<h3 id="producer_2">Producer 지표</h3>
-<table>
-<thead>
-<tr>
-<th>지표</th>
-<th>의미</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>record-send-rate</td>
-<td>발행량</td>
-</tr>
-<tr>
-<td>record-error-rate</td>
-<td>발행 실패</td>
-</tr>
-<tr>
-<td>record-retry-rate</td>
-<td>재시도</td>
-</tr>
-<tr>
-<td>request-latency-avg/p99</td>
-<td>broker 응답 지연</td>
-</tr>
-<tr>
-<td>buffer-available-bytes</td>
-<td>producer 내부 버퍼 여유</td>
-</tr>
-<tr>
-<td>batch-size-avg</td>
-<td>배치 효율</td>
-</tr>
-</tbody>
-</table>
-<h3 id="consumer_1">Consumer 지표</h3>
-<table>
-<thead>
-<tr>
-<th>지표</th>
-<th>의미</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>records-consumed-rate</td>
-<td>소비량</td>
-</tr>
-<tr>
-<td>records-lag-max</td>
-<td>최대 lag</td>
-</tr>
-<tr>
-<td>fetch-latency-avg/p99</td>
-<td>broker fetch 지연</td>
-</tr>
-<tr>
-<td>commit-latency-avg</td>
-<td>offset commit 지연</td>
-</tr>
-<tr>
-<td>poll idle ratio</td>
-<td>consumer가 놀고 있는지</td>
-</tr>
-<tr>
-<td>processing time</td>
-<td>비즈니스 처리 지연</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_14">베스트 프랙티스</h2>
-<table>
-<thead>
-<tr>
-<th>권장 방식</th>
-<th>이유</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>중요한 이벤트는 <code>acks=all</code></td>
-<td>leader 단독 저장 후 유실 방지</td>
-</tr>
-<tr>
-<td>RF 3, <code>min.insync.replicas=2</code></td>
-<td>broker 1대 장애에도 내구성 확보</td>
-</tr>
-<tr>
-<td>producer idempotence 활성화</td>
-<td>재시도 중 log 중복 감소</td>
-</tr>
-<tr>
-<td>consumer는 멱등하게 구현</td>
-<td>at-least-once의 중복 처리 대비</td>
-</tr>
-<tr>
-<td>offset은 처리 후 commit</td>
-<td>처리 전 commit으로 인한 유실 방지</td>
-</tr>
-<tr>
-<td>DLQ와 재처리 도구 준비</td>
-<td>poison pill로 전체 소비 중단 방지</td>
-</tr>
-<tr>
-<td>key 설계를 먼저 결정</td>
-<td>순서 보장과 partition 분산에 영향</td>
-</tr>
-<tr>
-<td>schema version 포함</td>
-<td>이벤트 변경 추적</td>
-</tr>
-<tr>
-<td>lag 알림은 partition별로</td>
-<td>hot partition을 놓치지 않음</td>
-</tr>
-<tr>
-<td>topic retention을 업무 기준으로 설정</td>
-<td>복구 가능 기간과 disk 균형</td>
-</tr>
-<tr>
-<td>운영 명령은 dry-run 우선</td>
-<td>offset reset 사고 방지</td>
-</tr>
-<tr>
-<td>outbox 패턴 고려</td>
-<td>DB 저장과 이벤트 발행 불일치 완화</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_15">실무에서는?</h2>
-<table>
-<thead>
-<tr>
-<th>사용처</th>
-<th>설계 기준</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>주문 이벤트 전파</td>
-<td><code>orderId</code> key, consumer 멱등성, DLQ</td>
-</tr>
-<tr>
-<td>알림 비동기 처리</td>
-<td>중복 발송 방지 key, 재시도 제한</td>
-</tr>
-<tr>
-<td>재고 차감</td>
-<td>상태 전이 검증, DB unique, 순서 보장</td>
-</tr>
-<tr>
-<td>검색 색인 갱신</td>
-<td>재처리 가능하게 retention 확보</td>
-</tr>
-<tr>
-<td>로그 수집</td>
-<td>처리량 중심, 압축, 긴 retention 또는 별도 저장소 연계</td>
-</tr>
-<tr>
-<td>CDC</td>
-<td>schema evolution, compaction, 순서 보장 확인</td>
-</tr>
-<tr>
-<td>외부 <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 연동</td>
-<td>retry/backoff, DLQ, rate limit</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_16">운영 체크리스트</h3>
-<table>
-<thead>
-<tr>
-<th>체크</th>
-<th>질문</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Topic</td>
-<td>partition, RF, retention, min ISR 기준이 있는가</td>
+<td>partition, replication factor, retention, min ISR을 업무 기준으로 정함</td>
 </tr>
 <tr>
 <td>Producer</td>
-<td><code>acks</code>, idempotence, timeout, retry 정책이 명확한가</td>
-</tr>
-<tr>
-<td>Consumer</td>
-<td>수동 commit, 멱등성, DLQ가 준비됐는가</td>
+<td>중요한 이벤트는 <code>acks=all</code>, <code>enable.idempotence=true</code>를 기본으로 검토</td>
 </tr>
 <tr>
 <td>Key</td>
-<td>순서 보장 단위와 hot partition 위험을 검토했는가</td>
+<td>순서 보장이 필요한 aggregate 기준으로 선택하되 hot partition을 확인</td>
 </tr>
 <tr>
-<td>Schema</td>
-<td>호환성 규칙과 version이 있는가</td>
-</tr>
-<tr>
-<td>Lag</td>
-<td>group/partition별 알림이 있는가</td>
+<td>Consumer</td>
+<td>처리 성공 후 offset commit, <code>eventId</code> 기반 멱등 처리</td>
 </tr>
 <tr>
 <td>장애</td>
-<td>broker 1대 다운, consumer 중단, poison pill을 훈련했는가</td>
+<td>DLQ, lag 알림, offset reset dry-run, schema compatibility를 준비</td>
 </tr>
 <tr>
-<td>보안</td>
-<td>인증, 권한, 암호화, topic 접근 제어가 있는가</td>
-</tr>
-<tr>
-<td>운영 명령</td>
-<td>offset reset, retention 변경에 승인과 dry-run이 있는가</td>
+<td>정합성</td>
+<td>DB 저장과 이벤트 발행 사이에는 <a href="../../architecture/outbox/">아웃박스 패턴</a>을 고려</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_17">정리</h2>
+<h2 id="_5">정리</h2>
 <table>
 <thead>
 <tr>
@@ -8205,25 +5947,21 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>Kafka</td>
-<td>분산 이벤트 스트리밍 플랫폼</td>
-</tr>
 <tr>
 <td>핵심 단위</td>
 <td>Topic, Partition, Offset, Consumer Group</td>
 </tr>
 <tr>
-<td>강점</td>
-<td>비동기 처리, 높은 처리량, 이벤트 보존, 재처리</td>
+<td>가장 큰 강점</td>
+<td>비동기 처리, 높은 처리량, 이벤트 보존과 재처리</td>
 </tr>
 <tr>
-<td>주의</td>
-<td>중복 처리, 파티션 순서, schema 변경, lag, rebalance</td>
+<td>가장 큰 주의점</td>
+<td>중복 처리, partition 단위 순서, schema 변경, lag, rebalance</td>
 </tr>
 <tr>
 <td>운영 핵심</td>
-<td>ISR, acks, offset commit, DLQ, lag, retention</td>
+<td>ISR, <code>acks</code>, offset commit, DLQ, lag, retention</td>
 </tr>
 </tbody>
 </table>
@@ -8260,7 +5998,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 25일 13:36:38 UTC">2026년 4월 25일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 27일 11:15:11 UTC">2026년 4월 27일</span>
   </span>
 
     
