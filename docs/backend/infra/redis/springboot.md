@@ -300,3 +300,5 @@ class RedisCacheTest {
 - [캐시 전략과 정합성](./캐시패턴.md)
 - [트랜잭션과 동시성](./동시성락.md)
 - [실무 유즈케이스](./실무유즈케이스.md)
+
+--8<-- "includes/redis-abbreviations.md"

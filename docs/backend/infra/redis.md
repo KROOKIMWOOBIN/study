@@ -37,3 +37,5 @@ Redis 학습 노트의 입구입니다. 개념 설명은 [Redis란?](./redis/red
 **관련 파일:**
 - [Backend 개요](../backend.md)
 - [Kafka](./kafka.md)
+
+--8<-- "includes/redis-abbreviations.md"

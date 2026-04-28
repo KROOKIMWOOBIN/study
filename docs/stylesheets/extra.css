@@ -175,6 +175,30 @@
   color: #a5b4fc;
 }
 
+/* 용어 툴팁 힌트 */
+.md-typeset abbr[title] {
+  cursor: help;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: #5c6bc0;
+}
+
+.md-typeset abbr[title]:hover {
+  color: #1565c0;
+  text-decoration-color: #1565c0;
+}
+
+[data-md-color-scheme="slate"] .md-typeset abbr[title] {
+  text-decoration-color: #9fa8da;
+}
+
+[data-md-color-scheme="slate"] .md-typeset abbr[title]:hover {
+  color: #90caf9;
+  text-decoration-color: #90caf9;
+}
+
 /* h2 구분선 */
 .md-typeset h2 {
   border-bottom: 1px solid #e0e0e0;

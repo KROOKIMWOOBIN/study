@@ -4,6 +4,8 @@ repo_url: https://github.com/KROOKIMWOOBIN/study
 repo_name: KROOKIMWOOBIN/study
 edit_uri: edit/main/docs/
 docs_dir: docs
+exclude_docs: |
+  includes/*.md
 
 theme:
   name: material

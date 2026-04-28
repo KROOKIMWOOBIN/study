@@ -255,3 +255,5 @@ SET auth:email:user-1 "123456" EX 180
 - [Redis 개요](../redis.md)
 - [기본 사용과 자료구조](./기본사용.md)
 - [캐시 전략과 정합성](./캐시패턴.md)
+
+--8<-- "includes/redis-abbreviations.md"
