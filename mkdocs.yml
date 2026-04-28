@@ -6,6 +6,7 @@ edit_uri: edit/main/docs/
 docs_dir: docs
 exclude_docs: |
   includes/*.md
+  includes/**/*.md
 
 theme:
   name: material

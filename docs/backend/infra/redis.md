@@ -38,4 +38,17 @@ Redis 학습 노트의 입구입니다. 개념 설명은 [Redis란?](./redis/red
 - [Backend 개요](../backend.md)
 - [Kafka](./kafka.md)
 
---8<-- "includes/redis-abbreviations.md"
+--8<-- "includes/redis/core.md"
+--8<-- "includes/redis/cache.md"
+--8<-- "includes/redis/data-structures.md"
+--8<-- "includes/redis/data-management.md"
+--8<-- "includes/redis/concurrency-lock.md"
+--8<-- "includes/redis/messaging.md"
+--8<-- "includes/redis/operations-ha.md"
+--8<-- "includes/redis/springboot.md"
+--8<-- "includes/redis/use-cases.md"
+--8<-- "includes/redis/performance.md"
+--8<-- "includes/redis/troubleshooting.md"
+--8<-- "includes/redis/monitoring-security.md"
+--8<-- "includes/redis/comparison.md"
+--8<-- "includes/redis/stack.md"

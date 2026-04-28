@@ -256,4 +256,13 @@ SET auth:email:user-1 "123456" EX 180
 - [기본 사용과 자료구조](./기본사용.md)
 - [캐시 전략과 정합성](./캐시패턴.md)
 
---8<-- "includes/redis-abbreviations.md"
+--8<-- "includes/redis/core.md"
+--8<-- "includes/redis/cache.md"
+--8<-- "includes/redis/data-structures.md"
+--8<-- "includes/redis/data-management.md"
+--8<-- "includes/redis/operations-ha.md"
+--8<-- "includes/redis/performance.md"
+--8<-- "includes/redis/troubleshooting.md"
+--8<-- "includes/redis/concurrency-lock.md"
+--8<-- "includes/redis/use-cases.md"
+--8<-- "includes/redis/comparison.md"

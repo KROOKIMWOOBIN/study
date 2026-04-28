@@ -301,4 +301,12 @@ class RedisCacheTest {
 - [트랜잭션과 동시성](./동시성락.md)
 - [실무 유즈케이스](./실무유즈케이스.md)
 
---8<-- "includes/redis-abbreviations.md"
+--8<-- "includes/redis/core.md"
+--8<-- "includes/redis/springboot.md"
+--8<-- "includes/redis/cache.md"
+--8<-- "includes/redis/data-structures.md"
+--8<-- "includes/redis/data-management.md"
+--8<-- "includes/redis/concurrency-lock.md"
+--8<-- "includes/redis/performance.md"
+--8<-- "includes/redis/troubleshooting.md"
+--8<-- "includes/redis/use-cases.md"

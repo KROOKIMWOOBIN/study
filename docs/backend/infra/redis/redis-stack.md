@@ -113,4 +113,8 @@ embedding vector를 저장하고 유사도 검색을 수행합니다.
 - [비교와 선택 기준](./비교선택.md)
 - [모니터링과 보안](./모니터링보안.md)
 
---8<-- "includes/redis-abbreviations.md"
+--8<-- "includes/redis/core.md"
+--8<-- "includes/redis/stack.md"
+--8<-- "includes/redis/cache.md"
+--8<-- "includes/redis/data-structures.md"
+--8<-- "includes/redis/comparison.md"
