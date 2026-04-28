@@ -6321,8 +6321,8 @@
   
 
 
-<h1 id="redis">Redis 성능 최적화</h1>
-<p>Redis 성능 최적화는 <strong>느린 명령을 피하고, key 크기와 접근 집중을 관리하고, 네트워크 왕복을 줄이는 것</strong>에서 시작합니다.</p>
+<h1 id="redis"><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 성능 최적화</h1>
+<p><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 성능 최적화는 <strong>느린 명령을 피하고, <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 크기와 접근 집중을 관리하고, 네트워크 왕복을 줄이는 것</strong>에서 시작합니다.</p>
 <h2 id="_1">용어</h2>
 <table>
 <thead>
@@ -6333,7 +6333,7 @@
 </thead>
 <tbody>
 <tr>
-<td>시간 복잡도</td>
+<td><abbr title="데이터 크기가 늘 때 명령 실행 비용이 어떻게 증가하는지 나타내는 기준.">시간 복잡도</abbr></td>
 <td>명령 실행 비용이 데이터 크기에 따라 어떻게 증가하는지</td>
 </tr>
 <tr>
@@ -6349,31 +6349,31 @@
 <td>원소 수에 비례해 증가</td>
 </tr>
 <tr>
-<td>Big Key</td>
+<td><abbr title="value 크기나 컬렉션 원소 수가 너무 큰 key. 조회, 삭제, 복제, failover 지연을 만든다.">Big Key</abbr></td>
 <td>한 key의 value나 컬렉션이 매우 큰 상태</td>
 </tr>
 <tr>
-<td>Hot Key</td>
+<td><abbr title="특정 key에 요청이 과도하게 몰려 노드 CPU나 네트워크가 집중되는 상태.">Hot Key</abbr></td>
 <td>특정 key에 요청이 과도하게 몰리는 상태</td>
 </tr>
 <tr>
-<td>Pipelining</td>
+<td><abbr title="여러 Redis 명령을 한 번에 보내 네트워크 왕복 시간을 줄이는 방식.">Pipelining</abbr></td>
 <td>여러 명령을 한 번에 보내 RTT를 줄이는 방식</td>
 </tr>
 <tr>
-<td>Slow Log</td>
-<td>느린 Redis 명령 기록</td>
+<td><abbr title="Redis에서 느리게 실행된 명령을 기록하는 기능.">Slow Log</abbr></td>
+<td>느린 <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 명령 기록</td>
 </tr>
 <tr>
-<td>Latency Monitor</td>
+<td><abbr title="Redis 내부 지연 이벤트를 관찰하는 기능.">Latency Monitor</abbr></td>
 <td>지연 이벤트 관찰 기능</td>
 </tr>
 </tbody>
 </table>
 <h2 id="_2">질문</h2>
 <h3 id="redis_1">Redis는 메모리라 항상 빠른가?</h3>
-<p>아닙니다. 큰 key 조회, 전체 scan, 느린 Lua, 네트워크 RTT, connection pool 부족, fork/AOF rewrite, swap이 있으면 느려질 수 있습니다.</p>
-<h2 id="_3">명령어 시간 복잡도</h2>
+<p>아닙니다. 큰 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 조회, 전체 scan, 느린 <abbr title="Redis 서버 안에서 짧은 원자 로직을 실행할 때 쓰는 스크립트 언어.">Lua</abbr>, 네트워크 <abbr title="Round Trip Time. 요청을 보내고 응답을 받기까지 걸리는 네트워크 왕복 시간.">RTT</abbr>, <abbr title="Redis 연결을 미리 만들어 재사용하는 풀. 너무 작으면 대기, 너무 크면 Redis 연결 한계를 압박한다.">connection pool</abbr> 부족, <abbr title="현재 프로세스를 복제해 자식 프로세스를 만드는 OS 동작. RDB 저장이나 AOF rewrite 때 비용이 생길 수 있다.">fork</abbr>/<abbr title="AOF 로그를 현재 데이터 상태 기준으로 압축해 다시 쓰는 작업. fork 비용과 지연을 고려해야 한다.">AOF rewrite</abbr>, swap이 있으면 느려질 수 있습니다.</p>
+<h2 id="_3">명령어 <abbr title="데이터 크기가 늘 때 명령 실행 비용이 어떻게 증가하는지 나타내는 기준.">시간 복잡도</abbr></h2>
 <table>
 <thead>
 <tr>
@@ -6391,7 +6391,7 @@
 <tr>
 <td>O(log N)</td>
 <td><code>ZADD</code>, <code>ZRANK</code></td>
-<td>Sorted Set 기반</td>
+<td><abbr title="member마다 score를 붙여 정렬하는 집합. 랭킹, 우선순위, 시간 정렬에 자주 쓴다.">Sorted Set</abbr> 기반</td>
 </tr>
 <tr>
 <td>O(N)</td>
@@ -6410,7 +6410,7 @@
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>SSCAN<span class="w"> </span>huge:set<span class="w"> </span><span class="m">0</span><span class="w"> </span>COUNT<span class="w"> </span><span class="m">100</span>
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>HSCAN<span class="w"> </span>huge:hash<span class="w"> </span><span class="m">0</span><span class="w"> </span>COUNT<span class="w"> </span><span class="m">100</span>
 </code></pre></div>
-<h2 id="big-key">Big Key</h2>
+<h2 id="big-key"><abbr title="value 크기나 컬렉션 원소 수가 너무 큰 key. 조회, 삭제, 복제, failover 지연을 만든다.">Big Key</abbr></h2>
 <p>Big Key는 자주 접근하지 않아도 위험합니다. 한 번 조회하거나 삭제하는 순간 Redis가 오래 붙잡힐 수 있습니다.</p>
 <table>
 <thead>
@@ -6421,26 +6421,26 @@
 </thead>
 <tbody>
 <tr>
-<td>수십 MB String</td>
+<td>수십 MB <abbr title="Redis의 가장 기본 자료구조. 단일 값, JSON 문자열, 카운터, 토큰 저장에 많이 쓴다.">String</abbr></td>
 <td>네트워크와 event loop 점유</td>
 </tr>
 <tr>
-<td>필드 수백만 Hash</td>
+<td>필드 수백만 <abbr title="key 하나 아래 여러 field-value를 저장하는 자료구조. 객체 일부 필드 갱신에 유용하다.">Hash</abbr></td>
 <td><code>HGETALL</code> 위험</td>
 </tr>
 <tr>
-<td>원소 수백만 Set</td>
+<td>원소 수백만 <abbr title="중복 없는 집합 자료구조. 포함 여부, 태그, 좋아요 사용자 목록에 적합하다.">Set</abbr></td>
 <td>삭제와 복제 지연</td>
 </tr>
 <tr>
-<td>긴 List</td>
+<td>긴 <abbr title="삽입 순서를 유지하는 목록 자료구조. 간단한 queue나 최근 N개 보관에 쓴다.">List</abbr></td>
 <td>전체 조회 위험</td>
 </tr>
 </tbody>
 </table>
-<p>대응은 key 분할, 페이지 단위 조회, <code>UNLINK</code>, 자료구조 재설계입니다.</p>
-<h2 id="hot-key">Hot Key</h2>
-<p>Hot Key는 하나의 key에 요청이 몰려 특정 Redis 노드가 병목이 되는 문제입니다.</p>
+<p>대응은 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 분할, 페이지 단위 조회, <code>UNLINK</code>, 자료구조 재설계입니다.</p>
+<h2 id="hot-key"><abbr title="특정 key에 요청이 과도하게 몰려 노드 CPU나 네트워크가 집중되는 상태.">Hot Key</abbr></h2>
+<p>Hot Key는 하나의 key에 요청이 몰려 특정 <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 노드가 병목이 되는 문제입니다.</p>
 <table>
 <thead>
 <tr>
@@ -6450,25 +6450,25 @@
 </thead>
 <tbody>
 <tr>
-<td>local cache</td>
-<td>아주 짧은 로컬 캐시로 Redis 요청 감소</td>
+<td><abbr title="애플리케이션 프로세스 내부 캐시. 가장 빠르지만 서버 간 정합성 문제가 생길 수 있다.">local cache</abbr></td>
+<td>아주 짧은 로컬 캐시로 <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 요청 감소</td>
 </tr>
 <tr>
-<td>key sharding</td>
+<td><abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> <abbr title="데이터를 여러 노드나 key로 나누어 저장해 부하와 크기를 분산하는 방식.">sharding</abbr></td>
 <td><code>hot:key:0..N</code>으로 나누어 부하 분산</td>
 </tr>
 <tr>
-<td>replica read</td>
+<td><abbr title="master 데이터를 복제해 보관하는 Redis 노드. 장애 시 승격 대상이 될 수 있다.">replica</abbr> read</td>
 <td>읽기 트래픽 분산</td>
 </tr>
 <tr>
-<td>TTL 조정</td>
+<td><abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr> 조정</td>
 <td>반복 재생성 방지</td>
 </tr>
 </tbody>
 </table>
-<p>Cluster를 사용해도 key 하나는 한 slot에 있으므로 hot key가 자동 분산되지는 않습니다.</p>
-<h2 id="pipelining-batch">Pipelining과 Batch</h2>
+<p>Cluster를 사용해도 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 하나는 한 slot에 있으므로 hot key가 자동 분산되지는 않습니다.</p>
+<h2 id="pipelining-batch">Pipelining과 <abbr title="여러 작업을 묶어 한 번에 처리하는 방식. 너무 크게 묶으면 지연과 메모리 부담이 커질 수 있다.">Batch</abbr></h2>
 <p>Pipelining은 여러 명령을 한 번에 보내 네트워크 왕복을 줄입니다.</p>
 <table>
 <thead>
@@ -6479,7 +6479,7 @@
 </thead>
 <tbody>
 <tr>
-<td>RTT 감소</td>
+<td><abbr title="Round Trip Time. 요청을 보내고 응답을 받기까지 걸리는 네트워크 왕복 시간.">RTT</abbr> 감소</td>
 <td>한 번에 너무 많이 보내면 응답 지연과 메모리 증가</td>
 </tr>
 <tr>
@@ -6489,8 +6489,8 @@
 </tbody>
 </table>
 <p>대량 삭제, 대량 적재는 batch 크기를 제한하고 모니터링하면서 수행합니다.</p>
-<h2 id="client-side-caching">Client-side Caching</h2>
-<p>클라이언트 로컬 메모리에 Redis 결과를 잠깐 보관해 Redis 요청 자체를 줄입니다.</p>
+<h2 id="client-side-caching"><abbr title="Redis client 쪽에 데이터를 잠시 보관해 Redis 왕복을 줄이는 방식.">Client-side Caching</abbr></h2>
+<p>클라이언트 로컬 메모리에 <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 결과를 잠깐 보관해 <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 요청 자체를 줄입니다.</p>
 <table>
 <thead>
 <tr>
@@ -6504,13 +6504,13 @@
 <td>서버 간 정합성 문제</td>
 </tr>
 <tr>
-<td>hot key 완화</td>
-<td>무효화 전략 필요</td>
+<td><abbr title="특정 key에 요청이 과도하게 몰려 노드 CPU나 네트워크가 집중되는 상태.">hot key</abbr> 완화</td>
+<td><abbr title="원본 데이터 변경 후 오래된 캐시를 삭제하거나 더 이상 쓰지 않게 만드는 작업.">무효화</abbr> 전략 필요</td>
 </tr>
 </tbody>
 </table>
-<p>짧은 TTL 설정, Pub/Sub 무효화, version key 조합으로 stale을 줄일 수 있습니다.</p>
-<h2 id="slow-log-latency-monitor">Slow Log와 Latency Monitor</h2>
+<p>짧은 <abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr> 설정, <abbr title="publisher가 channel에 메시지를 발행하면 구독 중인 subscriber가 즉시 받는 Redis 메시징 방식.">Pub/Sub</abbr> <abbr title="원본 데이터 변경 후 오래된 캐시를 삭제하거나 더 이상 쓰지 않게 만드는 작업.">무효화</abbr>, version <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 조합으로 stale을 줄일 수 있습니다.</p>
+<h2 id="slow-log-latency-monitor">Slow Log와 <abbr title="Redis 내부 지연 이벤트를 관찰하는 기능.">Latency Monitor</abbr></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>redis-cli<span class="w"> </span>SLOWLOG<span class="w"> </span>GET<span class="w"> </span><span class="m">20</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>redis-cli<span class="w"> </span>LATENCY<span class="w"> </span>DOCTOR
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>redis-cli<span class="w"> </span>INFO<span class="w"> </span>commandstats
@@ -6537,7 +6537,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="network-rtt-connection-pool">Network RTT와 Connection Pool</h2>
+<h2 id="network-rtt-connection-pool">Network RTT와 <abbr title="Redis 연결을 미리 만들어 재사용하는 풀. 너무 작으면 대기, 너무 크면 Redis 연결 한계를 압박한다.">Connection Pool</abbr></h2>
 <table>
 <thead>
 <tr>
@@ -6547,15 +6547,15 @@
 </thead>
 <tbody>
 <tr>
-<td>RTT</td>
+<td><abbr title="Round Trip Time. 요청을 보내고 응답을 받기까지 걸리는 네트워크 왕복 시간.">RTT</abbr></td>
 <td>Redis와 애플리케이션을 같은 region/VPC에 배치</td>
 </tr>
 <tr>
-<td>connection pool</td>
+<td><abbr title="Redis 연결을 미리 만들어 재사용하는 풀. 너무 작으면 대기, 너무 크면 Redis 연결 한계를 압박한다.">connection pool</abbr></td>
 <td>인스턴스 수와 동시 요청량 기준으로 제한</td>
 </tr>
 <tr>
-<td>timeout</td>
+<td><abbr title="작업이 정해진 제한 시간 안에 끝나지 않아 실패로 처리되는 상황.">timeout</abbr></td>
 <td>너무 길면 장애 전파, 너무 짧으면 일시 지연에 취약</td>
 </tr>
 <tr>
@@ -6564,7 +6564,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="value">Value 크기 최적화</h2>
+<h2 id="value"><abbr title="key에 저장된 실제 데이터. 문자열, 해시, 집합, 스트림 같은 Redis 자료구조가 될 수 있다.">Value</abbr> 크기 최적화</h2>
 <table>
 <thead>
 <tr>
@@ -6582,11 +6582,11 @@
 <td>네트워크 절약, CPU 비용 증가</td>
 </tr>
 <tr>
-<td>String JSON vs Hash 선택</td>
+<td><abbr title="Redis의 가장 기본 자료구조. 단일 값, JSON 문자열, 카운터, 토큰 저장에 많이 쓴다.">String</abbr> JSON vs <abbr title="key 하나 아래 여러 field-value를 저장하는 자료구조. 객체 일부 필드 갱신에 유용하다.">Hash</abbr> 선택</td>
 <td>조회·갱신 패턴에 맞춤</td>
 </tr>
 <tr>
-<td>기간별 key 분리</td>
+<td>기간별 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 분리</td>
 <td>삭제와 조회 범위 축소</td>
 </tr>
 </tbody>
@@ -6605,11 +6605,11 @@
 <td>event loop blocking 방지</td>
 </tr>
 <tr>
-<td>key 크기 제한을 둠</td>
-<td>big key 예방</td>
+<td><abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 크기 제한을 둠</td>
+<td><abbr title="value 크기나 컬렉션 원소 수가 너무 큰 key. 조회, 삭제, 복제, failover 지연을 만든다.">big key</abbr> 예방</td>
 </tr>
 <tr>
-<td>hot key를 prefix/<abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 지표로 관찰</td>
+<td>hot key를 <abbr title="key 앞부분에 붙이는 도메인이나 용도 문자열. 운영에서 검색, 삭제, 지표 분리에 유용하다.">prefix</abbr>/<abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 지표로 관찰</td>
 <td>특정 노드 과부하 탐지</td>
 </tr>
 <tr>
@@ -6617,12 +6617,12 @@
 <td>Redis와 client 메모리 보호</td>
 </tr>
 <tr>
-<td>slowlog 알림 설정</td>
+<td><abbr title="Redis에서 느리게 실행된 명령 기록. 어떤 명령이 병목인지 찾는 데 쓴다.">slowlog</abbr> 알림 설정</td>
 <td>장애 전조 조기 감지</td>
 </tr>
 <tr>
-<td>connection pool 과대 설정 금지</td>
-<td>Redis 연결 폭증 방지</td>
+<td><abbr title="Redis 연결을 미리 만들어 재사용하는 풀. 너무 작으면 대기, 너무 크면 Redis 연결 한계를 압박한다.">connection pool</abbr> 과대 설정 금지</td>
+<td><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 연결 폭증 방지</td>
 </tr>
 </tbody>
 </table>
@@ -6636,32 +6636,47 @@
 </thead>
 <tbody>
 <tr>
-<td>Redis timeout</td>
-<td>slowlog, latency, CPU, network</td>
+<td><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> <abbr title="작업이 정해진 제한 시간 안에 끝나지 않아 실패로 처리되는 상황.">timeout</abbr></td>
+<td><abbr title="Redis에서 느리게 실행된 명령 기록. 어떤 명령이 병목인지 찾는 데 쓴다.">slowlog</abbr>, <abbr title="요청 처리 지연 시간. Redis에서는 명령 실행, 네트워크, fork, swap 등이 영향을 준다.">latency</abbr>, CPU, network</td>
 </tr>
 <tr>
 <td>특정 노드만 높음</td>
-<td>hot key, slot 분포</td>
+<td><abbr title="특정 key에 요청이 과도하게 몰려 노드 CPU나 네트워크가 집중되는 상태.">hot key</abbr>, slot 분포</td>
 </tr>
 <tr>
 <td>삭제 후 지연</td>
-<td>big key, <code>DEL</code> 사용 여부</td>
+<td><abbr title="value 크기나 컬렉션 원소 수가 너무 큰 key. 조회, 삭제, 복제, failover 지연을 만든다.">big key</abbr>, <code>DEL</code> 사용 여부</td>
 </tr>
 <tr>
 <td>배포 후 DB 부하 증가</td>
-<td>cache warming, hit ratio</td>
+<td><abbr title="반복 조회를 빠르게 처리하기 위한 임시 저장소. 원본 DB 부하를 줄이는 데 사용한다.">cache</abbr> warming, <abbr title="전체 캐시 조회 중 hit 비율. 캐시가 실제로 DB 부하를 줄이는지 보는 핵심 지표다.">hit ratio</abbr></td>
 </tr>
 <tr>
-<td>응답 p99 악화</td>
-<td>RTT, pool 대기, command latency</td>
+<td>응답 <abbr title="전체 요청 중 99%가 이 시간 이하로 끝났다는 지연 시간 지표. tail latency 확인에 중요하다.">p99</abbr> 악화</td>
+<td><abbr title="Round Trip Time. 요청을 보내고 응답을 받기까지 걸리는 네트워크 왕복 시간.">RTT</abbr>, pool 대기, command <abbr title="요청 처리 지연 시간. Redis에서는 명령 실행, 네트워크, fork, swap 등이 영향을 준다.">latency</abbr></td>
 </tr>
 </tbody>
 </table>
 <hr />
 <p><strong>관련 파일:</strong>
-- <a href="../%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B4%80%EB%A6%AC/">Key 설계와 데이터 관리</a>
+- <a href="../%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B4%80%EB%A6%AC/"><abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">Key</abbr> 설계와 데이터 관리</a>
 - <a href="../%EC%9E%A5%EC%95%A0%EB%8C%80%EC%9D%91/">장애 대응과 트러블슈팅</a>
 - <a href="../%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%EB%B3%B4%EC%95%88/">모니터링과 보안</a></p>
+<!-- Redis 전용 용어집: Redis 문서에서만 include해서 툴팁으로 사용합니다. -->
+
+<!-- ===== Redis 기본 ===== -->
+<!-- ===== 캐시 ===== -->
+<!-- ===== Redis 자료구조 ===== -->
+<!-- ===== 데이터 관리와 영속성 ===== -->
+<!-- ===== 운영 구조 ===== -->
+<!-- ===== 성능과 장애 ===== -->
+<!-- ===== 동시성과 락 ===== -->
+<!-- ===== 메시징 ===== -->
+<!-- ===== Spring Boot 연동 ===== -->
+<!-- ===== 모니터링과 보안 ===== -->
+<!-- ===== Redis Stack ===== -->
+<!-- ===== 비교와 선택 ===== -->
+<!-- ===== 실무 유즈케이스 ===== -->
 <!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
 
 <!-- ===== DB / SQL ===== -->
@@ -6690,7 +6705,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 27일 13:44:13 UTC">2026년 4월 27일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 28일 10:41:10 UTC">2026년 4월 28일</span>
   </span>
 
     

@@ -6463,8 +6463,8 @@
   
 
 
-<h1 id="redis">Redis 장애 대응과 트러블슈팅</h1>
-<p>Redis 장애 대응은 <strong>증상 확인 -&gt; 영향 범위 파악 -&gt; 완화 -&gt; 원인 제거 -&gt; 재발 방지</strong> 순서로 움직입니다.</p>
+<h1 id="redis"><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 장애 대응과 트러블슈팅</h1>
+<p><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 장애 대응은 <strong>증상 확인 -&gt; 영향 범위 파악 -&gt; 완화 -&gt; 원인 제거 -&gt; 재발 방지</strong> 순서로 움직입니다.</p>
 <h2 id="_1">용어</h2>
 <table>
 <thead>
@@ -6475,32 +6475,32 @@
 </thead>
 <tbody>
 <tr>
-<td>Connection Timeout</td>
-<td>Redis 연결을 만들지 못하거나 연결 대기 중 timeout</td>
+<td><abbr title="Redis 연결 생성이나 연결 대기 시간이 제한을 넘는 상황.">Connection Timeout</abbr></td>
+<td><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 연결을 만들지 못하거나 연결 대기 중 <abbr title="작업이 정해진 제한 시간 안에 끝나지 않아 실패로 처리되는 상황.">timeout</abbr></td>
 </tr>
 <tr>
-<td>Command Timeout</td>
-<td>연결은 됐지만 명령 응답이 늦어 timeout</td>
+<td><abbr title="연결은 됐지만 Redis 명령 응답이 제한 시간 안에 오지 않는 상황.">Command Timeout</abbr></td>
+<td>연결은 됐지만 명령 응답이 늦어 <abbr title="작업이 정해진 제한 시간 안에 끝나지 않아 실패로 처리되는 상황.">timeout</abbr></td>
 </tr>
 <tr>
-<td>Swapping</td>
-<td>Redis 메모리가 OS swap으로 밀려 성능이 급락하는 상황</td>
+<td><abbr title="메모리 데이터가 OS swap으로 밀려 Redis 성능이 크게 느려지는 상황.">Swapping</abbr></td>
+<td><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 메모리가 OS swap으로 밀려 성능이 급락하는 상황</td>
 </tr>
 <tr>
-<td>Memory Fragmentation</td>
-<td>실제 RSS가 Redis 사용 메모리보다 커지는 현상</td>
+<td><abbr title="Redis가 실제 사용하는 메모리보다 OS가 잡은 RSS가 커지는 단편화 현상.">Memory Fragmentation</abbr></td>
+<td>실제 RSS가 <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 사용 메모리보다 커지는 현상</td>
 </tr>
 <tr>
-<td>Replication Lag</td>
+<td><abbr title="replica가 master의 최신 쓰기를 따라가지 못하고 뒤처진 정도.">Replication Lag</abbr></td>
 <td>replica가 master보다 늦는 정도</td>
 </tr>
 <tr>
-<td>Slot Migration</td>
+<td><abbr title="Redis Cluster에서 slot을 다른 노드로 옮기는 작업.">Slot Migration</abbr></td>
 <td>Cluster에서 slot을 다른 노드로 옮기는 작업</td>
 </tr>
 </tbody>
 </table>
-<h2 id="redis_1">Redis 장애 유형</h2>
+<h2 id="redis_1"><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 장애 유형</h2>
 <table>
 <thead>
 <tr>
@@ -6511,31 +6511,31 @@
 <tbody>
 <tr>
 <td>지연</td>
-<td><abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> timeout, p99 증가</td>
+<td><abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> <abbr title="작업이 정해진 제한 시간 안에 끝나지 않아 실패로 처리되는 상황.">timeout</abbr>, <abbr title="전체 요청 중 99%가 이 시간 이하로 끝났다는 지연 시간 지표. tail latency 확인에 중요하다.">p99</abbr> 증가</td>
 </tr>
 <tr>
 <td>메모리</td>
-<td>OOM, eviction 증가</td>
+<td><abbr title="Out Of Memory. 메모리가 부족해 쓰기 명령 실패나 장애가 발생하는 상태.">OOM</abbr>, <abbr title="Redis 메모리가 부족할 때 maxmemory-policy에 따라 key를 제거하는 동작.">eviction</abbr> 증가</td>
 </tr>
 <tr>
 <td>CPU</td>
-<td>특정 명령 폭증, Lua 지연</td>
+<td>특정 명령 폭증, <abbr title="Redis 서버 안에서 짧은 원자 로직을 실행할 때 쓰는 스크립트 언어.">Lua</abbr> 지연</td>
 </tr>
 <tr>
 <td>네트워크</td>
-<td>connection timeout, packet loss</td>
+<td>connection <abbr title="작업이 정해진 제한 시간 안에 끝나지 않아 실패로 처리되는 상황.">timeout</abbr>, <abbr title="네트워크 패킷이 중간에 유실되는 현상. timeout과 지연의 원인이 될 수 있다.">packet loss</abbr></td>
 </tr>
 <tr>
 <td>복제</td>
-<td>replica lag, stale read</td>
+<td><abbr title="master 데이터를 복제해 보관하는 Redis 노드. 장애 시 승격 대상이 될 수 있다.">replica</abbr> lag, stale read</td>
 </tr>
 <tr>
-<td>failover</td>
-<td>write 실패, READONLY 에러</td>
+<td><abbr title="장애 난 master 대신 replica를 새 master로 승격해 서비스를 이어가는 절차.">failover</abbr></td>
+<td>write 실패, <abbr title="replica나 잘못된 노드에 쓰기를 시도했을 때 볼 수 있는 오류.">READONLY</abbr> 에러</td>
 </tr>
 <tr>
-<td>Cluster</td>
-<td>MOVED, ASK, CROSSSLOT</td>
+<td><abbr title="hash slot을 기준으로 데이터를 여러 master에 나누어 저장하는 Redis 확장 구조.">Cluster</abbr></td>
+<td><abbr title="Redis Cluster에서 해당 key의 slot 담당 노드가 바뀌었음을 알리는 리다이렉트 응답.">MOVED</abbr>, <abbr title="Redis Cluster slot 이동 중 임시로 다른 노드에 요청하라는 리다이렉트 응답.">ASK</abbr>, <abbr title="다중 key 명령의 key들이 서로 다른 hash slot에 있어 실행할 수 없다는 오류.">CROSSSLOT</abbr></td>
 </tr>
 <tr>
 <td>데이터</td>
@@ -6544,7 +6544,7 @@
 </tbody>
 </table>
 <h2 id="5">공통 5분 점검 순서</h2>
-<p>장애가 났을 때는 한 번에 원인을 단정하지 말고, Redis 자체 문제인지 애플리케이션 문제인지 먼저 나눕니다.</p>
+<p>장애가 났을 때는 한 번에 원인을 단정하지 말고, <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 자체 문제인지 애플리케이션 문제인지 먼저 나눕니다.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 1. Redis 응답 여부</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>redis-cli<span class="w"> </span>PING
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
@@ -6579,19 +6579,19 @@
 </tr>
 <tr>
 <td><code>used_memory</code> 한계 접근</td>
-<td>eviction/OOM 위험</td>
+<td><abbr title="Redis 메모리가 부족할 때 maxmemory-policy에 따라 key를 제거하는 동작.">eviction</abbr>/<abbr title="Out Of Memory. 메모리가 부족해 쓰기 명령 실패나 장애가 발생하는 상태.">OOM</abbr> 위험</td>
 </tr>
 <tr>
 <td>slowlog에 O(N) 명령</td>
 <td>애플리케이션 명령 패턴 문제</td>
 </tr>
 <tr>
-<td>replication link down</td>
-<td>replica read, failover 위험</td>
+<td><abbr title="master 데이터를 replica로 복제하는 구조. Redis 복제는 기본적으로 비동기다.">replication</abbr> link down</td>
+<td><abbr title="master 데이터를 복제해 보관하는 Redis 노드. 장애 시 승격 대상이 될 수 있다.">replica</abbr> read, <abbr title="장애 난 master 대신 replica를 새 master로 승격해 서비스를 이어가는 절차.">failover</abbr> 위험</td>
 </tr>
 </tbody>
 </table>
-<h2 id="1-redis">1. Redis 지연이 급증함</h2>
+<h2 id="1-redis">1. <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 지연이 급증함</h2>
 <table>
 <thead>
 <tr>
@@ -6602,7 +6602,7 @@
 <tbody>
 <tr>
 <td>증상</td>
-<td><abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 응답 지연, Redis timeout, connection pool 대기 증가</td>
+<td><abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 응답 지연, <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> <abbr title="작업이 정해진 제한 시간 안에 끝나지 않아 실패로 처리되는 상황.">timeout</abbr>, <abbr title="Redis 연결을 미리 만들어 재사용하는 풀. 너무 작으면 대기, 너무 크면 Redis 연결 한계를 압박한다.">connection pool</abbr> 대기 증가</td>
 </tr>
 <tr>
 <td>즉시 확인</td>
@@ -6610,15 +6610,15 @@
 </tr>
 <tr>
 <td>의심 원인</td>
-<td>big key 조회/삭제, <code>KEYS</code>, 큰 <code>HGETALL</code>, AOF rewrite, fork 비용, swap</td>
+<td><abbr title="value 크기나 컬렉션 원소 수가 너무 큰 key. 조회, 삭제, 복제, failover 지연을 만든다.">big key</abbr> 조회/삭제, <code>KEYS</code>, 큰 <code>HGETALL</code>, <abbr title="AOF 로그를 현재 데이터 상태 기준으로 압축해 다시 쓰는 작업. fork 비용과 지연을 고려해야 한다.">AOF rewrite</abbr>, <abbr title="fork 시 메모리와 OS 작업 때문에 Redis 지연이 생길 수 있는 비용.">fork 비용</abbr>, <abbr title="메모리가 부족할 때 디스크를 메모리처럼 사용하는 영역. Redis에서는 큰 지연 원인이 된다.">swap</abbr></td>
 </tr>
 <tr>
 <td>완화</td>
-<td>느린 명령 중단, 트래픽 제한, timeout 조정, 큰 key 접근 차단</td>
+<td>느린 명령 중단, 트래픽 제한, <abbr title="작업이 정해진 제한 시간 안에 끝나지 않아 실패로 처리되는 상황.">timeout</abbr> 조정, 큰 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 접근 차단</td>
 </tr>
 <tr>
 <td>재발 방지</td>
-<td>big key 탐지, <code>SCAN</code> 사용, 명령별 timeout, slowlog 알림</td>
+<td><abbr title="value 크기나 컬렉션 원소 수가 너무 큰 key. 조회, 삭제, 복제, failover 지연을 만든다.">big key</abbr> 탐지, <code>SCAN</code> 사용, 명령별 <abbr title="작업이 정해진 제한 시간 안에 끝나지 않아 실패로 처리되는 상황.">timeout</abbr>, <abbr title="Redis에서 느리게 실행된 명령 기록. 어떤 명령이 병목인지 찾는 데 쓴다.">slowlog</abbr> 알림</td>
 </tr>
 </tbody>
 </table>
@@ -6627,8 +6627,8 @@
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>redis-cli<span class="w"> </span>INFO<span class="w"> </span>commandstats
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>redis-cli<span class="w"> </span>--bigkeys
 </code></pre></div>
-<p>추가로 애플리케이션 쪽에서는 Redis 호출 p95/p99, pool 대기 시간, timeout count를 함께 봅니다. Redis는 멀쩡하지만 connection pool이 고갈되어 API가 느려지는 경우도 많습니다.</p>
-<h2 id="2-connection-timeout">2. Connection Timeout</h2>
+<p>추가로 애플리케이션 쪽에서는 <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 호출 <abbr title="전체 요청 중 95%가 이 시간 이하로 끝났다는 지연 시간 지표.">p95</abbr>/<abbr title="전체 요청 중 99%가 이 시간 이하로 끝났다는 지연 시간 지표. tail latency 확인에 중요하다.">p99</abbr>, pool 대기 시간, <abbr title="작업이 정해진 제한 시간 안에 끝나지 않아 실패로 처리되는 상황.">timeout</abbr> count를 함께 봅니다. Redis는 멀쩡하지만 connection pool이 고갈되어 API가 느려지는 경우도 많습니다.</p>
+<h2 id="2-connection-timeout">2. <abbr title="Redis 연결 생성이나 연결 대기 시간이 제한을 넘는 상황.">Connection Timeout</abbr></h2>
 <table>
 <thead>
 <tr>
@@ -6639,15 +6639,15 @@
 <tbody>
 <tr>
 <td>증상</td>
-<td>Redis 연결 실패, pool exhausted</td>
+<td><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 연결 실패, pool exhausted</td>
 </tr>
 <tr>
 <td>즉시 확인</td>
-<td><code>INFO clients</code>, app pool 설정, network ACL</td>
+<td><code>INFO clients</code>, app pool 설정, network <abbr title="Access Control List. 사용자별 명령, key 접근 범위를 제한하는 Redis 보안 기능.">ACL</abbr></td>
 </tr>
 <tr>
 <td>의심 원인</td>
-<td>connection leak, pool 과다, Redis maxclients, 네트워크 장애</td>
+<td>connection leak, pool 과다, <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> maxclients, 네트워크 장애</td>
 </tr>
 <tr>
 <td>완화</td>
@@ -6655,7 +6655,7 @@
 </tr>
 <tr>
 <td>재발 방지</td>
-<td>connection pool 표준, idle timeout, circuit breaker</td>
+<td><abbr title="Redis 연결을 미리 만들어 재사용하는 풀. 너무 작으면 대기, 너무 크면 Redis 연결 한계를 압박한다.">connection pool</abbr> 표준, idle <abbr title="작업이 정해진 제한 시간 안에 끝나지 않아 실패로 처리되는 상황.">timeout</abbr>, <abbr title="장애 중인 외부 호출을 잠시 차단해 장애 전파를 막는 패턴.">circuit breaker</abbr></td>
 </tr>
 </tbody>
 </table>
@@ -6689,7 +6689,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="3-command-timeout">3. Command Timeout</h2>
+<h2 id="3-command-timeout">3. <abbr title="연결은 됐지만 Redis 명령 응답이 제한 시간 안에 오지 않는 상황.">Command Timeout</abbr></h2>
 <table>
 <thead>
 <tr>
@@ -6704,19 +6704,19 @@
 </tr>
 <tr>
 <td>즉시 확인</td>
-<td>slowlog, latency, big key, CPU</td>
+<td><abbr title="Redis에서 느리게 실행된 명령 기록. 어떤 명령이 병목인지 찾는 데 쓴다.">slowlog</abbr>, <abbr title="요청 처리 지연 시간. Redis에서는 명령 실행, 네트워크, fork, swap 등이 영향을 준다.">latency</abbr>, <abbr title="value 크기나 컬렉션 원소 수가 너무 큰 key. 조회, 삭제, 복제, failover 지연을 만든다.">big key</abbr>, CPU</td>
 </tr>
 <tr>
 <td>의심 원인</td>
-<td>O(N) 명령, Lua 장시간 실행, fork/AOF rewrite</td>
+<td>O(N) 명령, <abbr title="Redis 서버 안에서 짧은 원자 로직을 실행할 때 쓰는 스크립트 언어.">Lua</abbr> 장시간 실행, <abbr title="현재 프로세스를 복제해 자식 프로세스를 만드는 OS 동작. RDB 저장이나 AOF rewrite 때 비용이 생길 수 있다.">fork</abbr>/<abbr title="AOF 로그를 현재 데이터 상태 기준으로 압축해 다시 쓰는 작업. fork 비용과 지연을 고려해야 한다.">AOF rewrite</abbr></td>
 </tr>
 <tr>
 <td>완화</td>
-<td>문제 명령 차단, batch 축소, timeout 조정</td>
+<td>문제 명령 차단, batch 축소, <abbr title="작업이 정해진 제한 시간 안에 끝나지 않아 실패로 처리되는 상황.">timeout</abbr> 조정</td>
 </tr>
 <tr>
 <td>재발 방지</td>
-<td>명령 시간 복잡도 리뷰, slowlog 알림</td>
+<td>명령 <abbr title="데이터 크기가 늘 때 명령 실행 비용이 어떻게 증가하는지 나타내는 기준.">시간 복잡도</abbr> 리뷰, <abbr title="Redis에서 느리게 실행된 명령 기록. 어떤 명령이 병목인지 찾는 데 쓴다.">slowlog</abbr> 알림</td>
 </tr>
 </tbody>
 </table>
@@ -6725,7 +6725,7 @@
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>redis-cli<span class="w"> </span>LATENCY<span class="w"> </span>LATEST
 </code></pre></div>
 <p>slowlog에 <code>KEYS</code>, <code>HGETALL</code>, <code>SMEMBERS</code>, 큰 <code>LRANGE</code>, 긴 Lua가 보이면 해당 API와 배포 시각을 연결해서 봅니다.</p>
-<h2 id="4-eviction">4. 메모리 부족 또는 Eviction 발생</h2>
+<h2 id="4-eviction">4. 메모리 부족 또는 <abbr title="Redis 메모리가 부족할 때 maxmemory-policy에 따라 key를 제거하는 동작.">Eviction</abbr> 발생</h2>
 <table>
 <thead>
 <tr>
@@ -6744,15 +6744,15 @@
 </tr>
 <tr>
 <td>의심 원인</td>
-<td>TTL 없는 key 증가, big key, eviction 정책 부적합, 단편화</td>
+<td><abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr> 없는 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 증가, <abbr title="value 크기나 컬렉션 원소 수가 너무 큰 key. 조회, 삭제, 복제, failover 지연을 만든다.">big key</abbr>, <abbr title="Redis 메모리가 부족할 때 maxmemory-policy에 따라 key를 제거하는 동작.">eviction</abbr> 정책 부적합, 단편화</td>
 </tr>
 <tr>
 <td>완화</td>
-<td>불필요 key 삭제, TTL 부여, scale up, write traffic 제한</td>
+<td>불필요 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 삭제, <abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr> 부여, scale up, write traffic 제한</td>
 </tr>
 <tr>
 <td>재발 방지</td>
-<td>메모리 알림, key 수 추적, 도메인별 TTL 표준화</td>
+<td>메모리 알림, <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 수 추적, 도메인별 <abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr> 표준화</td>
 </tr>
 </tbody>
 </table>
@@ -6783,11 +6783,11 @@
 </tr>
 <tr>
 <td><code>evicted_keys</code></td>
-<td>메모리 부족으로 제거된 key</td>
+<td>메모리 부족으로 제거된 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr></td>
 </tr>
 <tr>
 <td><code>expired_keys</code></td>
-<td>TTL 만료로 제거된 key</td>
+<td><abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr> 만료로 제거된 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr></td>
 </tr>
 </tbody>
 </table>
@@ -6803,18 +6803,18 @@
 </thead>
 <tbody>
 <tr>
-<td>Swapping</td>
-<td>OS swap 사용량, latency spike</td>
-<td>메모리 증설, swap 방지, maxmemory 조정</td>
+<td><abbr title="메모리 데이터가 OS swap으로 밀려 Redis 성능이 크게 느려지는 상황.">Swapping</abbr></td>
+<td>OS <abbr title="메모리가 부족할 때 디스크를 메모리처럼 사용하는 영역. Redis에서는 큰 지연 원인이 된다.">swap</abbr> 사용량, <abbr title="요청 처리 지연 시간. Redis에서는 명령 실행, 네트워크, fork, swap 등이 영향을 준다.">latency</abbr> spike</td>
+<td>메모리 증설, <abbr title="메모리가 부족할 때 디스크를 메모리처럼 사용하는 영역. Redis에서는 큰 지연 원인이 된다.">swap</abbr> 방지, <abbr title="Redis가 사용할 수 있는 최대 메모리 설정.">maxmemory</abbr> 조정</td>
 </tr>
 <tr>
 <td>CPU 병목</td>
 <td>CPU 사용률, commandstats</td>
-<td>느린 명령 제거, sharding, scale out</td>
+<td>느린 명령 제거, <abbr title="데이터를 여러 노드나 key로 나누어 저장해 부하와 크기를 분산하는 방식.">sharding</abbr>, scale out</td>
 </tr>
 <tr>
-<td>fork 비용</td>
-<td>RDB/AOF rewrite 시 지연</td>
+<td><abbr title="fork 시 메모리와 OS 작업 때문에 Redis 지연이 생길 수 있는 비용.">fork 비용</abbr></td>
+<td><abbr title="Redis Database snapshot. 특정 시점의 메모리 데이터를 파일로 저장하는 영속화 방식.">RDB</abbr>/<abbr title="AOF 로그를 현재 데이터 상태 기준으로 압축해 다시 쓰는 작업. fork 비용과 지연을 고려해야 한다.">AOF rewrite</abbr> 시 지연</td>
 <td>메모리 여유 확보, rewrite 기준 조정</td>
 </tr>
 </tbody>
@@ -6823,8 +6823,8 @@
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>redis-cli<span class="w"> </span>INFO<span class="w"> </span>persistence
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>redis-cli<span class="w"> </span>LATENCY<span class="w"> </span>DOCTOR
 </code></pre></div>
-<p>RDB snapshot이나 AOF rewrite는 fork를 동반할 수 있어 메모리 여유가 부족하면 지연이 커집니다. 지연 시각과 <code>rdb_bgsave_in_progress</code>, <code>aof_rewrite_in_progress</code>를 함께 확인합니다.</p>
-<h2 id="6-big-key">6. Big Key 장애</h2>
+<p><abbr title="Redis Database snapshot. 특정 시점의 메모리 데이터를 파일로 저장하는 영속화 방식.">RDB</abbr> snapshot이나 <abbr title="Append Only File. 쓰기 명령 로그를 계속 기록해 재시작 시 재생하는 영속화 방식.">AOF</abbr> rewrite는 fork를 동반할 수 있어 메모리 여유가 부족하면 지연이 커집니다. 지연 시각과 <code>rdb_bgsave_in_progress</code>, <code>aof_rewrite_in_progress</code>를 함께 확인합니다.</p>
+<h2 id="6-big-key">6. <abbr title="value 크기나 컬렉션 원소 수가 너무 큰 key. 조회, 삭제, 복제, failover 지연을 만든다.">Big Key</abbr> 장애</h2>
 <table>
 <thead>
 <tr>
@@ -6835,7 +6835,7 @@
 <tbody>
 <tr>
 <td>증상</td>
-<td>특정 명령만 느림, network output 급증, failover 지연</td>
+<td>특정 명령만 느림, network output 급증, <abbr title="장애 난 master 대신 replica를 새 master로 승격해 서비스를 이어가는 절차.">failover</abbr> 지연</td>
 </tr>
 <tr>
 <td>즉시 확인</td>
@@ -6843,11 +6843,11 @@
 </tr>
 <tr>
 <td>완화</td>
-<td>큰 key 접근 차단, <code>UNLINK</code>, 배치 분할</td>
+<td>큰 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 접근 차단, <code>UNLINK</code>, 배치 분할</td>
 </tr>
 <tr>
 <td>재발 방지</td>
-<td>key 크기 제한, 페이지 단위 저장, 만료 정책</td>
+<td><abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 크기 제한, 페이지 단위 저장, 만료 정책</td>
 </tr>
 </tbody>
 </table>
@@ -6857,10 +6857,10 @@
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>redis-cli<span class="w"> </span>SCARD<span class="w"> </span>some:set
 <a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>redis-cli<span class="w"> </span>ZCARD<span class="w"> </span>some:zset
 </code></pre></div>
-<p>발견한 big key는 바로 <code>DEL</code>하지 말고 크기와 자료구조를 먼저 봅니다. 큰 key 삭제는 <code>UNLINK</code>나 작은 단위 분할 삭제가 안전합니다.</p>
+<p>발견한 big key는 바로 <code>DEL</code>하지 말고 크기와 자료구조를 먼저 봅니다. 큰 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 삭제는 <code>UNLINK</code>나 작은 단위 분할 삭제가 안전합니다.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>redis-cli<span class="w"> </span>UNLINK<span class="w"> </span>huge:key
 </code></pre></div>
-<h2 id="7-hot-key">7. Hot Key 장애</h2>
+<h2 id="7-hot-key">7. <abbr title="특정 key에 요청이 과도하게 몰려 노드 CPU나 네트워크가 집중되는 상태.">Hot Key</abbr> 장애</h2>
 <table>
 <thead>
 <tr>
@@ -6871,7 +6871,7 @@
 <tbody>
 <tr>
 <td>증상</td>
-<td>Cluster 일부 노드 CPU·network만 높음</td>
+<td><abbr title="hash slot을 기준으로 데이터를 여러 master에 나누어 저장하는 Redis 확장 구조.">Cluster</abbr> 일부 노드 CPU·network만 높음</td>
 </tr>
 <tr>
 <td>즉시 확인</td>
@@ -6879,11 +6879,11 @@
 </tr>
 <tr>
 <td>완화</td>
-<td>local cache, read replica, 임시 TTL 증가</td>
+<td><abbr title="애플리케이션 프로세스 내부 캐시. 가장 빠르지만 서버 간 정합성 문제가 생길 수 있다.">local cache</abbr>, read <abbr title="master 데이터를 복제해 보관하는 Redis 노드. 장애 시 승격 대상이 될 수 있다.">replica</abbr>, 임시 <abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr> 증가</td>
 </tr>
 <tr>
 <td>재발 방지</td>
-<td>hot key sharding, 캐시 계층화, 인기 key 별도 정책</td>
+<td><abbr title="특정 key에 요청이 과도하게 몰려 노드 CPU나 네트워크가 집중되는 상태.">hot key</abbr> <abbr title="데이터를 여러 노드나 key로 나누어 저장해 부하와 크기를 분산하는 방식.">sharding</abbr>, 캐시 계층화, 인기 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 별도 정책</td>
 </tr>
 </tbody>
 </table>
@@ -6893,7 +6893,7 @@
 <a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Cluster라면 특정 노드만 높은지 확인</span>
 <a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>redis-cli<span class="w"> </span>--cluster<span class="w"> </span>info<span class="w"> </span>redis-node-1:6379
 </code></pre></div>
-<p><code>MONITOR</code>는 Redis에 부담을 줄 수 있으므로 짧게만 사용합니다. 가능하면 애플리케이션 metric에서 key prefix별 호출량을 수집하는 편이 안전합니다.</p>
+<p><code>MONITOR</code>는 Redis에 부담을 줄 수 있으므로 짧게만 사용합니다. 가능하면 애플리케이션 metric에서 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> prefix별 호출량을 수집하는 편이 안전합니다.</p>
 <h2 id="8-on">8. O(N) 명령 장애</h2>
 <table>
 <thead>
@@ -6921,7 +6921,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="9-replication-lag">9. Replication Lag</h2>
+<h2 id="9-replication-lag">9. <abbr title="replica가 master의 최신 쓰기를 따라가지 못하고 뒤처진 정도.">Replication Lag</abbr></h2>
 <table>
 <thead>
 <tr>
@@ -6932,23 +6932,23 @@
 <tbody>
 <tr>
 <td>증상</td>
-<td>replica read에서 오래된 값 조회, failover 후 데이터 유실 의심</td>
+<td><abbr title="master 데이터를 복제해 보관하는 Redis 노드. 장애 시 승격 대상이 될 수 있다.">replica</abbr> read에서 오래된 값 조회, <abbr title="장애 난 master 대신 replica를 새 master로 승격해 서비스를 이어가는 절차.">failover</abbr> 후 데이터 유실 의심</td>
 </tr>
 <tr>
 <td>즉시 확인</td>
-<td><code>INFO replication</code>, master/replica offset, network</td>
+<td><code>INFO replication</code>, <abbr title="쓰기를 받는 주 Redis 노드.">master</abbr>/<abbr title="master 데이터를 복제해 보관하는 Redis 노드. 장애 시 승격 대상이 될 수 있다.">replica</abbr> <abbr title="Bitmap에서는 특정 bit 위치, Kafka나 Stream에서는 메시지 위치를 가리키는 번호.">offset</abbr>, network</td>
 </tr>
 <tr>
 <td>의심 원인</td>
-<td>네트워크 지연, replica 성능 부족, 큰 쓰기, full resync</td>
+<td>네트워크 지연, <abbr title="master 데이터를 복제해 보관하는 Redis 노드. 장애 시 승격 대상이 될 수 있다.">replica</abbr> 성능 부족, 큰 쓰기, <abbr title="replica가 master의 전체 데이터를 다시 받아 복제를 재구성하는 과정.">full resync</abbr></td>
 </tr>
 <tr>
 <td>완화</td>
-<td>replica read 중단, master read 전환, 쓰기량 제한</td>
+<td><abbr title="master 데이터를 복제해 보관하는 Redis 노드. 장애 시 승격 대상이 될 수 있다.">replica</abbr> read 중단, <abbr title="쓰기를 받는 주 Redis 노드.">master</abbr> read 전환, 쓰기량 제한</td>
 </tr>
 <tr>
 <td>재발 방지</td>
-<td>lag 기준 알림, replica sizing, 큰 key 제거</td>
+<td>lag 기준 알림, <abbr title="master 데이터를 복제해 보관하는 Redis 노드. 장애 시 승격 대상이 될 수 있다.">replica</abbr> sizing, 큰 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 제거</td>
 </tr>
 </tbody>
 </table>
@@ -6964,7 +6964,7 @@
 <tbody>
 <tr>
 <td><code>role</code></td>
-<td>master/replica 역할</td>
+<td><abbr title="쓰기를 받는 주 Redis 노드.">master</abbr>/<abbr title="master 데이터를 복제해 보관하는 Redis 노드. 장애 시 승격 대상이 될 수 있다.">replica</abbr> 역할</td>
 </tr>
 <tr>
 <td><code>master_link_status</code></td>
@@ -6972,16 +6972,16 @@
 </tr>
 <tr>
 <td><code>master_repl_offset</code></td>
-<td>master 복제 offset</td>
+<td><abbr title="쓰기를 받는 주 Redis 노드.">master</abbr> 복제 <abbr title="Bitmap에서는 특정 bit 위치, Kafka나 Stream에서는 메시지 위치를 가리키는 번호.">offset</abbr></td>
 </tr>
 <tr>
 <td><code>slave_repl_offset</code></td>
-<td>replica 복제 offset</td>
+<td><abbr title="master 데이터를 복제해 보관하는 Redis 노드. 장애 시 승격 대상이 될 수 있다.">replica</abbr> 복제 <abbr title="Bitmap에서는 특정 bit 위치, Kafka나 Stream에서는 메시지 위치를 가리키는 번호.">offset</abbr></td>
 </tr>
 </tbody>
 </table>
-<p>replica read를 사용 중이면 lag가 커졌을 때 오래된 값을 읽을 수 있습니다. 중요한 조회는 master read로 전환하거나 replica read를 일시 중단합니다.</p>
-<h2 id="10-failover">10. Failover 지연</h2>
+<p><abbr title="master 데이터를 복제해 보관하는 Redis 노드. 장애 시 승격 대상이 될 수 있다.">replica</abbr> read를 사용 중이면 lag가 커졌을 때 오래된 값을 읽을 수 있습니다. 중요한 조회는 <abbr title="쓰기를 받는 주 Redis 노드.">master</abbr> read로 전환하거나 <abbr title="master 데이터를 복제해 보관하는 Redis 노드. 장애 시 승격 대상이 될 수 있다.">replica</abbr> read를 일시 중단합니다.</p>
+<h2 id="10-failover">10. <abbr title="장애 난 master 대신 replica를 새 master로 승격해 서비스를 이어가는 절차.">Failover</abbr> 지연</h2>
 <table>
 <thead>
 <tr>
@@ -6996,11 +6996,11 @@
 </tr>
 <tr>
 <td>즉시 확인</td>
-<td>Sentinel/Cluster 상태, client topology 갱신</td>
+<td><abbr title="Redis master 장애를 감지하고 failover를 자동화하는 구성 요소.">Sentinel</abbr>/<abbr title="hash slot을 기준으로 데이터를 여러 master에 나누어 저장하는 Redis 확장 구조.">Cluster</abbr> 상태, client topology 갱신</td>
 </tr>
 <tr>
 <td>의심 원인</td>
-<td>quorum 문제, replica lag, client 설정 미흡</td>
+<td>quorum 문제, <abbr title="master 데이터를 복제해 보관하는 Redis 노드. 장애 시 승격 대상이 될 수 있다.">replica</abbr> lag, client 설정 미흡</td>
 </tr>
 <tr>
 <td>완화</td>
@@ -7008,7 +7008,7 @@
 </tr>
 <tr>
 <td>재발 방지</td>
-<td>failover 훈련, timeout·retry 정책, lag 알림</td>
+<td><abbr title="장애 난 master 대신 replica를 새 master로 승격해 서비스를 이어가는 절차.">failover</abbr> 훈련, <abbr title="작업이 정해진 제한 시간 안에 끝나지 않아 실패로 처리되는 상황.">timeout</abbr>·retry 정책, lag 알림</td>
 </tr>
 </tbody>
 </table>
@@ -7018,8 +7018,8 @@
 <a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>redis-cli<span class="w"> </span>CLUSTER<span class="w"> </span>INFO
 <a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>redis-cli<span class="w"> </span>CLUSTER<span class="w"> </span>NODES
 </code></pre></div>
-<p>failover 이후 애플리케이션이 새 master를 인식하지 못하면 <code>READONLY</code>나 write timeout이 반복됩니다. client topology refresh, DNS cache, connection pool 재생성을 확인합니다.</p>
-<h2 id="11-cluster-slot-migration">11. Cluster Slot Migration 문제</h2>
+<p><abbr title="장애 난 master 대신 replica를 새 master로 승격해 서비스를 이어가는 절차.">failover</abbr> 이후 애플리케이션이 새 master를 인식하지 못하면 <code>READONLY</code>나 write timeout이 반복됩니다. client topology refresh, DNS <abbr title="반복 조회를 빠르게 처리하기 위한 임시 저장소. 원본 DB 부하를 줄이는 데 사용한다.">cache</abbr>, <abbr title="Redis 연결을 미리 만들어 재사용하는 풀. 너무 작으면 대기, 너무 크면 Redis 연결 한계를 압박한다.">connection pool</abbr> 재생성을 확인합니다.</p>
+<h2 id="11-cluster-slot-migration">11. <abbr title="hash slot을 기준으로 데이터를 여러 master에 나누어 저장하는 Redis 확장 구조.">Cluster</abbr> <abbr title="Redis Cluster에서 slot을 다른 노드로 옮기는 작업.">Slot Migration</abbr> 문제</h2>
 <table>
 <thead>
 <tr>
@@ -7042,11 +7042,11 @@
 <tr>
 <td><code>CROSSSLOT</code></td>
 <td>다중 key가 서로 다른 slot</td>
-<td>hash tag 사용</td>
+<td><abbr title="`{}` 안 문자열만 hash해 여러 key를 같은 slot에 배치하는 방법.">hash tag</abbr> 사용</td>
 </tr>
 <tr>
 <td>특정 slot unavailable</td>
-<td>master/replica 장애</td>
+<td><abbr title="쓰기를 받는 주 Redis 노드.">master</abbr>/<abbr title="master 데이터를 복제해 보관하는 Redis 노드. 장애 시 승격 대상이 될 수 있다.">replica</abbr> 장애</td>
 <td>cluster 상태 확인</td>
 </tr>
 </tbody>
@@ -7056,7 +7056,7 @@
 <a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>redis-cli<span class="w"> </span>CLUSTER<span class="w"> </span>KEYSLOT<span class="w"> </span>cart:<span class="o">{</span>user-1<span class="o">}</span>:items
 <a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>redis-cli<span class="w"> </span>CLUSTER<span class="w"> </span>KEYSLOT<span class="w"> </span>cart:<span class="o">{</span>user-1<span class="o">}</span>:summary
 </code></pre></div>
-<p><code>CROSSSLOT</code>은 장애라기보다 key 설계 문제인 경우가 많습니다. 다중 key 명령이 필요한 key는 <code>{user-1}</code>처럼 같은 hash tag를 사용합니다.</p>
+<p><code>CROSSSLOT</code>은 장애라기보다 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 설계 문제인 경우가 많습니다. 다중 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 명령이 필요한 key는 <code>{user-1}</code>처럼 같은 hash tag를 사용합니다.</p>
 <h2 id="12-db">12. 캐시 값이 DB와 다름</h2>
 <table>
 <thead>
@@ -7072,19 +7072,19 @@
 </tr>
 <tr>
 <td>즉시 확인</td>
-<td>key TTL, DB <code>updated_at</code>, 캐시 갱신 로그</td>
+<td><abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> <abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr>, DB <code>updated_at</code>, 캐시 갱신 로그</td>
 </tr>
 <tr>
 <td>의심 원인</td>
-<td>DB update 후 cache delete 실패, write 순서 문제</td>
+<td>DB update 후 <abbr title="반복 조회를 빠르게 처리하기 위한 임시 저장소. 원본 DB 부하를 줄이는 데 사용한다.">cache</abbr> delete 실패, write 순서 문제</td>
 </tr>
 <tr>
 <td>완화</td>
-<td>해당 key 삭제, 도메인 캐시 일괄 무효화</td>
+<td>해당 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 삭제, 도메인 캐시 일괄 <abbr title="원본 데이터 변경 후 오래된 캐시를 삭제하거나 더 이상 쓰지 않게 만드는 작업.">무효화</abbr></td>
 </tr>
 <tr>
 <td>재발 방지</td>
-<td>cache aside 표준화, outbox 기반 무효화 이벤트, 짧은 TTL</td>
+<td><abbr title="애플리케이션이 캐시를 먼저 읽고, miss면 DB 조회 후 캐시에 저장하는 패턴. 실무 조회 캐시의 기본 선택지다.">cache aside</abbr> 표준화, outbox 기반 <abbr title="원본 데이터 변경 후 오래된 캐시를 삭제하거나 더 이상 쓰지 않게 만드는 작업.">무효화</abbr> 이벤트, 짧은 <abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr></td>
 </tr>
 </tbody>
 </table>
@@ -7093,7 +7093,7 @@
 <a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>redis-cli<span class="w"> </span>DEL<span class="w"> </span>product:1001:summary
 </code></pre></div>
 <p>장애 중에는 먼저 해당 key를 삭제해 사용자 영향을 줄이고, 이후 DB update 로그와 캐시 delete 로그의 순서를 확인합니다.</p>
-<h2 id="13">13. 분산 락 중복 실행</h2>
+<h2 id="13">13. <abbr title="여러 서버가 같은 자원을 동시에 처리하지 않도록 외부 저장소로 잡는 락.">분산 락</abbr> 중복 실행</h2>
 <table>
 <thead>
 <tr>
@@ -7108,7 +7108,7 @@
 </tr>
 <tr>
 <td>즉시 확인</td>
-<td>락 TTL, 작업 수행 시간, 프로세스 중단 여부</td>
+<td>락 <abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr>, 작업 수행 시간, 프로세스 중단 여부</td>
 </tr>
 <tr>
 <td>의심 원인</td>
@@ -7120,7 +7120,7 @@
 </tr>
 <tr>
 <td>재발 방지</td>
-<td>작업 시간보다 긴 TTL, fencing token, DB unique 제약</td>
+<td>작업 시간보다 긴 <abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr>, fencing token, DB unique 제약</td>
 </tr>
 </tbody>
 </table>
@@ -7138,24 +7138,24 @@
 </thead>
 <tbody>
 <tr>
-<td>timeout 제한</td>
-<td>Redis 장애가 app thread 고갈로 번지지 않게 함</td>
+<td><abbr title="작업이 정해진 제한 시간 안에 끝나지 않아 실패로 처리되는 상황.">timeout</abbr> 제한</td>
+<td><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 장애가 app thread 고갈로 번지지 않게 함</td>
 </tr>
 <tr>
-<td>circuit breaker</td>
-<td>장애 중 Redis 호출을 잠시 차단</td>
+<td><abbr title="장애 중인 외부 호출을 잠시 차단해 장애 전파를 막는 패턴.">circuit breaker</abbr></td>
+<td>장애 중 <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 호출을 잠시 차단</td>
 </tr>
 <tr>
-<td>fallback</td>
-<td>조회 캐시는 DB 직접 조회, 일부 기능은 graceful degradation</td>
+<td><abbr title="주 경로가 실패했을 때 사용할 대체 처리. 캐시 장애 시 DB 직접 조회가 대표적이다.">fallback</abbr></td>
+<td>조회 캐시는 DB 직접 조회, 일부 기능은 <abbr title="일부 기능을 제한하거나 품질을 낮춰 전체 서비스 장애를 피하는 전략.">graceful degradation</abbr></td>
 </tr>
 <tr>
-<td>rate limit</td>
+<td><abbr title="일정 시간 동안 허용할 요청 수를 제한하는 기능.">rate limit</abbr></td>
 <td>캐시 소실 후 DB 폭주 방지</td>
 </tr>
 <tr>
-<td>bulkhead</td>
-<td>Redis 의존 기능과 핵심 기능 thread pool 분리</td>
+<td><abbr title="장애가 번지지 않도록 기능별 thread pool이나 리소스를 분리하는 패턴.">bulkhead</abbr></td>
+<td><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 의존 기능과 핵심 기능 thread pool 분리</td>
 </tr>
 </tbody>
 </table>
@@ -7169,11 +7169,11 @@
 </thead>
 <tbody>
 <tr>
-<td>조회 캐시</td>
+<td><abbr title="DB 조회 결과를 Redis에 저장해 반복 조회를 빠르게 하는 캐시.">조회 캐시</abbr></td>
 <td>DB에서 재생성</td>
 </tr>
 <tr>
-<td>세션</td>
+<td><abbr title="로그인 상태나 사용자 상태를 서버 외부 저장소에 보관한 데이터.">세션</abbr></td>
 <td>정책에 따라 재로그인</td>
 </tr>
 <tr>
@@ -7186,7 +7186,7 @@
 </tr>
 <tr>
 <td>stream 메시지</td>
-<td>PEL, DLQ, 원본 이벤트 로그 확인</td>
+<td><abbr title="Pending Entries List. Stream에서 consumer에게 전달됐지만 아직 ACK되지 않은 메시지 목록.">PEL</abbr>, <abbr title="Dead Letter Queue. 반복 실패한 메시지를 격리해 전체 처리를 막지 않게 하는 큐.">DLQ</abbr>, 원본 이벤트 로그 확인</td>
 </tr>
 </tbody>
 </table>
@@ -7200,19 +7200,19 @@
 </thead>
 <tbody>
 <tr>
-<td>장애 유형별 Runbook 작성</td>
+<td>장애 유형별 <abbr title="장애 상황에서 확인 순서와 대응 방법을 적어둔 운영 절차 문서.">Runbook</abbr> 작성</td>
 <td>대응 순서 단축</td>
 </tr>
 <tr>
-<td>slowlog, latency, memory 알림</td>
+<td><abbr title="Redis에서 느리게 실행된 명령 기록. 어떤 명령이 병목인지 찾는 데 쓴다.">slowlog</abbr>, <abbr title="요청 처리 지연 시간. Redis에서는 명령 실행, 네트워크, fork, swap 등이 영향을 준다.">latency</abbr>, memory 알림</td>
 <td>장애 전조 감지</td>
 </tr>
 <tr>
-<td>Redis fallback 정책 명시</td>
+<td><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> <abbr title="주 경로가 실패했을 때 사용할 대체 처리. 캐시 장애 시 DB 직접 조회가 대표적이다.">fallback</abbr> 정책 명시</td>
 <td>서비스 전체 장애 방지</td>
 </tr>
 <tr>
-<td>big key/hot key 정기 점검</td>
+<td><abbr title="value 크기나 컬렉션 원소 수가 너무 큰 key. 조회, 삭제, 복제, failover 지연을 만든다.">big key</abbr>/<abbr title="특정 key에 요청이 과도하게 몰려 노드 CPU나 네트워크가 집중되는 상태.">hot key</abbr> 정기 점검</td>
 <td>대표 장애 원인 제거</td>
 </tr>
 <tr>
@@ -7232,23 +7232,23 @@
 <tbody>
 <tr>
 <td><abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 전체 지연</td>
-<td>Redis timeout, pool 대기, slowlog</td>
+<td><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> <abbr title="작업이 정해진 제한 시간 안에 끝나지 않아 실패로 처리되는 상황.">timeout</abbr>, pool 대기, <abbr title="Redis에서 느리게 실행된 명령 기록. 어떤 명령이 병목인지 찾는 데 쓴다.">slowlog</abbr></td>
 </tr>
 <tr>
 <td>일부 API만 지연</td>
-<td>특정 key, big key, hot key</td>
+<td>특정 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr>, <abbr title="value 크기나 컬렉션 원소 수가 너무 큰 key. 조회, 삭제, 복제, failover 지연을 만든다.">big key</abbr>, <abbr title="특정 key에 요청이 과도하게 몰려 노드 CPU나 네트워크가 집중되는 상태.">hot key</abbr></td>
 </tr>
 <tr>
 <td>DB 부하 폭증</td>
-<td>cache miss, Redis 장애, warming 실패</td>
+<td><abbr title="캐시에 값이 없어 원본 DB까지 조회해야 하는 상황.">cache miss</abbr>, <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 장애, warming 실패</td>
 </tr>
 <tr>
-<td>failover 후 오류</td>
-<td>client topology, READONLY, DNS/cache</td>
+<td><abbr title="장애 난 master 대신 replica를 새 master로 승격해 서비스를 이어가는 절차.">failover</abbr> 후 오류</td>
+<td>client topology, <abbr title="replica나 잘못된 노드에 쓰기를 시도했을 때 볼 수 있는 오류.">READONLY</abbr>, DNS/<abbr title="반복 조회를 빠르게 처리하기 위한 임시 저장소. 원본 DB 부하를 줄이는 데 사용한다.">cache</abbr></td>
 </tr>
 <tr>
 <td>데이터 이상</td>
-<td>TTL, 무효화 로그, DB 기준 보정</td>
+<td><abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr>, <abbr title="원본 데이터 변경 후 오래된 캐시를 삭제하거나 더 이상 쓰지 않게 만드는 작업.">무효화</abbr> 로그, DB 기준 보정</td>
 </tr>
 </tbody>
 </table>
@@ -7257,6 +7257,21 @@
 - <a href="../%EC%84%B1%EB%8A%A5%EC%B5%9C%EC%A0%81%ED%99%94/">성능 최적화</a>
 - <a href="../%EA%B5%AC%EC%A1%B0%EC%99%80%EC%9A%B4%EC%98%81/">운영 구조와 고가용성</a>
 - <a href="../%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%EB%B3%B4%EC%95%88/">모니터링과 보안</a></p>
+<!-- Redis 전용 용어집: Redis 문서에서만 include해서 툴팁으로 사용합니다. -->
+
+<!-- ===== Redis 기본 ===== -->
+<!-- ===== 캐시 ===== -->
+<!-- ===== Redis 자료구조 ===== -->
+<!-- ===== 데이터 관리와 영속성 ===== -->
+<!-- ===== 운영 구조 ===== -->
+<!-- ===== 성능과 장애 ===== -->
+<!-- ===== 동시성과 락 ===== -->
+<!-- ===== 메시징 ===== -->
+<!-- ===== Spring Boot 연동 ===== -->
+<!-- ===== 모니터링과 보안 ===== -->
+<!-- ===== Redis Stack ===== -->
+<!-- ===== 비교와 선택 ===== -->
+<!-- ===== 실무 유즈케이스 ===== -->
 <!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
 
 <!-- ===== DB / SQL ===== -->
@@ -7285,7 +7300,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 27일 14:00:05 UTC">2026년 4월 27일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 28일 10:41:10 UTC">2026년 4월 28일</span>
   </span>
 
     

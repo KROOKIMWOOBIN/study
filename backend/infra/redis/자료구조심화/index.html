@@ -7233,8 +7233,8 @@
   
 
 
-<h1 id="redis">Redis 자료구조 심화</h1>
-<p>Redis 자료구조 심화는 <strong>요구사항을 어떤 자료구조로 표현할지</strong>, 그리고 <strong>어떤 명령이 운영에서 위험해질 수 있는지</strong>를 판단하기 위한 문서입니다.</p>
+<h1 id="redis"><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 자료구조 심화</h1>
+<p><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 자료구조 심화는 <strong>요구사항을 어떤 자료구조로 표현할지</strong>, 그리고 <strong>어떤 명령이 운영에서 위험해질 수 있는지</strong>를 판단하기 위한 문서입니다.</p>
 <h2 id="_1">용어</h2>
 <table>
 <thead>
@@ -7245,23 +7245,23 @@
 </thead>
 <tbody>
 <tr>
-<td>Cardinality</td>
-<td>한 key 안에 들어 있는 원소 수</td>
+<td><abbr title="한 key나 집합 안에 들어 있는 원소 수. 너무 커지면 big key 위험이 있다.">Cardinality</abbr></td>
+<td>한 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 안에 들어 있는 원소 수</td>
 </tr>
 <tr>
-<td>Big Key</td>
-<td>value 크기나 원소 수가 지나치게 큰 key</td>
+<td><abbr title="value 크기나 컬렉션 원소 수가 너무 큰 key. 조회, 삭제, 복제, failover 지연을 만든다.">Big Key</abbr></td>
+<td><abbr title="key에 저장된 실제 데이터. 문자열, 해시, 집합, 스트림 같은 Redis 자료구조가 될 수 있다.">value</abbr> 크기나 원소 수가 지나치게 큰 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr></td>
 </tr>
 <tr>
-<td>Hot Key</td>
+<td><abbr title="특정 key에 요청이 과도하게 몰려 노드 CPU나 네트워크가 집중되는 상태.">Hot Key</abbr></td>
 <td>요청이 한 key에 과도하게 몰리는 상태</td>
 </tr>
 <tr>
-<td>Time Complexity</td>
+<td><abbr title="데이터 크기가 늘 때 명령 실행 비용이 어떻게 증가하는지 나타내는 기준.">Time Complexity</abbr></td>
 <td>명령 실행 비용이 데이터 크기에 따라 증가하는 방식</td>
 </tr>
 <tr>
-<td>Cursor Scan</td>
+<td><abbr title="cursor를 이용해 데이터를 조금씩 나누어 탐색하는 방식. `KEYS` 같은 전체 blocking 명령의 대안이다.">Cursor Scan</abbr></td>
 <td>한 번에 전부 읽지 않고 cursor로 나누어 탐색하는 방식</td>
 </tr>
 </tbody>
@@ -7281,55 +7281,55 @@
 <tbody>
 <tr>
 <td>값 하나 저장</td>
-<td>String</td>
+<td><abbr title="Redis의 가장 기본 자료구조. 단일 값, JSON 문자열, 카운터, 토큰 저장에 많이 쓴다.">String</abbr></td>
 <td>가장 단순</td>
 <td>JSON 일부 수정 어려움</td>
 </tr>
 <tr>
 <td>객체 필드 일부 수정</td>
-<td>Hash</td>
+<td><abbr title="key 하나 아래 여러 field-value를 저장하는 자료구조. 객체 일부 필드 갱신에 유용하다.">Hash</abbr></td>
 <td>필드 단위 접근</td>
 <td><code>HGETALL</code> 주의</td>
 </tr>
 <tr>
 <td>중복 없는 목록</td>
-<td>Set</td>
+<td><abbr title="중복 없는 집합 자료구조. 포함 여부, 태그, 좋아요 사용자 목록에 적합하다.">Set</abbr></td>
 <td>포함 여부가 빠름</td>
 <td><code>SMEMBERS</code> 주의</td>
 </tr>
 <tr>
 <td>랭킹</td>
-<td>Sorted Set</td>
-<td>score 정렬 지원</td>
-<td>hot key 주의</td>
+<td><abbr title="member마다 score를 붙여 정렬하는 집합. 랭킹, 우선순위, 시간 정렬에 자주 쓴다.">Sorted Set</abbr></td>
+<td><abbr title="Sorted Set에서 member를 정렬하는 숫자 값.">score</abbr> 정렬 지원</td>
+<td><abbr title="특정 key에 요청이 과도하게 몰려 노드 CPU나 네트워크가 집중되는 상태.">hot key</abbr> 주의</td>
 </tr>
 <tr>
 <td>간단한 큐</td>
-<td>List</td>
+<td><abbr title="삽입 순서를 유지하는 목록 자료구조. 간단한 queue나 최근 N개 보관에 쓴다.">List</abbr></td>
 <td>push/pop이 쉬움</td>
 <td>재처리 부족</td>
 </tr>
 <tr>
 <td>이벤트 처리</td>
-<td>Stream</td>
-<td>consumer group 지원</td>
-<td>Kafka 대체 아님</td>
+<td><abbr title="Redis의 append-only 메시지 로그 자료구조. ID가 붙은 메시지를 저장하고 consumer group으로 나눠 읽을 수 있다.">Stream</abbr></td>
+<td><abbr title="Stream 메시지를 여러 consumer가 나누어 읽기 위한 그룹.">consumer group</abbr> 지원</td>
+<td><abbr title="partitioned commit log 기반 메시지 플랫폼. 긴 보관, 재처리, 대규모 이벤트 스트림에 강하다.">Kafka</abbr> 대체 아님</td>
 </tr>
 <tr>
 <td>boolean 대량 저장</td>
-<td>Bitmap</td>
+<td><abbr title="bit 단위로 boolean 값을 저장하는 방식. 출석 체크처럼 대량 true/false 저장에 효율적이다.">Bitmap</abbr></td>
 <td>메모리 효율 좋음</td>
-<td>offset 설계 필요</td>
+<td><abbr title="Bitmap에서는 특정 bit 위치, Kafka나 Stream에서는 메시지 위치를 가리키는 번호.">offset</abbr> 설계 필요</td>
 </tr>
 <tr>
 <td>대략적인 고유 수</td>
-<td>HyperLogLog</td>
+<td><abbr title="고유 개수를 근사치로 추정하는 자료구조. 정확한 목록은 필요 없고 UV 같은 수치만 필요할 때 쓴다.">HyperLogLog</abbr></td>
 <td>메모리 절약</td>
 <td>정확한 목록 불가</td>
 </tr>
 <tr>
 <td>주변 위치 검색</td>
-<td>Geospatial</td>
+<td><abbr title="위치 좌표를 저장하고 거리 기반 검색을 하는 Redis 기능.">Geospatial</abbr></td>
 <td>거리 기반 검색</td>
 <td>복잡한 공간 검색 한계</td>
 </tr>
@@ -7346,54 +7346,54 @@
 </thead>
 <tbody>
 <tr>
-<td>String</td>
+<td><abbr title="Redis의 가장 기본 자료구조. 단일 값, JSON 문자열, 카운터, 토큰 저장에 많이 쓴다.">String</abbr></td>
 <td><code>GET</code>, <code>SET</code>, <code>INCR</code></td>
-<td>큰 value <code>GET</code>, 대량 <code>MGET</code></td>
+<td>큰 <abbr title="key에 저장된 실제 데이터. 문자열, 해시, 집합, 스트림 같은 Redis 자료구조가 될 수 있다.">value</abbr> <code>GET</code>, 대량 <code>MGET</code></td>
 </tr>
 <tr>
-<td>Hash</td>
+<td><abbr title="key 하나 아래 여러 field-value를 저장하는 자료구조. 객체 일부 필드 갱신에 유용하다.">Hash</abbr></td>
 <td><code>HGET</code>, <code>HSET</code>, <code>HINCRBY</code></td>
 <td><code>HGETALL</code>, 큰 hash <code>HSCAN</code></td>
 </tr>
 <tr>
-<td>List</td>
+<td><abbr title="삽입 순서를 유지하는 목록 자료구조. 간단한 queue나 최근 N개 보관에 쓴다.">List</abbr></td>
 <td><code>LPUSH</code>, <code>RPOP</code>, <code>BRPOP</code></td>
-<td><code>LRANGE 0 -1</code>, 긴 list trim</td>
+<td><code>LRANGE 0 -1</code>, 긴 list <abbr title="Stream이나 List 길이를 제한하기 위해 오래된 항목을 잘라내는 작업.">trim</abbr></td>
 </tr>
 <tr>
-<td>Set</td>
+<td><abbr title="중복 없는 집합 자료구조. 포함 여부, 태그, 좋아요 사용자 목록에 적합하다.">Set</abbr></td>
 <td><code>SADD</code>, <code>SISMEMBER</code>, <code>SCARD</code></td>
 <td><code>SMEMBERS</code>, 큰 set 연산</td>
 </tr>
 <tr>
-<td>Sorted Set</td>
+<td><abbr title="member마다 score를 붙여 정렬하는 집합. 랭킹, 우선순위, 시간 정렬에 자주 쓴다.">Sorted Set</abbr></td>
 <td><code>ZADD</code>, <code>ZINCRBY</code>, <code>ZRANGE 0 N</code></td>
 <td>큰 범위 조회, 큰 rank 계산</td>
 </tr>
 <tr>
-<td>Bitmap</td>
+<td><abbr title="bit 단위로 boolean 값을 저장하는 방식. 출석 체크처럼 대량 true/false 저장에 효율적이다.">Bitmap</abbr></td>
 <td><code>SETBIT</code>, <code>GETBIT</code></td>
-<td>큰 offset, 전체 <code>BITCOUNT</code></td>
+<td>큰 <abbr title="Bitmap에서는 특정 bit 위치, Kafka나 Stream에서는 메시지 위치를 가리키는 번호.">offset</abbr>, 전체 <code>BITCOUNT</code></td>
 </tr>
 <tr>
-<td>HyperLogLog</td>
+<td><abbr title="고유 개수를 근사치로 추정하는 자료구조. 정확한 목록은 필요 없고 UV 같은 수치만 필요할 때 쓴다.">HyperLogLog</abbr></td>
 <td><code>PFADD</code>, <code>PFCOUNT</code></td>
 <td>정확한 목록 요구</td>
 </tr>
 <tr>
-<td>Stream</td>
+<td><abbr title="Redis의 append-only 메시지 로그 자료구조. ID가 붙은 메시지를 저장하고 consumer group으로 나눠 읽을 수 있다.">Stream</abbr></td>
 <td><code>XADD</code>, <code>XREADGROUP COUNT N</code></td>
-<td>trim 없는 무한 증가</td>
+<td><abbr title="Stream이나 List 길이를 제한하기 위해 오래된 항목을 잘라내는 작업.">trim</abbr> 없는 무한 증가</td>
 </tr>
 <tr>
-<td>Geospatial</td>
+<td><abbr title="위치 좌표를 저장하고 거리 기반 검색을 하는 Redis 기능.">Geospatial</abbr></td>
 <td><code>GEOADD</code>, 제한된 <code>GEOSEARCH</code></td>
 <td>큰 반경 검색</td>
 </tr>
 </tbody>
 </table>
-<h2 id="string">String</h2>
-<p>String은 가장 기본적인 자료구조입니다. value 하나를 통째로 읽고 쓰는 캐시, 인증 토큰, 인증번호, 카운터에 적합합니다.</p>
+<h2 id="string"><abbr title="Redis의 가장 기본 자료구조. 단일 값, JSON 문자열, 카운터, 토큰 저장에 많이 쓴다.">String</abbr></h2>
+<p>String은 가장 기본적인 자료구조입니다. <abbr title="key에 저장된 실제 데이터. 문자열, 해시, 집합, 스트림 같은 Redis 자료구조가 될 수 있다.">value</abbr> 하나를 통째로 읽고 쓰는 캐시, 인증 토큰, <abbr title="이메일/SMS 인증 코드처럼 짧은 TTL로 저장하는 임시 값.">인증번호</abbr>, 카운터에 적합합니다.</p>
 <h3 id="_5">주요 명령</h3>
 <table>
 <thead>
@@ -7412,7 +7412,7 @@
 <tr>
 <td><code>SET key value EX seconds</code></td>
 <td>TTL과 함께 저장</td>
-<td>인증번호</td>
+<td><abbr title="이메일/SMS 인증 코드처럼 짧은 TTL로 저장하는 임시 값.">인증번호</abbr></td>
 </tr>
 <tr>
 <td><code>SET key value NX EX seconds</code></td>
@@ -7454,13 +7454,13 @@
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>INCR<span class="w"> </span>product:1001:view-count
 </code></pre></div>
-<h3 id="string-vs-hash">String vs Hash</h3>
+<h3 id="string-vs-hash"><abbr title="Redis의 가장 기본 자료구조. 단일 값, JSON 문자열, 카운터, 토큰 저장에 많이 쓴다.">String</abbr> vs <abbr title="key 하나 아래 여러 field-value를 저장하는 자료구조. 객체 일부 필드 갱신에 유용하다.">Hash</abbr></h3>
 <table>
 <thead>
 <tr>
 <th>기준</th>
-<th>String JSON</th>
-<th>Hash</th>
+<th><abbr title="Redis의 가장 기본 자료구조. 단일 값, JSON 문자열, 카운터, 토큰 저장에 많이 쓴다.">String</abbr> JSON</th>
+<th><abbr title="key 하나 아래 여러 field-value를 저장하는 자료구조. 객체 일부 필드 갱신에 유용하다.">Hash</abbr></th>
 </tr>
 </thead>
 <tbody>
@@ -7477,12 +7477,12 @@
 <tr>
 <td>직렬화</td>
 <td>애플리케이션이 담당</td>
-<td>Redis 필드로 분리</td>
+<td><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 필드로 분리</td>
 </tr>
 <tr>
-<td>value 크기</td>
+<td><abbr title="key에 저장된 실제 데이터. 문자열, 해시, 집합, 스트림 같은 Redis 자료구조가 될 수 있다.">value</abbr> 크기</td>
 <td>객체 전체가 커질 수 있음</td>
-<td>필드가 많아지면 big key</td>
+<td>필드가 많아지면 <abbr title="value 크기나 컬렉션 원소 수가 너무 큰 key. 조회, 삭제, 복제, failover 지연을 만든다.">big key</abbr></td>
 </tr>
 <tr>
 <td>추천</td>
@@ -7501,20 +7501,20 @@
 </thead>
 <tbody>
 <tr>
-<td>큰 JSON value</td>
+<td>큰 JSON <abbr title="key에 저장된 실제 데이터. 문자열, 해시, 집합, 스트림 같은 Redis 자료구조가 될 수 있다.">value</abbr></td>
 <td>네트워크와 메모리 비용 증가</td>
 </tr>
 <tr>
 <td>카운터 유실</td>
-<td>DB 반영 전 Redis 장애 시 값이 사라질 수 있음</td>
+<td>DB 반영 전 <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 장애 시 값이 사라질 수 있음</td>
 </tr>
 <tr>
-<td>TTL 누락</td>
-<td>인증번호·토큰이 계속 남을 수 있음</td>
+<td><abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr> 누락</td>
+<td><abbr title="이메일/SMS 인증 코드처럼 짧은 TTL로 저장하는 임시 값.">인증번호</abbr>·토큰이 계속 남을 수 있음</td>
 </tr>
 </tbody>
 </table>
-<h2 id="hash">Hash</h2>
+<h2 id="hash"><abbr title="key 하나 아래 여러 field-value를 저장하는 자료구조. 객체 일부 필드 갱신에 유용하다.">Hash</abbr></h2>
 <p>Hash는 한 객체를 여러 field로 나누어 저장합니다. 사용자 요약 정보, 설정, 장바구니 요약처럼 일부 필드를 자주 읽거나 바꿀 때 유용합니다.</p>
 <h3 id="_8">주요 명령</h3>
 <table>
@@ -7578,20 +7578,20 @@
 </thead>
 <tbody>
 <tr>
-<td>사용자 전체 활동 이력을 Hash 하나에 계속 누적</td>
-<td>날짜별 key 분리</td>
+<td>사용자 전체 활동 이력을 <abbr title="key 하나 아래 여러 field-value를 저장하는 자료구조. 객체 일부 필드 갱신에 유용하다.">Hash</abbr> 하나에 계속 누적</td>
+<td>날짜별 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 분리</td>
 </tr>
 <tr>
 <td>매 요청마다 <code>HGETALL</code></td>
 <td>필요한 필드만 <code>HMGET</code></td>
 </tr>
 <tr>
-<td>field 수 제한 없음</td>
+<td><abbr title="Redis Hash 안에서 하나의 속성을 가리키는 이름.">field</abbr> 수 제한 없음</td>
 <td>cardinality 알림</td>
 </tr>
 </tbody>
 </table>
-<h2 id="list">List</h2>
+<h2 id="list"><abbr title="삽입 순서를 유지하는 목록 자료구조. 간단한 queue나 최근 N개 보관에 쓴다.">List</abbr></h2>
 <p>List는 양쪽 끝에서 넣고 빼는 자료구조입니다. 간단한 큐나 최근 N개 목록에 적합합니다.</p>
 <h3 id="_11">주요 명령</h3>
 <table>
@@ -7644,14 +7644,14 @@
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>LPUSH<span class="w"> </span>job:email<span class="w"> </span><span class="s2">&quot;message-1&quot;</span>
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>BRPOP<span class="w"> </span>job:email<span class="w"> </span><span class="m">5</span>
 </code></pre></div>
-<h3 id="list-vs-stream-vs-kafka">List vs Stream vs Kafka</h3>
+<h3 id="list-vs-stream-vs-kafka"><abbr title="삽입 순서를 유지하는 목록 자료구조. 간단한 queue나 최근 N개 보관에 쓴다.">List</abbr> vs <abbr title="Redis의 append-only 메시지 로그 자료구조. ID가 붙은 메시지를 저장하고 consumer group으로 나눠 읽을 수 있다.">Stream</abbr> vs <abbr title="partitioned commit log 기반 메시지 플랫폼. 긴 보관, 재처리, 대규모 이벤트 스트림에 강하다.">Kafka</abbr></h3>
 <table>
 <thead>
 <tr>
 <th>기준</th>
-<th>List</th>
-<th>Stream</th>
-<th>Kafka</th>
+<th><abbr title="삽입 순서를 유지하는 목록 자료구조. 간단한 queue나 최근 N개 보관에 쓴다.">List</abbr></th>
+<th><abbr title="Redis의 append-only 메시지 로그 자료구조. ID가 붙은 메시지를 저장하고 consumer group으로 나눠 읽을 수 있다.">Stream</abbr></th>
+<th><abbr title="partitioned commit log 기반 메시지 플랫폼. 긴 보관, 재처리, 대규모 이벤트 스트림에 강하다.">Kafka</abbr></th>
 </tr>
 </thead>
 <tbody>
@@ -7662,32 +7662,32 @@
 <td>높음</td>
 </tr>
 <tr>
-<td>ACK</td>
+<td><abbr title="Acknowledgement. 메시지를 정상 처리했음을 알리는 확인 응답.">ACK</abbr></td>
 <td>없음</td>
 <td>있음</td>
-<td>offset commit</td>
+<td><abbr title="consumer가 어디까지 처리했는지 저장하는 Kafka 처리 위치 기록.">offset commit</abbr></td>
 </tr>
 <tr>
 <td>재처리</td>
 <td>직접 구현</td>
-<td>PEL/claim 활용</td>
+<td><abbr title="Pending Entries List. Stream에서 consumer에게 전달됐지만 아직 ACK되지 않은 메시지 목록.">PEL</abbr>/<abbr title="오래 pending 된 메시지를 다른 consumer가 가져와 다시 처리하는 동작.">claim</abbr> 활용</td>
 <td>강함</td>
 </tr>
 <tr>
-<td>여러 consumer</td>
+<td>여러 <abbr title="Stream이나 메시지 큐에서 메시지를 읽고 처리하는 주체.">consumer</abbr></td>
 <td>직접 구현</td>
-<td>consumer group</td>
-<td>consumer group</td>
+<td><abbr title="Stream 메시지를 여러 consumer가 나누어 읽기 위한 그룹.">consumer group</abbr></td>
+<td><abbr title="Stream 메시지를 여러 consumer가 나누어 읽기 위한 그룹.">consumer group</abbr></td>
 </tr>
 <tr>
 <td>추천</td>
 <td>간단한 임시 큐</td>
-<td>Redis 내부 작업 큐</td>
+<td><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 내부 작업 큐</td>
 <td>서비스 간 핵심 이벤트</td>
 </tr>
 </tbody>
 </table>
-<h2 id="set">Set</h2>
+<h2 id="set"><abbr title="중복 없는 집합 자료구조. 포함 여부, 태그, 좋아요 사용자 목록에 적합하다.">Set</abbr></h2>
 <p>Set은 중복 없는 집합입니다. 좋아요 여부, 권한, 태그, 중복 제거에 적합합니다.</p>
 <h3 id="_13">주요 명령</h3>
 <table>
@@ -7738,13 +7738,13 @@
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>SCARD<span class="w"> </span>post:1:likes
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>SREM<span class="w"> </span>post:1:likes<span class="w"> </span>user-1
 </code></pre></div>
-<h3 id="set-vs-sorted-set">Set vs Sorted Set</h3>
+<h3 id="set-vs-sorted-set"><abbr title="중복 없는 집합 자료구조. 포함 여부, 태그, 좋아요 사용자 목록에 적합하다.">Set</abbr> vs <abbr title="member마다 score를 붙여 정렬하는 집합. 랭킹, 우선순위, 시간 정렬에 자주 쓴다.">Sorted Set</abbr></h3>
 <table>
 <thead>
 <tr>
 <th>기준</th>
-<th>Set</th>
-<th>Sorted Set</th>
+<th><abbr title="중복 없는 집합 자료구조. 포함 여부, 태그, 좋아요 사용자 목록에 적합하다.">Set</abbr></th>
+<th><abbr title="member마다 score를 붙여 정렬하는 집합. 랭킹, 우선순위, 시간 정렬에 자주 쓴다.">Sorted Set</abbr></th>
 </tr>
 </thead>
 <tbody>
@@ -7761,7 +7761,7 @@
 <tr>
 <td>순서</td>
 <td>없음</td>
-<td>score 기준 정렬</td>
+<td><abbr title="Sorted Set에서 member를 정렬하는 숫자 값.">score</abbr> 기준 정렬</td>
 </tr>
 <tr>
 <td>랭킹</td>
@@ -7779,8 +7779,8 @@
 <p><code>SMEMBERS</code>는 전체 원소를 반환합니다. 좋아요 사용자가 수백만 명이면 한 번에 가져오면 안 됩니다.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>SSCAN<span class="w"> </span>post:1:likes<span class="w"> </span><span class="m">0</span><span class="w"> </span>COUNT<span class="w"> </span><span class="m">100</span>
 </code></pre></div>
-<h2 id="sorted-set">Sorted Set</h2>
-<p>Sorted Set은 원소마다 score를 갖고, score 기준으로 정렬됩니다. 랭킹, 우선순위, 시간 정렬에 자주 씁니다.</p>
+<h2 id="sorted-set"><abbr title="member마다 score를 붙여 정렬하는 집합. 랭킹, 우선순위, 시간 정렬에 자주 쓴다.">Sorted Set</abbr></h2>
+<p>Sorted Set은 원소마다 score를 갖고, <abbr title="Sorted Set에서 member를 정렬하는 숫자 값.">score</abbr> 기준으로 정렬됩니다. 랭킹, 우선순위, 시간 정렬에 자주 씁니다.</p>
 <h3 id="_16">주요 명령</h3>
 <table>
 <thead>
@@ -7792,11 +7792,11 @@
 <tbody>
 <tr>
 <td><code>ZADD</code></td>
-<td>score와 member 추가</td>
+<td>score와 <abbr title="Set, Sorted Set, Geospatial 안에 들어가는 개별 원소.">member</abbr> 추가</td>
 </tr>
 <tr>
 <td><code>ZINCRBY</code></td>
-<td>score 증가</td>
+<td><abbr title="Sorted Set에서 member를 정렬하는 숫자 값.">score</abbr> 증가</td>
 </tr>
 <tr>
 <td><code>ZRANGE</code></td>
@@ -7808,19 +7808,19 @@
 </tr>
 <tr>
 <td><code>ZRANK</code></td>
-<td>낮은 score 기준 순위</td>
+<td>낮은 <abbr title="Sorted Set에서 member를 정렬하는 숫자 값.">score</abbr> 기준 순위</td>
 </tr>
 <tr>
 <td><code>ZREVRANK</code></td>
-<td>높은 score 기준 순위</td>
+<td>높은 <abbr title="Sorted Set에서 member를 정렬하는 숫자 값.">score</abbr> 기준 순위</td>
 </tr>
 <tr>
 <td><code>ZSCORE</code></td>
-<td>member score 조회</td>
+<td><abbr title="Set, Sorted Set, Geospatial 안에 들어가는 개별 원소.">member</abbr> <abbr title="Sorted Set에서 member를 정렬하는 숫자 값.">score</abbr> 조회</td>
 </tr>
 <tr>
 <td><code>ZREM</code></td>
-<td>member 제거</td>
+<td><abbr title="Set, Sorted Set, Geospatial 안에 들어가는 개별 원소.">member</abbr> 제거</td>
 </tr>
 <tr>
 <td><code>ZREMRANGEBYRANK</code></td>
@@ -7828,7 +7828,7 @@
 </tr>
 <tr>
 <td><code>ZREMRANGEBYSCORE</code></td>
-<td>score 범위 삭제</td>
+<td><abbr title="Sorted Set에서 member를 정렬하는 숫자 값.">score</abbr> 범위 삭제</td>
 </tr>
 </tbody>
 </table>
@@ -7839,7 +7839,7 @@
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>ZREVRANK<span class="w"> </span>rank:daily:20260427<span class="w"> </span>user-1
 </code></pre></div>
 <h3 id="_18">동점 처리</h3>
-<p>Sorted Set은 score가 같으면 member 문자열 기준 정렬이 섞일 수 있습니다. 동점 정책이 중요하면 score에 시간이나 보조 점수를 반영하거나, DB에서 최종 순위를 보정합니다.</p>
+<p>Sorted Set은 score가 같으면 <abbr title="Set, Sorted Set, Geospatial 안에 들어가는 개별 원소.">member</abbr> 문자열 기준 정렬이 섞일 수 있습니다. 동점 정책이 중요하면 score에 시간이나 보조 점수를 반영하거나, DB에서 최종 순위를 보정합니다.</p>
 <table>
 <thead>
 <tr>
@@ -7855,9 +7855,9 @@
 <td>동점 순서가 업무 기준과 다를 수 있음</td>
 </tr>
 <tr>
-<td>score + timestamp 조합</td>
+<td><abbr title="Sorted Set에서 member를 정렬하는 숫자 값.">score</abbr> + timestamp 조합</td>
 <td>먼저 달성한 사람 우선 등 표현</td>
-<td>score 설계가 복잡</td>
+<td><abbr title="Sorted Set에서 member를 정렬하는 숫자 값.">score</abbr> 설계가 복잡</td>
 </tr>
 <tr>
 <td>Redis는 후보만, DB에서 최종 정렬</td>
@@ -7866,13 +7866,13 @@
 </tr>
 </tbody>
 </table>
-<h3 id="key">기간별 key 설계</h3>
+<h3 id="key">기간별 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 설계</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>rank:daily:20260427
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>rank:weekly:2026-W18
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>rank:monthly:2026-04
 </code></pre></div>
-<p>기간별 key를 나누면 삭제, 집계, hot key 완화가 쉬워집니다.</p>
-<h2 id="bitmap">Bitmap</h2>
+<p>기간별 key를 나누면 삭제, 집계, <abbr title="특정 key에 요청이 과도하게 몰려 노드 CPU나 네트워크가 집중되는 상태.">hot key</abbr> 완화가 쉬워집니다.</p>
+<h2 id="bitmap"><abbr title="bit 단위로 boolean 값을 저장하는 방식. 출석 체크처럼 대량 true/false 저장에 효율적이다.">Bitmap</abbr></h2>
 <p>Bitmap은 String을 bit 배열처럼 쓰는 방식입니다. 출석, 방문 여부처럼 true/false 상태를 대량 저장할 때 좋습니다.</p>
 <h3 id="_19">주요 명령</h3>
 <table>
@@ -7908,7 +7908,7 @@
 </code></pre></div>
 <h3 id="_21">주의할 점</h3>
 <p>offset이 매우 크면 중간 공간까지 메모리를 사용할 수 있습니다. userId를 그대로 offset으로 쓰기 전에 ID 범위와 밀도를 확인합니다.</p>
-<h2 id="hyperloglog">HyperLogLog</h2>
+<h2 id="hyperloglog"><abbr title="고유 개수를 근사치로 추정하는 자료구조. 정확한 목록은 필요 없고 UV 같은 수치만 필요할 때 쓴다.">HyperLogLog</abbr></h2>
 <p>HyperLogLog는 고유 개수를 근사치로 계산합니다.</p>
 <h3 id="_22">주요 명령</h3>
 <table>
@@ -7929,7 +7929,7 @@
 </tr>
 <tr>
 <td><code>PFMERGE</code></td>
-<td>여러 HyperLogLog 병합</td>
+<td>여러 <abbr title="고유 개수를 근사치로 추정하는 자료구조. 정확한 목록은 필요 없고 UV 같은 수치만 필요할 때 쓴다.">HyperLogLog</abbr> 병합</td>
 </tr>
 </tbody>
 </table>
@@ -7940,8 +7940,8 @@
 <a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>PFMERGE<span class="w"> </span>uv:202604<span class="w"> </span>uv:20260401<span class="w"> </span>uv:20260402<span class="w"> </span>uv:20260403
 </code></pre></div>
 <p>정확한 사용자 목록이 필요하면 Set을 써야 합니다. HyperLogLog는 고유 수만 필요하고 약간의 오차를 허용할 때 적합합니다.</p>
-<h2 id="stream">Stream</h2>
-<p>Stream은 append-only log 자료구조입니다. Redis 안에서 이벤트를 쌓고 consumer group으로 처리할 수 있습니다.</p>
+<h2 id="stream"><abbr title="Redis의 append-only 메시지 로그 자료구조. ID가 붙은 메시지를 저장하고 consumer group으로 나눠 읽을 수 있다.">Stream</abbr></h2>
+<p>Stream은 <abbr title="새 항목을 뒤에 계속 추가하는 로그 구조. Redis Stream과 AOF 설명에 자주 등장한다.">append-only log</abbr> 자료구조입니다. <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 안에서 이벤트를 쌓고 <abbr title="Stream이나 메시지 큐에서 메시지를 읽고 처리하는 주체.">consumer</abbr> group으로 처리할 수 있습니다.</p>
 <h3 id="_24">주요 명령</h3>
 <table>
 <thead>
@@ -7965,7 +7965,7 @@
 </tr>
 <tr>
 <td><code>XGROUP CREATE</code></td>
-<td>consumer group 생성</td>
+<td><abbr title="Stream 메시지를 여러 consumer가 나누어 읽기 위한 그룹.">consumer group</abbr> 생성</td>
 </tr>
 <tr>
 <td><code>XREADGROUP</code></td>
@@ -7977,11 +7977,11 @@
 </tr>
 <tr>
 <td><code>XPENDING</code></td>
-<td>pending 메시지 확인</td>
+<td><abbr title="처리 완료 확인이 아직 끝나지 않은 대기 상태.">pending</abbr> 메시지 확인</td>
 </tr>
 <tr>
 <td><code>XAUTOCLAIM</code></td>
-<td>오래 pending 된 메시지 인계</td>
+<td>오래 <abbr title="처리 완료 확인이 아직 끝나지 않은 대기 상태.">pending</abbr> 된 메시지 인계</td>
 </tr>
 <tr>
 <td><code>XTRIM</code></td>
@@ -7989,22 +7989,22 @@
 </tr>
 </tbody>
 </table>
-<h3 id="consumer-group">Consumer Group 예시</h3>
+<h3 id="consumer-group"><abbr title="Stream 메시지를 여러 consumer가 나누어 읽기 위한 그룹.">Consumer Group</abbr> 예시</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>XADD<span class="w"> </span>order-events<span class="w"> </span>*<span class="w"> </span><span class="nb">type</span><span class="w"> </span>ORDER_CREATED<span class="w"> </span>orderId<span class="w"> </span><span class="m">1001</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>XGROUP<span class="w"> </span>CREATE<span class="w"> </span>order-events<span class="w"> </span>order-service<span class="w"> </span>$<span class="w"> </span>MKSTREAM
 <a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>XREADGROUP<span class="w"> </span>GROUP<span class="w"> </span>order-service<span class="w"> </span>consumer-1<span class="w"> </span>COUNT<span class="w"> </span><span class="m">10</span><span class="w"> </span>STREAMS<span class="w"> </span>order-events<span class="w"> </span>&gt;
 <a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>XACK<span class="w"> </span>order-events<span class="w"> </span>order-service<span class="w"> </span><span class="m">1740000000000</span>-0
 <a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>XPENDING<span class="w"> </span>order-events<span class="w"> </span>order-service
 </code></pre></div>
-<h3 id="dlq">재처리와 DLQ</h3>
+<h3 id="dlq">재처리와 <abbr title="Dead Letter Queue. 반복 실패한 메시지를 격리해 전체 처리를 막지 않게 하는 큐.">DLQ</abbr></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>1. consumer가 XREADGROUP으로 메시지 읽음
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>2. 처리 성공 시 XACK
 <a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>3. 처리 실패 시 재시도
 <a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>4. 계속 실패하면 DLQ stream에 원본과 에러 저장
 <a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>5. 원본 메시지는 ACK해서 전체 소비가 멈추지 않게 함
 </code></pre></div>
-<p>Stream은 Redis 내부의 가벼운 이벤트 처리에 좋습니다. 서비스 간 핵심 이벤트, 긴 보관, 대규모 재처리가 필요하면 Kafka를 우선 비교합니다.</p>
-<h2 id="geospatial-index">Geospatial Index</h2>
+<p>Stream은 <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 내부의 가벼운 이벤트 처리에 좋습니다. 서비스 간 핵심 이벤트, 긴 보관, 대규모 재처리가 필요하면 Kafka를 우선 비교합니다.</p>
+<h2 id="geospatial-index"><abbr title="좌표 기반 검색을 위한 Redis 기능. 주변 매장 찾기 같은 반경 검색에 쓴다.">Geospatial Index</abbr></h2>
 <p>Geospatial은 좌표 기반 검색을 지원합니다.</p>
 <h3 id="_25">주요 명령</h3>
 <table>
@@ -8021,7 +8021,7 @@
 </tr>
 <tr>
 <td><code>GEODIST</code></td>
-<td>두 member 거리</td>
+<td>두 <abbr title="Set, Sorted Set, Geospatial 안에 들어가는 개별 원소.">member</abbr> 거리</td>
 </tr>
 <tr>
 <td><code>GEOSEARCH</code></td>
@@ -8033,7 +8033,7 @@
 </tr>
 <tr>
 <td><code>ZREM</code></td>
-<td>위치 member 삭제</td>
+<td>위치 <abbr title="Set, Sorted Set, Geospatial 안에 들어가는 개별 원소.">member</abbr> 삭제</td>
 </tr>
 </tbody>
 </table>
@@ -8045,26 +8045,26 @@
 </code></pre></div>
 <p>반경이 너무 크거나 결과 수 제한이 없으면 응답이 커질 수 있습니다. 복잡한 조건 검색, 정교한 공간 검색이 필요하면 검색 엔진을 검토합니다.</p>
 <h2 id="javaspring">Java/Spring 사용 예시</h2>
-<h3 id="stringredistemplate">StringRedisTemplate</h3>
+<h3 id="stringredistemplate"><abbr title="key와 value를 문자열 중심으로 다루는 RedisTemplate 특화 버전.">StringRedisTemplate</abbr></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">stringRedisTemplate</span><span class="p">.</span><span class="na">opsForValue</span><span class="p">()</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">&quot;auth:email:user-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;123456&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Duration</span><span class="p">.</span><span class="na">ofMinutes</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
 <a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
 <a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="n">String</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stringRedisTemplate</span><span class="p">.</span><span class="na">opsForValue</span><span class="p">()</span>
 <a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;auth:email:user-1&quot;</span><span class="p">);</span>
 </code></pre></div>
-<h3 id="hash_1">Hash</h3>
+<h3 id="hash_1"><abbr title="key 하나 아래 여러 field-value를 저장하는 자료구조. 객체 일부 필드 갱신에 유용하다.">Hash</abbr></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">HashOperations</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">redisTemplate</span><span class="p">.</span><span class="na">opsForHash</span><span class="p">();</span>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">hash</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;user:1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;grade&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;gold&quot;</span><span class="p">);</span>
 <a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">Object</span><span class="w"> </span><span class="n">grade</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;user:1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;grade&quot;</span><span class="p">);</span>
 </code></pre></div>
-<h3 id="sorted-set_1">Sorted Set</h3>
+<h3 id="sorted-set_1"><abbr title="member마다 score를 붙여 정렬하는 집합. 랭킹, 우선순위, 시간 정렬에 자주 쓴다.">Sorted Set</abbr></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">redisTemplate</span><span class="p">.</span><span class="na">opsForZSet</span><span class="p">()</span>
 <a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">    </span><span class="p">.</span><span class="na">incrementScore</span><span class="p">(</span><span class="s">&quot;rank:daily:20260427&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;user-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">120</span><span class="p">);</span>
 <a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
 <a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="n">Set</span><span class="o">&lt;</span><span class="n">ZSetOperations</span><span class="p">.</span><span class="na">TypedTuple</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">top10</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">redisTemplate</span><span class="p">.</span><span class="na">opsForZSet</span><span class="p">()</span>
 <a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">    </span><span class="p">.</span><span class="na">reverseRangeWithScores</span><span class="p">(</span><span class="s">&quot;rank:daily:20260427&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">);</span>
 </code></pre></div>
-<h3 id="set_1">Set</h3>
+<h3 id="set_1"><abbr title="중복 없는 집합 자료구조. 포함 여부, 태그, 좋아요 사용자 목록에 적합하다.">Set</abbr></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">redisTemplate</span><span class="p">.</span><span class="na">opsForSet</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;post:1:likes&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;user-1&quot;</span><span class="p">);</span>
 <a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">Boolean</span><span class="w"> </span><span class="n">liked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">redisTemplate</span><span class="p">.</span><span class="na">opsForSet</span><span class="p">().</span><span class="na">isMember</span><span class="p">(</span><span class="s">&quot;post:1:likes&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;user-1&quot;</span><span class="p">);</span>
 </code></pre></div>
@@ -8078,7 +8078,7 @@
 </thead>
 <tbody>
 <tr>
-<td>Cardinality</td>
+<td><abbr title="한 key나 집합 안에 들어 있는 원소 수. 너무 커지면 big key 위험이 있다.">Cardinality</abbr></td>
 <td>한 key에 최대 몇 개까지 들어가는가</td>
 </tr>
 <tr>
@@ -8086,20 +8086,20 @@
 <td><code>HGETALL</code>, <code>SMEMBERS</code>, <code>LRANGE 0 -1</code>을 운영 API에서 쓰는가</td>
 </tr>
 <tr>
-<td>TTL</td>
+<td><abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr></td>
 <td>key가 자동으로 정리되는가</td>
 </tr>
 <tr>
-<td>Hot Key</td>
-<td>인기 key 하나에 요청이 몰리는가</td>
+<td><abbr title="특정 key에 요청이 과도하게 몰려 노드 CPU나 네트워크가 집중되는 상태.">Hot Key</abbr></td>
+<td>인기 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 하나에 요청이 몰리는가</td>
 </tr>
 <tr>
-<td>Big Key</td>
-<td>value 크기나 원소 수 알림이 있는가</td>
+<td><abbr title="value 크기나 컬렉션 원소 수가 너무 큰 key. 조회, 삭제, 복제, failover 지연을 만든다.">Big Key</abbr></td>
+<td><abbr title="key에 저장된 실제 데이터. 문자열, 해시, 집합, 스트림 같은 Redis 자료구조가 될 수 있다.">value</abbr> 크기나 원소 수 알림이 있는가</td>
 </tr>
 <tr>
 <td>분할 기준</td>
-<td>날짜, 사용자, 도메인별 key 분리가 필요한가</td>
+<td>날짜, 사용자, 도메인별 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 분리가 필요한가</td>
 </tr>
 </tbody>
 </table>
@@ -8118,23 +8118,23 @@
 </tr>
 <tr>
 <td>큰 컬렉션은 기간별·샤딩 key로 분리</td>
-<td>big key 완화</td>
+<td><abbr title="value 크기나 컬렉션 원소 수가 너무 큰 key. 조회, 삭제, 복제, failover 지연을 만든다.">big key</abbr> 완화</td>
 </tr>
 <tr>
 <td>운영 API에서 전체 조회 명령 제한</td>
 <td>지연 방지</td>
 </tr>
 <tr>
-<td>Stream/List는 길이 제한</td>
+<td><abbr title="Redis의 append-only 메시지 로그 자료구조. ID가 붙은 메시지를 저장하고 consumer group으로 나눠 읽을 수 있다.">Stream</abbr>/List는 길이 제한</td>
 <td>무한 증가 방지</td>
 </tr>
 <tr>
-<td>랭킹은 기간별 key 사용</td>
+<td>랭킹은 기간별 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 사용</td>
 <td>삭제와 집계가 쉬움</td>
 </tr>
 <tr>
 <td>정확도 요구를 먼저 확인</td>
-<td>Set vs HyperLogLog 선택 기준</td>
+<td><abbr title="중복 없는 집합 자료구조. 포함 여부, 태그, 좋아요 사용자 목록에 적합하다.">Set</abbr> vs <abbr title="고유 개수를 근사치로 추정하는 자료구조. 정확한 목록은 필요 없고 UV 같은 수치만 필요할 때 쓴다.">HyperLogLog</abbr> 선택 기준</td>
 </tr>
 </tbody>
 </table>
@@ -8150,47 +8150,47 @@
 <tbody>
 <tr>
 <td>상품 상세 캐시</td>
-<td>String JSON</td>
+<td><abbr title="Redis의 가장 기본 자료구조. 단일 값, JSON 문자열, 카운터, 토큰 저장에 많이 쓴다.">String</abbr> JSON</td>
 <td>통째 조회</td>
 </tr>
 <tr>
 <td>사용자 포인트 일부 갱신</td>
-<td>Hash</td>
+<td><abbr title="key 하나 아래 여러 field-value를 저장하는 자료구조. 객체 일부 필드 갱신에 유용하다.">Hash</abbr></td>
 <td>필드 단위 증가</td>
 </tr>
 <tr>
 <td>게시글 좋아요 여부</td>
-<td>Set</td>
+<td><abbr title="중복 없는 집합 자료구조. 포함 여부, 태그, 좋아요 사용자 목록에 적합하다.">Set</abbr></td>
 <td>중복 없는 포함 여부</td>
 </tr>
 <tr>
 <td>일간 랭킹</td>
-<td>Sorted Set</td>
-<td>score 정렬</td>
+<td><abbr title="member마다 score를 붙여 정렬하는 집합. 랭킹, 우선순위, 시간 정렬에 자주 쓴다.">Sorted Set</abbr></td>
+<td><abbr title="Sorted Set에서 member를 정렬하는 숫자 값.">score</abbr> 정렬</td>
 </tr>
 <tr>
 <td>최근 본 상품 50개</td>
-<td>List</td>
+<td><abbr title="삽입 순서를 유지하는 목록 자료구조. 간단한 queue나 최근 N개 보관에 쓴다.">List</abbr></td>
 <td>순서 유지 + <code>LTRIM</code></td>
 </tr>
 <tr>
 <td>출석 체크</td>
-<td>Bitmap</td>
+<td><abbr title="bit 단위로 boolean 값을 저장하는 방식. 출석 체크처럼 대량 true/false 저장에 효율적이다.">Bitmap</abbr></td>
 <td>boolean 대량 저장</td>
 </tr>
 <tr>
-<td>일간 UV</td>
-<td>HyperLogLog</td>
+<td>일간 <abbr title="Unique Visitor. 중복을 제거한 방문자 수.">UV</abbr></td>
+<td><abbr title="고유 개수를 근사치로 추정하는 자료구조. 정확한 목록은 필요 없고 UV 같은 수치만 필요할 때 쓴다.">HyperLogLog</abbr></td>
 <td>고유 수 추정</td>
 </tr>
 <tr>
 <td>비동기 작업 처리</td>
-<td>Stream</td>
-<td>consumer group과 ACK</td>
+<td><abbr title="Redis의 append-only 메시지 로그 자료구조. ID가 붙은 메시지를 저장하고 consumer group으로 나눠 읽을 수 있다.">Stream</abbr></td>
+<td><abbr title="Stream이나 메시지 큐에서 메시지를 읽고 처리하는 주체.">consumer</abbr> group과 <abbr title="Acknowledgement. 메시지를 정상 처리했음을 알리는 확인 응답.">ACK</abbr></td>
 </tr>
 <tr>
 <td>주변 매장 검색</td>
-<td>Geospatial</td>
+<td><abbr title="위치 좌표를 저장하고 거리 기반 검색을 하는 Redis 기능.">Geospatial</abbr></td>
 <td>좌표 반경 검색</td>
 </tr>
 </tbody>
@@ -8199,7 +8199,22 @@
 <p><strong>관련 파일:</strong>
 - <a href="../%EA%B8%B0%EB%B3%B8%EC%82%AC%EC%9A%A9/">기본 사용과 자료구조</a>
 - <a href="../%EC%84%B1%EB%8A%A5%EC%B5%9C%EC%A0%81%ED%99%94/">성능 최적화</a>
-- <a href="../%EB%A9%94%EC%8B%9C%EC%A7%95/">Pub/Sub과 Stream</a></p>
+- <a href="../%EB%A9%94%EC%8B%9C%EC%A7%95/">Pub/Sub과 <abbr title="Redis의 append-only 메시지 로그 자료구조. ID가 붙은 메시지를 저장하고 consumer group으로 나눠 읽을 수 있다.">Stream</abbr></a></p>
+<!-- Redis 전용 용어집: Redis 문서에서만 include해서 툴팁으로 사용합니다. -->
+
+<!-- ===== Redis 기본 ===== -->
+<!-- ===== 캐시 ===== -->
+<!-- ===== Redis 자료구조 ===== -->
+<!-- ===== 데이터 관리와 영속성 ===== -->
+<!-- ===== 운영 구조 ===== -->
+<!-- ===== 성능과 장애 ===== -->
+<!-- ===== 동시성과 락 ===== -->
+<!-- ===== 메시징 ===== -->
+<!-- ===== Spring Boot 연동 ===== -->
+<!-- ===== 모니터링과 보안 ===== -->
+<!-- ===== Redis Stack ===== -->
+<!-- ===== 비교와 선택 ===== -->
+<!-- ===== 실무 유즈케이스 ===== -->
 <!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
 
 <!-- ===== DB / SQL ===== -->
@@ -8228,7 +8243,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 27일 14:04:37 UTC">2026년 4월 27일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 28일 10:41:10 UTC">2026년 4월 28일</span>
   </span>
 
     

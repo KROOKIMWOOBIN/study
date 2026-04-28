@@ -6265,9 +6265,9 @@
   
 
 
-<h1 id="redis">Redis 베스트 프랙티스</h1>
-<p>Redis 베스트 프랙티스는 <strong>캐시를 빠르게 쓰는 방법</strong>만이 아니라, 장애가 나도 서비스가 무너지지 않게 만드는 운영 기준입니다.</p>
-<h2 id="key">Key 설계</h2>
+<h1 id="redis"><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 베스트 프랙티스</h1>
+<p><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 베스트 프랙티스는 <strong>캐시를 빠르게 쓰는 방법</strong>만이 아니라, 장애가 나도 서비스가 무너지지 않게 만드는 운영 기준입니다.</p>
+<h2 id="key"><abbr title="key 이름, 식별자, TTL, 삭제 범위, cluster slot을 고려해 key 규칙을 정하는 작업.">Key 설계</abbr></h2>
 <table>
 <thead>
 <tr>
@@ -6281,20 +6281,20 @@
 <td>의미와 삭제 범위가 명확함</td>
 </tr>
 <tr>
-<td>key prefix를 표준화</td>
+<td><abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> prefix를 표준화</td>
 <td>모니터링과 장애 분석이 쉬움</td>
 </tr>
 <tr>
-<td>Cluster 다중 key는 hash tag 사용</td>
+<td><abbr title="hash slot을 기준으로 데이터를 여러 master에 나누어 저장하는 Redis 확장 구조.">Cluster</abbr> 다중 key는 <abbr title="`{}` 안 문자열만 hash해 여러 key를 같은 slot에 배치하는 방법.">hash tag</abbr> 사용</td>
 <td><code>CROSSSLOT</code> 방지</td>
 </tr>
 <tr>
-<td>key version 고려</td>
+<td><abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> version 고려</td>
 <td>payload 구조 변경 시 충돌 방지</td>
 </tr>
 </tbody>
 </table>
-<h2 id="ttl">TTL 설계</h2>
+<h2 id="ttl"><abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr> 설계</h2>
 <table>
 <thead>
 <tr>
@@ -6304,20 +6304,20 @@
 </thead>
 <tbody>
 <tr>
-<td>캐시 key에는 TTL 기본 적용</td>
+<td>캐시 key에는 <abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr> 기본 적용</td>
 <td>무한 증가 방지</td>
 </tr>
 <tr>
-<td>TTL jitter 적용</td>
+<td><abbr title="TTL에 작은 랜덤 값을 섞어 많은 key가 동시에 만료되지 않게 하는 방법.">TTL jitter</abbr> 적용</td>
 <td>동시 만료 방지</td>
 </tr>
 <tr>
-<td>null cache는 짧은 TTL</td>
+<td>null cache는 짧은 <abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr></td>
 <td>penetration 방지와 메모리 절충</td>
 </tr>
 <tr>
-<td>TTL 없는 key는 목록화</td>
-<td>의도치 않은 영구 key 방지</td>
+<td><abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr> 없는 key는 목록화</td>
+<td>의도치 않은 영구 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 방지</td>
 </tr>
 </tbody>
 </table>
@@ -6331,16 +6331,16 @@
 </thead>
 <tbody>
 <tr>
-<td>Cache Aside를 기본으로 시작</td>
+<td><abbr title="반복 조회를 빠르게 처리하기 위한 임시 저장소. 원본 DB 부하를 줄이는 데 사용한다.">Cache</abbr> Aside를 기본으로 시작</td>
 <td>단순하고 fallback이 쉬움</td>
 </tr>
 <tr>
-<td>DB update 후 cache delete</td>
+<td>DB update 후 <abbr title="반복 조회를 빠르게 처리하기 위한 임시 저장소. 원본 DB 부하를 줄이는 데 사용한다.">cache</abbr> delete</td>
 <td>stale data를 줄이는 안전한 기본값</td>
 </tr>
 <tr>
-<td>Cache Warming은 핵심 데이터만</td>
-<td>과도한 warming으로 DB·Redis 부하 방지</td>
+<td><abbr title="반복 조회를 빠르게 처리하기 위한 임시 저장소. 원본 DB 부하를 줄이는 데 사용한다.">Cache</abbr> Warming은 핵심 데이터만</td>
+<td>과도한 warming으로 DB·<abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 부하 방지</td>
 </tr>
 <tr>
 <td>Hit Ratio를 API별로 관찰</td>
@@ -6362,7 +6362,7 @@
 <td>원자적 락 획득</td>
 </tr>
 <tr>
-<td>value에 owner token 저장</td>
+<td>value에 <abbr title="락을 잡은 요청을 식별하는 고유 값. unlock 시 다른 요청의 락을 지우지 않게 확인한다.">owner token</abbr> 저장</td>
 <td>내 락인지 확인</td>
 </tr>
 <tr>
@@ -6371,15 +6371,15 @@
 </tr>
 <tr>
 <td>DB unique와 함께 사용</td>
-<td>Redis 장애·중복 실행 대비</td>
+<td><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 장애·중복 실행 대비</td>
 </tr>
 <tr>
-<td>작업 시간보다 TTL 여유</td>
+<td>작업 시간보다 <abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr> 여유</td>
 <td>작업 중 락 만료 방지</td>
 </tr>
 </tbody>
 </table>
-<h2 id="stream">Stream</h2>
+<h2 id="stream"><abbr title="Redis의 append-only 메시지 로그 자료구조. ID가 붙은 메시지를 저장하고 consumer group으로 나눠 읽을 수 있다.">Stream</abbr></h2>
 <table>
 <thead>
 <tr>
@@ -6397,15 +6397,15 @@
 <td>처리 전 ACK로 인한 유실 방지</td>
 </tr>
 <tr>
-<td>PEL 모니터링</td>
-<td>죽은 consumer 메시지 확인</td>
+<td><abbr title="Pending Entries List. Stream에서 consumer에게 전달됐지만 아직 ACK되지 않은 메시지 목록.">PEL</abbr> 모니터링</td>
+<td>죽은 <abbr title="Stream이나 메시지 큐에서 메시지를 읽고 처리하는 주체.">consumer</abbr> 메시지 확인</td>
 </tr>
 <tr>
-<td>DLQ stream 준비</td>
+<td><abbr title="Dead Letter Queue. 반복 실패한 메시지를 격리해 전체 처리를 막지 않게 하는 큐.">DLQ</abbr> stream 준비</td>
 <td>poison message 격리</td>
 </tr>
 <tr>
-<td>trim 정책 설정</td>
+<td><abbr title="Stream이나 List 길이를 제한하기 위해 오래된 항목을 잘라내는 작업.">trim</abbr> 정책 설정</td>
 <td>stream 무한 증가 방지</td>
 </tr>
 </tbody>
@@ -6420,23 +6420,23 @@
 </thead>
 <tbody>
 <tr>
-<td>serializer 명시</td>
+<td><abbr title="Java 객체와 Redis에 저장할 byte/string 데이터를 서로 변환하는 구성 요소.">serializer</abbr> 명시</td>
 <td>운영 중 데이터 호환성 관리</td>
 </tr>
 <tr>
-<td>command timeout 설정</td>
-<td>Redis 장애 전파 방지</td>
+<td>command <abbr title="작업이 정해진 제한 시간 안에 끝나지 않아 실패로 처리되는 상황.">timeout</abbr> 설정</td>
+<td><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 장애 전파 방지</td>
 </tr>
 <tr>
-<td>fallback 정책 정의</td>
-<td>조회 캐시 장애 대응</td>
+<td><abbr title="주 경로가 실패했을 때 사용할 대체 처리. 캐시 장애 시 DB 직접 조회가 대표적이다.">fallback</abbr> 정책 정의</td>
+<td><abbr title="DB 조회 결과를 Redis에 저장해 반복 조회를 빠르게 하는 캐시.">조회 캐시</abbr> 장애 대응</td>
 </tr>
 <tr>
-<td>Testcontainers 사용</td>
-<td>실제 Redis 명령 검증</td>
+<td><abbr title="테스트 중 Docker container로 Redis 같은 외부 의존성을 띄우는 Java 테스트 라이브러리.">Testcontainers</abbr> 사용</td>
+<td>실제 <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 명령 검증</td>
 </tr>
 <tr>
-<td>RedisTemplate과 Spring Cache 역할 분리</td>
+<td>RedisTemplate과 <abbr title="`@Cacheable`, `@CacheEvict` 같은 annotation 기반 캐시 추상화.">Spring Cache</abbr> 역할 분리</td>
 <td>추상화 혼동 방지</td>
 </tr>
 </tbody>
@@ -6451,7 +6451,7 @@
 </thead>
 <tbody>
 <tr>
-<td><code>maxmemory</code>와 eviction 정책 명시</td>
+<td><code>maxmemory</code>와 <abbr title="Redis 메모리가 부족할 때 maxmemory-policy에 따라 key를 제거하는 동작.">eviction</abbr> 정책 명시</td>
 <td>메모리 장애 동작 예측</td>
 </tr>
 <tr>
@@ -6459,15 +6459,15 @@
 <td>event loop blocking 방지</td>
 </tr>
 <tr>
-<td>big key/hot key 점검</td>
+<td><abbr title="value 크기나 컬렉션 원소 수가 너무 큰 key. 조회, 삭제, 복제, failover 지연을 만든다.">big key</abbr>/<abbr title="특정 key에 요청이 과도하게 몰려 노드 CPU나 네트워크가 집중되는 상태.">hot key</abbr> 점검</td>
 <td>대표 장애 예방</td>
 </tr>
 <tr>
-<td>slowlog와 latency 알림</td>
+<td>slowlog와 <abbr title="요청 처리 지연 시간. Redis에서는 명령 실행, 네트워크, fork, swap 등이 영향을 준다.">latency</abbr> 알림</td>
 <td>장애 전조 감지</td>
 </tr>
 <tr>
-<td>failover 훈련</td>
+<td><abbr title="장애 난 master 대신 replica를 새 master로 승격해 서비스를 이어가는 절차.">failover</abbr> 훈련</td>
 <td>실제 복구 가능성 확인</td>
 </tr>
 </tbody>
@@ -6486,7 +6486,7 @@
 <td>외부 노출 방지</td>
 </tr>
 <tr>
-<td>AUTH/ACL 적용</td>
+<td><abbr title="Redis 접속 시 비밀번호나 사용자 인증을 수행하는 명령/기능.">AUTH</abbr>/<abbr title="Access Control List. 사용자별 명령, key 접근 범위를 제한하는 Redis 보안 기능.">ACL</abbr> 적용</td>
 <td>접근 제어</td>
 </tr>
 <tr>
@@ -6498,7 +6498,7 @@
 <td>운영 사고 예방</td>
 </tr>
 <tr>
-<td>TLS 검토</td>
+<td><abbr title="네트워크 통신을 암호화하는 프로토콜. Redis 외부 통신 보호에 사용한다.">TLS</abbr> 검토</td>
 <td>네트워크 암호화</td>
 </tr>
 </tbody>
@@ -6513,12 +6513,12 @@
 </thead>
 <tbody>
 <tr>
-<td>Runbook 작성</td>
+<td><abbr title="장애 상황에서 확인 순서와 대응 방법을 적어둔 운영 절차 문서.">Runbook</abbr> 작성</td>
 <td>장애 시 판단 시간 단축</td>
 </tr>
 <tr>
-<td>fallback과 circuit breaker</td>
-<td>Redis 장애 격리</td>
+<td>fallback과 <abbr title="장애 중인 외부 호출을 잠시 차단해 장애 전파를 막는 패턴.">circuit breaker</abbr></td>
+<td><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 장애 격리</td>
 </tr>
 <tr>
 <td>backup/restore 훈련</td>
@@ -6526,7 +6526,7 @@
 </tr>
 <tr>
 <td>DB 기준 복구 경로 확보</td>
-<td>Redis 유실 대응</td>
+<td><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 유실 대응</td>
 </tr>
 <tr>
 <td>장애 후 보정 쿼리 준비</td>
@@ -6534,7 +6534,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="redis_1">Redis 안티패턴</h2>
+<h2 id="redis_1"><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 안티패턴</h2>
 <table>
 <thead>
 <tr>
@@ -6544,11 +6544,11 @@
 </thead>
 <tbody>
 <tr>
-<td>Redis를 원장 DB처럼 사용</td>
+<td>Redis를 <abbr title="돈, 재고, 포인트처럼 감사와 정합성이 중요한 기준 기록. 보통 Redis 단독 저장을 피한다.">원장</abbr> DB처럼 사용</td>
 <td>유실·정합성·감사 문제</td>
 </tr>
 <tr>
-<td>TTL 없는 캐시 key 방치</td>
+<td><abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr> 없는 캐시 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 방치</td>
 <td>메모리 증가</td>
 </tr>
 <tr>
@@ -6556,19 +6556,19 @@
 <td>전체 지연</td>
 </tr>
 <tr>
-<td>큰 Hash/Set 하나에 무한 저장</td>
-<td>big key</td>
+<td>큰 <abbr title="key 하나 아래 여러 field-value를 저장하는 자료구조. 객체 일부 필드 갱신에 유용하다.">Hash</abbr>/<abbr title="중복 없는 집합 자료구조. 포함 여부, 태그, 좋아요 사용자 목록에 적합하다.">Set</abbr> 하나에 무한 저장</td>
+<td><abbr title="value 크기나 컬렉션 원소 수가 너무 큰 key. 조회, 삭제, 복제, failover 지연을 만든다.">big key</abbr></td>
 </tr>
 <tr>
-<td>인기 key 하나에 모든 요청 집중</td>
-<td>hot key</td>
+<td>인기 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 하나에 모든 요청 집중</td>
+<td><abbr title="특정 key에 요청이 과도하게 몰려 노드 CPU나 네트워크가 집중되는 상태.">hot key</abbr></td>
 </tr>
 <tr>
-<td>락만 믿고 멱등성 없음</td>
+<td>락만 믿고 <abbr title="같은 요청이 여러 번 실행되어도 결과가 한 번 실행한 것과 같게 유지되는 성질.">멱등성</abbr> 없음</td>
 <td>중복 실행 위험</td>
 </tr>
 <tr>
-<td>serializer 변경 계획 없음</td>
+<td><abbr title="Java 객체와 Redis에 저장할 byte/string 데이터를 서로 변환하는 구성 요소.">serializer</abbr> 변경 계획 없음</td>
 <td>기존 데이터 역직렬화 실패</td>
 </tr>
 </tbody>
@@ -6591,11 +6591,11 @@
 <td>Redis가 비어도 복구 가능한가</td>
 </tr>
 <tr>
-<td>TTL</td>
+<td><abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr></td>
 <td>만료 정책이 명확한가</td>
 </tr>
 <tr>
-<td>Key</td>
+<td><abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">Key</abbr></td>
 <td>prefix와 삭제 범위가 명확한가</td>
 </tr>
 <tr>
@@ -6604,7 +6604,7 @@
 </tr>
 <tr>
 <td>성능</td>
-<td>big key, hot key, O(N) 명령을 피했는가</td>
+<td><abbr title="value 크기나 컬렉션 원소 수가 너무 큰 key. 조회, 삭제, 복제, failover 지연을 만든다.">big key</abbr>, <abbr title="특정 key에 요청이 과도하게 몰려 노드 CPU나 네트워크가 집중되는 상태.">hot key</abbr>, O(N) 명령을 피했는가</td>
 </tr>
 <tr>
 <td>장애</td>
@@ -6612,11 +6612,11 @@
 </tr>
 <tr>
 <td>보안</td>
-<td>외부 노출, AUTH/ACL, 위험 명령을 점검했는가</td>
+<td>외부 노출, <abbr title="Redis 접속 시 비밀번호나 사용자 인증을 수행하는 명령/기능.">AUTH</abbr>/<abbr title="Access Control List. 사용자별 명령, key 접근 범위를 제한하는 Redis 보안 기능.">ACL</abbr>, 위험 명령을 점검했는가</td>
 </tr>
 <tr>
 <td>관찰</td>
-<td>hit ratio, latency, memory, evictions 알림이 있는가</td>
+<td><abbr title="전체 캐시 조회 중 hit 비율. 캐시가 실제로 DB 부하를 줄이는지 보는 핵심 지표다.">hit ratio</abbr>, <abbr title="요청 처리 지연 시간. Redis에서는 명령 실행, 네트워크, fork, swap 등이 영향을 준다.">latency</abbr>, memory, evictions 알림이 있는가</td>
 </tr>
 <tr>
 <td>검증</td>
@@ -6626,9 +6626,24 @@
 </table>
 <hr />
 <p><strong>관련 파일:</strong>
-- <a href="../">Redis 개요</a>
+- <a href="../"><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 개요</a>
 - <a href="../%EC%9E%A5%EC%95%A0%EB%8C%80%EC%9D%91/">장애 대응과 트러블슈팅</a>
 - <a href="../%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%EB%B3%B4%EC%95%88/">모니터링과 보안</a></p>
+<!-- Redis 전용 용어집: Redis 문서에서만 include해서 툴팁으로 사용합니다. -->
+
+<!-- ===== Redis 기본 ===== -->
+<!-- ===== 캐시 ===== -->
+<!-- ===== Redis 자료구조 ===== -->
+<!-- ===== 데이터 관리와 영속성 ===== -->
+<!-- ===== 운영 구조 ===== -->
+<!-- ===== 성능과 장애 ===== -->
+<!-- ===== 동시성과 락 ===== -->
+<!-- ===== 메시징 ===== -->
+<!-- ===== Spring Boot 연동 ===== -->
+<!-- ===== 모니터링과 보안 ===== -->
+<!-- ===== Redis Stack ===== -->
+<!-- ===== 비교와 선택 ===== -->
+<!-- ===== 실무 유즈케이스 ===== -->
 <!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
 
 <!-- ===== DB / SQL ===== -->
@@ -6657,7 +6672,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 27일 13:44:13 UTC">2026년 4월 27일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 28일 10:41:10 UTC">2026년 4월 28일</span>
   </span>
 
     

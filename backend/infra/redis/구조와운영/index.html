@@ -6365,8 +6365,8 @@
   
 
 
-<h1 id="redis">Redis 운영 구조와 고가용성</h1>
-<p>Redis 운영 구조는 <strong>단일 노드로 충분한지, 장애 시 자동 전환이 필요한지, 데이터를 여러 노드로 나누어야 하는지</strong>에 따라 달라집니다.</p>
+<h1 id="redis"><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 운영 구조와 고가용성</h1>
+<p><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 운영 구조는 <strong>단일 노드로 충분한지, 장애 시 자동 전환이 필요한지, 데이터를 여러 노드로 나누어야 하는지</strong>에 따라 달라집니다.</p>
 <h2 id="_1">용어</h2>
 <table>
 <thead>
@@ -6377,56 +6377,56 @@
 </thead>
 <tbody>
 <tr>
-<td>Standalone</td>
-<td>Redis 단일 인스턴스</td>
+<td><abbr title="Redis를 단일 인스턴스로 운영하는 구조. 단순하지만 고가용성은 약하다.">Standalone</abbr></td>
+<td><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 단일 인스턴스</td>
 </tr>
 <tr>
-<td>Replication</td>
-<td>master 데이터를 replica로 복제</td>
+<td><abbr title="master 데이터를 replica로 복제하는 구조. Redis 복제는 기본적으로 비동기다.">Replication</abbr></td>
+<td><abbr title="쓰기를 받는 주 Redis 노드.">master</abbr> 데이터를 replica로 복제</td>
 </tr>
 <tr>
-<td>Master-Replica</td>
-<td>쓰기는 master, 복제는 replica가 담당하는 구조</td>
+<td><abbr title="쓰기는 master가 받고 replica가 복제본을 유지하는 구조.">Master-Replica</abbr></td>
+<td>쓰기는 <abbr title="쓰기를 받는 주 Redis 노드.">master</abbr>, 복제는 replica가 담당하는 구조</td>
 </tr>
 <tr>
-<td>Sentinel</td>
-<td>master 장애 감지와 failover 자동화</td>
+<td><abbr title="Redis master 장애를 감지하고 failover를 자동화하는 구성 요소.">Sentinel</abbr></td>
+<td><abbr title="쓰기를 받는 주 Redis 노드.">master</abbr> 장애 감지와 <abbr title="장애 난 master 대신 replica를 새 master로 승격해 서비스를 이어가는 절차.">failover</abbr> 자동화</td>
 </tr>
 <tr>
-<td>Failover</td>
-<td>장애 master 대신 replica를 새 master로 승격</td>
+<td><abbr title="장애 난 master 대신 replica를 새 master로 승격해 서비스를 이어가는 절차.">Failover</abbr></td>
+<td>장애 <abbr title="쓰기를 받는 주 Redis 노드.">master</abbr> 대신 replica를 새 master로 승격</td>
 </tr>
 <tr>
-<td>Cluster</td>
-<td>hash slot 기반으로 데이터를 여러 master에 나누는 구조</td>
+<td><abbr title="hash slot을 기준으로 데이터를 여러 master에 나누어 저장하는 Redis 확장 구조.">Cluster</abbr></td>
+<td><abbr title="Redis Cluster가 key를 배치하는 16384개의 논리 슬롯.">hash slot</abbr> 기반으로 데이터를 여러 master에 나누는 구조</td>
 </tr>
 <tr>
-<td>Hash Slot</td>
-<td>Redis Cluster가 key를 배치하는 16384개 논리 슬롯</td>
+<td><abbr title="Redis Cluster가 key를 배치하는 16384개의 논리 슬롯.">Hash Slot</abbr></td>
+<td><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> Cluster가 key를 배치하는 16384개 논리 슬롯</td>
 </tr>
 <tr>
-<td>Hash Tag</td>
+<td><abbr title="`{}` 안 문자열만 hash해 여러 key를 같은 slot에 배치하는 방법.">Hash Tag</abbr></td>
 <td><code>{}</code> 안 문자열만 hash해 여러 key를 같은 slot에 배치하는 방법</td>
 </tr>
 </tbody>
 </table>
 <h2 id="_2">질문</h2>
 <h3 id="replication">Replication이 있으면 데이터가 절대 안 사라지나?</h3>
-<p>아닙니다. Redis replication은 기본적으로 비동기입니다. master가 쓰기 성공 응답을 보낸 직후 장애가 나고, 그 쓰기가 replica에 아직 복제되지 않았다면 failover 후 데이터가 사라질 수 있습니다.</p>
+<p>아닙니다. <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> replication은 기본적으로 비동기입니다. master가 쓰기 성공 응답을 보낸 직후 장애가 나고, 그 쓰기가 replica에 아직 복제되지 않았다면 <abbr title="장애 난 master 대신 replica를 새 master로 승격해 서비스를 이어가는 절차.">failover</abbr> 후 데이터가 사라질 수 있습니다.</p>
 <h3 id="sentinel-cluster">Sentinel과 Cluster는 같은가?</h3>
 <p>아닙니다.</p>
 <table>
 <thead>
 <tr>
 <th>구분</th>
-<th>Sentinel</th>
-<th>Cluster</th>
+<th><abbr title="Redis master 장애를 감지하고 failover를 자동화하는 구성 요소.">Sentinel</abbr></th>
+<th><abbr title="hash slot을 기준으로 데이터를 여러 master에 나누어 저장하는 Redis 확장 구조.">Cluster</abbr></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>목적</td>
-<td>고가용성, failover</td>
+<td>고가용성, <abbr title="장애 난 master 대신 replica를 새 master로 승격해 서비스를 이어가는 절차.">failover</abbr></td>
 <td>샤딩 + 고가용성</td>
 </tr>
 <tr>
@@ -6436,8 +6436,8 @@
 </tr>
 <tr>
 <td>client 요구</td>
-<td>Sentinel 지원</td>
-<td>Cluster mode 지원</td>
+<td><abbr title="Redis master 장애를 감지하고 failover를 자동화하는 구성 요소.">Sentinel</abbr> 지원</td>
+<td><abbr title="hash slot을 기준으로 데이터를 여러 master에 나누어 저장하는 Redis 확장 구조.">Cluster</abbr> mode 지원</td>
 </tr>
 <tr>
 <td>언제</td>
@@ -6446,7 +6446,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="standalone">Standalone</h2>
+<h2 id="standalone"><abbr title="Redis를 단일 인스턴스로 운영하는 구조. 단순하지만 고가용성은 약하다.">Standalone</abbr></h2>
 <p>가장 단순한 구조입니다.</p>
 <pre class="mermaid"><code>flowchart LR
     App[Application] --&gt; R[(Redis)]</code></pre>
@@ -6468,7 +6468,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="replication_1">Replication</h2>
+<h2 id="replication_1"><abbr title="master 데이터를 replica로 복제하는 구조. Redis 복제는 기본적으로 비동기다.">Replication</abbr></h2>
 <p>master가 replica에 변경 명령을 전달합니다.</p>
 <pre class="mermaid"><code>flowchart LR
     M[Master] --&gt; R1[Replica 1]
@@ -6482,26 +6482,26 @@
 </thead>
 <tbody>
 <tr>
-<td>master</td>
+<td><abbr title="쓰기를 받는 주 Redis 노드.">master</abbr></td>
 <td>쓰기를 받는 노드</td>
 </tr>
 <tr>
-<td>replica</td>
-<td>master 데이터를 복제</td>
+<td><abbr title="master 데이터를 복제해 보관하는 Redis 노드. 장애 시 승격 대상이 될 수 있다.">replica</abbr></td>
+<td><abbr title="쓰기를 받는 주 Redis 노드.">master</abbr> 데이터를 복제</td>
 </tr>
 <tr>
-<td>async replication</td>
-<td>master가 매 쓰기마다 replica 적용을 기다리지 않음</td>
+<td>async <abbr title="master 데이터를 replica로 복제하는 구조. Redis 복제는 기본적으로 비동기다.">replication</abbr></td>
+<td>master가 매 쓰기마다 <abbr title="master 데이터를 복제해 보관하는 Redis 노드. 장애 시 승격 대상이 될 수 있다.">replica</abbr> 적용을 기다리지 않음</td>
 </tr>
 <tr>
-<td>replication lag</td>
+<td><abbr title="replica가 master의 최신 쓰기를 따라가지 못하고 뒤처진 정도.">replication lag</abbr></td>
 <td>replica가 master보다 늦은 정도</td>
 </tr>
 </tbody>
 </table>
-<p>replica read를 사용하면 읽기 부하를 나눌 수 있지만, 오래된 값을 읽을 수 있습니다.</p>
-<h2 id="sentinel">Sentinel</h2>
-<p>Sentinel은 master 장애를 감지하고 failover를 자동화합니다.</p>
+<p><abbr title="master 데이터를 복제해 보관하는 Redis 노드. 장애 시 승격 대상이 될 수 있다.">replica</abbr> read를 사용하면 읽기 부하를 나눌 수 있지만, 오래된 값을 읽을 수 있습니다.</p>
+<h2 id="sentinel"><abbr title="Redis master 장애를 감지하고 failover를 자동화하는 구성 요소.">Sentinel</abbr></h2>
+<p>Sentinel은 <abbr title="쓰기를 받는 주 Redis 노드.">master</abbr> 장애를 감지하고 failover를 자동화합니다.</p>
 <pre class="mermaid"><code>flowchart TB
     S1[Sentinel 1]
     S2[Sentinel 2]
@@ -6524,25 +6524,25 @@
 </thead>
 <tbody>
 <tr>
-<td>Sentinel quorum</td>
+<td><abbr title="Redis master 장애를 감지하고 failover를 자동화하는 구성 요소.">Sentinel</abbr> quorum</td>
 <td>장애 판단이 너무 쉽게/어렵게 되지 않게 함</td>
 </tr>
 <tr>
-<td>client Sentinel 지원</td>
-<td>새 master 주소를 따라가야 함</td>
+<td>client <abbr title="Redis master 장애를 감지하고 failover를 자동화하는 구성 요소.">Sentinel</abbr> 지원</td>
+<td>새 <abbr title="쓰기를 받는 주 Redis 노드.">master</abbr> 주소를 따라가야 함</td>
 </tr>
 <tr>
-<td>replica lag</td>
+<td><abbr title="master 데이터를 복제해 보관하는 Redis 노드. 장애 시 승격 대상이 될 수 있다.">replica</abbr> lag</td>
 <td>승격 시 데이터 유실 범위</td>
 </tr>
 <tr>
-<td>failover 시간</td>
+<td><abbr title="장애 난 master 대신 replica를 새 master로 승격해 서비스를 이어가는 절차.">failover</abbr> 시간</td>
 <td>서비스 timeout과 재시도 정책에 영향</td>
 </tr>
 </tbody>
 </table>
-<h2 id="redis-cluster">Redis Cluster</h2>
-<p>Redis Cluster는 16384개의 hash slot을 여러 master에 나누어 저장합니다.</p>
+<h2 id="redis-cluster"><abbr title="hash slot을 기준으로 데이터를 여러 master에 나누어 저장하는 Redis 확장 구조.">Redis Cluster</abbr></h2>
+<p><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> Cluster는 16384개의 hash slot을 여러 master에 나누어 저장합니다.</p>
 <pre class="mermaid"><code>flowchart LR
     C[Client] --&gt; A[Master A&lt;br/&gt;slot 0-5460]
     C --&gt; B[Master B&lt;br/&gt;slot 5461-10922]
@@ -6568,16 +6568,16 @@
 </tr>
 <tr>
 <td><code>CROSSSLOT</code></td>
-<td>다중 key 명령의 key들이 서로 다른 slot에 있음</td>
+<td>다중 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 명령의 key들이 서로 다른 slot에 있음</td>
 </tr>
 <tr>
-<td>Resharding</td>
+<td><abbr title="Redis Cluster에서 slot 배치를 다시 조정해 데이터를 다른 노드로 옮기는 작업.">Resharding</abbr></td>
 <td>slot을 다른 master로 옮기는 작업</td>
 </tr>
 </tbody>
 </table>
-<h2 id="hash-tag">Hash Tag</h2>
-<p>Cluster에서 다중 key 명령은 같은 slot에 있어야 합니다.</p>
+<h2 id="hash-tag"><abbr title="`{}` 안 문자열만 hash해 여러 key를 같은 slot에 배치하는 방법.">Hash Tag</abbr></h2>
+<p>Cluster에서 다중 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 명령은 같은 slot에 있어야 합니다.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>가능:
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>cart:{user-1}:items
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>cart:{user-1}:summary
@@ -6587,7 +6587,7 @@
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>cart:user-1:summary
 </code></pre></div>
 <p><code>{user-1}</code>처럼 같은 hash tag를 쓰면 여러 key가 같은 slot에 배치됩니다.</p>
-<h2 id="cluster">Cluster 리밸런싱과 장애 처리</h2>
+<h2 id="cluster"><abbr title="hash slot을 기준으로 데이터를 여러 master에 나누어 저장하는 Redis 확장 구조.">Cluster</abbr> 리밸런싱과 장애 처리</h2>
 <table>
 <thead>
 <tr>
@@ -6602,19 +6602,19 @@
 </tr>
 <tr>
 <td>노드 제거</td>
-<td>slot migration, replica 재배치</td>
+<td>slot migration, <abbr title="master 데이터를 복제해 보관하는 Redis 노드. 장애 시 승격 대상이 될 수 있다.">replica</abbr> 재배치</td>
 </tr>
 <tr>
-<td>master 장애</td>
-<td>replica 승격, slot serving 상태</td>
+<td><abbr title="쓰기를 받는 주 Redis 노드.">master</abbr> 장애</td>
+<td><abbr title="master 데이터를 복제해 보관하는 Redis 노드. 장애 시 승격 대상이 될 수 있다.">replica</abbr> 승격, slot serving 상태</td>
 </tr>
 <tr>
-<td>replica 부족</td>
-<td>failover 불가 slot 확인</td>
+<td><abbr title="master 데이터를 복제해 보관하는 Redis 노드. 장애 시 승격 대상이 될 수 있다.">replica</abbr> 부족</td>
+<td><abbr title="장애 난 master 대신 replica를 새 master로 승격해 서비스를 이어가는 절차.">failover</abbr> 불가 slot 확인</td>
 </tr>
 </tbody>
 </table>
-<h2 id="managed-redis">Managed Redis 서비스</h2>
+<h2 id="managed-redis"><abbr title="클라우드 제공자가 운영, 백업, 장애 조치 일부를 관리해주는 Redis 서비스.">Managed Redis</abbr> 서비스</h2>
 <table>
 <thead>
 <tr>
@@ -6625,24 +6625,24 @@
 <tbody>
 <tr>
 <td>AWS ElastiCache</td>
-<td>Redis OSS/Valkey 계열 managed cache로 자주 사용</td>
+<td><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> OSS/Valkey 계열 managed cache로 자주 사용</td>
 </tr>
 <tr>
-<td>Azure Cache for Redis</td>
+<td>Azure <abbr title="반복 조회를 빠르게 처리하기 위한 임시 저장소. 원본 DB 부하를 줄이는 데 사용한다.">Cache</abbr> for <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr></td>
 <td>Azure 환경 통합 관리</td>
 </tr>
 <tr>
 <td>Google Memorystore</td>
-<td>GCP managed Redis</td>
+<td>GCP managed <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr></td>
 </tr>
 </tbody>
 </table>
-<p>Managed Redis는 백업, failover, patching을 줄여주지만, 설정 제한·비용·버전 정책·네트워크 구성을 확인해야 합니다.</p>
-<h2 id="docker-redis">Docker Redis 운영</h2>
+<p>Managed Redis는 백업, <abbr title="장애 난 master 대신 replica를 새 master로 승격해 서비스를 이어가는 절차.">failover</abbr>, patching을 줄여주지만, 설정 제한·비용·버전 정책·네트워크 구성을 확인해야 합니다.</p>
+<h2 id="docker-redis">Docker <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 운영</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>redis<span class="w"> </span>-p<span class="w"> </span><span class="m">6379</span>:6379<span class="w"> </span>redis:7
 </code></pre></div>
-<p>로컬 개발에는 편하지만 운영에서는 volume, persistence, network, resource limit, health check가 필요합니다.</p>
-<h2 id="kubernetes-redis">Kubernetes Redis 운영</h2>
+<p>로컬 개발에는 편하지만 운영에서는 volume, <abbr title="Redis 메모리 데이터를 디스크에 남겨 재시작이나 장애 후 복구에 사용하는 기능.">persistence</abbr>, network, resource limit, health check가 필요합니다.</p>
+<h2 id="kubernetes-redis">Kubernetes <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 운영</h2>
 <p>Kubernetes에서는 StatefulSet, PVC, anti-affinity, readiness/liveness probe, PodDisruptionBudget을 함께 봐야 합니다. 단순 Deployment로 Redis를 띄우면 데이터와 장애 전환 요구를 놓치기 쉽습니다.</p>
 <h2 id="_3">베스트 프랙티스</h2>
 <table>
@@ -6655,23 +6655,23 @@
 <tbody>
 <tr>
 <td>단일 노드로 충분한지 먼저 판단</td>
-<td>불필요한 Cluster 복잡도 방지</td>
+<td>불필요한 <abbr title="hash slot을 기준으로 데이터를 여러 master에 나누어 저장하는 Redis 확장 구조.">Cluster</abbr> 복잡도 방지</td>
 </tr>
 <tr>
-<td>Sentinel/Cluster client 지원 확인</td>
-<td>failover 후 자동 복구</td>
+<td><abbr title="Redis master 장애를 감지하고 failover를 자동화하는 구성 요소.">Sentinel</abbr>/<abbr title="hash slot을 기준으로 데이터를 여러 master에 나누어 저장하는 Redis 확장 구조.">Cluster</abbr> client 지원 확인</td>
+<td><abbr title="장애 난 master 대신 replica를 새 master로 승격해 서비스를 이어가는 절차.">failover</abbr> 후 자동 복구</td>
 </tr>
 <tr>
-<td>replication lag 알림 설정</td>
+<td><abbr title="replica가 master의 최신 쓰기를 따라가지 못하고 뒤처진 정도.">replication lag</abbr> 알림 설정</td>
 <td>stale read와 유실 범위 확인</td>
 </tr>
 <tr>
-<td>hash tag 규칙 문서화</td>
-<td>CROSSSLOT 장애 예방</td>
+<td><abbr title="`{}` 안 문자열만 hash해 여러 key를 같은 slot에 배치하는 방법.">hash tag</abbr> 규칙 문서화</td>
+<td><abbr title="다중 key 명령의 key들이 서로 다른 hash slot에 있어 실행할 수 없다는 오류.">CROSSSLOT</abbr> 장애 예방</td>
 </tr>
 <tr>
-<td>failover 훈련</td>
-<td>client timeout, retry, 데이터 유실 범위 검증</td>
+<td><abbr title="장애 난 master 대신 replica를 새 master로 승격해 서비스를 이어가는 절차.">failover</abbr> 훈련</td>
+<td>client <abbr title="작업이 정해진 제한 시간 안에 끝나지 않아 실패로 처리되는 상황.">timeout</abbr>, retry, 데이터 유실 범위 검증</td>
 </tr>
 </tbody>
 </table>
@@ -6686,31 +6686,46 @@
 <tbody>
 <tr>
 <td>로컬 개발</td>
-<td>Docker Standalone</td>
+<td>Docker <abbr title="Redis를 단일 인스턴스로 운영하는 구조. 단순하지만 고가용성은 약하다.">Standalone</abbr></td>
 </tr>
 <tr>
 <td>작은 내부 서비스 캐시</td>
-<td>Standalone + 백업 또는 managed single node</td>
+<td><abbr title="Redis를 단일 인스턴스로 운영하는 구조. 단순하지만 고가용성은 약하다.">Standalone</abbr> + 백업 또는 managed single node</td>
 </tr>
 <tr>
 <td>장애 자동 전환 필요</td>
-<td>Sentinel 또는 managed HA</td>
+<td><abbr title="Redis master 장애를 감지하고 failover를 자동화하는 구성 요소.">Sentinel</abbr> 또는 managed HA</td>
 </tr>
 <tr>
 <td>데이터·트래픽 분산 필요</td>
-<td>Cluster</td>
+<td><abbr title="hash slot을 기준으로 데이터를 여러 master에 나누어 저장하는 Redis 확장 구조.">Cluster</abbr></td>
 </tr>
 <tr>
 <td>운영 인력이 적음</td>
-<td>Managed Redis 우선 검토</td>
+<td><abbr title="클라우드 제공자가 운영, 백업, 장애 조치 일부를 관리해주는 Redis 서비스.">Managed Redis</abbr> 우선 검토</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <p><strong>관련 파일:</strong>
-- <a href="../%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B4%80%EB%A6%AC/">Key 설계와 데이터 관리</a>
+- <a href="../%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B4%80%EB%A6%AC/"><abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">Key</abbr> 설계와 데이터 관리</a>
 - <a href="../%EC%9E%A5%EC%95%A0%EB%8C%80%EC%9D%91/">장애 대응과 트러블슈팅</a>
 - <a href="../%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%EB%B3%B4%EC%95%88/">모니터링과 보안</a></p>
+<!-- Redis 전용 용어집: Redis 문서에서만 include해서 툴팁으로 사용합니다. -->
+
+<!-- ===== Redis 기본 ===== -->
+<!-- ===== 캐시 ===== -->
+<!-- ===== Redis 자료구조 ===== -->
+<!-- ===== 데이터 관리와 영속성 ===== -->
+<!-- ===== 운영 구조 ===== -->
+<!-- ===== 성능과 장애 ===== -->
+<!-- ===== 동시성과 락 ===== -->
+<!-- ===== 메시징 ===== -->
+<!-- ===== Spring Boot 연동 ===== -->
+<!-- ===== 모니터링과 보안 ===== -->
+<!-- ===== Redis Stack ===== -->
+<!-- ===== 비교와 선택 ===== -->
+<!-- ===== 실무 유즈케이스 ===== -->
 <!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
 
 <!-- ===== DB / SQL ===== -->
@@ -6739,7 +6754,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 27일 13:44:13 UTC">2026년 4월 27일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 28일 10:41:10 UTC">2026년 4월 28일</span>
   </span>
 
     

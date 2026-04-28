@@ -6701,8 +6701,8 @@
   
 
 
-<h1 id="redis">Redis 캐시 전략과 정합성</h1>
-<p>Redis 캐시는 <strong>DB 부하를 줄이고 반복 조회를 빠르게 만드는 기술</strong>입니다. 대신 DB와 Redis 사이에 데이터 불일치가 생길 수 있으므로, 캐시 전략과 무효화 기준을 함께 설계해야 합니다.</p>
+<h1 id="redis"><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 캐시 전략과 정합성</h1>
+<p><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 캐시는 <strong>DB 부하를 줄이고 반복 조회를 빠르게 만드는 기술</strong>입니다. 대신 DB와 <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 사이에 데이터 불일치가 생길 수 있으므로, 캐시 전략과 <abbr title="원본 데이터 변경 후 오래된 캐시를 삭제하거나 더 이상 쓰지 않게 만드는 작업.">무효화</abbr> 기준을 함께 설계해야 합니다.</p>
 <h2 id="_1">용어</h2>
 <table>
 <thead>
@@ -6714,50 +6714,50 @@
 </thead>
 <tbody>
 <tr>
-<td>Cache Hit</td>
+<td><abbr title="캐시에 원하는 값이 있어 DB를 조회하지 않고 바로 응답하는 상황.">Cache Hit</abbr></td>
 <td>Redis에 값이 있어 DB 조회 없이 응답하는 경우</td>
 <td>응답 속도와 DB 부하 감소</td>
 </tr>
 <tr>
-<td>Cache Miss</td>
+<td><abbr title="캐시에 값이 없어 원본 DB까지 조회해야 하는 상황.">Cache Miss</abbr></td>
 <td>Redis에 값이 없어 DB까지 조회하는 경우</td>
 <td>첫 조회 또는 만료 직후에는 느릴 수 있음</td>
 </tr>
 <tr>
-<td>Cache Warming</td>
+<td><abbr title="서비스 오픈, 배포, 이벤트 전에 주요 데이터를 미리 캐시에 넣어 초기 miss 폭증을 줄이는 작업.">Cache Warming</abbr></td>
 <td>서비스 오픈·이벤트 전에 주요 데이터를 미리 Redis에 적재</td>
 <td>대량 miss를 줄여 초기 트래픽 완화</td>
 </tr>
 <tr>
-<td>Cache Penetration</td>
-<td>존재하지 않는 key 요청이 반복되어 매번 DB까지 가는 문제</td>
-<td>null cache, 입력 검증, Bloom Filter</td>
+<td><abbr title="존재하지 않는 key 요청이 반복되어 매번 DB까지 도달하는 문제. null cache나 Bloom Filter로 완화한다.">Cache Penetration</abbr></td>
+<td>존재하지 않는 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 요청이 반복되어 매번 DB까지 가는 문제</td>
+<td><abbr title="DB에 없는 결과도 짧게 캐시해 반복 miss와 DB 조회를 줄이는 방법.">null cache</abbr>, 입력 검증, <abbr title="&quot;확실히 없음&quot;을 빠르게 판단하는 확률적 자료구조. cache penetration 방지에 자주 사용한다.">Bloom Filter</abbr></td>
 </tr>
 <tr>
-<td>Cache Stampede</td>
-<td>인기 key 만료 직후 많은 요청이 동시에 DB로 몰리는 문제</td>
-<td>TTL jitter, mutex, stale cache</td>
+<td><abbr title="인기 key가 만료된 순간 많은 요청이 동시에 DB로 몰리는 문제. TTL jitter, mutex lock, stale cache로 완화한다.">Cache Stampede</abbr></td>
+<td>인기 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 만료 직후 많은 요청이 동시에 DB로 몰리는 문제</td>
+<td><abbr title="TTL에 작은 랜덤 값을 섞어 많은 key가 동시에 만료되지 않게 하는 방법.">TTL jitter</abbr>, mutex, <abbr title="만료됐거나 오래됐지만 잠시 응답에 사용하는 캐시. stampede 완화에 쓸 수 있다.">stale cache</abbr></td>
 </tr>
 <tr>
-<td>Cache Avalanche</td>
+<td><abbr title="많은 key가 비슷한 시점에 한꺼번에 만료되어 DB 부하가 급증하는 문제.">Cache Avalanche</abbr></td>
 <td>많은 key가 비슷한 시간에 만료되는 문제</td>
-<td>TTL 분산, pre-warming</td>
+<td><abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr> 분산, pre-warming</td>
 </tr>
 <tr>
-<td>Stale Data</td>
+<td><abbr title="원본 DB보다 오래된 값이 캐시에 남아 있는 상태.">Stale Data</abbr></td>
 <td>Redis에 오래된 값이 남아 있는 상태</td>
-<td>TTL, 무효화 이벤트, 짧은 캐시</td>
+<td><abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr>, <abbr title="원본 데이터 변경 후 오래된 캐시를 삭제하거나 더 이상 쓰지 않게 만드는 작업.">무효화</abbr> 이벤트, 짧은 캐시</td>
 </tr>
 <tr>
-<td>Hit Ratio</td>
-<td>전체 조회 중 cache hit 비율</td>
+<td><abbr title="전체 캐시 조회 중 hit 비율. 캐시가 실제로 DB 부하를 줄이는지 보는 핵심 지표다.">Hit Ratio</abbr></td>
+<td>전체 조회 중 <abbr title="캐시에 원하는 값이 있어 DB를 조회하지 않고 바로 응답하는 상황.">cache hit</abbr> 비율</td>
 <td>캐시 효과의 핵심 지표</td>
 </tr>
 </tbody>
 </table>
 <h2 id="_2">질문</h2>
 <h3 id="redis-db-io">Redis와 DB I/O가 두 번 생겨도 왜 쓰는가?</h3>
-<p>Cache Miss가 나면 애플리케이션은 Redis 조회 후 DB까지 조회합니다. 이 경우 단순히 DB만 조회하는 것보다 첫 요청은 느릴 수 있습니다.</p>
+<p><abbr title="반복 조회를 빠르게 처리하기 위한 임시 저장소. 원본 DB 부하를 줄이는 데 사용한다.">Cache</abbr> Miss가 나면 애플리케이션은 <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 조회 후 DB까지 조회합니다. 이 경우 단순히 DB만 조회하는 것보다 첫 요청은 느릴 수 있습니다.</p>
 <p>그럼에도 Redis를 쓰는 이유는 <strong>첫 조회 비용을 감수하고 이후 반복 조회의 비용을 크게 줄이기 위해서</strong>입니다.</p>
 <table>
 <thead>
@@ -6774,19 +6774,19 @@
 <td>매 요청이 DB 부하로 이어짐</td>
 </tr>
 <tr>
-<td>Cache Miss</td>
-<td>App -&gt; Redis -&gt; DB -&gt; Redis 저장</td>
+<td><abbr title="캐시에 값이 없어 원본 DB까지 조회해야 하는 상황.">Cache Miss</abbr></td>
+<td>App -&gt; <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> -&gt; DB -&gt; <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 저장</td>
 <td>첫 조회는 느릴 수 있지만 다음 hit 준비</td>
 </tr>
 <tr>
-<td>Cache Hit</td>
-<td>App -&gt; Redis</td>
+<td><abbr title="캐시에 원하는 값이 있어 DB를 조회하지 않고 바로 응답하는 상황.">Cache Hit</abbr></td>
+<td>App -&gt; <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr></td>
 <td>DB를 거치지 않아 빠르고 DB 부하 감소</td>
 </tr>
 </tbody>
 </table>
 <h3 id="_3">캐시 정합성은 완벽히 맞춰야 하나?</h3>
-<p>업무에 따라 다릅니다. 상품 설명은 몇 초 stale을 허용할 수 있지만, 결제 상태·재고 원장은 Redis 캐시만 믿으면 위험합니다.</p>
+<p>업무에 따라 다릅니다. 상품 설명은 몇 초 stale을 허용할 수 있지만, 결제 상태·재고 원장은 <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 캐시만 믿으면 위험합니다.</p>
 <table>
 <thead>
 <tr>
@@ -6804,7 +6804,7 @@
 <tr>
 <td>가격</td>
 <td>낮음</td>
-<td>변경 시 즉시 무효화 필요</td>
+<td>변경 시 즉시 <abbr title="원본 데이터 변경 후 오래된 캐시를 삭제하거나 더 이상 쓰지 않게 만드는 작업.">무효화</abbr> 필요</td>
 </tr>
 <tr>
 <td>재고</td>
@@ -6814,12 +6814,12 @@
 <tr>
 <td>공지 목록</td>
 <td>비교적 허용</td>
-<td>TTL 캐시 가능</td>
+<td><abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr> 캐시 가능</td>
 </tr>
 </tbody>
 </table>
 <h2 id="_4">캐시 전략</h2>
-<h3 id="cache-aside">Cache Aside</h3>
+<h3 id="cache-aside"><abbr title="애플리케이션이 캐시를 먼저 읽고, miss면 DB 조회 후 캐시에 저장하는 패턴. 실무 조회 캐시의 기본 선택지다.">Cache Aside</abbr></h3>
 <p>애플리케이션이 캐시를 먼저 보고, 없으면 DB에서 읽은 뒤 Redis에 저장합니다.</p>
 <pre class="mermaid"><code>sequenceDiagram
     participant Client
@@ -6850,13 +6850,13 @@
 <td>첫 요청은 miss</td>
 </tr>
 <tr>
-<td>Redis 장애 시 DB fallback 가능</td>
-<td>cache stampede 대비 필요</td>
+<td><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 장애 시 DB <abbr title="주 경로가 실패했을 때 사용할 대체 처리. 캐시 장애 시 DB 직접 조회가 대표적이다.">fallback</abbr> 가능</td>
+<td><abbr title="반복 조회를 빠르게 처리하기 위한 임시 저장소. 원본 DB 부하를 줄이는 데 사용한다.">cache</abbr> stampede 대비 필요</td>
 </tr>
 </tbody>
 </table>
-<h3 id="read-through">Read Through</h3>
-<p>애플리케이션은 캐시 계층에만 요청하고, 캐시 계층이 DB 조회와 적재를 맡는 방식입니다. Spring Cache 같은 추상화가 일부 역할을 대신할 수 있습니다.</p>
+<h3 id="read-through"><abbr title="애플리케이션은 캐시 계층에만 요청하고, 캐시 계층이 DB 조회와 적재를 맡는 패턴.">Read Through</abbr></h3>
+<p>애플리케이션은 캐시 계층에만 요청하고, 캐시 계층이 DB 조회와 적재를 맡는 방식입니다. <abbr title="`@Cacheable`, `@CacheEvict` 같은 annotation 기반 캐시 추상화.">Spring Cache</abbr> 같은 추상화가 일부 역할을 대신할 수 있습니다.</p>
 <table>
 <thead>
 <tr>
@@ -6875,7 +6875,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="write-through">Write Through</h3>
+<h3 id="write-through"><abbr title="쓰기 요청을 캐시와 DB에 동기적으로 함께 반영하는 패턴. 정합성은 좋아지지만 쓰기 지연이 늘 수 있다.">Write Through</abbr></h3>
 <p>쓰기 요청을 Redis와 DB에 동기적으로 함께 반영합니다.</p>
 <table>
 <thead>
@@ -6886,7 +6886,7 @@
 </thead>
 <tbody>
 <tr>
-<td>쓰기 직후 cache hit 가능</td>
+<td>쓰기 직후 <abbr title="캐시에 원하는 값이 있어 DB를 조회하지 않고 바로 응답하는 상황.">cache hit</abbr> 가능</td>
 <td>쓰기 지연 증가</td>
 </tr>
 <tr>
@@ -6895,7 +6895,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="write-behind">Write Behind</h3>
+<h3 id="write-behind"><abbr title="먼저 캐시에 쓰고 DB 반영은 나중에 비동기로 처리하는 패턴. 빠르지만 유실 위험을 설계해야 한다.">Write Behind</abbr></h3>
 <p>Redis에 먼저 쓰고, DB 반영은 나중에 비동기로 처리합니다.</p>
 <table>
 <thead>
@@ -6907,7 +6907,7 @@
 <tbody>
 <tr>
 <td>쓰기 응답이 빠름</td>
-<td>Redis 장애 시 데이터 유실 위험</td>
+<td><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 장애 시 데이터 유실 위험</td>
 </tr>
 <tr>
 <td>대량 쓰기 완충 가능</td>
@@ -6916,10 +6916,10 @@
 </tbody>
 </table>
 <div class="danger-box">
-<p><strong>위험</strong>: 결제, 포인트, 재고 원장처럼 유실되면 안 되는 데이터는 Write Behind를 Redis 단독으로 구현하지 않는다. DB, 메시지 브로커, outbox 같은 내구성 있는 경로가 필요하다.</p>
+<p><strong>위험</strong>: 결제, 포인트, 재고 원장처럼 유실되면 안 되는 데이터는 Write Behind를 <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 단독으로 구현하지 않는다. DB, 메시지 브로커, outbox 같은 내구성 있는 경로가 필요하다.</p>
 </div>
-<h2 id="cache-warming">Cache Warming</h2>
-<p>Cache Warming은 서비스 오픈, 배포 직후, 이벤트 시작 전에 예상되는 핵심 데이터를 미리 Redis에 적재하는 방식입니다.</p>
+<h2 id="cache-warming"><abbr title="서비스 오픈, 배포, 이벤트 전에 주요 데이터를 미리 캐시에 넣어 초기 miss 폭증을 줄이는 작업.">Cache Warming</abbr></h2>
+<p><abbr title="반복 조회를 빠르게 처리하기 위한 임시 저장소. 원본 DB 부하를 줄이는 데 사용한다.">Cache</abbr> Warming은 서비스 오픈, 배포 직후, 이벤트 시작 전에 예상되는 핵심 데이터를 미리 Redis에 적재하는 방식입니다.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>이벤트 시작 전
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>-&gt; 인기 상품 ID 목록 조회
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>-&gt; DB에서 상품 상세 조회
@@ -6948,9 +6948,9 @@
 </tr>
 </tbody>
 </table>
-<p>워밍한 key가 동시에 만료되면 다시 Cache Stampede가 생길 수 있으므로 TTL jitter와 함께 설계합니다.</p>
-<h3 id="ttl-randomization">TTL Randomization</h3>
-<p>TTL Randomization은 같은 종류의 key라도 만료 시간을 조금씩 다르게 주는 방식입니다.</p>
+<p>워밍한 key가 동시에 만료되면 다시 <abbr title="반복 조회를 빠르게 처리하기 위한 임시 저장소. 원본 DB 부하를 줄이는 데 사용한다.">Cache</abbr> Stampede가 생길 수 있으므로 <abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr> jitter와 함께 설계합니다.</p>
+<h3 id="ttl-randomization"><abbr title="TTL에 랜덤 값을 섞어 stampede와 avalanche를 줄이는 방법. TTL jitter와 같은 의미로 많이 쓴다.">TTL Randomization</abbr></h3>
+<p><abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr> Randomization은 같은 종류의 key라도 만료 시간을 조금씩 다르게 주는 방식입니다.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>기본 TTL: 300초
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>실제 TTL: 300초 + random(0~60초)
 </code></pre></div>
@@ -6970,12 +6970,12 @@
 <td>데이터 stale 시간이 key마다 조금 달라짐</td>
 </tr>
 <tr>
-<td>Cache Avalanche 완화</td>
+<td><abbr title="많은 key가 비슷한 시점에 한꺼번에 만료되어 DB 부하가 급증하는 문제.">Cache Avalanche</abbr> 완화</td>
 <td>너무 큰 random 범위는 최신성 요구와 충돌</td>
 </tr>
 </tbody>
 </table>
-<h2 id="cache-penetration">Cache Penetration</h2>
+<h2 id="cache-penetration"><abbr title="존재하지 않는 key 요청이 반복되어 매번 DB까지 도달하는 문제. null cache나 Bloom Filter로 완화한다.">Cache Penetration</abbr></h2>
 <p>존재하지 않는 값을 계속 조회해 캐시를 우회하는 문제입니다.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>GET product:-1 -&gt; miss
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>DB 조회 -&gt; 없음
@@ -6995,24 +6995,24 @@
 <td>말이 안 되는 ID를 DB까지 보내지 않음</td>
 </tr>
 <tr>
-<td>null cache</td>
+<td><abbr title="DB에 없는 결과도 짧게 캐시해 반복 miss와 DB 조회를 줄이는 방법.">null cache</abbr></td>
 <td>없는 결과도 짧은 TTL로 캐시</td>
 </tr>
 <tr>
-<td>Bloom Filter</td>
+<td><abbr title="&quot;확실히 없음&quot;을 빠르게 판단하는 확률적 자료구조. cache penetration 방지에 자주 사용한다.">Bloom Filter</abbr></td>
 <td>존재 가능성이 없는 key를 빠르게 차단</td>
 </tr>
 </tbody>
 </table>
-<h3 id="null-cache">Null Cache</h3>
+<h3 id="null-cache"><abbr title="DB에 없는 결과도 짧게 캐시해 반복 miss와 DB 조회를 줄이는 방법.">Null Cache</abbr></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>GET product:-1 -&gt; miss
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>DB 조회 -&gt; 없음
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>SET product:-1 &quot;__EMPTY__&quot; EX 30
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>다음 요청 -&gt; Redis에서 빈 결과를 바로 응답
 </code></pre></div>
 <p>없는 값도 캐시에 저장하므로 메모리를 사용합니다. 그래서 일반 데이터보다 TTL을 짧게 잡는 것이 보통입니다.</p>
-<h3 id="bloom-filter">Bloom Filter</h3>
-<p>Bloom Filter는 "확실히 없음"을 빠르게 판단하는 확률적 자료구조입니다. Cache Penetration 공격처럼 존재하지 않는 ID가 반복해서 들어올 때 DB 조회 자체를 줄이는 데 사용할 수 있습니다.</p>
+<h3 id="bloom-filter"><abbr title="&quot;확실히 없음&quot;을 빠르게 판단하는 확률적 자료구조. cache penetration 방지에 자주 사용한다.">Bloom Filter</abbr></h3>
+<p>Bloom Filter는 "확실히 없음"을 빠르게 판단하는 확률적 자료구조입니다. <abbr title="존재하지 않는 key 요청이 반복되어 매번 DB까지 도달하는 문제. null cache나 Bloom Filter로 완화한다.">Cache Penetration</abbr> 공격처럼 존재하지 않는 ID가 반복해서 들어올 때 DB 조회 자체를 줄이는 데 사용할 수 있습니다.</p>
 <pre class="mermaid"><code>flowchart LR
     Q[요청 productId] --&gt; B{Bloom Filter에&lt;br/&gt;있을 가능성이 있는가?}
     B --&gt;|없음| X[DB 조회 없이&lt;br/&gt;빈 결과]
@@ -7027,11 +7027,11 @@
 </thead>
 <tbody>
 <tr>
-<td>false negative</td>
+<td><abbr title="실제로는 있는데 없다고 판단하는 오류. 일반적인 Bloom Filter에서는 발생하지 않게 설계한다.">false negative</abbr></td>
 <td>보통 없음. 없다고 판단하면 실제로 없음</td>
 </tr>
 <tr>
-<td>false positive</td>
+<td><abbr title="실제로는 없는데 있을 수 있다고 판단하는 오류.">false positive</abbr></td>
 <td>있을 수 있다고 했지만 실제 DB에는 없을 수 있음</td>
 </tr>
 <tr>
@@ -7044,7 +7044,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="cache-stampede">Cache Stampede</h2>
+<h2 id="cache-stampede"><abbr title="인기 key가 만료된 순간 많은 요청이 동시에 DB로 몰리는 문제. TTL jitter, mutex lock, stale cache로 완화한다.">Cache Stampede</abbr></h2>
 <p>인기 key가 동시에 만료되면 많은 요청이 한 번에 DB로 몰립니다.</p>
 <pre class="mermaid"><code>flowchart TB
     E[인기 캐시 만료] --&gt; R1[요청 1 miss]
@@ -7063,32 +7063,32 @@
 </thead>
 <tbody>
 <tr>
-<td>TTL jitter</td>
+<td><abbr title="TTL에 작은 랜덤 값을 섞어 많은 key가 동시에 만료되지 않게 하는 방법.">TTL jitter</abbr></td>
 <td>TTL에 랜덤 값을 섞어 동시에 만료되지 않게 함</td>
 </tr>
 <tr>
-<td>mutex lock</td>
+<td><abbr title="여러 요청 중 하나만 DB 조회와 캐시 재생성을 하게 막는 짧은 락.">mutex lock</abbr></td>
 <td>miss 시 한 요청만 DB 조회</td>
 </tr>
 <tr>
-<td>stale cache</td>
+<td><abbr title="만료됐거나 오래됐지만 잠시 응답에 사용하는 캐시. stampede 완화에 쓸 수 있다.">stale cache</abbr></td>
 <td>만료된 값이라도 잠시 응답하고 백그라운드 갱신</td>
 </tr>
 <tr>
 <td>pre-warming</td>
-<td>배포·이벤트 전 인기 key 미리 적재</td>
+<td>배포·이벤트 전 인기 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 미리 적재</td>
 </tr>
 </tbody>
 </table>
-<h3 id="mutex-lock">Mutex Lock</h3>
-<p>Cache Miss가 발생했을 때 모든 요청이 DB를 조회하지 않도록 짧은 Redis lock을 잡습니다.</p>
+<h3 id="mutex-lock"><abbr title="여러 요청 중 하나만 DB 조회와 캐시 재생성을 하게 막는 짧은 락.">Mutex Lock</abbr></h3>
+<p><abbr title="반복 조회를 빠르게 처리하기 위한 임시 저장소. 원본 DB 부하를 줄이는 데 사용한다.">Cache</abbr> Miss가 발생했을 때 모든 요청이 DB를 조회하지 않도록 짧은 <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> lock을 잡습니다.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>1. cache miss
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>2. SET lock:cache:product:1 uuid NX PX 3000
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>3. lock 획득 성공 요청만 DB 조회 후 캐시 적재
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>4. 나머지 요청은 잠깐 대기하거나 stale 값을 응답
 </code></pre></div>
-<p>lock TTL은 짧게 잡고, DB 조회 실패 시에도 lock이 풀리도록 해야 합니다. lock만 믿고 무한 대기하면 Redis 장애가 <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 장애로 번질 수 있습니다.</p>
-<h3 id="stale-while-revalidate">Stale-While-Revalidate</h3>
+<p>lock TTL은 짧게 잡고, DB 조회 실패 시에도 lock이 풀리도록 해야 합니다. lock만 믿고 무한 대기하면 <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 장애가 <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 장애로 번질 수 있습니다.</p>
+<h3 id="stale-while-revalidate"><abbr title="오래된 값을 잠시 응답하고 백그라운드에서 새 값으로 갱신하는 캐시 전략.">Stale-While-Revalidate</abbr></h3>
 <p>만료된 값을 바로 버리지 않고, 잠깐 오래된 값으로 응답하면서 백그라운드에서 갱신하는 방식입니다.</p>
 <table>
 <thead>
@@ -7099,17 +7099,17 @@
 </thead>
 <tbody>
 <tr>
-<td>인기 key 만료 시 DB 폭주를 줄임</td>
+<td>인기 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 만료 시 DB 폭주를 줄임</td>
 <td>사용자가 오래된 값을 볼 수 있음</td>
 </tr>
 <tr>
-<td>p99 응답 시간을 안정화</td>
+<td><abbr title="전체 요청 중 99%가 이 시간 이하로 끝났다는 지연 시간 지표. tail latency 확인에 중요하다.">p99</abbr> 응답 시간을 안정화</td>
 <td>stale 허용 가능한 데이터에만 사용</td>
 </tr>
 </tbody>
 </table>
 <p>공지, 상품 설명, 추천 목록처럼 잠깐 오래된 값이 허용되는 데이터에 적합합니다. 가격, 권한, 재고처럼 즉시성이 중요한 데이터에는 조심해야 합니다.</p>
-<h2 id="cache-avalanche">Cache Avalanche</h2>
+<h2 id="cache-avalanche"><abbr title="많은 key가 비슷한 시점에 한꺼번에 만료되어 DB 부하가 급증하는 문제.">Cache Avalanche</abbr></h2>
 <p>많은 key가 비슷한 시간에 만료되어 DB로 트래픽이 쏠리는 문제입니다.</p>
 <table>
 <thead>
@@ -7120,20 +7120,20 @@
 </thead>
 <tbody>
 <tr>
-<td>같은 TTL 일괄 적용</td>
-<td>TTL randomization</td>
+<td>같은 <abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr> 일괄 적용</td>
+<td><abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr> randomization</td>
 </tr>
 <tr>
 <td>배포 후 캐시 초기화</td>
 <td>단계적 warming</td>
 </tr>
 <tr>
-<td>Redis 장애로 캐시 전체 소실</td>
-<td>DB fallback, rate limit, circuit breaker</td>
+<td><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 장애로 캐시 전체 소실</td>
+<td>DB <abbr title="주 경로가 실패했을 때 사용할 대체 처리. 캐시 장애 시 DB 직접 조회가 대표적이다.">fallback</abbr>, <abbr title="일정 시간 동안 허용할 요청 수를 제한하는 기능.">rate limit</abbr>, <abbr title="장애 중인 외부 호출을 잠시 차단해 장애 전파를 막는 패턴.">circuit breaker</abbr></td>
 </tr>
 </tbody>
 </table>
-<h2 id="cache-invalidation">Cache Invalidation</h2>
+<h2 id="cache-invalidation"><abbr title="원본 데이터가 바뀌었을 때 오래된 캐시를 삭제하거나 갱신하는 작업.">Cache Invalidation</abbr></h2>
 <p>캐시 무효화는 보통 쓰기 시점에 처리합니다.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>DB update 성공
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>-&gt; 관련 Redis key 삭제
@@ -7156,15 +7156,15 @@
 <tr>
 <td>갱신</td>
 <td>다음 조회가 빠름</td>
-<td>DB와 Redis 동시 갱신 실패 처리 필요</td>
+<td>DB와 <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 동시 갱신 실패 처리 필요</td>
 </tr>
 <tr>
-<td>짧은 TTL</td>
+<td>짧은 <abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr></td>
 <td>구현 단순</td>
 <td>stale window 존재</td>
 </tr>
 <tr>
-<td>이벤트 기반 무효화</td>
+<td>이벤트 기반 <abbr title="원본 데이터 변경 후 오래된 캐시를 삭제하거나 더 이상 쓰지 않게 만드는 작업.">무효화</abbr></td>
 <td>서비스 간 확장 가능</td>
 <td>메시지 유실·중복 처리 필요</td>
 </tr>
@@ -7176,8 +7176,8 @@
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>2. Redis DEL product:1
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>3. 다음 조회에서 DB 기준으로 캐시 재생성
 </code></pre></div>
-<p>DB update 전에 캐시를 먼저 삭제하면, DB update가 끝나기 전 다른 요청이 DB의 옛 값을 읽어 다시 캐시에 넣을 수 있습니다. 그래서 일반적으로는 <strong>DB update 성공 후 cache delete</strong>를 기본값으로 둡니다.</p>
-<h3 id="double-delete">Double Delete</h3>
+<p>DB update 전에 캐시를 먼저 삭제하면, DB update가 끝나기 전 다른 요청이 DB의 옛 값을 읽어 다시 캐시에 넣을 수 있습니다. 그래서 일반적으로는 <strong>DB update 성공 후 <abbr title="반복 조회를 빠르게 처리하기 위한 임시 저장소. 원본 DB 부하를 줄이는 데 사용한다.">cache</abbr> delete</strong>를 기본값으로 둡니다.</p>
+<h3 id="double-delete"><abbr title="DB update 후 캐시를 삭제하고, 짧은 시간 뒤 한 번 더 삭제해 stale cache 가능성을 줄이는 완화책.">Double Delete</abbr></h3>
 <p>동시 요청이 많은 환경에서는 DB update 후 캐시를 삭제하고, 짧은 지연 뒤 한 번 더 삭제하는 패턴을 쓰기도 합니다.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>1. DB update
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>2. cache delete
@@ -7201,17 +7201,17 @@
 </tr>
 </tbody>
 </table>
-<p>Double Delete는 임시 완화책입니다. 정합성이 더 중요하면 outbox 기반 무효화 이벤트, 짧은 TTL, 읽기 경로 검증을 함께 고려합니다.</p>
-<h3 id="_5">이벤트 기반 무효화</h3>
-<p>여러 서비스가 같은 데이터를 캐시하면 DB 변경 서비스가 이벤트를 발행하고, 각 서비스가 자기 Redis key를 삭제할 수 있습니다.</p>
+<p>Double Delete는 임시 완화책입니다. 정합성이 더 중요하면 outbox 기반 <abbr title="원본 데이터 변경 후 오래된 캐시를 삭제하거나 더 이상 쓰지 않게 만드는 작업.">무효화</abbr> 이벤트, 짧은 <abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr>, 읽기 경로 검증을 함께 고려합니다.</p>
+<h3 id="_5">이벤트 기반 <abbr title="원본 데이터 변경 후 오래된 캐시를 삭제하거나 더 이상 쓰지 않게 만드는 작업.">무효화</abbr></h3>
+<p>여러 서비스가 같은 데이터를 캐시하면 DB 변경 서비스가 이벤트를 발행하고, 각 서비스가 자기 <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> key를 삭제할 수 있습니다.</p>
 <pre class="mermaid"><code>flowchart LR
     A[상품 서비스&lt;br/&gt;DB update] --&gt; E[ProductUpdated 이벤트]
     E --&gt; C1[API 서버&lt;br/&gt;product cache 삭제]
     E --&gt; C2[검색 서버&lt;br/&gt;검색 cache 삭제]
     E --&gt; C3[추천 서버&lt;br/&gt;추천 cache 삭제]</code></pre>
 <p>이벤트는 중복으로 도착할 수 있으므로 delete 연산처럼 멱등한 처리를 선호합니다. 이벤트 유실이 걱정되면 Kafka와 outbox 패턴을 함께 검토합니다.</p>
-<h2 id="cache-consistency">Cache Consistency</h2>
-<p>DB와 Redis 데이터는 일시적으로 다를 수 있습니다. 중요한 것은 <strong>어느 정도의 불일치를 허용할지</strong>를 업무 기준으로 정하는 것입니다.</p>
+<h2 id="cache-consistency"><abbr title="DB와 캐시 값이 서로 얼마나 일치하는지에 대한 기준. 업무별로 허용 가능한 불일치 시간을 정해야 한다.">Cache Consistency</abbr></h2>
+<p>DB와 <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 데이터는 일시적으로 다를 수 있습니다. 중요한 것은 <strong>어느 정도의 불일치를 허용할지</strong>를 업무 기준으로 정하는 것입니다.</p>
 <table>
 <thead>
 <tr>
@@ -7222,22 +7222,22 @@
 </thead>
 <tbody>
 <tr>
-<td>DB와 Redis 데이터 불일치</td>
+<td>DB와 <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 데이터 불일치</td>
 <td>DB는 변경됐지만 캐시가 오래된 상태</td>
-<td>update 후 delete, 짧은 TTL</td>
+<td>update 후 delete, 짧은 <abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr></td>
 </tr>
 <tr>
-<td>Stale Data</td>
+<td><abbr title="원본 DB보다 오래된 값이 캐시에 남아 있는 상태.">Stale Data</abbr></td>
 <td>사용자가 옛 값을 조회</td>
-<td>TTL, stale 허용 범위 명시</td>
+<td><abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr>, stale 허용 범위 명시</td>
 </tr>
 <tr>
 <td>Read-After-Write</td>
 <td>쓰기 직후 내 조회에서 옛 값이 보임</td>
-<td>쓰기 후 해당 key 삭제, 사용자별 캐시 우회</td>
+<td>쓰기 후 해당 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 삭제, 사용자별 캐시 우회</td>
 </tr>
 <tr>
-<td>중복 무효화</td>
+<td>중복 <abbr title="원본 데이터 변경 후 오래된 캐시를 삭제하거나 더 이상 쓰지 않게 만드는 작업.">무효화</abbr></td>
 <td>이벤트 재처리로 delete가 여러 번 발생</td>
 <td>delete는 멱등하므로 안전한 편</td>
 </tr>
@@ -7254,7 +7254,7 @@
 </thead>
 <tbody>
 <tr>
-<td>쓰기 후 해당 key 삭제</td>
+<td>쓰기 후 해당 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 삭제</td>
 <td>다음 조회에서 DB 기준으로 재생성</td>
 </tr>
 <tr>
@@ -7262,16 +7262,16 @@
 <td>바로 이어지는 화면은 cache를 거치지 않음</td>
 </tr>
 <tr>
-<td>사용자별 짧은 cache bypass</td>
+<td>사용자별 짧은 <abbr title="반복 조회를 빠르게 처리하기 위한 임시 저장소. 원본 DB 부하를 줄이는 데 사용한다.">cache</abbr> bypass</td>
 <td>수정 직후 몇 초 동안 DB 직접 조회</td>
 </tr>
 <tr>
-<td>version key</td>
-<td>cache value에 version/updatedAt 포함 후 검증</td>
+<td>version <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr></td>
+<td><abbr title="반복 조회를 빠르게 처리하기 위한 임시 저장소. 원본 DB 부하를 줄이는 데 사용한다.">cache</abbr> value에 version/updatedAt 포함 후 검증</td>
 </tr>
 </tbody>
 </table>
-<h2 id="local-cache-redis-cache">Local Cache와 Redis Cache 조합</h2>
+<h2 id="local-cache-redis-cache">Local Cache와 <abbr title="여러 서버가 공유하는 외부 Redis 기반 캐시.">Redis Cache</abbr> 조합</h2>
 <table>
 <thead>
 <tr>
@@ -7282,14 +7282,14 @@
 </thead>
 <tbody>
 <tr>
-<td>Local Cache</td>
-<td>가장 빠름, Redis 부하 감소</td>
+<td><abbr title="애플리케이션 프로세스 내부 캐시. 가장 빠르지만 서버 간 정합성 문제가 생길 수 있다.">Local Cache</abbr></td>
+<td>가장 빠름, <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 부하 감소</td>
 <td>서버 간 정합성 문제</td>
 </tr>
 <tr>
-<td>Redis Cache</td>
+<td><abbr title="여러 서버가 공유하는 외부 Redis 기반 캐시.">Redis Cache</abbr></td>
 <td>여러 서버가 공유</td>
-<td>네트워크 RTT 존재</td>
+<td>네트워크 <abbr title="Round Trip Time. 요청을 보내고 응답을 받기까지 걸리는 네트워크 왕복 시간.">RTT</abbr> 존재</td>
 </tr>
 <tr>
 <td>DB</td>
@@ -7298,7 +7298,7 @@
 </tr>
 </tbody>
 </table>
-<p>자주 읽는 설정값처럼 짧은 stale을 허용할 수 있으면 Local Cache + Redis 조합이 효과적입니다. 사용자 권한, 가격처럼 변경 즉시 반영이 필요한 데이터는 무효화 전략이 필요합니다.</p>
+<p>자주 읽는 설정값처럼 짧은 stale을 허용할 수 있으면 <abbr title="애플리케이션 프로세스 내부 캐시. 가장 빠르지만 서버 간 정합성 문제가 생길 수 있다.">Local Cache</abbr> + <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 조합이 효과적입니다. 사용자 권한, 가격처럼 변경 즉시 반영이 필요한 데이터는 <abbr title="원본 데이터 변경 후 오래된 캐시를 삭제하거나 더 이상 쓰지 않게 만드는 작업.">무효화</abbr> 전략이 필요합니다.</p>
 <h2 id="_6">베스트 프랙티스</h2>
 <table>
 <thead>
@@ -7309,23 +7309,23 @@
 </thead>
 <tbody>
 <tr>
-<td>Cache Aside를 기본으로 시작</td>
+<td><abbr title="반복 조회를 빠르게 처리하기 위한 임시 저장소. 원본 DB 부하를 줄이는 데 사용한다.">Cache</abbr> Aside를 기본으로 시작</td>
 <td>구현과 장애 fallback이 단순</td>
 </tr>
 <tr>
-<td>모든 캐시에 TTL 부여</td>
+<td>모든 캐시에 <abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr> 부여</td>
 <td>무한 증가 방지</td>
 </tr>
 <tr>
-<td>TTL jitter 적용</td>
+<td><abbr title="TTL에 작은 랜덤 값을 섞어 많은 key가 동시에 만료되지 않게 하는 방법.">TTL jitter</abbr> 적용</td>
 <td>stampede와 avalanche 완화</td>
 </tr>
 <tr>
-<td>null cache는 짧은 TTL</td>
+<td>null cache는 짧은 <abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr></td>
 <td>penetration 방지와 메모리 절충</td>
 </tr>
 <tr>
-<td>DB update 후 cache delete</td>
+<td>DB update 후 <abbr title="반복 조회를 빠르게 처리하기 위한 임시 저장소. 원본 DB 부하를 줄이는 데 사용한다.">cache</abbr> delete</td>
 <td>stale data를 줄이는 안전한 기본값</td>
 </tr>
 <tr>
@@ -7345,31 +7345,46 @@
 <tbody>
 <tr>
 <td>상품 상세</td>
-<td>Cache Aside, 수정 시 삭제, TTL jitter</td>
+<td><abbr title="애플리케이션이 캐시를 먼저 읽고, miss면 DB 조회 후 캐시에 저장하는 패턴. 실무 조회 캐시의 기본 선택지다.">Cache Aside</abbr>, 수정 시 삭제, <abbr title="TTL에 작은 랜덤 값을 섞어 많은 key가 동시에 만료되지 않게 하는 방법.">TTL jitter</abbr></td>
 </tr>
 <tr>
 <td>메인 페이지</td>
-<td>Cache Warming, stale 응답 허용 검토</td>
+<td><abbr title="서비스 오픈, 배포, 이벤트 전에 주요 데이터를 미리 캐시에 넣어 초기 miss 폭증을 줄이는 작업.">Cache Warming</abbr>, stale 응답 허용 검토</td>
 </tr>
 <tr>
 <td>존재하지 않는 상품 ID</td>
-<td>null cache, 입력 검증</td>
+<td><abbr title="DB에 없는 결과도 짧게 캐시해 반복 miss와 DB 조회를 줄이는 방법.">null cache</abbr>, 입력 검증</td>
 </tr>
 <tr>
 <td>설정 캐시</td>
-<td>Local Cache + Redis, pub/sub 무효화 가능</td>
+<td><abbr title="애플리케이션 프로세스 내부 캐시. 가장 빠르지만 서버 간 정합성 문제가 생길 수 있다.">Local Cache</abbr> + <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr>, <abbr title="publisher가 channel에 메시지를 발행하면 구독 중인 subscriber가 즉시 받는 Redis 메시징 방식.">pub/sub</abbr> <abbr title="원본 데이터 변경 후 오래된 캐시를 삭제하거나 더 이상 쓰지 않게 만드는 작업.">무효화</abbr> 가능</td>
 </tr>
 <tr>
 <td>가격·재고</td>
-<td>짧은 TTL, 원본 DB 기준, 강한 검증</td>
+<td>짧은 <abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr>, 원본 DB 기준, 강한 검증</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <p><strong>관련 파일:</strong>
-- <a href="../%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B4%80%EB%A6%AC/">Key 설계와 데이터 관리</a>
+- <a href="../%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B4%80%EB%A6%AC/"><abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">Key</abbr> 설계와 데이터 관리</a>
 - <a href="../%EB%8F%99%EC%8B%9C%EC%84%B1%EB%9D%BD/">트랜잭션과 동시성</a>
 - <a href="../%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%EB%B3%B4%EC%95%88/">모니터링과 보안</a></p>
+<!-- Redis 전용 용어집: Redis 문서에서만 include해서 툴팁으로 사용합니다. -->
+
+<!-- ===== Redis 기본 ===== -->
+<!-- ===== 캐시 ===== -->
+<!-- ===== Redis 자료구조 ===== -->
+<!-- ===== 데이터 관리와 영속성 ===== -->
+<!-- ===== 운영 구조 ===== -->
+<!-- ===== 성능과 장애 ===== -->
+<!-- ===== 동시성과 락 ===== -->
+<!-- ===== 메시징 ===== -->
+<!-- ===== Spring Boot 연동 ===== -->
+<!-- ===== 모니터링과 보안 ===== -->
+<!-- ===== Redis Stack ===== -->
+<!-- ===== 비교와 선택 ===== -->
+<!-- ===== 실무 유즈케이스 ===== -->
 <!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
 
 <!-- ===== DB / SQL ===== -->
@@ -7398,7 +7413,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 27일 14:00:05 UTC">2026년 4월 27일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 28일 10:41:10 UTC">2026년 4월 28일</span>
   </span>
 
     

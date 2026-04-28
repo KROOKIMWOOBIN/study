@@ -6611,8 +6611,8 @@
   
 
 
-<h1 id="redis">Redis 트랜잭션과 동시성</h1>
-<p>Redis는 단일 명령 실행이 원자적이라 카운터, 중복 요청 방지, 짧은 락에 자주 사용됩니다. 여러 명령을 묶어야 할 때는 MULTI/EXEC, WATCH, Lua Script를 검토합니다.</p>
+<h1 id="redis"><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 트랜잭션과 동시성</h1>
+<p>Redis는 단일 명령 실행이 원자적이라 카운터, 중복 요청 방지, 짧은 락에 자주 사용됩니다. 여러 명령을 묶어야 할 때는 <abbr title="여러 Redis 명령을 queue에 쌓은 뒤 순서대로 실행하는 Redis transaction 명령 조합.">MULTI/EXEC</abbr>, <abbr title="key 변경을 감시하다가 변경되면 EXEC를 실패시켜 낙관적 락처럼 쓰는 명령.">WATCH</abbr>, <abbr title="Redis 서버 안에서 짧은 원자 로직을 실행할 때 쓰는 스크립트 언어.">Lua</abbr> Script를 검토합니다.</p>
 <h2 id="_1">용어</h2>
 <table>
 <thead>
@@ -6623,50 +6623,50 @@
 </thead>
 <tbody>
 <tr>
-<td>Atomic Command</td>
+<td><abbr title="한 Redis 명령이 중간에 끼어들지 않고 실행되는 성질.">Atomic Command</abbr></td>
 <td>한 명령이 중간에 끼어들지 않고 실행되는 성질</td>
 </tr>
 <tr>
-<td>MULTI / EXEC</td>
-<td>여러 명령을 queue에 쌓고 순서대로 실행하는 Redis transaction</td>
+<td><abbr title="여러 Redis 명령을 queue에 쌓은 뒤 순서대로 실행하는 Redis transaction 명령 조합.">MULTI / EXEC</abbr></td>
+<td>여러 명령을 queue에 쌓고 순서대로 실행하는 <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> transaction</td>
 </tr>
 <tr>
-<td>DISCARD</td>
+<td><abbr title="MULTI로 쌓은 Redis transaction 명령을 취소하는 명령.">DISCARD</abbr></td>
 <td>MULTI로 쌓은 명령을 취소</td>
 </tr>
 <tr>
-<td>WATCH</td>
-<td>key 변경을 감시해 낙관적 락처럼 사용하는 명령</td>
+<td><abbr title="key 변경을 감시하다가 변경되면 EXEC를 실패시켜 낙관적 락처럼 쓰는 명령.">WATCH</abbr></td>
+<td><abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 변경을 감시해 낙관적 락처럼 사용하는 명령</td>
 </tr>
 <tr>
-<td>Lua Script</td>
-<td>여러 Redis 명령을 서버에서 원자적으로 실행하는 스크립트</td>
+<td><abbr title="여러 Redis 명령을 서버에서 원자적으로 실행하는 스크립트.">Lua Script</abbr></td>
+<td>여러 <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 명령을 서버에서 원자적으로 실행하는 스크립트</td>
 </tr>
 <tr>
-<td>Distributed Lock</td>
+<td><abbr title="여러 서버가 같은 자원을 동시에 처리하지 않도록 외부 저장소로 잡는 락.">Distributed Lock</abbr></td>
 <td>여러 서버가 같은 자원을 동시에 처리하지 않도록 잡는 락</td>
 </tr>
 <tr>
-<td>Fencing Token</td>
+<td><abbr title="락 획득 순서를 나타내는 단조 증가 토큰. 늦게 도착한 오래된 작업을 DB나 외부 시스템에서 거절할 때 쓴다.">Fencing Token</abbr></td>
 <td>락 획득 순서를 나타내는 단조 증가 토큰</td>
 </tr>
 </tbody>
 </table>
 <h2 id="_2">질문</h2>
-<h3 id="redis-transaction-rdb-transaction">Redis transaction은 RDB transaction과 같은가?</h3>
+<h3 id="redis-transaction-rdb-transaction"><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> transaction은 <abbr title="Redis Database snapshot. 특정 시점의 메모리 데이터를 파일로 저장하는 영속화 방식.">RDB</abbr> transaction과 같은가?</h3>
 <p>다릅니다. Redis의 MULTI/EXEC는 명령을 순서대로 실행하지만, RDB처럼 복잡한 rollback이나 격리 수준을 제공하지 않습니다.</p>
 <table>
 <thead>
 <tr>
 <th>구분</th>
-<th>Redis MULTI/EXEC</th>
-<th>RDB Transaction</th>
+<th><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> <abbr title="여러 Redis 명령을 queue에 쌓은 뒤 순서대로 실행하는 Redis transaction 명령 조합.">MULTI/EXEC</abbr></th>
+<th><abbr title="Redis Database snapshot. 특정 시점의 메모리 데이터를 파일로 저장하는 영속화 방식.">RDB</abbr> Transaction</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>목적</td>
-<td>Redis 명령 묶음 실행</td>
+<td><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 명령 묶음 실행</td>
 <td>데이터 정합성 보장</td>
 </tr>
 <tr>
@@ -6676,7 +6676,7 @@
 </tr>
 <tr>
 <td>격리 수준</td>
-<td>RDB 격리 수준과 다름</td>
+<td><abbr title="Redis Database snapshot. 특정 시점의 메모리 데이터를 파일로 저장하는 영속화 방식.">RDB</abbr> 격리 수준과 다름</td>
 <td>READ COMMITTED, REPEATABLE READ 등</td>
 </tr>
 <tr>
@@ -6686,7 +6686,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="multi-exec-discard">MULTI / EXEC / DISCARD</h2>
+<h2 id="multi-exec-discard"><abbr title="여러 Redis 명령을 queue에 쌓은 뒤 순서대로 실행하는 Redis transaction 명령 조합.">MULTI / EXEC</abbr> / <abbr title="MULTI로 쌓은 Redis transaction 명령을 취소하는 명령.">DISCARD</abbr></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>MULTI
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>INCR<span class="w"> </span>user:1:point
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>EXPIRE<span class="w"> </span>user:1:point<span class="w"> </span><span class="m">3600</span>
@@ -6714,8 +6714,8 @@
 </tr>
 </tbody>
 </table>
-<p>MULTI/EXEC 안에서 명령 결과를 읽고 그 값에 따라 다음 명령을 바꾸는 로직은 어렵습니다. 그런 Read-Modify-Write는 Lua가 더 적합합니다.</p>
-<h2 id="watch-optimistic-locking">WATCH와 Optimistic Locking</h2>
+<p><abbr title="여러 Redis 명령을 queue에 쌓은 뒤 순서대로 실행하는 Redis transaction 명령 조합.">MULTI/EXEC</abbr> 안에서 명령 결과를 읽고 그 값에 따라 다음 명령을 바꾸는 로직은 어렵습니다. 그런 Read-Modify-Write는 Lua가 더 적합합니다.</p>
+<h2 id="watch-optimistic-locking">WATCH와 <abbr title="충돌이 드물다고 보고 먼저 진행한 뒤, 변경 여부를 확인해 충돌 시 재시도하는 락 방식.">Optimistic Locking</abbr></h2>
 <p>WATCH는 key가 바뀌었는지 감시하고, 바뀌었다면 EXEC를 실패시킵니다.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>WATCH<span class="w"> </span>stock:coupon:100
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>GET<span class="w"> </span>stock:coupon:100
@@ -6724,8 +6724,8 @@
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>EXEC
 </code></pre></div>
 <p>여러 클라이언트가 같은 key를 바꾸는 경쟁 상황에서 사용할 수 있지만, 충돌이 잦으면 재시도 비용이 커집니다.</p>
-<h2 id="lua-script">Lua Script</h2>
-<p>Lua Script는 여러 Redis 명령을 서버에서 한 번에 실행합니다.</p>
+<h2 id="lua-script"><abbr title="여러 Redis 명령을 서버에서 원자적으로 실행하는 스크립트.">Lua Script</abbr></h2>
+<p><abbr title="Redis 서버 안에서 짧은 원자 로직을 실행할 때 쓰는 스크립트 언어.">Lua</abbr> Script는 여러 <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 명령을 서버에서 한 번에 실행합니다.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">redis</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s2">&quot;INCR&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">KEYS</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kr">if</span><span class="w"> </span><span class="nv">current</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">then</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nv">redis</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s2">&quot;EXPIRE&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">KEYS</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="nv">ARGV</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
@@ -6746,16 +6746,16 @@
 </tr>
 <tr>
 <td>네트워크 왕복 감소</td>
-<td>오래 실행되면 Redis 전체 지연</td>
+<td>오래 실행되면 <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 전체 지연</td>
 </tr>
 <tr>
-<td>rate limit, 중복 요청 방지에 유용</td>
+<td><abbr title="일정 시간 동안 허용할 요청 수를 제한하는 기능.">rate limit</abbr>, 중복 요청 방지에 유용</td>
 <td>복잡한 비즈니스 로직을 넣으면 위험</td>
 </tr>
 </tbody>
 </table>
-<h2 id="lua">Lua 실전 패턴</h2>
-<h3 id="read-modify-write">원자적 Read-Modify-Write</h3>
+<h2 id="lua"><abbr title="Redis 서버 안에서 짧은 원자 로직을 실행할 때 쓰는 스크립트 언어.">Lua</abbr> 실전 패턴</h2>
+<h3 id="read-modify-write">원자적 <abbr title="값을 읽고 계산한 뒤 다시 쓰는 작업 흐름. 동시성 경쟁이 생기기 쉬워 Lua나 락이 필요할 수 있다.">Read-Modify-Write</abbr></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">redis</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">KEYS</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="kr">then</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="kc">nil</span>
@@ -6772,7 +6772,7 @@
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="mi">0</span>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="kr">end</span>
 </code></pre></div>
-<h3 id="rate-limiting">Rate Limiting</h3>
+<h3 id="rate-limiting"><abbr title="일정 시간 동안 허용할 요청 수를 제한하는 기법.">Rate Limiting</abbr></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">redis</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s2">&quot;INCR&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">KEYS</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kr">if</span><span class="w"> </span><span class="nv">current</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">then</span>
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nv">redis</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s2">&quot;EXPIRE&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">KEYS</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="nv">ARGV</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
@@ -6787,12 +6787,12 @@
 <a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nv">redis</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s2">&quot;DECR&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">KEYS</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="kr">return</span><span class="w"> </span><span class="nv">stock</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
 </code></pre></div>
-<p>Redis 재고 차감은 빠르지만 원장성은 DB에서 보정해야 합니다. 쿠폰·재고·결제는 DB unique 제약, 상태 전이 검증, 이벤트 보정이 필요합니다.</p>
+<p><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 재고 차감은 빠르지만 원장성은 DB에서 보정해야 합니다. 쿠폰·재고·결제는 DB unique 제약, 상태 전이 검증, 이벤트 보정이 필요합니다.</p>
 <h3 id="_5">중복 요청 방지</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>SET<span class="w"> </span>idempotency:payment:req-123<span class="w"> </span><span class="s2">&quot;processing&quot;</span><span class="w"> </span>NX<span class="w"> </span>EX<span class="w"> </span><span class="m">300</span>
 </code></pre></div>
 <p><code>NX</code>로 처음 요청만 통과시키고, 같은 key가 있으면 중복 요청으로 처리합니다.</p>
-<h2 id="_6">분산 락</h2>
+<h2 id="_6"><abbr title="여러 서버가 같은 자원을 동시에 처리하지 않도록 외부 저장소로 잡는 락.">분산 락</abbr></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>SET<span class="w"> </span>lock:coupon:100<span class="w"> </span>request-uuid<span class="w"> </span>NX<span class="w"> </span>PX<span class="w"> </span><span class="m">3000</span>
 </code></pre></div>
 <table>
@@ -6820,7 +6820,7 @@
 <div class="danger-box">
 <p><strong>위험</strong>: 분산 락은 트랜잭션을 대신하지 않는다. 락 만료 시간이 작업 시간보다 짧으면 다른 서버가 같은 락을 다시 잡을 수 있다.</p>
 </div>
-<h3 id="_7">분산 락 기본 흐름</h3>
+<h3 id="_7"><abbr title="여러 서버가 같은 자원을 동시에 처리하지 않도록 외부 저장소로 잡는 락.">분산 락</abbr> 기본 흐름</h3>
 <pre class="mermaid"><code>sequenceDiagram
     participant A as Server A
     participant B as Server B
@@ -6834,7 +6834,7 @@
     A-&gt;&gt;DB: 쿠폰 발급 처리
     A-&gt;&gt;R: Lua로 owner 확인 후 DEL</code></pre>
 <p>핵심은 락 획득보다 <strong>락 해제</strong>입니다. TTL이 지난 뒤 다른 서버가 새 락을 잡았는데, 이전 서버가 뒤늦게 <code>DEL</code>을 실행하면 다른 서버의 락을 지울 수 있습니다. 그래서 value에 owner token을 저장하고 Lua로 확인 후 삭제합니다.</p>
-<h3 id="fencing-token">Fencing Token</h3>
+<h3 id="fencing-token"><abbr title="락 획득 순서를 나타내는 단조 증가 토큰. 늦게 도착한 오래된 작업을 DB나 외부 시스템에서 거절할 때 쓴다.">Fencing Token</abbr></h3>
 <p>Fencing Token은 락을 잡을 때마다 증가하는 번호를 함께 발급하는 방식입니다.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>1. Server A lock 획득, token = 10
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>2. Server A가 멈춤
@@ -6858,7 +6858,7 @@
 </thead>
 <tbody>
 <tr>
-<td>Redis <code>INCR lock:token</code></td>
+<td><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> <code>INCR lock:token</code></td>
 <td>단조 증가 token 발급</td>
 </tr>
 <tr>
@@ -6872,7 +6872,7 @@
 </tbody>
 </table>
 <p>Fencing Token은 락이 깨지는 상황에서도 늦게 도착한 작업을 DB가 거부할 수 있게 합니다. 금전성 작업, 재고 차감, 외부 <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 중복 호출처럼 결과가 민감한 곳에서 중요합니다.</p>
-<h2 id="lettuce-redisson-redlock">Lettuce, Redisson, Redlock</h2>
+<h2 id="lettuce-redisson-redlock"><abbr title="Netty 기반 Redis client. Spring Boot에서 기본 선택지로 많이 사용된다.">Lettuce</abbr>, <abbr title="Redis 기반 분산 락, map, queue 같은 고수준 API를 제공하는 client.">Redisson</abbr>, <abbr title="여러 독립 Redis 노드에서 과반수 락을 얻는 분산 락 알고리즘.">Redlock</abbr></h2>
 <table>
 <thead>
 <tr>
@@ -6883,24 +6883,24 @@
 </thead>
 <tbody>
 <tr>
-<td>Lettuce 직접 구현</td>
+<td><abbr title="Netty 기반 Redis client. Spring Boot에서 기본 선택지로 많이 사용된다.">Lettuce</abbr> 직접 구현</td>
 <td><code>SET NX PX</code> 기반으로 단순 구현 가능</td>
-<td>해제 Lua, timeout, 재시도 직접 관리</td>
+<td>해제 <abbr title="Redis 서버 안에서 짧은 원자 로직을 실행할 때 쓰는 스크립트 언어.">Lua</abbr>, <abbr title="작업이 정해진 제한 시간 안에 끝나지 않아 실패로 처리되는 상황.">timeout</abbr>, 재시도 직접 관리</td>
 </tr>
 <tr>
-<td>Redisson</td>
+<td><abbr title="Redis 기반 분산 락, map, queue 같은 고수준 API를 제공하는 client.">Redisson</abbr></td>
 <td>락 <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr>, watchdog 등 편의 기능 제공</td>
 <td>라이브러리 동작 방식 이해 필요</td>
 </tr>
 <tr>
-<td>Redlock</td>
-<td>여러 Redis 노드에서 락 획득 시도</td>
+<td><abbr title="여러 독립 Redis 노드에서 과반수 락을 얻는 분산 락 알고리즘.">Redlock</abbr></td>
+<td>여러 <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 노드에서 락 획득 시도</td>
 <td>네트워크 분할·시계·운영 복잡도 논쟁 존재</td>
 </tr>
 </tbody>
 </table>
-<p>실무에서는 단일 Redis 락만으로 금전성 정합성을 보장하기보다, DB unique 제약이나 fencing token을 함께 둡니다.</p>
-<h3 id="lettuce">Lettuce 직접 구현 시 체크</h3>
+<p>실무에서는 단일 <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 락만으로 금전성 정합성을 보장하기보다, DB unique 제약이나 fencing token을 함께 둡니다.</p>
+<h3 id="lettuce"><abbr title="Netty 기반 Redis client. Spring Boot에서 기본 선택지로 많이 사용된다.">Lettuce</abbr> 직접 구현 시 체크</h3>
 <table>
 <thead>
 <tr>
@@ -6911,14 +6911,14 @@
 <tbody>
 <tr>
 <td><code>SET key value NX PX ttl</code> 사용</td>
-<td>락 획득과 TTL 설정을 원자적으로 처리</td>
+<td>락 획득과 <abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr> 설정을 원자적으로 처리</td>
 </tr>
 <tr>
 <td>value는 요청별 UUID</td>
 <td>소유자 확인</td>
 </tr>
 <tr>
-<td>해제는 Lua</td>
+<td>해제는 <abbr title="Redis 서버 안에서 짧은 원자 로직을 실행할 때 쓰는 스크립트 언어.">Lua</abbr></td>
 <td>다른 요청의 락 삭제 방지</td>
 </tr>
 <tr>
@@ -6927,11 +6927,11 @@
 </tr>
 <tr>
 <td>작업은 멱등하게</td>
-<td>timeout, failover, 중복 실행 대비</td>
+<td><abbr title="작업이 정해진 제한 시간 안에 끝나지 않아 실패로 처리되는 상황.">timeout</abbr>, <abbr title="장애 난 master 대신 replica를 새 master로 승격해 서비스를 이어가는 절차.">failover</abbr>, 중복 실행 대비</td>
 </tr>
 </tbody>
 </table>
-<h3 id="redisson-watchdog">Redisson Watchdog</h3>
+<h3 id="redisson-watchdog"><abbr title="Redis 기반 분산 락, map, queue 같은 고수준 API를 제공하는 client.">Redisson</abbr> Watchdog</h3>
 <p>Redisson의 lock watchdog은 락을 잡은 스레드가 살아 있는 동안 락 TTL을 자동 연장해주는 기능입니다.</p>
 <table>
 <thead>
@@ -6946,14 +6946,14 @@
 <td>프로세스 정지, <abbr title="Garbage Collection. JVM이 더 이상 참조되지 않는 객체를 자동으로 메모리에서 해제하는 과정.">GC</abbr> stop-the-world, 네트워크 분리 상황을 완전히 해결하지는 못함</td>
 </tr>
 <tr>
-<td>직접 TTL 연장 로직을 줄일 수 있음</td>
+<td>직접 <abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr> 연장 로직을 줄일 수 있음</td>
 <td>watchdog 동작 조건과 leaseTime 설정을 이해해야 함</td>
 </tr>
 </tbody>
 </table>
 <p>명시적인 lease time을 지정하면 watchdog 자동 연장이 적용되지 않는 방식으로 동작할 수 있으므로, 라이브러리 사용 방식과 설정을 팀 표준으로 맞춰야 합니다.</p>
-<h3 id="redlock">Redlock 한계</h3>
-<p>Redlock은 여러 독립 Redis 노드에서 과반수 락을 얻는 방식입니다. 단일 노드 장애에는 더 강할 수 있지만, 네트워크 지연, clock drift, 클라이언트 pause, 운영 복잡도 논쟁이 있습니다.</p>
+<h3 id="redlock"><abbr title="여러 독립 Redis 노드에서 과반수 락을 얻는 분산 락 알고리즘.">Redlock</abbr> 한계</h3>
+<p>Redlock은 여러 독립 <abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 노드에서 과반수 락을 얻는 방식입니다. 단일 노드 장애에는 더 강할 수 있지만, 네트워크 지연, clock drift, 클라이언트 pause, 운영 복잡도 논쟁이 있습니다.</p>
 <table>
 <thead>
 <tr>
@@ -6963,7 +6963,7 @@
 </thead>
 <tbody>
 <tr>
-<td>Redis 노드 독립성</td>
+<td><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 노드 독립성</td>
 <td>같은 장애 도메인에 있으면 의미가 줄어듦</td>
 </tr>
 <tr>
@@ -6981,7 +6981,7 @@
 </tbody>
 </table>
 <p>그래서 실무에서는 Redlock을 쓰더라도 "락을 잡았으니 절대 중복 실행이 없다"가 아니라, <strong>중복 실행이 와도 DB가 막을 수 있는 구조</strong>를 함께 둡니다.</p>
-<h2 id="rate-limiting_1">Rate Limiting</h2>
+<h2 id="rate-limiting_1"><abbr title="일정 시간 동안 허용할 요청 수를 제한하는 기법.">Rate Limiting</abbr></h2>
 <table>
 <thead>
 <tr>
@@ -6992,17 +6992,17 @@
 </thead>
 <tbody>
 <tr>
-<td>Fixed Window</td>
+<td><abbr title="정해진 시간 창 단위로 요청 수를 세는 rate limiting 방식.">Fixed Window</abbr></td>
 <td>고정 시간 창마다 count</td>
 <td>단순하지만 경계 시점 burst 가능</td>
 </tr>
 <tr>
-<td>Sliding Window</td>
+<td><abbr title="최근 일정 시간 범위를 미끄러지듯 계산해 요청 수를 제한하는 방식.">Sliding Window</abbr></td>
 <td>최근 N초 요청을 계산</td>
 <td>정확하지만 비용 증가</td>
 </tr>
 <tr>
-<td>Token Bucket</td>
+<td><abbr title="일정 속도로 토큰을 채우고 요청마다 토큰을 소비하는 rate limiting 방식.">Token Bucket</abbr></td>
 <td>토큰을 일정 속도로 채움</td>
 <td>burst를 어느 정도 허용</td>
 </tr>
@@ -7013,7 +7013,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="fixed-window-lua">Fixed Window Lua 예시</h3>
+<h3 id="fixed-window-lua"><abbr title="정해진 시간 창 단위로 요청 수를 세는 rate limiting 방식.">Fixed Window</abbr> <abbr title="Redis 서버 안에서 짧은 원자 로직을 실행할 때 쓰는 스크립트 언어.">Lua</abbr> 예시</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">redis</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s2">&quot;INCR&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">KEYS</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kr">if</span><span class="w"> </span><span class="nv">current</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">then</span>
 <a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nv">redis</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s2">&quot;EXPIRE&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">KEYS</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="nv">ARGV</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
@@ -7037,7 +7037,7 @@
 </tr>
 <tr>
 <td><code>ARGV[1]</code></td>
-<td>window TTL</td>
+<td>window <abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr></td>
 </tr>
 <tr>
 <td><code>ARGV[2]</code></td>
@@ -7061,24 +7061,24 @@
 <td>단순하고 빠름</td>
 </tr>
 <tr>
-<td>여러 명령 원자 처리는 Lua 검토</td>
+<td>여러 명령 원자 처리는 <abbr title="Redis 서버 안에서 짧은 원자 로직을 실행할 때 쓰는 스크립트 언어.">Lua</abbr> 검토</td>
 <td>네트워크 왕복과 race condition 감소</td>
 </tr>
 <tr>
 <td>Lua는 짧고 제한적으로 작성</td>
-<td>Redis event loop 점유 방지</td>
+<td><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> event loop 점유 방지</td>
 </tr>
 <tr>
 <td>분산 락은 소유자 확인 후 해제</td>
 <td>다른 요청의 락 삭제 방지</td>
 </tr>
 <tr>
-<td>락과 멱등성 같이 사용</td>
-<td>failover, timeout, 중복 실행 대비</td>
+<td>락과 <abbr title="같은 요청이 여러 번 실행되어도 결과가 한 번 실행한 것과 같게 유지되는 성질.">멱등성</abbr> 같이 사용</td>
+<td><abbr title="장애 난 master 대신 replica를 새 master로 승격해 서비스를 이어가는 절차.">failover</abbr>, <abbr title="작업이 정해진 제한 시간 안에 끝나지 않아 실패로 처리되는 상황.">timeout</abbr>, 중복 실행 대비</td>
 </tr>
 <tr>
 <td>원장성 데이터는 DB 제약과 함께 검증</td>
-<td>Redis 유실·중복 대비</td>
+<td><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 유실·중복 대비</td>
 </tr>
 </tbody>
 </table>
@@ -7093,22 +7093,22 @@
 <tbody>
 <tr>
 <td>로그인 실패 제한</td>
-<td><code>INCR</code> + TTL Lua</td>
+<td><code>INCR</code> + <abbr title="Time To Live. key가 자동 삭제되기까지 남은 시간 또는 만료 시간 설정.">TTL</abbr> <abbr title="Redis 서버 안에서 짧은 원자 로직을 실행할 때 쓰는 스크립트 언어.">Lua</abbr></td>
 </tr>
 <tr>
 <td>중복 결제 요청 방지</td>
-<td>idempotency key + DB unique</td>
+<td><abbr title="같은 요청이 여러 번 와도 한 번만 처리되도록 요청을 식별하는 key.">idempotency key</abbr> + DB unique</td>
 </tr>
 <tr>
 <td>쿠폰 중복 발급 방지</td>
-<td>Redis lock + DB 발급 이력 unique</td>
+<td><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> lock + DB 발급 이력 unique</td>
 </tr>
 <tr>
 <td>재고 빠른 차감</td>
-<td>Redis 선차감 + DB 보정/검증</td>
+<td><abbr title="Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.">Redis</abbr> 선차감 + DB 보정/검증</td>
 </tr>
 <tr>
-<td><abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> rate limit</td>
+<td><abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> <abbr title="일정 시간 동안 허용할 요청 수를 제한하는 기능.">rate limit</abbr></td>
 <td>fixed/sliding/token bucket 선택</td>
 </tr>
 </tbody>
@@ -7118,6 +7118,21 @@
 - <a href="../%EC%BA%90%EC%8B%9C%ED%8C%A8%ED%84%B4/">캐시 전략과 정합성</a>
 - <a href="../%EC%8B%A4%EB%AC%B4%EC%9C%A0%EC%A6%88%EC%BC%80%EC%9D%B4%EC%8A%A4/">실무 유즈케이스</a>
 - <a href="../../../operations/concurrency/">동시성 제어</a></p>
+<!-- Redis 전용 용어집: Redis 문서에서만 include해서 툴팁으로 사용합니다. -->
+
+<!-- ===== Redis 기본 ===== -->
+<!-- ===== 캐시 ===== -->
+<!-- ===== Redis 자료구조 ===== -->
+<!-- ===== 데이터 관리와 영속성 ===== -->
+<!-- ===== 운영 구조 ===== -->
+<!-- ===== 성능과 장애 ===== -->
+<!-- ===== 동시성과 락 ===== -->
+<!-- ===== 메시징 ===== -->
+<!-- ===== Spring Boot 연동 ===== -->
+<!-- ===== 모니터링과 보안 ===== -->
+<!-- ===== Redis Stack ===== -->
+<!-- ===== 비교와 선택 ===== -->
+<!-- ===== 실무 유즈케이스 ===== -->
 <!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
 
 <!-- ===== DB / SQL ===== -->
@@ -7146,7 +7161,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 27일 14:00:05 UTC">2026년 4월 27일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 28일 10:41:10 UTC">2026년 4월 28일</span>
   </span>
 
     
