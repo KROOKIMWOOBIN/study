@@ -146,7 +146,7 @@ Spring Cache에서 null caching을 켜면 cache penetration을 줄일 수 있지
 
 ## Redis Repository
 
-Redis Repository는 객체를 Redis Hash로 저장하는 추상화입니다. 세션성 객체나 짧게 살아도 되는 상태에는 쓸 수 있지만, RDB repository처럼 원장 데이터를 맡기면 위험합니다.
+Redis Repository는 객체를 Redis Hash로 저장하는 추상화입니다. 세션성 객체나 짧게 살아도 되는 상태에는 쓸 수 있지만, RDBMS repository처럼 원장 데이터를 맡기면 위험합니다.
 
 ## Serializer 전략
 

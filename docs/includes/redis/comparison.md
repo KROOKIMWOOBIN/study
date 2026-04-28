@@ -6,7 +6,6 @@
 *[Distributed Cache]: 여러 애플리케이션 서버가 함께 사용하는 외부 캐시.
 *[Message Broker]: 메시지를 저장하거나 전달해 producer와 consumer를 분리하는 시스템.
 *[Message Queue]: 메시지를 큐에 보관했다가 consumer가 가져가 처리하는 메시징 구조.
-*[RDBMS]: 관계형 데이터베이스 관리 시스템. 트랜잭션, 조인, 정합성이 강점이다.
 *[Document DB]: JSON 문서 중심으로 데이터를 저장하는 NoSQL 데이터베이스.
 *[NoSQL]: 관계형 테이블 모델 밖의 다양한 데이터 저장소를 통칭하는 말.
 *[Memcached]: 단순 key-value 캐시에 집중한 메모리 캐시 시스템.

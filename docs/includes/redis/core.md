@@ -1,6 +1,7 @@
 <!-- Redis 공통 용어 -->
 
 *[Redis]: Remote Dictionary Server. 메모리 기반 key-value 저장소. 캐시, 세션, 카운터, 랭킹, 락, 메시징에 자주 사용한다.
+*[RDBMS]: Relational Database Management System. 테이블, 행, 컬럼 기반으로 데이터를 저장하고 트랜잭션과 조인을 제공하는 관계형 데이터베이스 관리 시스템.
 *[Key]: Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.
 *[key]: Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.
 *[Value]: key에 저장된 실제 데이터. 문자열, 해시, 집합, 스트림 같은 Redis 자료구조가 될 수 있다.
