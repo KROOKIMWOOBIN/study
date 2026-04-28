@@ -6674,9 +6674,9 @@
 <td>만료 정책 관리</td>
 </tr>
 <tr>
-<td><abbr title="hash slot을 기준으로 데이터를 여러 master에 나누어 저장하는 Redis 확장 구조.">Cluster</abbr> 다중 키는 <abbr title="`{}` 안 문자열만 hash해 여러 key를 같은 slot에 배치하는 방법.">hash tag</abbr> 사용</td>
+<td>Cluster 다중 키는 hash tag 사용</td>
 <td><code>cart:{user-1}:items</code></td>
-<td>같은 <abbr title="Redis Cluster가 key를 배치하는 16384개의 논리 슬롯.">hash slot</abbr> 배치</td>
+<td>같은 hash slot 배치</td>
 </tr>
 </tbody>
 </table>
@@ -6889,7 +6889,7 @@
 </tr>
 </tbody>
 </table>
-<p>간단한 큐에는 쓸 수 있지만, 재처리·소비자 그룹·추적이 중요하면 Stream이나 <abbr title="partitioned commit log 기반 메시지 플랫폼. 긴 보관, 재처리, 대규모 이벤트 스트림에 강하다.">Kafka</abbr> 같은 메시징 도구를 검토합니다.</p>
+<p>간단한 큐에는 쓸 수 있지만, 재처리·소비자 그룹·추적이 중요하면 Stream이나 Kafka 같은 메시징 도구를 검토합니다.</p>
 <h3 id="set"><abbr title="중복 없는 집합 자료구조. 포함 여부, 태그, 좋아요 사용자 목록에 적합하다.">Set</abbr></h3>
 <p>중복 없는 집합입니다.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>SADD<span class="w"> </span>post:1:likes<span class="w"> </span>user-1
@@ -7021,7 +7021,7 @@
 <tr>
 <td>작업 큐를 List로 만들고 재처리 요구를 나중에 추가</td>
 <td>실패 추적이 어려움</td>
-<td>처음부터 <abbr title="Redis의 append-only 메시지 로그 자료구조. ID가 붙은 메시지를 저장하고 consumer group으로 나눠 읽을 수 있다.">Stream</abbr>/<abbr title="partitioned commit log 기반 메시지 플랫폼. 긴 보관, 재처리, 대규모 이벤트 스트림에 강하다.">Kafka</abbr> 검토</td>
+<td>처음부터 <abbr title="Redis의 append-only 메시지 로그 자료구조. ID가 붙은 메시지를 저장하고 consumer group으로 나눠 읽을 수 있다.">Stream</abbr>/Kafka 검토</td>
 </tr>
 <tr>
 <td>하나의 <abbr title="중복 없는 집합 자료구조. 포함 여부, 태그, 좋아요 사용자 목록에 적합하다.">Set</abbr>/Hash에 무제한 저장</td>
@@ -7134,21 +7134,18 @@
 - <a href="../%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B4%80%EB%A6%AC/"><abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">Key</abbr> 설계와 데이터 관리</a>
 - <a href="../%EC%BA%90%EC%8B%9C%ED%8C%A8%ED%84%B4/">캐시 전략과 정합성</a>
 - <a href="../%EC%84%B1%EB%8A%A5%EC%B5%9C%EC%A0%81%ED%99%94/">성능 최적화</a></p>
-<!-- Redis 전용 용어집: Redis 문서에서만 include해서 툴팁으로 사용합니다. -->
+<!-- Redis 공통 용어 -->
 
-<!-- ===== Redis 기본 ===== -->
-<!-- ===== 캐시 ===== -->
-<!-- ===== Redis 자료구조 ===== -->
-<!-- ===== 데이터 관리와 영속성 ===== -->
-<!-- ===== 운영 구조 ===== -->
-<!-- ===== 성능과 장애 ===== -->
-<!-- ===== 동시성과 락 ===== -->
-<!-- ===== 메시징 ===== -->
-<!-- ===== Spring Boot 연동 ===== -->
-<!-- ===== 모니터링과 보안 ===== -->
-<!-- ===== Redis Stack ===== -->
-<!-- ===== 비교와 선택 ===== -->
-<!-- ===== 실무 유즈케이스 ===== -->
+<!-- Redis 자료구조 용어 -->
+
+<!-- Redis 데이터 관리와 영속성 용어 -->
+
+<!-- Redis 성능 최적화 용어 -->
+
+<!-- Redis 메시징 용어 -->
+
+<!-- Redis 실무 유즈케이스 용어 -->
+
 <!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
 
 <!-- ===== DB / SQL ===== -->
@@ -7177,7 +7174,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 28일 10:41:10 UTC">2026년 4월 28일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 28일 10:48:42 UTC">2026년 4월 28일</span>
   </span>
 
     

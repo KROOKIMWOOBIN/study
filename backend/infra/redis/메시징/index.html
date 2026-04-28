@@ -6408,7 +6408,7 @@
 </tr>
 <tr>
 <td>사용처</td>
-<td>실시간 알림, <abbr title="반복 조회를 빠르게 처리하기 위한 임시 저장소. 원본 DB 부하를 줄이는 데 사용한다.">cache</abbr> invalidation</td>
+<td>실시간 알림, cache invalidation</td>
 <td>작업 처리, 소규모 이벤트 로그</td>
 </tr>
 </tbody>
@@ -6445,7 +6445,7 @@
 </thead>
 <tbody>
 <tr>
-<td>서버 간 <abbr title="반복 조회를 빠르게 처리하기 위한 임시 저장소. 원본 DB 부하를 줄이는 데 사용한다.">cache</abbr> invalidation</td>
+<td>서버 간 cache invalidation</td>
 <td>특정 <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 삭제 알림</td>
 </tr>
 <tr>
@@ -6580,7 +6580,7 @@
 </tr>
 <tr>
 <td>중복 처리</td>
-<td><abbr title="같은 요청이 여러 번 와도 한 번만 처리되도록 요청을 식별하는 key.">idempotency key</abbr> 사용</td>
+<td>idempotency <abbr title="Redis에서 값을 찾는 이름. 보통 `domain:id:purpose`처럼 의미가 드러나게 만든다.">key</abbr> 사용</td>
 </tr>
 </tbody>
 </table>
@@ -6662,7 +6662,7 @@
 </thead>
 <tbody>
 <tr>
-<td><abbr title="애플리케이션 프로세스 내부 캐시. 가장 빠르지만 서버 간 정합성 문제가 생길 수 있다.">local cache</abbr> <abbr title="원본 데이터 변경 후 오래된 캐시를 삭제하거나 더 이상 쓰지 않게 만드는 작업.">무효화</abbr> 알림</td>
+<td><abbr title="애플리케이션 프로세스 내부 캐시. 가장 빠르지만 서버 간 정합성 문제가 생길 수 있다.">local cache</abbr> 무효화 알림</td>
 <td><abbr title="publisher가 channel에 메시지를 발행하면 구독 중인 subscriber가 즉시 받는 Redis 메시징 방식.">Pub/Sub</abbr></td>
 </tr>
 <tr>
@@ -6688,21 +6688,16 @@
 - <a href="../../kafka/"><abbr title="partitioned commit log 기반 메시지 플랫폼. 긴 보관, 재처리, 대규모 이벤트 스트림에 강하다.">Kafka</abbr></a>
 - <a href="../%EC%BA%90%EC%8B%9C%ED%8C%A8%ED%84%B4/">캐시 전략과 정합성</a>
 - <a href="../%EC%9E%A5%EC%95%A0%EB%8C%80%EC%9D%91/">장애 대응과 트러블슈팅</a></p>
-<!-- Redis 전용 용어집: Redis 문서에서만 include해서 툴팁으로 사용합니다. -->
+<!-- Redis 공통 용어 -->
 
-<!-- ===== Redis 기본 ===== -->
-<!-- ===== 캐시 ===== -->
-<!-- ===== Redis 자료구조 ===== -->
-<!-- ===== 데이터 관리와 영속성 ===== -->
-<!-- ===== 운영 구조 ===== -->
-<!-- ===== 성능과 장애 ===== -->
-<!-- ===== 동시성과 락 ===== -->
-<!-- ===== 메시징 ===== -->
-<!-- ===== Spring Boot 연동 ===== -->
-<!-- ===== 모니터링과 보안 ===== -->
-<!-- ===== Redis Stack ===== -->
-<!-- ===== 비교와 선택 ===== -->
-<!-- ===== 실무 유즈케이스 ===== -->
+<!-- Redis 메시징 용어 -->
+
+<!-- Redis 자료구조 용어 -->
+
+<!-- Redis 데이터 관리와 영속성 용어 -->
+
+<!-- Redis 비교와 선택 기준 용어 -->
+
 <!-- 전역 용어집: 이 파일에 정의된 약어/용어는 모든 페이지에 자동으로 툴팁이 적용됩니다 -->
 
 <!-- ===== DB / SQL ===== -->
@@ -6731,7 +6726,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 28일 10:41:10 UTC">2026년 4월 28일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 28일 10:48:42 UTC">2026년 4월 28일</span>
   </span>
 
     
