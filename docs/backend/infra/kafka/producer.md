@@ -155,9 +155,35 @@ flowchart TB
 
 같은 주문의 이벤트가 같은 key를 쓰면 같은 partition으로 들어갑니다. 그러면 consumer는 그 partition 안에서 `ORDER_CREATED -> ORDER_PAID -> ORDER_CANCELED` 순서를 지킬 수 있습니다.
 
+## 주의할 점
+
+| 주의 | 설명 |
+|------|------|
+| send 실패를 무시하지 않기 | 발행 실패를 삼키면 consumer는 이벤트가 있었는지 알 수 없음 |
+| `enable.idempotence=true`를 과신하지 않기 | consumer의 DB 중복 반영까지 막아주지는 않음 |
+| key 없이 순서 기대 금지 | 순서는 partition 안에서만 보장 |
+| payload만 설계하지 않기 | `eventId`, `eventType`, `schemaVersion`, `aggregateId`가 운영에 중요 |
+| DB 저장 후 Kafka 발행 실패 고려 | outbox pattern 검토 |
+
+## 베스트 프랙티스
+
+| 권장 방식 | 이유 |
+|-----------|------|
+| 중요한 이벤트는 `acks=all`과 idempotence 검토 | 유실과 producer 중복 위험 감소 |
+| aggregate id를 key 후보로 검토 | 업무 순서 보장 |
+| 이벤트 envelope 표준화 | 추적, 재처리, schema 변경 대응 |
+| producer metric 관찰 | error rate, retry rate, request latency 확인 |
+| schema 변경은 consumer 호환성 기준으로 검토 | 일부 consumer 장애 방지 |
+
 ---
 
 **관련 파일:**
 - [Kafka 개요](../kafka.md)
 - [Kafka 기본 개념과 구조](./기본개념.md)
+- [토픽과 파티션 설계](./토픽파티션설계.md)
+- [Key 설계와 순서 보장](./키순서설계.md)
+- [Schema 관리와 이벤트 버전](./스키마관리.md)
 - [아웃박스 패턴](../../architecture/outbox.md)
+
+--8<-- "includes/kafka/core.md"
+--8<-- "includes/kafka/producer-consumer.md"
