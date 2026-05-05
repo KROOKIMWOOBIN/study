@@ -8,6 +8,56 @@
 
 Kafka를 처음 볼 때는 "메시지 큐"라고 이해하기 쉽습니다. 하지만 실무에서는 Kafka를 **소비자가 각자 원하는 속도로 다시 읽을 수 있는 이벤트 로그**로 보는 편이 안전합니다.
 
+## 한 번에 이해하는 예시
+
+Kafka가 필요한 상황을 주문 서비스로 보면 이해가 쉽습니다.
+
+주문이 생성되면 보통 여러 후속 작업이 필요합니다.
+
+```text
+주문 생성
+-> 재고 차감
+-> 결제 후처리
+-> 알림 발송
+-> 검색 색인 갱신
+-> 통계 집계
+```
+
+이 모든 작업을 주문 서비스가 직접 API로 호출하면, 주문 서비스는 후속 서비스들의 주소, 응답 시간, 장애 상황을 모두 신경 써야 합니다. 알림 서비스가 느려졌는데 주문 생성 응답까지 느려지는 식의 장애 전파도 생길 수 있습니다.
+
+Kafka를 사용하면 주문 서비스는 먼저 **"주문이 생성되었다"는 사실**을 이벤트로 남깁니다.
+
+```mermaid
+sequenceDiagram
+    participant Order as 주문 서비스
+    participant Kafka as Kafka
+    participant Inventory as 재고 Consumer
+    participant Notification as 알림 Consumer
+
+    Order->>Kafka: order-created 이벤트 발행
+    Kafka-->>Order: 저장 성공
+    Inventory->>Kafka: order-created 읽기
+    Inventory->>Inventory: 재고 차감
+    Notification->>Kafka: order-created 읽기
+    Notification->>Notification: 알림 발송
+```
+
+여기서 핵심은 Kafka가 후속 업무를 직접 처리하지 않는다는 점입니다. Kafka는 이벤트를 보관하고, 재고 서비스와 알림 서비스가 각자 consumer가 되어 필요한 시점에 읽어갑니다.
+
+| 단계 | 무슨 일이 일어나는가 | 초보자가 붙잡을 말 |
+|------|----------------------|--------------------|
+| 1 | Producer가 이벤트를 만든다 | "주문이 생성됐다"를 기록 |
+| 2 | Kafka가 topic에 저장한다 | 이벤트 종류별 보관함에 넣음 |
+| 3 | Kafka가 partition에 append한다 | 로그 맨 뒤에 순서대로 추가 |
+| 4 | Consumer group이 읽는다 | 재고 팀, 알림 팀이 각자 읽음 |
+| 5 | 처리 후 offset을 commit한다 | 여기까지 처리했다는 책갈피 저장 |
+
+<div class="concept-box" markdown="1">
+
+**핵심 사고방식**: Kafka 메시지는 "누가 무엇을 하라"는 명령보다 **이미 일어난 사실을 기록한 이벤트**로 설계하는 편이 좋다. 예: `재고를 차감해라`보다 `주문이 생성되었다`.
+
+</div>
+
 ## 용어
 
 | 용어 | 뜻 | 쉽게 말하면 |
@@ -89,6 +139,24 @@ Kafka는 아래 흐름으로 자주 사용합니다.
 5. 업무 처리에 성공하면 offset을 commit한다.
 6. 장애가 나면 commit된 offset 이후부터 다시 처리한다.
 ```
+
+조금 더 구체적으로 보면, `orderId=1001` 주문 이벤트는 보통 아래처럼 설계합니다.
+
+```json
+{
+  "eventId": "evt-1001-1",
+  "eventType": "ORDER_CREATED",
+  "occurredAt": "2026-05-05T10:15:00Z",
+  "aggregateId": "order-1001",
+  "payload": {
+    "orderId": 1001,
+    "userId": 7,
+    "amount": 39000
+  }
+}
+```
+
+`aggregateId`나 `orderId`를 key로 쓰면 같은 주문의 이벤트가 같은 partition으로 들어가기 쉬워져 순서 보장에 유리합니다. consumer는 `eventId`를 저장해두면 같은 이벤트가 다시 와도 중복 처리를 막을 수 있습니다.
 
 ```bash
 # topic 생성 예시
@@ -188,6 +256,16 @@ kafka-consumer-groups.sh \
 | 로그 수집 | 처리량 중심, batch, compression |
 | CDC 연동 | schema evolution, compaction, 순서 보장 확인 |
 | 외부 API 연동 | rate limit, timeout, DLQ, 보정 작업 |
+
+## 처음 헷갈리는 지점
+
+| 헷갈리는 생각 | 실제로는 |
+|---------------|----------|
+| Kafka가 메시지를 읽으면 바로 지운다 | consumer가 읽어도 retention 기간 동안 보관한다 |
+| consumer가 하나면 충분하다 | 같은 일을 나눠 처리하려면 consumer group과 partition 수를 함께 봐야 한다 |
+| topic 전체 순서가 보장된다 | 순서는 partition 안에서만 보장된다 |
+| `enable.idempotence=true`면 중복 처리가 완전히 사라진다 | producer 중복 기록을 줄일 뿐 consumer의 DB 반영 중복은 별도 방어가 필요하다 |
+| lag가 높으면 Kafka가 느린 것이다 | consumer 처리, DB, 외부 API, hot partition 문제일 수 있다 |
 
 ## 정리
 
