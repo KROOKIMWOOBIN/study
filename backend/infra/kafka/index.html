@@ -4422,7 +4422,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        학습 카테고리
+        먼저 잡을 그림
       
     </span>
   </a>
@@ -4431,6 +4431,17 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        학습 카테고리
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         빠른 선택
@@ -6365,7 +6376,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        학습 카테고리
+        먼저 잡을 그림
       
     </span>
   </a>
@@ -6374,6 +6385,17 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        학습 카테고리
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         빠른 선택
@@ -6405,7 +6427,54 @@
 
 <h1 id="kafka"><abbr title="이벤트를 topic에 append-only log로 저장하고 consumer group이 offset 기준으로 읽는 분산 이벤트 스트리밍 플랫폼.">Kafka</abbr></h1>
 <p><abbr title="이벤트를 topic에 append-only log로 저장하고 consumer group이 offset 기준으로 읽는 분산 이벤트 스트리밍 플랫폼.">Kafka</abbr> 학습 노트의 입구입니다. 개념 설명은 <a href="kafka%EB%9E%80/">Kafka란?</a>에서 보고, 필요한 주제는 아래 카테고리로 바로 이동하면 됩니다.</p>
-<h2 id="_1">학습 카테고리</h2>
+<h2 id="_1">먼저 잡을 그림</h2>
+<p>Kafka는 단순히 "메시지를 잠깐 전달하는 큐"라기보다, <strong>서비스에서 일어난 일을 로그로 남겨두고 여러 시스템이 각자 필요한 속도로 읽게 해주는 중간 저장소</strong>에 가깝습니다.</p>
+<p>예를 들어 주문이 생성되면 주문 서비스가 재고, 알림, 검색, 통계 서비스를 모두 직접 호출할 수도 있습니다. 하지만 호출 대상 중 하나가 느리거나 장애가 나면 주문 처리까지 영향을 받을 수 있습니다.</p>
+<pre class="mermaid"><code>flowchart LR
+    O[주문 서비스] --&gt; K[(Kafka&lt;br/&gt;order-created 저장)]
+    K --&gt; I[재고 서비스&lt;br/&gt;재고 차감]
+    K --&gt; N[알림 서비스&lt;br/&gt;문자 발송]
+    K --&gt; S[검색 서비스&lt;br/&gt;색인 갱신]
+    K --&gt; A[통계 서비스&lt;br/&gt;집계]</code></pre>
+<p>이때 Kafka의 역할은 "재고를 차감해주는 것"이 아닙니다. Kafka는 <strong>주문이 생성되었다는 이벤트를 안전하게 받아서 보관</strong>하고, 각 consumer가 자기 책임에 맞게 읽어가도록 도와줍니다.</p>
+<table>
+<thead>
+<tr>
+<th>관점</th>
+<th>직접 <abbr title="Application Programming Interface. 소프트웨어 간 통신을 위한 인터페이스 규약.">API</abbr> 호출</th>
+<th><abbr title="이벤트를 topic에 append-only log로 저장하고 consumer group이 offset 기준으로 읽는 분산 이벤트 스트리밍 플랫폼.">Kafka</abbr> 사용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>서비스 관계</td>
+<td>호출하는 쪽이 호출 대상과 강하게 연결됨</td>
+<td>producer와 consumer가 느슨하게 연결됨</td>
+</tr>
+<tr>
+<td>장애 영향</td>
+<td>호출 대상 지연이 요청 흐름에 전파되기 쉬움</td>
+<td>이벤트를 보관하고 consumer가 나중에 따라잡을 수 있음</td>
+</tr>
+<tr>
+<td>같은 데이터 활용</td>
+<td>필요한 곳마다 호출 로직 추가</td>
+<td>여러 <abbr title="Kafka topic에서 record를 읽는 client.">consumer</abbr> group이 같은 이벤트를 독립적으로 읽음</td>
+</tr>
+<tr>
+<td>다시 처리</td>
+<td>별도 저장 없으면 어려움</td>
+<td><abbr title="Kafka가 record를 보관하는 기간이나 크기 기준.">retention</abbr> 안에서 <abbr title="partition 안에서 record의 위치를 나타내는 번호.">offset</abbr> 기준으로 재처리 가능</td>
+</tr>
+</tbody>
+</table>
+<p>처음에는 아래 흐름만 기억하면 됩니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Producer는 &quot;무슨 일이 일어났는지&quot; 이벤트를 발행한다.
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Kafka는 이벤트를 topic과 partition에 순서대로 저장한다.
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Consumer group은 자기 offset을 기준으로 읽고 처리한다.
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>처리에 실패하면 commit된 offset 이후부터 다시 읽을 수 있다.
+</code></pre></div>
+<h2 id="_2">학습 카테고리</h2>
 <table>
 <thead>
 <tr>
@@ -6497,7 +6566,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_2">빠른 선택</h2>
+<h2 id="_3">빠른 선택</h2>
 <table>
 <thead>
 <tr>
@@ -6589,7 +6658,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 30일 16:05:33 UTC">2026년 4월 30일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 5월 5일 02:02:14 UTC">2026년 5월 5일</span>
   </span>
 
     
