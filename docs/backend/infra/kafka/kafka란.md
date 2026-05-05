@@ -77,24 +77,14 @@ sequenceDiagram
 
 ### Kafka는 왜 쓰는가?
 
-서비스가 다른 서비스에 직접 API를 호출하면 호출 대상의 장애, 지연, 트래픽 증가가 호출한 서비스까지 전파됩니다. Kafka는 이벤트를 중간에 저장해 producer와 consumer를 분리합니다.
-
-```mermaid
-flowchart LR
-    O[주문 서비스] --> K[(Kafka)]
-    K --> I[재고 서비스]
-    K --> N[알림 서비스]
-    K --> S[검색 색인]
-```
-
 핵심은 직접 호출을 줄이고 이벤트를 기준으로 흐름을 나누는 것입니다.
 
-```text
-Producer는 이벤트를 남긴다.
-Kafka는 이벤트를 보관한다.
-Consumer는 자기 속도에 맞춰 처리한다.
-장애가 나면 offset 기준으로 다시 읽을 수 있다.
-```
+| 해결하려는 문제 | Kafka가 주는 방식 |
+|----------------|-------------------|
+| 호출 대상 장애가 요청 흐름에 전파됨 | 이벤트를 먼저 저장하고 consumer가 나중에 처리 |
+| 같은 변경을 여러 시스템에 전달해야 함 | 여러 consumer group이 같은 이벤트를 독립적으로 읽음 |
+| 장애 후 다시 처리해야 함 | retention 안에서 offset 기준으로 재처리 |
+| 대량 로그를 순서 있게 모아야 함 | partition에 append-only log로 저장 |
 
 ### Kafka는 큐와 무엇이 다른가?
 
@@ -129,18 +119,9 @@ flowchart TB
 
 ## 어떻게 쓰는지
 
-Kafka는 아래 흐름으로 자주 사용합니다.
+Producer는 업무에서 일어난 사실을 이벤트로 만들고 topic에 발행합니다. Consumer는 topic을 읽어 자기 업무를 처리하고, 성공한 뒤 offset을 commit합니다. topic, partition, offset이 연결되는 자세한 흐름은 [기본 개념과 구조](./기본개념.md)에서 봅니다.
 
-```text
-1. Producer가 업무 이벤트를 만든다.
-2. 이벤트 key를 정해 topic에 발행한다.
-3. Kafka는 partition에 순서대로 저장한다.
-4. Consumer group이 poll로 이벤트를 읽는다.
-5. 업무 처리에 성공하면 offset을 commit한다.
-6. 장애가 나면 commit된 offset 이후부터 다시 처리한다.
-```
-
-조금 더 구체적으로 보면, `orderId=1001` 주문 이벤트는 보통 아래처럼 설계합니다.
+`orderId=1001` 주문 이벤트는 보통 아래처럼 설계합니다.
 
 ```json
 {
