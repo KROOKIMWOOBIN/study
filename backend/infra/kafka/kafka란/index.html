@@ -6856,18 +6856,33 @@
 </table>
 <h2 id="_3">질문</h2>
 <h3 id="kafka_1">Kafka는 왜 쓰는가?</h3>
-<p>서비스가 다른 서비스에 직접 API를 호출하면 호출 대상의 장애, 지연, 트래픽 증가가 호출한 서비스까지 전파됩니다. Kafka는 이벤트를 중간에 저장해 producer와 consumer를 분리합니다.</p>
-<pre class="mermaid"><code>flowchart LR
-    O[주문 서비스] --&gt; K[(Kafka)]
-    K --&gt; I[재고 서비스]
-    K --&gt; N[알림 서비스]
-    K --&gt; S[검색 색인]</code></pre>
 <p>핵심은 직접 호출을 줄이고 이벤트를 기준으로 흐름을 나누는 것입니다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Producer는 이벤트를 남긴다.
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Kafka는 이벤트를 보관한다.
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Consumer는 자기 속도에 맞춰 처리한다.
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>장애가 나면 offset 기준으로 다시 읽을 수 있다.
-</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>해결하려는 문제</th>
+<th>Kafka가 주는 방식</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>호출 대상 장애가 요청 흐름에 전파됨</td>
+<td>이벤트를 먼저 저장하고 consumer가 나중에 처리</td>
+</tr>
+<tr>
+<td>같은 변경을 여러 시스템에 전달해야 함</td>
+<td>여러 <abbr title="Kafka topic에서 record를 읽는 client.">consumer</abbr> group이 같은 이벤트를 독립적으로 읽음</td>
+</tr>
+<tr>
+<td>장애 후 다시 처리해야 함</td>
+<td><abbr title="Kafka가 record를 보관하는 기간이나 크기 기준.">retention</abbr> 안에서 <abbr title="partition 안에서 record의 위치를 나타내는 번호.">offset</abbr> 기준으로 재처리</td>
+</tr>
+<tr>
+<td>대량 로그를 순서 있게 모아야 함</td>
+<td>partition에 append-only log로 저장</td>
+</tr>
+</tbody>
+</table>
 <h3 id="kafka_2">Kafka는 큐와 무엇이 다른가?</h3>
 <p>일반적인 큐는 메시지를 꺼내 처리하면 사라지는 모델로 이해하는 경우가 많습니다. Kafka는 consumer가 읽었다고 메시지를 바로 지우지 않습니다. <abbr title="Kafka가 record를 보관하는 기간이나 크기 기준.">retention</abbr> 기간 동안 로그를 보관하므로, 다른 <abbr title="Kafka topic에서 record를 읽는 client.">consumer</abbr> group이 같은 이벤트를 따로 읽거나 장애 후 다시 읽을 수 있습니다.</p>
 <table>
@@ -6949,42 +6964,35 @@
 </tbody>
 </table>
 <h2 id="_4">어떻게 쓰는지</h2>
-<p>Kafka는 아래 흐름으로 자주 사용합니다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>1. Producer가 업무 이벤트를 만든다.
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>2. 이벤트 key를 정해 topic에 발행한다.
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>3. Kafka는 partition에 순서대로 저장한다.
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>4. Consumer group이 poll로 이벤트를 읽는다.
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>5. 업무 처리에 성공하면 offset을 commit한다.
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>6. 장애가 나면 commit된 offset 이후부터 다시 처리한다.
-</code></pre></div>
-<p>조금 더 구체적으로 보면, <code>orderId=1001</code> 주문 이벤트는 보통 아래처럼 설계합니다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;eventId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;evt-1001-1&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;eventType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ORDER_CREATED&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">&quot;occurredAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-05-05T10:15:00Z&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">&quot;aggregateId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;order-1001&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="nt">&quot;payload&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="nt">&quot;orderId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1001</span><span class="p">,</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="nt">&quot;userId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">39000</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="p">}</span>
+<p>Producer는 업무에서 일어난 사실을 이벤트로 만들고 topic에 발행합니다. Consumer는 topic을 읽어 자기 업무를 처리하고, 성공한 뒤 offset을 commit합니다. <abbr title="Kafka에서 이벤트를 논리적으로 분류하는 이름.">topic</abbr>, <abbr title="topic을 나누어 저장하는 append-only log 단위. Kafka 순서 보장의 기본 단위다.">partition</abbr>, offset이 연결되는 자세한 흐름은 <a href="../%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/">기본 개념과 구조</a>에서 봅니다.</p>
+<p><code>orderId=1001</code> 주문 이벤트는 보통 아래처럼 설계합니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;eventId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;evt-1001-1&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;eventType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ORDER_CREATED&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">&quot;occurredAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-05-05T10:15:00Z&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">&quot;aggregateId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;order-1001&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nt">&quot;payload&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nt">&quot;orderId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1001</span><span class="p">,</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="nt">&quot;userId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">39000</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">}</span>
 </code></pre></div>
 <p><code>aggregateId</code>나 <code>orderId</code>를 key로 쓰면 같은 주문의 이벤트가 같은 partition으로 들어가기 쉬워져 순서 보장에 유리합니다. consumer는 <code>eventId</code>를 저장해두면 같은 이벤트가 다시 와도 중복 처리를 막을 수 있습니다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># topic 생성 예시</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>kafka-topics.sh<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span>--bootstrap-server<span class="w"> </span>kafka-1:9092<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span>--create<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span>--topic<span class="w"> </span>order-events<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span>--partitions<span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span>--replication-factor<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span>--config<span class="w"> </span>retention.ms<span class="o">=</span><span class="m">604800000</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1"># consumer group lag 확인</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>kafka-consumer-groups.sh<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">  </span>--bootstrap-server<span class="w"> </span>kafka-1:9092<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">  </span>--describe<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">  </span>--group<span class="w"> </span>inventory-service
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># topic 생성 예시</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>kafka-topics.sh<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span>--bootstrap-server<span class="w"> </span>kafka-1:9092<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span>--create<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span>--topic<span class="w"> </span>order-events<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span>--partitions<span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span>--replication-factor<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span>--config<span class="w"> </span>retention.ms<span class="o">=</span><span class="m">604800000</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># consumer group lag 확인</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>kafka-consumer-groups.sh<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">  </span>--bootstrap-server<span class="w"> </span>kafka-1:9092<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">  </span>--describe<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">  </span>--group<span class="w"> </span>inventory-service
 </code></pre></div>
 <h2 id="_5">언제 쓰는지</h2>
 <table>
@@ -7363,7 +7371,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 5월 5일 02:02:14 UTC">2026년 5월 5일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 5월 5일 02:10:03 UTC">2026년 5월 5일</span>
   </span>
 
     
