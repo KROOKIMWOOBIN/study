@@ -5022,10 +5022,38 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="왜 쓰는지">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        이중 쓰기 문제가 생긴다
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        하나의 트랜잭션으로 묶기 어렵다
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         어떻게 쓰는지
@@ -5040,7 +5068,7 @@
   <a href="#1-outbox" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Outbox 테이블
+        1. Outbox 테이블을 만든다
       
     </span>
   </a>
@@ -5048,10 +5076,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-db" class="md-nav__link">
+  <a href="#2-outbox" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. 같은 DB 트랜잭션에 저장
+        2. 비즈니스 데이터와 Outbox 이벤트를 같은 트랜잭션에 저장한다
       
     </span>
   </a>
@@ -5059,10 +5087,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-relay" class="md-nav__link">
+  <a href="#3-relay-pending" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Relay가 이벤트 발행
+        3. Relay가 PENDING 이벤트를 가져간다
       
     </span>
   </a>
@@ -5070,10 +5098,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-polling-cdc" class="md-nav__link">
+  <a href="#4-kafka" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Polling 또는 CDC
+        4. Kafka 발행 성공 후 상태를 바꾼다
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-consumer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Consumer는 멱등하게 만든다
       
     </span>
   </a>
@@ -5086,7 +5125,46 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#polling-cdc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Polling과 CDC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Polling과 CDC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#polling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Polling 방식
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cdc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CDC 방식
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         언제 쓰는지
@@ -5097,7 +5175,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         장점
@@ -5108,7 +5186,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         단점
@@ -5119,7 +5197,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         특징
@@ -5131,10 +5209,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-at-least-once" class="md-nav__link">
+  <a href="#db" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. At-least-once 전달
+        DB 트랜잭션을 기준으로 안정성을 확보한다
       
     </span>
   </a>
@@ -5142,10 +5220,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. 소비자 멱등성
+        최종 일관성 패턴이다
       
     </span>
   </a>
@@ -5153,10 +5231,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-outbox" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Outbox 생명주기
+        최소 한 번 전달을 기본으로 본다
       
     </span>
   </a>
@@ -5164,10 +5242,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
+  <a href="#key" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. 조회 성능
+        순서 보장은 key 설계와 함께 봐야 한다
       
     </span>
   </a>
@@ -5180,7 +5258,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
         주의할 점
@@ -5191,7 +5269,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       
         베스트 프랙티스
@@ -5202,7 +5280,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       
         실무에서는?
@@ -5210,10 +5288,71 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="실무에서는?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주문 생성 이벤트
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        결제 완료 이벤트
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        검색 색인 갱신
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        캐시 무효화
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        처음 볼 때 자주 헷갈리는 점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
     <span class="md-ellipsis">
       
         정리
@@ -6556,10 +6695,38 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="왜 쓰는지">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        이중 쓰기 문제가 생긴다
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        하나의 트랜잭션으로 묶기 어렵다
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         어떻게 쓰는지
@@ -6574,7 +6741,7 @@
   <a href="#1-outbox" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Outbox 테이블
+        1. Outbox 테이블을 만든다
       
     </span>
   </a>
@@ -6582,10 +6749,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-db" class="md-nav__link">
+  <a href="#2-outbox" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. 같은 DB 트랜잭션에 저장
+        2. 비즈니스 데이터와 Outbox 이벤트를 같은 트랜잭션에 저장한다
       
     </span>
   </a>
@@ -6593,10 +6760,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-relay" class="md-nav__link">
+  <a href="#3-relay-pending" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Relay가 이벤트 발행
+        3. Relay가 PENDING 이벤트를 가져간다
       
     </span>
   </a>
@@ -6604,10 +6771,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-polling-cdc" class="md-nav__link">
+  <a href="#4-kafka" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Polling 또는 CDC
+        4. Kafka 발행 성공 후 상태를 바꾼다
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-consumer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Consumer는 멱등하게 만든다
       
     </span>
   </a>
@@ -6620,7 +6798,46 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#polling-cdc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Polling과 CDC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Polling과 CDC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#polling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Polling 방식
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cdc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CDC 방식
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         언제 쓰는지
@@ -6631,7 +6848,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         장점
@@ -6642,7 +6859,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         단점
@@ -6653,7 +6870,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         특징
@@ -6665,10 +6882,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-at-least-once" class="md-nav__link">
+  <a href="#db" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. At-least-once 전달
+        DB 트랜잭션을 기준으로 안정성을 확보한다
       
     </span>
   </a>
@@ -6676,10 +6893,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. 소비자 멱등성
+        최종 일관성 패턴이다
       
     </span>
   </a>
@@ -6687,10 +6904,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-outbox" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Outbox 생명주기
+        최소 한 번 전달을 기본으로 본다
       
     </span>
   </a>
@@ -6698,10 +6915,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
+  <a href="#key" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. 조회 성능
+        순서 보장은 key 설계와 함께 봐야 한다
       
     </span>
   </a>
@@ -6714,7 +6931,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
         주의할 점
@@ -6725,7 +6942,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       
         베스트 프랙티스
@@ -6736,7 +6953,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       
         실무에서는?
@@ -6744,10 +6961,71 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="실무에서는?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주문 생성 이벤트
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        결제 완료 이벤트
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        검색 색인 갱신
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        캐시 무효화
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        처음 볼 때 자주 헷갈리는 점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
     <span class="md-ellipsis">
       
         정리
@@ -6778,121 +7056,462 @@
 
 
 <h1 id="transactional-outbox-pattern">Transactional Outbox Pattern</h1>
-<h2 id="_1">왜 쓰는지</h2>
-<p>DB 저장과 메시지 발행을 함께 처리해야 하는 경우가 많습니다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>1. 주문을 DB에 저장
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>2. 주문 생성 이벤트를 메시지 브로커에 발행
-</code></pre></div>
-<p>문제는 DB와 메시지 브로커가 서로 다른 시스템이라는 점입니다. DB 저장은 성공했는데 메시지 발행이 실패하면 다른 서비스는 주문 생성 사실을 알지 못합니다.</p>
 <div class="concept-box">
-<p><strong>핵심</strong>: Transactional Outbox는 비즈니스 데이터와 발행할 이벤트를 같은 DB 트랜잭션에 저장하고, 별도 프로세스가 Outbox 테이블을 읽어 메시지 브로커로 발행하는 패턴입니다.</p>
+<p><strong>Transactional Outbox Pattern</strong>: 비즈니스 데이터 변경과 발행할 이벤트를 <strong>같은 DB 트랜잭션</strong>에 저장한 뒤, 별도 Relay가 Outbox 테이블을 읽어 Kafka 같은 메시지 브로커로 발행하는 패턴.</p>
 </div>
-<h2 id="_2">어떻게 쓰는지</h2>
-<h3 id="1-outbox">1. Outbox 테이블</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">outbox</span><span class="w"> </span><span class="p">(</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">aggregate_type</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="n">aggregate_id</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="n">event_type</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="n">payload</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="n">status</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="n">created_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="n">published_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">NULL</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="p">);</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_outbox_status_created</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="k">ON</span><span class="w"> </span><span class="n">outbox</span><span class="p">(</span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">created_at</span><span class="p">);</span>
+<p>Outbox 패턴은 "주문 저장은 됐는데 주문 생성 이벤트 발행은 실패했다" 같은 문제를 줄이기 위해 사용합니다. 처음에는 어렵게 보이지만 핵심은 단순합니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>DB에는 주문도 저장하고, 발행해야 할 이벤트도 같이 저장한다.
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Kafka 발행은 요청 처리 흐름에서 바로 하지 않고, 별도 Relay가 나중에 한다.
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Relay가 실패해도 Outbox 테이블에 이벤트가 남아 있으므로 다시 시도할 수 있다.
 </code></pre></div>
-<h3 id="2-db">2. 같은 DB 트랜잭션에 저장</h3>
+<h2 id="_1">왜 쓰는지</h2>
+<h3 id="_2">이중 쓰기 문제가 생긴다</h3>
+<p>서비스에서는 DB 저장과 이벤트 발행을 함께 해야 하는 경우가 많습니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>1. 주문을 DB에 저장한다.
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>2. 주문 생성 이벤트를 Kafka에 발행한다.
+</code></pre></div>
+<p>문제는 DB와 Kafka가 서로 다른 시스템이라는 점입니다. 애플리케이션 코드에서는 한 메서드 안에 있어도, 실제로는 <strong>DB write</strong>와 <strong>Kafka publish</strong>라는 두 번의 쓰기가 일어납니다. 이를 보통 <strong>dual write problem, 이중 쓰기 문제</strong>라고 부릅니다.</p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant App as 주문 서비스
+    participant DB as MySQL
+    participant Kafka as Kafka
+
+    App-&gt;&gt;DB: 주문 INSERT
+    DB--&gt;&gt;App: 성공
+    App-&gt;&gt;Kafka: OrderCreated 발행
+    Kafka--x App: 실패 또는 timeout</code></pre>
+<p>이 경우 주문은 DB에 있는데, 재고 서비스나 알림 서비스는 주문 생성 사실을 모를 수 있습니다. 반대로 Kafka 발행은 성공했는데 DB 트랜잭션이 rollback되면, 실제로 없는 주문을 다른 서비스가 처리할 수도 있습니다.</p>
+<table>
+<thead>
+<tr>
+<th>시나리오</th>
+<th>결과</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DB 저장 성공, Kafka 발행 실패</td>
+<td>다른 서비스가 변경 사실을 모름</td>
+</tr>
+<tr>
+<td>Kafka 발행 성공, DB 저장 실패</td>
+<td>실제 없는 데이터를 기준으로 후속 처리 가능</td>
+</tr>
+<tr>
+<td>Kafka 발행 성공, 응답 timeout</td>
+<td>성공 여부를 몰라 재시도하면서 중복 발행 가능</td>
+</tr>
+<tr>
+<td>애플리케이션이 중간에 종료</td>
+<td>어디까지 처리됐는지 추적하기 어려움</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_3">하나의 트랜잭션으로 묶기 어렵다</h3>
+<p>MySQL 트랜잭션은 MySQL 안의 변경만 원자적으로 묶습니다. Kafka publish까지 MySQL 트랜잭션에 자연스럽게 포함되지는 않습니다.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>BEGIN
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  INSERT INTO orders (...)
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  INSERT INTO outbox (
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    aggregate_type,
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    aggregate_id,
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    event_type,
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    payload,
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    status,
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    created_at
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>  ) VALUES (
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    &#39;ORDER&#39;,
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    &#39;1001&#39;,
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    &#39;ORDER_CREATED&#39;,
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    &#39;{...}&#39;,
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    &#39;PENDING&#39;,
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    NOW()
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>  )
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>COMMIT
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  INSERT INTO orders ...
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>COMMIT
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>kafkaTemplate.send(...)
 </code></pre></div>
-<p>주문과 Outbox 이벤트가 같은 DB에 저장되므로 둘 중 하나만 성공하는 상황을 줄입니다.</p>
-<h3 id="3-relay">3. Relay가 이벤트 발행</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>1. PENDING 이벤트 조회
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>2. 메시지 브로커로 발행
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>3. 성공하면 PUBLISHED로 변경
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>4. 실패하면 재시도 대상 유지 또는 FAILED 처리
+<p>위 코드에서 DB commit과 Kafka send 사이에 장애가 나면 이벤트가 유실됩니다. 그래서 Outbox는 Kafka에 바로 보내지 않고, <strong>보낼 이벤트를 DB에 먼저 남기는 방식</strong>을 선택합니다.</p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant App as 주문 서비스
+    participant DB as MySQL
+    participant Relay as Outbox Relay
+    participant Kafka as Kafka
+
+    App-&gt;&gt;DB: BEGIN
+    App-&gt;&gt;DB: 주문 INSERT
+    App-&gt;&gt;DB: outbox_event INSERT
+    App-&gt;&gt;DB: COMMIT
+
+    Relay-&gt;&gt;DB: PENDING 이벤트 조회
+    Relay-&gt;&gt;Kafka: 이벤트 발행
+    Kafka--&gt;&gt;Relay: ack
+    Relay-&gt;&gt;DB: PUBLISHED로 변경</code></pre>
+<div class="concept-box">
+<p><strong>핵심</strong>: Outbox는 DB 변경과 Kafka 발행을 한 번에 처리하는 마법이 아니다. DB 변경과 "발행해야 할 이벤트 기록"을 같은 트랜잭션에 넣어, Kafka 발행 실패를 나중에 재시도할 수 있게 만드는 패턴이다.</p>
+</div>
+<h2 id="_4">어떻게 쓰는지</h2>
+<h3 id="1-outbox">1. Outbox 테이블을 만든다</h3>
+<p>Outbox 테이블은 "아직 브로커로 발행하지 않았거나, 발행 결과를 기록해야 하는 이벤트"를 저장합니다. 아래 예시는 MySQL 기준입니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">outbox_event</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="n">event_id</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">aggregate_type</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="n">aggregate_id</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="n">event_type</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="n">event_key</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="n">payload</span><span class="w"> </span><span class="n">JSON</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="n">headers</span><span class="w"> </span><span class="n">JSON</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="n">status</span><span class="w"> </span><span class="n">ENUM</span><span class="p">(</span><span class="s1">&#39;PENDING&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;PUBLISHED&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;FAILED&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;PENDING&#39;</span><span class="p">,</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="n">retry_count</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="n">next_attempt_at</span><span class="w"> </span><span class="n">DATETIME</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="n">locked_by</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="n">locked_at</span><span class="w"> </span><span class="n">DATETIME</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="n">published_at</span><span class="w"> </span><span class="n">DATETIME</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="n">last_error</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="n">created_at</span><span class="w"> </span><span class="n">DATETIME</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="n">updated_at</span><span class="w"> </span><span class="n">DATETIME</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">        </span><span class="k">ON</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">    </span><span class="k">UNIQUE</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">uk_outbox_event_id</span><span class="w"> </span><span class="p">(</span><span class="n">event_id</span><span class="p">),</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">    </span><span class="k">KEY</span><span class="w"> </span><span class="n">idx_outbox_pending</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">next_attempt_at</span><span class="p">,</span><span class="w"> </span><span class="n">created_at</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">),</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">    </span><span class="k">KEY</span><span class="w"> </span><span class="n">idx_outbox_aggregate</span><span class="w"> </span><span class="p">(</span><span class="n">aggregate_type</span><span class="p">,</span><span class="w"> </span><span class="n">aggregate_id</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">)</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="p">)</span><span class="w"> </span><span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="p">;</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">outbox</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;PENDING&#39;</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="k">ASC</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="k">LIMIT</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<table>
+<thead>
+<tr>
+<th>컬럼</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>event_id</code></td>
+<td>이벤트 전역 고유 ID. 중복 처리 방지에 사용</td>
+</tr>
+<tr>
+<td><code>aggregate_type</code></td>
+<td>이벤트가 발생한 업무 객체 종류. 예: <code>ORDER</code>, <code>PAYMENT</code></td>
+</tr>
+<tr>
+<td><code>aggregate_id</code></td>
+<td>업무 객체 ID. 예: 주문 ID</td>
+</tr>
+<tr>
+<td><code>event_type</code></td>
+<td>이벤트 종류. 예: <code>ORDER_CREATED</code></td>
+</tr>
+<tr>
+<td><code>event_key</code></td>
+<td>Kafka key로 사용할 값. 순서 보장이 필요한 단위</td>
+</tr>
+<tr>
+<td><code>payload</code></td>
+<td>consumer가 읽을 실제 이벤트 내용</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>발행 상태. <code>PENDING</code>, <code>PUBLISHED</code>, <code>FAILED</code></td>
+</tr>
+<tr>
+<td><code>retry_count</code></td>
+<td>발행 재시도 횟수</td>
+</tr>
+<tr>
+<td><code>next_attempt_at</code></td>
+<td>다음 발행 시도 가능 시각</td>
+</tr>
+<tr>
+<td><code>locked_by</code>, <code>locked_at</code></td>
+<td>여러 Relay가 동시에 잡지 않기 위한 작업 소유권</td>
+</tr>
+<tr>
+<td><code>published_at</code></td>
+<td>발행 성공 시각</td>
+</tr>
+<tr>
+<td><code>last_error</code></td>
+<td>마지막 실패 원인</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">payload 타입</p>
+<p>MySQL <code>JSON</code> 타입을 쓰면 payload 형식 검증과 일부 조회가 편합니다. 단순 저장만 필요하거나 구버전 MySQL을 사용한다면 <code>TEXT</code>로 둘 수도 있습니다.</p>
+</div>
+<h3 id="2-outbox">2. 비즈니스 데이터와 Outbox 이벤트를 같은 트랜잭션에 저장한다</h3>
+<p>주문 생성 요청을 처리할 때 주문만 저장하지 않고, 발행할 이벤트도 같은 트랜잭션에 저장합니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">START</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">user_id</span><span class="p">,</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="n">total_amount</span><span class="p">,</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="n">status</span><span class="p">,</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="n">created_at</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="mi">10</span><span class="p">,</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="mi">39000</span><span class="p">,</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="s1">&#39;CREATED&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="n">NOW</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="p">);</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">order_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LAST_INSERT_ID</span><span class="p">();</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">outbox_event</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">    </span><span class="n">event_id</span><span class="p">,</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">    </span><span class="n">aggregate_type</span><span class="p">,</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">    </span><span class="n">aggregate_id</span><span class="p">,</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">    </span><span class="n">event_type</span><span class="p">,</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">    </span><span class="n">event_key</span><span class="p">,</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">    </span><span class="n">payload</span><span class="p">,</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">    </span><span class="n">status</span><span class="p">,</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="w">    </span><span class="n">created_at</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="w">    </span><span class="n">UUID</span><span class="p">(),</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="w">    </span><span class="s1">&#39;ORDER&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="w">    </span><span class="k">CAST</span><span class="p">(</span><span class="o">@</span><span class="n">order_id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">),</span>
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a><span class="w">    </span><span class="s1">&#39;ORDER_CREATED&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a><span class="w">    </span><span class="k">CAST</span><span class="p">(</span><span class="o">@</span><span class="n">order_id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">),</span>
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="w">    </span><span class="n">JSON_OBJECT</span><span class="p">(</span>
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="w">        </span><span class="s1">&#39;eventType&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ORDER_CREATED&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a><span class="w">        </span><span class="s1">&#39;schemaVersion&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a><span class="w">        </span><span class="s1">&#39;orderId&#39;</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">order_id</span><span class="p">,</span>
+<a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a><span class="w">        </span><span class="s1">&#39;userId&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a><span class="w">        </span><span class="s1">&#39;amount&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">39000</span>
+<a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a><span class="w">    </span><span class="p">),</span>
+<a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a><span class="w">    </span><span class="s1">&#39;PENDING&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a><span class="w">    </span><span class="n">NOW</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a><span class="p">);</span>
+<a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a>
+<a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a><span class="k">COMMIT</span><span class="p">;</span>
 </code></pre></div>
-<h3 id="4-polling-cdc">4. Polling 또는 CDC</h3>
+<p>Spring 코드로 보면 아래처럼 이해할 수 있습니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nd">@Transactional</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">public</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="nf">createOrder</span><span class="p">(</span><span class="n">CreateOrderCommand</span><span class="w"> </span><span class="n">command</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="n">Order</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orderRepository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">Order</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">command</span><span class="p">));</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="n">OutboxEvent</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OutboxEvent</span><span class="p">.</span><span class="na">pending</span><span class="p">(</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">            </span><span class="n">UUID</span><span class="p">.</span><span class="na">randomUUID</span><span class="p">().</span><span class="na">toString</span><span class="p">(),</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">            </span><span class="s">&quot;ORDER&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">            </span><span class="n">order</span><span class="p">.</span><span class="na">getId</span><span class="p">().</span><span class="na">toString</span><span class="p">(),</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">            </span><span class="s">&quot;ORDER_CREATED&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">            </span><span class="n">order</span><span class="p">.</span><span class="na">getId</span><span class="p">().</span><span class="na">toString</span><span class="p">(),</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">            </span><span class="n">OrderCreatedPayload</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="n">order</span><span class="p">)</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="p">);</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="n">outboxEventRepository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">event</span><span class="p">);</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">order</span><span class="p">.</span><span class="na">getId</span><span class="p">();</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="p">}</span>
+</code></pre></div>
+<p>여기서 중요한 점은 <code>kafkaTemplate.send()</code>를 호출하지 않는다는 것입니다. 요청 처리 트랜잭션은 DB에 주문과 Outbox 이벤트를 안전하게 남기는 데 집중합니다.</p>
+<div class="compare-grid">
+<div class="before">
+<p><strong>Bad - DB 저장 후 바로 Kafka 발행</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nd">@Transactional</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">createOrder</span><span class="p">(...)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="n">Order</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orderRepository</span><span class="p">.</span><span class="na">save</span><span class="p">(...);</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="n">kafkaTemplate</span><span class="p">.</span><span class="na">send</span><span class="p">(</span><span class="s">&quot;order-events&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="p">.</span><span class="na">getId</span><span class="p">(),</span><span class="w"> </span><span class="n">event</span><span class="p">);</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>DB commit과 Kafka 발행 성공이 원자적으로 묶이지 않습니다.</p>
+</div>
+<div class="after">
+<p><strong>Good - Outbox에 이벤트 기록</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nd">@Transactional</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">createOrder</span><span class="p">(...)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="n">Order</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orderRepository</span><span class="p">.</span><span class="na">save</span><span class="p">(...);</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="n">outboxRepository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">eventFrom</span><span class="p">(</span><span class="n">order</span><span class="p">));</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>주문과 발행 대상 이벤트가 같은 DB 트랜잭션에 남습니다.</p>
+</div>
+</div>
+<h3 id="3-relay-pending">3. Relay가 PENDING 이벤트를 가져간다</h3>
+<p>Relay는 Outbox 테이블을 읽어 메시지 브로커로 발행하는 별도 프로세스입니다. 같은 애플리케이션 안의 스케줄러일 수도 있고, 별도 worker 서비스일 수도 있습니다.</p>
+<p>여러 Relay가 동시에 실행될 수 있으므로 먼저 작은 배치 단위로 이벤트를 "내가 처리하겠다"고 표시합니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">outbox_event</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">SET</span><span class="w"> </span><span class="n">locked_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;relay-1&#39;</span><span class="p">,</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="n">locked_at</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NOW</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;PENDING&#39;</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">next_attempt_at</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">NOW</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">      </span><span class="n">locked_at</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">      </span><span class="k">OR</span><span class="w"> </span><span class="n">locked_at</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">DATE_SUB</span><span class="p">(</span><span class="n">NOW</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="k">MINUTE</span><span class="p">)</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">  </span><span class="p">)</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">created_at</span><span class="p">,</span><span class="w"> </span><span class="n">id</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="k">LIMIT</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+</code></pre></div>
+<p>그 다음 자신이 잡은 이벤트를 조회합니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">       </span><span class="n">event_id</span><span class="p">,</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">       </span><span class="n">event_type</span><span class="p">,</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">       </span><span class="n">event_key</span><span class="p">,</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">       </span><span class="n">payload</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="k">FROM</span><span class="w"> </span><span class="n">outbox_event</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;PENDING&#39;</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">locked_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;relay-1&#39;</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">created_at</span><span class="p">,</span><span class="w"> </span><span class="n">id</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="k">LIMIT</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Relay 락</p>
+<p><code>locked_by</code>, <code>locked_at</code>은 여러 Relay가 같은 row를 동시에 발행하는 일을 줄이기 위한 장치입니다. Relay가 죽을 수 있으므로 <code>locked_at</code> timeout 기준으로 다시 잡을 수 있게 둡니다.</p>
+</div>
+<h3 id="4-kafka">4. Kafka 발행 성공 후 상태를 바꾼다</h3>
+<p>Kafka 발행이 성공하면 Outbox row를 <code>PUBLISHED</code>로 변경합니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">outbox_event</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">SET</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;PUBLISHED&#39;</span><span class="p">,</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="n">published_at</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NOW</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="n">locked_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="n">locked_at</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="n">last_error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">NULL</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1001</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;PENDING&#39;</span><span class="p">;</span>
+</code></pre></div>
+<p>발행이 실패하면 재시도 정보를 갱신합니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">outbox_event</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">SET</span><span class="w"> </span><span class="n">retry_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">retry_count</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="n">next_attempt_at</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DATE_ADD</span><span class="p">(</span><span class="n">NOW</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="k">SECOND</span><span class="p">),</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="n">locked_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="n">locked_at</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="n">last_error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Kafka timeout&#39;</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1001</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;PENDING&#39;</span><span class="p">;</span>
+</code></pre></div>
+<p>실무에서는 실패 횟수에 따라 backoff를 늘립니다.</p>
+<table>
+<thead>
+<tr>
+<th>실패 횟수</th>
+<th>다음 시도 예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1회</td>
+<td>10초 뒤</td>
+</tr>
+<tr>
+<td>2회</td>
+<td>30초 뒤</td>
+</tr>
+<tr>
+<td>3회</td>
+<td>1분 뒤</td>
+</tr>
+<tr>
+<td>4회 이상</td>
+<td>5분 뒤 또는 FAILED 격리</td>
+</tr>
+</tbody>
+</table>
+<p>반복 실패하는 이벤트는 무한 재시도하지 말고 <code>FAILED</code>로 격리한 뒤 원인을 확인합니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">outbox_event</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">SET</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;FAILED&#39;</span><span class="p">,</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="n">locked_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="n">locked_at</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="n">last_error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;schema validation failed&#39;</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1001</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="5-consumer">5. Consumer는 멱등하게 만든다</h3>
+<p>Outbox는 이벤트 유실을 줄여주지만, 중복 발행 가능성을 완전히 없애지는 않습니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>1. Relay가 Kafka 발행 성공
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>2. Relay가 PUBLISHED 업데이트 전에 장애
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>3. 다음 Relay가 같은 Outbox 이벤트를 다시 발행
+</code></pre></div>
+<p>그래서 consumer는 같은 <code>event_id</code>가 다시 와도 결과가 한 번만 반영되게 만들어야 합니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">processed_event</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="n">event_id</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="n">consumer_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="n">processed_at</span><span class="w"> </span><span class="n">DATETIME</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="p">)</span><span class="w"> </span><span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="p">;</span>
+</code></pre></div>
+<p>처리 흐름은 아래처럼 잡습니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>1. 이벤트를 받는다.
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>2. processed_event에 event_id insert를 시도한다.
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>3. 이미 있으면 중복 이벤트이므로 skip한다.
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>4. 없으면 업무 처리를 수행한다.
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>5. Kafka offset을 commit한다.
+</code></pre></div>
+<div class="warning-box">
+<p><strong>주의</strong>: Outbox의 기본 전달 모델은 보통 at-least-once입니다. 즉 "최소 한 번은 보내자"에 가깝고, "무조건 정확히 한 번만 처리"가 아닙니다.</p>
+</div>
+<h2 id="polling-cdc">Polling과 CDC</h2>
+<p>Outbox 이벤트를 브로커로 보내는 방식은 크게 Polling과 CDC로 나눌 수 있습니다.</p>
 <table>
 <thead>
 <tr>
 <th>방식</th>
 <th>설명</th>
+<th>장점</th>
+<th>단점</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Polling</td>
-<td>애플리케이션/배치가 Outbox 테이블을 주기적으로 조회</td>
+<td>Relay가 Outbox 테이블을 주기적으로 조회</td>
+<td>구현이 직관적이고 디버깅 쉬움</td>
+<td>조회 부하와 약간의 발행 지연</td>
 </tr>
 <tr>
 <td>CDC</td>
-<td>DB 변경 로그를 읽어 이벤트로 변환</td>
+<td>DB binlog 변경을 Debezium 같은 도구가 읽어 Kafka로 발행</td>
+<td>애플리케이션 polling 부하 감소</td>
+<td>운영 난도와 인프라 구성 증가</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_3">언제 쓰는지</h2>
+<h3 id="polling">Polling 방식</h3>
+<p>처음 도입할 때는 Polling 방식이 이해하기 쉽습니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>매 1초마다:
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>  PENDING 이벤트 100개 조회
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>  Kafka 발행
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>  성공하면 PUBLISHED
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>  실패하면 retry_count 증가
+</code></pre></div>
+<p>Polling은 단순하지만 테이블이 커지면 인덱스와 정리 작업이 중요합니다. <code>status</code>, <code>next_attempt_at</code>, <code>created_at</code> 기준 인덱스 없이 조회하면 Outbox 테이블이 병목이 될 수 있습니다.</p>
+<h3 id="cdc">CDC 방식</h3>
+<p>CDC는 DB 변경 로그를 읽어서 이벤트로 내보내는 방식입니다. 대표적으로 Debezium이 MySQL binlog를 읽고 Kafka로 전달하는 구조를 사용할 수 있습니다.</p>
+<pre class="mermaid"><code>flowchart LR
+    App[Application] --&gt; DB[(MySQL&lt;br/&gt;orders + outbox_event)]
+    DB --&gt; Binlog[MySQL binlog]
+    Binlog --&gt; CDC[CDC Connector]
+    CDC --&gt; Kafka[(Kafka)]</code></pre>
+<p>CDC 방식은 Outbox row가 INSERT되는 순간 변경 로그를 통해 Kafka로 흘려보낼 수 있습니다. 다만 binlog 설정, connector 운영, schema 변경, 장애 복구 기준까지 함께 관리해야 합니다.</p>
+<h2 id="_5">언제 쓰는지</h2>
 <table>
 <thead>
 <tr>
 <th>상황</th>
-<th>Outbox 적합도</th>
+<th>적합도</th>
 <th>이유</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>DB 변경 후 이벤트 발행 필수</strong></td>
+<td>주문 생성 후 재고, 알림, 검색 색인에 이벤트 전달</td>
 <td>높음</td>
-<td>이벤트 유실 방지</td>
+<td>DB 변경 사실이 유실되면 후속 시스템이 틀어짐</td>
 </tr>
 <tr>
-<td><strong>서비스 간 최종 일관성 필요</strong></td>
+<td>결제 완료 후 정산, 포인트, 알림 처리</td>
 <td>높음</td>
-<td>변경 사실을 안정적으로 전달</td>
+<td>결제 상태 변경과 이벤트 발행 정합성이 중요</td>
 </tr>
 <tr>
-<td><strong>메시지 브로커 장애 대비 필요</strong></td>
+<td>MSA에서 서비스 간 최종 일관성 유지</td>
 <td>높음</td>
-<td>이벤트가 DB에 남아 재시도 가능</td>
+<td>각 서비스가 이벤트를 받아 자기 DB를 갱신</td>
 </tr>
 <tr>
-<td><strong>단순 알림 실패 허용</strong></td>
+<td>캐시 무효화 이벤트 발행</td>
+<td>중간</td>
+<td>유실 영향이 크면 적합, 단순 캐시면 TTL로도 완화 가능</td>
+</tr>
+<tr>
+<td>단순 이메일 발송 실패 허용</td>
 <td>낮음</td>
-<td>운영 복잡도 대비 이득이 작음</td>
+<td>운영 복잡도 대비 이득이 작을 수 있음</td>
 </tr>
 <tr>
-<td><strong>강한 즉시 일관성 필요</strong></td>
+<td>사용자 요청 안에서 즉시 결과가 필요</td>
 <td>낮음</td>
-<td>Outbox는 최종 일관성 패턴</td>
+<td>Outbox는 비동기 최종 일관성 패턴</td>
+</tr>
+<tr>
+<td>단일 DB 안에서만 처리되는 업무</td>
+<td>낮음</td>
+<td>DB 트랜잭션만으로 충분할 수 있음</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_4">장점</h2>
+<h2 id="_6">장점</h2>
 <table>
 <thead>
 <tr>
@@ -6902,24 +7521,32 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>이벤트 유실 방지</strong></td>
-<td>DB 변경과 이벤트 기록을 함께 저장</td>
+<td>이벤트 유실 방지</td>
+<td>비즈니스 데이터와 발행 대상 이벤트가 같은 DB 트랜잭션에 저장</td>
 </tr>
 <tr>
-<td><strong>재시도 가능</strong></td>
-<td>브로커 장애 시에도 Outbox에 이벤트가 남음</td>
+<td>재시도 가능</td>
+<td>Kafka 장애나 네트워크 장애가 있어도 Outbox row가 남음</td>
 </tr>
 <tr>
-<td><strong>감사 추적</strong></td>
-<td>어떤 이벤트가 언제 발행됐는지 기록 가능</td>
+<td>장애 추적 쉬움</td>
+<td>어떤 이벤트가 <code>PENDING</code>, <code>FAILED</code>인지 DB에서 확인 가능</td>
 </tr>
 <tr>
-<td><strong>서비스 결합 감소</strong></td>
-<td>이벤트 기반으로 후속 처리를 분리</td>
+<td>요청 응답 안정화</td>
+<td>Kafka 발행 지연을 사용자 요청 흐름에서 분리 가능</td>
+</tr>
+<tr>
+<td>최종 일관성 구현</td>
+<td>서비스 간 데이터 동기화를 이벤트 기반으로 처리</td>
+</tr>
+<tr>
+<td>감사 로그 활용</td>
+<td>어떤 이벤트를 언제 만들고 발행했는지 추적 가능</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_5">단점</h2>
+<h2 id="_7">단점</h2>
 <table>
 <thead>
 <tr>
@@ -6929,63 +7556,94 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>추가 테이블 필요</strong></td>
-<td>Outbox 테이블 생성과 관리 필요</td>
+<td>구현 요소 증가</td>
+<td>Outbox 테이블, Relay, 재시도, 정리 배치가 필요</td>
 </tr>
 <tr>
-<td><strong>발행 지연</strong></td>
-<td>Polling 방식은 약간의 지연 발생</td>
+<td>발행 지연</td>
+<td>Polling 주기나 Relay 처리량에 따라 이벤트가 늦게 발행될 수 있음</td>
 </tr>
 <tr>
-<td><strong>중복 발행 가능</strong></td>
-<td>발행 성공 후 상태 변경 실패 시 재발행 가능</td>
+<td>중복 발행 가능</td>
+<td>발행 성공 후 상태 업데이트 실패 시 같은 이벤트가 다시 나갈 수 있음</td>
 </tr>
 <tr>
-<td><strong>정리 작업 필요</strong></td>
-<td>오래된 이벤트를 삭제/아카이빙해야 함</td>
+<td>Consumer 멱등성 필요</td>
+<td>downstream 서비스가 중복 이벤트를 견뎌야 함</td>
 </tr>
 <tr>
-<td><strong>운영 복잡도 증가</strong></td>
-<td>Relay, 재시도, DLQ, 모니터링 필요</td>
+<td>테이블 관리 필요</td>
+<td>오래된 row를 삭제하거나 아카이빙해야 함</td>
+</tr>
+<tr>
+<td>운영 지표 필요</td>
+<td>pending 증가, failed 증가, relay 중단을 감시해야 함</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_6">특징</h2>
-<h3 id="1-at-least-once">1. At-least-once 전달</h3>
-<p>Outbox는 보통 최소 한 번 전달을 보장합니다. 즉 유실은 줄이지만 중복은 발생할 수 있습니다.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>발행 성공
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>상태 업데이트 실패
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>다음 Relay 실행 때 같은 이벤트 재발행
+<h2 id="_8">특징</h2>
+<h3 id="db">DB 트랜잭션을 기준으로 안정성을 확보한다</h3>
+<p>Outbox는 Kafka를 DB 트랜잭션에 넣는 방식이 아닙니다. DB가 잘하는 원자적 저장을 활용해 "발행할 이벤트가 있었다"는 사실을 안전하게 남깁니다.</p>
+<h3 id="_9">최종 일관성 패턴이다</h3>
+<p>주문 API가 성공한 직후 재고 서비스가 아직 이벤트를 처리하지 않았을 수 있습니다. 시간이 지나 Relay와 consumer가 처리하면 시스템들이 같은 방향으로 수렴합니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>T1: 주문 DB 저장 완료
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>T2: Outbox Relay가 Kafka 발행
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>T3: 재고 Consumer가 재고 차감
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>T4: 알림 Consumer가 문자 발송
 </code></pre></div>
-<p>그래서 소비자는 멱등하게 처리해야 합니다.</p>
-<h3 id="2">2. 소비자 멱등성</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">processed_event</span><span class="w"> </span><span class="p">(</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="n">event_id</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="n">processed_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">);</span>
-</code></pre></div>
-<p>소비자는 이벤트 처리 전에 <code>event_id</code>가 이미 처리됐는지 확인합니다.</p>
-<h3 id="3-outbox">3. Outbox 생명주기</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>PENDING -&gt; PUBLISHED
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>        -&gt; FAILED
-</code></pre></div>
-<p>발행 실패가 반복되면 무한 재시도 대신 FAILED나 DLQ로 격리합니다.</p>
-<h3 id="4">4. 조회 성능</h3>
-<p>Outbox는 계속 쌓이는 테이블입니다. <code>status</code>, <code>created_at</code> 기준 인덱스가 없으면 Relay 조회가 느려질 수 있습니다.</p>
-<h2 id="_7">주의할 점</h2>
-<div class="warning-box">
-<p><strong>Outbox는 중복을 없애는 패턴이 아닙니다.</strong></p>
-<p>유실을 줄이는 대신 중복 가능성을 받아들이고, 소비자 멱등성으로 해결합니다.</p>
-</div>
+<h3 id="_10">최소 한 번 전달을 기본으로 본다</h3>
+<p>Outbox는 유실을 줄이는 대신 중복 가능성을 받아들입니다. 따라서 <code>event_id</code>, unique key, 상태 전이 검증 같은 멱등성 설계가 함께 필요합니다.</p>
+<h3 id="key">순서 보장은 key 설계와 함께 봐야 한다</h3>
+<p>같은 주문의 이벤트 순서가 중요하면 <code>event_key</code>를 <code>orderId</code>로 두고 Kafka key로 사용합니다. 그래야 같은 주문 이벤트가 같은 partition으로 들어가 순서 보장에 유리합니다.</p>
+<h2 id="_11">주의할 점</h2>
 <div class="danger-box">
-<p><strong>Outbox 테이블을 방치하면 계속 커집니다.</strong></p>
-<p>발행 완료 이벤트는 일정 기간 보관 후 삭제하거나 아카이빙해야 합니다.</p>
+<p><strong>Outbox는 중복을 없애는 패턴이 아닙니다.</strong> 발행 성공 후 상태 업데이트 실패, Relay timeout, consumer 재처리 때문에 같은 이벤트가 다시 갈 수 있습니다.</p>
 </div>
 <div class="warning-box">
-<p><strong>Relay가 여러 개면 같은 이벤트를 동시에 잡을 수 있습니다.</strong></p>
-<p>행 잠금, 상태 전이, 분산 락, 원자적 업데이트 중 하나로 중복 발행 가능성을 줄입니다.</p>
+<p><strong>Kafka 발행을 DB 트랜잭션 안에서 오래 기다리지 않습니다.</strong> 외부 시스템 호출을 트랜잭션 안에 넣으면 DB lock 시간이 길어지고, 장애 시 요청 처리까지 같이 느려질 수 있습니다.</p>
 </div>
-<h2 id="_8">베스트 프랙티스</h2>
+<div class="warning-box">
+<p><strong>Outbox row 정리를 설계해야 합니다.</strong> <code>PUBLISHED</code> 이벤트를 무기한 보관하면 테이블과 인덱스가 계속 커집니다.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>주의</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>consumer 멱등성 없이 도입하지 않기</td>
+<td>중복 이벤트가 정상 시나리오이기 때문</td>
+</tr>
+<tr>
+<td><code>event_id</code> 없이 payload만 보내지 않기</td>
+<td>추적과 중복 방지가 어려움</td>
+</tr>
+<tr>
+<td>Relay가 잡은 row를 영구 lock하지 않기</td>
+<td>Relay 장애 시 다시 잡을 수 있어야 함</td>
+</tr>
+<tr>
+<td>PENDING lag를 방치하지 않기</td>
+<td>이벤트 발행 지연이 서비스 간 데이터 불일치로 이어짐</td>
+</tr>
+<tr>
+<td>FAILED를 수동으로만 보지 않기</td>
+<td>알림과 재처리 절차가 필요</td>
+</tr>
+<tr>
+<td>payload에 민감정보를 무심코 넣지 않기</td>
+<td>Kafka와 Outbox DB 양쪽에 남음</td>
+</tr>
+<tr>
+<td>모든 이벤트를 하나의 타입으로 뭉개지 않기</td>
+<td>consumer 분기와 schema 관리가 어려워짐</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_12">베스트 프랙티스</h2>
 <table>
 <thead>
 <tr>
@@ -6995,67 +7653,138 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>event_id를 전역 고유값으로 생성</strong></td>
-<td>소비자 멱등성 처리</td>
+<td>비즈니스 데이터와 Outbox insert를 같은 트랜잭션에 넣기</td>
+<td>둘 중 하나만 저장되는 상황 방지</td>
 </tr>
 <tr>
-<td><strong>status + created_at 인덱스 생성</strong></td>
-<td>PENDING 이벤트 조회 성능 확보</td>
+<td><code>event_id</code>를 전역 고유값으로 생성</td>
+<td>발행 추적과 consumer 멱등성의 기준</td>
 </tr>
 <tr>
-<td><strong>배치 크기 제한</strong></td>
-<td>한 번에 너무 많은 이벤트 처리 방지</td>
+<td><code>event_key</code>를 업무 순서 기준으로 정하기</td>
+<td>Kafka partition 순서 보장에 영향</td>
 </tr>
 <tr>
-<td><strong>재시도 횟수 제한</strong></td>
-<td>실패 이벤트가 무한 반복되지 않게 함</td>
+<td>payload에 <code>schemaVersion</code> 포함</td>
+<td>consumer 호환성 관리</td>
 </tr>
 <tr>
-<td><strong>DLQ 또는 FAILED 상태 운영</strong></td>
-<td>문제 이벤트 격리</td>
+<td><code>status</code>, <code>next_attempt_at</code>, <code>created_at</code> 인덱스 생성</td>
+<td>Relay 조회 성능 확보</td>
 </tr>
 <tr>
-<td><strong>오래된 이벤트 정리</strong></td>
+<td>작은 batch로 발행</td>
+<td>긴 lock과 대량 실패를 피함</td>
+</tr>
+<tr>
+<td>retry backoff 적용</td>
+<td>Kafka 장애 시 무한 빠른 재시도로 장애 확대 방지</td>
+</tr>
+<tr>
+<td>FAILED 또는 DLQ 운영</td>
+<td>poison event를 정상 이벤트와 분리</td>
+</tr>
+<tr>
+<td>PENDING 개수와 최대 지연 시간 모니터링</td>
+<td>Relay 장애나 Kafka 장애 조기 감지</td>
+</tr>
+<tr>
+<td>PUBLISHED row 삭제/아카이빙</td>
 <td>테이블 비대화 방지</td>
 </tr>
 <tr>
-<td><strong>발행 lag 모니터링</strong></td>
-<td>이벤트 지연 감지</td>
+<td>consumer에서 unique key, upsert 활용</td>
+<td>중복 이벤트를 안전하게 처리</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_9">실무에서는?</h2>
+<h2 id="_13">실무에서는?</h2>
+<h3 id="_14">주문 생성 이벤트</h3>
+<p>주문 생성은 DB 저장과 이벤트 발행이 둘 다 중요합니다. 주문은 생성됐는데 재고 서비스가 모르면 overselling이나 재고 불일치가 생길 수 있습니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>OrderService
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>  -&gt; orders INSERT
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>  -&gt; outbox_event INSERT(ORDER_CREATED)
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>  -&gt; COMMIT
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>OutboxRelay
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>  -&gt; ORDER_CREATED 발행
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>InventoryConsumer
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>  -&gt; event_id 중복 확인
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>  -&gt; 재고 차감
+</code></pre></div>
+<h3 id="_15">결제 완료 이벤트</h3>
+<p>결제 완료 후 정산, 포인트, 영수증, 알림이 이어질 수 있습니다. 결제 상태 변경은 DB 트랜잭션으로 확정하고, 후속 처리는 Outbox 이벤트로 분리합니다.</p>
 <table>
 <thead>
 <tr>
-<th>상황</th>
-<th>적용 예</th>
+<th>후속 처리</th>
+<th>Outbox를 쓰는 이유</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>주문 생성 이벤트</strong></td>
-<td>주문 저장과 이벤트 기록을 같은 트랜잭션에 저장</td>
+<td>정산 요청</td>
+<td>결제 완료 이벤트 유실 방지</td>
 </tr>
 <tr>
-<td><strong>결제 완료 이벤트</strong></td>
-<td>결제 상태 변경 후 정산/알림 서비스에 전달</td>
+<td>포인트 적립</td>
+<td>중복 적립 방지를 위해 <code>event_id</code> 기반 멱등성 필요</td>
 </tr>
 <tr>
-<td><strong>포인트 적립 이벤트</strong></td>
-<td>적립 기록과 후속 이벤트 발행 정합성 확보</td>
+<td>알림 발송</td>
+<td>결제 응답과 알림 발송 지연 분리</td>
 </tr>
 <tr>
-<td><strong>검색 색인 갱신</strong></td>
-<td>원본 데이터 변경 이벤트를 검색 시스템에 전달</td>
-</tr>
-<tr>
-<td><strong><abbr title="MicroService Architecture. 애플리케이션을 독립적으로 배포 가능한 작은 서비스 단위로 분리하는 아키텍처 방식.">MSA</abbr> 데이터 동기화</strong></td>
-<td>서비스 간 최종 일관성 유지</td>
+<td>영수증 생성</td>
+<td>실패 시 재시도 가능</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_10">정리</h2>
+<h3 id="_16">검색 색인 갱신</h3>
+<p>상품이나 게시글이 변경되면 검색 색인도 갱신해야 합니다. 검색 색인은 원본 DB에서 다시 만들 수 있는 파생 데이터인 경우가 많으므로 Outbox와 잘 맞습니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>게시글 수정 -&gt; DB 저장 + POST_UPDATED outbox
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>Relay -&gt; Kafka 발행
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>Search Consumer -&gt; Elasticsearch 색인 갱신
+</code></pre></div>
+<h3 id="_17">캐시 무효화</h3>
+<p>DB 변경 후 Redis cache를 지워야 할 때도 Outbox를 사용할 수 있습니다. 다만 캐시는 TTL이나 Cache Aside로 완화할 수 있으므로, 유실 영향이 큰지 먼저 판단합니다.</p>
+<h2 id="_18">처음 볼 때 자주 헷갈리는 점</h2>
+<table>
+<thead>
+<tr>
+<th>헷갈리는 생각</th>
+<th>실제로는</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Outbox를 쓰면 Kafka까지 한 트랜잭션이다</td>
+<td>Kafka 발행은 나중에 하며, DB에는 발행할 이벤트를 안전하게 남긴다</td>
+</tr>
+<tr>
+<td>Outbox를 쓰면 중복이 사라진다</td>
+<td>중복은 가능하므로 consumer 멱등성이 필요하다</td>
+</tr>
+<tr>
+<td>Outbox 테이블은 로그라서 계속 쌓아도 된다</td>
+<td>운영 DB에 두면 인덱스와 용량 관리가 필요하다</td>
+</tr>
+<tr>
+<td>Relay는 하나만 두면 된다</td>
+<td>고가용성을 위해 여러 개 둘 수 있고, 그 경우 lock 설계가 필요하다</td>
+</tr>
+<tr>
+<td>이벤트 payload는 아무렇게나 넣어도 된다</td>
+<td>consumer 계약이므로 schema와 version을 관리해야 한다</td>
+</tr>
+<tr>
+<td>PENDING이 조금 쌓여도 괜찮다</td>
+<td>오래 쌓이면 서비스 간 데이터 불일치 시간이 길어진다</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_19">정리</h2>
 <table>
 <thead>
 <tr>
@@ -7065,24 +7794,32 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>문제</strong></td>
-<td>DB 저장과 메시지 발행의 이중 쓰기</td>
+<td>해결 문제</td>
+<td>DB 저장과 메시지 발행 사이의 이중 쓰기 문제</td>
 </tr>
 <tr>
-<td><strong>해결</strong></td>
-<td>이벤트를 Outbox 테이블에 먼저 저장</td>
+<td>핵심 아이디어</td>
+<td>비즈니스 데이터와 Outbox 이벤트를 같은 DB 트랜잭션에 저장</td>
 </tr>
 <tr>
-<td><strong>발행 방식</strong></td>
-<td>Polling 또는 CDC</td>
+<td>발행 담당</td>
+<td>Outbox Relay 또는 CDC Connector</td>
 </tr>
 <tr>
-<td><strong>전달 보장</strong></td>
-<td>보통 At-least-once</td>
+<td>전달 보장</td>
+<td>보통 at-least-once</td>
 </tr>
 <tr>
-<td><strong>필수 설계</strong></td>
-<td>소비자 멱등성, 재시도 제한, 테이블 정리</td>
+<td>반드시 필요한 것</td>
+<td>consumer 멱등성, 재시도, 실패 격리, 모니터링</td>
+</tr>
+<tr>
+<td>주의할 점</td>
+<td>중복 가능성, 발행 지연, Outbox 테이블 비대화</td>
+</tr>
+<tr>
+<td>실무 기준</td>
+<td>유실은 Outbox로 줄이고, 중복은 consumer 멱등성으로 견딘다</td>
 </tr>
 </tbody>
 </table>
@@ -7119,7 +7856,7 @@
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 4월 25일 13:06:55 UTC">2026년 4월 25일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 5월 5일 02:24:35 UTC">2026년 5월 5일</span>
   </span>
 
     
